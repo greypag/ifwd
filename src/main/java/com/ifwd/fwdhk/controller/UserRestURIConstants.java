@@ -354,25 +354,58 @@ public class UserRestURIConstants {
 	public static final String URL_PROVIE_REGULAR_PREMIUM = "regular-premium";
 	
 	public static final String PAGE_PROVIE_LANDING = "landing";
-	public static final String PAGE_PROVIE_PLANDETAILS = "plan-details-sp";
-	public static final String PAGE_PROVIE_SERVICE_CENTER = "customer-service-centre";
-	//public static final String PAGE_PROVIE_SERVICE_CENTER_CONFIRMED = "customer-service-centre-confirmed";
-	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT = "confirmation-appointment";
+	public static final String PAGE_PROVIE_PLANDETAILS = "provie-plan-details";
+	public static final String PAGE_PROVIE_SERVICE_CENTER = "provie-customer-service-centre";
+//	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT = "confirmation-appointment-sp";
+	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP="provie-confirmation-appointment-sp";
+	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP="provie-confirmation-appointment-rp";
+	public static final String PAGE_PROVIE_SALES_ILLUSTRATION= "sales-illustration";
+	public static final String PAGE_PROVIE_FATCA = "fatca";
+	public static final String PAGE_PROVIE_MEDICAL_HISTORY_CANCER= "medical-history-cancer";
+	public static final String PAGE_PROVIE_MEDICAL_HISTORY_TERM_LIFE= "medical-history-term-life";
+	public static final String PAGE_PROVIE_PERSONAL_DETAILS= "personal-details";
+	public static final String PAGE_PROVIE_EMPLOYMENT_INFO= "employment-info";
+	public static final String PAGE_PROVIE_BENEFICARY_INFO = "beneficiary-info";
+	public static final String PAGE_PROVIE_PAYMENT = "payment";
+	public static final String PAGE_PROVIE_CONFIRMATION_PAYLATER = "confirmation-paylater";
+	public static final String PAGE_PROVIE_APPLICATION_SUMMARY = "application-summary";
+	public static final String PAGE_PROVIE_DECLARATION = "declaration";
+	public static final String PAGE_PROVIE_SIGNATURE = "signature";
+	public static final String PAGE_PROVIE_CONFIRMATION_OFFLINE_SIGNATURE = "confirmation-offline-signature";
+	public static final String PAGE_PROVIE_DOCUMENT_UPLOAD =  "document-upload";
+	public static final String PAGE_PROVIE_CONFIRMATION_UPLOAD_LATER = "confirmation-upload-later";
+	public static final String PAGE_PROVIE_CONFIRMATION = "confirmation";
 
 	//public static final String PAGE_PROVIE_PLANDETAILS_SP = "plan-details-sp";
 	//public static final String PAGE_PROVIE_PLANDETAILS_RP = "plan-details-rp";
 	
 	public static final String PAGE_PROPERTIES_PROVIE = "provie";
 	public static final String PAGE_PROPERTIES_PROVIE_LANDING = "provie.landing";
-//	public static final String PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM = "savie.landing.sp";
 	public static final String PAGE_PROPERTIES_PROVIE_SINGLE_PREMIUM = "provie.landing.sp";
 	public static final String PAGE_PROPERTIES_PROVIE_REGULAR_PREMIUM = "provie.landing.rp";
 	public static final String PAGE_PROPERTIES_PROVIE_PLANDETAILS = "provie.plan.details";
-	
-	//public static final String PAGE_PROPERTIES_PROVIE_SERVICE_CENTER_CONFIRMED = "provie.customer.service.centre.confirmed";
 	public static final String PAGE_PROPERTIES_PROVIE_SERVICE_CENTER = "provie.customer.service.centre";
-	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT = "provie.confirmation.appointment";
+	//public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT = "provie.confirmation.appointment";
 	
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_SP="provie.confirmation.appointment.sp";
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_RP="provie.confirmation.appointment.rp";
+	public static final String PAGE_PROPERTIES_PROVIE_SALES_ILLUSTRATION= "provie.sales.illustration";
+	public static final String PAGE_PROPERTIES_PROVIE_FATCA = "provie.fatca";
+	public static final String PAGE_PROPERTIES_PROVIE_MEDICAL_HISTORY_CANCER= "provie.medical.history.cancer";
+	public static final String PAGE_PROPERTIES_PROVIE_MEDICAL_HISTORY_TERM_LIFE= "provie.medical.history.term.life";
+	public static final String PAGE_PROPERTIES_PROVIE_PERSONAL_DETAILS= "provie.personal.details";
+	public static final String PAGE_PROPERTIES_PROVIE_EMPLOYMENT_INFO= "provie.employment.info";
+	public static final String PAGE_PROPERTIES_PROVIE_BENEFICARY_INFO = "provie.beneficiary.info";
+	public static final String PAGE_PROPERTIES_PROVIE_PAYMENT = "provie.payment";
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_PAYLATER = "provie.confirmation.paylater";
+	public static final String PAGE_PROPERTIES_PROVIE_APPLICATION_SUMMARY = "provie.application.summary";
+	public static final String PAGE_PROPERTIES_PROVIE_DECLARATION = "provie.declaration";
+	public static final String PAGE_PROPERTIES_PROVIE_SIGNATURE = "provie.signature";
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_OFFLINE_SIGNATURE = "provie.confirmation.offline.signature";
+	public static final String PAGE_PROPERTIES_PROVIE_DOCUMENT_UPLOAD =  "provie.document.upload";
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_UPLOAD_LATER = "provie.confirmation.upload.later";
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION = "provie.confirmation";
+
 
 	
 	/* Page Flow Control For savie online */

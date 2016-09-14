@@ -89,18 +89,22 @@ public class ProviePageFlowControl {
 		
 		case UserRestURIConstants.PAGE_PROVIE_LANDING:
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS;
-			filePath = "provie/";
+			//filePath = "provie/";
 			break;
 
 		case UserRestURIConstants.PAGE_PROVIE_PLANDETAILS: 
 			to = UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER;
-			filePath = "provie/";
+			//filePath = "provie/";
 			current = "plan-details-sp";
 			break;
 			
 			
 		case UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER: 
-			to = UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT;
+			if("SP".equals(plan.split("-")[1])){
+				to = UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP;
+			} else {
+				to = UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP;
+			}
 			break;
 
 		default:
@@ -133,10 +137,12 @@ public class ProviePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER)) {
 			return UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT)) {
-			return UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT;
+		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP)) {
+			return UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP;
 		}
-
+		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP)) {
+			return UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP;
+		}
 		return "";
 	}
 }

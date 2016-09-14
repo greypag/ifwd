@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <script type="text/javascript">
 	var context = "${pageContext.request.contextPath}";	
+	var isFromRecommand = <%=request.getParameter("isFromRecommand")%>
 	var languageP = "${language}";
 	var affordabilityMin = 30000;
 	var affordabilityPremium = 1000000;
@@ -1147,7 +1148,7 @@
 			$('.tooltip').hide();
 		});
 		//begin of getProvieRiderEligibility
-		var isFromRecommand=false;
+		//var isFromRecommand=false;
 		$.ajax({
 			//url:fwdApi.url.getProvieRiderEligibility,
 			url: '<%=request.getContextPath()%>/api/provie/getProvieRiderEligibility',
@@ -1225,7 +1226,7 @@
 	$("#offline-application-btn").on('click', function(){
 		 
 		if("" == "true" && "" != "*DIRECTGI"){
-			window.location = '/tc/savings-insurance/customer-service-centre';
+			window.location = '/tc/savings-insurance/provie-customer-service-centre';
 		}else{
 			apply=true;
 			$('#offline-online-modal').modal('hide');
@@ -1258,7 +1259,7 @@
 			$('#thankYouModal').modal('show');
 		}else {
 			if($("#type-of-payment").val() == 'regular-payment') {
-				window.location = '/tc/savings-insurance/customer-service-centre';
+				window.location = '/tc/savings-insurance/provie-customer-service-centre';
 			}else {
 				$.ajax({
 					url:'/ajax/savings-insurance/getPurchaseHistoryByPlanCode',
@@ -1379,7 +1380,7 @@
 	}
 	function applyCentre(){
 		if("" == "true" && "" != "*DIRECTGI"){
-			window.location = '/tc/savings-insurance/customer-service-centre';
+			window.location = '/tc/savings-insurance/provie-customer-service-centre';
 		}else{
 			apply=true;
 			$('#loginpopup #fna-check').val("true");
@@ -1389,7 +1390,7 @@
 	}
 
 	function goServiceCenter() {
-		window.location = '/tc/savings-insurance/customer-service-centre';
+		window.location = '/tc/savings-insurance/provie-customer-service-centre';
 	}
 
 	/* // Detect iOS
