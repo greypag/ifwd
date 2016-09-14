@@ -88,7 +88,7 @@ public class ProviePageFlowControl {
 		switch (current) {
 		
 		case UserRestURIConstants.PAGE_PROVIE_LANDING:
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS;
+			to = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
 			//filePath = "provie/";
 			break;
 
