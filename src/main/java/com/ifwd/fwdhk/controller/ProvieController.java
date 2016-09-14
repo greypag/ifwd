@@ -109,16 +109,12 @@ public class ProvieController extends BaseController{
 	}
 		
 	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie/plan-details-sp","/{lang}/savings-insurance/plan-details-rp"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie-plan-details"})
 	public ModelAndView getProviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	
 		HttpSession session = request.getSession();
 
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
-		boolean extraRiderDisabled=false;
-		if (httpSession.getAttribute("extraRiderDisabled")!=null) {
-			extraRiderDisabled = (boolean) httpSession.getAttribute("extraRiderDisabled");
-		} 		
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
 				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
 			httpSession.setAttribute("accessCode", accessCode);
@@ -144,7 +140,7 @@ public class ProvieController extends BaseController{
 			return ProviePageFlowControl.pageFlow("", model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS);
 		}else {
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "provie/plan-details-sp");
+					+ "provie/provie-plan-details");
 		}
 	}	
 
@@ -197,17 +193,25 @@ public class ProvieController extends BaseController{
 	
 	
 	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/provi-customer-service-centre"})
 	public ModelAndView getProvieAppointment(Model model, HttpServletRequest request) {
 		String palnCode= (String) request.getParameter("planCode");
 		model.addAttribute("planCode", palnCode);
-		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_SERVICE_CENTER);
+		HttpSession session=request.getSession();
+		session.setAttribute("planCode", palnCode);
+		return ProviePageFlowControl.pageFlow("palnCode",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_SERVICE_CENTER);
 	}
 	
 	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie/confirmation-appointment"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie-confirmation-appointment"})
 	public ModelAndView getProvieThankyou(Model model, HttpServletRequest request) {
-		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT);
+		HttpSession session=request.getSession();
+		String planCode = (String) session.getAttribute("planCode");
+		if("SP".equals(planCode.split("-")[1])){
+			return ProviePageFlowControl.pageFlow("planCode",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_SP);
+		} else {
+		return ProviePageFlowControl.pageFlow("planCode",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_RP);
+		}
 	}
 	
 	@RequestMapping(value = "/api/provie/planDetails", method = GET, produces = {APPLICATION_JSON_VALUE})
@@ -323,7 +327,7 @@ public class ProvieController extends BaseController{
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type"),
 			@ApiResponse(code = 500, message = "System error")})
 	public  ResponseEntity<ProvieRiderEligibility> getRiderEligibility(
-			@ApiParam(value = "isFromRecommand", required = true) @RequestParam("isFromRecommand") boolean isFromRecommand
+			@ApiParam(value = "isFromRecommand", required = true) @RequestParam("isFromRecommand") String isFromRecommand
 			, HttpServletRequest request) {
 			
 		//HttpSession session=request.getSession();
@@ -331,7 +335,7 @@ public class ProvieController extends BaseController{
 		
 		JSONObject resultJsonObject = new JSONObject();
 		ProvieRiderEligibility riderEligibility = new ProvieRiderEligibility();
-	    if (isFromRecommand) {
+	    if ("true".equals(isFromRecommand)) {
 	    	try {
 	    		resultJsonObject = provieOnlineService.getProvieRiderEligibility(request);
 	    		boolean accdnt= (boolean) resultJsonObject.get("accidentalDeathBenefit");
