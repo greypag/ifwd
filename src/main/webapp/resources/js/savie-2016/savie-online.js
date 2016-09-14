@@ -1576,10 +1576,10 @@ function getProvieRiderPlan(isSavedReturn) {
 	var rider=$("#type-of-extra-rider option:selected").attr('data-cls');
 	//alert(rider);
 	if('sp-USD' == paymentMode ||'sp-HKD' == paymentMode ) {
-		paymentMode='SP';
+		paymentMode='PROVIE-SP';
 		premium = amount;
 	}else {
-		paymentMode='RP';
+		paymentMode='PROVIE-RP';
 		premium = amount_rp;
 	}
 	
