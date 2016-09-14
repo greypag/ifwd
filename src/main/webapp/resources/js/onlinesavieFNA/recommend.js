@@ -670,11 +670,10 @@ var FNArecommendation = {
 							if(prod_data.product_code=='KSTS'){
 								prod.find(".KSTS").css("display","block");
 							}else if(prod_data.product_code=='HDR/UDR') {
-								prod.find(".HDR/UDR").css("display","block");
+								prod.find(".HDR").css("display","block");
 							}else if(prod_data.product_code=='HDS/UDS') {
-								prod.find(".HDS/UDS").css("display","block");
-							}
-							else if(prod_data.product_code=='KSTR') {
+								prod.find(".HDS").css("display","block");
+							}else if(prod_data.product_code=='KSTR') {
 								prod.find(".KSTR").css("display","block");
 							}else if(prod_data.product_code=='UTLS') {
 								prod.find(".UTLS").css("display","block");
