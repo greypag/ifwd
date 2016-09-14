@@ -204,7 +204,7 @@ var planInquiry = {
 
 			$.ajax({
 			    beforeSend: this.showLoading,
-				url:"/fwdhk/api/provie/planDetails/",
+				url: context + "/api/provie/planDetails",
 				type:"get",
 				data:{
 					premium    : this.submitData.amount,
