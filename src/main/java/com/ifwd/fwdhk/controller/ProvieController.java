@@ -193,7 +193,7 @@ public class ProvieController extends BaseController{
 	
 	
 	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provi-customer-service-centre"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie-customer-service-centre"})
 	public ModelAndView getProvieAppointment(Model model, HttpServletRequest request) {
 		String palnCode= (String) request.getParameter("planCode");
 		model.addAttribute("planCode", palnCode);
