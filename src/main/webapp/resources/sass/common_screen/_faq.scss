@@ -21,3 +21,17 @@
   width: 33.3%;
   font-size: 16px;
 }
+
+.faq_container_mob .faq_title {
+    border-left: 2px solid #fff;
+}
+.faq_answer__list--circle{
+	list-style-type: circle;
+}
+.faq_answer__list--no-Style{
+	list-style-type: none;
+	padding-left: 0;
+}
+.faq_answer__list--lo-roman{
+	list-style-type: lower-roman;
+}

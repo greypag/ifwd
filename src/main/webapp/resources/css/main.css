@@ -8766,9 +8766,6 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	color: #fff;
 	float: left;
 	width: 64px;
-	border-right-color: #fff;
-	border-right-style: solid;
-	border-right-width: 2px;
 	cursor: pointer;
 }
 
@@ -12369,4 +12366,20 @@ button[disabled].btn.btn-default--vc {
 .support-reminder__list li span{
 	color: #333;
 }
-/* End ticket 3490 Add tag and go payment reminder 31-08-2016 By Irvine*/
+/* End ticket 3448 Add tag and go payment reminder 31-08-2016 By Irvine*/
+
+/* ticket 3490 Add tag and go payment reminder 15-09-2016 By Irvine*/
+.faq_container_mob .faq_title {
+    border-left: 2px solid #fff;
+}
+.faq_answer__list--circle{
+	list-style-type: circle;
+}
+.faq_answer__list--no-Style{
+	list-style-type: none;
+	padding-left: 0;
+}
+.faq_answer__list--lo-roman{
+	list-style-type: lower-roman;
+}
+/* End ticket 3448 Add tag and go payment reminder 15-09-2016 By Irvine*/
