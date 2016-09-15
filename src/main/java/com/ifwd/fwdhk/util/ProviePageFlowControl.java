@@ -100,6 +100,7 @@ public class ProviePageFlowControl {
 			
 			
 		case UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER: 
+			
 			if("SP".equals(plan.split("-")[1])){
 				to = UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP;
 			} else {

@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <script type="text/javascript">
 	var context = "${pageContext.request.contextPath}";	
-	var isFromRecommand = <%=request.getParameter("isFromRecommand")%>
+	
 	var languageP = "${language}";
 	var affordabilityMin = 30000;
 	var affordabilityPremium = 1000000;
@@ -1148,34 +1148,42 @@
 			$('.tooltip').hide();
 		});
 		//begin of getProvieRiderEligibility
-		//var isFromRecommand=false;
-		$.ajax({
-			//url:fwdApi.url.getProvieRiderEligibility,
-			url: '<%=request.getContextPath()%>/api/provie/getProvieRiderEligibility',
-			type:"get",
-			data: {isFromRecommand:isFromRecommand},
-			cache:false,
-			async:false,
-			error:function(xhr, textStatus, errorThrown){
-				var resp = $.parseJSON(xhr.responseText);
-				console.log("expected error");
-		    },
-		    success:function(response){
-		    	if(response){
-		    		//alert('clicked1');
-		    		console.log(response);
-		    		if(!response.accidentalDeathBenefit){
-		    			$("#type-of-extra-rider option[value='AccidentalDeathBenefit']").remove();
-		    		}
-		    		if(!response.cancerBenefit) {
-		    			$("#type-of-extra-rider option[value='CancerBenefit']").remove();
-		    		}
-		    		if(!response.termLifeBenefit) {
-		    			$("#type-of-extra-rider option[value='TermLifeBenefit']").remove();
-		    		}
-		    	}
-		    }
-		});
+		
+		var fromFna = <%= request.getParameter("f") %>;
+
+
+
+		if (fromFna==true) {
+			$.ajax({
+				//url:fwdApi.url.getProvieRiderEligibility,
+				url: '<%=request.getContextPath()%>/api/provie/getProvieRiderEligibility',
+				type:"get",
+				
+				cache:false,
+				async:false,
+				error:function(xhr, textStatus, errorThrown){
+					var resp = $.parseJSON(xhr.responseText);
+					console.log("expected error");
+			    },
+			    success:function(response){
+			    	if(response){
+			    		//alert('clicked1');
+			    		console.log(response);
+			    		
+			    		if(!response.accidentalDeathBenefit){
+			    			$("#type-of-extra-rider option[value='ACCIDENTIAL_DEATH_BENEFIT']").remove();
+			    		}
+			    		if(!response.cancerBenefit) {
+			    			$("#type-of-extra-rider option[value='CANCER_BENEFIT']").remove();
+			    		}
+			    		if(!response.termLifeBenefit) {
+			    			$("#type-of-extra-rider option[value='TERM_LIFE_BENEFIT']").remove();
+			    		}
+			    	}
+			    }
+			});
+		}
+		
         //end of getProvieRiderEligibility
 	});
 
