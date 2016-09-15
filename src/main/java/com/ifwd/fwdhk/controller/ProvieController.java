@@ -233,6 +233,7 @@ public class ProvieController extends BaseController{
 		
 		HttpSession session=request.getSession();
 		
+
 		
 		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean(String.valueOf(premium), planCode.toUpperCase(), dob.replace("/", "-"), "", currency, rider);
 		net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
