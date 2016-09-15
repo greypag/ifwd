@@ -74,6 +74,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.3hk.group1.a1" bundle="${msg}" />
+                                        <fmt:message key="faq.3hk.group1.a1.note" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -185,7 +186,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                     	<fmt:message key="faq.3hk.group1.a6.list.title" bundle="${msg}" />
-	                                    <ul class="faq_answer__list">
+	                                    <ul class="faq_answer__list faq_answer__list--circle">
 	                                    	<li><fmt:message key="faq.3hk.group1.a6.list.item1" bundle="${msg}" /></li>
 	                                    	<li><fmt:message key="faq.3hk.group1.a6.list.item2" bundle="${msg}" /></li>
 	                                    	<li><fmt:message key="faq.3hk.group1.a6.list.item3" bundle="${msg}" /></li>
@@ -365,48 +366,10 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.3hk.group2.a12" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.3hk.group2.q13" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.3hk.group2.a13" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.3hk.group2.q14" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <ul class="faq_answer__list">
+                                        <ul class="faq_answer__list faq_answer__list--no-Style">
                                         	<li><fmt:message key="faq.3hk.group2.a14.item1" bundle="${msg}" /></li>
                                         	<li><fmt:message key="faq.3hk.group2.a14.item2" bundle="${msg}" />
-                                        		<ul class="faq_answer_item__sublist">
+                                        		<ul class="faq_answer_item__sublist faq_answer__list--lo-roman">
                                         			<li><fmt:message key="faq.3hk.group2.a14.item1.list.item1" bundle="${msg}" /></li>
                                         			<li><fmt:message key="faq.3hk.group2.a14.item1.list.item2" bundle="${msg}" /></li>
                                         		</ul>
