@@ -177,8 +177,11 @@
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-amount">
 												<fmt:message key="provie.plandetails.dropdown.monthly.prefix" bundle="${provieMsg}" />
 												(
-													<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>
-													<fmt:message key="provie.plandetails.dropdown.monthly.suffix" bundle="${provieMsg}" />
+													<span class="currency_switcher">
+														<span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span>
+														<span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span>
+													</span>
+													
 												)
 										</label>
 									</div>

@@ -77,6 +77,17 @@ $(document).ready(function(){
 			$("#extra-desc-desktop p, #extra-desc p").removeClass("active");
 			$("#extra-desc-desktop").find("." + cls).addClass("active");
 			$("#extra-desc").find("." + cls).addClass("active");
+			
+			$("th.cell-extra-rider").each(function(){
+				var t = $(this).text();
+				t = t.replace("100%","{percent}");
+				t = t.replace("50%","{percent}");
+				t = t.replace("500%","{percent}");
+				
+				t = t.replace("{percent}",cls.replace("p","") + "%");
+				
+				$(this).text(t);
+			});
 		});
 
 		$("#type-of-extra-rider").trigger("change");
@@ -1095,7 +1106,7 @@ function bsvFormRegister(form){
 							var val = $.trim(elm.val());
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.name.notNull.message"));
 								isValid =  false;
 							}
 
@@ -1119,11 +1130,11 @@ function bsvFormRegister(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.mobileNo.notNull.message"));
 								isValid =  false;
 							}else{
 								if (mobile_pattern.test(val) == false) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.invalid"));
+									errMsg.text(getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message"));
 									isValid =  false;
 								}
 							}
@@ -1147,11 +1158,11 @@ function bsvFormRegister(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.email.notNull.message"));
 								isValid = false;
 							}else{
 								if (emailreg.test(val) == false) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.email.notValid.message"));
 									isValid = false;
 								}
 							}
@@ -1175,17 +1186,17 @@ function bsvFormRegister(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.username.notNull.message"));
 								isValid = false;
 							}else{
 								if (isAccountNumeric(val)) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.username.pureNumeric.message"));
 									isValid = false;
 								} else if (!plan_user.test(val)) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.username.specialChars.message"));
 									isValid = false;
 								} else if(val.length < 6 || val.length > 50) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.username.notValidLength.message"));
 									isValid = false;
 								}
 							}
@@ -1209,7 +1220,7 @@ function bsvFormRegister(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.password.notNull.message"));
 								isValid = false;
 							}else{
 								var isValidPwd = isValidPassword(val);
@@ -1240,7 +1251,7 @@ function bsvFormRegister(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.confirmPassword.notNull.message"));
 								isValid = false;
 							}else{
 								var isValidConfirmPwd = passMatch($.trim(form.find("input[name='password']").val()),val);
@@ -1262,7 +1273,7 @@ function bsvFormRegister(form){
 				container:'.checkbox1ErrMsg',
 				validators:{
 					notEmpty:{
-						message:getBundle(getBundleLanguage, "form.credit.card.number.empty")
+						message:getBundle(getBundleLanguage, "member.declaration.tnc.notChecked.message")
 					}
 				}
 			}
