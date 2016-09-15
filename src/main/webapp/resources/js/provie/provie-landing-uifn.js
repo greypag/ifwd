@@ -146,6 +146,7 @@ var planInquiry = {
 		});
 		this.uiCtr.ageInput.on("change", function (){
 			that.fillYearOpt($(this).val());
+			$(".yearList").prev().html($(".yearList").prev().attr("data-placeholder"));
 		});
 		this.uiCtr.methodInput.on("change", function(){
 			that.displayPeriodOpt(!that.isSpMethod());
