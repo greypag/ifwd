@@ -26,9 +26,9 @@
 	String notificationMsg = "";
     if (currentDate <= msgEndDate) {
     	if (session.getAttribute("uiLocale").equals("zh-HK")) {
-        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("zh","HK")).getString("relocation.notification.messages");
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("zh","HK")).getString("header.notification.msg.repair");
     	} else {
-        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("en","US")).getString("relocation.notification.messages");
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("en","US")).getString("header.notification.msg.repair");
     	}
     }
 	boolean showNotification = (notificationMsg.equals(""))?false:true;
