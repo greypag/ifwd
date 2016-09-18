@@ -1057,7 +1057,7 @@
 			//display plan details for SP here
 		}
 
-
+/*
 		$("#plan-calculate-btn").click(function(){
 			//return;
 			$('#loadingDiv').toggle();
@@ -1076,7 +1076,7 @@
 			//getSavieOnlinePlandetails(false);
 			getProvieRiderPlan(false);
 		});
-
+*/
 		/*$('#rate-0').on('click', function() {
 			$('.rate-buttons button').removeClass('active');
 			$(this).addClass('active');

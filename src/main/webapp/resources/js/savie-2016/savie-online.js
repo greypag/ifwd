@@ -1548,6 +1548,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
     });
 }
 
+/*
 function getProvieRiderPlan(isSavedReturn) {
 	
 	var amount = $('#R').val();
@@ -1614,7 +1615,7 @@ function getProvieRiderPlan(isSavedReturn) {
 		}
     });
 }
-
+*/
 function getTimeSlot(perTime, appointmentTypeId){
 	var csCenter = $("#centre").val();
 	var perferredDate = $("#preferred-date").val();

@@ -69,7 +69,7 @@ var home_url = "<%=request.getContextPath()%>";
                 	</div>
                 	
                     <div class="fwd-container-limit">
-                        <form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/provie/${nextPageFlow}"  method="post">                       
+                        <form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}"  method="post">                       
                             <div class="img-banner-text savie-landing">
                                 <div id="clearfix-height-rp">
                                     <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="provie.landing.cta.start" bundle="${provieMsg}" /></button>
@@ -511,7 +511,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<fmt:message key="provie.landing.banner.saving.title" bundle="${provieMsg}" />
 							</h2>
 
-							<a href="${pageContext.request.contextPath}/${language}/savings-insurance/provie/${nextPageFlow}" class="pv_btn"><fmt:message key="provie.landing.banner.saving.btn" bundle="${provieMsg}" /></a>		
+							<a href="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" class="pv_btn"><fmt:message key="provie.landing.banner.saving.btn" bundle="${provieMsg}" /></a>		
 						</div>
 						
 					</div>
