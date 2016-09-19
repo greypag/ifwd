@@ -691,7 +691,7 @@ var promoCodeInsertFlag = true;
 
 							<h4 class="h4-4">
 								<i class="fa fa-download"></i> <a
-									href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />"
+									href="<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />"
 									target="_blank"><fmt:message key="workingholiday.quote.fullDetails.download" bundle="${msg}" /></a>
 							</h4>
 						</div>
