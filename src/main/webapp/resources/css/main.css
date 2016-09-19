@@ -12269,6 +12269,10 @@ Be caution: <select> have customed made */
 	content: "-";
 	margin-right: 10px;
 }
+.faq_answer_item__sublist li.remove-:before{
+	content: "";
+	margin-right: 10px;
+}
 .chin #faq_sp_mob .faq_back{
 	padding-top: 30px !important;
 }

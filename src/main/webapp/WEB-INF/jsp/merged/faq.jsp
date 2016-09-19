@@ -17,7 +17,7 @@
 					<li><fmt:message key="header.menu.home" bundle="${msg}" /></li>
 					<li class="active"><i class="fa fa-caret-right"></i><fmt:message key="header.menu.faq" bundle="${msg}" /></li>
 				</ol>
-				
+
 				<div class="col-md-12 col-lg-12 hidden-xs hidden-sm pad-none faq_container">
 				    <div class="col-md-12 col-lg-12 pad-none faq_description">
 				        <p class="h4-5">
@@ -29,24 +29,24 @@
 				    </div>
 			        <div class="col-md-12 col-lg-12 pad-none faq_menu">
 		                <div class="faq-btn-wrapper">
-		                	<div id="EasyHealthFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'eh', false);"><fmt:message key="faq.easyhealth.care" bundle="${msg}" /></div>	
+		                	<div id="EasyHealthFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'eh', false);"><fmt:message key="faq.easyhealth.care" bundle="${msg}" /></div>
 	                        <div id="EliteFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'e', false);"><fmt:message key="faq.eliteterm" bundle="${msg}" /></div>
 	                        <div id="SavieOnlineFaq" class="faq_menu_item" onclick="faqChangeCare(this, 's', false);"><fmt:message key="faq.savie.care" bundle="${msg}" /></div>
-	                        <div id="OverseaFaq" class="faq_menu_item last" onclick="faqChangeCare(this, 'o', false);"><fmt:message key="faq.overseas" bundle="${msg}" /></div>                       
-	                        	                
-		                </div>  
+	                        <div id="OverseaFaq" class="faq_menu_item last" onclick="faqChangeCare(this, 'o', false);"><fmt:message key="faq.overseas" bundle="${msg}" /></div>
+
+		                </div>
 			            <div class="clearfix"></div>
 			            <div class="faq-btn-wrapper">
-			            	<div id="WorkingHolidayFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'wh', false);"><fmt:message key="faq.working.holidayCare" bundle="${msg}" /></div>	
+			            	<div id="WorkingHolidayFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'wh', false);"><fmt:message key="faq.working.holidayCare" bundle="${msg}" /></div>
 	                        <div id="FlightFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'f', false);"><fmt:message key="faq.flight.care" bundle="${msg}" /></div>
 	                        <div id="TravelFaq" class="faq_menu_item" onclick="faqChangeCare(this, 't', false);"><fmt:message key="faq.travel.care" bundle="${msg}" /></div>
-	                        <div id="HomecareFaq" class="faq_menu_item last" onclick="faqChangeCare(this, 'h', false);"><fmt:message key="faq.home.care" bundle="${msg}" /></div>			            
+	                        <div id="HomecareFaq" class="faq_menu_item last" onclick="faqChangeCare(this, 'h', false);"><fmt:message key="faq.home.care" bundle="${msg}" /></div>
 			            </div>
 			            <div class="clearfix"></div>
 			            <div class="faq-btn-wrapper-bottom">
 			            	<div id="screenProtectorFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'sp', false);"><fmt:message key="faq.screenProtector" bundle="${msg}" /></div>
-			            	<div id="3hkIphoneFaq" class="faq_menu_item" onclick="faqChangeCare(this, '3hk', false);"><fmt:message key="faq.3hk" bundle="${msg}" /></div>				            
-			            </div>			            
+			            	<div id="3hkIphoneFaq" class="faq_menu_item" onclick="faqChangeCare(this, '3hk', false);"><fmt:message key="faq.3hk" bundle="${msg}" /></div>
+			            </div>
 			        </div>
 					<!-- 3hk Iphone start -->
                     <div id="faq_3hk" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
@@ -57,7 +57,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -78,7 +78,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
@@ -140,14 +140,14 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.3hk.group1.q5" bundle="${msg}" />
+                                       	<fmt:message key="faq.3hk.group1.q5" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                                         <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
@@ -165,11 +165,11 @@
                                      	<div class="faq_answer__step"><fmt:message key="faq.3hk.group1.a5.step4.title" bundle="${msg}" /></div>
                                         <fmt:message key="faq.3hk.group1.a5.step4" bundle="${msg}" />
                                     	<div class="faq_answer__step"><fmt:message key="faq.3hk.group1.a5.step5.title" bundle="${msg}" /></div>
-                                        <fmt:message key="faq.3hk.group1.a5.step5" bundle="${msg}" />                                                                                                                                                               
+                                        <fmt:message key="faq.3hk.group1.a5.step5" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
@@ -195,10 +195,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div> 
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -214,12 +214,12 @@
                                         <fmt:message key="faq.3hk.group1.a7.list.title" bundle="${msg}" />
                                         <ul class="faq_answer__list">
                                         	<li><fmt:message key="faq.3hk.group1.a7.list.item1" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.3hk.group1.a7.list.item2" bundle="${msg}" />                                     	
+                                        	<li><fmt:message key="faq.3hk.group1.a7.list.item2" bundle="${msg}" />
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
@@ -239,10 +239,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div>                            
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -259,7 +259,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
@@ -279,10 +279,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div>                                                                                                                                                                                                                                                                                                                  
+                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -292,7 +292,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -308,7 +308,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.3hk.group2.a11" bundle="${msg}" />                                      
+                                        <fmt:message key="faq.3hk.group2.a11" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -332,7 +332,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -351,7 +351,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -367,22 +367,22 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <ul class="faq_answer__list faq_answer__list--no-Style">
-                                        	<li><fmt:message key="faq.3hk.group2.a14.item1" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.3hk.group2.a14.item2" bundle="${msg}" />
+                                        	<li><fmt:message key="faq.3hk.group2.a14.item1" bundle="${msg}" />
                                         		<ul class="faq_answer_item__sublist faq_answer__list--lo-roman">
-                                        			<li><fmt:message key="faq.3hk.group2.a14.item1.list.item1" bundle="${msg}" /></li>
-                                        			<li><fmt:message key="faq.3hk.group2.a14.item1.list.item2" bundle="${msg}" /></li>
+													<li class="remove-"><fmt:message key="faq.3hk.group2.a14.item1.list.item1" bundle="${msg}" /></li>
+                                        			<li class="remove-"><fmt:message key="faq.3hk.group2.a14.item1.list.item2" bundle="${msg}" /></li>
                                         		</ul>
                                         	</li>
-                                        	<li><fmt:message key="faq.3hk.group2.a14.item3" bundle="${msg}" /></li>                                      	
+                                        	<li><fmt:message key="faq.3hk.group2.a14.item2" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.3hk.group2.a14.item3" bundle="${msg}" /></li>
                                         </ul>
                                         <fmt:message key="faq.3hk.group2.a14.note" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                            
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -399,7 +399,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -418,7 +418,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -437,9 +437,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                                                        
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -462,7 +462,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -481,15 +481,15 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                                                                                                                                                                                                  
+                            </div>
                             <div class="clearfix"></div>
-                        </div>                 
+                        </div>
                         <div class="clearfix"></div>
                     </div>
-                    <!--  end -->			        
-			        
+                    <!--  end -->
+
 					<!-- Screen Protector start -->
                     <div id="faq_sp" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -499,7 +499,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -519,7 +519,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -543,11 +543,11 @@
                                      	<div class="faq_answer__step"><fmt:message key="faq.screenProtector.group1.a2.step4.title" bundle="${msg}" /></div>
                                         <fmt:message key="faq.screenProtector.group1.a2.step4" bundle="${msg}" />
                                     	<div class="faq_answer__step"><fmt:message key="faq.screenProtector.group1.a2.step5.title" bundle="${msg}" /></div>
-                                        <fmt:message key="faq.screenProtector.group1.a2.step5" bundle="${msg}" />                                                                                                                                                               
+                                        <fmt:message key="faq.screenProtector.group1.a2.step5" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -566,7 +566,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
@@ -594,7 +594,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
@@ -614,7 +614,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
@@ -634,10 +634,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div> 
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -654,10 +654,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div> 
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -689,13 +689,13 @@
                                         				<fmt:message key="faq.screenProtector.group1.a7.list.item3.point1.part2" bundle="${msg}" />
                                         			</li>
                                         			<li><fmt:message key="faq.screenProtector.group1.a7.list.item3.point2" bundle="${msg}" /></li>
-                                        		</ul>                                        	
-                                        	</li>                                      	
+                                        		</ul>
+                                        	</li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
                             </div>
@@ -715,10 +715,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div>                                                                                                                                                                                                                                                         
+                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -728,7 +728,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -745,7 +745,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.screenProtector.group2.a9" bundle="${msg}" />
-                                        <fmt:message key="faq.screenProtector.group2.a9.address" bundle="${msg}" />                                       
+                                        <fmt:message key="faq.screenProtector.group2.a9.address" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -768,7 +768,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -787,7 +787,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -806,7 +806,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -825,7 +825,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -844,9 +844,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                            
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -863,7 +863,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -890,14 +890,14 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                                                                                                                                                                      
+                            </div>
                             <div class="clearfix"></div>
-                        </div>                 
+                        </div>
                         <div class="clearfix"></div>
                     </div>
-                    <!--  end -->			        
+                    <!--  end -->
 					<!-- Easy Health start -->
                     <div id="faq_eh" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -907,7 +907,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -927,7 +927,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -946,7 +946,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -965,10 +965,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div>                                                       
+                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -978,7 +978,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1017,9 +1017,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                           
+                            </div>
                             <div class="clearfix"></div>
                         </div>
 						<div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -1029,7 +1029,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1082,11 +1082,11 @@
                                          	<tr>
                                         		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row9" bundle="${msg}" /></td>
                                         		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row9" bundle="${msg}" /></td>
-                                        	</tr> 
+                                        	</tr>
                                          	<tr>
                                         		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row10" bundle="${msg}" /></td>
                                         		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row10" bundle="${msg}" /></td>
-                                        	</tr> 
+                                        	</tr>
                                          	<tr>
                                         		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row11" bundle="${msg}" /></td>
                                         		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row11" bundle="${msg}" /></td>
@@ -1098,7 +1098,7 @@
                                          	<tr>
                                         		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row13" bundle="${msg}" /></td>
                                         		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row13" bundle="${msg}" /></td>
-                                        	</tr>                                         	                                         	                                         	                                        	                                        	                                         	                                       	                                        	                                        	                                        	                                        	                                        	
+                                        	</tr>
                                         </table>
                                     </div>
                                     <div class="clearfix"></div>
@@ -1122,7 +1122,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1141,9 +1141,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div> 
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -1177,18 +1177,18 @@
                                         	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease17" bundle="${msg}" /></li>
                                         	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease18" bundle="${msg}" /></li>
                                         	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease19" bundle="${msg}" /></li>
-                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease20" bundle="${msg}" /></li>                                        	                            	
-                                        </ol>                                                                             
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease20" bundle="${msg}" /></li>
+                                        </ol>
                                     </div>
                                     <div class="clearfix"></div>
-                                </div> 
+                                </div>
                                 <div class="clearfix"></div>
-                            </div>                                                                                    
+                            </div>
                             <div class="clearfix"></div>
-                        </div>                  
+                        </div>
                         <div class="clearfix"></div>
                     </div>
-                    <!-- Easy Health end --> 			        
+                    <!-- Easy Health end -->
                     <!-- Overseas start -->
                     <div id="faq_o" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -1198,7 +1198,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1218,7 +1218,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1242,14 +1242,14 @@
                                             <li><fmt:message key="faq.overseas.group1.a2.li5" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a2.li6" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a2.li7" bundle="${msg}" /></li>
-                                        </ol>                                        
+                                        </ol>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div>                            
+                            </div>
                             <!--<div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -1266,13 +1266,13 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>-->
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.overseas.group1.q4" bundle="${msg}" />                                         
+                                        <fmt:message key="faq.overseas.group1.q4" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                                         <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
@@ -1293,11 +1293,11 @@
                                             <li><fmt:message key="faq.overseas.group1.a4.li20" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li21" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li22" bundle="${msg}" /></li>
-                                        </ol>                                        
+                                        </ol>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
@@ -1309,7 +1309,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1329,7 +1329,7 @@
                                         <ol>
                                             <li><fmt:message key="faq.overseas.group2.a5.li1" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group2.a5.li2" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group2.a5.li3" bundle="${msg}" /></li>                                        
+                                            <li><fmt:message key="faq.overseas.group2.a5.li3" bundle="${msg}" /></li>
                                         </ol>
                                     </div>
                                     <div class="clearfix"></div>
@@ -1353,9 +1353,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                           
+                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -1364,7 +1364,7 @@
                             </div>
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
-                            </div>                            
+                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1383,12 +1383,12 @@
                                         <fmt:message key="faq.overseas.group3.a7" bundle="${msg}" />
                                         <ol>
                                             <li><fmt:message key="faq.overseas.group3.a7.li1" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group3.a7.li2" bundle="${msg}" /></li>                                        
+                                            <li><fmt:message key="faq.overseas.group3.a7.li2" bundle="${msg}" /></li>
                                         </ol>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1407,7 +1407,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1426,7 +1426,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1445,11 +1445,11 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
-                            </div>                                                                                   
-                                                        
+                            </div>
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -1459,7 +1459,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1479,7 +1479,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>-->
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1498,18 +1498,18 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
 
 
-                            </div>                                                                                                                                       
+                            </div>
                             <div class="clearfix"></div>
 
 
-                        </div>                   
+                        </div>
                         <div class="clearfix"></div>
                     </div>
-                    <!-- Overseas end -->                     
+                    <!-- Overseas end -->
                     <!-- Elite Term start -->
                     <div id="faq_e" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -1519,7 +1519,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1539,7 +1539,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1558,9 +1558,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                            
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -1582,7 +1582,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1601,7 +1601,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1620,7 +1620,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1639,7 +1639,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1658,7 +1658,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1685,7 +1685,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
@@ -1697,7 +1697,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1735,7 +1735,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1754,7 +1754,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1773,7 +1773,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1792,7 +1792,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1811,7 +1811,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1830,7 +1830,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1849,7 +1849,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1868,7 +1868,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1879,7 +1879,7 @@
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                                         <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
                                     </div>
-                                    
+
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
@@ -1887,7 +1887,7 @@
                                         <fmt:message key="faq.eliteterm.group2.a17" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
-                                </div>                                
+                                </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1906,7 +1906,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1925,9 +1925,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                           
+                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -1937,7 +1937,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -1957,7 +1957,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1976,7 +1976,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -1995,7 +1995,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2014,7 +2014,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2033,9 +2033,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                                                                                    
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -2052,17 +2052,17 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div> 
-                                                        
+                            </div>
+
                             <div class="clearfix"></div>
                         </div>
-                   
+
                         <div class="clearfix"></div>
                     </div>
                     <!-- Elite Term end -->
-			        
+
 			        <!-- Savie start -->
                     <div id="faq_s" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -2072,7 +2072,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -2092,7 +2092,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2116,9 +2116,9 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                            
+                            </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -2135,7 +2135,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2154,7 +2154,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2173,7 +2173,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2192,7 +2192,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2211,7 +2211,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2230,7 +2230,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2249,7 +2249,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2268,7 +2268,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2287,7 +2287,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2306,7 +2306,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2325,7 +2325,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2344,7 +2344,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2369,7 +2369,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2388,7 +2388,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
@@ -2400,7 +2400,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -2420,7 +2420,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2439,7 +2439,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2458,7 +2458,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2477,7 +2477,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2496,7 +2496,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2515,7 +2515,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2534,7 +2534,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2553,10 +2553,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -2566,7 +2566,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -2586,7 +2586,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2605,7 +2605,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2625,7 +2625,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2644,12 +2644,12 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                        
+
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
                             <div class="col-md-11 col-lg-11 pad-none faq_cat">
                                 <fmt:message key="faq.savie.group.regular" bundle="${msg}" />
@@ -2657,7 +2657,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -2677,7 +2677,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2698,7 +2698,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2717,7 +2717,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2736,7 +2736,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2755,12 +2755,12 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
-                            </div>                                                        
+                            </div>
                             <div class="clearfix"></div>
-                        </div>                       
-                        
+                        </div>
+
                         <!--<div class="col-md-12 col-lg-12 pad-none faq_content">
                             <div class="col-md-11 col-lg-11 pad-none faq_cat">
                                 <fmt:message key="faq.savie.oceanpark.group5" bundle="${msg}" />
@@ -2768,7 +2768,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -2788,10 +2788,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                           
+
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
@@ -2808,7 +2808,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2827,7 +2827,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2846,7 +2846,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2865,15 +2865,15 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
-                        </div>-->                        
+                        </div>-->
                         <div class="clearfix"></div>
                     </div>
                     <!-- Savie end -->
-                    
+
                     <!-- WH start -->
 			        <div id="faq_wh" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
 			            <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -2883,7 +2883,7 @@
 			                <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
 			                    <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
 			                </div>
-			                
+
 			                <div class="clearfix"></div>
 			            </div>
 			            <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -2903,7 +2903,7 @@
 	                                </div>
 	                                <div class="clearfix"></div>
                                 </div>
-	                            
+
 	                            <div class="clearfix"></div>
 			                </div>
 			                <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2922,7 +2922,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2941,7 +2941,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2960,7 +2960,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2979,7 +2979,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -2998,7 +2998,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3019,7 +3019,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
 			                <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3038,7 +3038,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3058,7 +3058,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
 
@@ -3071,7 +3071,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -3090,7 +3090,7 @@
                                         <fmt:message key="faq.workingholiday.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
                                             <fmt:message key="faq.workingholiday.group2.claimProcedure.a.part2" bundle="${msg}" />
                                         <ol class="">
-                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a class="faq_answer_url" href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a class="faq_answer_url" href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li>
                                             <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.workingholiday.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
@@ -3099,7 +3099,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3118,7 +3118,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3137,7 +3137,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3157,7 +3157,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3176,7 +3176,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3195,7 +3195,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3214,7 +3214,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3233,7 +3233,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3252,7 +3252,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3271,7 +3271,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3290,10 +3290,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -3303,7 +3303,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -3323,7 +3323,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3342,7 +3342,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3366,10 +3366,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -3379,7 +3379,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -3399,7 +3399,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3418,7 +3418,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3437,17 +3437,17 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
-                        
+
                         <div class="clearfix"></div>
 			        </div>
 			        <!-- WH end -->
-                    
+
                     <!-- Flight start -->
 			        <div id="faq_f" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -3457,7 +3457,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -3477,7 +3477,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3496,7 +3496,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3515,7 +3515,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3534,7 +3534,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3553,7 +3553,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3572,7 +3572,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3591,10 +3591,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -3604,7 +3604,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -3623,7 +3623,7 @@
                                         <fmt:message key="faq.flight.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
                                             <fmt:message key="faq.flight.group2.claimProcedure.a.part2" bundle="${msg}" />
                                         <ol class="">
-                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a class='faq_answer_url' href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.flight.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a class='faq_answer_url' href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.flight.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li>
                                             <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.flight.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
@@ -3632,7 +3632,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3651,7 +3651,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3670,7 +3670,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3689,7 +3689,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3708,7 +3708,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3727,7 +3727,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3746,7 +3746,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
 
@@ -3759,7 +3759,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -3786,17 +3786,17 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
-                        
+
                         <div class="clearfix"></div>
                     </div>
                     <!-- Flight end -->
-                    
+
                     <!-- Travel start -->
                     <div id="faq_t" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -3806,7 +3806,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -3826,7 +3826,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3845,7 +3845,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3864,7 +3864,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3883,7 +3883,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3902,7 +3902,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3921,7 +3921,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3940,7 +3940,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3959,7 +3959,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3978,7 +3978,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -3997,7 +3997,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4016,7 +4016,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4035,7 +4035,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4054,7 +4054,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4073,7 +4073,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
@@ -4085,7 +4085,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -4104,7 +4104,7 @@
                                         <fmt:message key="faq.travel.group2.a15.part1" bundle="${msg}" /><br/><br/>
                                             <fmt:message key="faq.travel.group2.a15.part2" bundle="${msg}" />
                                         <ol class="">
-                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc1" bundle="${msg}" /> <a class='faq_answer_url' href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a15.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.travel.group2.a15.part3.desc1" bundle="${msg}" /> <a class='faq_answer_url' href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.travel.group2.a15.part3.link1" bundle="${msg}" /></u></a></li>
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc3" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.travel.group2.a15.part3.desc4" bundle="${msg}" /></li>
@@ -4113,7 +4113,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4132,7 +4132,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4151,7 +4151,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4170,7 +4170,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4189,7 +4189,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4208,7 +4208,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4239,7 +4239,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
 
@@ -4252,7 +4252,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -4273,7 +4273,7 @@
 
                                     <div class="clearfix"></div>
                                 </div>
-                           
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4297,7 +4297,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4316,7 +4316,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4335,17 +4335,17 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
-                        
+
                         <div class="clearfix"></div>
                     </div>
                     <!-- Travel end -->
-                    
+
                     <!-- Home Care start -->
                     <div id="faq_h" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -4355,7 +4355,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -4375,7 +4375,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4394,7 +4394,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4413,7 +4413,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4432,7 +4432,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4451,7 +4451,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4470,7 +4470,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4489,7 +4489,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4508,7 +4508,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4527,7 +4527,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4546,7 +4546,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4565,7 +4565,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4584,7 +4584,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4603,7 +4603,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4622,7 +4622,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4641,7 +4641,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4660,7 +4660,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4679,11 +4679,11 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
 
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -4693,7 +4693,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -4712,7 +4712,7 @@
                                         <fmt:message key="faq.home.group2.claimProcedure.a.part1" bundle="${msg}" /><br/><br/>
                                             <fmt:message key="faq.home.group2.claimProcedure.a.part2" bundle="${msg}" />
                                         <ol>
-                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a class='faq_answer_url' href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.home.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li> 
+                                            <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc1" bundle="${msg}" /> <a class='faq_answer_url' href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.home.group2.claimProcedure.a.part3.link1" bundle="${msg}" /></u></a></li>
                                             <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc3" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.home.group2.claimProcedure.a.part3.desc4" bundle="${msg}" /></li>
@@ -4721,7 +4721,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4740,7 +4740,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4759,7 +4759,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4778,10 +4778,10 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -4791,7 +4791,7 @@
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
@@ -4811,7 +4811,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4830,7 +4830,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
@@ -4884,57 +4884,57 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                
+
                                 <div class="clearfix"></div>
                             </div>
-                            
+
                             <div class="clearfix"></div>
                         </div>
-                        
+
                         <div class="clearfix"></div>
                     </div>
                     <!-- Home Care end -->
-                    			        
+
 			        <div class="clearfix"></div>
 				</div>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				<jsp:include page="/WEB-INF/jsp/merged/faqMob.jsp" />
-				
+
 				<div class="clearfix"></div>
 			</div>
 		</div>
-		
+
 		<script>
         $(function() {
             //faqChangeCare("#OverseaFaq","o");
@@ -4942,7 +4942,7 @@
             $("#faqProductLink").attr("href", window.location.href);
             $("#faqProductLink").on( "click", function() {
             	location.reload(true);
-            });            
+            });
             var curProductUrl = window.location.href;
             var productName = curProductUrl.substr(curProductUrl.indexOf("#") + 1)+"Faq";
             console.log(productName);
@@ -4955,7 +4955,7 @@
             }else if(productName=="OverseaFaq"){
                 faqChangeCare(productName,"o", true);
             }else if(productName=="WorkingHolidayFaq"){
-                faqChangeCare(productName,"wh", true);          
+                faqChangeCare(productName,"wh", true);
             }else if(productName=="FlightFaq"){
                 faqChangeCare(productName,"f", true);
             }else if(productName=="TravelFaq"){
@@ -4964,8 +4964,8 @@
                 faqChangeCare(productName,"h", true);
             }else{
             	faqChangeCare("ElitetermFaq","e", true);
-            }  
-        }); 	  
+            }
+        });
 		</script>
 		<!--/.container-->
 	</section>
