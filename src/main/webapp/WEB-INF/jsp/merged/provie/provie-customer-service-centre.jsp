@@ -14,6 +14,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
+var planCode = '<%=request.getParameter("planCode")%>';
 </script>
 <%!
 	boolean isSaleActiveClass = false;

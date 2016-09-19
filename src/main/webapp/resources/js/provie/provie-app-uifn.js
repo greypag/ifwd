@@ -20,6 +20,8 @@ var fwdApi = {
 var isLogged = false;
 var userName = "";
 var IMG_DIR = context + "/resources/images";
+//var planCode = "<%= (String) request.getParameter('planCode')%>";
+
 
 // 18 year ago date
 var dob_end_date = new Date();
@@ -368,6 +370,12 @@ $(document).ready(function(){
 
 		$("#btn-appointment-confirm").on('click', function(){
 			var isValid = true;
+			var confirmationJsp="/savings-insurance/provie-confirmation-appointment-sp?referenceNum="
+			var paymentType=planCode.split("-")[1];
+			if ("RP"==paymentType){
+				confirmationJsp="/savings-insurance/provie-confirmation-appointment-rp?referenceNum="
+			}
+			//alert(confirmationJsp);
 			$(".centreErrMsg, .app-dateErrMsg, .preferred-timeErrMsg, .generalErrMsg").empty();
 			if($("#centre").val() == ""){
 				isValid = false;
@@ -440,7 +448,7 @@ $(document).ready(function(){
 				    success:function(response){
 				    	
 				    	if(response){
-				    		window.location.href= context + "/" + UILANGUAGE + "/savings-insurance/provie/confirmation-appointment?referenceNum=" + response.referenceNum;
+				    		window.location.href= context + "/" + UILANGUAGE.toLowerCase() + confirmationJsp + response.referenceNum;
 				    		$("#loading-overlay").modal("hide");
 				    	}
 				    },

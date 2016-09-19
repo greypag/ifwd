@@ -203,15 +203,19 @@ public class ProvieController extends BaseController{
 	}
 	
 	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie-confirmation-appointment"})
-	public ModelAndView getProvieThankyou(Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie-confirmation-appointment-sp"})
+	public ModelAndView getProvieThankyouSp(Model model, HttpServletRequest request) {
 		HttpSession session=request.getSession();
 		String planCode = (String) session.getAttribute("planCode");
-		if("SP".equals(planCode.split("-")[1])){
-			return ProviePageFlowControl.pageFlow("planCode",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_SP);
-		} else {
-		return ProviePageFlowControl.pageFlow("planCode",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_RP);
-		}
+		return ProviePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_SP);
+	}
+	
+	@ApiIgnore
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie-confirmation-appointment-rp"})
+	public ModelAndView getProvieThankyouRp(Model model, HttpServletRequest request) {
+		HttpSession session=request.getSession();
+		String planCode = (String) session.getAttribute("planCode");
+		return ProviePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_RP);
 	}
 	
 	@RequestMapping(value = "/api/provie/planDetails", method = GET, produces = {APPLICATION_JSON_VALUE})
