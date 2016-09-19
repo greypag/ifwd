@@ -719,6 +719,7 @@ function bsvFormLogin(form){
 			    		$("#btn-appointment-confirm").show();
 
 			    		$("#loading-overlay").modal("hide");
+			    		window.location.reload();
 			    	}
 			    },
 			    complete:function(){
