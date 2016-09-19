@@ -47,7 +47,9 @@ application.common = {
 	         37,	//Left
 	         38,	//Top
 	         39,	//Right
-	         40		//Bottom
+	         40,	//Bottom
+	         8		//Backspace
+	         
 	],
 
 	validate :function(str,pattern){

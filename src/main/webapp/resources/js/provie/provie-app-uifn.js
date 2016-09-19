@@ -27,9 +27,9 @@ var IMG_DIR = context + "/resources/images";
 var dob_end_date = new Date();
 dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
 
-// 70 year ago date
+// 60 year ago date
 var dob_start_date = new Date();
-dob_start_date.setFullYear(dob_start_date.getFullYear()-66);
+dob_start_date.setFullYear(dob_start_date.getFullYear()-60);
 dob_start_date.setDate(dob_start_date.getDate()+1);
 
 $(document).ready(function(){
@@ -48,7 +48,8 @@ $(document).ready(function(){
 
 		$('#plan-dob-datepicker').mobiscroll().calendar({
 			controls: ['date'],
-		 	maxDate:new Date(),
+			minDate:dob_start_date,
+		 	maxDate:dob_end_date,
 		 	showLabel: true,
 		 	dateOrder: 'ddmmyy',
         	dateFormat: 'dd-mm-yyyy',
@@ -262,6 +263,10 @@ $(document).ready(function(){
 		
 		$("#plan-calculate-btn").trigger("click");
 		$("#type-of-payment").trigger("change");
+		
+		$("#plan-calculate-btn-mob").click(function(){
+			$("#plan-calculate-btn").trigger("click");
+		});
 		
 		
 		
@@ -771,7 +776,7 @@ function bsvFormLogin(form){
 				container:'.passwordErrMsg',
 				validators:{
 					notEmpty:{
-						message:getBundle(getBundleLanguage, "form.credit.card.number.empty")
+						message:getBundle(getBundleLanguage, "member.password.notNull.message")
 					}
 				}
 			}
@@ -843,11 +848,11 @@ function bsvFormForgotUsername(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.mobileNo.notNull.message"));
 								isValid = false;
 							}else{
 								if (mobile_pattern.test(val) == false) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message"));
 									isValid = false;
 								}
 							}
@@ -871,11 +876,11 @@ function bsvFormForgotUsername(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.email.notNull.message"));
 								isValid = false;
 							}else{
 								if (emailreg.test(val) == false) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.email.notValid.message"));
 									isValid = false;
 								}
 							}
@@ -958,11 +963,11 @@ function bsvFormForgotPwd(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.mobileNo.notNull.message"));
 								isValid = false;
 							}else{
 								if (mobile_pattern.test(val) == false) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message"));
 									isValid = false;
 								}
 							}
@@ -987,11 +992,11 @@ function bsvFormForgotPwd(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.email.notNull.message"));
 								isValid = false;
 							}else{
 								if (emailreg.test(val) == false) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.email.notValid.message"));
 									isValid = false;
 								}
 							}
@@ -1015,17 +1020,17 @@ function bsvFormForgotPwd(form){
 							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
 
 							if(val == ""){
-								errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+								errMsg.text(getBundle(getBundleLanguage, "member.username.notNull.message"));
 								isValid = false;
 							}else{
 								if (isAccountNumeric(val)) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.username.pureNumeric.message"));
 									isValid = false;
 								} else if (!plan_user.test(val)) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.username.specialChars.message"));
 									isValid = false;
 								} else if(val.length < 6 || val.length > 50) {
-									errMsg.text(getBundle(getBundleLanguage, "form.credit.card.number.empty"));
+									errMsg.text(getBundle(getBundleLanguage, "member.username.notValidLength.message"));
 									isValid = false;
 								}
 							}

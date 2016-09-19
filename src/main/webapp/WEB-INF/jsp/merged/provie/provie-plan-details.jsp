@@ -208,7 +208,7 @@
 										<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
 										<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="provie.plandetails.promocode" bundle="${provieMsg}" /></label>
 									</div>
-									<span class="error-msg hidden" id="promoCodeErrorMsg">推廣編號無效。</span>
+									<span class="error-msg hidden" id="promoCodeErrorMsg"><fmt:message key="plan.detail.promo.code.error" bundle="${msg}" /></span>
 								</div>
 							</div>
 						</div>
@@ -260,7 +260,7 @@
 				<div class="col-xs-12 hidden-md hidden-lg">
 					<div class="row">
 						<div class="col-md-6 col-md-push-6 col-xs-12 plan-calculate text-center">
-							<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="provie.plandetails.cta.calculate" bundle="${provieMsg}" /></button>
+							<button type="button" class="btn savie-common-btn" id="plan-calculate-btn-mob"><fmt:message key="provie.plandetails.cta.calculate" bundle="${provieMsg}" /></button>
 						</div>
 					</div>
 				</div>
