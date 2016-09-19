@@ -54,7 +54,7 @@ $(document).ready(function(){
 	        mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
 	        display: "bubble", // Specify display mode like: display: 'bottom' or omit setting to use default 
 	        onClosed:onClosed,
-	        lang: UILANGUAGE  == "en" ? "en_fwd" : "zh_fwd"
+	        lang: UILANGUAGE  == "EN" ? "en_fwd" : "zh_fwd"
 		});
 		$('#plan-dob-datepicker').css("cursor","default");
 		//$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
@@ -337,7 +337,7 @@ $(document).ready(function(){
 				    }
 				});
 	        },
-	        lang: UILANGUAGE  == "en" ? "en_fwd" : "zh_fwd"
+	        lang: UILANGUAGE  == "EN" ? "en_fwd" : "zh_fwd"
 		});
 
 
@@ -572,6 +572,7 @@ $(document).ready(function(){
 		
 		
 		//Get Available Centre
+		//alert(UILANGUAGE);
 		$.ajax({
 			beforeSend:function(){
 				$("#loading-overlay").modal("show");
@@ -579,7 +580,7 @@ $(document).ready(function(){
 			url:fwdApi.url.getAvailableCentre,
 			type:"get",
 			contentType: "application/json",
-			data:{type:typeId,language:UILANGUAGE  == "en" ? "EN" : "ZH"},
+			data:{type:typeId,language:UILANGUAGE  == "EN" ? "EN" : "ZH"},
 			cache:false,
 			async:false,
 			error:function(xhr, textStatus, errorThrown){

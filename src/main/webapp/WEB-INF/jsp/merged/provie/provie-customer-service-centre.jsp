@@ -128,7 +128,7 @@ function stickToHeader() {
 							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.time" bundle="${provieMsg}" /></p>
 		                    <div class="selectDiv timeslot gray-text-bg">
 		                      <select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
-		                          <option value=""></option>
+		                          <option value="11:30"></option>
 		                      </select>
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 		                   </div>
@@ -144,7 +144,7 @@ function stickToHeader() {
                         </div>
 		           </div>
 		           <div class="confirm-button-group text-center">
-						<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-confirm">Confirm</button>
+						<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-confirm"><fmt:message key="provie.appoint.confirm" bundle="${provieMsg}" /></button>
 						<span class="error-msg generalErrMsg"></span>
 						<div class="login-error-wrapper">
 							<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
@@ -525,6 +525,7 @@ function stickToHeader() {
 			    }
 			}
 		}).on('changeDate', function (ev) {
+			alert('clicked');
 			if(ev.date != null){
 				$("#preferred-date-mirror").val($("#preferred-date-QB").val().trim());
 				$("#preferred-date").val($("#preferred-date-QB").val().trim());
