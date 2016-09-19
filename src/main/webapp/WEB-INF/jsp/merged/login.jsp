@@ -45,8 +45,8 @@
 	                        <% } %>
 	                    </h5>
                     </div>
-                    <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image" bundle="${msg}" />" alt="Saive" class="hidden-xs hidden-sm img-responsive">
-                    <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image.mobile" bundle="${msg}" />" alt="Saive" class="hidden-lg hidden-md img-responsive">
+                    <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image" bundle="${msg}" />" alt="Savie" class="hidden-xs hidden-sm img-responsive">
+                    <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image.mobile" bundle="${msg}" />" alt="Savie" class="hidden-lg hidden-md img-responsive">
                 </div>
                 <%}%>
         <div class="login-title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>
