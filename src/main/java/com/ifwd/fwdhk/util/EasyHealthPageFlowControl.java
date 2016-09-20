@@ -43,6 +43,19 @@ public class EasyHealthPageFlowControl {
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
 
+		String scriptName = WebServiceUtils.getPageTitle(key +".script.name",
+		UserRestURIConstants.getLanaguage(request));
+		String scriptDescription = WebServiceUtils.getPageTitle(key +".script.description",
+		UserRestURIConstants.getLanaguage(request));
+		String scriptChildName = WebServiceUtils.getPageTitle(key +".script.child.name",
+		UserRestURIConstants.getLanaguage(request));
+		String scriptImg = WebServiceUtils.getPageTitle(key +".script.image",
+		UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("scriptName", scriptName);
+		model.addAttribute("scriptDescription", scriptDescription);
+		model.addAttribute("scriptChildName", scriptChildName);
+		model.addAttribute("scriptImg", scriptImg);
+				
 		model.addAttribute("planIndex", "medical-insurance"); //Plan Name
 		model.addAttribute("pageIndex", key); // Page Index
 

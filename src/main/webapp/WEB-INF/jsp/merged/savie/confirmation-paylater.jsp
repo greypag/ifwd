@@ -123,7 +123,7 @@ var language = "${language}";
 				</div>
 				<hr>
 				<div class="requirements-panel">
-					<p class="requirements-panel-title"><fmt:message key="info.savie.confirmation.docs.to.bring.payment" bundle="${msg}" />:</p>
+					<p class="requirements-panel-title"><fmt:message key="info.savie.confirmation.docs.to.bring.payment" bundle="${msg}" /></p>
 
 					<div class="row requirements-list">
 						<div class="col-xs-12 cstm-md-col-1">

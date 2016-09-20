@@ -16,7 +16,25 @@ var language = "${language}";
 var affiliate = "${affiliate}";
 var home_url = "<%=request.getContextPath()%>";
 </script>
-
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"${scriptImg}",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"364",
+    "highPrice":"3398",
+    "priceCurrency":"HKD"
+  }
+}
+</script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/landing.css">
 
