@@ -7,13 +7,20 @@ var pvCtr = {
 	planDetailCtr: {},
 	cal3Card : {},
 	useDummyResult: false,
+	ddeFixItv: null,
 	//function
 	onReady : function(){
 		this.initAutoHeight();
 		this.initPlanSlider();
+		this.initDropdownEhn();
+		this.initPaymentOffer();
 
 		planInquiry.init();
 		fnaLogin.init();
+
+		$("#btn-blog-link").on("click", function(){
+			window.location.href='http://blog.fwd.com.hk/' + language + "/";
+		})
 	},
 	initAutoHeight: function(){
 		this.cal3Card = $(".pv_plan_wrap .cardWrap").autoAlignHeight({child: ".card", minWidth: 0});
@@ -45,9 +52,43 @@ var pvCtr = {
 
 		});
 	},
+	initPaymentOffer: function (){
+		var currencyBtn$ = $(".pv_currency_btn");
+		var offerCat$ = $(".pv_offer_cat");
+
+		currencyBtn$.on("click", function (){
+			var childId = $(this).attr("data-childId");
+
+			offerCat$.hide();
+			console.log(childId);
+			$("#" + childId).show();
+
+			currencyBtn$.removeClass("active");
+			$(this).addClass("active");
+		});
+
+		$(currencyBtn$[0]).click();
+	},
+	initDropdownEhn: function (){
+		this.ddeFixItv = setInterval(function (){
+			$(".pv_sec_calculator .dropdown-toggle").each(function (){
+				var placeholderStr = $(this).attr("data-placeholder");
+				var htmlStr = $(this).html();
+
+				if(htmlStr != placeholderStr){
+					$(this).addClass("isSelected");
+				}else{
+					$(this).removeClass("isSelected");
+				}
+			});
+		}, 800);
+	},
 	//genenic function
 	toPriceStr: function(x){
-		return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return "$" + this.toPriceWithComma(x);
+	},
+	toPriceWithComma: function(x){
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	},
 	showAjaxLoading: function (){
 		$("#loading-overlay").modal("show");
@@ -58,10 +99,16 @@ var pvCtr = {
 };
 
 var fnaLogin = {
+	isLoggedIn: false,
 	init: function (){
 		var that = this;
 		$(".pv_fna .btnStart").on("click", function (){
 			$(".pv_fna .errorMsg").empty();
+
+			if(that.isLoggedIn){
+				that.loginSuccess({});
+				return;
+			}
 
 			if($("#fnaUser").val().length < 1 || $("#fnaPwd").val().length < 1){
 				$(".pv_fna .errorMsg").html(pvSetting.errMsg.fnaLoginEmpty);	
@@ -71,6 +118,8 @@ var fnaLogin = {
 		});
 		$(".pv_fna .btnForgotUser").on("click", function (){that.forgotUsrName();});
 		$(".pv_fna .btnForgotPwd").on("click", function (){that.forgotPwd();});
+
+		setTimeout(function (){that.checkLoginStatus();}, 500);
 	},
 	login: function (){
 		var that = this;
@@ -114,6 +163,33 @@ var fnaLogin = {
 	},
 	showMainLoginPopup: function(){
 		$("#loginpopup").modal();
+	},
+	checkLoginStatus: function (){
+		var that = this;
+		$.ajax({
+			url:"/fwdhk/api/member/session",
+			type:"get",
+			contentType: "application/json",
+			cache:false,
+			async:false,
+			beforeSend: pvCtr.showAjaxLoading,
+		    error:function (xhr, textStatus, errorThrown){
+		    	pvCtr.hideAjaxLoading();
+		    },
+		    success:function(response){
+		    	if(response){
+		    		if(response.userName == '*DIRECTGI'){
+		    			return false;	
+		    		}
+		    		pvCtr.hideAjaxLoading();
+		    		that.hideLoginPanel();
+		    		that.isLoggedIn = true;
+		    	}
+		    }
+		});
+	},
+	hideLoginPanel: function (){
+		$(".pv_fna_loginPanel").hide();
 	}
 };
 
@@ -125,7 +201,8 @@ var planInquiry = {
 		ageInput   : $(".pv_sec_calculator .input_age"),
 		methodInput: $(".pv_sec_calculator input[name=method]"),
 		periodTxt  : $(".pv_sec_calculator .txtMonth"),
-		yearInput  : function (){return $(".pv_sec_calculator input[name=year]:checked");}
+		yearInput  : function (){return $(".pv_sec_calculator input[name=year]:checked");},
+		amountinput: $(".input_amount")
 	},
 	amountLimit: {
 		"minPROVIE-RPHKD": 1000,
@@ -151,6 +228,10 @@ var planInquiry = {
 		this.uiCtr.methodInput.on("change", function(){
 			that.displayPeriodOpt(!that.isSpMethod());
 		});
+
+		this.uiCtr.amountinput.on("change", function (){
+			that.uiCtr.amountinput.val(pvCtr.toPriceWithComma(parseInt(that.uiCtr.amountinput.val().replace(/,/g,""), 10)));
+		});	
 	},
 	clearData: function (){
 		this.submitData = {};
@@ -329,7 +410,7 @@ var planInquiry = {
 	},
 	checkAmountLiimit: function (){
 		// check min and max
-		var amount = parseInt($(".input_amount").val(), 10);
+		var amount = parseInt(this.uiCtr.amountinput.val().replace(/,/g,""), 10);
 		var limit = this.getAmountLimit(this.submitData.method, this.submitData.currency);
 		// if(!(/^[0-9]+$/).test(amount$.val())){
 		// 	this.errorMsgAry.push(pvSetting.errMsg.amountEmpty);
@@ -402,6 +483,7 @@ function planDetailViewer(conf){
 
 	var uiCtr = {
 		accountWrap		 : $(".pv_plan .accValue"),
+		moneyPaidWrap	 : $(".pv_plan .money"),
 		monthlyPaidWrap  : $(".pv_plan .money .left"),
 		monthlyPaid      : $(".pv_plan .money .monthlyFee"),
 		accountValue     : $(".pv_plan .amount"),
@@ -421,8 +503,10 @@ function planDetailViewer(conf){
 	var displayMonthlyPaid = function (isShow){
 		if(isShow){
 			uiCtr.monthlyPaidWrap.show();
+			uiCtr.moneyPaidWrap.removeClass("isOneOff");
 		}else{
 			uiCtr.monthlyPaidWrap.hide();
+			uiCtr.moneyPaidWrap.addClass("isOneOff");
 		}
 	};
 
