@@ -610,6 +610,7 @@ $(document).ready(function(){
 		    success:function(response){
 		    	
 		    	if(response){
+		    		console.log(response);
 		    		$("#centre").empty();
 		    		/*var o0 = $("<option/>");
 		    		o0.text("Option0");
@@ -666,7 +667,8 @@ $(document).ready(function(){
 		    	if(response){
 		    		$(".appointment-date").text(response.preferredDate);
 		    		$(".appointment-time").text(response.preferredTime);
-		    		$(".branch-address").text(response.centreCode);
+		    		//$(".branch-address").text(response.centreCode);
+		    		$(".branch-address").text(getServiceCenterName(response.centreCode));
 		    		console.log(response);
 		    	}
 		    	
@@ -676,8 +678,51 @@ $(document).ready(function(){
 		
 	}
 });
+//Get Service Center Name - begin
+function getServiceCenterName(SelCenterCode){
+	//Get Availabe Service Center
+	//alert('Param_SelCenterCode='+SelCenterCode);
+	var SelCenterName="";
+	$.ajax({
+		url:fwdApi.url.getAvailableCentre,
+		type:"get",
+		contentType: "application/json",
+		data:{type:typeId,language:UILANGUAGE  == "EN" ? "EN" : "ZH"},
+		cache:false,
+		async:false,
+		error:function(xhr, textStatus, errorThrown){
 
+			if(xhr.status == 400){
+				console.log('Invalid appointment type.');
+			} else if(xhr.status == 500){
+				console.log('System error.');
+			} else {
+				console.log("unable to load API : "+ fwdApi.url.getAvailableCentre);	
+			}
+	    },
+	    success:function(response){
+	    	if(response){
+	    		//console.log(response);
+	    		//$("#centre").empty();
+	    		if(response.length > 0){
+	    			for(var i in response){
+		    			if (SelCenterCode==response[i].serviceCentreCode){
+		    				//alert('data_centercode=' + response[i].serviceCentreCode);
+		    				SelCenterName = response[i].serviceCentreName;
+		    				//alert('data_centerName=' + response[i].serviceCentreName);
+		    				break;
+		    			}
+		    		}
+	    		}else{
+	    			SelCenterName = "";
+	    		}
+	    	}
+	    }
+	});
 
+    return SelCenterName;
+}
+//Get Service Center Name - end
 
 function bsvFormLogin(form){
 	//Bind Event

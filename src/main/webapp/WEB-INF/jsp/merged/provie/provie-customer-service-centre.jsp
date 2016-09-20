@@ -491,9 +491,9 @@ function stickToHeader() {
 	$(document).ready(function() {
 		
 		$('#moreThan2Tries-button').click(function(){
-			//alert('clicked');
+			//alert(language);
 			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
-			window.location.href= context + "/" + language + "/savings-insurance/provie";
+			window.location.href= context + "/" + language.toLowerCase() + "/savings-insurance/provie";
 		});
 		
 		return;
