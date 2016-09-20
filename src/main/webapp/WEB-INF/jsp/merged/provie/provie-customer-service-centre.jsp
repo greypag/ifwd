@@ -490,6 +490,12 @@ function stickToHeader() {
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	$(document).ready(function() {
 		
+		$('#moreThan2Tries-button').click(function(){
+			//alert('clicked');
+			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
+			window.location.href= context + "/" + language + "/savings-insurance/provie";
+		});
+		
 		return;
 //Check is more than 2 tries from backend
 		var isMoreThan2Tries = false;
@@ -692,7 +698,9 @@ function stickToHeader() {
 			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp?type=3';
 		});
 		$('#moreThan2Tries-button').click(function(){
-			window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
+			alert('clicked');
+			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
+			window.location.href= context + "/" + language + "/savings-insurance/provie";
 		});
 		$('#perferredTimeIsNull-btn').click(function(){
 			$('#perferredTimeIsNull').modal('hide');
