@@ -17,8 +17,8 @@
 	@import "mobile/breadcrumb";
 }
 
-@media screen and #{$desktop} {
-	@import "desktop/breadcrumb";
+@media screen and #{$desktop_mdlg} {
+	@import "desktop_mdlg/breadcrumb";
 }
 
 // # Other rules and diff. screen standards for overwrite above

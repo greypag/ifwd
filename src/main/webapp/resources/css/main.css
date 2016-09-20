@@ -10235,15 +10235,6 @@ ul.promotion-sub-tnc.bullets {
        width: 25%;
        float: left;
     }
-	/*.middle-group{
-	    border-left-style: solid;
-	    border-width: 1px;
-	    border-color: #9fb1b2;
-	    border-right-style: solid;
-	    margin-right: 5%;
-	    margin-left: 5%;
-	    padding-left: 5%;
-	}*/
 	.partition-on-the-right{
 	    border-width: 1px;
 	    border-color: #9fb1b2;
@@ -10251,10 +10242,6 @@ ul.promotion-sub-tnc.bullets {
 	    margin-right: 2%;
 	    /*margin-left: 2%;*/
 	}
-    .nav-group.middle-group{
-       width: 37%;
-       float: left;
-    }
 }
 @media ( min-width : 1200px) {
 	.protect-save-enjoy-tab{

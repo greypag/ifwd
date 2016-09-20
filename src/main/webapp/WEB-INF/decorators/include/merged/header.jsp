@@ -73,8 +73,6 @@ var nBarConfig = {
 	'contentIndex': 'ifwd_repair',
 	'isVisible': <%=showNotification%>
 }
-
-
 </script>
 
 <%-- if(request.getRequestURI().indexOf("/flight-insurance")>0) { %>

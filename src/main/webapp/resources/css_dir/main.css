@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-09-15 14:20:50 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-09-20 11:50:25 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -2597,155 +2597,42 @@ body.chin .partner-headline-wrapper .headline-title {
   }
 }
 @media screen and (min-width: 992px) {
-  /* line 1, ../sass/desktop/_header.scss */
-  .no-padding {
-    padding: 0;
-  }
-
-  /* line 4, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 {
-    float: right;
-    font-size: 24px;
-    margin: 0;
-    padding: 0;
-  }
-  /* line 11, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 li.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-    width: 550%;
-    border-top: 1px;
-    background-clip: border-box;
-    text-align: left;
-    padding: 20px 0 20px 44px;
-  }
-  /* line 19, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 li.dropdown:hover .dropdown-menu.one-column {
-    width: 201%;
-  }
-  /* line 24, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 li.dropdown .protect-save-enjoy-tab {
-    font-size: 24px;
-    margin: auto;
-  }
-
-  /* line 31, ../sass/desktop/_header.scss */
-  .dropdown-menu.one-column.enjoy-tab {
-    left: -100%;
-  }
-  /* line 34, ../sass/desktop/_header.scss */
-  .dropdown-menu.protect-tab {
-    left: -209%;
-    word-break: normal;
-    word-wrap: break-all;
-  }
-  /* line 39, ../sass/desktop/_header.scss */
-  .dropdown-menu li.menu-subtitle {
-    color: #373a36;
-    font-size: 22px;
-    font-weight: 700;
-  }
-
-  /* line 45, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 li li.menu-link, li.menu-subtitle {
-    display: block;
-    line-height: 2;
-  }
-
-  /* line 50, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
-    color: #f6871e;
-    font-size: 18px;
-  }
-  /* line 54, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
-    color: #9fb1b2;
-    font-size: 18px;
-  }
-  /* line 58, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
-    font-size: 18px;
-    font-weight: 300;
-  }
-  /* line 62, ../sass/desktop/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
-    margin-right: 7px;
-    font-size: 11px;
-  }
-
-  /* line 69, ../sass/desktop/_header.scss */
-  .header .navbar.navbar-inverse {
-    border-bottom: 1px solid #d7d8d7;
-  }
-
-  /* line 74, ../sass/desktop/_header.scss */
-  .nav-group {
-    width: 25%;
-    float: left;
-  }
-
-  /* line 78, ../sass/desktop/_header.scss */
-  .middle-group {
-    border-left-style: solid;
-    border-width: 1px;
-    border-color: #9fb1b2;
-    border-right-style: solid;
-    margin-right: 5%;
-    margin-left: 5%;
-    padding-left: 5%;
-  }
-
-  /* line 87, ../sass/desktop/_header.scss */
-  .nav-group.middle-group {
-    width: 37%;
-    float: left;
-  }
-
-  /* line 92, ../sass/desktop/_header.scss */
-  .menutab-V2 .main-tab {
-    height: 76px;
-  }
-  /* line 94, ../sass/desktop/_header.scss */
-  .menutab-V2 .main-tab a.protect-save-enjoy-tab {
-    top: 30px;
-  }
-
-  /* line 3, ../sass/desktop/_footer.scss */
+  /* line 3, ../sass/desktop_mdlg/_footer.scss */
   .footer-container .footer-container__top-wrapper {
     margin: 0 auto;
     padding: 30px 15px;
   }
-  /* line 6, ../sass/desktop/_footer.scss */
+  /* line 6, ../sass/desktop_mdlg/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__contact {
     margin-right: 100px;
     display: inline-block;
     float: left;
   }
-  /* line 11, ../sass/desktop/_footer.scss */
+  /* line 11, ../sass/desktop_mdlg/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link {
     display: inline-block;
     float: left;
   }
-  /* line 14, ../sass/desktop/_footer.scss */
+  /* line 14, ../sass/desktop_mdlg/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper {
     float: left;
     margin-right: 50px;
   }
-  /* line 17, ../sass/desktop/_footer.scss */
+  /* line 17, ../sass/desktop_mdlg/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper a {
     display: block;
     line-height: 1;
     margin-bottom: 16px;
   }
-  /* line 24, ../sass/desktop/_footer.scss */
+  /* line 24, ../sass/desktop_mdlg/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__social-link {
     float: right;
   }
-  /* line 33, ../sass/desktop/_footer.scss */
+  /* line 33, ../sass/desktop_mdlg/_footer.scss */
   .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link {
     margin: 0 auto;
   }
-  /* line 35, ../sass/desktop/_footer.scss */
+  /* line 35, ../sass/desktop_mdlg/_footer.scss */
   .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link .footer-container__btm-wrapper__link__copy-right {
     padding-top: 5px;
     float: right;
@@ -2754,33 +2641,33 @@ body.chin .partner-headline-wrapper .headline-title {
     line-height: 18px;
   }
 
-  /* line 1, ../sass/desktop/_loginpopup.scss */
+  /* line 1, ../sass/desktop_mdlg/_loginpopup.scss */
   #errUserName, #errPass {
     display: block;
   }
 
-  /* line 9, ../sass/desktop/_loginpopup.scss */
+  /* line 9, ../sass/desktop_mdlg/_loginpopup.scss */
   .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog,
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog,
   .forgotUserNameForm .modal-dialog.loginpopup__modal-dialog,
   .forgotPasswordForm .modal-dialog.loginpopup__modal-dialog {
     width: 800px;
   }
-  /* line 11, ../sass/desktop/_loginpopup.scss */
+  /* line 11, ../sass/desktop_mdlg/_loginpopup.scss */
   .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .login-info-savie .upper-overlay,
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .login-info-savie .upper-overlay,
   .forgotUserNameForm .modal-dialog.loginpopup__modal-dialog .login-info-savie .upper-overlay,
   .forgotPasswordForm .modal-dialog.loginpopup__modal-dialog .login-info-savie .upper-overlay {
     min-height: 200px;
   }
-  /* line 14, ../sass/desktop/_loginpopup.scss */
+  /* line 14, ../sass/desktop_mdlg/_loginpopup.scss */
   .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .login-input,
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .login-input,
   .forgotUserNameForm .modal-dialog.loginpopup__modal-dialog .login-input,
   .forgotPasswordForm .modal-dialog.loginpopup__modal-dialog .login-input {
     display: inline-block;
   }
-  /* line 17, ../sass/desktop/_loginpopup.scss */
+  /* line 17, ../sass/desktop_mdlg/_loginpopup.scss */
   .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .loginpopupext .login-info-savie img,
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .loginpopupext .login-info-savie img,
   .forgotUserNameForm .modal-dialog.loginpopup__modal-dialog .loginpopupext .login-info-savie img,
@@ -2789,10 +2676,204 @@ body.chin .partner-headline-wrapper .headline-title {
     bottom: 0;*/
   }
 
-  /* line 25, ../sass/desktop/_loginpopup.scss */
+  /* line 25, ../sass/desktop_mdlg/_loginpopup.scss */
   .loginpopup .loginpopupext .upper-overlay .heading-h4,
   .loginpopup .loginpopupext .upper-overlay .heading-h5 {
     line-height: 1.3;
+  }
+}
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  /* line 1, ../sass/desktop_md/_header.scss */
+  ul.maintabs.menutab-V2 {
+    float: right;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 9, ../sass/desktop_md/_header.scss */
+  ul.maintabs.menutab-V2 li.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    width: 510%;
+    border-top: 1px;
+    background-clip: border-box;
+    text-align: left;
+    padding: 20px 0 20px 35px;
+  }
+  /* line 17, ../sass/desktop_md/_header.scss */
+  ul.maintabs.menutab-V2 li.dropdown:hover .dropdown-menu.one-column {
+    width: 201%;
+  }
+
+  /* line 27, ../sass/desktop_md/_header.scss */
+  .dropdown-menu.one-column.enjoy-tab {
+    left: -100%;
+  }
+  /* line 30, ../sass/desktop_md/_header.scss */
+  .dropdown-menu.protect-tab {
+    left: -209%;
+    word-break: normal;
+    word-wrap: break-all;
+  }
+  /* line 35, ../sass/desktop_md/_header.scss */
+  .dropdown-menu li.menu-subtitle {
+    color: #373a36;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  /* line 42, ../sass/desktop_md/_header.scss */
+  li.menu-subtitle,
+  ul.maintabs.menutab-V2 li li.menu-link {
+    display: block;
+    line-height: 2;
+  }
+
+  /* line 49, ../sass/desktop_md/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
+    color: #f6871e;
+    font-size: 15px;
+  }
+  /* line 54, ../sass/desktop_md/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+    color: #9fb1b2;
+    font-size: 15px;
+  }
+  /* line 59, ../sass/desktop_md/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 15px;
+    font-weight: 300;
+  }
+  /* line 64, ../sass/desktop_md/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+    margin-right: 7px;
+    font-size: 11px;
+  }
+
+  /* line 72, ../sass/desktop_md/_header.scss */
+  .header .navbar.navbar-inverse {
+    border-bottom: 1px solid #d7d8d7;
+  }
+
+  /* line 78, ../sass/desktop_md/_header.scss */
+  .nav-group {
+    width: 25%;
+    float: left;
+  }
+
+  /* line 83, ../sass/desktop_md/_header.scss */
+  .partition-on-the-right {
+    border-width: 1px;
+    border-color: #9fb1b2;
+    border-right-style: solid;
+    margin-right: 2%;
+    /*margin-left: 2%;*/
+  }
+
+  /* line 91, ../sass/desktop_md/_header.scss */
+  .menutab-V2 .main-tab {
+    height: 76px;
+  }
+  /* line 94, ../sass/desktop_md/_header.scss */
+  .menutab-V2 .main-tab a.protect-save-enjoy-tab {
+    top: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 1, ../sass/desktop_lg/_header.scss */
+  ul.maintabs.menutab-V2 {
+    float: right;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 10, ../sass/desktop_lg/_header.scss */
+  ul.maintabs.menutab-V2 li .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    width: 510%;
+    border-top: 1px;
+    background-clip: border-box;
+    text-align: left;
+    padding: 20px 0 20px 44px;
+  }
+  /* line 19, ../sass/desktop_lg/_header.scss */
+  ul.maintabs.menutab-V2 li .dropdown:hover .dropdown-menu.one-column {
+    width: 201%;
+  }
+
+  /* line 29, ../sass/desktop_lg/_header.scss */
+  .dropdown-menu.one-column.enjoy-tab {
+    left: -100%;
+  }
+  /* line 33, ../sass/desktop_lg/_header.scss */
+  .dropdown-menu.protect-tab {
+    left: -209%;
+    word-break: normal;
+    word-wrap: break-all;
+  }
+  /* line 39, ../sass/desktop_lg/_header.scss */
+  .dropdown-menu li.menu-subtitle {
+    color: #373a36;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  /* line 46, ../sass/desktop_lg/_header.scss */
+  li.menu-subtitle,
+  ul.maintabs.menutab-V2 li li.menu-link {
+    display: block;
+    line-height: 2;
+  }
+
+  /* line 53, ../sass/desktop_lg/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
+    color: #f6871e;
+    font-size: 18px;
+  }
+  /* line 58, ../sass/desktop_lg/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+    color: #9fb1b2;
+    font-size: 18px;
+  }
+  /* line 63, ../sass/desktop_lg/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  /* line 68, ../sass/desktop_lg/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+    margin-right: 7px;
+    font-size: 11px;
+  }
+
+  /* line 76, ../sass/desktop_lg/_header.scss */
+  .header .navbar.navbar-inverse {
+    border-bottom: 1px solid #d7d8d7;
+  }
+
+  /* line 82, ../sass/desktop_lg/_header.scss */
+  .nav-group {
+    width: 25%;
+    float: left;
+  }
+
+  /* line 87, ../sass/desktop_lg/_header.scss */
+  .partition-on-the-right {
+    border-width: 1px;
+    border-color: #9fb1b2;
+    border-right-style: solid;
+    margin-right: 2%;
+    /*margin-left: 2%;*/
+  }
+
+  /* line 95, ../sass/desktop_lg/_header.scss */
+  .menutab-V2 .main-tab {
+    height: 76px;
+  }
+  /* line 98, ../sass/desktop_lg/_header.scss */
+  .menutab-V2 .main-tab a.protect-save-enjoy-tab {
+    top: 30px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
