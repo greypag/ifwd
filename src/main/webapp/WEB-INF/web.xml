@@ -51,6 +51,7 @@
     <listener-class>com.github.pukkaone.jsp.EscapeXmlELResolverListener</listener-class>
   </listener>
   <display-name>FWD</display-name>
+  <!-- 
   <error-page>
     <error-code>400</error-code>
     <location>/WEB-INF/jsp/error/error400.jsp</location>
@@ -67,6 +68,7 @@
     <error-code>500</error-code>
     <location>/WEB-INF/jsp/error/error500.jsp</location>
   </error-page>
+   -->
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>restricted methods</web-resource-name>

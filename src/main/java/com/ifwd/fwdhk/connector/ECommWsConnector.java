@@ -46,6 +46,7 @@ import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.connector.response.savie.ProviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.eliteterm.EliteTermPlanDetailBean;
@@ -104,7 +105,32 @@ public class ECommWsConnector {
 		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, header);
 	}
 	
-	
+	public ProviePlanDetailsResponse proviePlanDetails(String planCode, int issueAge, int paymentTerm, String premium,
+			String referralCode, String paymentMode, String currency){
+		StringBuffer url = new StringBuffer();
+		url.append(UserRestURIConstants.PROVIE_PLAN_DETAIL);
+		url.append("?planCode=");
+		url.append(planCode);
+		url.append("&issueAge=");
+		url.append(issueAge);
+		url.append("&paymentTerm=");
+		url.append(paymentTerm);
+		url.append("&premium=");
+		url.append(premium);
+		url.append("&referralCode=");
+		url.append(referralCode);
+		url.append("&paymentMode=");
+		url.append(planCode.substring(planCode.length() - 6, planCode.length() - 4));
+		url.append("&currency=");
+		url.append(currency);
+		
+		Map<String,String> header = Maps.newHashMap();
+		//if(locale != null){			
+		//	header.put("language", locale.getLanguage());
+		//}
+		return consumeECommWs(url.toString(), HttpMethod.GET, null, ProviePlanDetailsResponse.class, header);
+	}
+		
 	
 	public SalesIllustrationResponse generateSalesIllustration(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.GENERATE_SALES_ILLUSTRATION,HttpMethod.PUT,parameters,SalesIllustrationResponse.class,header);

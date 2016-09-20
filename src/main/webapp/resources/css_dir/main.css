@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-09-15 14:20:50 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-09-20 14:20:02 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -148,6 +148,7 @@
   border-radius: 0;
   margin-bottom: 0;
   background: #ffffff;
+  padding: 0px;
   padding-bottom: 0;
 }
 /* line 7, ../sass/base/general/override/bootstrap/_navbar.scss */

@@ -39,6 +39,7 @@ import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.ErrorMessageUtils;
@@ -84,7 +85,56 @@ public class AjaxLifeController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
+
+
+/*
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/ajax/savings-insurance/getProvieRiderEligibility"})
+	public void getProvieRiderEligibility(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject=savieOnlineService.getProvieRiderEligibility(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
 	
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/getProvieRiderPlan"})
+	public void getProvieRiderPlan(ProviePlanDetailsBean proviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
+		net.sf.json.JSONObject jsonObject = new net.sf.json.JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			proviePlanDetails.validate(language);
+			proviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(proviePlanDetails.getInsuredAmount()));
+			//jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, session);
+			jsonObject = savieOnlineService.getProvieRiderPlan(proviePlanDetails, request, session);
+			//String[] dob1 = (String) request.getAttribute("dob");
+			String[] dob = proviePlanDetails.getDob().split("-");
+			proviePlanDetails.setDob1(dob[2]+"路"+dob[1]+"路"+dob[0]);
+			proviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
+			
+			request.getSession().setAttribute("proviePlanDetails", proviePlanDetails);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		} 
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	*/
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifePersonalDetails"})
 	public void lifePersonalDetails(LifePersonalDetailsBean lifePersonalDetails ,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
@@ -347,7 +397,7 @@ public class AjaxLifeController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	//Begin ---HKID discount ---by John Huang
+	//HKID discount ---by John Huang
 	@RequestMapping(value = {"/ajax/savings-insurance/getSavieHkidDiscount"})
 	public void getSavieHkidDiscount(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();

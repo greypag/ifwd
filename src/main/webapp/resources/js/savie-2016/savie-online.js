@@ -1032,6 +1032,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 	var premium = amount;
 	
 	var birthOfDay = $('#plan-dob-datepicker').val();
+	
 	var issueAge = jsGetAge(birthOfDay);
 	if('one-off-premium' == paymentMode) {
 		paymentMode='SP';
@@ -1040,7 +1041,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 		paymentMode='RP';
 		premium = amount_rp;
 	}
-	
+
 	$.ajax({
 		type : "POST",
 		async: true,
@@ -1547,6 +1548,74 @@ function getSavieOnlinePlandetails(isSavedReturn) {
     });
 }
 
+/*
+function getProvieRiderPlan(isSavedReturn) {
+	
+	var amount = $('#R').val();
+	var amount_rp = $('#plan-amount').val();
+	//var paymentMode = $('#type-of-payment').val();
+	var paymentMode =  $("#type-of-payment option:selected").attr('data-val');
+	//alert(paymentMode);
+	var paymentYear;
+	if($('#total-years-holder').is(":hidden")){
+		paymentYear = 4
+	}else {
+		paymentYear = $("#total-payment-years").val();
+	}
+	
+	var premium = amount;
+	var currency="";
+	if('rp-USD' == paymentMode||'sp-USD' == paymentMode) {
+		currency="USD";
+	} else{
+		currency="HKD";
+	}
+	
+	var birthOfDay = $('#plan-dob-datepicker').val();
+	
+	var issueAge = jsGetAge(birthOfDay);
+	var rider=$("#type-of-extra-rider option:selected").attr('data-cls');
+	//alert(rider);
+	if('sp-USD' == paymentMode ||'sp-HKD' == paymentMode ) {
+		paymentMode='PROVIE-SP';
+		premium = amount;
+	}else {
+		paymentMode='PROVIE-RP';
+		premium = amount_rp;
+	}
+	
+	$.ajax({
+		type : "POST",
+		async: true,
+		url : context + "/ajax/savings-insurance/getProvieRiderPlan",
+		data: {
+			insuredAmount : premium,
+			paymentType : paymentMode,
+			dob : $("#plan-dob-datepicker").val(),
+			promoCode : $("#promoCode").val(),
+			paymentYear:paymentYear,
+			currency:currency,
+			rider:rider
+			},
+		success : function(data) {
+			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+				  $("#errorMsg").html(data.errorMsg);
+			  }else{
+				//$("#apiData").html(data.apiData);
+				  //alert(data.toString());
+			  } 
+			  $('#loadingDiv').toggle();
+			  $('body').removeClass('modal-open');
+
+			//If it is a return from save later, prompt login box
+
+			  if(isSavedReturn){
+				proceedLogin();
+			}
+		}
+    });
+}
+*/
 function getTimeSlot(perTime, appointmentTypeId){
 	var csCenter = $("#centre").val();
 	var perferredDate = $("#preferred-date").val();
