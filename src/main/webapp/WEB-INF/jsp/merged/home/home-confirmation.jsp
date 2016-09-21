@@ -183,3 +183,45 @@ var plan="${plan}";
     </div>
     </div>
 </div>
+<script >
+$.getScript("http://www.googletagmanager.com/gtm.js?id=GTM-MWPF25",function(){
+	ga('create', 'UA-60032236-1', 'auto');
+	ga('require', 'ecommerce');
+	ga('ecommerce:addTransaction', {
+	  'id': '${transNo}', // Transaction ID. Required.
+	  'revenue': '${dueAmount}', // Grand Total.
+	  'affiliation': 'Protect', // Insurance type, e.g. Life
+	   'currency': 'HKD'
+	  });
+	ga('ecommerce:addItem', {
+	      'id': '${transNo}', // Transaction ID. Required
+	      'name': 'Home Liability', // Product name. Required
+	      'category': 'Household', // Category or variation
+	      'price': '${dueAmount}', // Unit price
+	      'quantity': '2',
+	      'currency': 'HKD'
+	    });
+	ga('ecommerce:send');
+});
+/* $(document).ready(function() {
+	
+	ga('create', 'UA-60032236-1', 'auto');
+	ga('require', 'ecommerce');
+	ga('ecommerce:addTransaction', {
+	  'id': '${transNo}', // Transaction ID. Required.
+	  'revenue': '${dueAmount}', // Grand Total.
+	  'affiliation': 'Protect', // Insurance type, e.g. Life
+	   'currency': 'HKD'
+	  });
+	ga('ecommerce:addItem', {
+	      'id': '${transNo}', // Transaction ID. Required
+	      'name': 'Home Liability', // Product name. Required
+	      'category': 'Household', // Category or variation
+	      'price': '${dueAmount}', // Unit price
+	      'quantity': '2',
+	      'currency': 'HKD'
+	    });
+	ga('ecommerce:send');
+}); */
+
+</script>
