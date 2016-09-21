@@ -1128,7 +1128,14 @@ function bsvFormRegister(form){
 				async:false,
 				error:function(xhr, textStatus, errorThrown){
 
-					var resp = $.parseJSON(xhr.responseText);
+					var resp = {message:"Unknown Error"};
+					
+					console.log("xhr.responseText",xhr.responseText);
+					try{
+						resp = $.parseJSON(xhr.responseText);
+					}catch(e){
+						
+					}
 
 					$(".regPanErrMsg").append($("<small/>").text(resp.message));	
 					$("#loading-overlay").modal("hide");
