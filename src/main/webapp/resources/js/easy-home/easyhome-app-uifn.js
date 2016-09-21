@@ -175,7 +175,7 @@ $(document).ready(function(){
 								if($.trim($("#applicantName").val()) == ""){
 									return true;
 								}else{
-									return application.common.validate($("#applicantName").val(),"Alphabet");
+									return application.common.validate($("#applicantName").val().replace(/ /g,''),"Alphabet");
 								}
 								
 							}
