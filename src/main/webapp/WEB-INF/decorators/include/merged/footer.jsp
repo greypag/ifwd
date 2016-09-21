@@ -33,7 +33,6 @@
     <!-- End of LiveChat code -->
   </c:otherwise>
 </c:choose>
-<link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 <!--mob bottom-->
 <div class="footer-container">
     <div class="upper-footer-wrapper container">
@@ -116,12 +115,10 @@ if(request.getRequestURI().indexOf("/savings-insurance/provie")>0) {
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pnotify.custom.min.js"></script>
 <jsp:include page="/WEB-INF/jsp/merged/comp/notification.jsp" />
 
 <script>
