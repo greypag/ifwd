@@ -14,13 +14,13 @@ var nextPage = "${nextPageFlow}";
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/easyhome-application.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/icon-font.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/titatoggle-dist-min.css">
-    
+
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.0.2.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-home/easyhome-app-uifn.js"></script>
-    
+
     <!-- Breadcrumb Component Start-->
 
-    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+    <c:set var="breadcrumbItems" value="breadcrumb.item.home" />
     <c:set var="breadcrumbActive" value="0" />
 
     <c:if test="${planIndex == 'easy-home-care'}">
@@ -42,10 +42,10 @@ var nextPage = "${nextPageFlow}";
     </jsp:include>
 
     <!-- Breadcrumb Component End-->
-    
+
      <div class="savie-online-container app-pg-ctnr theme-white" id="ehome-app-screening">
-     
-  
+
+
      <div class="app-pg-cont">
         <form id="ef-form-screening">
         <div class="container-fluid">
@@ -98,9 +98,9 @@ var nextPage = "${nextPageFlow}";
     </div>
     </div>
     <!-- Main Content End-->
-    
+
     <div class="modal fade" id="oldHome"
-    tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" 
+    tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-lg">
         <div id="homecareLandingModal" class="modal-content plan-modal">
@@ -109,8 +109,8 @@ var nextPage = "${nextPageFlow}";
                  <span aria-hidden="true" style="font-size:30px;">×</span>
                </a>
             </div>
-             
-                <p class="errorMsg">Thank you for your interests in our products, sorry that we are unable to accept your application online. For any enquiry, please call our customer hotline at 3123 3123.</p>
+
+                <p class="errorMsg"><fmt:message key="screening.home.answer.no" bundle="${msg}" /></p>
                 <br/>
             </div>
         </div>
@@ -136,8 +136,8 @@ var nextPage = "${nextPageFlow}";
 			$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 			$.ajax({
 		        type : "get",
-		        cache:false, 
-		        async:false, 
+		        cache:false,
+		        async:false,
 		        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
 		        data : {
 			        	referralCode : "",
@@ -164,6 +164,5 @@ var nextPage = "${nextPageFlow}";
 			centerModals($("#oldHome"));
 		}
 	});
-	
+
 </script>
-   

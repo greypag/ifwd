@@ -171,7 +171,7 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 <%-- </enhance:out> --%>
 <!--END -Google Enabling Rich Snippets for Products-->	
 	<%@ include file="include/merged/header.jsp"%>
-	<div class="closeMobileMenu"><dec:body /></div>
+	<div class="closeMobileMenu commonBody"><dec:body /></div>
 	<%@ include file="include/merged/footer.jsp"%>
 	
 	<script type="text/javascript">

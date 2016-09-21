@@ -37,15 +37,15 @@
 <script type="text/javascript">
 	var obj = {
 	    'topBar': {
-	        'mobile': 0,
-	        'desktop': 42,
+			'mobileDefaultHeight': 0,
+	        'desktopDefaultHeight': 42,
 	        'classname': {
-	            'mobile': 'div.closeMobileMenu',
+	            'mobile': 'div.commonBody',
 	            'desktop': 'nav.navbar.navbar-inverse'
 	        }
 	    },
 	    'nBarOnly': {
-	        'mobile': 56,
+	        'mobile': 0,
 	        'desktop': 56,
 	        'classname': {
 	            'mobile': '.header-notification-box.header-notification-box--mobile',
@@ -70,7 +70,7 @@
 
 // Default value
 var nBarConfig = {
-	'contentIndex': 'ifwd_repair',
+	'contentIndex': 'fraud',
 	'isVisible': <%=showNotification%>
 }
 
@@ -78,6 +78,7 @@ var nBarConfig = {
 </script>
 
 <%-- if(request.getRequestURI().indexOf("/flight-insurance")>0) { %>
+<!-- customized behaviour for flight insurance landing page only -->
 <script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.custom.flight.js" charset="utf-8"></script>
 <% } --%>
 

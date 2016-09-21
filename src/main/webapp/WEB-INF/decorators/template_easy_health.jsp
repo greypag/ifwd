@@ -296,8 +296,8 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	}
 	</script>
 	<div class="fwd-savie-wrapper">
-				<%@ include file="include/merged/header.jsp"%>
-		<dec:body />
+		<%@ include file="include/merged/header.jsp"%>
+		<div class="commonBody"><dec:body /></div>
 		<%@ include file="include/merged/footer.jsp"%>
 	</div>
 

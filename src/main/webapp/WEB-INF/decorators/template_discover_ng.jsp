@@ -246,7 +246,7 @@ if(request.getRequestURI().indexOf("/become-partner")>0) {
 	<%-- </enhance:out> --%>
 	<!--END -Google Enabling Rich Snippets for Products-->
 	<%@ include file="include/merged/header.jsp"%>
-	<dec:body />
+	<div class="commonBody"><dec:body /></div>
 	<%@ include file="include/merged/footer.jsp"%>
 
 	<script type="text/javascript">
