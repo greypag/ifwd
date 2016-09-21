@@ -854,70 +854,72 @@
 		<!-- MODALS / LIGHTBOXES -->
 		<div class="modal fade common-welcome-modal" id="offline-online-modal" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="row">
-						<div class="col-xs-2 col-md-1 numbering-holder">
-							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/dk-numbering_TC.PNG" class="visible-md visible-lg" />
-							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/mb-numbering_TC.PNG" class="visible-xs visible-sm" />
-						</div>
-						<div class="col-xs-10 col-md-10" id="steps-holder">
-							<h4 class="text-center">多謝您對本計劃有興趣</h4>
-							<div id="step-1" class="step">
-								<div class="media">
-									<div class="media-left" id="step1-img-holder">
-										 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/book-icon.png" />
-									</div>
-									<div class="media-body">
-										<p class="procedure">根據香港保險業聯會之指引，保險公司需要在客戶投保前進行財務需要分析，我們會按分析結果為您提供適合的產品選擇，讓您作出比較。</p>
-									</div>
-								</div>
-							</div>
-							<div id="step-2" class="step">
-								<div class="media">
-									<div class="media-left" id="step2-img-holder">
-										  <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/note-icon.png" />
-									</div>
-									<div class="media-body">
-										<p class="procedure">當完成財務需要分析及產品比較並確認Savie自助息切合您的需要後，您便可立即進行投保。</p>
-									</div>
-								</div>
-							</div>
-							<div class="row" id="on-of-holder">
-								<div class="col-md-6 col-xs-12" id="step-online">
-									<div class="step">
-										<div class="media">
-											<div class="media-left" id="stepon-img-holder">
-												 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/pc-icon.png" />
-											</div>
-											<div class="media-body">
-												<p class="procedure"><span class="bold-head">網上投保</span> <span class="hidden-dash">-</span><br class="visible-md visible-lg" /> 您可於此平台上完成整個財務需要分析及投保程序。於投保過程中您可使用” 儲存並稍後繼續”的功能，以便您可於任何時間繼續您的投保程序。</p>
-												<button class="btn savie-common-btn" id="online-application-btn">網上登記</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="or-word">
-									<div id="or-mobile">
-										<span>或</span>
-									</div>
-								</div>
-								<div class="col-md-6 col-xs-12" id="step-offline">
-									<div class="step">
-										<div class="media">
-											<div class="media-left">
-												 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/clockfold-icon.png" />
-											</div>
-											<div class="media-body">
-												<p class="procedure"><span class="bold-head">親身投保</span> <span class="hidden-dash">-</span><br class="visible-md visible-lg" /> 您可以選擇親身到客戶服務中心完成整個財務需要分析和投保程序。請您選擇時間及客戶服務中心與我們的客戶服務代表進行會面 。整個財務需要分析及投保過程需時約30－45分鐘。</p>
-												<button class="btn savie-common-btn" id="offline-application-btn">親臨登記</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			    <div class="modal-content">
+			    	<div class="row">
+			    		<div class="col-xs-2 col-md-1 numbering-holder">
+			    			<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.oneoff.image.desktop" bundle="${msg}" />" class="visible-md visible-lg" />
+			    			<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.oneoff.image.mobile" bundle="${msg}" />" class="visible-xs visible-sm" />
+			    		</div>
+			    		<div class="col-xs-10 col-md-10" id="steps-holder">
+			    			<h4 class="text-center"><fmt:message key="product.details.savie.step.title" bundle="${msg}" /></h4>
+			    			<div id="step-1" class="step">
+			    				<div class="media">
+			    					<div class="media-left" id="step1-img-holder">
+			    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/book-icon.png" />
+			    					</div>
+			    					<div class="media-body">
+			    						<p class="procedure"><fmt:message key="product.details.savie.step1.copy" bundle="${msg}" /></p>
+			    					</div>
+			    				</div>
+			    			</div>
+			    			<div id="step-2" class="step">
+			    				<div class="media">
+			    					<div class="media-left" id="step2-img-holder">
+			    						  <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/note-icon.png" />
+			    					</div>
+			    					<div class="media-body">
+			    						<p class="procedure"><fmt:message key="product.details.provie.step2.copy" bundle="${provieMsg}" /></p>
+			    					</div>
+			    				</div>
+			    			</div>
+			    			<div class="row" id="on-of-holder">
+			    				<%-- <div class="col-md-6 col-xs-12" id="step-online">
+			    					<div class="step">
+					    				<div class="media">
+					    					<div class="media-left" id="stepon-img-holder">
+					    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/pc-icon.png" />
+					    					</div>
+					    					<div class="media-body">
+					    						<p class="procedure"><fmt:message key="product.details.savie.step3.copy" bundle="${msg}" /></p>
+					    						<button class="btn savie-common-btn" id="online-application-btn"><fmt:message key="button.online.application" bundle="${msg}" /></button>
+					    					</div>
+					    				</div>
+			    					</div>
+			    				</div>
+			    				<div class="or-word">
+			    					<div id="or-mobile">
+			    						<span><fmt:message key="label.icon.or" bundle="${msg}" /></span>
+			    					</div>
+			    				</div> --%>
+			    				<div class="col-md-12 col-xs-12" id="step-offline">
+			    					<div class="step">
+					    				<div class="media">
+					    					<div class="media-left">
+					    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/clockfold-icon.png" />
+					    					</div>
+					    					<div class="media-body">
+					    						<p class="procedure"><fmt:message key="product.details.savie.step4.copy" bundle="${msg}" /></p>
+					    					</div>
+					    					<div class="text-center">
+				    							<button class="btn savie-common-btn" id="offline-application-btn"><fmt:message key="button.offline.application" bundle="${msg}" /></button>
+				    						</div>
+					    				</div>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
 			</div>
 		</div>
 		<!-- Thank you -->
@@ -1260,8 +1262,12 @@
 		}
 		return false;
 	}
+	
+	$("#btn-proceed").on('click',function(){
+		$("#offline-online-modal").modal();
+	});
 
-	$("#btn-proceed").on('click', function(){
+	/* $("#btn-proceed").on('click', function(){
 		apply=false;
 		//alert('clicked');
 		var paymentMode =  $("#type-of-payment option:selected").attr('data-val');
@@ -1280,7 +1286,7 @@
 		//console.log(planCode);
 		//alert(planCode);
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie-customer-service-centre' + '?planCode=' + planCode;
-	});
+	}); */
 
 	$("#online-application-btn").on('click', function(){
 		$('#offline-online-modal').modal('hide');
@@ -1289,7 +1295,25 @@
 
 	$("#offline-application-btn").on('click', function(){
 		 
-		if("" == "true" && "" != "*DIRECTGI"){
+		apply=false;
+		//alert('clicked');
+		var paymentMode =  $("#type-of-payment option:selected").attr('data-val');
+		var str=paymentMode.split("-");
+		var planCode="";
+		if(str[0]=='sp'){
+			planCode="PROVIE-SP";
+		} else {
+			planCode="PROVIE-RP";
+		}
+		if(str[1]=='USD') {
+			planCode=planCode+"-USD";
+		} else{
+			planCode=planCode+"-HKD";
+		}
+		//console.log(planCode);
+		//alert(planCode);
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie-customer-service-centre' + '?planCode=' + planCode;
+		/* if("" == "true" && "" != "*DIRECTGI"){
 			window.location = '/tc/savings-insurance/provie-customer-service-centre';
 		}else{
 			apply=true;
@@ -1299,7 +1323,7 @@
 			$('#loginpopup #fna-check').val("false");
 			$('#loginpopup #nav-bar-check').val("false");
 			$('#loginpopup').modal('show');
-		}
+		} */
 	});
 
 	function proceedLogin(url){

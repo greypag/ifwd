@@ -74,7 +74,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div id="clearfix-height-rp">
                                     <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="provie.landing.cta.start" bundle="${provieMsg}" /></button>
                                 </div>
-                                <div class="savie-product text-bold"> <a href="/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank"><fmt:message key="provie.landing.link.productbrochure" bundle="${provieMsg}" /></a> | <a href="/resources/policy-provisions-pdf/Savie_En_Provisions.pdf" target="_blank"><fmt:message key="provie.landing.link.policyprovision" bundle="${provieMsg}" /></a> </div>
+                                <div class="savie-product text-bold"> <a href="<%=request.getContextPath()%>/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank"><fmt:message key="provie.landing.link.productbrochure" bundle="${provieMsg}" /></a> | <a href='<%=request.getContextPath()%>/resources/policy-provisions-pdf/<fmt:message key="provie.landing.link.policyprovision.text1" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.link.policyprovision" bundle="${provieMsg}" /></a> </div>
                             </div>
                         </form>
                     </div>
