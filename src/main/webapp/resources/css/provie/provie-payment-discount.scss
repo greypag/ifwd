@@ -1,0 +1,136 @@
+$bg_color: #19afbe;
+$title_color: #fff;
+$hkd_basic_color: #fa9337;
+$usd_basic_color: #ffc450;
+
+
+%offer_basic_txt{
+	padding: 0.214em 0;
+}
+
+.pv_offers{
+	background-color: $bg_color;
+	font-weight: bold;
+	line-height: initial;
+	padding: 20px 0;
+	text-align: center;
+	p{
+		font-size: 16px;
+	}
+}
+
+.pv_offer{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	.inner{
+		background-color: #fff;
+		position: relative;
+	}
+}
+
+.pv_offer_tag{
+	background-color: $hkd_basic_color;
+	color: #fff;
+	line-height: 2.5em;
+	margin-right: 0.5em;
+	right: 0;
+	position: absolute;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	top: 0;
+	&:after{
+		bottom: 0;
+		border-left: 21.735px solid transparent;
+		border-right: 21.735px solid transparent;
+		border-bottom: 9px solid #fff;
+		content: '';
+	    display: inline-block;
+	    left: 0;
+	    position: absolute;
+	}
+}
+
+.pv_offer_title{
+	color: $title_color;
+	font-size: 1.857em;
+}
+
+.pv_offer_req{
+	padding: 2.375em 1em;
+}
+
+.pv_req_type{
+	@extend %offer_basic_txt;
+	color: $hkd_basic_color;
+	display: block;
+	font-size: 1em;
+}
+
+.pv_req_amount{
+	@extend %offer_basic_txt;
+	display: block;
+	font-size: 1.5em;
+	.pv_offer_gteq{
+		text-decoration: underline;
+	}
+}
+
+.pv_req_or{
+	color: #979797;
+	display: block;
+}
+
+.pv_offer_rslt{
+	background-color: $hkd_basic_color;
+	color: #fff;
+	padding: 1em;
+}
+
+.pv_rslt_type{
+	@extend %offer_basic_txt;
+	clear: both;
+	display: block;
+	font-size: 1em;
+	line-height: 1em;
+}
+
+.pv_rslt_amount{
+	@extend %offer_basic_txt;
+	background: url(../../images/provie/icon_discount.png) no-repeat 0% 50%;
+	clear: both;
+	font-size: 1.75em;
+	padding-left: 35px;
+}
+
+.pv_currency_btns{
+	display: inline-block;
+	margin: 1em 0.5em;
+}
+
+.pv_currency_btn{
+	background-color: #fff;
+	color: $hkd_basic_color;
+	display: inline-block;
+	padding: 0.5em 2em;
+	&:hover, &.active{
+		background-color: $hkd_basic_color;
+		color: #fff;
+	}
+}
+
+//override
+.usd{
+	.pv_offer_tag{
+		background-color: $usd_basic_color;
+	}
+	.pv_req_type{
+		color: $usd_basic_color;
+	}
+	.pv_offer_rslt{
+		background-color: $usd_basic_color;
+	}
+	.pv_currency_btn:hover, .pv_currency_btn.active{
+		background-color: $usd_basic_color;
+	}
+}

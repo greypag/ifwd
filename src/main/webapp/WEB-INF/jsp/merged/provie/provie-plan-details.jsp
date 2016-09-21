@@ -662,9 +662,9 @@
 				<li class="pd-sf-tab text-center active" role="presentation">
 					<a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab"><fmt:message key="provie.plandetails.risks.exclusions.tab" bundle="${provieMsg}" /><br class="visible-xs"/><fmt:message key="provie.plandetails.risks.exclusions.tab.suffix" bundle="${provieMsg}" /></a>
 				</li>
-				<%-- <li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
-					<a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab"><fmt:message key="provie.plandetails.risks.exclusions.tab2" bundle="${provieMsg}" /></a>
-				</li> --%>
+				<li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
+					<a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab"><fmt:message key="provie.plandetails.glossary.title" bundle="${provieMsg}" /></a>
+				</li>
 		   </ul>
 		</div>
 		<div class="pd-sf-divider"></div>
@@ -762,7 +762,7 @@
 						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									詞彙表
+									<fmt:message key="provie.plandetails.glossary.title" bundle="${provieMsg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -770,7 +770,60 @@
 							  </h4>
 						   </div>
 						   <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
-							  <div class="panel-body"><p><b>意外</b> – 在本保單生效期間所發生非預見及突如其來的一宗或連串外在及可見的意外事故並導致身體受傷。 </p><br/><p><b>戶口價值</b> – 本保單「戶口價值條款」內說明由本公司為此保單成立並持有之內部戶口內的戶口結存。 </p><br/><p><b>保單生效日</b> – 用作釐定被保人的投保年齡之日，此日列明於保單資料頁內。</p><br/><p><b>公司</b> –富衛人壽保險（百慕達）有限公司。 </p><br/><p><b>期滿日</b> – 緊接被保人一百歲生日前之保單週年日。 </p><br/><p><b>被保人</b> – 保單資料頁內指定為被保人的人士，其生命受本保單保障。 </p><br/><p><b>部份提款</b> – 根據下述「權益條款」內的「部份提款」條款可從戶口價值內提取的部份提款。</p><br/><p><b>保單週年日</b> – 期後每年與保單生效日相同的日子。保單週年日根據保單資料頁內列明之保單生效日而釐定。</p><br/><p><b>保單</b> – 「Savie自助息理財壽險」之條款。</p><br/><p><b>保單簽發日</b> – 保單資料頁內列明之保單簽發日，即保單開始生效之日。</p><br/><p><b>保單年期</b> – 由本保單的保單生效日起計的每 12 個月。保單年期根據保單資料頁內列明之保單生效日而釐定。</p><br/><p><b>保費假期 </b>– 根據下述「保費條款」內的「保費假期」條款暫停繳付定期儲蓄保費但本保單仍然維持有效的一段時間。</p><br/><p><b>定期儲蓄保費</b> – 列明於「保費條款」內之定期儲蓄保費。</p><br/><p><b>躉繳保費</b> – 保單權益人投入之躉繳保費，此保費列明於保單資料頁內。</p><br/><p><b>投保額</b> – 保單資料頁內註明之投保額或本保單最新加簽批註之最新投保額。</p></div>
+							  <div class="panel-body">
+							  	<p><fmt:message key="provie.plandetails.glossary.pt1" bundle="${provieMsg}" /></p><br/>
+							  	<ol>
+						  			<li><fmt:message key="provie.plandetails.glossary.pt1.subpt1" bundle="${provieMsg}" /></li>
+						  			<li><fmt:message key="provie.plandetails.glossary.pt1.subpt2" bundle="${provieMsg}" /></li>
+						  		</ol><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt2" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt3" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt4" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.title.sub1" bundle="${provieMsg}" /></p>
+							  	<ol>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt4.subpt1" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt4.subpt2" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt4.subpt3" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt4.subpt4" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt4.subpt5" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt4.subpt6" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt4.subpt7" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt4.subpt8" bundle="${provieMsg}" /></li>
+							  	</ol><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt5" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt6" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt7" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt8" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt9" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt10" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt11" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt12" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt13" bundle="${provieMsg}" /></p>
+							  	<ol>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt13.subpt1" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt13.subpt2" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt13.subpt3" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt13.subpt4" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt13.subpt5" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.glossary.pt13.subpt6" bundle="${provieMsg}" /></li>
+							  	</ol>
+							  	<p><fmt:message key="provie.plandetails.glossary.title.sub2" bundle="${provieMsg}" /></p>
+							  	<br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt14" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt15" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt16" bundle="${provieMsg}" /></p>	<br/>				  	
+							  	<p><fmt:message key="provie.plandetails.glossary.pt17" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt18" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt19" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt20" bundle="${provieMsg}" /></p>	<br/>						  	
+							  	<p><fmt:message key="provie.plandetails.glossary.pt21" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt22" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt23" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt24" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt25" bundle="${provieMsg}" /></p><br/>
+							  	<p><fmt:message key="provie.plandetails.glossary.pt26" bundle="${provieMsg}" /></p>
+							  	
+							  </div>
 						   </div>
 						</div>
 					</div>

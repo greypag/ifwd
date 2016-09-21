@@ -71,6 +71,15 @@ $(document).ready(function(){
 		$("#type-of-extra-rider").change(function(e){
 
 			var cls = $(e.currentTarget).find("option:selected").data("cls");
+
+			//Trigger By User
+			if(e.originalEvent){
+				$(".plan-form-holder .er-color-swap").each(function(){
+					$(this).removeClass("p50 p100 p500");
+					$(this).addClass(cls);
+				});
+				return;
+			}
 			
 			$(".er-color-swap").each(function(){
 				$(this).removeClass("p50 p100 p500");
@@ -82,14 +91,14 @@ $(document).ready(function(){
 			$("#extra-desc").find("." + cls).addClass("active");
 			
 			$("th.cell-extra-rider").each(function(){
-				var t = $(this).text();
+				var t = $(this).html();
 				t = t.replace("100%","{percent}");
 				t = t.replace("50%","{percent}");
 				t = t.replace("500%","{percent}");
 				
 				t = t.replace("{percent}",cls.replace("p","") + "%");
 				
-				$(this).text(t);
+				$(this).html(t);
 			});
 		});
 
@@ -190,7 +199,7 @@ $(document).ready(function(){
 			    },
 			    success:function(response){
 			    	if(response){
-			    		
+			    		$("#type-of-extra-rider").trigger("change");
 			    		//Dummy data
 			    		//response = {"planCode":"Provie-SP","currency":"HKD","rider":"PA","plans":[{"premiumYear":1,"rate":1,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":2,"rate":1.1,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":3,"rate":1.2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":4,"rate":1.3,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":5,"rate":1.4,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}],"creditRates":[{"rate":0,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":1,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":2,"plans":[{"premiumYear":10,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]}]};
 			    		//Normal Table
@@ -352,6 +361,8 @@ $(document).ready(function(){
 			e.preventDefault();
 			$(e.currentTarget).parents(".panel-body").find(".sub-pan").removeClass("show");
 			$($(e.currentTarget).attr("href")).addClass("show");
+			//Hide your_username_box
+			$(".your_username_box").addClass("hide");
 		});
 
 		$(".btn-close-sub").click(function(e){
@@ -610,6 +621,7 @@ $(document).ready(function(){
 		    success:function(response){
 		    	
 		    	if(response){
+		    		console.log(response);
 		    		$("#centre").empty();
 		    		/*var o0 = $("<option/>");
 		    		o0.text("Option0");
@@ -619,7 +631,7 @@ $(document).ready(function(){
 		    		if(response.length > 0){
 		    			for(var i in response){
 			    			var centre = response[i];
-			    			console.log(centre);
+			    			//console.log(centre);
 			    			var option = $("<option/>");
 			    			option.text(centre.serviceCentreName);
 			    			option.val(centre.serviceCentreCode);
@@ -666,7 +678,8 @@ $(document).ready(function(){
 		    	if(response){
 		    		$(".appointment-date").text(response.preferredDate);
 		    		$(".appointment-time").text(response.preferredTime);
-		    		$(".branch-address").text(response.centreCode);
+		    		//$(".branch-address").text(response.centreCode);
+		    		$(".branch-address").text(getServiceCenterName(response.centreCode));
 		    		console.log(response);
 		    	}
 		    	
@@ -676,8 +689,51 @@ $(document).ready(function(){
 		
 	}
 });
+//Get Service Center Name - begin
+function getServiceCenterName(SelCenterCode){
+	//Get Availabe Service Center
+	//alert('Param_SelCenterCode='+SelCenterCode);
+	var SelCenterName="";
+	$.ajax({
+		url:fwdApi.url.getAvailableCentre,
+		type:"get",
+		contentType: "application/json",
+		data:{type:typeId,language:UILANGUAGE  == "EN" ? "EN" : "ZH"},
+		cache:false,
+		async:false,
+		error:function(xhr, textStatus, errorThrown){
 
+			if(xhr.status == 400){
+				console.log('Invalid appointment type.');
+			} else if(xhr.status == 500){
+				console.log('System error.');
+			} else {
+				console.log("unable to load API : "+ fwdApi.url.getAvailableCentre);	
+			}
+	    },
+	    success:function(response){
+	    	if(response){
+	    		//console.log(response);
+	    		//$("#centre").empty();
+	    		if(response.length > 0){
+	    			for(var i in response){
+		    			if (SelCenterCode==response[i].serviceCentreCode){
+		    				//alert('data_centercode=' + response[i].serviceCentreCode);
+		    				SelCenterName = response[i].serviceCentreName;
+		    				//alert('data_centerName=' + response[i].serviceCentreName);
+		    				break;
+		    			}
+		    		}
+	    		}else{
+	    			SelCenterName = "";
+	    		}
+	    	}
+	    }
+	});
 
+    return SelCenterName;
+}
+//Get Service Center Name - end
 
 function bsvFormLogin(form){
 	//Bind Event
@@ -810,8 +866,9 @@ function bsvFormForgotUsername(form){
 					$(".forgotUsernamePanErrMsg").append($("<small/>").text(resp.message));	
 			    },
 			    success:function(response){
-			    	if(response){		    		
-			    		$(".forgotUsernamePanErrMsg").append($("<small/>").text("Please check your email"));	
+			    	if(response){
+			    		$(".your_username_box").removeClass("hide");
+			    		$("#your_username").text(getBundle(getBundleLanguage, "member.login.forgotUserName.success") + " " + response.userName);
 			    	}
 			    },
 			    complete:function(){

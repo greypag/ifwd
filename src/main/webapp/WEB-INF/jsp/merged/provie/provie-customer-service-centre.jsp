@@ -200,6 +200,9 @@ function stickToHeader() {
 														<h4 class="panel-title"><fmt:message key="provie.appoint.forget.username" bundle="${provieMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
 													</div>
 													
+													<div class="hide alert alert-success your_username_box">
+														<span id="your_username"></span>
+													</div>
 
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -491,9 +494,9 @@ function stickToHeader() {
 	$(document).ready(function() {
 		
 		$('#moreThan2Tries-button').click(function(){
-			//alert('clicked');
+			//alert(language);
 			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
-			window.location.href= context + "/" + language + "/savings-insurance/provie";
+			window.location.href= context + "/" + language.toLowerCase() + "/savings-insurance/provie";
 		});
 		
 		return;
