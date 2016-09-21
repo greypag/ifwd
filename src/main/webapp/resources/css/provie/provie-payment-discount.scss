@@ -64,7 +64,7 @@ $usd_basic_color: #ffc450;
 	@extend %offer_basic_txt;
 	color: $hkd_basic_color;
 	display: block;
-	font-size: 1em;
+	font-size: 1.125em;
 	font-weight: bold;
 }
 
@@ -92,7 +92,7 @@ $usd_basic_color: #ffc450;
 	@extend %offer_basic_txt;
 	clear: both;
 	display: block;
-	font-size: 1em;
+	font-size: 1.125em;
 	font-weight: bold;
 	line-height: 1em;
 }
@@ -118,6 +118,13 @@ $usd_basic_color: #ffc450;
 	&:hover, &.active{
 		background-color: $hkd_basic_color;
 		color: #fff;
+	}
+}
+
+.pv_offer_link{
+	color: #fff;
+	&:hover{
+		color: #ff8200;
 	}
 }
 

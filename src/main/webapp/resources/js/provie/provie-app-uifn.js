@@ -134,7 +134,7 @@ $(document).ready(function(){
 					min: affordabilityMin,
 					max: affordabilityPremium,
 					value:100000,
-					step:1000
+					step:5000
 			};
 			var monthly = 1000;
 			if(currency == "USD"){
@@ -144,7 +144,7 @@ $(document).ready(function(){
 						value:10000,
 						step:500
 					};
-				monthly = 125;
+				monthly = 625;
 			}
 			$('.amount-slider').slider(sliderObj);
 			$('.amount-slider').slider("setValue",sliderObj.value);
