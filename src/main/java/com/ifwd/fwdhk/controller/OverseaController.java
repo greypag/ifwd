@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
@@ -33,6 +34,7 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
+import com.ifwd.fwdhk.services.OverseaService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
@@ -51,8 +53,11 @@ public class OverseaController extends BaseController{
 	@Autowired
 	private CommonUtils commonUtils;
 
+	@Autowired
+	private OverseaService overseaService;
+	
 	@RequestMapping(value = {"/{lang}/overseas-study-insurance"})
-	public ModelAndView getOverseaLanding(@RequestParam(required = false) final String promo, Model model, HttpServletRequest request) {
+	public ModelAndView getOverseaLanding(@RequestParam(required = false) final String promo, Model model, HttpServletRequest request,HttpServletResponse response) {
 		UserRestURIConstants.setController("Oversea");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
@@ -60,6 +65,31 @@ public class OverseaController extends BaseController{
 		if (promo != null) {
 			if (!promo.equals("")) {
 				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+				
+				
+				
+				//request.setAttribute("controller", UserRestURIConstants.getController());
+
+				
+				session.removeAttribute("createPolicy");
+				session.removeAttribute("policyNo");
+				try {
+					overseaService.prepareOverseaQuote(request, response, session);
+				} catch (Exception e) {
+					logger.info(e.getMessage());
+					e.printStackTrace();
+				}
+				QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+				if (quoteDetails != null) {
+					request.setAttribute("quoteDetails", quoteDetails);
+					model.addAttribute("quoteDetails", quoteDetails);
+				} else {
+					model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
+					
+				}
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+						+ "/overseas-study-insurance/plan-options");
+				
 			}	
 		}
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_LANDING);

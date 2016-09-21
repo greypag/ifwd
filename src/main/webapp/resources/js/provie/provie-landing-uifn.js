@@ -179,6 +179,7 @@ var fnaLogin = {
 		    success:function(response){
 		    	if(response){
 		    		if(response.userName == '*DIRECTGI'){
+		    			pvCtr.hideAjaxLoading();
 		    			return false;	
 		    		}
 		    		pvCtr.hideAjaxLoading();

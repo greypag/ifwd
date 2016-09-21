@@ -297,7 +297,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	</script>
 	
 	<%@ include file="include/merged/header2.jsp"%>
-	<dec:body />
+	<div class="closeMobileMenu commonBody"><dec:body /></div>
 	<%@ include file="include/merged/footer2.jsp"%>
 
 	<script type="text/javascript">

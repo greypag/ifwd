@@ -179,6 +179,10 @@
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
     
+    var errMsgFromWrongUrl="${errMsgs[0]}";
+    errMsgFromWrongUrl=errMsgFromWrongUrl.substring(1,errMsgFromWrongUrl.length-1);
+    $('#errMsgFromWrongUrl .text-red').html(errMsgFromWrongUrl);
+   
     // update quote area to show headcounts
     if("${corrTravelQuote.planSelected}".toLowerCase() == "family"){
     	if (familyTraveller > 0){
@@ -204,6 +208,8 @@ function getParameterByUrl(name){
      var r = window.location.search.substr(1).match(reg);
      if(r!=null)return  unescape(r[2]); return null;
 }
+
+
 </script>
 <!-- End fixed header -->
 <%
@@ -422,7 +428,10 @@ function getParameterByUrl(name){
 	              <td><span id="travelCountDeskIn"  style="display:none">
 	                 <label class="text-red"><fmt:message key="travel.main.quote.q3.error" bundle="${msg}" /></label>
 	                 </span></td>
-	              <td></td>
+	              <td><span id="errMsgFromWrongUrl" >
+	                 <label class="text-red"></label>
+	                 </span>
+	              </td>
 	             </tr>
 	           </tbody>
 	         </table>

@@ -4,7 +4,7 @@
 //  //System.out.println("uatAuth " + uatAuth);
 //  if (uatAuth == null)
 //      response.sendRedirect(request.getContextPath() + "/uatAuth");
-    
+
 //  if (!uatAuth.equals("ifwdUser"))
 //      response.sendRedirect(request.getContextPath() + "/uatAuth");
 %>
@@ -89,10 +89,10 @@ $(document).ready(function() {
 		             <i class="fa fa-chevron-right"></i>
 		             <li class="active"><fmt:message key="home.breadcrumb1.care" bundle="${msg}" /></li>
 		         </ol>
-		     </div> 		
+		     </div>
 			<div class="carousel-inner">
 				<div class="item active item-border">
-					
+
 					<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image" bundle="${msg}" />" alt="<fmt:message key="home.hero.image.alt" bundle="${msg}" />" />
 				</div>
 				<!--/.item-->
@@ -157,10 +157,10 @@ $(document).ready(function() {
                                         <div class="clearfix"></div>
                                         <p class="col-xs-12 mute">
                                             <!--<fmt:message key="home.main.quote.subheading" bundle="${msg}" /><br>
-                                            <br>--> 
+                                            <br>-->
                                             <fmt:message key="home.main.quote.terms" bundle="${msg}" />
                                         </p>
-                                        
+
                                     </div>
                                 </form:form>
 
@@ -168,10 +168,10 @@ $(document).ready(function() {
                         </div>
                     </div>
 	</section>
-	
+
 	<%
     java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
-	long current = System.currentTimeMillis();  
+	long current = System.currentTimeMillis();
     long start = format.parse("2015-08-03").getTime();
     long end = format.parse("2016-12-31").getTime() + 86400000;
     if(start <= current && end >= current) {
@@ -224,22 +224,22 @@ $(document).ready(function() {
         </div>
     </section>
     <%} %>
-    
+
     <script>
     $( document ).ready(function() {
     	$(".circle_fake").height($(".circle_fake").width());
    	});
-    
+
     $(window).on('resize', function(){
     	$(".circle_fake").height($(".circle_fake").width());
 	});
-    
+
     function showHomePromoHidden(){
         $(".home_promo_banner_content").fadeOut(function(){
             $(".home_promo_banner_hidden_content").fadeIn();
         });
     }
-    
+
     function homePromoGetQuote(dev){
         if(dev=="desktop"){
             if(msgAlertDesk('getHomeQuote')){
@@ -259,8 +259,8 @@ $(document).ready(function() {
     }
 
     </script>
-	
-		
+
+
 		<!--mobile-->
 		<form:form name="getHomeQuote" id="getHomeQuoteMob" action="${pageContext.request.contextPath}/${language}/home-insurance/quote"
 			method="post" modelAttribute="homeCarelPlan">
@@ -317,7 +317,7 @@ $(document).ready(function() {
 				        <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-block btn-color-ylw"
                             onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
 				    </h3>
-						
+
 				</div>
 
 			</div>
@@ -330,7 +330,7 @@ $(document).ready(function() {
 	<!--/#main-slider-->
 
 
-    
+
 
 
 	<section id="feature" style="margin-top:40px;">
@@ -345,8 +345,8 @@ $(document).ready(function() {
 				<h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="home.main.desc" bundle="${msg}" /></h1>
 				<!--end Mobile-->
 			</div>
-			
-			
+
+
 			<!--desktop Features-->
 		    <div class="center wow fadeInDown">
 		        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -396,16 +396,16 @@ $(document).ready(function() {
 		          </div>
 		          <div class="clearfix"></div>
 		      </div>
-			
-			
+
+
 			<div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
 
 				<h2><fmt:message key="home.main.other.benefit" bundle="${msg}" /></h2>
 				  <ul class="bullets">
 				    <li>
                         <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" />
-				    </li>                    
-                    
+				    </li>
+
 				  </ul>
 				  <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner" style="">
 				    <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-right:15px;">
@@ -415,23 +415,23 @@ $(document).ready(function() {
 
 				<p class="col-xs-12 h4-6">
 				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
-							
-					<a href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf" target="_blank" class=""> 
-					<u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> 
+
+					<a href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf" target="_blank" class="">
+					<u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a>
 					<fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" />
-					<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""> 
-					<u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> 
-					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br> 
-					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />					
+					<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class="">
+					<u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a>
+					<fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /><br>
+					<fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" />
 
 
 				</p>
 				<!-- <p class="h4-6">
 				The features above are indicative only. Please refer to the <a
 						href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf"
-						target="_blank" class="sub-link"> Policy Provisions </a> for details. 
+						target="_blank" class="sub-link"> Policy Provisions </a> for details.
 For a complete explanation of the terms and conditions, feel free to contact an adviser or our 24-hour hotline at 3123 3123 for more details.
-				
+
 				</p>-->
 			</div>
 			<!--/.container-->
@@ -451,22 +451,22 @@ For a complete explanation of the terms and conditions, feel free to contact an 
                       </div>
                       <!--/.item-->
 				    </div>
-				    <!--/.carousel-inner--> 
+				    <!--/.carousel-inner-->
 				    <!--<a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
 				    <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>-->
 				  </div>
 				  <!--/.carousel-->
 				  <div class="clearfix"></div>
-				  
+
 				  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
                     <div class="col-lg-12 col-md-12 col-xs-12">
                         <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">
-                    </div>  			    
+                    </div>
 				  </div>
 
 				  <div class="spacer3"></div>
 				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /></p>
-				  
+
 				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" /></p>
 				<!--/.container-->
 				</div>
@@ -533,17 +533,17 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							<div class="recent-work-wrap text-center">
 								<div class="recent-work-inner">
 									<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />" />
-									
+
 									<h1>
 								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
 							</h1>
-									
+
 								<p>
 								<fmt:message key="home.main.highlight1.desc.part1" bundle="${msg}" /><a
 									href="<fmt:message key="app.download.link" bundle="${msg}" />"
 									target="_blank"> <fmt:message key="home.main.highlight1.desc.part2" bundle="${msg}" /></a> <fmt:message key="home.main.highlight1.desc.part3" bundle="${msg}" />
 								</p>
-									
+
 								</div>
 							</div>
 						</div>
@@ -617,7 +617,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 							</div>
 							<p class="pad-none text-italic">
 								<fmt:message key="home.main.testimonial.customer1" bundle="${msg}" />
-								
+
 							</p>
 							<br>
 							<div class="hr1"></div>
@@ -633,7 +633,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								<blockquote class="testimonial"></blockquote>
 							</div>
 							<p class="pad-none text-italic">
-							
+
 								<fmt:message key="home.main.testimonial.customer2" bundle="${msg}" />
 								</p>
 							<div class="hr1"></div>
@@ -749,7 +749,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 								src="<%=request.getContextPath()%>/resources/images/home9.png" alt="">
 								</a>
 							<h3>
-								<a href="<fmt:message key="home.blog.post2.link" bundle="${msg}" />" target="_blank"> 
+								<a href="<fmt:message key="home.blog.post2.link" bundle="${msg}" />" target="_blank">
 								<fmt:message key="home.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i>
 								</a>
 							</h3>
@@ -779,7 +779,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 
 			<p>
 			<fmt:message key="home.main.blog.disclaimer" bundle="${msg}" />
-			
+
 			</p>
 
 
@@ -854,7 +854,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 
 	<!--/mob-#bottom-->
 	<div class="modal fade" id="oldHome"
-	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" 
+	tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 	aria-hidden="true" style="display: none;">
 	<div class="modal-dialog modal-lg">
 		<div id="homecareLandingModal" class="modal-content plan-modal">
@@ -863,7 +863,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
                  <span aria-hidden="true" style="font-size:30px;">×</span>
                </a>
             </div>
-		     
+
 		   		<p class="errorMsg"><fmt:message key="homecare.uw.question1.notEntitled.message" bundle="${msg}" /></p>
 		   		<br/>
       		</div>

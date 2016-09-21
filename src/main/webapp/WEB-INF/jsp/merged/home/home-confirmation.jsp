@@ -185,6 +185,9 @@ var plan="${plan}";
 </div>
 <script >
 $.getScript("http://www.googletagmanager.com/gtm.js?id=GTM-MWPF25",function(){
+	
+	
+	
 	ga('create', 'UA-60032236-1', 'auto');
 	ga('require', 'ecommerce');
 	ga('ecommerce:addTransaction', {
@@ -193,14 +196,27 @@ $.getScript("http://www.googletagmanager.com/gtm.js?id=GTM-MWPF25",function(){
 	  'affiliation': 'Protect', // Insurance type, e.g. Life
 	   'currency': 'HKD'
 	  });
-	ga('ecommerce:addItem', {
-	      'id': '${transNo}', // Transaction ID. Required
-	      'name': 'Home Liability', // Product name. Required
-	      'category': 'Household', // Category or variation
-	      'price': '${dueAmount}', // Unit price
-	      'quantity': '2',
-	      'currency': 'HKD'
-	    });
+	if(plan=='easy-home-care'){
+		ga('ecommerce:addItem', {
+		      'id': '${transNo}', // Transaction ID. Required
+		      'name': 'Easy homeCare', // Product name. Required
+		      'category': 'Household', // Category or variation
+		      'price': '${dueAmount}', // Unit price
+		      'quantity': '2',
+		      'currency': 'HKD'
+		    });
+		
+	}else{
+		ga('ecommerce:addItem', {
+		      'id': '${transNo}', // Transaction ID. Required
+		      'name': 'Home Liability', // Product name. Required
+		      'category': 'Household', // Category or variation
+		      'price': '${dueAmount}', // Unit price
+		      'quantity': '2',
+		      'currency': 'HKD'
+		    });
+	}
+	
 	ga('ecommerce:send');
 });
 /* $(document).ready(function() {
