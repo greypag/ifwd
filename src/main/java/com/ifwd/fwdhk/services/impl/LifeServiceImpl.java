@@ -3523,7 +3523,8 @@ public class LifeServiceImpl implements LifeService {
 			subject = "FWD Savie Insurance Plan – Documents Upload [" + lifePolicy.getPolicyNo() + "] | 富衛Savie自助息 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "savie\\uploadDocument.html";
 		}else if("savieComplete".equals(action)) {
-			subject = "Your online application of FWD Savie is completed! 您的富衛Savie自助息網上申請已完成！";
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+			subject = "Your online application of FWD Savie is completed! 您的富衛Savie自助息網上申請已完成！ (" + lifePolicy.getPolicyNo() + ")";
 			template = "savie\\savieComplete.html";
 		}else if("signLater".equals(action)) {
 			subject = "Savie Appointment Acknowledgement from FWD | Savie自助息理財預約申請確認";
