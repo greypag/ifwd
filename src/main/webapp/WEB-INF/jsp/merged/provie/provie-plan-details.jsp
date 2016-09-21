@@ -332,6 +332,7 @@
 							
 						</tbody>
 					</table>
+					<p class="small"><fmt:message key="provie.plandetails.summary.totalpremium.remark" bundle="${provieMsg}" /></p>
 				</div>
 
 				<div class="tbl-rate-mobile visible-xs visible-sm clearfix sticky-table tbl_mob_header">
@@ -388,6 +389,7 @@
 							<tbody></tbody>
 						</table>
 					</div>
+					<p class="small"><fmt:message key="provie.plandetails.summary.totalpremium.remark" bundle="${provieMsg}" /></p>
 				</div>
 			</div>
 			<div class="collapse" id="after-5-years-container">
@@ -437,6 +439,7 @@
 									
 								</tbody>
 							</table>
+							<p class="small"><fmt:message key="provie.plandetails.summary.totalpremium.remark" bundle="${provieMsg}" /></p>
 						</div>
 						<div id="rate-table-1" class="rate-table">
 							<table class="table">
@@ -471,6 +474,7 @@
 									
 								</tbody>
 							</table>
+							<p class="small"><fmt:message key="provie.plandetails.summary.totalpremium.remark" bundle="${provieMsg}" /></p>
 						</div>
 						<div id="rate-table-2" class="rate-table">
 							<table class="table">
@@ -505,6 +509,7 @@
 									
 								</tbody>
 							</table>
+							<p class="small"><fmt:message key="provie.plandetails.summary.totalpremium.remark" bundle="${provieMsg}" /></p>
 						</div>
 					</div>
 					<div class="visible-xs visible-sm ">
@@ -550,6 +555,7 @@
 								</tbody>
 							</table>
 						</div>
+						<p class="small"><fmt:message key="provie.plandetails.summary.totalpremium.remark" bundle="${provieMsg}" /></p>
 					</div>
 					<div id="rate-table-1-mob" class="tbl-rate-mobile clearfix sticky-table">
 						<div class="sticky-header">
@@ -593,6 +599,7 @@
 								</tbody>
 							</table>
 						</div>
+						<p class="small"><fmt:message key="provie.plandetails.summary.totalpremium.remark" bundle="${provieMsg}" /></p>
 					</div>
 					<div id="rate-table-2-mob" class="tbl-rate-mobile clearfix sticky-table">
 						<div class="sticky-header">
@@ -636,6 +643,7 @@
 								</tbody>
 							</table>
 						</div>
+						<p class="small"><fmt:message key="provie.plandetails.summary.totalpremium.remark" bundle="${provieMsg}" /></p>
 					</div>
 					</div>	
 					

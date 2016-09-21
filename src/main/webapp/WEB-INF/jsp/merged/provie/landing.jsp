@@ -87,6 +87,7 @@ var home_url = "<%=request.getContextPath()%>";
             			<div class="col-xs-12">
 	            			<div class="pv_desc">
 	            				<!-- 主動出擊，實現儲蓄大計！<fmt:message key="provie.title" bundle="${provieMsg}" /> 真息揀理財壽險計劃於<span class="pv_highlight">首 5 年享有年度保證派息率</span>，確保戶口持續增值；更可零收費隨時提取戶口金額，另設三選一額外保障，靈活儲蓄，就由今天開始！ -->
+	            				<fmt:message key="provie.landing.fixrate.table.text0" bundle="${provieMsg}" />
 	            			</div>
             			</div>
             			<div class="col-xs-12 text-center">
@@ -452,6 +453,20 @@ var home_url = "<%=request.getContextPath()%>";
 
 	            	<div class="row">
 	            		<a href="<%=request.getContextPath()%>/resources/pdf/provie/Provie Premium discount TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="provie.landing.discount.pdf.link1" bundle="${provieMsg}" /></a>
+	            	</div>
+
+	            	<div class="row pv_offer_remarks">
+	            		<p>
+	            			<fmt:message key="provie.landing.offer.text1" bundle="${provieMsg}" />
+	            			<br>
+	            			<fmt:message key="provie.landing.offer.text2" bundle="${provieMsg}" />
+	            		</p>
+						<ul>
+							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text3" bundle="${provieMsg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text4" bundle="${provieMsg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text5" bundle="${provieMsg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text6" bundle="${provieMsg}" /></li>
+						</ul>
 	            	</div>
 				</div>
             </div>
@@ -966,18 +981,6 @@ var home_url = "<%=request.getContextPath()%>";
 								<tr>
 									<td colspan="6">
 										<span class="inner pv_remark">
-											<fmt:message key="provie.landing.table.remarks1.text1" bundle="${provieMsg}" />
-											<fmt:message key="provie.landing.table.remarks1.text2" bundle="${provieMsg}" />
-											<fmt:message key="provie.landing.table.remarks1.text3" bundle="${provieMsg}" />
-											<fmt:message key="provie.landing.table.remarks1.text4" bundle="${provieMsg}" />
-											<fmt:message key="provie.landing.table.remarks1.text5" bundle="${provieMsg}" />
-											<fmt:message key="provie.landing.table.remarks1.text6" bundle="${provieMsg}" />
-										</span>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="6">
-										<span class="inner pv_remark">
 											<fmt:message key="provie.landing.table.remarks2.text1" bundle="${provieMsg}" />
 											<br>
 											<fmt:message key="provie.landing.table.remarks3.text1" bundle="${provieMsg}" />
@@ -1110,18 +1113,6 @@ var home_url = "<%=request.getContextPath()%>";
 															</span>
 														</td>
 													</tr>
-													<tr>
-														<td colspan="6">
-															<span class="inner pv_remark">
-																<fmt:message key="provie.landing.table.remarks1.text1" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text2" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text3" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text4" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text5" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text6" bundle="${provieMsg}" />
-															</span>
-														</td>
-													</tr>
 												</table>
 											</div>
 										</div>
@@ -1204,18 +1195,6 @@ var home_url = "<%=request.getContextPath()%>";
 																<sup>*</sup><fmt:message key="provie.landing.table.acctvalue.remarks1" bundle="${provieMsg}" />
 																<br>
 																<sup>**</sup><fmt:message key="provie.landing.table.acctvalue.remarks2" bundle="${provieMsg}" />
-															</span>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="6">
-															<span class="inner pv_remark">
-																<fmt:message key="provie.landing.table.remarks1.text1" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text2" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text3" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text4" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text5" bundle="${provieMsg}" />
-																<fmt:message key="provie.landing.table.remarks1.text6" bundle="${provieMsg}" />
 															</span>
 														</td>
 													</tr>
@@ -1361,7 +1340,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="col-md-4 col-md-offset-2 pv_fna_input">
 
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" tabindex="1" id="fnaUser">
+										<input tabindex="1" type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" tabindex="1" id="fnaUser">
 										<label class="mdl-textfield__label" for="fnaUser"><fmt:message key="provie.landing.fna.username" bundle="${provieMsg}" /></label>
 										
 									</div>
@@ -1372,7 +1351,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="col-md-4 pv_fna_input">
 
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input type="password" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="fnaPwd">
+										<input tabindex="2" type="password" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="fnaPwd">
 										<label class="mdl-textfield__label" for="fnaPwd"><fmt:message key="provie.landing.fna.pw" bundle="${provieMsg}" /></label>
 										
 									</div>

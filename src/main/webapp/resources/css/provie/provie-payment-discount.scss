@@ -10,6 +10,7 @@ $usd_basic_color: #ffc450;
 
 .pv_offers{
 	background-color: $bg_color;
+	color: #fff;
 	font-weight: bold;
 	line-height: initial;
 	padding: 20px 0;
@@ -57,6 +58,7 @@ $usd_basic_color: #ffc450;
 }
 
 .pv_offer_req{
+	color: #000;
 	padding: 2.375em 1em;
 }
 
@@ -123,8 +125,22 @@ $usd_basic_color: #ffc450;
 
 .pv_offer_link{
 	color: #fff;
+	display: inline-block;
+	margin: 1em 0;
+	text-decoration: underline;
 	&:hover{
 		color: #ff8200;
+	}
+}
+
+.pv_offer_remarks{
+	padding: 0 1em;
+	text-align: left;
+	ul{
+		padding-left: 1em;
+	}
+	.pv_offer_remark{
+		list-style: disc;
 	}
 }
 
