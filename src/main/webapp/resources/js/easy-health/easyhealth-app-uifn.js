@@ -158,20 +158,33 @@ $(document).ready(function(){
 								if($("#ccNumber").data("bv.result.notEmpty") === "INVALID"){
 									return true
 								}
-								var cardtype = "";
-								$(".cardtype").find("span").removeClass("detected");
-								cardtype = $("#ccNumber").hasClass("visa")?"visa":$("#ccNumber").hasClass("mastercard")?"mastercard":"";
-								if(cardtype != ""){
-									if($.payment.validateCardNumber($("#ccNumber").val())){
-										$(".cardtype").find("span."+cardtype).addClass("detected");
-										$('#pMethod').val($("#ccNumber").hasClass("visa")?"VISA":$("#ccNumber").hasClass("mastercard")?"Master":"Unknown");
-										return true;
-									}else{
-										return false;
-									}									
-								}else{
+								//var cardtype = "";
+								//$(".cardtype").find("span").removeClass("detected");
+								//cardtype = $("#ccNumber").hasClass("visa")?"visa":$("#ccNumber").hasClass("mastercard")?"mastercard":"";
+								//if(cardtype != ""){
+								//	if($.payment.validateCardNumber($("#ccNumber").val())){
+								//		$(".cardtype").find("span."+cardtype).addClass("detected");
+								//		$('#pMethod').val($("#ccNumber").hasClass("visa")?"VISA":$("#ccNumber").hasClass("mastercard")?"Master":"Unknown");
+								//		return true;
+								//	}else{
+								//		return false;
+								//	}									
+								//}else{
+								//	return false;
+								//}
+
+								var cc = $('#ccNumber').val();
+								if( fwdPayment.isValid(cc) ){
+									if( fwdPayment.isMaster(cc) ){
+										$("#pMethod").val("Master");	
+									} else {
+										$("#pMethod").val("VISA");	
+									}
+									return true;
+								} else {
 									return false;
 								}
+								
 								//console.log($("#ccNumber").data());
 								
 							}
@@ -211,9 +224,11 @@ $(document).ready(function(){
 							//message:'Please enter security code on credit card.'
 							message:getBundle(getBundleLanguage, "applicant.creditcard.cvv.notNull.message")
 						},
-						cvv: {
-							creditCardField: 'ccNumber',
-							message: getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message")
+						callback: {
+							message: getBundle(getBundleLanguage, "form.credit.card.cvv.invalid"),
+							callback: function(value, validator) {
+                           		return /^[0-9]{3,4}$/.test(value);
+							}
 						}
 					}
 				},

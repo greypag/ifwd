@@ -1284,5 +1284,4 @@ var clicked = false;
 	</form>
 </div> -->
 
-</body>
-</html>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>

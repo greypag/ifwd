@@ -695,3 +695,6 @@ function BackMe() {
 	window.location="<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/application";
 }
 </script>
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
+

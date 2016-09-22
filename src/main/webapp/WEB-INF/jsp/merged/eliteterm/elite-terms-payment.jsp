@@ -366,7 +366,7 @@ var languageP = "${language}";
  				firstErrorElementId="card-num";
  			}
  		}
- 		else if(!isCreditCard(cardNum.replace(/\s+/g,""))){
+ 		else if(!fwdPayment.isValid(cardNum)){
  			flag=false;
  			$('#errcardno').html(getBundle(getBundleLanguage, "applicant.creditcard.notValid.message"));
  			$("#card-num").addClass("invalid-field");
@@ -463,29 +463,38 @@ var languageP = "${language}";
  		return flag;
  	}
 
- 	function validateCardNumber(cardNum) {
+ 	function validateCardNumber(cc) {
  		// See if the card is valid
  		// The regex will capture the number in one of the capturing groups
- 		var match = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14}))$/.exec(cardNum);
- 		
- 		if (match) {
- 			// List of card types, in the same order as the regex capturing groups
- 			var types = ['Unknown', 'VISA', 'Master'];
- 			// Find the capturing group that matched
- 			// Skip the zeroth element of the match array (the overall match)
- 			for (var i = 1; i < match.length; i++) {
- 				if (match[i]) {
- 					// Display the card type for that group
-				 	$('#pMethod').val(types[i]);
- 					break;
- 				}
- 			}
- 		} else {
- 			return false;
- 		}
- 		return true;
- 	}
+ 		//var match = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14}))$/.exec(cardNum);
+ 		//
+ 		//if (match) {
+ 		//	// List of card types, in the same order as the regex capturing groups
+ 		//	var types = ['Unknown', 'VISA', 'Master'];
+ 		//	// Find the capturing group that matched
+ 		//	// Skip the zeroth element of the match array (the overall match)
+ 		//	for (var i = 1; i < match.length; i++) {
+ 		//		if (match[i]) {
+ 		//			// Display the card type for that group
+		//		 	$('#pMethod').val(types[i]);
+ 		//			break;
+ 		//		}
+ 		//	}
+ 		//} else {
+ 		//	return false;
+ 		//}
+ 		//return true;
 
+ 		if ( fwdPayment.isValid(cc) ){
+ 			if( fwdPayment.isMaster(cc) ){
+ 				$('#pMethod').val('Master');
+ 			} else if( fwdPayment.isVisa(cc) ){
+ 				$('#pMethod').val('VISA');
+ 			}
+ 			return true;
+ 		}
+ 		return false;
+ 	}
     	
  	//function copyCardNo(){
  	//	$('#cardNo').val($('#card-num').val().replace(/\s+/g,""));
@@ -553,3 +562,5 @@ var languageP = "${language}";
 
     })
 </script>
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
