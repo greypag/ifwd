@@ -620,6 +620,7 @@ public class AjaxLifeController extends BaseController{
 				saviePlanDetails.setDob(savieFna.getDob());
 				savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, request.getSession());
 				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
+				request.getSession().setAttribute("fatcaYes", "fatcaYes");
 			}
 		}
 		catch (ECOMMAPIException e) {
