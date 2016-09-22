@@ -738,7 +738,7 @@ body {
   }
 }
 
-/*.fwd-savie-wrapper { 
+/*.fwd-savie-wrapper {
 	header {
 		.navbar-fixed-top {
 			height: auto;
@@ -969,18 +969,18 @@ body {
 	}
     .mobile-menu-V2 .dropdown:hover ul.dropdown-menu, .mobile-menu-V2 .dropdown:hover div.dropdown-menu{
        display: none;
-    }	
+    }
 }
 @media (min-width: 992px) {
 	#myDropdown.dropdown:hover .dropdown-menu {
-	   display: none; 	
+	   display: none;
 	}
 }
 .fwd-savie-wrapper #header #myDropdown.logout-btn.open>.dropdown-menu{
 	display: block;
 }
 .fwd-savie-wrapper #header .menutab-V2 .dropdown:hover .dropdown-menu{
-  display: block;	
+  display: block;
 }
 /* line 203, ../sass/partials/savie/_header.scss */
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu.protect-drop {
@@ -1112,7 +1112,7 @@ body {
     left: initial;
     padding-left: 15px;
   }
-  
+
 }
 @media (min-width:992px) and (min-resolution: +72dpi) {
   .savie-regular-landing .page-banner .img-banner-text {
@@ -1236,6 +1236,36 @@ body {
   margin-top: 8px;
   //border: 1px #fdb714 solid;
 }
+/* #3501, 22Sep2016, [384width, LG L70] fixed for easy-health landing page */
+@media (max-width: 444px) and (min-width: 401px){
+    .savie-regular-landing .page-banner .img-banner-text .start-btn {
+      background: #fdb714;
+      border-color: #cf9611;
+      font-size: 14px;
+      max-width: 80px;
+      padding: 4px 0 5px;
+      margin-top: 20px;
+    }
+    .savie-regular-landing .page-banner .img-banner-text .savie-product {
+      margin-top: 8px;
+      margin-bottom: -5px;
+    }
+}
+/* #3501, 22Sep2016, [320width, iPhone5] fixed for easy-health landing page */
+@media (max-width: 400px) {
+    .savie-regular-landing .page-banner .img-banner-text .start-btn {
+      background: #fdb714;
+      border-color: #cf9611;
+      font-size: 12px;
+      max-width: 80px;
+      padding: 3px 0 2px;
+      margin-top: 25px;
+    }
+    .savie-regular-landing .page-banner .img-banner-text .savie-product {
+      margin-top: 8px;
+      margin-bottom: -10px;
+    }
+}
 /* line 99, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .page-banner .img-banner-text .start-btn:hover, .savie-regular-landing .page-banner .img-banner-text .start-btn:focus {
   background-color: #fff;
@@ -1302,9 +1332,9 @@ body {
 @media (min-width: 1900px) {
   /* line 132, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion {
-    
+
    padding-top: 75px;
-  
+
   }
 }
 /* line 152, ../sass/partials/savie/_landing-page.scss */
@@ -1591,7 +1621,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
   .savie-regular-landing .payment-mode .rate ul li {
     //padding-left: 15px;
   }
-  
+
   body.chin .savie-regular-landing .payment-mode .rate ul li {
   	font-size: 12px;
   }
@@ -1766,7 +1796,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  
+
   .savie-regular-landing .benefits-desktop {
   	font-size: 30px;
   }
@@ -1803,7 +1833,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
   display: block;
   font-size: 14px;
   margin-top: 4px;
-  
+
 }
 /* line 481, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .regular-benefit .benefits-holder .row .two-lines {
@@ -2798,7 +2828,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 /* line 155, ../sass/partials/_thank-you-update.scss */
 .thank-you-container .details-full .appointment-detail label {
   max-width: 180px;
-  
+
 }
 /* line 161, ../sass/partials/_thank-you-update.scss */
 .thank-you-container .offline-procedure {
@@ -4254,7 +4284,7 @@ header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li a {
 }
 /* line 220, ../sass/partials/_header.scss */
 header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.top-menu-chinese {
-  font-family: 'Microsoft Yahei','Ã¥Â¾Â®Ã¨Â½Â¯Ã©þýºâþýÃ©Â»þý˜Ã¤Â½âþý', 'STXihei', 'Ã¥ï¿½Å½Ã¦âþýþý¡Ã§Â´Â°Ã©Â»âþý', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','Ã¥Â¾Â®Ã¨Â½Â¯Ã©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã©Â»ï¿½ï¿½ï¿½Ã¤Â½ï¿½ï¿½ï¿½', 'STXihei', 'Ã¥ï¿½Å½Ã¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã§Â´Â°Ã©Â»ï¿½ï¿½ï¿½', Arial, Helvetica, sans-serif;
 }
 /* line 225, ../sass/partials/_header.scss */
 header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.reset-padding-menu {
@@ -4351,7 +4381,7 @@ header .navbar-fixed-top .buttons-and-chat .btn-eServices-my-account:hover, head
 header .navbar-fixed-top .buttons-and-chat .btn-chinese {
   float: left;
   background-color: #000;
-  font-family: 'Microsoft Yahei','Ã¥Â¾Â®Ã¨Â½Â¯Ã©þýºâþýÃ©Â»þý˜Ã¤Â½âþý', 'STXihei', 'Ã¥ï¿½Å½Ã¦âþýþý¡Ã§Â´Â°Ã©Â»âþý', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','Ã¥Â¾Â®Ã¨Â½Â¯Ã©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã©Â»ï¿½ï¿½ï¿½Ã¤Â½ï¿½ï¿½ï¿½', 'STXihei', 'Ã¥ï¿½Å½Ã¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã§Â´Â°Ã©Â»ï¿½ï¿½ï¿½', Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 6px 10px;
   height: 33px;
@@ -5331,11 +5361,11 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
       padding-left: 15px;
       font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
   }
-	
+
 	.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
 		margin-top: -19px;
 	}
-	
+
 	.fwd-savie-wrapper header .navbar {
 		border-bottom: 1px solid #d7d8d7;
 	}
@@ -5402,7 +5432,7 @@ body.chin .ch-banner-img {
     margin: 0;
     margin-right: 34px;
     max-width: 302px;
-    
+
 }
 #clearfix-height{
 	height: 63px;
@@ -5433,7 +5463,7 @@ body.chin .ch-banner-img {
 	.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content .continue-holder {
 		text-align: center;
 	}
-	
+
 	.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
 		margin: 0;
 	}
@@ -5443,11 +5473,11 @@ body.chin .ch-banner-img {
 	.fwd-savie-wrapper .after-year-three, .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons .fwd-chart-col {
 		width: 50%;
 	}
-	
+
 	.savie-regular-plan-details .investment .tab-content.credits .percent-buttons .fwd-chart-col .right-side {
 		margin-right: 0;
 	}
-	
+
 	.chart-button-holder {
 		float: right;
 		margin-top: 10px;
@@ -5462,7 +5492,7 @@ body.chin .ch-banner-img {
     }
     .savie-regular-landing .payment-mode .rate ul li.with-padding{
         padding-left: 0;
-    }   
+    }
 }
 
 /*Temporarily Fix for Savie Regular Confirmation */
