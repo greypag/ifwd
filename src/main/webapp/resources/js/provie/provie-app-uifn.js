@@ -679,7 +679,8 @@ $(document).ready(function(){
 		    		$(".appointment-date").text(response.preferredDate);
 		    		$(".appointment-time").text(response.preferredTime);
 		    		//$(".branch-address").text(response.centreCode);
-		    		$(".branch-address").text(getServiceCenterName(response.centreCode));
+		    		//$(".branch-address").text(getServiceCenterName(response.centreCode));
+		    		getServiceCenterName(response.centreCode);
 		    		console.log(response);
 		    	}
 		    	
@@ -693,7 +694,7 @@ $(document).ready(function(){
 function getServiceCenterName(SelCenterCode){
 	//Get Availabe Service Center
 	//alert('Param_SelCenterCode='+SelCenterCode);
-	var SelCenterName="";
+	//var SelCenterName="";
 	$.ajax({
 		url:fwdApi.url.getAvailableCentre,
 		type:"get",
@@ -719,19 +720,22 @@ function getServiceCenterName(SelCenterCode){
 	    			for(var i in response){
 		    			if (SelCenterCode==response[i].serviceCentreCode){
 		    				//alert('data_centercode=' + response[i].serviceCentreCode);
-		    				SelCenterName = response[i].serviceCentreName;
+		    				//SelCenterName = response[i].serviceCentreName;
 		    				//alert('data_centerName=' + response[i].serviceCentreName);
+		    				//alert(response[i].address);
+		    				$(".branch-name").text(response[i].serviceCentreName);
+		    				$(".branch-address").text(response[i].address);
 		    				break;
 		    			}
 		    		}
 	    		}else{
-	    			SelCenterName = "";
+	    			$(".branch-name").text('');
+	    			$(".branch-address").text('');
 	    		}
 	    	}
 	    }
 	});
-
-    return SelCenterName;
+ //   return SelCenterName;
 }
 //Get Service Center Name - end
 
