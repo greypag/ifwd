@@ -142,9 +142,9 @@ $(document).ready(function(){
 						min: affordabilityMinUSD,
 						max: affordabilityPremiumUSD,
 						value:10000,
-						step:500
+						step:625
 					};
-				monthly = 625;
+				monthly = 125;
 			}
 			$('.amount-slider').slider(sliderObj);
 			$('.amount-slider').slider("setValue",sliderObj.value);
