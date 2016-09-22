@@ -202,7 +202,7 @@ $.getScript("http://www.googletagmanager.com/gtm.js?id=GTM-MWPF25",function(){
 		      'name': 'Easy homeCare', // Product name. Required
 		      'category': 'Household', // Category or variation
 		      'price': '${dueAmount}', // Unit price
-		      'quantity': '2',
+		      'quantity': '1',
 		      'currency': 'HKD'
 		    });
 		
@@ -212,7 +212,7 @@ $.getScript("http://www.googletagmanager.com/gtm.js?id=GTM-MWPF25",function(){
 		      'name': 'Home Liability', // Product name. Required
 		      'category': 'Household', // Category or variation
 		      'price': '${dueAmount}', // Unit price
-		      'quantity': '2',
+		      'quantity': '1',
 		      'currency': 'HKD'
 		    });
 	}

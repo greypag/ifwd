@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -470,16 +471,40 @@ public class ECommController extends BaseController {
 			request.setAttribute("chooseCode", code);
 			request.setAttribute("chooseId", choose);
 		}
+		
+		
+		
+		Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNTS + "?";
 		for(int i = 0; i < indexs.length; i++) {
-			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
-			if (responseJsonObj.get("errMsgs") == null) {
-				int availableCount = Integer.parseInt(responseJsonObj.get("availableCount").toString());
-				model.addAttribute("count" + i, availableCount);
-			} else {
-				model.addAttribute("count" + i, 0);
-			} 
+			if (i > 0) {
+				Url = Url + "&";
+			}
+			Url = Url + "campaign_id" + (i + 1) + "=" + indexs[i];
 		}
+		
+		responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+		if (responseJsonObj.get("errMsgs") == null) {
+			JSONArray promoCodeCounts = (JSONArray) responseJsonObj.get("promoCodeCounts");
+			for (int i =0; i< promoCodeCounts.size(); i++) {
+				JSONObject o = (JSONObject) promoCodeCounts.get(i);
+				System.out.println("i " + i + " count " + o.get("count").toString());
+				model.addAttribute("count" + i, o.get("count").toString());
+				
+			}
+		}
+//		
+//		
+//		
+//		for(int i = 0; i < indexs.length; i++) {
+//			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
+//			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+//			if (responseJsonObj.get("errMsgs") == null) {
+//				int availableCount = Integer.parseInt(responseJsonObj.get("availableCount").toString());
+//				model.addAttribute("count" + i, availableCount);
+//			} else {
+//				model.addAttribute("count" + i, 0);
+//			} 
+//		}
 		session.removeAttribute("chooseCampaign");
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "campaign/fwdiscover");			
 	}	

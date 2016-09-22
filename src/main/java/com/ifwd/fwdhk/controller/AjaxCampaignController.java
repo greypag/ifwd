@@ -192,9 +192,9 @@ public class AjaxCampaignController extends BaseController {
 	@ResponseBody
 	public void getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			if (Methods.isXssAjax(request)) {
-				throw new Exception("invalid AJAX call");
-			}
+//			if (Methods.isXssAjax(request)) {
+//				throw new Exception("invalid AJAX call");
+//			}
 			Map<String, String> counts = campaignService.getAllAvailablePromoCodeCountByCampaign(request);
 			ajaxReturn(response, counts);
 		} catch (Exception e) {
