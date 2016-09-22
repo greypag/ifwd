@@ -5058,56 +5058,44 @@ function isCreditCard(CC) {
 
 //travel Payment Summary Payment details//
 function validatecardnumber(cardnumber) {
-	// Strip spaces and dashes
 
-
-	cardnumber = cardnumber.replace(/[ -]/g, '');
+	cc = cardnumber.replace(/[ -]/g, '');
 	// See if the card is valid
-	// The regex will capture the number in one of the capturing groups
-	//var match = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/.exec(cardnumber);
-	var match = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/.exec(cardnumber);
-	
-	if (match && isCreditCard(cardnumber)) {
-		// List of card types, in the same order as the regex capturing groups
-		var types = ['Visa', 'MasterCard', 'Discover', 'American Express', 'Diners Club', 'JCB'];
-		// Find the capturing group that matched
-		// Skip the zeroth element of the match array (the overall match)
-		for (var i = 1; i < match.length; i++) {
-			if (match[i]) {
-				// Display the card type for that group
-//				document.getElementById('errcardno').innerHTML = types[i - 1];
-				if (i == 1) {
-					if( document.getElementById("chkVisa") ){
-						document.getElementById("chkVisa").checked=true;
-					}
-				} else {
-					if( document.getElementById("chkMaster") ){
-						document.getElementById("chkMaster").checked=true;
-					}
-					
-				}
-				if( document.getElementById('errcardno') ){
-					document.getElementById('errcardno').innerHTML = '';
-				}
-				break;
+	if( fwdPayment.isValid(cc) ){
+		
+		if( fwdPayment.isVisa(cc) ){
+			if( document.getElementById("chkVisa") ){
+				document.getElementById("chkVisa").checked=true;
+			}
+		} else if( fwdPayment.isMaster(cc) ){
+			if( document.getElementById("chkMaster") ){
+				document.getElementById("chkMaster").checked=true;
 			}
 		}
-	} else {
+
+		if( document.getElementById('errcardno') ){
+			document.getElementById('errcardno').innerHTML = '';
+		}
+	} else{
+
 		if( document.getElementById('errcardno') ){
 			
-			if(cardnumber=="") {
+			if(cc=="") {
 				document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notNull.message")
 			}
 			else {
 				document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
 			}
 		}
+
 		$(".cardnumber").addClass("invalid-field");
 		$("#card-num").addClass("invalid-field");
 		return false;
 	}
+
 	$(".cardnumber").removeClass("invalid-field");
 	$("#card-num").removeClass("invalid-field");
+	
 	return true;
 }
 
@@ -5148,7 +5136,7 @@ function payValid(paymentType)
 			}
 		}
 		
-		if(!isCreditCard(cardno))
+		if(!fwdPayment.isValid(cardno))
 		{
 			flag=false;
 			$('#errcardno').html(getBundle(getBundleLanguage, "applicant.creditcard.notValid.message"));

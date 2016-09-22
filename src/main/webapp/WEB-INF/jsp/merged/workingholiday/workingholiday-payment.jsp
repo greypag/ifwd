@@ -611,4 +611,6 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
         src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 </div>
 
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wh-details.js"></script>
+

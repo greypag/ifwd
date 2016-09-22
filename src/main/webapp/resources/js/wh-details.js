@@ -724,7 +724,7 @@ function whPayValid()
 	var firstErrorElementId="";
 	
 	
-	if(cardno.length<16 || !isCreditCard(cardno))
+	if(cardno.length<16 || !fwdPayment.isValid(cardno))
 	{
 		flag=false;
 		$('#errcardno').html(getBundle(getBundleLanguage, "payment.creditCard.number.notValid.message"));
