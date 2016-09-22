@@ -162,6 +162,8 @@ public class UserRestURIConstants {
 	
 	/*API For Campaign Promo Code*/
 	public static final String CAMPAIGN_PROMO_CODE_GET_COUNT = SERVICE_URL + "/leads/campaign/promoCodeCount";
+	public static final String CAMPAIGN_PROMO_CODE_GET_COUNTS = SERVICE_URL + "/leads/campaign/promoCodeCounts";
+	
 	public static final String CAMPAIGN_PROMO_CODE_ASSIGN = SERVICE_URL + "/leads/campaign/assignPromoCode";
 	
 	/*API For savie online*/

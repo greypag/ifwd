@@ -131,9 +131,23 @@ public class CampaignServiceImpl implements CampaignService {
 		Map<String,String> map = new HashMap<String,String>();
 		String Url;
 		JSONObject responseJsonObj;
+		Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?";
+		for(int i = 0; i < indexs.length; i++) {
+			if (i > 0) {
+				Url = Url + "&"
+			}
+			Url = Url + "campaign" + (i + 1) + "_id=" + indexs[i];
+		}
+		logger.info("CAMPAIGN_PROMO_CODE_GET_COUNT : " + responseJsonObj);
+		responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+		if (responseJsonObj.get("errMsgs") == null) {
+			
+		
+		
+		
 		for(int i = 0; i < indexs.length; i++) {
 			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+			
 			logger.info("CAMPAIGN_PROMO_CODE_GET_COUNT : " + responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				map.put("count" + i, responseJsonObj.get("availableCount").toString());
