@@ -375,7 +375,6 @@ var languageP = "${language}";
 		  </div>
 		</div>
 		
-		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
 		<script type="text/javascript">
 			var language = "en";

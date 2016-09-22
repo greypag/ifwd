@@ -12,7 +12,6 @@
 <link rel="icon" type="image/x-icon"
 	href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!-- <a href="javascript:void(0)" id="testajax" >Press</a> -->
-<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 
 <!-- header.notification.bar -->
 

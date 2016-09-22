@@ -161,7 +161,7 @@ button.dropdown-toggle{
 		.pv_table_head{
 			color: #ff8200;
 			font-weight: bold;
-			text-align: right;
+			text-align: center;
 			width: 30%;
 		}
 		td{
@@ -781,6 +781,9 @@ button.dropdown-toggle{
 @media (min-width: 768px){
 	.pv_sec_action .pv_btn{
 		font-size: 18px;
+	}
+	.pv_productInfo .pv_product_table .pv_table_head{
+		text-align: right;
 	}
 }
 @media (min-width: 992px){
