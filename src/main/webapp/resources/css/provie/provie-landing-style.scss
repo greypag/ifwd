@@ -203,6 +203,7 @@ button.dropdown-toggle{
 		}
 		#slider{
 			border: none;
+			background-color: #f8882d;
 			height: 6px;
 			margin: 0 auto;
 			width: 90%;
@@ -224,12 +225,6 @@ button.dropdown-toggle{
 				&:before, &:after{
 					display: none;
 				}
-			}
-			.noUi-handle.noUi-handle-lower{
-				display: none;
-			}
-			.noUi-connect{
-				background-color: orange;
 			}
 			.noUi-background{
 				background-color: #cccccc;
@@ -675,6 +670,9 @@ button.dropdown-toggle{
 	.pv_btn{
 		background-color: #f8882d;
 	}
+	.mdl-textfield{
+		width: 100%;
+	}
 	.pv_fna_input{
 		font-size: 14px;
 		margin-top: 1.389em;
@@ -749,7 +747,7 @@ button.dropdown-toggle{
 	.pv_compareTable table{padding: 0 15px;}
 }
 
-@media (min-width: 640px) and (max-width: 960px){
+@media (min-width: 640px) and (max-width: 768px){
 	.pv_overlay_text_wrap{
 		.pv_title{
 			font-size: 45px;
@@ -758,7 +756,12 @@ button.dropdown-toggle{
 			font-size: 25px;
 		}
 	}
-}	
+}
+@media (min-width: 768px) and (max-width: 1024px){
+	.chin .savie-regular-landing .page-banner .img-banner-text.savie-landing{
+		bottom: 10px;
+	}
+}
 @media (min-width: 1024px){
 	.pv_overlay_text_wrap{
 		.pv_title{

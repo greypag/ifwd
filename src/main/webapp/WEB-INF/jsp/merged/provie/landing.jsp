@@ -74,7 +74,32 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div id="clearfix-height-rp">
                                     <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="provie.landing.cta.start" bundle="${provieMsg}" /></button>
                                 </div>
-                                <div class="savie-product text-bold"> <a href="<%=request.getContextPath()%>/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank"><fmt:message key="provie.landing.link.productbrochure" bundle="${provieMsg}" /></a> | <a href='<%=request.getContextPath()%>/resources/policy-provisions-pdf/<fmt:message key="provie.landing.link.policyprovision.text1" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.link.policyprovision" bundle="${provieMsg}" /></a> </div>
+                                <div class="savie-product text-bold">
+									<fmt:message key="provie.landing.link.productbrochure" bundle="${provieMsg}" />
+									<fmt:message key="provie.landing.link.productbrochure.text1" bundle="${provieMsg}" />
+									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.productbrochure.link.oneoff" bundle="${provieMsg}" />'>
+										<fmt:message key="provie.landing.link.productbrochure.text2" bundle="${provieMsg}" />
+									</a>
+									<fmt:message key="provie.landing.link.productbrochure.text3" bundle="${provieMsg}" />
+									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.productbrochure.link.monthly" bundle="${provieMsg}" />'>
+										<fmt:message key="provie.landing.link.productbrochure.text4" bundle="${provieMsg}" />
+									</a>
+									<fmt:message key="provie.landing.link.productbrochure.text5" bundle="${provieMsg}" />
+								</div>
+
+								<div class="savie-product text-bold">
+									<fmt:message key="provie.landing.link.policyprovision" bundle="${provieMsg}" />
+									<fmt:message key="provie.landing.link.policyprovision.text1" bundle="${provieMsg}" />
+									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.policyprovision.link.hkd" bundle="${provieMsg}" />'>
+										<fmt:message key="provie.landing.link.policyprovision.text2" bundle="${provieMsg}" />
+									</a>
+									<fmt:message key="provie.landing.link.policyprovision.text3" bundle="${provieMsg}" />
+									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.policyprovision.link.usd" bundle="${provieMsg}" />'>
+										<fmt:message key="provie.landing.link.policyprovision.text4" bundle="${provieMsg}" />
+									</a>
+									<fmt:message key="provie.landing.link.policyprovision.text5" bundle="${provieMsg}" />
+								</div>
+
                             </div>
                         </form>
                     </div>
@@ -566,6 +591,7 @@ var home_url = "<%=request.getContextPath()%>";
 									    </ul>
 									</div> 
 									<span class="txtMonth">
+									<fmt:message key="provie.landing.calculation.text7" bundle="${provieMsg}" />
 									<fmt:message key="provie.landing.calculation.text9" bundle="${provieMsg}" />
 									<div class="btn-group">
 									  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="provie.landing.calculation.dropdown.years" bundle="${provieMsg}" />'><fmt:message key="provie.landing.calculation.dropdown.years" bundle="${provieMsg}" /></button>
@@ -601,7 +627,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<span class="pv_hint hint1"><fmt:message key="provie.landing.calculation.bubble.text1" bundle="${provieMsg}" /></span>
 									<span class="pv_hint hint2"><fmt:message key="provie.landing.calculation.year" bundle="${provieMsg}" /></span>
 								</div>
-    							<div class="scale">
+    							<div class="scale topScale">
     								<span class="floatNum num1">1</span>
     								<span class="floatNum num2">2</span>
     								<span class="floatNum num3">3</span>
@@ -637,8 +663,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="accValue">
 									<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_icon.png" alt='<fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" />' class="img-responsive"> 
 									<div class="txt"><fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" /><span class="pricePrefix"></span><br><span class="amount"></span></div>
-									<div class="txt4year"><fmt:message key="provie.landing.calculation.year.acctvalue1" bundle="${provieMsg}" /><span class="year"></span><fmt:message key="provie.landing.calculation.year.acctvalue2" bundle="${provieMsg}" /></div>
-									<div class="txt4age100"><fmt:message key="provie.landing.calculation.year.acctvalue3" bundle="${provieMsg}" /></div>
+									<div><fmt:message key="provie.landing.calculation.year.acctvalue1" bundle="${provieMsg}" /><span class="year"></span><fmt:message key="provie.landing.calculation.year.acctvalue2" bundle="${provieMsg}" /></div>
 								</div>
 
 								<div class="extra">
@@ -754,6 +779,8 @@ var home_url = "<%=request.getContextPath()%>";
 												</div>
 												<div class="back">
 													<p class="pv_extra_desc"><fmt:message key="provie.landing.riders.1.text" bundle="${provieMsg}" /></p>
+													<p class="price"></p>
+													<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.riders.1.pdf.link" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.riders.1.pdf.text" bundle="${provieMsg}" /></a>
 												</div>
 											</div>
 										</div>	
@@ -768,6 +795,8 @@ var home_url = "<%=request.getContextPath()%>";
 		                                    </div>
 		                                    <div class="back">
 		                                        <p class="pv_extra_desc"><fmt:message key="provie.landing.riders.2.text" bundle="${provieMsg}" /></p>
+												<p class="price"></p>
+												<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.riders.2.pdf.link" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.riders.2.pdf.text" bundle="${provieMsg}" /></a>
 		                                    </div>
 											</div>
 										</div>	
@@ -782,6 +811,8 @@ var home_url = "<%=request.getContextPath()%>";
 			                                    </div>
 			                                    <div class="back">
 			                                        <p class="pv_extra_desc"><fmt:message key="provie.landing.riders.3.text" bundle="${provieMsg}" /></p>
+			                                        <p class="price"></p>
+													<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.riders.3.pdf.link" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.riders.3.pdf.text" bundle="${provieMsg}" /></a>
 			                                    </div>
 											</div>
 										</div>	
@@ -798,6 +829,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="col-xs-9 pv_extra_point_desc">
 											<h5 class="text-center pv_title text-left"><fmt:message key="provie.landing.riders.1.title" bundle="${provieMsg}" /></h5>
 											<p class="pv_extra_desc text-left"><fmt:message key="provie.landing.riders.1.text" bundle="${provieMsg}" /></p>
+											<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.riders.1.pdf.link" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.riders.1.pdf.text" bundle="${provieMsg}" /></a>
 										</div>
 									</div>
 
@@ -808,6 +840,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="col-xs-9 pv_extra_point_desc">
 											<h5 class="text-center pv_title text-left"><fmt:message key="provie.landing.riders.2.title" bundle="${provieMsg}" /></h5>
 											<p class="pv_extra_desc text-left"><fmt:message key="provie.landing.riders.2.text" bundle="${provieMsg}" /></p>
+											<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.riders.2.pdf.link" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.riders.2.pdf.text" bundle="${provieMsg}" /></a>
 										</div>
 									</div>
 
@@ -818,6 +851,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="col-xs-9 pv_extra_point_desc">
 											<h5 class="text-center pv_title text-left"><fmt:message key="provie.landing.riders.3.title" bundle="${provieMsg}" /></h5>
 											<p class="pv_extra_desc text-left"><fmt:message key="provie.landing.riders.3.text" bundle="${provieMsg}" /></p>
+											<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.riders.3.pdf.link" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.riders.3.pdf.text" bundle="${provieMsg}" /></a>
 										</div>
 									</div>
 								</div>
@@ -1378,41 +1412,41 @@ var home_url = "<%=request.getContextPath()%>";
 
 			<div class="blog">
 		        <div class="hidden-md hidden-lg">
-		            <div class="mini-banner-holder"><img src="http://i.fwd.com.hk/resources/images/easy-home/blog/homecare-blog1.jpg" class="img-responsive"> 
+		            <div class="mini-banner-holder"><img src="http://blog.fwd.com.hk/wp-content/uploads/2016/07/shutterstock_65480164.jpg" class="img-responsive"> 
 		                <div class="black-overlay"></div>
-		                <h5 class="text-center">不如看看我們的佈置家居貼士?</h5> </div>
+		                <h5 class="text-center"><fmt:message key="provie.landing.blog.title" bundle="${provieMsg}" /></h5> </div>
 		            <div class="btn-holder">
-		                <button id="btn-blog-link" class="savie-regular-btn">閱讀更多</button>
+		                <button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="provie.landing.blog.readmore" bundle="${provieMsg}" /></button>
 		            </div>
 		        </div>
 		        <div class="hidden-xs hidden-sm">
-		            <h3 class="text-center">閱讀更多</h3>
+		            <h3 class="text-center"><fmt:message key="provie.landing.blog.readmore" bundle="${provieMsg}" /></h3>
 		            <div class="gray-divide"></div>
-		            <p class="definition text-center">不如看看我們的佈置家居貼士?</p>
+		            <p class="definition text-center"><fmt:message key="provie.landing.blog.title" bundle="${provieMsg}" /></p>
 		            <div class="blogs-holder clearfix fwd-container-limit">
-		                <div class="blogs first"> <img src="http://i.fwd.com.hk/resources/images/easy-home/blog/homecare-blog1.jpg" class="img-responsive"> 
+		                <div class="blogs first"> <img src="http://blog.fwd.com.hk/wp-content/uploads/2016/07/shutterstock_65480164.jpg" class="img-responsive"> 
 		                    <div class="orange-overlay text-center">
-		                        <p class="title">改造涼快家居迎夏日</p>
-		                        <p class="definition"></p> <a class="btn-read-now" href="http://blog.fwd.com.hk/zh/2016/06/23/welcome-summer/" target="_blank">閱讀更多</a> </div>
+		                        <p class="title"><fmt:message key="provie.landing.blog.1.topic" bundle="${provieMsg}" /></p>
+		                        <p class="definition"></p> <a class="btn-read-now" href='<fmt:message key="provie.landing.blog.1.url" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.blog.readmore" bundle="${provieMsg}" /></a> </div>
 		                </div>
-		                <div class="blogs"> <img src="http://i.fwd.com.hk/resources/images/easy-home/blog/homecare-blog2.jpg" class="img-responsive"> 
+		                <div class="blogs"> <img src="http://blog.fwd.com.hk/wp-content/uploads/2016/06/shutterstock_344288030.jpg" class="img-responsive"> 
 		                    <div class="orange-overlay text-center">
-		                        <p class="title">5個選購傢俬小貼士</p>
-		                        <p class="definition"></p> <a class="btn-read-now" href="http://blog.fwd.com.hk/zh/2015/12/22/essential-decorate-home-boconcept/" target="_blank">閱讀更多</a> </div>
+		                        <p class="title"><fmt:message key="provie.landing.blog.2.topic" bundle="${provieMsg}" /></p>
+		                        <p class="definition"></p> <a class="btn-read-now" href='<fmt:message key="provie.landing.blog.2.url" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.blog.readmore" bundle="${provieMsg}" /></a> </div>
 		                </div>
-		                <div class="blogs"> <img src="http://i.fwd.com.hk/resources/images/easy-home/blog/homecare-blog3.png" class="img-responsive"> 
+		                <div class="blogs"> <img src="http://blog.fwd.com.hk/wp-content/uploads/2016/07/Pocket-Wifi安部數碼2035.jpg" class="img-responsive"> 
 		                    <div class="orange-overlay text-center">
-		                        <p class="title">重塑70 年代前衛家居</p>
-		                        <p class="definition"></p> <a class="btn-read-now" href="http://blog.fwd.com.hk/zh/2015/12/04/classic-70s-decor/" target="_blank">閱讀更多</a> </div>
+		                        <p class="title"><fmt:message key="provie.landing.blog.3.topic" bundle="${provieMsg}" /></p>
+		                        <p class="definition"></p> <a class="btn-read-now" href='<fmt:message key="provie.landing.blog.3.url" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.blog.readmore" bundle="${provieMsg}" /></a> </div>
 		                </div>
-		                <div class="blogs last"> <img src="http://i.fwd.com.hk/resources/images/easy-home/blog/homecare-blog4.jpg" class="img-responsive"> 
+		                <div class="blogs last"> <img src="http://blog.fwd.com.hk/wp-content/uploads/2015/08/3-saving-tips-smart-parents.jpg" class="img-responsive"> 
 		                    <div class="orange-overlay text-center">
-		                        <p class="title">型格擺設DIY</p>
-		                        <p class="definition"></p> <a class="btn-read-now" href="http://blog.fwd.com.hk/zh/2015/08/25/stylish-diy-decor/" target="_blank">閱讀更多</a> </div>
+		                        <p class="title"><fmt:message key="provie.landing.blog.4.topic" bundle="${provieMsg}" /></p>
+		                        <p class="definition"></p> <a class="btn-read-now" href='<fmt:message key="provie.landing.blog.1.url" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.blog.readmore" bundle="${provieMsg}" /></a> </div>
 		                </div>
 		            </div>
 		            <div class="fwd-container-limit">
-		                <p class="blog-notice">博客資料謹供參考，富衛人壽保險(百慕達)有限公司及其聯繫公司 (「富衛」)雖然已盡力確保所載的資料正確無誤，但富衛並不就資料的準確性或完整性作出任何保證或陳述。富衛將不會因無法或不能使用任何資料或任何此博客所載之資料的錯誤或遺漏而負上任何直接、附帶、後果性、間接或懲罰性的損失的責任，使用者應自行小心評估資料。</p>
+		                <p class="blog-notice"><fmt:message key="provie.landing.blog.notice" bundle="${provieMsg}" /></p>
 		            </div>
 		        </div>
     		</div>

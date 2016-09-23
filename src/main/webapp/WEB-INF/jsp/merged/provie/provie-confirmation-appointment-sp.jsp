@@ -169,7 +169,7 @@ function stickToHeader() {
 					<span><fmt:message key="provie.appoint.confirm.link.print" bundle="${provieMsg}" /></span>
 				</a>
 				<center>
-					<a href="https://i.fwd.com.hk/en">
+					<a href="https://i.fwd.com.hk/${language}">
 						<button class="text-bold btn btn-home savie-common-btn" type="button"><fmt:message key="provie.appoint.confirm.cta.back" bundle="${provieMsg}" /></button>
 					</a>
 				</center>

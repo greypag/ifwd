@@ -78,6 +78,10 @@ $(document).ready(function(){
 					$(this).removeClass("p50 p100 p500");
 					$(this).addClass(cls);
 				});
+				
+				$("#extra-desc-desktop p, #extra-desc p").removeClass("active");
+				$("#extra-desc-desktop").find("." + cls).addClass("active");
+				$("#extra-desc").find("." + cls).addClass("active");
 				return;
 			}
 			
@@ -86,9 +90,7 @@ $(document).ready(function(){
 				$(this).addClass(cls);
 			});
 			
-			$("#extra-desc-desktop p, #extra-desc p").removeClass("active");
-			$("#extra-desc-desktop").find("." + cls).addClass("active");
-			$("#extra-desc").find("." + cls).addClass("active");
+			
 			
 			$("th.cell-extra-rider").each(function(){
 				var t = $(this).html();
@@ -124,10 +126,7 @@ $(document).ready(function(){
 			var paymentMethod = $("#type-of-payment option:selected").data("val").split("-");
 			var currency = paymentMethod[1];
 			
-			$(".currency_switcher").each(function(){
-				$(this).find("span").removeClass('active');
-				$(this).find("span."+currency).addClass("active");
-			});
+			
 			
 			//Change slider and dropdown
 			var sliderObj = {
@@ -200,6 +199,15 @@ $(document).ready(function(){
 			    success:function(response){
 			    	if(response){
 			    		$("#type-of-extra-rider").trigger("change");
+			    		
+			    		var paymentMethod = $("#type-of-payment option:selected").data("val").split("-");
+						var currency = paymentMethod[1];
+						
+						$(".currency_switcher").each(function(){
+							$(this).find("span").removeClass('active');
+							$(this).find("span."+currency).addClass("active");
+						});
+						
 			    		//Dummy data
 			    		//response = {"planCode":"Provie-SP","currency":"HKD","rider":"PA","plans":[{"premiumYear":1,"rate":1,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":2,"rate":1.1,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":3,"rate":1.2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":4,"rate":1.3,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":5,"rate":1.4,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}],"creditRates":[{"rate":0,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":1,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":2,"plans":[{"premiumYear":10,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]}]};
 			    		//Normal Table
@@ -254,7 +262,7 @@ $(document).ready(function(){
 					    		
 				    		}
 				    		
-				    		$($('.rate-buttons button').get(1)).trigger("click");
+				    		$($('.rate-buttons button').get(2)).trigger("click");
 			    		}
 			    		
 			    		
@@ -1145,9 +1153,7 @@ function bsvFormRegister(form){
 			    },
 			    success:function(response){
 			    	if(response){
-
 			    		isLogged = true;
-		    			console.log(response);
 			    		$(".after-login").find(".fld-val").text(response.fullName);
 			    		userName = response.userName;
 			    		$(".before-login").hide();
@@ -1155,6 +1161,8 @@ function bsvFormRegister(form){
 			    		$("#btn-appointment-confirm").show();
 
 			    		$("#loading-overlay").modal("hide");
+			    		
+			    		window.location.reload();
 			    	}
 			    },
 			    complete:function(){
@@ -1411,6 +1419,12 @@ function renderRateTable(tbDesktop,tbMobHead,tbMobBody,plan,odd){
 	
 	dt.find(".premiumYear").text(plan.premiumYear);
 	mob_head.find(".premiumYear").text(plan.premiumYear);
+	
+	if(plan.premiumYear == 100){
+		var age100 = UILANGUAGE == "EN" ? "At Age " + plan.premiumYear : "至" + plan.premiumYear+ "歲";
+		dt.find(".premiumYear").text(age100);
+		mob_head.find(".premiumYear").text(age100);
+	}
 	
 	dt.find(".rate").text(plan.rate);
 	mob.find(".rate").text(plan.rate);
