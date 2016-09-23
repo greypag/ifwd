@@ -1009,6 +1009,7 @@
 		//$('body').addClass('modal-open');
 		/****/
 		//console.log('SP');
+		
 		if('SP' == 'RP') {
 			$("#type-of-payment").val("regular-payment");
 			$('#plan-amount-holder').removeClass('hidden');
@@ -1031,7 +1032,7 @@
 			$('.js-display-savie-sp').css('display', 'block');
 			$('.js-display-savie-rp').css('display', 'none');
 		}
-
+		
 		if('2'!=''){
 			/*$('#plan-dob-datepicker').datepicker({
 				format: "dd-mm-yyyy",
@@ -1206,20 +1207,24 @@
 		}).focusout(function (){
 			$(this).parent().find('.custom-made-label').css({color: '#000000'});
 		});*/
-
+	
 		$('.rate-btn').on('click', function (){
 			$('.tooltip').hide();
 		});
+		
+		
 		$(document).on('click touchstart', function (){
 			$('.tooltip').hide();
 		});
+		
 		//begin of getProvieRiderEligibility
 		
-		var fromFna = <%= request.getParameter("f") %>;
+		var fromFna = '<%= request.getParameter("f") %>';
+		var planType ='<%= request.getParameter("planType") %>';
 
+		
 
-
-		if (fromFna==true) {
+		if (fromFna=='true') {
 			$.ajax({
 				//url:fwdApi.url.getProvieRiderEligibility,
 				url: '<%=request.getContextPath()%>/api/provie/getProvieRiderEligibility',
@@ -1248,6 +1253,13 @@
 			    	}
 			    }
 			});
+			//alert('provie-plan-detals ' + planType);
+			if (planType=="RP") {
+				$("#type-of-payment option[value='one-off-premium']").remove();
+			} else if (planType=="SP") {
+				$("#type-of-payment option[value='regular-payment']").remove();
+			}
+			
 		}
 		
         //end of getProvieRiderEligibility
