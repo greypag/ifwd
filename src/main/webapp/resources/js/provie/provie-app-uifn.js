@@ -451,7 +451,7 @@ $(document).ready(function(){
 						if(xhr.status == 400){
 							$(".generalErrMsg").html($("<small/>").text(_err_msg));
 							console.log('Invalid appointment type.');
-						} else if(xhr.status == 405){
+						} else if(xhr.status == 417){
 							$('#moreThan2Tries').modal('show');
 							console.log('The number of appointments must be less than 2.');
 						} else if(xhr.status == 406){

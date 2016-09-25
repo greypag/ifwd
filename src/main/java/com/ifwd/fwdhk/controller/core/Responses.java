@@ -40,6 +40,10 @@ public class Responses {
 	    return new ResponseEntity<T>(model, HttpStatus.INTERNAL_SERVER_ERROR);
   }
   
+  public static <T> ResponseEntity<T> expectationFailed(T model) {
+	    return new ResponseEntity<T>(model, HttpStatus.EXPECTATION_FAILED);
+  }
+
   public static <T> ResponseEntity<T> unauthorized(T model) {
 	    return new ResponseEntity<T>(model, HttpStatus.UNAUTHORIZED);
   }
