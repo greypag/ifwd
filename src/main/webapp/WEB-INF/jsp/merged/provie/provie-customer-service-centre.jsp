@@ -113,7 +113,13 @@ function stickToHeader() {
 		                   </div>
 		                   <span class="error-msg centreErrMsg"></span>
 		               </div>
-		           </div>  
+		           </div>
+		           <div class="centre-info visible-xs visible-sm" id="centre-info">
+		           		<img src="/resources/images/savie/qb.jpg" class="img-centre img-responsive">
+		           		<h4><fmt:message key="provie.appoint.address" bundle="${provieMsg}" /></h4>
+		           		<p class="centre-address"></p>
+		           		<a target="_blank" class="viewmap-link" href="#"><fmt:message key="provie.appoint.viewmap" bundle="${provieMsg}" /></a>
+		           	</div>
 		           <div class="">
 						<div class="payment-select-wrapper so-mdl-textfield">
 							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.date" bundle="${provieMsg}" /></p>  
@@ -471,11 +477,11 @@ function stickToHeader() {
 			<div class="modal-dialog teaserSurvey cs-modal-dialog" role="document">
 				<div class="modal-content teaserSurvey cs-modal-content">
 					<div class="modal-header teaserSurvey cs-modal-header">
-						<h2 class="cs-modal-h2">Sorry, you can make no more than 2 appointments in advance.</h2>
+						<h2 class="cs-modal-h2"><fmt:message key="provie.appoint.moreThan2Triesmodalheader" bundle="${provieMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey cs-modal-body">
-						<p class="registered cs-modal-p">For any enquiries, please call our Customer Hotline at 3123 3123.</p>
-						<button type="button" class="btn btn-orange cs-modal-btn" id="moreThan2Tries-button">Back to Plan Options</button>
+						<p class="registered cs-modal-p"><fmt:message key="provie.appoint.moreThan2Triesmodalbody" bundle="${provieMsg}" /></p>
+						<button type="button" class="btn btn-orange cs-modal-btn" id="moreThan2Tries-button"><fmt:message key="provie.appoint.moreThan2TriesmodalbtnTxt" bundle="${provieMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	

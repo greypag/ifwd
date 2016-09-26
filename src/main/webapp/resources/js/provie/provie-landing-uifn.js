@@ -124,7 +124,7 @@ var fnaLogin = {
 		var that = this;
 		$.ajax({
 			beforeSend: that.showLoading,
-			url:"/fwdhk/api/member/login",
+			url: context + "/api/member/login",
 			type:"post",
 			contentType: "application/json",
 			data:JSON.stringify({
@@ -166,7 +166,7 @@ var fnaLogin = {
 	checkLoginStatus: function (){
 		var that = this;
 		$.ajax({
-			url:"/fwdhk/api/member/session",
+			url: context + "/api/member/session",
 			type:"get",
 			contentType: "application/json",
 			cache:false,
