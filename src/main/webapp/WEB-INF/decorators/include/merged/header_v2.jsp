@@ -47,6 +47,24 @@
 	Boolean isSaveTabActive = actionName.equals("Savie");
 	Boolean isEnjoyTabActive = actionName.equals("offers");
 %>
+
+<%
+	/* Temporarily set the msg before controller return the message */
+
+	java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	long currentDate = System.currentTimeMillis();
+    long msgEndDate = cformat.parse("2016-09-16 09:00:00").getTime();
+
+	String notificationMsg = "";
+    if (currentDate <= msgEndDate) {
+    	if (session.getAttribute("uiLocale").equals("zh-HK")) {
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("zh","HK")).getString("header.notification.msg.repair");
+    	} else {
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("en","US")).getString("header.notification.msg.repair");
+    	}
+    }
+	boolean showNotification = (notificationMsg.equals(""))?false:true;
+%>
 <script type="text/javascript">
 	var obj = {
 	    'topBar': {
@@ -84,7 +102,7 @@
 // Default value
 var nBarConfig = {
 	'contentIndex': 'ifwd_repair',
-	'isVisible': false
+	'isVisible': <%=showNotification%>
 }
 </script>
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />

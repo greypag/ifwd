@@ -6,7 +6,7 @@
 
 <!-- header.notification.bar.desktop.jsp -->
 <!-- <a href="<%=request.getContextPath()%>/${language}/important-notice" class="header-notification-box header-notification-msg-desktop"> -->
-<div id="notification-bar-desktop" class="header-notification-box header-notification-box--desktop" >
+<div id="notification-bar-desktop" class="header-notification-box header-notification-box--desktop hide" >
     <button type="button" class="close" aria-label="Close">
         <span aria-hidden="true" onclick="closeNotificationBox()">&#215;</span>
     </button>
