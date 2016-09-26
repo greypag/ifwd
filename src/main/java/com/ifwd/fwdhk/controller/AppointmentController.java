@@ -240,7 +240,7 @@ public class AppointmentController extends BaseController {
 								
 				JSONObject models = new JSONObject();
 				models.put("name", booking.getUserName());
-				models.put("accessCode", accessCode);
+				models.put("accessCode", applicationNumber);
 				models.put("dateEn", booking.getPreferredDate());
 				models.put("timeSlotEn", booking.getPreferredTime());
 				models.put("centerEn", centerEn);
