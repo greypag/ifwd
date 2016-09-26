@@ -2485,7 +2485,8 @@ a.eserv-link:hover {
 @media (max-width: 991px) {
   /* line 2, ../sass/partials/savie/_make-an-appointment.scss */
   #make-an-appointment-page .breadcrumbs, #pay-later-page .breadcrumbs, #application-summary-page .breadcrumbs {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
+    /* debug by #3595, Provie Mobile Navbar’s has a large white space */
   }
 }
 @media (max-width: 991px) {
