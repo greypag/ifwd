@@ -395,9 +395,11 @@ $(document).ready(function(){
 		$("#btn-appointment-confirm").on('click', function(){
 			var isValid = true;
 			var confirmationJsp="/savings-insurance/provie-confirmation-appointment-sp?referenceNum="
+			var appType = 'PROVIE-SP';
 			var paymentType=planCode.split("-")[1];
 			if ("RP"==paymentType){
 				confirmationJsp="/savings-insurance/provie-confirmation-appointment-rp?referenceNum="
+				appType = 'PROVIE-RP';
 			}
 			//alert(confirmationJsp);
 			$(".centreErrMsg, .app-dateErrMsg, .preferred-timeErrMsg, .generalErrMsg").empty();
@@ -427,7 +429,7 @@ $(document).ready(function(){
 					preferredDate:$("#app-date").val(),
 					preferredTime:$("#preferred-time").val(),
 					centreCode:$("#centre").val(),
-					planCode:"PROVIE-SP",
+					planCode: appType,
 					userName:userName,
 					appointmentType:typeId
 				}
