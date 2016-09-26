@@ -1654,7 +1654,37 @@ function getTimeSlot(perTime, appointmentTypeId){
 	    }  
 	});
 }
-
+//
+function validatePromoCode(){
+	var amount = $('#R').val();
+	var paymentMode = 'SAVIE-SP';
+	var promoCode= $('#promoCode').val().trim();
+	$('#promoCodeErrorMsg').addClass('hidden');
+	//alert('savie-online.js' + amount);
+	$.ajax({     
+	    url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
+	    type:'get',     
+	    data:{    
+	    	"planCode": paymentMode,
+	        "referralCode":promoCode,
+	        "sumInsured":amount
+   		},     
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    	//if(data.errMsgs[0]!=null)
+	    	//console.log(data);
+	    	alert('savie-online.js ' + data.errMsgs[0]);
+	    	if(data != null && data.errMsgs[0] != null && data.errMsgs[0] != ""){
+			   //$("#errorMsg").html(data.errMsgs[0]);
+			   $('#promoCodeErrorMsg').removeClass('hidden');
+	    	} else {
+	    	   $('#promoCodeErrorMsg').addClass('hidden');
+	    	}
+	    }  
+	});
+}
+//
 function jsGetAge(strBirthday){ 
 	var returnAge;
 	var strBirthdayArr=strBirthday.split("-");

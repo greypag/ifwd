@@ -103,8 +103,18 @@ var languageP = "${language}";
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.saving.amount" bundle="${msg}" /></label>
-  								<p class="data-info">HK$ ${saviePlanDetails.insuredAmount1 }</p>
+  								<p class="data-info">HK$ ${saviePlanDetails.insuredAmount1}</p>
   							</div>
+  							<c:if test="${saviePlanDetails.insuredAmountDiscount != null && saviePlanDetails.insuredAmountDiscount != ''}">
+  							  	<div class="gray-bg-data-info">
+  									<label class="data-label"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></label>
+  									<p class="data-info">HK$ <fmt:formatNumber pattern="#,###" value="${saviePlanDetails.insuredAmountDiscount}"/></p>
+  								</div>
+  							  	<div class="gray-bg-data-info">
+  									<label class="data-label"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></label>
+  									<p class="data-info">HK$ <fmt:formatNumber pattern="#,###" value="${saviePlanDetails.insuredAmountDue}"/></p>
+  								</div>  							
+  							</c:if>
   						</div>
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
