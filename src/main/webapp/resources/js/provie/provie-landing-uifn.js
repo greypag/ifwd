@@ -171,14 +171,13 @@ var fnaLogin = {
 			contentType: "application/json",
 			cache:false,
 			async:false,
-			beforeSend: pvCtr.showAjaxLoading,
 		    error:function (xhr, textStatus, errorThrown){
-		    	pvCtr.hideAjaxLoading();
+		    	//pvCtr.hideAjaxLoading();
 		    },
 		    success:function(response){
 		    	if(response){
 		    		if(response.userName == '*DIRECTGI'){
-		    			pvCtr.hideAjaxLoading();
+		    			//pvCtr.hideAjaxLoading();
 		    			return false;	
 		    		}
 		    		pvCtr.hideAjaxLoading();
