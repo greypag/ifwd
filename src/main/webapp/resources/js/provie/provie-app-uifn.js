@@ -386,6 +386,11 @@ $(document).ready(function(){
 
 
 		$("#checkbox3, #checkbox4").change(function() {
+			if($(this).prop('checked')) {
+				$(this).val('true');
+			} else {
+				$(this).val('false');
+			}
 			showBubble();
 		});
 

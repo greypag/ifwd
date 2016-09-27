@@ -344,8 +344,8 @@ function stickToHeader() {
 													</div>
 													<hr>
 													<p><fmt:message key="provie.appoint.register.declaration2.text1" bundle="${provieMsg}" /></p>
-													<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3"><fmt:message key="provie.appoint.register.declaration2.text2" bundle="${provieMsg}" /></label></div> 
-													<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox"><label for="checkbox4"><fmt:message key="provie.appoint.register.declaration2.text3" bundle="${provieMsg}" /></label> </div>
+													<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox" value="ture"><label for="checkbox3"><fmt:message key="provie.appoint.register.declaration2.text2" bundle="${provieMsg}" /></label></div> 
+													<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox" value="true"><label for="checkbox4"><fmt:message key="provie.appoint.register.declaration2.text3" bundle="${provieMsg}" /></label> </div>
 													<div class="checkboxBubble"><fmt:message key="provie.appoint.register.declaration2.text4" bundle="${provieMsg}" /></div>
 												</div>
 												<div class="login-button-group text-center">
