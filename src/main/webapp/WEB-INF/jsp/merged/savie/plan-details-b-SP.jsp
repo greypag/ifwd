@@ -802,13 +802,27 @@ var affordabilityPremium = ${sliderMax};
 
 			$("#errorMsg").html("");
 			$("#apiData").html("");
-
+		/*
 			if($('#promoCode').val()!='' && $('#promoCodeErrorMsg').hasClass('hidden')){
 				$('#promoCodeErrorMsg').removeClass('hidden');
 			}else if ($('#promoCode').val()!='' && !$('#promoCodeErrorMsg').hasClass('hidden')){
 				//do nothing
 			}else{
 				$('#promoCodeErrorMsg').addClass('hidden');
+			}
+		*/
+			var planCode=$("#type-of-payment").val();
+			//alert('planCode=' + planCode + '<<<');
+			if (planCode=='one-off-premium'){
+				validatePromoCode();
+			} else {
+				if($('#promoCode').val()!='' && $('#promoCodeErrorMsg').hasClass('hidden')){
+					$('#promoCodeErrorMsg').removeClass('hidden');
+				}else if ($('#promoCode').val()!='' && !$('#promoCodeErrorMsg').hasClass('hidden')){
+					//do nothing
+				}else{
+					$('#promoCodeErrorMsg').addClass('hidden');
+				}
 			}
 			getSavieOnlinePlandetails(false);
 		});
@@ -904,6 +918,7 @@ var affordabilityPremium = ${sliderMax};
 
 	$("#btn-proceed").on('click', function(){
 		apply=false;
+		//alert('plan-details-b-SP.jsp type=' + '${type}');
 		if('2'=='${type }'){
 			proceedLogin('<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
 		}else {

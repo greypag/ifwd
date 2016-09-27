@@ -3551,10 +3551,10 @@ public class LifeServiceImpl implements LifeService {
 			subject = "FWD Medical Insurance Plan – Document Upload [" + lifePolicy.getPolicyNo() + "] | 富衛醫療保險 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "rophi\\uploadDocument.html";
 		}else if("provie-o2o-rp".equals(action)) {
-			subject = "Appointment Acknowledgement from FWD 富衛預約申請確認";
+			subject = "Provie Appointment Acknowledgement from FWD | Provie真息揀理財壽險計劃申請確認";
 			template = "provie\\provie-o2o-rp.html";
 		}else if("provie-o2o-sp".equals(action)) {
-			subject = "Appointment Acknowledgement from FWD 富衛預約申請確認";
+			subject = "Provie Appointment Acknowledgement from FWD | Provie真息揀理財壽險計劃申請確認";
 			template = "provie\\provie-o2o-sp.html";
 		}
 		
@@ -4073,4 +4073,25 @@ public class LifeServiceImpl implements LifeService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
 	}
+	
+	public JSONObject getSavieReferralDiscount(HttpServletRequest request)throws ECOMMAPIException{
+		String planCode = request.getParameter("planCode");
+		String referralCode = request.getParameter("referralCode");
+		String sumInsured = request.getParameter("sumInsured");
+		String 	Url = UserRestURIConstants.GET_SAVIE_REFERRAL_DISCOUNT + "?planCode="+planCode +"&referralCode="+referralCode + "&sumInsured=" + sumInsured;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+	
+	public JSONObject getSavieReferralDiscountParams(String planCode,String referralCode,String sumInsured,HttpServletRequest request)throws ECOMMAPIException{
+		//String planCode = request.getParameter("planCode");
+		//String referralCode = request.getParameter("referralCode");
+		//String sumInsured = request.getParameter("sumInsured");
+		String 	Url = UserRestURIConstants.GET_SAVIE_REFERRAL_DISCOUNT + "?planCode="+planCode +"&referralCode="+referralCode + "&sumInsured=" + sumInsured;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+	
 }

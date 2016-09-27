@@ -124,7 +124,7 @@ var fnaLogin = {
 		var that = this;
 		$.ajax({
 			beforeSend: that.showLoading,
-			url:"/fwdhk/api/member/login",
+			url: context + "/api/member/login",
 			type:"post",
 			contentType: "application/json",
 			data:JSON.stringify({
@@ -166,7 +166,7 @@ var fnaLogin = {
 	checkLoginStatus: function (){
 		var that = this;
 		$.ajax({
-			url:"/fwdhk/api/member/session",
+			url: context + "/api/member/session",
 			type:"get",
 			contentType: "application/json",
 			cache:false,
@@ -381,8 +381,8 @@ var planInquiry = {
 			this.errorMsgAry.push(pvSetting.errMsg.ageEmpty);
 			return;
 		}
-		//check < 19
-		if(age$.val() < 19){
+		//check < 18
+		if(age$.val() < 18){
 			this.errorMsgAry.push(pvSetting.errMsg.ageLess);
 			return;	
 		}

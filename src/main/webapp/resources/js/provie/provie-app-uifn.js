@@ -127,6 +127,11 @@ $(document).ready(function(){
 			var currency = paymentMethod[1];
 			
 			
+			$(".plan-form-holder .currency_switcher").each(function(){
+				$(this).find("span").removeClass('active');
+				$(this).find("span."+currency).addClass("active");
+			});
+			
 			
 			//Change slider and dropdown
 			var sliderObj = {
@@ -1158,13 +1163,19 @@ function bsvFormRegister(form){
 			    		isLogged = true;
 			    		$(".after-login").find(".fld-val").text(response.fullName);
 			    		userName = response.userName;
-			    		$(".before-login").hide();
+			    		//$(".before-login").hide();
 			    		$(".after-login").show();
 			    		$("#btn-appointment-confirm").show();
 
-			    		$("#loading-overlay").modal("hide");
+			    		//$("#loading-overlay").modal("hide");
 			    		
-			    		window.location.reload();
+			    		//window.location.reload();
+			    		
+			    		//Simulate Login
+			    		$("#appointmentloginUsername").val($("#appointmentRegisterUserName").val());
+						$("#appointmentloginPassword").val($("#appointmentRegisterPassword").val());
+						$("#btn-appointment-login").trigger("click");
+			    		
 			    	}
 			    },
 			    complete:function(){

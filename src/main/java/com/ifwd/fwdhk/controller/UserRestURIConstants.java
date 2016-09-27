@@ -541,6 +541,9 @@ public class UserRestURIConstants {
 	public static final String GET_SAVIE_HKID_DISCOUNT = SERVICE_URL + "/premium/savie/hkid/discount/all";
 	public static final String GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN = SERVICE_URL + "/premium/savie/hkid/discount";
 	
+	/*API For Referal Discount*/ 
+	public static final String GET_SAVIE_REFERRAL_DISCOUNT = SERVICE_URL + "/premium/savie/referral/discount";
+	
 	static String controller;
 
 	public static String getController() {

@@ -1509,7 +1509,7 @@ var home_url = "<%=request.getContextPath()%>";
 			yearEmpty      : '<fmt:message key="provie.landing.setting.text16" bundle="${provieMsg}" />',
 			loginFail      : '<fmt:message key="provie.landing.setting.text17" bundle="${provieMsg}" />',
 			yearEmpty	   : '<fmt:message key="provie.landing.setting.text18" bundle="${provieMsg}" />',
-			fnaLoginEmpty  : "please enter username and password."
+			fnaLoginEmpty  : '<fmt:message key="provie.landing.setting.text19" bundle="${provieMsg}" />'
 		},
 		currencyData: {
 			HKD: {

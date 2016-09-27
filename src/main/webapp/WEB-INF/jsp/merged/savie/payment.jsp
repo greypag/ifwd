@@ -93,7 +93,7 @@ var language = "${language}";
 									   <input type="hidden" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
 									</p>
 								</div>
-								<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='0'}">
+								<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='' && saviePlanDetails.insuredAmountDiscount!='0'}">
 									<div class="info-wrapper">
 										<p class="info-label"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></p>
 										<p class="info-value">
