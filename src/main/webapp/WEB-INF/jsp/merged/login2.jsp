@@ -525,7 +525,7 @@
 
                                 $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.forgotUserName.error"));
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
                                     $('#success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
