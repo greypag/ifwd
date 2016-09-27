@@ -609,9 +609,9 @@ public class AjaxLifeController extends BaseController{
 //					JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(policyApplication.getApplicantHkId(),saviePlan,request);
 //					logger.info(jsonObject2.toJSONString());
 //					int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
-					int dis = 0;
-					saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
-					saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
+//					int dis = 0;
+//					saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
+//					saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
 				}
 				
 				//For Referral champaign discount
