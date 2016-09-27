@@ -1564,3 +1564,10 @@
 
 /*Custom Safari only CSS*/
 _::-webkit-full-page-media, _:future, :root .game-fna .step2 .cont .fna-radio-gp .fna-radio-btn { width: 24.5%; }
+
+/* 3770 bug fixed */
+.frm-fna-education,
+.frm-fna-employment-status {
+    height: 26px;
+    line-height: 32px;
+}
