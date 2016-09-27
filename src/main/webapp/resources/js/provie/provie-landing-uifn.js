@@ -171,16 +171,11 @@ var fnaLogin = {
 			contentType: "application/json",
 			cache:false,
 			async:false,
-		    error:function (xhr, textStatus, errorThrown){
-		    	//pvCtr.hideAjaxLoading();
-		    },
-		    success:function(response){
+			success:function(response){
 		    	if(response){
 		    		if(response.userName == '*DIRECTGI'){
-		    			//pvCtr.hideAjaxLoading();
 		    			return false;	
 		    		}
-		    		pvCtr.hideAjaxLoading();
 		    		that.hideLoginPanel();
 		    		that.isLoggedIn = true;
 		    	}
@@ -259,7 +254,7 @@ var planInquiry = {
 		yearList$.find("li").remove();
 
 		//loop all option (60 - age - 1)
-		var yearOptCount = 60 - age;
+		var yearOptCount = 100 - age;
 		for(var yi = 1; yi <= yearOptCount; yi++){
 			var opt_input = $("<input>").attr({"type": "radio", "name": "year", "value": yi, "id":"year"+yi});
 			var opt_label = $("<label>").attr({"for": "year"+yi}).html(yi);

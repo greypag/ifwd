@@ -513,10 +513,6 @@ var home_url = "<%=request.getContextPath()%>";
 
 	            	</div>
 
-	            	<div class="row">
-	            		<a href="<%=request.getContextPath()%>/resources/pdf/provie/Provie Premium discount TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="provie.landing.discount.pdf.link1" bundle="${provieMsg}" /></a>
-	            	</div>
-
 	            	<div class="row pv_offer_remarks">
 	            		<p>
 	            			<fmt:message key="provie.landing.offer.text1" bundle="${provieMsg}" />
@@ -529,6 +525,10 @@ var home_url = "<%=request.getContextPath()%>";
 							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text5" bundle="${provieMsg}" /></li>
 							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text6" bundle="${provieMsg}" /></li>
 						</ul>
+	            	</div>
+
+	            	<div class="row">
+	            		<a href="<%=request.getContextPath()%>/resources/pdf/provie/Provie Premium discount TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="provie.landing.discount.pdf.link1" bundle="${provieMsg}" /></a>
 	            	</div>
 				</div>
             </div>
@@ -806,7 +806,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 						<div class="pv_extra_wrap">
 							<div class="pv_extra_box">
-								<div class="col-xs-12 visible-lg visible-md">
+								<div class="col-xs-12 visible-lg">
 									<div class="col-xs-12 col-md-4 ">
 	                                	<div class="flip-container pv_extra_card_holder">
 											<div class="flipper pv_extra_card card1">
@@ -858,7 +858,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 								</div>
 
-								<div class="col-xs-12 pv_extra_mobile hidden-lg hidden-md nopadding">
+								<div class="col-xs-12 pv_extra_mobile hidden-lg nopadding">
 									<div class="col-xs-12 pv_extra_point">
 										<div class="col-xs-3 nopadding pv_extra_point_icon">
 											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_a.png" class="img-responsive pv_extra_icon center" alt='<fmt:message key="provie.landing.riders.1.title" bundle="${provieMsg}" />'>
@@ -1052,6 +1052,13 @@ var home_url = "<%=request.getContextPath()%>";
 								<tr>
 									<td colspan="6">
 										<span class="inner pv_remark">
+											<fmt:message key="provie.landing.table.remarks1.text1" bundle="${provieMsg}" />
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="6">
+										<span class="inner pv_remark">
 											<fmt:message key="provie.landing.table.remarks2.text1" bundle="${provieMsg}" />
 											<br>
 											<fmt:message key="provie.landing.table.remarks3.text1" bundle="${provieMsg}" />
@@ -1184,6 +1191,22 @@ var home_url = "<%=request.getContextPath()%>";
 															</span>
 														</td>
 													</tr>
+													<tr>
+														<td colspan="6">
+															<span class="inner pv_remark">
+																<fmt:message key="provie.landing.table.remarks1.text1" bundle="${provieMsg}" />
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="6">
+															<span class="inner pv_remark">
+																<fmt:message key="provie.landing.table.remarks2.text1" bundle="${provieMsg}" />
+																<br>
+																<fmt:message key="provie.landing.table.remarks3.text1" bundle="${provieMsg}" />
+															</span>
+														</td>
+													</tr>
 												</table>
 											</div>
 										</div>
@@ -1272,9 +1295,7 @@ var home_url = "<%=request.getContextPath()%>";
 													<tr>
 														<td colspan="6">
 															<span class="inner pv_remark">
-																<fmt:message key="provie.landing.table.remarks2.text1" bundle="${provieMsg}" />
-																<br>
-																<fmt:message key="provie.landing.table.remarks3.text1" bundle="${provieMsg}" />
+																<fmt:message key="provie.landing.table.remarks1.text1" bundle="${provieMsg}" />
 															</span>
 														</td>
 													</tr>
@@ -1479,7 +1500,7 @@ var home_url = "<%=request.getContextPath()%>";
 		                <div class="blogs last"> <img src="http://blog.fwd.com.hk/wp-content/uploads/2015/08/3-saving-tips-smart-parents.jpg" class="img-responsive">
 		                    <div class="orange-overlay text-center">
 		                        <p class="title"><fmt:message key="provie.landing.blog.4.topic" bundle="${provieMsg}" /></p>
-		                        <p class="definition"></p> <a class="btn-read-now" href='<fmt:message key="provie.landing.blog.1.url" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.blog.readmore" bundle="${provieMsg}" /></a> </div>
+		                        <p class="definition"></p> <a class="btn-read-now" href='<fmt:message key="provie.landing.blog.4.url" bundle="${provieMsg}" />' target="_blank"><fmt:message key="provie.landing.blog.readmore" bundle="${provieMsg}" /></a> </div>
 		                </div>
 		            </div>
 		            <div class="fwd-container-limit">

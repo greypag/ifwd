@@ -157,7 +157,7 @@ function stickToHeader() {
 								<img class="visible-xs visible-sm" src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png">
 								<img class="hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png">
 							</div>
-							<div class="requirement-text-wrapper"><p><fmt:message key="provie.appoint.confirm.details.text8" bundle="${provieMsg}" /></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="provie.appoint.confirm.details.text8.rp" bundle="${provieMsg}" /></p></div>
 						</div>
 					</div>
 					
