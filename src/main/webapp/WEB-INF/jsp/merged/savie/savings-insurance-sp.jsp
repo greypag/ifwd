@@ -77,29 +77,42 @@ var home_url = "<%=request.getContextPath()%>";
 
 			<div class="savie-regular-container savie-regular-landing sp-only">
 				<div class="whole-banner">
-              	<div class="page-banner">
+              	     <div class="page-banner">
 						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.mobile.sp" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="image.alt_6" bundle="${msg}" />">
 						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.sp" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm" alt="<fmt:message key="image.alt_6" bundle="${msg}" />">
 						<%--<a class="img-bg" href="#vModal" data-toggle="modal">
 							<img class="play-btn" src="<%=request.getContextPath()%>/resources/images/savie-2016/videoplay.png">
 						</a>--%>
-						<div class="fwd-container-limit">
-
-              		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
-      	        		<div class="img-banner-text savie-landing">
-      	        			<!--h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2-->
-      	        			<div id="clearfix-height-rp">
-      	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
-      	        			</div>
-              			<div class="savie-product text-bold">
-      						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
-      					</div>
-      	        		</div>
-      	        	</form>
-      	        	</div>
-              	</div>
+						<div class="fwd-container-limit hidden-sm hidden-xs">
+                      		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
+              	        		<div class="img-banner-text savie-landing">
+              	        			<!--h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2-->
+              	        			<div id="clearfix-height-rp">
+              	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
+              	        			</div>
+                      			<div class="savie-product text-bold">
+              						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
+              					</div>
+              	        		</div>
+              	        	</form>
+          	        	</div>
+                  	</div>
 				</div>
-
+                <div class="savie_mobile_middle_buttons hidden-lg hidden-md">
+                    <div class="fwd-container-limit">
+                        <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
+                            <div class="img-banner-text savie-landing">
+                                <!--h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2-->
+                                <div id="clearfix-height-rp">
+                                    <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
+                                </div>
+                            <div class="savie-product text-bold">
+                                <a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 				<div class="payment-mode">
 	        		<div class="desktop-inline">
 		        		<div class="payment-inline">
@@ -1072,7 +1085,7 @@ $(document).ready(function(){
 	//});
 		$.ajax({
 		        type: "POST",
-		        url:'<%=request.getContextPath()%>/ajax/savings-insurance/getSavieHkidDiscount',	        
+		        url:'<%=request.getContextPath()%>/ajax/savings-insurance/getSavieHkidDiscount',
 		        async:false,
 		        success:function(data){
 					if(data.errMsgs != null && data.errMsgs != ''){

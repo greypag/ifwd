@@ -21,7 +21,7 @@ var home_url = "<%=request.getContextPath()%>";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper fwd-savie-eg-wrapper">			
+		<div class="fwd-savie-wrapper fwd-savie-eg-wrapper">
 			<div class="teaser-container">
 			<!-- Access Code Cover Div -->
 			<!--<div class="hunger-selling-container container-fluid" id="myAccessCode">
@@ -33,13 +33,13 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="hunger-selling-body">
 						<form>
 							<input placeholder="Access code" type="text" name="accessCodeConfirm" id="accessCodeConfirm" />
-							<span class="validation-msg hidden-error-msg">The code is invalid or has been used.</span>							
+							<span class="validation-msg hidden-error-msg">The code is invalid or has been used.</span>
 							<button type="submit" id="hunger-btn" class="btn hunger-btn">Submit</button>
 						</form>
 					</div>
 				</div>
 			</div>-->
-			
+
 			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
 				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
 				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.desktop" bundle="${msg}" />" />
@@ -52,13 +52,13 @@ var home_url = "<%=request.getContextPath()%>";
                     <li><a href="#" class="active"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
 					 </ol>
 				</div>
-				
+
 				<div class="hunger-text-section">
 				   <img class="op-logo hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
 					<p class="hunger-selling-text text-1"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></p>
 				</div>
 			</div>
-						
+
 			<div class="fwd-full-container container-fluid o2o-landing teaser op-div">
 				<div class="fwd-container-limit">
 					<div class="teaser-banner-text">
@@ -83,7 +83,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
 				<div class="fwd-container-limit">
 					<div class="row">
@@ -113,7 +113,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 				</div>
 			</div>
-			
+
 	        <div class="teaser-three-column O2O-landing">
 					<div id="landing-three-column" class="fwd-container container-fluid three-column-widget O2O-landing">
 						<div class="row row-top text-center">
@@ -165,7 +165,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 					</div>
-	          
+
 					<div class="fwd-container container-fluid other-benefits-teaser O2O-landing">
 						<!--<div id="other-benefits" class="row">
 							<div class="clearfix">
@@ -285,7 +285,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<!-- <p class="h4-6"><fmt:message key="saviee.landing.disclaimer.1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="saviee.landing.disclaimer.2.url" bundle="${msg}" />" target="_blank"> <u><fmt:message key="saviee.landing.disclaimer.2" bundle="${msg}" /></u></a> <fmt:message key="saviee.landing.disclaimer.3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="saviee.landing.disclaimer.4.url" bundle="${msg}" />" target="_blank"> <u><fmt:message key="saviee.landing.disclaimer.4" bundle="${msg}" /></u></a> <fmt:message key="saviee.landing.disclaimer.5" bundle="${msg}" /></p>-->
 						</div>
 					</div>
-	            
+
 	            <div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
 					<div id="savings-carousel" class="carousel slide" data-ride="carousel">
 						<!-- Wrapper for slides -->
@@ -325,7 +325,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="savings-nav">
 						<div class="prev">
 							<a class="pull-right disabled" href="#savings-carousel" role="button" data-slide="prev">
@@ -334,7 +334,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</span>
 							</a>
 						</div>
-						
+
 						<div class="next">
 							<a class="pull-left active" href="#savings-carousel" role="button" data-slide="next">
 							<span class="icon icon-chevron-thin-right">
@@ -343,27 +343,27 @@ var home_url = "<%=request.getContextPath()%>";
 							</a>
 						</div>
 					</div>
-					
+
 					<!--<div class="savings-menu row">
 						<div class="col-xs-6 download">
 							<a href="#">
 								<div class="action-icon">
 									<img src="assets/images/download-brochure-icon.png">
 								</div>
-								
+
 								<div class="action-text">
 									<h2>Download brochure</h2>
 									<p>View product brochure for more details.</p>
 								</div>
 							</a>
 						</div>
-						
+
 						<div class="col-xs-6 sign-up">
 							<a href="#">
 								<div class="action-icon">
 									<img src="assets/images/signup-now-icon.png">
 								</div>
-								
+
 								<div class="action-text">
 									<h2>Sign up now</h2>
 									<p>To get our limited offer</p>
@@ -371,7 +371,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</a>
 						</div>
 					</div>-->
-					
+
 					<!--<div class="fwd-action o2o-landing">
 						<div class="fwd-action-container fwd-action-two">
 							<button class="action-one talk-to-experts">
@@ -390,11 +390,11 @@ var home_url = "<%=request.getContextPath()%>";
 							</button>
 						</div>
 					</div>-->
-					
+
 				</div>
-	           
+
 	        </div>
-			
+
 			<!-- OUR BLOG -->
 			<div id="landing-page-blog" class="fwd-container blog-widget container-fluid text-center">
 				<div class="read-blog-desktop three-column-widget O2O-landing">
@@ -421,15 +421,15 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div>
 					<p class="text-left hidden-xs hidden-sm"><fmt:message key="disclaimer.blog" bundle="${msg}" /></p>
-				</div>			
+				</div>
 			</div>
 
 
-			<a class="btn btn-full hidden-md hidden-lg" href="<fmt:message key="fwd.blog.save.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.landing.hidden.readmore.mobile" bundle="${msg}" /></a>	
+			<a class="btn btn-full hidden-md hidden-lg" href="<fmt:message key="fwd.blog.save.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.landing.hidden.readmore.mobile" bundle="${msg}" /></a>
 			<div class="mobile-disclaimer">
 				<p class="text-left hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
 			</div>
-			
+
 			<!-- Customer Center Modal -->
 			<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
 				<div class="modal-dialog" role="document">
@@ -446,7 +446,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<h4><fmt:message key="savie.o2o.landing.Your.application" bundle="${msg}" /></h4>
 								<p><fmt:message key="savie.o2o.landing.Can't.make" bundle="${msg}" /></p>
 							</div>
-							
+
 							<div class="bottom-section">
 								<button type="button" class="btn" data-dismiss="modal"><fmt:message key="savie.o2o.landing.Continue" bundle="${msg}" /></button>
 							</div>
@@ -454,7 +454,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 				</div>
 			</div>
-			
+
 			<!--Access Code Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
 				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
@@ -466,7 +466,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="modal-body hunger-selling-body">
 							<div>
 								<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details" method="post">
-									<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
+									<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>
 									<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
 								</form>
 							</div>
@@ -475,9 +475,9 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
+				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
-			
+
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
 				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
@@ -507,17 +507,17 @@ var home_url = "<%=request.getContextPath()%>";
 									<label for="terms-condition-statement-signup"></label>
 									<p class="notice"><fmt:message key="savie.o2o.landing.waiting.list.terms.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.o2o.landing.waiting.list.terms.link.text" bundle="${msg}" /></a><fmt:message key="savie.o2o.landing.waiting.list.terms.part2" bundle="${msg}" /></p>
 								</div>
-								<span class="error-email chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>					
+								<span class="error-email chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
 								<button type="submit" id="signup-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.waiting.list.submit" bundle="${msg}" /></button>
 							</form>
 						</div>
 					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
+				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 			<!-- FOOTER -->
 		</div>
-		
-		
+
+
 		<div class="modal fade" role="dialog" aria-labelledby="teaserSurvery"
 			id="teaserSurvery">
 			<div class="modal-dialog teaserSurvey" role="document">
@@ -532,11 +532,11 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="modal-body teaserSurvey">
 						<p class="registered"><fmt:message key="savie.interestGather.survey.successfully.registered" bundle="${msg}" /></p>
 						<p class="registered"><fmt:message key="savie.interestGather.survey.tell.more" bundle="${msg}" /></p>
-		
+
 						<div class="modal-divider"></div>
-		
+
 						<p class="question"><fmt:message key="savie.interestGather.survey.plan.save" bundle="${msg}" /></p>
-		
+
 						<form class="amount-to-save">
 							<div class="teaser-select">
 									<select class="form-control saveDropdown" name="amountToSave"
@@ -559,9 +559,9 @@ var home_url = "<%=request.getContextPath()%>";
 			<!-- /.modal-dialog -->
 		</div>
 		<!-- /.modal -->
-		
+
 		<!-- JS INCLUDES -->
-		
+
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
@@ -574,7 +574,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/date.format.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/fwd-teaser.js"></script>
-		
+
 		<script type="text/javascript">
 			var language = "en";
 
@@ -599,7 +599,7 @@ var home_url = "<%=request.getContextPath()%>";
 				$.ajax({
 				        type: "POST",
 				        url:'<%=request.getContextPath()%>/ajax/savings-evergreen-insurance/getAppointmentAccessCode',
-				        async:false,         
+				        async:false,
 				        success:function(data){
 							if(data.errMsgs != null && data.errMsgs != ''){
 							}
@@ -610,15 +610,15 @@ var home_url = "<%=request.getContextPath()%>";
 							}
 				        },
 						error:function(){
-						    console.log('error');     
+						    console.log('error');
 					    }
 				    });
 			};
 
 			// Sign up now validation
 			$('#teaserSignUpForm').submit(function(e){
-				e.preventDefault();				
-				
+				e.preventDefault();
+
 				var errorMsg = false;
 				var signupEmail = $('#signupEmail').val();
 				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -632,7 +632,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 				var phone = $('#teaserPhoneNo').val().length;
 				if ($('#teaserPhoneNo').val() == $('#teaserPhoneNo').attr('placeholder')) {
-					isPlaceholder=false;					
+					isPlaceholder=false;
 				} else if (phone > 0 && phone < 8) {
 					$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message")).removeClass('hideSpan');
 					errorMsg = true;
@@ -650,14 +650,14 @@ var home_url = "<%=request.getContextPath()%>";
 				if(!isPlaceholder){
 					$('#teaserPhoneNo').val('');
 				}
-				
+
 			});
-			
+
 			// Sign up Now Button
 			$('#signup').click(function(e){
 				$('#signup-now-modal').modal('show');
 			});
-			
+
 			$('#read-more-other-benefits').click(function(e){
 				$('.other-benefits-list-mobile').removeClass('hidden-xs');
 				$('.other-benefits-list-mobile').removeClass('hidden-sm');
@@ -674,7 +674,7 @@ var home_url = "<%=request.getContextPath()%>";
 			            $("#policyCoveragePopup").on('show.bs.modal', function () {
 			                $('body').css("position", "inital");
 			                //$('body').css("position", "fixed");
-			                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+			                $('body').animate({scrollTop: itemTop.top - 60}, 0);
 			            });
 			            $("#policyCoveragePopup").on('hide.bs.modal', function () {
 			                //alert(itemTop.top);
@@ -684,7 +684,7 @@ var home_url = "<%=request.getContextPath()%>";
 			            });
 			            $("#policyCoveragePopup").on('hidden.bs.modal', function () {
 			                $('body').attr("style", "");
-			            });			
+			            });
 					});
 				}
 			});

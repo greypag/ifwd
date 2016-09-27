@@ -65,11 +65,11 @@ var home_url = "<%=request.getContextPath()%>";
                 	<img src="<%=request.getContextPath()%>/<fmt:message key="provie.online.hero.image.mobile" bundle="${msg}" />" class="img-responsive hidden-sm hidden-md hidden-lg">
 					<img src="<%=request.getContextPath()%>/<fmt:message key="provie.online.hero.image" bundle="${msg}" />" class="img-responsive hidden-xs">
                 	<div class="pv_overlay_text_wrap">
-            			<h2 class="pv_title"><fmt:message key="provie.landing.breadcrumb" bundle="${provieMsg}" /></h2>
-            			<p class="pv_desc"><fmt:message key="provie.landing.title1" bundle="${provieMsg}" /></p>
+            			<h2 class="pv_title">&nbsp;<%-- <fmt:message key="provie.landing.breadcrumb" bundle="${provieMsg}" /> --%></h2>
+            			<p class="pv_desc">&nbsp;<%-- <fmt:message key="provie.landing.title1" bundle="${provieMsg}" /> --%></p>
                 	</div>
 
-                    <div class="fwd-container-limit">
+                    <div class="fwd-container-limit hidden-sm hidden-xs">
                         <form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}"  method="post">
                             <div class="img-banner-text savie-landing">
                                 <div id="clearfix-height-rp">
@@ -106,7 +106,43 @@ var home_url = "<%=request.getContextPath()%>";
                     </div>
                 </div>
             </div>
+			<div class="pv_mobile_middle_buttons hidden-lg hidden-md">
+				<div class="fwd-container-limit">
+					<form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}"  method="post">
+						<div class="img-banner-text savie-landing">
+							<div id="clearfix-height-rp">
+								<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="provie.landing.cta.start" bundle="${provieMsg}" /></button>
+							</div>
+							<div class="savie-product text-bold">
+								<fmt:message key="provie.landing.link.productbrochure" bundle="${provieMsg}" />
+								<fmt:message key="provie.landing.link.productbrochure.text1" bundle="${provieMsg}" />
+								<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.productbrochure.link.oneoff" bundle="${provieMsg}" />'>
+									<fmt:message key="provie.landing.link.productbrochure.text2" bundle="${provieMsg}" />
+								</a>
+								<fmt:message key="provie.landing.link.productbrochure.text3" bundle="${provieMsg}" />
+								<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.productbrochure.link.monthly" bundle="${provieMsg}" />'>
+									<fmt:message key="provie.landing.link.productbrochure.text4" bundle="${provieMsg}" />
+								</a>
+								<fmt:message key="provie.landing.link.productbrochure.text5" bundle="${provieMsg}" />
+							</div>
 
+							<div class="savie-product text-bold">
+								<fmt:message key="provie.landing.link.policyprovision" bundle="${provieMsg}" />
+								<fmt:message key="provie.landing.link.policyprovision.text1" bundle="${provieMsg}" />
+								<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.policyprovision.link.hkd" bundle="${provieMsg}" />'>
+									<fmt:message key="provie.landing.link.policyprovision.text2" bundle="${provieMsg}" />
+								</a>
+								<fmt:message key="provie.landing.link.policyprovision.text3" bundle="${provieMsg}" />
+								<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.policyprovision.link.usd" bundle="${provieMsg}" />'>
+									<fmt:message key="provie.landing.link.policyprovision.text4" bundle="${provieMsg}" />
+								</a>
+								<fmt:message key="provie.landing.link.policyprovision.text5" bundle="${provieMsg}" />
+							</div>
+
+						</div>
+					</form>
+				</div>
+			</div>
             <div class="pv_productInfo">
             	<div class="container">
             		<div class="row">

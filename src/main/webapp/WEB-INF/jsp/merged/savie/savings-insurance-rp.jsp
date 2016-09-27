@@ -54,8 +54,8 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
 	</div>
 
-	
-	
+
+
 	<div class="savie-regular-container savie-regular-landing rp-only">
 		<div class="whole-banner">
         	<div class="page-banner">
@@ -65,21 +65,33 @@ var home_url = "<%=request.getContextPath()%>";
 					<img class="play-btn" src="<%=request.getContextPath()%>/resources/images/savie-2016/videoplay.png">
 				</a> --%>
 				<div class="fwd-container-limit">
-
-        		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
-	        		<div class="img-banner-text savie-landing">
-	        			<div id="clearfix-height-rp">
-	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
-	        			</div>
-        			<div class="savie-product text-bold">
-						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
-					</div>
-	        		</div>
-	        	</form>
+            		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
+    	        		<div class="img-banner-text savie-landing">
+    	        			<div id="clearfix-height-rp">
+    	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
+    	        			</div>
+            			<div class="savie-product text-bold">
+    						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
+    					</div>
+    	        		</div>
+    	        	</form>
 	        	</div>
         	</div>
         </div>
-
+        <div class="savie_mobile_middle_buttons hidden-lg hidden-md">
+            <div class="fwd-container-limit hidden-sm hidden-xs">
+                <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
+                    <div class="img-banner-text savie-landing">
+                        <div id="clearfix-height-rp">
+                            <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
+                        </div>
+                    <div class="savie-product text-bold">
+                        <a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 		<div class="payment-mode">
        		<div class="desktop-inline">
         		<div class="payment-inline">
@@ -839,7 +851,7 @@ $(document).ready(function(){
 	//});
 	$.ajax({
         type: "POST",
-        url:'<%=request.getContextPath()%>/ajax/savings-insurance/getSavieHkidDiscount',	        
+        url:'<%=request.getContextPath()%>/ajax/savings-insurance/getSavieHkidDiscount',
         async:false,
         success:function(data){
 			if(data.errMsgs != null && data.errMsgs != ''){

@@ -158,6 +158,8 @@ body {
 }
 
 /* line 77, ../sass/partials/savie/_common.scss */
+
+/* #3753 bug fix */
 .savie-regular-btn {
   color: white;
   font-size: 24px;
@@ -171,6 +173,70 @@ body {
   padding: 11px 0;
   border-bottom: solid 3px #cfa238;
 }
+
+.savie_mobile_middle_buttons {
+  background-color: #041d29;
+  padding: 26px 0;
+  text-align: center;
+}
+.savie_mobile_middle_buttons .img-banner-text .start-btn {
+  background: #fdb714;
+  border-color: #cf9611;
+  font-size: 14px;
+  max-width: 230px;
+  padding: 4.5px 0 5.5px;
+  margin-top: 8px;
+}
+.savie_mobile_middle_buttons .img-banner-text .savie-product a {
+  font-size: 14px;
+}
+.savie_mobile_middle_buttons a {
+  color: #ffffff;
+}
+.savie_mobile_middle_buttons .savie-product.text-bold {
+  color: #ffffff;
+}
+.savie_mobile_middle_buttons .savie-product.text-bold a {
+  margin-top: 8px;
+  color: #ffffff;
+}
+.savie_mobile_middle_buttons .savie-product.text-bold a:hover {
+  color: #f68a1d;
+}
+
+@media (max-width: 400px) {
+  .savie_mobile_middle_buttons {
+    background-color: #041d29;
+    padding: 26px 0;
+    text-align: center;
+  }
+  .savie_mobile_middle_buttons .img-banner-text .start-btn {
+    background: #fdb714;
+    border-color: #cf9611;
+    font-size: 14px;
+    max-width: 230px;
+    padding: 4.5px 0 5.5px;
+    margin-top: 8px;
+  }
+  .savie_mobile_middle_buttons .img-banner-text .savie-product a {
+    font-size: 14px;
+  }
+  .savie_mobile_middle_buttons a {
+    color: #ffffff;
+  }
+  .savie_mobile_middle_buttons .savie-product.text-bold {
+    font-size: 12px;
+    color: #ffffff;
+  }
+  .savie_mobile_middle_buttons .savie-product.text-bold a {
+    margin-top: 8px;
+    color: #ffffff;
+  }
+  .savie_mobile_middle_buttons .savie-product.text-bold a:hover {
+    color: #f68a1d;
+  }
+}
+/* ./#3753 bug fix */
 
 /* line 92, ../sass/partials/savie/_common.scss */
 .gray-divide {
