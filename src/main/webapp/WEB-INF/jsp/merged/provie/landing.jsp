@@ -21,6 +21,27 @@ var language = "${language}";
 var affiliate = "${affiliate}";
 var home_url = "<%=request.getContextPath()%>";
 </script>
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"${scriptImg}",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"1000",
+    "highPrice":"1000000",
+    "priceCurrency":"HKD"
+  }
+}
+
+
+</script>
 <%
 	boolean isSaleActiveClass = false;
 	boolean isEservicesActiveClass = false;
