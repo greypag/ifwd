@@ -1,2 +1,752 @@
-.provie-plan-select #plan-details-wrapper{padding-left:15px;padding-right:15px}.provie-plan-select .mdl-textfield,.provie-plan-select .selectDiv{margin-bottom:20px}.provie-plan-select .btn-after-5-years:after{font-family:'icomoon';content:"\e603";margin-left:5px;vertical-align:middle}.provie-plan-select .btn-after-5-years.collapsed:after{content:"\e600"}.provie-plan-select .plan-calculator-holder{padding-top:0}.provie-plan-select .plan-calculator-holder .plan-form-holder #plan-dob-date{height:44px;font-size:18px;color:#000000;padding:6px 15px !important;margin-top:10px}.provie-plan-select .plan-calculator-holder .plan-form-holder #plan-dob-date[readonly]{cursor:default}.provie-plan-select .plan-calculator-holder .plan-form-holder .plan-calculate{margin-top:30px}.provie-plan-select .plan-calculator-holder .plan-form-holder .heading-title{padding-top:24px}.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider{background-repeat:no-repeat;background-image:url(data:image/png;base64,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);background-size:100% 50px;padding-bottom:60px;background-position:center bottom}.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider.p50{background-color:#f5531a}.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider.p100{background-color:#fbb616}.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider.p500{background-color:#12a6b7}.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider p{color:#fff}.provie-plan-select #plan-details-wrapper .container-fluid{padding:0}.provie-plan-select #extra-desc p,.provie-plan-select #extra-desc-desktop p{display:none}.provie-plan-select #extra-desc p.active,.provie-plan-select #extra-desc-desktop p.active{display:block}.provie-plan-select #table-content-pd{width:100%}.provie-plan-select #table-content-pd .summary-table-head{padding:0}.provie-plan-select #table-content-pd .table-content{padding:0}.provie-plan-select .tbl-rate-mobile{position:relative;margin-bottom:20px}.provie-plan-select .tbl-rate-mobile .sticky-header{float:left;width:20%}.provie-plan-select .tbl-rate-mobile .sticky-header table{border-right:solid 2px #b7b8b7}.provie-plan-select .tbl-rate-mobile .sticky-btns{width:80%;position:absolute;top:0;right:0;z-index:1}.provie-plan-select .tbl-rate-mobile .sticky-btns .btn-left,.provie-plan-select .tbl-rate-mobile .sticky-btns .btn-right{background-color:#ff8201;padding:10px;color:#fff;border-radius:5px}.provie-plan-select .tbl-rate-mobile .sticky-btns .btn-left{float:left;margin-left:10px}.provie-plan-select .tbl-rate-mobile .sticky-btns .btn-right{float:right;margin-right:10px}.provie-plan-select .tbl-rate-mobile table{max-width:initial;width:100%}.provie-plan-select .tbl-rate-mobile table th{border-top:solid 2px #b7b8b7;border-bottom:solid 2px #b7b8b7}.provie-plan-select .tbl-rate-mobile table td,.provie-plan-select .tbl-rate-mobile table th{padding:10px;text-align:center}.provie-plan-select .tbl-rate-mobile table tr.pinkish-shade{background-color:#f3f4f5}.provie-plan-select .tbl-rate-mobile .overflow-body{float:left;overflow:hidden;overflow-x:scroll;width:80%;-webkit-overflow-scrolling:touch}.provie-plan-select .tbl-rate-mobile .overflow-body table{width:500%;margin:0 -1px}.provie-plan-select .tbl-rate-mobile .overflow-body table th,.provie-plan-select .tbl-rate-mobile .overflow-body table td{width:calc(100% / 5);text-align:center;padding:10px 20px}.provie-plan-select .pd-summary-table .summary-table .table-content .table thead{border:none}.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th{border-top:solid 2px #b7b8b7;border-bottom:solid 2px #b7b8b7}.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th.cell-extra-rider{color:#fff;text-align:center}.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th.cell-extra-rider.p50{border-top:solid 2px #f5531a;border-bottom:solid 2px #f5531a;border-right:solid 1px #f5531a;background:#f5531a}.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th.cell-extra-rider.p100{border-top:solid 2px #fbb616;border-bottom:solid 2px #fbb616;border-right:solid 1px #fbb616;background:#fbb616}.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th.cell-extra-rider.p500{border-top:solid 2px #12a6b7;border-bottom:solid 2px #12a6b7;border-right:solid 1px #12a6b7;background:#12a6b7}.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody tr:last-child td{border-bottom:solid 1px #b7b8b7}.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody tr:last-child td.cell-extra-rider.p50{border-bottom:solid 1px #f5531a}.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody tr:last-child td.cell-extra-rider.p100{border-bottom:solid 1px #fbb616}.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody tr:last-child td.cell-extra-rider.p500{border-bottom:solid 1px #12a6b7}.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody .cell-extra-rider{text-align:center}.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody .cell-extra-rider.p50{border-left:solid 1px #f5531a;border-right:solid 1px #f5531a;color:#f5531a}.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody .cell-extra-rider.p100{border-left:solid 1px #fbb616;border-right:solid 1px #fbb616;color:#fbb616}.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody .cell-extra-rider.p500{border-left:solid 1px #12a6b7;border-right:solid 1px #12a6b7;color:#12a6b7}.provie-plan-select .overflow-body table th.cell-extra-rider{color:#fff;text-align:center}.provie-plan-select .overflow-body table th.cell-extra-rider.p50{border-top:solid 2px #f5531a;border-bottom:solid 2px #f5531a;background:#f5531a}.provie-plan-select .overflow-body table th.cell-extra-rider.p100{border-top:solid 2px #fbb616;border-bottom:solid 2px #fbb616;background:#fbb616}.provie-plan-select .overflow-body table th.cell-extra-rider.p500{border-top:solid 2px #12a6b7;border-bottom:solid 2px #12a6b7;background:#12a6b7}.provie-plan-select .overflow-body table td.cell-extra-rider.p50{border-left:solid 1px #f5531a;color:#f5531a}.provie-plan-select .overflow-body table td.cell-extra-rider.p100{border-left:solid 1px #fbb616;color:#fbb616}.provie-plan-select .overflow-body table td.cell-extra-rider.p500{border-left:solid 1px #12a6b7;color:#12a6b7}.provie-plan-appointment #app-date{cursor:default}.provie-plan-appointment .fld-wrapper{background-color:#f5f5f5;min-height:45px}.provie-plan-appointment .fld-wrapper .fld-label{font-size:14px;font-weight:bold;padding-left:15px;color:#ff8200}.provie-plan-appointment .fld-wrapper .fld-val{font-size:18px;margin-top:-6px;padding-left:15px}.provie-plan-appointment .form-group .error-msg{margin-top:0px !important}.provie-plan-appointment .declaration{margin-top:20px}.provie-plan-appointment .declaration p{font-size:14px;line-height:18px}.provie-plan-appointment .declaration .checkbox{padding-left:24px}.provie-plan-appointment .declaration .checkbox label{font-size:14px;line-height:22px}.provie-plan-appointment .confirm-button-group{margin-bottom:10px}.provie-plan-appointment .help-block{color:#e4002b !important;font-family:'Calibri'}.provie-plan-appointment .after-login,.provie-plan-appointment .before-login,.provie-plan-appointment #btn-appointment-confirm{display:none}.provie-plan-appointment .before-login h4{font-size:16px}.provie-plan-appointment .before-login .panel-group .panel{background-color:#f5f5f5}.provie-plan-appointment .before-login .panel-group .panel .panel-heading{background-color:inherit;border:none;position:relative}.provie-plan-appointment .before-login .panel-group .panel .panel-heading .panel-title{padding:10px 0}.provie-plan-appointment .before-login .panel-group .panel .panel-heading .panel-title a{color:#f47e24;position:relative;display:block}.provie-plan-appointment .before-login .panel-group .panel .panel-heading .panel-title a .orange-caret-bg{position:absolute;top:50%;right:5px;width:10px}.provie-plan-appointment .before-login .panel-group .panel .panel-heading .panel-title a.btn-sub-pan-trigger{color:#333;position:absolute;top:50%;right:5px;margin-top:-10px}.provie-plan-appointment .before-login .panel-group .panel .panel-collapse{width:100%}.provie-plan-appointment .before-login .panel-group .panel .panel-body{border:none;padding:5px 10px 20px}.provie-plan-appointment .before-login .panel-group .panel .panel-body .sub-pan{display:none;background-color:#f5f5f5;position:relative}.provie-plan-appointment .before-login .panel-group .panel .panel-body .sub-pan .panel-heading{padding:0 5px}.provie-plan-appointment .before-login .panel-group .panel .panel-body .sub-pan .panel-heading .panel-title{color:#f47e24}.provie-plan-appointment .before-login .panel-group .panel .panel-body #sub-pan-forgot-username,.provie-plan-appointment .before-login .panel-group .panel .panel-body #sub-pan-forgot-pwd{margin-top:-57px}.provie-plan-appointment .before-login .panel-group .panel .panel-body .form-group{margin-bottom:5px}.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield{width:100%;margin-bottom:0;padding:0}.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield input{font-size:18px;font-family:'Calibri';color:#000;margin-top:6px;background-color:#fff !important;box-shadow:inset 0 1px 1px transparent;padding:12px 15px 0 15px;border-radius:0;border:0 transparent;height:40px}.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield input:focus{border-bottom:2px solid #Ff8200;outline:none;outline-offset:0;-webkit-appearance:none;box-shadow:inset 0 1px 1px transparent}.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield label{padding-top:5px;font-size:14px;left:0;top:10px;padding-left:15px;font-family:'Calibri-Bold'}.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield label:after{background-color:transparent}.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield label .small-txt{font-size:12px}.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield.is-focused label,.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield.is-dirty label{color:#ff8200;font-size:12px;top:1px}.provie-plan-appointment .before-login .panel-group .panel .panel-body .checkbox label{padding-top:0}.provie-plan-appointment .before-login .panel-group .panel+.panel{background-color:#e0dfe0}.is_chin{display:none}.currency_switcher>span{display:none}.currency_switcher>span.active{display:inline}.chin .provie-plan-select .plan-form-holder .heading-title{font-size:20px}.chin .is_chin{display:inline}.chin .is_en{display:none}#on-of-holder{margin-left:0;margin-right:0}#on-of-holder>[class*="col-"]{padding-left:0 !important;padding-right:0 !important}#offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn{margin-top:10px;position:static}@media (min-width: 992px){#plan-details-sample-and-faq .tab-content{padding:20px 0}}@media (max-width: 992px){.provie-plan-select .mob-full{margin-left:0;margin-right:0}.provie-plan-select .mob-full [class*="col-"]{padding-left:0 !important;padding-right:0 !important}.provie-plan-select #table-content-pd{padding-left:10px;padding-right:10px}.provie-plan-select #plan-details-wrapper{padding-left:0px;padding-right:0px}.provie-plan-select #plan-details-wrapper .container-fluid{padding-left:10px;padding-right:10px}.provie-plan-select .plan-calculator-holder .plan-form-holder .plan-calculate{margin-top:15px;margin-bottom:15px}.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider{background-image:none;padding:0 30px 20px;margin:20px -30px 10px}.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider .heading-title{padding-top:10px;line-height:30px}.provie-plan-select .plan-calculator-holder .plan-form-holder .btn-more{color:#fff;font-size:12px}.provie-plan-select .plan-calculator-holder .plan-form-holder .btn-more:after{font-family:'icomoon';content:"\e600";margin-left:5px;vertical-align:middle}.provie-plan-select .plan-calculator-holder .plan-form-holder .btn-more.collapsed:after{content:"\e602"}.provie-plan-select #amount-slide-holder{padding-left:0;padding-right:0}.provie-plan-select .min-max-holder{margin-bottom:10px}}.dw-bubble.mbsc-mobiscroll .dwwr{border:1px solid #ccc;color:#333}.dw-bubble.mbsc-mobiscroll .dwl{color:#333;font-size:18px;text-transform:capitalize}.dw-bubble.mbsc-mobiscroll .dwwol{border-top:1px solid #f99502;border-bottom:1px solid #f99502}.dw-bubble.mbsc-mobiscroll .dw-li{font-size:18px}.dw-bubble.mbsc-mobiscroll .dwb{color:#f99502}.dw-bubble.mbsc-mobiscroll .dw-cal-btn-txt{color:#f99502}.dw-bubble.mbsc-mobiscroll .dw-cal-days{color:#f99502}.dw-bubble.mbsc-mobiscroll .dw-cal-days th{color:#f99502;border-bottom:1px solid #f99502}.dw-bubble.mbsc-mobiscroll .dw-cal .dw-sel .dw-i{background:#f99502}.dw-bubble.mbsc-mobiscroll .dw-week-nrs-c{color:#f99502}.dw-bubble.mbsc-mobiscroll .dw-hl-now .dw-cal-today{color:#facc87}.mbsc-mobiscroll .mbsc-ic-arrow-left5:before{content:"\f101"}.mbsc-ic-arrow-right5:before{content:"\f103"}.mdl-custom-slider{background-color:#fff;position:relative;height:54px;padding:0 15px}.mdl-custom-slider .slider{width:100% !important;padding:3px 15px !important;margin-top:25px;margin-left:0 !important}.mdl-custom-slider .slider .slider-handle{background-image:none !important;background-color:#fff}.mdl-custom-slider .slider .slider-track{background-image:none;background-color:#bbc7cf}.mdl-custom-slider .slider.slider-horizontal .slider-track{left:0}.mdl-custom-slider .custom-made-label{padding-right:15px}.mdl-custom-slider .pull-right{color:#000;font-size:16px}.min-max-holder{margin-top:5px}.min-max-holder p{color:#999;font-size:12px;line-height:1.5em}.plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-handle{background-image:none !important;background-color:#fff;width:20px;height:20px;margin-left:-10px;border-radius:10px;border:1px #bbc7cf solid}.plan-calculator-holder .plan-form-holder #amount-slide-holder{padding-bottom:0}.fwd-savie-wrapper .modal.fade .modal-dialog .modal-content{border-radius:0;padding:0;position:relative;outline:0;box-shadow:none}@media screen and (min-width: 768px){.modal-dialog{margin:230px auto}}.fwd-savie-wrapper .modal.fade{background:inherit}
+/* line 5, ../sass/provie-styles.scss */
+.provie-plan-select #plan-details-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* line 10, ../sass/provie-styles.scss */
+.provie-plan-select .mdl-textfield, .provie-plan-select .selectDiv {
+  margin-bottom: 20px;
+}
+/* line 15, ../sass/provie-styles.scss */
+.provie-plan-select .btn-after-5-years:after {
+  /* symbol for "opening" panels */
+  font-family: 'icomoon';
+  /* essential for enabling glyphicon */
+  content: "\e603";
+  /* adjust as needed, taken from bootstrap.css */
+  margin-left: 5px;
+  vertical-align: middle;
+}
+/* line 22, ../sass/provie-styles.scss */
+.provie-plan-select .btn-after-5-years.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\e600";
+  /* adjust as needed, taken from bootstrap.css */
+}
+/* line 28, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder {
+  padding-top: 0;
+}
+/* line 32, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder #plan-dob-date {
+  height: 44px;
+  font-size: 18px;
+  color: #000000;
+  padding: 6px 15px !important;
+  margin-top: 10px;
+}
+/* line 39, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder #plan-dob-date[readonly] {
+  cursor: default;
+}
+/* line 43, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder .plan-calculate {
+  margin-top: 30px;
+}
+/* line 47, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder .heading-title {
+  padding-top: 24px;
+}
+/* line 51, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider {
+  background-repeat: no-repeat;
+  background-image: url(data:image/png;base64,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);
+  background-size: 100% 50px;
+  padding-bottom: 60px;
+  background-position: center bottom;
+}
+/* line 58, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider.p50 {
+  background-color: #f5531a;
+}
+/* line 62, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider.p100 {
+  background-color: #fbb616;
+}
+/* line 66, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider.p500 {
+  background-color: #12a6b7;
+}
+/* line 70, ../sass/provie-styles.scss */
+.provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider p {
+  color: #fff;
+}
+/* line 76, ../sass/provie-styles.scss */
+.provie-plan-select #plan-details-wrapper .container-fluid {
+  padding: 0;
+}
+/* line 82, ../sass/provie-styles.scss */
+.provie-plan-select #extra-desc p, .provie-plan-select #extra-desc-desktop p {
+  display: none;
+}
+/* line 83, ../sass/provie-styles.scss */
+.provie-plan-select #extra-desc p.active, .provie-plan-select #extra-desc-desktop p.active {
+  display: block;
+}
+/* line 86, ../sass/provie-styles.scss */
+.provie-plan-select #table-content-pd {
+  width: 100%;
+}
+/* line 89, ../sass/provie-styles.scss */
+.provie-plan-select #table-content-pd .summary-table-head {
+  padding: 0;
+}
+/* line 93, ../sass/provie-styles.scss */
+.provie-plan-select #table-content-pd .table-content {
+  padding: 0;
+}
+/* line 98, ../sass/provie-styles.scss */
+.provie-plan-select .table-content {
+  /* min-width: 980px; */
+}
+/* line 102, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile {
+  position: relative;
+  margin-bottom: 20px;
+}
+/* line 105, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .sticky-header {
+  float: left;
+  width: 20%;
+}
+/* line 109, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .sticky-header table {
+  border-right: solid 2px #b7b8b7;
+}
+/* line 114, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .sticky-btns {
+  width: 80%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+/* line 121, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .sticky-btns .btn-left, .provie-plan-select .tbl-rate-mobile .sticky-btns .btn-right {
+  background-color: #ff8201;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+}
+/* line 128, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .sticky-btns .btn-left {
+  float: left;
+  margin-left: 10px;
+}
+/* line 133, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .sticky-btns .btn-right {
+  float: right;
+  margin-right: 10px;
+}
+/* line 139, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile table {
+  max-width: initial;
+  width: 100%;
+}
+/* line 143, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile table th {
+  border-top: solid 2px #b7b8b7;
+  border-bottom: solid 2px #b7b8b7;
+}
+/* line 147, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile table td, .provie-plan-select .tbl-rate-mobile table th {
+  padding: 10px;
+  text-align: center;
+}
+/* line 152, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile table tr.pinkish-shade {
+  background-color: #f3f4f5;
+}
+/* line 158, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .overflow-body {
+  float: left;
+  overflow: hidden;
+  overflow-x: scroll;
+  width: 80%;
+  -webkit-overflow-scrolling: touch;
+}
+/* line 165, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .overflow-body table {
+  width: 500%;
+  margin: 0 -1px;
+}
+/* line 168, ../sass/provie-styles.scss */
+.provie-plan-select .tbl-rate-mobile .overflow-body table th, .provie-plan-select .tbl-rate-mobile .overflow-body table td {
+  width: calc(100% / 5);
+  text-align: center;
+  padding: 10px 20px;
+}
+/* line 183, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table thead {
+  border: none;
+}
+/* line 185, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th {
+  border-top: solid 2px #b7b8b7;
+  border-bottom: solid 2px #b7b8b7;
+}
+/* line 189, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th.cell-extra-rider {
+  color: #fff;
+  text-align: center;
+}
+/* line 193, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th.cell-extra-rider.p50 {
+  border-top: solid 2px #f5531a;
+  border-bottom: solid 2px #f5531a;
+  border-right: solid 1px #f5531a;
+  background: #f5531a;
+}
+/* line 200, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th.cell-extra-rider.p100 {
+  border-top: solid 2px #fbb616;
+  border-bottom: solid 2px #fbb616;
+  border-right: solid 1px #fbb616;
+  background: #fbb616;
+}
+/* line 208, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table thead th.cell-extra-rider.p500 {
+  border-top: solid 2px #12a6b7;
+  border-bottom: solid 2px #12a6b7;
+  border-right: solid 1px #12a6b7;
+  background: #12a6b7;
+}
+/* line 219, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody tr:last-child td {
+  border-bottom: solid 1px #b7b8b7;
+}
+/* line 223, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody tr:last-child td.cell-extra-rider.p50 {
+  border-bottom: solid 1px #f5531a;
+}
+/* line 226, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody tr:last-child td.cell-extra-rider.p100 {
+  border-bottom: solid 1px #fbb616;
+}
+/* line 229, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody tr:last-child td.cell-extra-rider.p500 {
+  border-bottom: solid 1px #12a6b7;
+}
+/* line 235, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody .cell-extra-rider {
+  text-align: center;
+}
+/* line 237, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody .cell-extra-rider.p50 {
+  border-left: solid 1px #f5531a;
+  border-right: solid 1px #f5531a;
+  color: #f5531a;
+}
+/* line 242, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody .cell-extra-rider.p100 {
+  border-left: solid 1px #fbb616;
+  border-right: solid 1px #fbb616;
+  color: #fbb616;
+}
+/* line 247, ../sass/provie-styles.scss */
+.provie-plan-select .pd-summary-table .summary-table .table-content .table tbody .cell-extra-rider.p500 {
+  border-left: solid 1px #12a6b7;
+  border-right: solid 1px #12a6b7;
+  color: #12a6b7;
+}
+/* line 257, ../sass/provie-styles.scss */
+.provie-plan-select .overflow-body table th.cell-extra-rider {
+  color: #fff;
+  text-align: center;
+}
+/* line 260, ../sass/provie-styles.scss */
+.provie-plan-select .overflow-body table th.cell-extra-rider.p50 {
+  border-top: solid 2px #f5531a;
+  border-bottom: solid 2px #f5531a;
+  background: #f5531a;
+}
+/* line 266, ../sass/provie-styles.scss */
+.provie-plan-select .overflow-body table th.cell-extra-rider.p100 {
+  border-top: solid 2px #fbb616;
+  border-bottom: solid 2px #fbb616;
+  background: #fbb616;
+}
+/* line 273, ../sass/provie-styles.scss */
+.provie-plan-select .overflow-body table th.cell-extra-rider.p500 {
+  border-top: solid 2px #12a6b7;
+  border-bottom: solid 2px #12a6b7;
+  background: #12a6b7;
+}
+/* line 281, ../sass/provie-styles.scss */
+.provie-plan-select .overflow-body table td.cell-extra-rider.p50 {
+  border-left: solid 1px #f5531a;
+  color: #f5531a;
+}
+/* line 285, ../sass/provie-styles.scss */
+.provie-plan-select .overflow-body table td.cell-extra-rider.p100 {
+  border-left: solid 1px #fbb616;
+  color: #fbb616;
+}
+/* line 289, ../sass/provie-styles.scss */
+.provie-plan-select .overflow-body table td.cell-extra-rider.p500 {
+  border-left: solid 1px #12a6b7;
+  color: #12a6b7;
+}
+
+/* line 300, ../sass/provie-styles.scss */
+.provie-plan-appointment #app-date {
+  cursor: default;
+}
+/* line 304, ../sass/provie-styles.scss */
+.provie-plan-appointment .fld-wrapper {
+  background-color: #f5f5f5;
+  min-height: 45px;
+}
+/* line 308, ../sass/provie-styles.scss */
+.provie-plan-appointment .fld-wrapper .fld-label {
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 15px;
+  color: #ff8200;
+}
+/* line 315, ../sass/provie-styles.scss */
+.provie-plan-appointment .fld-wrapper .fld-val {
+  font-size: 18px;
+  margin-top: -6px;
+  padding-left: 15px;
+}
+/* line 321, ../sass/provie-styles.scss */
+.provie-plan-appointment .form-group .error-msg {
+  margin-top: 0px !important;
+}
+/* line 326, ../sass/provie-styles.scss */
+.provie-plan-appointment .declaration {
+  margin-top: 20px;
+}
+/* line 329, ../sass/provie-styles.scss */
+.provie-plan-appointment .declaration p {
+  font-size: 14px;
+  line-height: 18px;
+}
+/* line 334, ../sass/provie-styles.scss */
+.provie-plan-appointment .declaration .checkbox {
+  padding-left: 24px;
+}
+/* line 337, ../sass/provie-styles.scss */
+.provie-plan-appointment .declaration .checkbox label {
+  font-size: 14px;
+  line-height: 22px;
+}
+/* line 344, ../sass/provie-styles.scss */
+.provie-plan-appointment .confirm-button-group {
+  margin-bottom: 10px;
+}
+/* line 348, ../sass/provie-styles.scss */
+.provie-plan-appointment .help-block {
+  color: #e4002b !important;
+  font-family: 'Calibri';
+}
+/* line 353, ../sass/provie-styles.scss */
+.provie-plan-appointment .after-login, .provie-plan-appointment .before-login, .provie-plan-appointment #btn-appointment-confirm {
+  display: none;
+}
+/* line 358, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login h4 {
+  font-size: 16px;
+}
+/* line 363, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel {
+  background-color: #f5f5f5;
+}
+/* line 365, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-heading {
+  background-color: inherit;
+  border: none;
+  position: relative;
+}
+/* line 371, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-heading .panel-title {
+  padding: 10px 0;
+}
+/* line 373, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-heading .panel-title a {
+  color: #f47e24;
+  position: relative;
+  display: block;
+}
+/* line 378, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-heading .panel-title a .orange-caret-bg {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 10px;
+}
+/* line 386, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-heading .panel-title a.btn-sub-pan-trigger {
+  color: #333;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin-top: -10px;
+}
+/* line 397, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-collapse {
+  width: 100%;
+}
+/* line 405, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body {
+  border: none;
+  padding: 5px 10px 20px;
+}
+/* line 409, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .sub-pan {
+  display: none;
+  background-color: #f5f5f5;
+  position: relative;
+}
+/* line 413, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .sub-pan .panel-heading {
+  padding: 0 5px;
+}
+/* line 416, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .sub-pan .panel-heading .panel-title {
+  color: #f47e24;
+}
+/* line 423, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body #sub-pan-forgot-username, .provie-plan-appointment .before-login .panel-group .panel .panel-body #sub-pan-forgot-pwd {
+  margin-top: -57px;
+}
+/* line 425, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .form-group {
+  margin-bottom: 5px;
+}
+/* line 429, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield {
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0;
+}
+/* line 434, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield input {
+  font-size: 18px;
+  font-family: 'Calibri';
+  color: #000;
+  margin-top: 6px;
+  background-color: #fff !important;
+  box-shadow: inset 0 1px 1px transparent;
+  padding: 12px 15px 0 15px;
+  border-radius: 0;
+  border: 0 transparent;
+  height: 40px;
+}
+/* line 446, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield input:focus {
+  border-bottom: 2px solid #Ff8200;
+  outline: none;
+  outline-offset: 0;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 1px transparent;
+}
+/* line 455, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield label {
+  padding-top: 5px;
+  font-size: 14px;
+  left: 0;
+  top: 10px;
+  padding-left: 15px;
+  font-family: 'Calibri-Bold';
+}
+/* line 464, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield label:after {
+  background-color: transparent;
+}
+/* line 468, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield label .small-txt {
+  font-size: 12px;
+}
+/* line 473, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield.is-focused label, .provie-plan-appointment .before-login .panel-group .panel .panel-body .mdl-textfield.is-dirty label {
+  color: #ff8200;
+  font-size: 12px;
+  top: 1px;
+}
+/* line 481, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel .panel-body .checkbox label {
+  padding-top: 0;
+}
+/* line 487, ../sass/provie-styles.scss */
+.provie-plan-appointment .before-login .panel-group .panel + .panel {
+  background-color: #e0dfe0;
+}
+
+/* line 495, ../sass/provie-styles.scss */
+.is_chin {
+  display: none;
+}
+
+/* line 499, ../sass/provie-styles.scss */
+.currency_switcher > span {
+  display: none;
+}
+/* line 502, ../sass/provie-styles.scss */
+.currency_switcher > span.active {
+  display: inline;
+}
+
+/* line 510, ../sass/provie-styles.scss */
+.chin .provie-plan-select .plan-form-holder .heading-title {
+  font-size: 20px;
+}
+/* line 516, ../sass/provie-styles.scss */
+.chin .is_chin {
+  display: inline;
+}
+/* line 521, ../sass/provie-styles.scss */
+.chin .is_en {
+  display: none;
+}
+
+/* line 526, ../sass/provie-styles.scss */
+#on-of-holder {
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 530, ../sass/provie-styles.scss */
+#on-of-holder > [class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* line 536, ../sass/provie-styles.scss */
+#offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
+  margin-top: 10px;
+  position: static;
+}
+
+@media (min-width: 992px) {
+  /* line 542, ../sass/provie-styles.scss */
+  #plan-details-sample-and-faq .tab-content {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 992px) {
+  /* line 553, ../sass/provie-styles.scss */
+  .provie-plan-select .mob-full {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* line 557, ../sass/provie-styles.scss */
+  .provie-plan-select .mob-full [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  /* line 563, ../sass/provie-styles.scss */
+  .provie-plan-select #table-content-pd {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  /* line 568, ../sass/provie-styles.scss */
+  .provie-plan-select #plan-details-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  /* line 572, ../sass/provie-styles.scss */
+  .provie-plan-select #plan-details-wrapper .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  /* line 580, ../sass/provie-styles.scss */
+  .provie-plan-select .plan-calculator-holder .plan-form-holder .plan-calculate {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  /* line 585, ../sass/provie-styles.scss */
+  .provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider {
+    background-image: none;
+    padding: 0 30px 20px;
+    margin: 20px -30px 10px;
+  }
+  /* line 590, ../sass/provie-styles.scss */
+  .provie-plan-select .plan-calculator-holder .plan-form-holder .extra-rider .heading-title {
+    padding-top: 10px;
+    line-height: 30px;
+  }
+  /* line 596, ../sass/provie-styles.scss */
+  .provie-plan-select .plan-calculator-holder .plan-form-holder .btn-more {
+    color: #fff;
+    font-size: 12px;
+  }
+  /* line 601, ../sass/provie-styles.scss */
+  .provie-plan-select .plan-calculator-holder .plan-form-holder .btn-more:after {
+    /* symbol for "opening" panels */
+    font-family: 'icomoon';
+    /* essential for enabling glyphicon */
+    content: "\e600";
+    /* adjust as needed, taken from bootstrap.css */
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  /* line 608, ../sass/provie-styles.scss */
+  .provie-plan-select .plan-calculator-holder .plan-form-holder .btn-more.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e602";
+    /* adjust as needed, taken from bootstrap.css */
+  }
+  /* line 617, ../sass/provie-styles.scss */
+  .provie-plan-select #amount-slide-holder {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* line 622, ../sass/provie-styles.scss */
+  .provie-plan-select .min-max-holder {
+    margin-bottom: 10px;
+  }
+}
+/* line 631, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dwwr {
+  border: 1px solid #ccc;
+  color: #333;
+}
+/* line 635, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dwl {
+  color: #333;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+/* line 640, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dwwol {
+  border-top: 1px solid #f99502;
+  border-bottom: 1px solid #f99502;
+}
+/* line 644, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dw-li {
+  font-size: 18px;
+}
+/* line 648, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dwb {
+  color: #f99502;
+}
+/* line 652, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dw-cal-btn-txt {
+  color: #f99502;
+}
+/* line 656, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dw-cal-days {
+  color: #f99502;
+}
+/* line 658, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dw-cal-days th {
+  color: #f99502;
+  border-bottom: 1px solid #f99502;
+}
+/* line 664, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dw-cal .dw-sel .dw-i {
+  background: #f99502;
+}
+/* line 668, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dw-week-nrs-c {
+  color: #f99502;
+}
+/* line 672, ../sass/provie-styles.scss */
+.dw-bubble.mbsc-mobiscroll .dw-hl-now .dw-cal-today {
+  color: #facc87;
+}
+
+/* line 677, ../sass/provie-styles.scss */
+.mbsc-mobiscroll
+.mbsc-ic-arrow-left5:before {
+  content: "\f101";
+}
+
+/* line 682, ../sass/provie-styles.scss */
+.mbsc-ic-arrow-right5:before {
+  content: "\f103";
+}
+
+/* line 686, ../sass/provie-styles.scss */
+.mdl-custom-slider {
+  background-color: #fff;
+  position: relative;
+  height: 54px;
+  padding: 0 15px;
+}
+/* line 691, ../sass/provie-styles.scss */
+.mdl-custom-slider .slider {
+  width: 100% !important;
+  padding: 3px 15px !important;
+  margin-top: 25px;
+  margin-left: 0 !important;
+}
+/* line 697, ../sass/provie-styles.scss */
+.mdl-custom-slider .slider .slider-handle {
+  background-image: none !important;
+  background-color: #fff;
+}
+/* line 702, ../sass/provie-styles.scss */
+.mdl-custom-slider .slider .slider-track {
+  background-image: none;
+  background-color: #bbc7cf;
+}
+/* line 707, ../sass/provie-styles.scss */
+.mdl-custom-slider .slider.slider-horizontal .slider-track {
+  left: 0;
+}
+/* line 712, ../sass/provie-styles.scss */
+.mdl-custom-slider .custom-made-label {
+  padding-right: 15px;
+}
+/* line 716, ../sass/provie-styles.scss */
+.mdl-custom-slider .pull-right {
+  color: #000;
+  font-size: 16px;
+}
+
+/* line 724, ../sass/provie-styles.scss */
+.min-max-holder {
+  margin-top: 5px;
+}
+/* line 726, ../sass/provie-styles.scss */
+.min-max-holder p {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+/* line 733, ../sass/provie-styles.scss */
+.plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-handle {
+  background-image: none !important;
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  border-radius: 10px;
+  border: 1px #bbc7cf solid;
+}
+
+/* line 743, ../sass/provie-styles.scss */
+.plan-calculator-holder .plan-form-holder #amount-slide-holder {
+  padding-bottom: 0;
+}
+
+/* Override modal again...... */
+/* line 748, ../sass/provie-styles.scss */
+.fwd-savie-wrapper .modal.fade .modal-dialog .modal-content {
+  border-radius: 0;
+  padding: 0;
+  position: relative;
+  outline: 0;
+  box-shadow: none;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 758, ../sass/provie-styles.scss */
+  .modal-dialog {
+    margin: 230px auto;
+  }
+}
+/* line 763, ../sass/provie-styles.scss */
+.fwd-savie-wrapper .modal.fade {
+  background: inherit;
+}
+
+/* line 771, ../sass/provie-styles.scss */
+.form-group.has-success .checkbox, .form-group.has-error .checkbox {
+  color: #333333;
+}
+
 /*# sourceMappingURL=provie-styles.css.map */

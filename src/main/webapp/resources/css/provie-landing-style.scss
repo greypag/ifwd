@@ -860,11 +860,3 @@ button.dropdown-toggle{
 #clearfix-height-rp{
 	height: initial;
 }
-
-// #3774
-.form-group {
-	&.has-success,
-	&.has-error {
-		color: #333333;
-	}
-}

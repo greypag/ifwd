@@ -475,19 +475,18 @@ button.dropdown-toggle:after {
   border-bottom: solid 1px #999999;
   width: 4.167em;
   text-align: center;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
 }
-/* line 398, ../sass/provie-landing-style.scss */
+/* line 397, ../sass/provie-landing-style.scss */
 .pv_sec_calculator .pv_statement .input_amount::-webkit-input-placeholder, .pv_sec_calculator .pv_statement .input_age::-webkit-input-placeholder {
   font-size: 1em !important;
 }
 
-/* line 407, ../sass/provie-landing-style.scss */
+/* line 406, ../sass/provie-landing-style.scss */
 .pv_sec_features .pv_feature_box {
   padding-bottom: 1.111em;
 }
-/* line 409, ../sass/provie-landing-style.scss */
+/* line 408, ../sass/provie-landing-style.scss */
 .pv_sec_features .pv_feature_box .pv_feature_title {
   color: #333333;
   font-size: 1.313em;
@@ -495,51 +494,51 @@ button.dropdown-toggle:after {
   margin-top: 0.474em;
   margin-bottom: 0.474em;
 }
-/* line 416, ../sass/provie-landing-style.scss */
+/* line 415, ../sass/provie-landing-style.scss */
 .pv_sec_features .pv_feature_box .pv_feature_desc {
   color: #666666;
   font-size: 1em;
   padding-left: 2.5em;
   padding-right: 2.5em;
 }
-/* line 421, ../sass/provie-landing-style.scss */
+/* line 420, ../sass/provie-landing-style.scss */
 .pv_sec_features .pv_feature_box .pv_feature_desc .pv_remark {
   display: block;
   font-size: 0.875em;
 }
 
-/* line 429, ../sass/provie-landing-style.scss */
+/* line 428, ../sass/provie-landing-style.scss */
 .pv_sec_extra {
   background-color: #f3f3f3;
   /* entire container, keeps perspective */
   /* flip the pane when hovered */
   /* flip speed goes here */
 }
-/* line 432, ../sass/provie-landing-style.scss */
+/* line 431, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_title sup {
   font-size: 8px;
   vertical-align: top;
 }
-/* line 433, ../sass/provie-landing-style.scss */
+/* line 432, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_title.header sup {
   top: 0.5em;
 }
-/* line 437, ../sass/provie-landing-style.scss */
+/* line 436, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_card {
   transition: 0.6s;
 }
-/* line 441, ../sass/provie-landing-style.scss */
+/* line 440, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_card .front, .pv_sec_extra .pv_extra_card .back {
   height: 325px;
   margin: 0 auto;
   width: 325px;
 }
-/* line 446, ../sass/provie-landing-style.scss */
+/* line 445, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_card .front {
   background-color: white;
   padding: 20px 0;
 }
-/* line 449, ../sass/provie-landing-style.scss */
+/* line 448, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_card .front .pv_extra_icon {
   bottom: 0;
   left: 0;
@@ -548,58 +547,58 @@ button.dropdown-toggle:after {
   right: 0;
   top: 0;
 }
-/* line 457, ../sass/provie-landing-style.scss */
+/* line 456, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_card .front .pv_title {
   font-size: 1.167em;
 }
-/* line 461, ../sass/provie-landing-style.scss */
+/* line 460, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_card .back {
   color: #ffffff;
   padding: 0.833em;
 }
-/* line 464, ../sass/provie-landing-style.scss */
+/* line 463, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_card .back .pv_extra_desc {
   font-size: 1.125em;
 }
-/* line 469, ../sass/provie-landing-style.scss */
+/* line 468, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_mobile .pv_extra_point {
   display: table;
   margin: 0.883em 0;
 }
-/* line 472, ../sass/provie-landing-style.scss */
+/* line 471, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_mobile .pv_extra_point .pv_extra_point_icon, .pv_sec_extra .pv_extra_mobile .pv_extra_point .pv_extra_point_desc {
   display: table-cell;
   float: none;
   vertical-align: middle;
 }
-/* line 477, ../sass/provie-landing-style.scss */
+/* line 476, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_mobile .pv_extra_point .pv_title {
   font-size: 1.75em;
 }
-/* line 481, ../sass/provie-landing-style.scss */
+/* line 480, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_remark {
   margin-top: 20px;
 }
-/* line 483, ../sass/provie-landing-style.scss */
+/* line 482, ../sass/provie-landing-style.scss */
 .pv_sec_extra .pv_extra_remark ul li {
   list-style: none;
   text-align: left;
 }
-/* line 489, ../sass/provie-landing-style.scss */
+/* line 488, ../sass/provie-landing-style.scss */
 .pv_sec_extra .flip-container {
   perspective: 1000;
   -webkit-perspective: 1000;
 }
-/* line 494, ../sass/provie-landing-style.scss */
+/* line 493, ../sass/provie-landing-style.scss */
 .pv_sec_extra .flip-container:hover .flipper, .pv_sec_extra .flip-container.hover .flipper {
   transform: rotateY(180deg);
 }
-/* line 498, ../sass/provie-landing-style.scss */
+/* line 497, ../sass/provie-landing-style.scss */
 .pv_sec_extra .flip-container, .pv_sec_extra .front, .pv_sec_extra .back {
   width: 325px;
   height: 325px;
 }
-/* line 504, ../sass/provie-landing-style.scss */
+/* line 503, ../sass/provie-landing-style.scss */
 .pv_sec_extra .flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
@@ -608,7 +607,7 @@ button.dropdown-toggle:after {
   /* front pane, placed above back */
   /* back, initially hidden pane */
 }
-/* line 510, ../sass/provie-landing-style.scss */
+/* line 509, ../sass/provie-landing-style.scss */
 .pv_sec_extra .flipper .front, .pv_sec_extra .flipper .back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -616,44 +615,44 @@ button.dropdown-toggle:after {
   top: 0;
   left: 0;
 }
-/* line 520, ../sass/provie-landing-style.scss */
+/* line 519, ../sass/provie-landing-style.scss */
 .pv_sec_extra .flipper .front {
   z-index: 2;
   /* for firefox 31 */
   transform: rotateY(0deg);
 }
-/* line 527, ../sass/provie-landing-style.scss */
+/* line 526, ../sass/provie-landing-style.scss */
 .pv_sec_extra .flipper .back {
   transform: rotateY(180deg);
 }
 
-/* line 532, ../sass/provie-landing-style.scss */
+/* line 531, ../sass/provie-landing-style.scss */
 .pv_extra_card.card1 .back {
   background-color: #fbb616;
 }
 
-/* line 535, ../sass/provie-landing-style.scss */
+/* line 534, ../sass/provie-landing-style.scss */
 .pv_extra_card.card2 .back {
   background-color: #12a6b7;
 }
 
-/* line 538, ../sass/provie-landing-style.scss */
+/* line 537, ../sass/provie-landing-style.scss */
 .pv_extra_card.card3 .back {
   background-color: #f5531a;
 }
 
-/* line 542, ../sass/provie-landing-style.scss */
+/* line 541, ../sass/provie-landing-style.scss */
 .pv_sec_action {
   background: url(../../images/provie/provie_landing_s5_bg.jpg) 50% 50%;
   background-size: cover;
   font-size: 24px;
   padding-bottom: 50px;
 }
-/* line 548, ../sass/provie-landing-style.scss */
+/* line 547, ../sass/provie-landing-style.scss */
 .pv_sec_action .pv_title {
   color: #ffffff;
 }
-/* line 551, ../sass/provie-landing-style.scss */
+/* line 550, ../sass/provie-landing-style.scss */
 .pv_sec_action .pv_btn {
   font-size: 14px;
   line-height: 22px;
@@ -661,16 +660,16 @@ button.dropdown-toggle:after {
   padding: 4.5px 0 5.5px;
 }
 
-/* line 559, ../sass/provie-landing-style.scss */
+/* line 558, ../sass/provie-landing-style.scss */
 .pv_compareTable {
   background-color: #f3f3f3;
   padding-bottom: 90px;
 }
-/* line 563, ../sass/provie-landing-style.scss */
+/* line 562, ../sass/provie-landing-style.scss */
 .pv_compareTable .carousel-indicators {
   bottom: -50px;
 }
-/* line 564, ../sass/provie-landing-style.scss */
+/* line 563, ../sass/provie-landing-style.scss */
 .pv_compareTable .carousel-control {
   z-index: 999;
   background-image: none;
@@ -678,15 +677,15 @@ button.dropdown-toggle:after {
   width: 60px;
   bottom: initial;
 }
-/* line 571, ../sass/provie-landing-style.scss */
+/* line 570, ../sass/provie-landing-style.scss */
 .pv_compareTable .mobile table td {
   width: 35%;
 }
-/* line 574, ../sass/provie-landing-style.scss */
+/* line 573, ../sass/provie-landing-style.scss */
 .pv_compareTable .mobile table td:nth-child(1) {
   width: 30%;
 }
-/* line 577, ../sass/provie-landing-style.scss */
+/* line 576, ../sass/provie-landing-style.scss */
 .pv_compareTable table {
   border-collapse: separate;
   font-weight: bold;
@@ -695,52 +694,52 @@ button.dropdown-toggle:after {
   width: 100%;
   text-align: center;
 }
-/* line 584, ../sass/provie-landing-style.scss */
+/* line 583, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr {
   height: 3.214em;
 }
-/* line 586, ../sass/provie-landing-style.scss */
+/* line 585, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr:nth-child(even) {
   background: #ffffff;
 }
-/* line 587, ../sass/provie-landing-style.scss */
+/* line 586, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr:nth-child(odd) {
   background: #f3f3f3;
 }
-/* line 588, ../sass/provie-landing-style.scss */
+/* line 587, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr:last-child .inner {
   border-bottom: 1px solid #cecece;
 }
-/* line 591, ../sass/provie-landing-style.scss */
+/* line 590, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr td:nth-child(1) {
   text-align: left;
 }
-/* line 594, ../sass/provie-landing-style.scss */
+/* line 593, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr td {
   border-left: 1px solid #cecece;
 }
-/* line 596, ../sass/provie-landing-style.scss */
+/* line 595, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr td:nth-child(1) {
   width: 33%;
 }
-/* line 599, ../sass/provie-landing-style.scss */
+/* line 598, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr td:last-child {
   border-right: 1px solid #cecece;
 }
-/* line 602, ../sass/provie-landing-style.scss */
+/* line 601, ../sass/provie-landing-style.scss */
 .pv_compareTable table tr td .hideborderLeft {
   border-left: none;
 }
-/* line 607, ../sass/provie-landing-style.scss */
+/* line 606, ../sass/provie-landing-style.scss */
 .pv_compareTable table th .inner, .pv_compareTable table td .inner {
   display: block;
   font-weight: bold;
 }
-/* line 611, ../sass/provie-landing-style.scss */
+/* line 610, ../sass/provie-landing-style.scss */
 .pv_compareTable table th {
   padding: 0;
 }
-/* line 613, ../sass/provie-landing-style.scss */
+/* line 612, ../sass/provie-landing-style.scss */
 .pv_compareTable table th .inner {
   color: #ffffff;
   background-color: #f8882d;
@@ -750,7 +749,7 @@ button.dropdown-toggle:after {
   margin-top: 30px;
   text-align: center;
 }
-/* line 621, ../sass/provie-landing-style.scss */
+/* line 620, ../sass/provie-landing-style.scss */
 .pv_compareTable table th .inner.highlight {
   font-size: 2em;
   line-height: 82px;
@@ -758,165 +757,165 @@ button.dropdown-toggle:after {
   border-left: 1px solid #cecece;
   border-right: 1px solid #cecece;
 }
-/* line 630, ../sass/provie-landing-style.scss */
+/* line 629, ../sass/provie-landing-style.scss */
 .pv_compareTable table td {
   padding: 0;
   width: 16.6%;
 }
-/* line 633, ../sass/provie-landing-style.scss */
+/* line 632, ../sass/provie-landing-style.scss */
 .pv_compareTable table td.highlight {
   background-color: rgba(254, 242, 232, 0.7);
 }
-/* line 636, ../sass/provie-landing-style.scss */
+/* line 635, ../sass/provie-landing-style.scss */
 .pv_compareTable table td.sep {
   background-color: #333333;
   color: #ffffff;
 }
-/* line 640, ../sass/provie-landing-style.scss */
+/* line 639, ../sass/provie-landing-style.scss */
 .pv_compareTable table td .inner {
   line-height: 1.5em;
   text-align: center;
 }
-/* line 646, ../sass/provie-landing-style.scss */
+/* line 645, ../sass/provie-landing-style.scss */
 .pv_compareTable table td .inner .sub_title {
   display: block;
   font-size: 1.25em;
   padding: 10px 0;
 }
-/* line 651, ../sass/provie-landing-style.scss */
+/* line 650, ../sass/provie-landing-style.scss */
 .pv_compareTable table td .inner .remark {
   color: #999999;
   display: block;
   font-size: 0.786em;
 }
 
-/* line 664, ../sass/provie-landing-style.scss */
+/* line 663, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_card .inner {
   background-color: #f0f0f0;
   margin: 0 10px;
   padding: 1.667em;
 }
-/* line 669, ../sass/provie-landing-style.scss */
+/* line 668, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_card .name, .pv_experience .pv_experience_card .title {
   font-weight: bold;
 }
-/* line 672, ../sass/provie-landing-style.scss */
+/* line 671, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_card .name {
   font-size: 1.375em;
   margin-top: 1em;
 }
-/* line 676, ../sass/provie-landing-style.scss */
+/* line 675, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_card .title {
   font-size: 0.938em;
   padding: 1em 0;
 }
-/* line 680, ../sass/provie-landing-style.scss */
+/* line 679, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_card .comment {
   border-top: 1px solid black;
   padding-top: 1.5em;
 }
-/* line 685, ../sass/provie-landing-style.scss */
+/* line 684, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_wrap {
   overflow: hidden;
   padding-bottom: 70px;
 }
-/* line 688, ../sass/provie-landing-style.scss */
+/* line 687, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_wrap .carousel-indicators {
   bottom: -60px;
 }
-/* line 690, ../sass/provie-landing-style.scss */
+/* line 689, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_wrap .carousel-indicators li {
   background-color: #f0f0f0;
   height: 15px;
   transition: all 0.8s;
   width: 15px;
 }
-/* line 695, ../sass/provie-landing-style.scss */
+/* line 694, ../sass/provie-landing-style.scss */
 .pv_experience .pv_experience_wrap .carousel-indicators li.active {
   background-color: black;
 }
 
-/* line 703, ../sass/provie-landing-style.scss */
+/* line 702, ../sass/provie-landing-style.scss */
 .pv_fna {
   background-color: #fbb631;
 }
-/* line 706, ../sass/provie-landing-style.scss */
+/* line 705, ../sass/provie-landing-style.scss */
 .pv_fna .pv_title {
   color: #ffffff;
 }
-/* line 708, ../sass/provie-landing-style.scss */
+/* line 707, ../sass/provie-landing-style.scss */
 .pv_fna .pv_title + .pv_desc {
   color: #ffffff;
 }
-/* line 712, ../sass/provie-landing-style.scss */
+/* line 711, ../sass/provie-landing-style.scss */
 .pv_fna .pv_desc {
   color: #333333;
 }
-/* line 715, ../sass/provie-landing-style.scss */
+/* line 714, ../sass/provie-landing-style.scss */
 .pv_fna .pv_btn {
   background-color: #f8882d;
 }
-/* line 718, ../sass/provie-landing-style.scss */
+/* line 717, ../sass/provie-landing-style.scss */
 .pv_fna .mdl-textfield {
   width: 100%;
 }
-/* line 721, ../sass/provie-landing-style.scss */
+/* line 720, ../sass/provie-landing-style.scss */
 .pv_fna .pv_fna_input {
   font-size: 14px;
   margin-top: 1.389em;
   margin-bottom: 1.389em;
 }
-/* line 725, ../sass/provie-landing-style.scss */
+/* line 724, ../sass/provie-landing-style.scss */
 .pv_fna .pv_fna_input .mdl-textfield {
   background-color: #fff;
   padding: 10px 0;
   padding: 12px 15px 0 15px;
 }
-/* line 730, ../sass/provie-landing-style.scss */
+/* line 729, ../sass/provie-landing-style.scss */
 .pv_fna .pv_fna_input .form-control {
   height: 25px;
   padding: 0;
 }
-/* line 735, ../sass/provie-landing-style.scss */
+/* line 734, ../sass/provie-landing-style.scss */
 .pv_fna .pv_fna_input .mdl-textfield__label {
   margin-bottom: 0;
   padding: 0px 15px 12px 15px;
   top: 9px;
 }
-/* line 740, ../sass/provie-landing-style.scss */
+/* line 739, ../sass/provie-landing-style.scss */
 .pv_fna .pv_fna_input .is-focused .mdl-textfield__label {
   color: #ff8200;
   top: 0px;
 }
-/* line 744, ../sass/provie-landing-style.scss */
+/* line 743, ../sass/provie-landing-style.scss */
 .pv_fna .pv_fna_input .is-dirty .mdl-textfield__label {
   color: #ff8200;
   top: 0;
 }
-/* line 748, ../sass/provie-landing-style.scss */
+/* line 747, ../sass/provie-landing-style.scss */
 .pv_fna .pv_fna_input .mdl-textfield__label:after {
   bottom: 0;
   background-color: #ff8200;
 }
-/* line 753, ../sass/provie-landing-style.scss */
+/* line 752, ../sass/provie-landing-style.scss */
 .pv_fna .link {
   font-size: 0.943em;
   padding: 0.556em 0;
 }
-/* line 757, ../sass/provie-landing-style.scss */
+/* line 756, ../sass/provie-landing-style.scss */
 .pv_fna .pv_fna_reg {
   margin: 0.725em 0;
 }
 
-/* line 762, ../sass/provie-landing-style.scss */
+/* line 761, ../sass/provie-landing-style.scss */
 .pv_share {
   background-color: #f8882d;
 }
-/* line 765, ../sass/provie-landing-style.scss */
+/* line 764, ../sass/provie-landing-style.scss */
 .pv_share .pv_title {
   color: #ffffff;
 }
-/* line 767, ../sass/provie-landing-style.scss */
+/* line 766, ../sass/provie-landing-style.scss */
 .pv_share .pv_title + .pv_desc {
   color: #ffffff;
   font-size: 1.167em;
@@ -924,89 +923,89 @@ button.dropdown-toggle:after {
 }
 
 @media (max-width: 450px) {
-  /* line 776, ../sass/provie-landing-style.scss */
+  /* line 775, ../sass/provie-landing-style.scss */
   .pv_plan .pv_plan_wrap .extra {
     width: 100%;
   }
-  /* line 778, ../sass/provie-landing-style.scss */
+  /* line 777, ../sass/provie-landing-style.scss */
   .pv_plan .pv_plan_wrap .extra .card .name {
     font-size: 11px;
   }
-  /* line 781, ../sass/provie-landing-style.scss */
+  /* line 780, ../sass/provie-landing-style.scss */
   .pv_plan .pv_plan_wrap .extra .card .price {
     font-size: 16px;
   }
 }
 @media (min-width: 544px) {
-  /* line 788, ../sass/provie-landing-style.scss */
+  /* line 787, ../sass/provie-landing-style.scss */
   .pv_productInfo .pv_product_table .pv_table_head {
     padding-right: 1em;
     padding-left: 1em;
   }
 
-  /* line 792, ../sass/provie-landing-style.scss */
+  /* line 791, ../sass/provie-landing-style.scss */
   .pv_compareTable table {
     padding: 0 15px;
   }
 }
 @media (min-width: 640px) and (max-width: 768px) {
-  /* line 797, ../sass/provie-landing-style.scss */
+  /* line 796, ../sass/provie-landing-style.scss */
   .pv_overlay_text_wrap .pv_title {
     font-size: 45px;
   }
-  /* line 800, ../sass/provie-landing-style.scss */
+  /* line 799, ../sass/provie-landing-style.scss */
   .pv_overlay_text_wrap .pv_desc {
     font-size: 25px;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* line 806, ../sass/provie-landing-style.scss */
+  /* line 805, ../sass/provie-landing-style.scss */
   .chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
     bottom: 10px;
   }
 }
 @media (min-width: 1024px) {
-  /* line 812, ../sass/provie-landing-style.scss */
+  /* line 811, ../sass/provie-landing-style.scss */
   .pv_overlay_text_wrap .pv_title {
     font-size: 80px;
     margin-bottom: 0;
   }
-  /* line 816, ../sass/provie-landing-style.scss */
+  /* line 815, ../sass/provie-landing-style.scss */
   .pv_overlay_text_wrap .pv_desc {
     font-size: 25px;
   }
 
-  /* line 821, ../sass/provie-landing-style.scss */
+  /* line 820, ../sass/provie-landing-style.scss */
   .pv_compareTable table td .inner {
     padding: 10px 10px 10px 24px;
   }
 
-  /* line 824, ../sass/provie-landing-style.scss */
+  /* line 823, ../sass/provie-landing-style.scss */
   .pv_compareTable table td:nth-child(1) .inner {
     padding-left: 50px;
     text-align: left;
   }
 }
 @media (min-width: 768px) {
-  /* line 830, ../sass/provie-landing-style.scss */
+  /* line 829, ../sass/provie-landing-style.scss */
   .pv_sec_action .pv_btn {
     font-size: 18px;
   }
 
-  /* line 833, ../sass/provie-landing-style.scss */
+  /* line 832, ../sass/provie-landing-style.scss */
   .pv_productInfo .pv_product_table .pv_table_head {
     text-align: right;
   }
 }
 @media (min-width: 992px) {
-  /* line 838, ../sass/provie-landing-style.scss */
+  /* line 837, ../sass/provie-landing-style.scss */
   .pv_sec_action .pv_btn {
     font-size: 24px;
     padding: 12.5px 0;
     margin-top: 0;
   }
 }
-/* line 847, ../sass/provie-landing-style.scss */
+/* line 846, ../sass/provie-landing-style.scss */
 .savie-regular-landing .page-banner .img-banner-text {
   width: 100%;
   left: 0;
@@ -1014,101 +1013,29 @@ button.dropdown-toggle:after {
   padding-left: 0;
 }
 
-/* line 853, ../sass/provie-landing-style.scss */
+/* line 852, ../sass/provie-landing-style.scss */
 .carousel-inner {
   overflow: hidden;
 }
 
-/* line 855, ../sass/provie-landing-style.scss */
+/* line 854, ../sass/provie-landing-style.scss */
 .fwd-savie-wrapper h2 {
   font-size: 2.25em;
 }
 
-/* line 858, ../sass/provie-landing-style.scss */
-#clearfix-height-rp {
-  height: initial;
-}
-
-/* line 862, ../sass/provie-landing-style.scss */
+/* line 857, ../sass/provie-landing-style.scss */
 .savie-regular-landing .page-banner .img-banner-text .start-btn {
   max-width: 230px;
 }
 
-/* line 867, ../sass/provie-landing-style.scss */
-.pv_mobile_middle_buttons {
-  background-color: #041d29;
-  padding: 26px 0;
-  text-align: center;
-}
-/* line 872, ../sass/provie-landing-style.scss */
-.pv_mobile_middle_buttons .img-banner-text .start-btn {
-  background: #fdb714;
-  border-color: #cf9611;
-  font-size: 14px;
-  max-width: 230px;
-  padding: 4.5px 0 5.5px;
-  margin-top: 8px;
-}
-/* line 880, ../sass/provie-landing-style.scss */
-.pv_mobile_middle_buttons .img-banner-text .savie-product a {
-  font-size: 14px;
-}
-/* line 883, ../sass/provie-landing-style.scss */
-.pv_mobile_middle_buttons a {
-  color: #ffffff;
-}
-/* line 886, ../sass/provie-landing-style.scss */
-.pv_mobile_middle_buttons .savie-product.text-bold {
-  color: #ffffff;
-}
-/* line 888, ../sass/provie-landing-style.scss */
-.pv_mobile_middle_buttons .savie-product.text-bold a {
-  margin-top: 8px;
-  color: #ffffff;
-}
-/* line 891, ../sass/provie-landing-style.scss */
-.pv_mobile_middle_buttons .savie-product.text-bold a:hover {
-  color: #f68a1d;
+/* line 860, ../sass/provie-landing-style.scss */
+#clearfix-height-rp {
+  height: initial;
 }
 
-@media (max-width: 400px) {
-  /* line 898, ../sass/provie-landing-style.scss */
-  .pv_mobile_middle_buttons {
-    background-color: #041d29;
-    padding: 26px 0;
-    text-align: center;
-  }
-  /* line 903, ../sass/provie-landing-style.scss */
-  .pv_mobile_middle_buttons .img-banner-text .start-btn {
-    background: #fdb714;
-    border-color: #cf9611;
-    font-size: 14px;
-    max-width: 230px;
-    padding: 4.5px 0 5.5px;
-    margin-top: 8px;
-  }
-  /* line 911, ../sass/provie-landing-style.scss */
-  .pv_mobile_middle_buttons .img-banner-text .savie-product a {
-    font-size: 14px;
-  }
-  /* line 914, ../sass/provie-landing-style.scss */
-  .pv_mobile_middle_buttons a {
-    color: #ffffff;
-  }
-  /* line 917, ../sass/provie-landing-style.scss */
-  .pv_mobile_middle_buttons .savie-product.text-bold {
-    font-size: 12px;
-    color: #ffffff;
-  }
-  /* line 920, ../sass/provie-landing-style.scss */
-  .pv_mobile_middle_buttons .savie-product.text-bold a {
-    margin-top: 8px;
-    color: #ffffff;
-  }
-  /* line 923, ../sass/provie-landing-style.scss */
-  .pv_mobile_middle_buttons .savie-product.text-bold a:hover {
-    color: #f68a1d;
-  }
+/* line 866, ../sass/provie-landing-style.scss */
+.form-group.has-success, .form-group.has-error {
+  color: #333333;
 }
 
 /*# sourceMappingURL=provie-landing-style.css.map */
