@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-09-28 13:52:21 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-09-28 14:42:16 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -1863,6 +1863,23 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   color: #fff;
   margin-bottom: 0px;
   background-color: #f68a1d;
+}
+
+/* line 357, ../sass/common_screen/_loginpopup.scss */
+a.forgotUserName {
+  color: #ff8200;
+}
+/* line 359, ../sass/common_screen/_loginpopup.scss */
+a.forgotUserName:hover {
+  color: #9fb1b2;
+}
+/* line 363, ../sass/common_screen/_loginpopup.scss */
+a.link-forgotPassword {
+  color: #ff8200;
+}
+/* line 365, ../sass/common_screen/_loginpopup.scss */
+a.link-forgotPassword:hover {
+  color: #9fb1b2;
 }
 
 /* line 1, ../sass/common_screen/_overlay.scss */
