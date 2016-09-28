@@ -886,6 +886,36 @@ $(document).ready(function () {
 		});
 	});
 
+	//Check if referral code owner is the applicant.
+	$('#hkId').blur(function () {
+		 var promoCode = ${saviePlanDetails.promoCode};
+		 var amount =  ${saviePlanDetails.insuredAmount};
+		 var hkId = $('#hkId').val();
+		 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
+			$.ajax({     
+		   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
+		    		type:'get',     
+		    		data:{    
+		    				"planCode": "SAVIE-SP",
+		        			"referralCode":promoCode,
+		        			"sumInsured":amount,
+		        			"hkId":hkId
+	   					},     
+		    		error:function(){       
+		    				},     
+		    		success:function(data){
+		    			//console.log(data);
+		    			//alert('personal-details.jsp2 ' + data.errMsgs);
+		    			if(data.value ='0'){
+				   			alert('personal-details.jsp3--you can not use yourself policy as promoCode');
+		    			} else {
+		    	   			//$('#promoCodeErrorMsg').addClass('hidden');
+		    			}
+		    		}  
+				});
+		 }
+	});	
+	
 	$('#btn-app-save').click(function () {
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 	});

@@ -168,7 +168,7 @@ public class AjaxLifeController extends BaseController{
 				//int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
 				int dis = 0;
 				if("SP".equals(saviePlanDetails.getPaymentType())){
-					jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),request);
+					jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),lifePersonalDetails.getHkid(),request);
 					dis = Integer.valueOf((String) jsonObject.get("value"));
 					logger.debug("ajax lifePersonalDetails discount=" + (String) jsonObject.get("value"));
 				}
@@ -619,7 +619,7 @@ public class AjaxLifeController extends BaseController{
 				String savieType = (String)session.getAttribute("savieType");
 				if("SP".equals(savieType)) { 
 					int amount = Integer.valueOf(request.getSession().getAttribute("amount").toString().replace(",", ""));
-					JSONObject jsonObject2 = savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",policyApplication.getReferralCode(),String.valueOf(amount),request);
+					JSONObject jsonObject2 = savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",policyApplication.getReferralCode(),String.valueOf(amount),policyApplication.getApplicantHkId(),request);
 					int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
 					logger.info("discount=" + String.valueOf(dis));
 					saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));

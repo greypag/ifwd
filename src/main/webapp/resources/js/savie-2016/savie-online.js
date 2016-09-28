@@ -1667,14 +1667,15 @@ function validatePromoCode(){
 	    data:{    
 	    	"planCode": paymentMode,
 	        "referralCode":promoCode,
-	        "sumInsured":amount
+	        "sumInsured":amount,
+	        "hkId":""
    		},     
 	    error:function(){       
 	    },     
 	    success:function(data){
 	    	//if(data.errMsgs[0]!=null)
 	    	//console.log(data);
-	    	alert('savie-online.js ' + data.errMsgs[0]);
+	    	//alert('savie-online.js ' + data.errMsgs[0]);
 	    	if(data != null && data.errMsgs[0] != null && data.errMsgs[0] != ""){
 			   //$("#errorMsg").html(data.errMsgs[0]);
 			   $('#promoCodeErrorMsg').removeClass('hidden');

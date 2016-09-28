@@ -4078,17 +4078,20 @@ public class LifeServiceImpl implements LifeService {
 		String planCode = request.getParameter("planCode");
 		String referralCode = request.getParameter("referralCode");
 		String sumInsured = request.getParameter("sumInsured");
-		String 	Url = UserRestURIConstants.GET_SAVIE_REFERRAL_DISCOUNT + "?planCode="+planCode +"&referralCode="+referralCode + "&sumInsured=" + sumInsured;
+		String hkId = request.getParameter("hkId");
+		String 	Url = UserRestURIConstants.GET_SAVIE_REFERRAL_DISCOUNT + "?planCode="+planCode +"&referralCode="+referralCode + 
+				"&sumInsured=" + sumInsured + "&hkId=" + hkId;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
 	}
 	
-	public JSONObject getSavieReferralDiscountParams(String planCode,String referralCode,String sumInsured,HttpServletRequest request)throws ECOMMAPIException{
+	public JSONObject getSavieReferralDiscountParams(String planCode,String referralCode,String sumInsured,String hkId,HttpServletRequest request)throws ECOMMAPIException{
 		//String planCode = request.getParameter("planCode");
 		//String referralCode = request.getParameter("referralCode");
 		//String sumInsured = request.getParameter("sumInsured");
-		String 	Url = UserRestURIConstants.GET_SAVIE_REFERRAL_DISCOUNT + "?planCode="+planCode +"&referralCode="+referralCode + "&sumInsured=" + sumInsured;
+		String 	Url = UserRestURIConstants.GET_SAVIE_REFERRAL_DISCOUNT + "?planCode="+planCode +"&referralCode="+referralCode + 
+				"&sumInsured=" + sumInsured + "&hkId=" + hkId;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
