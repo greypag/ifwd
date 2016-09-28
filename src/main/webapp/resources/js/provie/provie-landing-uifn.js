@@ -340,6 +340,8 @@ var planInquiry = {
 		if(!$(".pv_plan").hasClass("isShow")){
     		$(".pv_plan").slideToggle( "slow" ).addClass("isShow");
     	}
+    	//to force align height
+    	$(window).trigger('resize');
 	},
 	patchLast2YearData: function (response){
 		//pack dummy year 15 and 100 if api not ready

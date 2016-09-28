@@ -491,7 +491,7 @@ function stickToHeader() {
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
-	var getpath = "/fwdhk";
+	var getpath = context;
 	
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);

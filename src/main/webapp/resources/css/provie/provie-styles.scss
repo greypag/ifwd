@@ -773,3 +773,10 @@
 		}
 	}
 }
+@media (min-width: 992px){
+	//overrider savie-styles.css
+	.plan-calculator-holder .plan-form-holder .plan-dob, .plan-calculator-holder .plan-form-holder .plan-promo-code, .plan-calculator-holder .plan-form-holder .plan-total-years{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
