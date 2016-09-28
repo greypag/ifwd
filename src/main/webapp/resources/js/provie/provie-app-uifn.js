@@ -297,8 +297,7 @@ $(document).ready(function(){
 	//Appointment
 	if($(".provie-plan-appointment").length > 0){
 		
-		
-		
+		$('input[type=checkbox]').val('false');
 
 		$('#app-date').mobiscroll().calendar({
 			controls: ['calendar'],
