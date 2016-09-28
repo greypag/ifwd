@@ -538,6 +538,9 @@ var home_url = "<%=request.getContextPath()%>";
 	            	</div>
 
 	            	<div class="row pv_offer_remarks">
+	            		<p class="pv-landing-text0">
+								<fmt:message key="provie.landing.offer.text0" bundle="${provieMsg}" />
+	            		</p>
 	            		<p>
 	            			<fmt:message key="provie.landing.offer.text1" bundle="${provieMsg}" />
 	            			<br>
