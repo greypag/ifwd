@@ -374,7 +374,9 @@ button.dropdown-toggle{
 		}
 	}
 }
-
+:-ms-input-placeholder{
+	font-size: 1em !important;
+}
 .pv_sec_calculator{
 	@extend %pv_base_section;
 	.pv_statement{
@@ -384,6 +386,10 @@ button.dropdown-toggle{
 		max-width: 500px;
 		.btn-group{
 			line-height: 1.188em;
+			.dropdown-menu{
+				height: 200px;
+				overflow: auto;
+			}
 			.dropdown-menu li{
 				text-align: center;
 			}

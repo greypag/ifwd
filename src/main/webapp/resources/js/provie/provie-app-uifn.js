@@ -494,6 +494,10 @@ $(document).ready(function(){
 			}
 		});
 
+		$("#pick-another-centre-btn").on("click",function(){
+			$("#pickAnotherCentre").modal("hide");
+		});
+
 		//Bind on Change function
 		$("#centre").change(function(e){
 			var s = $(e.currentTarget);
