@@ -28,7 +28,7 @@
 	.plan-calculator-holder{
 		padding-top:0;
 		.plan-form-holder{
-			
+
 			#plan-dob-date{
 				height: 44px;
 			    font-size: 18px;
@@ -152,7 +152,7 @@
 			tr.pinkish-shade{
 				background-color: #f3f4f5;
 			}
-			
+
 		}
 
 		.overflow-body{
@@ -174,9 +174,9 @@
 		}
 	}
 
-	
 
-	
+
+
 
 	.pd-summary-table .summary-table .table-content .table{
 
@@ -292,7 +292,7 @@
 			}
 		}
 	}
-	
+
 }
 
 .provie-plan-appointment{
@@ -321,7 +321,7 @@
 	.form-group .error-msg{
 		margin-top: 0px !important;
 	}
-	
+
 
 	.declaration{
 		margin-top:20px;
@@ -391,7 +391,7 @@
 							margin-top: -10px;
 						}
 					}
-					
+
 				}
 
 				.panel-collapse{
@@ -399,7 +399,7 @@
 				}
 
 				.panel-title{
-					
+
 				}
 
 				.panel-body{
@@ -487,7 +487,7 @@
 			.panel+.panel{
 				background-color:#e0dfe0;
 			}
-		
+
 		}
 	}
 }
@@ -516,15 +516,38 @@
 	.is_chin{
 		display: inline;
 
-		
+
 	}
 	.is_en{
 		display: none;
 	}
 }
 
+#on-of-holder{
+	margin-left:0;
+	margin-right:0;
+
+	> [class*="col-"] {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}
+
+#offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn{
+	margin-top:10px;
+	position:static;
+}
+
+@media (min-width:992px){
+	#plan-details-sample-and-faq .tab-content{
+		padding:20px 0;
+	}
+}
+
 
 @media (max-width: 992px) {
+
+
 
 	.provie-plan-select{
 		.mob-full{
@@ -588,7 +611,7 @@
 				}
 			 }
 
-			 
+
 		}
 
 		#amount-slide-holder{
@@ -651,7 +674,7 @@
     }
 }
 
-.mbsc-mobiscroll 
+.mbsc-mobiscroll
 .mbsc-ic-arrow-left5:before{
 	content:"\f101";
 }
@@ -728,7 +751,7 @@
     position: relative;
     outline: 0;
     box-shadow: none;
-}    
+}
 
 
 @media screen and (min-width: 768px){
@@ -739,4 +762,21 @@
 
 .fwd-savie-wrapper .modal.fade{
 	background:inherit;
+}
+
+// #3774
+.form-group {
+	&.has-success,
+	&.has-error {
+		.checkbox {
+			color: #333333;
+		}
+	}
+}
+@media (min-width: 992px){
+	//overrider savie-styles.css
+	.plan-calculator-holder .plan-form-holder .plan-dob, .plan-calculator-holder .plan-form-holder .plan-promo-code, .plan-calculator-holder .plan-form-holder .plan-total-years{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 }

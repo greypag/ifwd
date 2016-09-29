@@ -12,6 +12,21 @@
     margin: 0;
     padding: 0;
   }
+  a {
+      &.forgotUserName {
+          color: #ff8200;
+          &:hover {
+              color: #9fb1b2;
+          }
+      }
+      &.link-forgotPassword {
+          color: #ff8200;
+          &:hover {
+              color: #9fb1b2;
+          }
+      }
+  }
+
   .login-button-group{
     margin:20px 0
   }
@@ -352,4 +367,20 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
     }
   }
 }
+
+a {
+    &.forgotUserName {
+        color: #ff8200;
+        &:hover {
+            color: #9fb1b2;
+        }
+    }
+    &.link-forgotPassword {
+        color: #ff8200;
+        &:hover {
+            color: #9fb1b2;
+        }
+    }
+}
+
 // ----------------------------------

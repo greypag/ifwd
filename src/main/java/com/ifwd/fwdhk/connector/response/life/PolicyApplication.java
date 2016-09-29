@@ -35,11 +35,8 @@ public class PolicyApplication{
 	private String permanentAddress3;
 	private String permanentAddress4;
 	private String permanentDistrict;
-	private String addressDiffToPermanent;
-	private String addressDiffToResidential;
 	private String employmentStatus;
 	private String occupation;
-	private String otherOccupation;
 	private String educationLevel;
 	private String natureOfBusiness;
 	private String monthlyPersonalIncome;
@@ -53,11 +50,9 @@ public class PolicyApplication{
 	private String insuredHkId;
 	private String insuredPassport;
 	private String insuredRelationship;
-	private Boolean isOwnEstate;
 	private String beneficiaryFirstName1;
 	private String beneficiaryLastName1;
 	private String beneficiaryChineseName1;
-	private String beneficiaryHkidPassport1;
 	private String beneficiaryHkId1;
 	private String beneficiaryPassport1;
 	private String beneficiaryGender1;
@@ -66,7 +61,6 @@ public class PolicyApplication{
 	private String beneficiaryFirstName2;
 	private String beneficiaryLastName2;
 	private String beneficiaryChineseName2;
-	private String beneficiaryHkidPassport2;
 	private String beneficiaryHkId2;
 	private String beneficiaryPassport2;
 	private String beneficiaryGender2;
@@ -75,7 +69,6 @@ public class PolicyApplication{
 	private String beneficiaryFirstName3;
 	private String beneficiaryLastName3;
 	private String beneficiaryChineseName3;
-	private String beneficiaryHkidPassport3;
 	private String beneficiaryHkId3;
 	private String beneficiaryPassport3;
 	private String beneficiaryGender3;
@@ -87,7 +80,6 @@ public class PolicyApplication{
 	private String bankName;	
 	private String branchName;
 	private String accountNo;
-	private String accountHolderName;
 	private String lang;
 	private Boolean declaration1;
 	private Boolean declaration2;
@@ -104,7 +96,23 @@ public class PolicyApplication{
 	private String createBy;
 	private String amount;
 	private String policyNo;
+	private String addressDiffToPermanent;
+	private String addressDiffToResidential;
+	private Boolean isOwnEstate;
+	private String beneficiaryHkidPassport1;
+	private String beneficiaryHkidPassport2;
+	private String beneficiaryHkidPassport3;
+	private String otherOccupation;
+	private String accountHolderName;
 	private String chequeNo;
+	private String paymentAccountNo;
+	private String discountAmount;
+	private String totalDue;
+	private String exchangeCurrency;
+	private String exchangeRate;
+	private String paymentAccountDate;
+	private String paymentDate;
+	
 	
 	public String getLastUpdateBy() {
 		return lastUpdateBy;
@@ -731,6 +739,48 @@ public class PolicyApplication{
 	}
 	public void setChequeNo(String chequeNo) {
 		this.chequeNo = chequeNo;
+	}
+	public String getPaymentAccountNo() {
+		return paymentAccountNo;
+	}
+	public String getDiscountAmount() {
+		return discountAmount;
+	}
+	public String getTotalDue() {
+		return totalDue;
+	}
+	public String getExchangeCurrency() {
+		return exchangeCurrency;
+	}
+	public String getExchangeRate() {
+		return exchangeRate;
+	}
+	public String getPaymentAccountDate() {
+		return paymentAccountDate;
+	}
+	public String getPaymentDate() {
+		return paymentDate;
+	}
+	public void setPaymentAccountNo(String paymentAccountNo) {
+		this.paymentAccountNo = paymentAccountNo;
+	}
+	public void setDiscountAmount(String discountAmount) {
+		this.discountAmount = discountAmount;
+	}
+	public void setTotalDue(String totalDue) {
+		this.totalDue = totalDue;
+	}
+	public void setExchangeCurrency(String exchangeCurrency) {
+		this.exchangeCurrency = exchangeCurrency;
+	}
+	public void setExchangeRate(String exchangeRate) {
+		this.exchangeRate = exchangeRate;
+	}
+	public void setPaymentAccountDate(String paymentAccountDate) {
+		this.paymentAccountDate = paymentAccountDate;
+	}
+	public void setPaymentDate(String paymentDate) {
+		this.paymentDate = paymentDate;
 	}
 	
 	

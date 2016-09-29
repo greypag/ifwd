@@ -3102,6 +3102,7 @@ public class LifeServiceImpl implements LifeService {
 		session.removeAttribute("lifePolicy");
 		session.removeAttribute("type");
 		session.removeAttribute("sendEmailsYes");
+		session.removeAttribute("fatcaYes");
 		logger.info("remove savie online session");
 	}
 	
@@ -3523,7 +3524,8 @@ public class LifeServiceImpl implements LifeService {
 			subject = "FWD Savie Insurance Plan – Documents Upload [" + lifePolicy.getPolicyNo() + "] | 富衛Savie自助息 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "savie\\uploadDocument.html";
 		}else if("savieComplete".equals(action)) {
-			subject = "Your online application of FWD Savie is completed! 您的富衛Savie自助息網上申請已完成！";
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+			subject = "Your online application of FWD Savie is completed! 您的富衛Savie自助息網上申請已完成！ (" + lifePolicy.getPolicyNo() + ")";
 			template = "savie\\savieComplete.html";
 		}else if("signLater".equals(action)) {
 			subject = "Savie Appointment Acknowledgement from FWD | Savie自助息理財預約申請確認";
@@ -4071,4 +4073,28 @@ public class LifeServiceImpl implements LifeService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
 	}
+	
+	public JSONObject getSavieReferralDiscount(HttpServletRequest request)throws ECOMMAPIException{
+		String planCode = request.getParameter("planCode");
+		String referralCode = request.getParameter("referralCode");
+		String sumInsured = request.getParameter("sumInsured");
+		String hkId = request.getParameter("hkId");
+		String 	Url = UserRestURIConstants.GET_SAVIE_REFERRAL_DISCOUNT + "?planCode="+planCode +"&referralCode="+referralCode + 
+				"&sumInsured=" + sumInsured + "&hkId=" + hkId;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+	
+	public JSONObject getSavieReferralDiscountParams(String planCode,String referralCode,String sumInsured,String hkId,HttpServletRequest request)throws ECOMMAPIException{
+		//String planCode = request.getParameter("planCode");
+		//String referralCode = request.getParameter("referralCode");
+		//String sumInsured = request.getParameter("sumInsured");
+		String 	Url = UserRestURIConstants.GET_SAVIE_REFERRAL_DISCOUNT + "?planCode="+planCode +"&referralCode="+referralCode + 
+				"&sumInsured=" + sumInsured + "&hkId=" + hkId;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+	
 }

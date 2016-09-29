@@ -175,7 +175,7 @@ $(document).ready(function(){
 								if($.trim($("#applicantName").val()) == ""){
 									return true;
 								}else{
-									return application.common.validate($("#applicantName").val(),"Alphabet");
+									return application.common.validate($("#applicantName").val().replace(/ /g,''),"Alphabet");
 								}
 								
 							}
@@ -783,24 +783,37 @@ $(document).ready(function(){
 								if($("#ccNumber").data("bv.result.notEmpty") === "INVALID"){
 									return true
 								}
-								var cardtype = "";
-								$(".cardtype").find("span").removeClass("detected");
-								cardtype = $("#ccNumber").hasClass("visa")?"visa":$("#ccNumber").hasClass("mastercard")?"mastercard":"";
-								if(cardtype != ""){
-									if($.payment.validateCardNumber($("#ccNumber").val())){
-										$(".cardtype").find("span."+cardtype).addClass("detected");
-										if(cardtype == "mastercard"){
-											$("#pMethod").val("Master");
-										}else {
-											$("#pMethod").val("VISA");
-										}
-										return true;
-									}else{
-										return false;
-									}									
-								}else{
+								//var cardtype = "";
+								//$(".cardtype").find("span").removeClass("detected");
+								//cardtype = $("#ccNumber").hasClass("visa")?"visa":$("#ccNumber").hasClass("mastercard")?"mastercard":"";
+								//if(cardtype != ""){
+								//	if($.payment.validateCardNumber($("#ccNumber").val())){
+								//		$(".cardtype").find("span."+cardtype).addClass("detected");
+								//		if(cardtype == "mastercard"){
+								//			$("#pMethod").val("Master");
+								//		}else {
+								//			$("#pMethod").val("VISA");
+								//		}
+								//		return true;
+								//	}else{
+								//		return false;
+								//	}									
+								//}else{
+								//	return false;
+								//}
+
+								var cc = $('#ccNumber').val();
+								if( fwdPayment.isValid(cc) ){
+									if( fwdPayment.isMaster(cc) ){
+										$("#pMethod").val("Master");	
+									} else {
+										$("#pMethod").val("VISA");	
+									}
+									return true;
+								} else {
 									return false;
 								}
+
 								//console.log($("#ccNumber").data());
 								
 							}
@@ -841,9 +854,11 @@ $(document).ready(function(){
 						notEmpty:{
 							message:getBundle(getBundleLanguage, "form.credit.card.cvv.empty")
 						},
-						cvv: {
-							creditCardField: 'ccNumber',
-							message: getBundle(getBundleLanguage, "form.credit.card.cvv.invalid")
+						callback: {
+							message: getBundle(getBundleLanguage, "form.credit.card.cvv.invalid"),
+							callback: function(value, validator) {
+                           		return /^[0-9]{3,4}$/.test(value);
+							}
 						}
 					}
 				},

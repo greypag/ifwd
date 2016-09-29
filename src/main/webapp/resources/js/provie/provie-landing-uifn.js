@@ -7,13 +7,21 @@ var pvCtr = {
 	planDetailCtr: {},
 	cal3Card : {},
 	useDummyResult: false,
+	ddeFixItv: null,
 	//function
 	onReady : function(){
 		this.initAutoHeight();
 		this.initPlanSlider();
+		this.initDropdownEhn();
+		this.initPaymentOffer();
 
 		planInquiry.init();
 		fnaLogin.init();
+
+		$("#btn-blog-link").on("click", function (){
+			var url = $(".blogs.first .btn-read-now").attr("href");
+			window.open(url,'_blank');
+		});
 	},
 	initAutoHeight: function(){
 		this.cal3Card = $(".pv_plan_wrap .cardWrap").autoAlignHeight({child: ".card", minWidth: 0});
@@ -21,10 +29,10 @@ var pvCtr = {
 	},
 	initPlanSlider: function (){
 		noUiSlider.create(this.planSlider, {
-			start    : [0,0],
+			start    : 0,
 			step     : 10,
-			behaviour: 'drag',
-			connect  : true,
+			behaviour: 'snap',
+			connect  : 'lower',
 			range    : {
 				'min':  0,
 				'max':  50
@@ -35,19 +43,51 @@ var pvCtr = {
 	},
 	initGraySliderBar: function(){
 		//create gray color bar for slider
-		var grayBarWidthRange = [20, 40, 50, 60, 80, 100];
-
 		var grayBar$ = $("<div/>").addClass("grayBox").appendTo($(".pv_plan .pv_plan_wrap #slider .noUi-origin.noUi-background"));
 
 		this.planSlider.noUiSlider.on('update.gray', function (curValueAry){
-			var p = 100 -parseInt(curValueAry[1], 10) / 50 * 100;
+			var p = 100 -parseInt(curValueAry[0], 10) / 50 * 100;
 			grayBar$.css("width", 20/p * 100 + "%");
 
 		});
 	},
+	initPaymentOffer: function (){
+		var currencyBtn$ = $(".pv_currency_btn");
+		var offerCat$ = $(".pv_offer_cat");
+
+		currencyBtn$.on("click", function (){
+			var childId = $(this).attr("data-childId");
+
+			offerCat$.hide();
+			console.log(childId);
+			$("#" + childId).show();
+
+			currencyBtn$.removeClass("active");
+			$(this).addClass("active");
+		});
+
+		$(currencyBtn$[0]).click();
+	},
+	initDropdownEhn: function (){
+		this.ddeFixItv = setInterval(function (){
+			$(".pv_sec_calculator .dropdown-toggle").each(function (){
+				var placeholderStr = $(this).attr("data-placeholder");
+				var htmlStr = $(this).html();
+
+				if(htmlStr != placeholderStr){
+					$(this).addClass("isSelected");
+				}else{
+					$(this).removeClass("isSelected");
+				}
+			});
+		}, 800);
+	},
 	//genenic function
 	toPriceStr: function(x){
-		return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return "$" + this.toPriceWithComma(x);
+	},
+	toPriceWithComma: function(x){
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	},
 	showAjaxLoading: function (){
 		$("#loading-overlay").modal("show");
@@ -58,10 +98,16 @@ var pvCtr = {
 };
 
 var fnaLogin = {
+	isLoggedIn: false,
 	init: function (){
 		var that = this;
 		$(".pv_fna .btnStart").on("click", function (){
 			$(".pv_fna .errorMsg").empty();
+
+			if(that.isLoggedIn){
+				that.loginSuccess({});
+				return;
+			}
 
 			if($("#fnaUser").val().length < 1 || $("#fnaPwd").val().length < 1){
 				$(".pv_fna .errorMsg").html(pvSetting.errMsg.fnaLoginEmpty);	
@@ -71,12 +117,14 @@ var fnaLogin = {
 		});
 		$(".pv_fna .btnForgotUser").on("click", function (){that.forgotUsrName();});
 		$(".pv_fna .btnForgotPwd").on("click", function (){that.forgotPwd();});
+
+		setTimeout(function (){that.checkLoginStatus();}, 500);
 	},
 	login: function (){
 		var that = this;
 		$.ajax({
 			beforeSend: that.showLoading,
-			url:"/fwdhk/api/member/login",
+			url: context + "/api/member/login",
 			type:"post",
 			contentType: "application/json",
 			data:JSON.stringify({
@@ -114,6 +162,28 @@ var fnaLogin = {
 	},
 	showMainLoginPopup: function(){
 		$("#loginpopup").modal();
+	},
+	checkLoginStatus: function (){
+		var that = this;
+		$.ajax({
+			url: context + "/api/member/session",
+			type:"get",
+			contentType: "application/json",
+			cache:false,
+			async:false,
+			success:function(response){
+		    	if(response){
+		    		if(response.userName == '*DIRECTGI'){
+		    			return false;	
+		    		}
+		    		that.hideLoginPanel();
+		    		that.isLoggedIn = true;
+		    	}
+		    }
+		});
+	},
+	hideLoginPanel: function (){
+		$(".pv_fna_loginPanel").hide();
 	}
 };
 
@@ -125,7 +195,8 @@ var planInquiry = {
 		ageInput   : $(".pv_sec_calculator .input_age"),
 		methodInput: $(".pv_sec_calculator input[name=method]"),
 		periodTxt  : $(".pv_sec_calculator .txtMonth"),
-		yearInput  : function (){return $(".pv_sec_calculator input[name=year]:checked");}
+		yearInput  : function (){return $(".pv_sec_calculator input[name=year]:checked");},
+		amountinput: $(".input_amount")
 	},
 	amountLimit: {
 		"minPROVIE-RPHKD": 1000,
@@ -151,6 +222,16 @@ var planInquiry = {
 		this.uiCtr.methodInput.on("change", function(){
 			that.displayPeriodOpt(!that.isSpMethod());
 		});
+
+		this.uiCtr.amountinput.on("keyup", function (){
+			var inputIntValue = parseInt(that.uiCtr.amountinput.val().replace(/,/g,""), 10);
+			if(!inputIntValue){
+				that.uiCtr.amountinput.val("");
+			}else{
+				that.uiCtr.amountinput.val(pvCtr.toPriceWithComma(inputIntValue));
+			}
+			
+		});	
 	},
 	clearData: function (){
 		this.submitData = {};
@@ -173,7 +254,7 @@ var planInquiry = {
 		yearList$.find("li").remove();
 
 		//loop all option (60 - age - 1)
-		var yearOptCount = 60 - age;
+		var yearOptCount = 100 - age;
 		for(var yi = 1; yi <= yearOptCount; yi++){
 			var opt_input = $("<input>").attr({"type": "radio", "name": "year", "value": yi, "id":"year"+yi});
 			var opt_label = $("<label>").attr({"for": "year"+yi}).html(yi);
@@ -259,12 +340,14 @@ var planInquiry = {
 		if(!$(".pv_plan").hasClass("isShow")){
     		$(".pv_plan").slideToggle( "slow" ).addClass("isShow");
     	}
+    	//to force align height
+    	$(window).trigger('resize');
 	},
 	patchLast2YearData: function (response){
 		//pack dummy year 15 and 100 if api not ready
     	if(!response.creditRates){
     		response.plans.push({
-				"premiumYear": 100,
+				"premiumYear": 99,
 				"rate": 2,
 				"accountValue": 10001,
 				"deathBenefit": 10002,
@@ -272,7 +355,7 @@ var planInquiry = {
 				"totalPaid": 10000
 			});
     	}else{
-    		response.plans.push(response.creditRates[2].plans[2]);
+    		response.plans.push(response.creditRates[2].plans[1]);
     	}
 
     	return response;
@@ -294,8 +377,8 @@ var planInquiry = {
 			this.errorMsgAry.push(pvSetting.errMsg.ageEmpty);
 			return;
 		}
-		//check < 19
-		if(age$.val() < 19){
+		//check < 18
+		if(age$.val() < 18){
 			this.errorMsgAry.push(pvSetting.errMsg.ageLess);
 			return;	
 		}
@@ -329,7 +412,7 @@ var planInquiry = {
 	},
 	checkAmountLiimit: function (){
 		// check min and max
-		var amount = parseInt($(".input_amount").val(), 10);
+		var amount = parseInt(this.uiCtr.amountinput.val().replace(/,/g,""), 10);
 		var limit = this.getAmountLimit(this.submitData.method, this.submitData.currency);
 		// if(!(/^[0-9]+$/).test(amount$.val())){
 		// 	this.errorMsgAry.push(pvSetting.errMsg.amountEmpty);
@@ -393,6 +476,8 @@ var planInquiry = {
 //  currencyStr: "HKD" | "USD"
 // }
 function planDetailViewer(conf){
+	var self = this;
+
 	var planData = conf.plans;
 	var slider   = conf.slider;
 
@@ -402,6 +487,7 @@ function planDetailViewer(conf){
 
 	var uiCtr = {
 		accountWrap		 : $(".pv_plan .accValue"),
+		moneyPaidWrap	 : $(".pv_plan .money"),
 		monthlyPaidWrap  : $(".pv_plan .money .left"),
 		monthlyPaid      : $(".pv_plan .money .monthlyFee"),
 		accountValue     : $(".pv_plan .amount"),
@@ -410,19 +496,23 @@ function planDetailViewer(conf){
 		xLifeAmount      : $(".pv_plan .card1 .price"),
 		xAccidentalAmount: $(".pv_plan .card2 .price"),
 		xCancerAmount    : $(".pv_plan .card3 .price"),
-		currencyTag      : $(".pv_plan .pricePrefix")
+		currencyTag      : $(".pv_plan .pricePrefix"),
+		riderCards		 : []
 	};
 
 	var reAlignCardHeight = function(){
 		//pvCtr.cal3Card.reAlign();
-		$(window).trigger("resize");
+		//$(window).trigger("resize");
+		pvCtr.cal3Card.reAlign();
 	};
 
 	var displayMonthlyPaid = function (isShow){
 		if(isShow){
 			uiCtr.monthlyPaidWrap.show();
+			uiCtr.moneyPaidWrap.removeClass("isOneOff");
 		}else{
 			uiCtr.monthlyPaidWrap.hide();
+			uiCtr.moneyPaidWrap.addClass("isOneOff");
 		}
 	};
 
@@ -438,20 +528,15 @@ function planDetailViewer(conf){
 		uiCtr.totalPaid.html(pvCtr.toPriceStr(planData[yearIdx].totalPaid));
 		uiCtr.accountValue.html(pvCtr.toPriceStr(accBaseValue));
 		uiCtr.yearNum.html(planData[yearIdx].premiumYear);
-		uiCtr.xLifeAmount.html(pvCtr.toPriceStr(accBaseValue * rateLife));
-		uiCtr.xAccidentalAmount.html(pvCtr.toPriceStr(accBaseValue * rateAccidental));
-		uiCtr.xCancerAmount.html(pvCtr.toPriceStr(accBaseValue * rateCancer));
-
-		uiCtr.accountWrap.removeClass("typeAge");
-		if(yearIdx === 5){
-			uiCtr.accountWrap.addClass("typeAge");
-		}
+		uiCtr.riderCards[0] = uiCtr.xLifeAmount.html(pvCtr.toPriceStr(accBaseValue * rateLife));
+		uiCtr.riderCards[1] = uiCtr.xAccidentalAmount.html(pvCtr.toPriceStr(accBaseValue * rateAccidental));
+		uiCtr.riderCards[2] = uiCtr.xCancerAmount.html(pvCtr.toPriceStr(accBaseValue * rateCancer));
 
 		reAlignCardHeight();
 	};
 
 	var reset = function(){
-		conf.slider.noUiSlider.set([0, 0]);
+		conf.slider.noUiSlider.set(0);
 		displayMonthlyPaid(conf.isMonthly);
 	};
 
@@ -465,9 +550,16 @@ function planDetailViewer(conf){
 	//ubind change event
 	conf.slider.noUiSlider.off("update.planView");//unbind namespaced event
 	conf.slider.noUiSlider.on('update.planView', function(curValueAry){
-		var idx = parseInt(curValueAry[1], 10) / 10;
+		var idx = parseInt(curValueAry[0], 10) / 10;
+		console.log("try to show: ", idx);
 		showYearDetails(idx);
 	});
+
+	//fill year number
+	for(var i=0; i<planData.length; i++){
+		$(".topScale .num"+(i+1)).html(planData[i].premiumYear);
+	}
+
 
 	//trigger show first year data
 	reset();
@@ -530,9 +622,8 @@ $.fn.autoAlignHeight = function(conf) {
 		}, 500);
 	}
 	
-	return {
-		reAlign : reAlignHeight
-	};
+	this.reAlign = reAlignHeight
+	return this;
 };
 
 

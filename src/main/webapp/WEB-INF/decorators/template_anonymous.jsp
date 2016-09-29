@@ -32,7 +32,7 @@
 	<section>
 				
 		<section class="main-content">
-			<dec:body />
+			<div class="commonBody"><dec:body /></div>
 			<%@ include file="include/merged/footer.jsp"%>
 		</section>
 		<section class="loading-modal"></section>

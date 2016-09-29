@@ -139,6 +139,22 @@ public class ProvieController extends BaseController{
 			//model.addAttribute("extraRiderDisabled", "ddd");
 			return ProviePageFlowControl.pageFlow("", model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS);
 		}else {
+			/* Temporarily add the meta og keys*/
+			String key = UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS;
+			model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page."+key, UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("pageMetaDataDescription", WebServiceUtils.getPageTitle("meta."+key, UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("ogTitle", WebServiceUtils.getPageTitle(key + ".og.title", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("ogType", WebServiceUtils.getPageTitle(key + ".og.type", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("ogUrl", WebServiceUtils.getPageTitle(key + ".og.url", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("ogImage", WebServiceUtils.getPageTitle(key + ".og.imgage", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("ogDescription", WebServiceUtils.getPageTitle(key + ".og.description", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("scriptName", WebServiceUtils.getPageTitle(key + ".script.name", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("scriptDescription", WebServiceUtils.getPageTitle(key + ".script.description", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("scriptChildName", WebServiceUtils.getPageTitle(key + ".script.child.name", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("scriptImg", WebServiceUtils.getPageTitle(key + ".og.image", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("planIndex", ""); //Plan Name
+			model.addAttribute("pageIndex", key); // Page Index
+
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "provie/provie-plan-details");
 		}
@@ -231,6 +247,7 @@ public class ProvieController extends BaseController{
 			, @ApiParam(value = "Currency", allowableValues = "USD,HKD",  required = true) @RequestParam("currency") String currency
 			, @ApiParam(value = "DOB of applicant (in dd/MM/yyyy format)",  required = true) @RequestParam("dob") String dob
 			, @ApiParam(value = "Additional rider", allowableValues = "ACCIDENTIAL_DEATH_BENEFIT,CANCER_BENEFIT,TERM_LIFE_BENEFIT",  required = true) @RequestParam("rider") String rider
+			, @ApiParam(value = "Payment Term") @RequestParam("paymentTerm") String paymentTerm
 			, HttpServletRequest request) {
 		
 		//super.IsAuthenticate(request);
@@ -239,7 +256,7 @@ public class ProvieController extends BaseController{
 		
 
 		
-		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean(String.valueOf(premium), planCode.toUpperCase(), dob.replace("/", "-"), "", currency, rider);
+		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean(String.valueOf(premium), planCode.toUpperCase(), dob.replace("/", "-"), "", currency, rider, paymentTerm);
 		net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
 		/*
 		url : context + "/ajax/savings-insurance/getProvieRiderPlan",

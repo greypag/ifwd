@@ -14,22 +14,42 @@ function isVisible(index) {
 
 function screenJob(obj) {
 
-    var nBarDesktopElem = document.getElementById('notification-bar-desktop');
-    var defaultDesktopPaddingTop = obj.topBar.desktop;
-    var nBarDesktopHeight = (typeof nBarDesktopElem !== "undefined" && nBarDesktopElem !== null) ? nBarDesktopElem.clientHeight : 0;
-
-    if (defaultDesktopPaddingTop == obj.topBar.desktop || defaultDesktopPaddingTop > obj.topBar.desktop ) {
-        defaultDesktopPaddingTop += nBarDesktopHeight;
-    } else {
-        defaultDesktopPaddingTop = obj.topBar.desktop;
-    }
-
     if ($(window).width() < 992) {
+
+        inlinePaddingTop(obj.topBar.classname.desktop, 0);
+
+        // Scenario:  Mobile
+        var nBarMobileElem = document.getElementById('notification-bar-mobile');
+        var defaultMobilePaddingTop = obj.topBar.mobileDefaultHeight;
+        var nBarMobileHeight = (typeof nBarMobileElem !== "undefined" && nBarMobileElem !== null) ? nBarMobileElem.clientHeight : 0;
+
+        if (defaultMobilePaddingTop == obj.topBar.mobileDefaultHeight || defaultMobilePaddingTop < obj.topBar.mobileDefaultHeight ) {
+            defaultMobilePaddingTop += nBarMobileHeight;
+        } else {
+            defaultMobilePaddingTop = obj.topBar.mobileDefaultHeight;
+        }
+
         inlinePaddingTop(
             obj.topBar.classname.mobile,
-            (isClicked == false) ? obj.topBar.mobile : (obj.topBar.mobile - obj.nBarOnly.mobile)
+            (isClicked == false) ? nBarMobileHeight : (obj.topBar.mobileDefaultHeight - obj.nBarOnly.mobile)
         );
+
     } else {
+
+        inlinePaddingTop(obj.topBar.classname.mobile, 0);
+
+        // Scenario:  Desktop
+        var nBarDesktopElem = document.getElementById('notification-bar-desktop');
+        var defaultDesktopPaddingTop = obj.topBar.desktopDefaultHeight;
+        var nBarDesktopHeight = (typeof nBarDesktopElem !== "undefined" && nBarDesktopElem !== null) ? nBarDesktopElem.clientHeight : 0;
+
+        if (defaultDesktopPaddingTop == obj.topBar.desktopDefaultHeight || defaultDesktopPaddingTop > obj.topBar.desktopDefaultHeight ) {
+            defaultDesktopPaddingTop += nBarDesktopHeight;
+        } else {
+            defaultDesktopPaddingTop = obj.topBar.desktopDefaultHeight;
+        }
+
+        // Scenario:  Desktop
     	var temp = (isClicked == false) ? defaultDesktopPaddingTop : (defaultDesktopPaddingTop - nBarDesktopHeight);
         inlinePaddingTop(
             obj.topBar.classname.desktop,

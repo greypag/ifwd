@@ -14,6 +14,31 @@ var plan="${plan}";
 <script src="<%=request.getContextPath()%>/resources/js/easy-home/jquery.inview.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/easy-home/easyhome-app-landing.js"></script>
 
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"${scriptImg}",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"Offer",
+    "priceCurrency":"HKD",
+    "price":"249",
+    "priceValidUntil":"2016-12-31",
+    "availability":"http://schema.org/InStock",
+    "seller":{
+      "@type":"Organization",
+      "name":"${scriptChildName}"
+    }
+  }
+}
+</script>
+
 <div class="fwd-savie-wrapper ">
     <div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
         <div class="breadcrumb-container">

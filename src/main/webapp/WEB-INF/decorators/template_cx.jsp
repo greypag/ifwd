@@ -6,6 +6,6 @@
 	<dec:head />
 </head>
 <body class="${pageClass}">
-	<dec:body />
+	<div class="closeMobileMenu commonBody"><dec:body /></div>
 </body>
 </html>

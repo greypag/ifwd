@@ -40,7 +40,7 @@
     //hotel monthly campiagn display end time
     long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
-    long cStart = cformat.parse("2016-09-30 14:59:59").getTime();
+    long cStart = cformat.parse("2016-10-31 14:59:59").getTime();
     //cCurrent =  cformat.parse("2016-09-30 15:59:59").getTime();
     /* For Debug and test the campaign switching logic
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher

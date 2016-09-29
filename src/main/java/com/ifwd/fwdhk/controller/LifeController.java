@@ -325,6 +325,32 @@ public class LifeController extends BaseController{
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		//test
+		logger.debug("paymentType=" + saviePlanDetails.getPaymentType());
+		logger.debug("promoCode=" + saviePlanDetails.getPromoCode());
+		logger.debug("insuredAmount=" + saviePlanDetails.getInsuredAmount());
+		//
+		if ("SP".equals(saviePlanDetails.getPaymentType())) {
+			JSONObject jsonObject = new JSONObject();
+			//request.setAttribute("planCode", "SAVIE-SP");
+			//request.setAttribute("referralCode", saviePlanDetails.getPromoCode());
+			//request.setAttribute("sumInsured", saviePlanDetails.getInsuredAmount());
+			try {
+				jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),userDetails.getHkid(),request);
+				logger.debug("lifecontroller referral discount=" + (String) jsonObject.get("value"));
+				saviePlanDetails.setInsuredAmountDiscount((String) jsonObject.get("value")); 
+				saviePlanDetails.setInsuredAmountDue(String.valueOf(Integer.valueOf(saviePlanDetails.getInsuredAmount()) - Integer.valueOf((String) jsonObject.get("value"))));
+				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
+			}
+			catch (Exception e) {
+				logger.info(e.getMessage(),e);
+				request.getSession().setAttribute("errorMsg", e.getMessage());
+			}
+
+		}
+		
+		
+		//test
 		SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 		ProductRecommendation productRecommendation = (ProductRecommendation) request.getSession().getAttribute("productRecommendation");
 		
@@ -409,6 +435,7 @@ public class LifeController extends BaseController{
 			model.addAttribute("nationalityCN", InitApplicationMessage.nationalityCN);
 			model.addAttribute("savieDistrictEN", InitApplicationMessage.savieDistrictEN);
 			model.addAttribute("savieDistrictCN", InitApplicationMessage.savieDistrictCN);
+
 			
 			String backSummary = request.getParameter("backSummary");
 			if(backSummary!=null && "Y".equals(backSummary)){
@@ -921,6 +948,8 @@ public class LifeController extends BaseController{
 	@RequestMapping(value = {"/{lang}/{plan}/confirmation"})
 	public ModelAndView getSavieOnlineUploadConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request
 			,HttpSession session) {
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		logger.debug("confirmation discount =" + saviePlanDetails.getInsuredAmountDiscount());
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);

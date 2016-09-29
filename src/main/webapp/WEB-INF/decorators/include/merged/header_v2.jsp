@@ -48,9 +48,77 @@
 	Boolean isEnjoyTabActive = actionName.equals("offers");
 %>
 
+<%
+	/* Temporarily set the msg before controller return the message */
+
+	java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	long currentDate = System.currentTimeMillis();
+    long msgEndDate = cformat.parse("2016-09-16 09:00:00").getTime();
+
+	String notificationMsg = "";
+    if (currentDate <= msgEndDate) {
+    	if (session.getAttribute("uiLocale").equals("zh-HK")) {
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("zh","HK")).getString("header.notification.msg.repair");
+    	} else {
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("en","US")).getString("header.notification.msg.repair");
+    	}
+    }
+	boolean showNotification = (notificationMsg.equals(""))?false:true;
+%>
+<script type="text/javascript">
+	var obj = {
+	    'topBar': {
+	        'mobileDefaultHeight': 0,
+	        'desktopDefaultHeight': 42,
+	        'classname': {
+	            'mobile': 'div.commonBody',
+	            'desktop': 'nav.navbar.navbar-inverse'
+	        }
+	    },
+	    'nBarOnly': {
+	        'mobile': 0,
+	        'desktop': 56,
+	        'classname': {
+	            'mobile': '.header-notification-box.header-notification-box--mobile',
+	            'desktop': '.header-notification-box.header-notification-box--desktop'
+	        },
+	        'content': {
+			    'ifwd_repair': {
+			        'mobile': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />'
+			    },
+				'fraud' : {
+			        'mobile': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />'
+			    },
+			    'flightcare_moncare': {
+			        'mobile': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />'
+			    }
+			}
+	    }
+	};
+
+// Default value
+var nBarConfig = {
+	'contentIndex': 'ifwd_repair',
+	'isVisible': <%=showNotification%>
+}
+</script>
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 
 <script src="<%=request.getContextPath()%>/resources/js/header/header_v2.head.part0.js" charset="utf-8"></script>
+
+<%-- if(request.getRequestURI().indexOf("/flight-insurance")>0) { %>
+<!-- customized behaviour for flight insurance landing page only -->
+<script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.custom.flight.js" charset="utf-8"></script>
+<% } --%>
+
+<!-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8"> -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
+<script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
+<!-- ./header.notification.bar -->
+
 
 <!-- Session is alive or not -->
 <%-- commented JSP, refer to "header_v2.temp.0.jsp" --%>
@@ -58,6 +126,7 @@
 <!--desktop header-->
 <header id="header" class="header hidden-xs hidden-sm">
 	<div class="top-bar">
+		<%@include file="header.notification.bar.desktop.jsp" %>
 		<div class="ifwd-container">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-0">
@@ -134,6 +203,7 @@
 										<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
 										<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability"><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /></a></li>
 										<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/screen-insurance/${language}"><fmt:message key="header.product.type1.group3.linkname3" bundle="${msg}" /></a></li>
+										<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/phone-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname4" bundle="${msg}" /></a></li>
 									</ul>
 								</li>
 		                 </ul>
@@ -192,10 +262,11 @@
 <!--End-Desktop-header-->
 
 <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none" id="test"></div>
+
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-0" role="navigation">
+	<%@include file="header.notification.bar.mobile.jsp" %>
 	<!--Mobile-logobox-->
-
 	<div class="logobox">
 		<div class="navbar-header" style="overflow: hidden;">
 			<button type="button"
@@ -286,6 +357,7 @@
 		                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
 		                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability"><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /></a></li>
 		                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/screen-insurance/${language}"><fmt:message key="header.product.type1.group3.linkname3" bundle="${msg}" /></a></li>
+		                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/phone-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname4" bundle="${msg}" /></a></li>
 		                    </ul>
 						</li>
 					</ul>

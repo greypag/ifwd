@@ -71,25 +71,36 @@ $(document).ready(function(){
 		$("#type-of-extra-rider").change(function(e){
 
 			var cls = $(e.currentTarget).find("option:selected").data("cls");
+
+			//Trigger By User
+			if(e.originalEvent){
+				$(".plan-form-holder .er-color-swap").each(function(){
+					$(this).removeClass("p50 p100 p500");
+					$(this).addClass(cls);
+				});
+				
+				$("#extra-desc-desktop p, #extra-desc p").removeClass("active");
+				$("#extra-desc-desktop").find("." + cls).addClass("active");
+				$("#extra-desc").find("." + cls).addClass("active");
+				return;
+			}
 			
 			$(".er-color-swap").each(function(){
 				$(this).removeClass("p50 p100 p500");
 				$(this).addClass(cls);
 			});
 			
-			$("#extra-desc-desktop p, #extra-desc p").removeClass("active");
-			$("#extra-desc-desktop").find("." + cls).addClass("active");
-			$("#extra-desc").find("." + cls).addClass("active");
+			
 			
 			$("th.cell-extra-rider").each(function(){
-				var t = $(this).text();
+				var t = $(this).html();
 				t = t.replace("100%","{percent}");
 				t = t.replace("50%","{percent}");
 				t = t.replace("500%","{percent}");
 				
 				t = t.replace("{percent}",cls.replace("p","") + "%");
 				
-				$(this).text(t);
+				$(this).html(t);
 			});
 		});
 
@@ -115,17 +126,19 @@ $(document).ready(function(){
 			var paymentMethod = $("#type-of-payment option:selected").data("val").split("-");
 			var currency = paymentMethod[1];
 			
-			$(".currency_switcher").each(function(){
+			
+			$(".plan-form-holder .currency_switcher").each(function(){
 				$(this).find("span").removeClass('active');
 				$(this).find("span."+currency).addClass("active");
 			});
+			
 			
 			//Change slider and dropdown
 			var sliderObj = {
 					min: affordabilityMin,
 					max: affordabilityPremium,
 					value:100000,
-					step:1000
+					step:5000
 			};
 			var monthly = 1000;
 			if(currency == "USD"){
@@ -133,7 +146,7 @@ $(document).ready(function(){
 						min: affordabilityMinUSD,
 						max: affordabilityPremiumUSD,
 						value:10000,
-						step:500
+						step:625
 					};
 				monthly = 125;
 			}
@@ -190,7 +203,16 @@ $(document).ready(function(){
 			    },
 			    success:function(response){
 			    	if(response){
+			    		$("#type-of-extra-rider").trigger("change");
 			    		
+			    		var paymentMethod = $("#type-of-payment option:selected").data("val").split("-");
+						var currency = paymentMethod[1];
+						
+						$(".currency_switcher").each(function(){
+							$(this).find("span").removeClass('active');
+							$(this).find("span."+currency).addClass("active");
+						});
+						
 			    		//Dummy data
 			    		//response = {"planCode":"Provie-SP","currency":"HKD","rider":"PA","plans":[{"premiumYear":1,"rate":1,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":2,"rate":1.1,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":3,"rate":1.2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":4,"rate":1.3,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":5,"rate":1.4,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}],"creditRates":[{"rate":0,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":1,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":2,"plans":[{"premiumYear":10,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]}]};
 			    		//Normal Table
@@ -245,7 +267,7 @@ $(document).ready(function(){
 					    		
 				    		}
 				    		
-				    		$($('.rate-buttons button').get(1)).trigger("click");
+				    		$($('.rate-buttons button').get(2)).trigger("click");
 			    		}
 			    		
 			    		
@@ -275,8 +297,7 @@ $(document).ready(function(){
 	//Appointment
 	if($(".provie-plan-appointment").length > 0){
 		
-		
-		
+		$('input[type=checkbox]').val('false');
 
 		$('#app-date').mobiscroll().calendar({
 			controls: ['calendar'],
@@ -352,6 +373,8 @@ $(document).ready(function(){
 			e.preventDefault();
 			$(e.currentTarget).parents(".panel-body").find(".sub-pan").removeClass("show");
 			$($(e.currentTarget).attr("href")).addClass("show");
+			//Hide your_username_box
+			$(".your_username_box").addClass("hide");
 		});
 
 		$(".btn-close-sub").click(function(e){
@@ -362,6 +385,11 @@ $(document).ready(function(){
 
 
 		$("#checkbox3, #checkbox4").change(function() {
+			if($(this).prop('checked')) {
+				$(this).val('true');
+			} else {
+				$(this).val('false');
+			}
 			showBubble();
 		});
 
@@ -376,9 +404,11 @@ $(document).ready(function(){
 		$("#btn-appointment-confirm").on('click', function(){
 			var isValid = true;
 			var confirmationJsp="/savings-insurance/provie-confirmation-appointment-sp?referenceNum="
+			var appType = 'PROVIE-SP';
 			var paymentType=planCode.split("-")[1];
 			if ("RP"==paymentType){
 				confirmationJsp="/savings-insurance/provie-confirmation-appointment-rp?referenceNum="
+				appType = 'PROVIE-RP';
 			}
 			//alert(confirmationJsp);
 			$(".centreErrMsg, .app-dateErrMsg, .preferred-timeErrMsg, .generalErrMsg").empty();
@@ -408,7 +438,7 @@ $(document).ready(function(){
 					preferredDate:$("#app-date").val(),
 					preferredTime:$("#preferred-time").val(),
 					centreCode:$("#centre").val(),
-					planCode:"PROVIE-SP",
+					planCode: appType,
 					userName:userName,
 					appointmentType:typeId
 				}
@@ -432,7 +462,7 @@ $(document).ready(function(){
 						if(xhr.status == 400){
 							$(".generalErrMsg").html($("<small/>").text(_err_msg));
 							console.log('Invalid appointment type.');
-						} else if(xhr.status == 405){
+						} else if(xhr.status == 417){
 							$('#moreThan2Tries').modal('show');
 							console.log('The number of appointments must be less than 2.');
 						} else if(xhr.status == 406){
@@ -462,6 +492,10 @@ $(document).ready(function(){
 				    }
 				});
 			}
+		});
+
+		$("#pick-another-centre-btn").on("click",function(){
+			$("#pickAnotherCentre").modal("hide");
 		});
 
 		//Bind on Change function
@@ -610,6 +644,7 @@ $(document).ready(function(){
 		    success:function(response){
 		    	
 		    	if(response){
+		    		console.log(response);
 		    		$("#centre").empty();
 		    		/*var o0 = $("<option/>");
 		    		o0.text("Option0");
@@ -619,7 +654,7 @@ $(document).ready(function(){
 		    		if(response.length > 0){
 		    			for(var i in response){
 			    			var centre = response[i];
-			    			console.log(centre);
+			    			//console.log(centre);
 			    			var option = $("<option/>");
 			    			option.text(centre.serviceCentreName);
 			    			option.val(centre.serviceCentreCode);
@@ -666,7 +701,9 @@ $(document).ready(function(){
 		    	if(response){
 		    		$(".appointment-date").text(response.preferredDate);
 		    		$(".appointment-time").text(response.preferredTime);
-		    		$(".branch-address").text(response.centreCode);
+		    		//$(".branch-address").text(response.centreCode);
+		    		//$(".branch-address").text(getServiceCenterName(response.centreCode));
+		    		getServiceCenterName(response.centreCode);
 		    		console.log(response);
 		    	}
 		    	
@@ -676,8 +713,54 @@ $(document).ready(function(){
 		
 	}
 });
+//Get Service Center Name - begin
+function getServiceCenterName(SelCenterCode){
+	//Get Availabe Service Center
+	//alert('Param_SelCenterCode='+SelCenterCode);
+	//var SelCenterName="";
+	$.ajax({
+		url:fwdApi.url.getAvailableCentre,
+		type:"get",
+		contentType: "application/json",
+		data:{type:typeId,language:UILANGUAGE  == "EN" ? "EN" : "ZH"},
+		cache:false,
+		async:false,
+		error:function(xhr, textStatus, errorThrown){
 
-
+			if(xhr.status == 400){
+				console.log('Invalid appointment type.');
+			} else if(xhr.status == 500){
+				console.log('System error.');
+			} else {
+				console.log("unable to load API : "+ fwdApi.url.getAvailableCentre);	
+			}
+	    },
+	    success:function(response){
+	    	if(response){
+	    		//console.log(response);
+	    		//$("#centre").empty();
+	    		if(response.length > 0){
+	    			for(var i in response){
+		    			if (SelCenterCode==response[i].serviceCentreCode){
+		    				//alert('data_centercode=' + response[i].serviceCentreCode);
+		    				//SelCenterName = response[i].serviceCentreName;
+		    				//alert('data_centerName=' + response[i].serviceCentreName);
+		    				//alert(response[i].address);
+		    				$(".branch-name").text(response[i].serviceCentreName);
+		    				$(".branch-address").text(response[i].address);
+		    				break;
+		    			}
+		    		}
+	    		}else{
+	    			$(".branch-name").text('');
+	    			$(".branch-address").text('');
+	    		}
+	    	}
+	    }
+	});
+ //   return SelCenterName;
+}
+//Get Service Center Name - end
 
 function bsvFormLogin(form){
 	//Bind Event
@@ -810,8 +893,9 @@ function bsvFormForgotUsername(form){
 					$(".forgotUsernamePanErrMsg").append($("<small/>").text(resp.message));	
 			    },
 			    success:function(response){
-			    	if(response){		    		
-			    		$(".forgotUsernamePanErrMsg").append($("<small/>").text("Please check your email"));	
+			    	if(response){
+			    		$(".your_username_box").removeClass("hide");
+			    		$("#your_username").text(getBundle(getBundleLanguage, "member.login.forgotUserName.success") + " " + response.userName);
 			    	}
 			    },
 			    complete:function(){
@@ -1071,23 +1155,35 @@ function bsvFormRegister(form){
 				async:false,
 				error:function(xhr, textStatus, errorThrown){
 
-					var resp = $.parseJSON(xhr.responseText);
+					var resp = {message:"Unknown Error"};
+					
+					try{
+						resp = $.parseJSON(xhr.responseText);
+					}catch(e){
+						
+					}
 
 					$(".regPanErrMsg").append($("<small/>").text(resp.message));	
 					$("#loading-overlay").modal("hide");
 			    },
 			    success:function(response){
 			    	if(response){
-
 			    		isLogged = true;
-		    			console.log(response);
 			    		$(".after-login").find(".fld-val").text(response.fullName);
 			    		userName = response.userName;
-			    		$(".before-login").hide();
+			    		//$(".before-login").hide();
 			    		$(".after-login").show();
 			    		$("#btn-appointment-confirm").show();
 
-			    		$("#loading-overlay").modal("hide");
+			    		//$("#loading-overlay").modal("hide");
+			    		
+			    		//window.location.reload();
+			    		
+			    		//Simulate Login
+			    		$("#appointmentloginUsername").val($("#appointmentRegisterUserName").val());
+						$("#appointmentloginPassword").val($("#appointmentRegisterPassword").val());
+						$("#btn-appointment-login").trigger("click");
+			    		
 			    	}
 			    },
 			    complete:function(){
@@ -1344,6 +1440,12 @@ function renderRateTable(tbDesktop,tbMobHead,tbMobBody,plan,odd){
 	
 	dt.find(".premiumYear").text(plan.premiumYear);
 	mob_head.find(".premiumYear").text(plan.premiumYear);
+	
+	if(plan.premiumYear == 100){
+		var age100 = UILANGUAGE == "EN" ? "At Age " + plan.premiumYear : "至" + plan.premiumYear+ "歲";
+		dt.find(".premiumYear").text(age100);
+		mob_head.find(".premiumYear").text(age100);
+	}
 	
 	dt.find(".rate").text(plan.rate);
 	mob.find(".rate").text(plan.rate);

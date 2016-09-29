@@ -72,4 +72,6 @@ public interface LifeService {
 	//public net.sf.json.JSONObject getProvieOnlinePlandetails(ProviePlanDetailsBean proviePlanDetails,HttpServletRequest request, HttpSession session) throws ECOMMAPIException;
 	public net.sf.json.JSONObject getProvieRiderPlan(ProviePlanDetailsBean proviePlanDetails,HttpServletRequest request, HttpSession session) throws ECOMMAPIException;
 	public JSONObject getProvieRiderEligibility(HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject getSavieReferralDiscount(HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject getSavieReferralDiscountParams(String planCode,String referralCode,String sumInsured,String hkId,HttpServletRequest request)throws ECOMMAPIException;
 }

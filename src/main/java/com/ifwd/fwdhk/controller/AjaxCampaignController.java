@@ -111,42 +111,42 @@ public class AjaxCampaignController extends BaseController {
 				break;
 			case 5:
 				discount="Fanfare.discount0";
-				date="30-11-2016";
+				date="31-12-2016";
 				offername="Fanfare.offername0";
 				index = "0";
 				tnc="Fanfare.tnc0";
 				break;
 			case 6:
 				discount="Fanfare.discount1";
-				date="30-11-2016";
+				date="31-12-2016";
 				offername="Fanfare.offername1";
 				index = "1";
 				tnc="Fanfare.tnc1";
 				break;
 			case 7:
 				discount="Fanfare.discount2";
-				date="30-11-2016";
+				date="31-12-2016";
 				offername="Fanfare.offername2";
 				index = "2";
 				tnc="Fanfare.tnc2";
 				break;
 			case 8:
 				discount="Fanfare.discount3";
-				date="30-11-2016";
+				date="31-12-2016";
 				offername="Fanfare.offername3";
 				index = "3";
 				tnc="Fanfare.tnc3";
 				break;
 			case 9:
 				discount="Fanfare.discount4";
-				date="30-11-2016";
+				date="31-12-2016";
 				offername="Fanfare.offername4";
 				index = "4";
 				tnc="Fanfare.tnc4";
 				break;
             case 23:
                 discount="Fanfare.discount11";
-                date="30-11-2016";
+                date="31-12-2016";
                 offername="Fanfare.offername11";
                 tnc="Fanfare.tnc11";
                 break;				
@@ -192,9 +192,9 @@ public class AjaxCampaignController extends BaseController {
 	@ResponseBody
 	public void getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			if (Methods.isXssAjax(request)) {
-				throw new Exception("invalid AJAX call");
-			}
+//			if (Methods.isXssAjax(request)) {
+//				throw new Exception("invalid AJAX call");
+//			}
 			Map<String, String> counts = campaignService.getAllAvailablePromoCodeCountByCampaign(request);
 			ajaxReturn(response, counts);
 		} catch (Exception e) {

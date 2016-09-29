@@ -122,7 +122,8 @@ function stickToHeader() {
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
 						<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.branch" bundle="${provieMsg}" /></p>
-						<p><span class="branch-address">尖沙咀</span></p>
+						<p><span class="branch-name"></span></p>
+						<p class="branch-address"></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
 						<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.ophours" bundle="${provieMsg}" /></p>
@@ -156,7 +157,7 @@ function stickToHeader() {
 								<img class="visible-xs visible-sm" src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png">
 								<img class="hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png">
 							</div>
-							<div class="requirement-text-wrapper"><p><fmt:message key="provie.appoint.confirm.details.text8" bundle="${provieMsg}" /></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="provie.appoint.confirm.details.text8.rp" bundle="${provieMsg}" /></p></div>
 						</div>
 					</div>
 					
@@ -168,7 +169,7 @@ function stickToHeader() {
 					<span><fmt:message key="provie.appoint.confirm.link.print" bundle="${provieMsg}" /></span>
 				</a>
 				<center>
-					<a href="https://i.fwd.com.hk/en">
+					<a href="https://i.fwd.com.hk/${language}">
 						<button class="text-bold btn btn-home savie-common-btn" type="button"><fmt:message key="provie.appoint.confirm.cta.back" bundle="${provieMsg}" /></button>
 					</a>
 				</center>

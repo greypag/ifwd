@@ -2377,8 +2377,9 @@ public class TravelController {
 				model.addAttribute("travelQuoteBean", travelQuote);
 				session.setAttribute("referralCode", "");
 			}else {
-				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/travel-insurance");
+				
+				request.setAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/travel-insurance");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

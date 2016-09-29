@@ -751,5 +751,5 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
         style="width: 300px; height: 300px;"
         src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 </div>
-</body>
-</html>
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>

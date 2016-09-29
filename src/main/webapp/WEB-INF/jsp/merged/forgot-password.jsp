@@ -22,7 +22,7 @@
 								$('#ajax-loading').hide();
 								if (data == 'fail') {
 									$('#forgotpassword-err-msg1')
-											.html(getBundle(getBundleLanguage, "member.login.fail.first"));
+											.html(getBundle(getBundleLanguage, "member.login.forgotUserName.error"));
 									$('#forgotpassword-err-msg1').show();
 								} else if (data == 'success') {
 									$('#success-message1')

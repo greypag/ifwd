@@ -169,9 +169,9 @@ public class AppointmentController extends BaseController {
 		response = AppointmentBooking.class
 		)
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type"),
-							@ApiResponse(code = 405, message = "The number of appointments must be less than 2"),
 							@ApiResponse(code = 406, message = "Access code has already been used"),
 							@ApiResponse(code = 409, message = "Reservation is invalid"),
+							@ApiResponse(code = 417, message = "The number of appointments must be less than 2"),
 							@ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<AppointmentBooking> bookAppointment(
 			@ApiParam(value = "Appointment booking", required = true) @RequestBody AppointmentBooking booking
@@ -240,7 +240,7 @@ public class AppointmentController extends BaseController {
 								
 				JSONObject models = new JSONObject();
 				models.put("name", booking.getUserName());
-				models.put("accessCode", accessCode);
+				models.put("accessCode", applicationNumber);
 				models.put("dateEn", booking.getPreferredDate());
 				models.put("timeSlotEn", booking.getPreferredTime());
 				models.put("centerEn", centerEn);
@@ -271,7 +271,7 @@ public class AppointmentController extends BaseController {
 				if (makeJsonObj.get("errMsgs").toString().equals("[\"Access code has already been used\"]")) {
 					return Responses.notAcceptable(null);
 				} else if (makeJsonObj.get("errMsgs").toString().equals("[\"The number of appointments must be less than 2\"]")) {
-					return Responses.methodNotAllowed(null);
+					return Responses.expectationFailed(null);
 				} else if (makeJsonObj.get("errMsgs").toString().equals("[\"Reservation is invalid\"]")) {
 					return Responses.conflict(null);
 				} else {

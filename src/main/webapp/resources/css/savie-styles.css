@@ -2485,7 +2485,8 @@ a.eserv-link:hover {
 @media (max-width: 991px) {
   /* line 2, ../sass/partials/savie/_make-an-appointment.scss */
   #make-an-appointment-page .breadcrumbs, #pay-later-page .breadcrumbs, #application-summary-page .breadcrumbs {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
+    /* debug by #3595, Provie Mobile Navbar’s has a large white space */
   }
 }
 @media (max-width: 991px) {
@@ -4334,6 +4335,18 @@ a.eserv-link:hover {
 #step-online .step{
   height: 263px;
 }
+
+/* Temp remove Savie Appointment - 20160929*/
+#step-online .one-step{
+  height: auto;
+}
+@media (max-width: 992px) {
+  #step-online .one-step{
+    height: 320px;
+  }
+}
+/* End Temp remove Savie Appointment - 20160929*/
+
 
 /* line 121, ../sass/partials/savie/_online-offline-fna.scss */
 #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-online #online-application-btn {
@@ -9930,7 +9943,7 @@ select::-ms-value {
 	.psa-divider{
 		/*height: 625px;*/
     /*height: 675px;*/ /*1.16.000 - Add Home Liability*/
-    height: 710px; /*1.18.001 - Add screen protector*/
+    /*height: 710px;*/ /*1.24.000 - Remove height*/
 	}
 }
 .psa-divider:hover,

@@ -162,6 +162,8 @@ public class UserRestURIConstants {
 	
 	/*API For Campaign Promo Code*/
 	public static final String CAMPAIGN_PROMO_CODE_GET_COUNT = SERVICE_URL + "/leads/campaign/promoCodeCount";
+	public static final String CAMPAIGN_PROMO_CODE_GET_COUNTS = SERVICE_URL + "/leads/campaign/promoCodeCounts";
+	
 	public static final String CAMPAIGN_PROMO_CODE_ASSIGN = SERVICE_URL + "/leads/campaign/assignPromoCode";
 	
 	/*API For savie online*/
@@ -538,6 +540,9 @@ public class UserRestURIConstants {
 	/*API For Hkid Discount*/ 
 	public static final String GET_SAVIE_HKID_DISCOUNT = SERVICE_URL + "/premium/savie/hkid/discount/all";
 	public static final String GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN = SERVICE_URL + "/premium/savie/hkid/discount";
+	
+	/*API For Referal Discount*/ 
+	public static final String GET_SAVIE_REFERRAL_DISCOUNT = SERVICE_URL + "/premium/savie/referral/discount";
 	
 	static String controller;
 

@@ -1,0 +1,946 @@
+body{
+	font-size: 16px;
+	font-family: Calibri, Arial, sans-serif !important;
+}
+
+//override
+body.chin, .chin .fwd-savie-wrapper h1, .fwd-savie-wrapper h2, .fwd-savie-wrapper h3, .fwd-savie-wrapper h4, .fwd-savie-wrapper h5{
+	font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important;
+}
+ul, menu, dir{
+	-webkit-padding-start: 0;
+}
+
+ul li{
+	list-style: none;
+}
+
+a:hover, a:focus{
+	color: #fff;
+}
+
+
+
+//========================//
+$base-title-font-size: 2.250em;
+//not in used
+$sub-title-font-size: 1.125em;
+$base-txt-font-size: 0.889em;
+$base-remark-font-size: 0.722em;
+
+$base-title-color: #333333;
+$base-remark-color: #999999;
+
+%pv_base_section{
+	padding: 26px 0;
+	text-align: center;
+}
+
+.errorMsg{
+	color: red;
+}
+
+.nopadding{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.img-responsive.center{
+	margin: 0 auto;
+}
+
+.txtNoWrap{
+	white-space: nowrap;
+}
+
+
+.pv_title{
+	color: $base-title-color;
+	font-weight: bold;
+	font-size: $base-title-font-size;
+	line-height: 1.278em;
+	margin-top: 0.278em;
+	margin-bottom: 0.278em;
+	text-align: center;
+}
+.pv_sub_heading{
+	font-weight: bold;
+	font-size: $sub-title-font-size;
+	padding-bottom: 0.625em;
+}
+.pv_remark{
+	color: $base-remark-color;
+}
+.pv_btn{
+	background-color: #fbb631;
+	border-radius: 5px;
+	border: #fbb631 solid 1px;
+	border-bottom: #ce9528 solid 2px;
+	color: #ffffff;
+	display: inline-block;
+	font-size: 1.167em;
+	line-height: 2.381em;
+	min-width: 200px;
+	text-align: center;
+	&:hover{
+		background-color: #ffffff;
+		border: #fbb631 solid 1px;
+		border-bottom: #fbb631 solid 2px;
+		color: #fbb631;
+	}
+}
+
+button.dropdown-toggle{
+	box-shadow: none !important;
+	background: transparent;
+	border: none;
+	border-bottom: solid 1px #999999;
+	color: #c0c1c7;
+	&.isSelected{
+		color: #333333;
+	}
+	&:after{
+		content: " ";
+		display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+	}
+}
+
+
+.pv_overlay_text_wrap{
+	bottom: 40%;
+	color:white;
+	left: 0;
+	position: absolute;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	z-index: 2;
+	.pv_title{
+		color:white;
+		font-size: 1.389em;
+	}
+}
+
+.pv_productInfo{
+	@extend %pv_base_section;
+	background-color: #041d29;
+	color: #ffffff;
+	.pv_desc{
+		max-width: 500px;
+		margin: 0 auto;
+	}
+	.pv_highlight{
+		color: #f59331;
+		font-size: 1.250em;
+		font-weight: bold;
+		line-height: 1.667em;
+	}
+	.pv_link{
+		display: inline-block;
+		margin: 0.938em 0;
+		text-decoration: underline;
+	}
+	.pv_product_table{
+		max-width: 640px;
+		margin: 0 auto;
+		text-align: center;
+		width: 100%;
+		td, th {
+		    border: 1px solid #dddddd;
+		    line-height: 1em;
+		    padding:1em 0;
+		}
+		.pv_table_head{
+			color: #ff8200;
+			font-weight: bold;
+			text-align: center;
+			width: 30%;
+		}
+		td{
+			width: 14%;
+		}
+	}
+}
+
+.pv_plan{
+	@extend %pv_base_section;
+	background: url(../../images/provie/landing-bg-desktop.jpg) 50% 50%;
+	background-size: cover;
+	color: #ffffff;
+	display: none;
+	.pv_title{
+		color: #ffffff;
+	}
+	.pv_plan_wrap{
+		max-width: 510px;
+		margin: 0 auto;
+		width: 100%;
+		.pv_hint{
+			position: absolute;
+		    left: -28%;
+		    width: 150px;
+		    &.hint1{
+		    	background-color: #fbb631;
+		    	border-radius: 4px;
+		    	color: #000000;
+		    	font-size: 0.75em;
+		    	line-height: 1em;
+		    	padding: 5px;
+		    	text-align: right;
+		    	top: 30px;
+		    }
+		    &.hint2{
+		    	top: 71px;
+		    }
+		}
+		#slider{
+			border: none;
+			background-color: #f8882d;
+			height: 6px;
+			margin: 0 auto;
+			width: 90%;
+			.noUi-origin.noUi-background .grayBox{
+				background-color: #666666;
+				height: 100%;
+				position: absolute;
+				right: 0;
+				width: 33.3333%;
+				top: 0;
+				z-index: 1;
+			}
+			.noUi-handle{
+				border-radius: 20px;
+				height: 20px;
+				left: -10px;
+				width: 20px;
+				z-index: 2;
+				&:before, &:after{
+					display: none;
+				}
+			}
+			.noUi-background{
+				background-color: #cccccc;
+			}
+		}
+		.scale{
+			height: 34px;
+			margin: 10px 0;
+			position: relative;
+			&.scaleBottom{
+				margin-top: 21px;
+				.floatNum{
+					vertical-align: bottom;
+					&:after{
+						top: -14px;
+					}
+				}
+			}
+		}
+		.floatNum{
+			font-weight: bold;
+			position: absolute;
+			transform: translate(-50%, 0%);
+			&:after{
+				background-color: #cccccc;
+				content: "";
+				display: inline-block;
+				height: 11px;
+				left: 50%;
+				position: absolute;
+				width: 2px;
+				top: 25px;
+			}
+			&.num1{left: 4.8%;}
+			&.num2{left: 22.8%;}
+			&.num3{left: 40.8%;}
+			&.num4{left: 58.8%;}
+			&.num5{left: 76.8%;}
+			&.num6{left: 94.8%;}
+		}
+		.yearWarp{
+			font-weight: bold;
+			margin: -20px auto 12px auto;
+			width: 90%;
+			text-align: left;
+			.year{
+				background: url(../../images/provie/provie_landing_slider_line.png) 50% 50% no-repeat;
+				background-size: contain;
+				display: inline-block;
+				padding: 0 20%;
+				width: 80%;
+			}
+		}
+		.money{
+			border-left: 2px solid #666666;
+			border-right: 2px solid #666666;
+			font-weight: bold;
+			margin: 0 auto;
+			width: 90%;
+			.left, .right{
+				display: inline-block;
+				box-sizing: border-box;
+				width: 50%;
+			}
+			&.isOneOff .right{
+				border-left: none;
+			}
+			.right{
+				border-left: 2px solid #666666;
+			}
+		}
+		.accValue{
+			background-color: #f8882d;
+			border-radius: 2px;
+			margin: 1em auto;
+			padding: 1.25em 0;
+			width: 90%;
+			.img-responsive{
+				display: inline-block;
+				vertical-align: top;
+			}
+			.txt{
+				display: inline-block;
+				text-align: left;
+				.amount{
+					font-size: 2em;
+					font-weight: bold;
+				}
+			}
+			.txt4age100{
+				display: none;
+			}
+			&.typeAge{
+				.txt4year{
+					display: none;
+				}
+				.txt4age100{
+					display: block;
+				}
+			}
+		}
+		.extra{
+			text-align: center;
+			margin: 0 auto;
+			width: 90%;
+			.pv_title_extra{
+				color: #fa7d18;
+				font-size: 1.313em;
+				font-weight: bold;
+				.imgPlus{
+					display: inline-block;
+					vertical-align: top;
+				}
+			}
+			.line{
+				max-width: 66%;
+			}
+			.card{
+				background-color: #ffffff;
+				display: inline-block;
+				padding: 1em 0;
+				vertical-align: top;
+				width: 32%;
+				.name{
+					font-size: 1em;
+					font-weight: bold;
+					margin-top: 0;
+				}
+				.price{
+					font-size: 1.5em;
+					margin-top: 1em;
+				}
+				&.card1{
+					color: #fbb616;
+					.name {color: #fbb616;}
+				}
+				&.card2{
+					color: #12a6b7;
+					.name {color: #12a6b7;}
+				}
+				&.card3{
+					color: #f5531a;
+					.name {color: #f5531a;}
+				}
+			}
+
+		}
+	}
+}
+
+.pv_sec_calculator{
+	@extend %pv_base_section;
+	.pv_statement{
+		font-size: 1.5em;
+		line-height: 2.250em;
+		margin: 0.625em auto;
+		max-width: 500px;
+		.btn-group{
+			line-height: 1.188em;
+			.dropdown-menu li{
+				text-align: center;
+			}
+		}
+		.input_amount, .input_age{
+			border: none;
+			border-bottom: solid 1px #999999;
+			width: 4.167em;
+			text-align: center;
+			padding: 0;
+			&::-webkit-input-placeholder{
+			  	font-size: 1em !important;
+			}
+		}
+	}
+}
+
+.pv_sec_features{
+	@extend %pv_base_section;
+	.pv_feature_box{
+		padding-bottom: 1.111em;
+		.pv_feature_title{
+			color: $base-title-color;
+			font-size: 1.313em;
+			font-weight: bold;
+			margin-top: 0.474em;
+			margin-bottom: 0.474em;
+		}
+		.pv_feature_desc{
+			color: #666666;
+			font-size: 1em;
+			padding-left: 2.5em;
+			padding-right: 2.5em;
+			.pv_remark{
+				display: block;
+				font-size: 0.875em;
+			}
+		}
+	}
+}
+
+.pv_sec_extra{
+	@extend %pv_base_section;
+	background-color: #f3f3f3;
+	.pv_title sup{ font-size: 8px; vertical-align: top;}
+	.pv_title.header sup{top: 0.5em;}
+	.pv_extra_card_holder{
+
+	}
+	.pv_extra_card{
+		transition: 0.6s;
+		// margin-top: 0.833em;
+		// margin-bottom: 0.833em;
+		.front, .back{
+			height: 325px;
+			margin: 0 auto;
+			width: 325px;
+		}
+		.front{
+			background-color: white;
+			padding: 20px 0;
+			.pv_extra_icon{
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				position: absolute;
+				right:0;
+				top: 0;
+			}
+			.pv_title{
+				font-size: 1.167em;
+			}
+		}
+		.back{
+			color: #ffffff;
+			padding: 0.833em;
+			.pv_extra_desc{
+				font-size: 1.125em;
+			}
+		}
+	}
+	.pv_extra_mobile .pv_extra_point{
+		display: table;
+		margin: 0.883em 0;
+		.pv_extra_point_icon, .pv_extra_point_desc{
+			display: table-cell;
+			float: none;
+			vertical-align: middle;
+		}
+		.pv_title{
+			font-size: 1.75em;
+		}
+	}
+	.pv_extra_remark{
+		margin-top: 20px;
+		ul li{
+			list-style: none;
+			text-align: left;
+		}
+	}
+	/* entire container, keeps perspective */
+	.flip-container {
+		perspective: 1000;
+		-webkit-perspective: 1000;
+	}
+		/* flip the pane when hovered */
+		.flip-container:hover .flipper, .flip-container.hover .flipper {
+			transform: rotateY(180deg);
+		}
+
+	.flip-container, .front, .back {
+		width: 325px;
+		height: 325px;
+	}
+
+	/* flip speed goes here */
+	.flipper {
+		transition: 0.6s;
+		transform-style: preserve-3d;
+
+		position: relative;
+		/* hide back of pane during swap */
+		.front, .back {
+			backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		/* front pane, placed above back */
+		.front {
+			z-index: 2;
+			/* for firefox 31 */
+			transform: rotateY(0deg);
+		}
+
+		/* back, initially hidden pane */
+		.back {
+			transform: rotateY(180deg);
+		}
+	}
+}
+.pv_extra_card.card1 .back{
+	background-color: #fbb616;
+}
+.pv_extra_card.card2 .back{
+	background-color: #12a6b7;
+}
+.pv_extra_card.card3 .back{
+	background-color: #f5531a;
+}
+
+.pv_sec_action{
+	@extend %pv_base_section;
+	background: url(../../images/provie/provie_landing_s5_bg.jpg) 50% 50%;
+	background-size: cover;
+	font-size: 24px;
+	padding-bottom: 50px;
+	.pv_title{
+		color: #ffffff;
+	}
+	.pv_btn{
+		font-size: 14px;
+		line-height: 22px;
+		margin-top: 8px;
+		padding: 4.5px 0 5.5px;
+	}
+}
+
+.pv_compareTable{
+	@extend %pv_base_section;
+	background-color: #f3f3f3;
+	padding-bottom: 90px;
+	.carousel-indicators{ bottom: -50px;}
+	.carousel-control{
+		z-index: 999;
+		background-image: none;
+		top: 45px;
+		width: 60px;
+		bottom: initial;
+	}
+	.mobile table td{
+		width: 35%;
+	}
+	.mobile table td:nth-child(1){
+		width: 30%;
+	}
+	table{
+		border-collapse: separate;
+		font-weight: bold;
+		font-size: 0.875em;
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+		tr{
+			height: 3.214em;
+			&:nth-child(even) {background: #ffffff;}
+			&:nth-child(odd) {background: #f3f3f3;}
+			&:last-child .inner{
+				border-bottom: 1px solid #cecece;
+			}
+			td:nth-child(1){
+				text-align: left;
+			}
+			td{
+				border-left: 1px solid #cecece;
+				&:nth-child(1){
+					width: 33%;
+				}
+				&:last-child{
+					border-right: 1px solid #cecece;
+				}
+				.hideborderLeft{
+					border-left: none;
+				}
+			}
+		}
+		th .inner, td .inner{
+			display: block;
+			font-weight: bold;
+		}
+		th{
+			padding: 0;
+			.inner{
+				color: #ffffff;
+				background-color: #f8882d;
+				display: block;
+				font-size: 1.5em;
+				line-height: 2.50em;
+				margin-top: 30px;
+				text-align: center;
+				&.highlight{
+					font-size: 2em;
+					line-height: 82px;
+					margin-top: 0;
+					border-left: 1px solid #cecece;
+					border-right: 1px solid #cecece;
+				}
+			}
+		}
+		td{
+			padding: 0;
+			width: 16.6%;
+			&.highlight{
+				background-color: rgba(254,242,232,.7);
+			}
+			&.sep{
+				background-color: #333333;
+				color: #ffffff;
+			}
+			.inner{
+				line-height: 1.5em;
+				text-align: center;
+				.pv_sub_heading{
+					// font-size: 1.286em;
+				}
+				.sub_title{
+					display: block;
+					font-size: 1.25em;
+					padding: 10px 0;
+				}
+				.remark{
+					color: #999999;
+					display: block;
+					font-size: 0.786em;
+				}
+			}
+		}
+	}
+}
+
+.pv_experience{
+	@extend %pv_base_section;
+	.pv_experience_card{
+		.inner{
+			background-color: #f0f0f0;
+			margin: 0 10px;
+			padding: 1.667em;
+		}
+		.name, .title{
+			font-weight: bold;
+		}
+		.name{
+			font-size: 1.375em;
+			margin-top: 1em;
+		}
+		.title{
+			font-size: 0.938em;
+			padding: 1em 0;
+		}
+		.comment{
+			border-top: 1px solid black;
+			padding-top: 1.5em;
+		}
+	}
+	.pv_experience_wrap{
+		overflow: hidden;
+		padding-bottom: 70px;
+		.carousel-indicators{
+			bottom: -60px;
+			li{
+				background-color: #f0f0f0;
+				height: 15px;
+				transition: all 0.8s;
+				width: 15px;
+				&.active{
+					background-color: black;
+				}
+			}
+		}
+	}
+}
+
+.pv_fna{
+	@extend %pv_base_section;
+	background-color: #fbb631;
+	.pv_title{
+		color: #ffffff;
+		&+.pv_desc{
+			color: #ffffff;
+		}
+	}
+	.pv_desc{
+		color: #333333;
+	}
+	.pv_btn{
+		background-color: #f8882d;
+	}
+	.mdl-textfield{
+		width: 100%;
+	}
+	.pv_fna_input{
+		font-size: 14px;
+		margin-top: 1.389em;
+		margin-bottom: 1.389em;
+		.mdl-textfield{
+			background-color: #fff;
+			padding: 10px 0;
+			padding: 12px 15px 0 15px;
+		}
+		.form-control{
+			height: 25px;
+			padding: 0;
+		}
+
+		.mdl-textfield__label{
+			margin-bottom: 0;
+			padding: 0px 15px 12px 15px;
+			top: 9px;
+		}
+		.is-focused .mdl-textfield__label{
+			color: #ff8200;
+			top: 0px;
+		}
+		.is-dirty .mdl-textfield__label{
+			color: #ff8200;
+			top: 0;
+		}
+		.mdl-textfield__label:after{
+			bottom: 0;
+			background-color: #ff8200;
+		}
+	}
+	.link{
+		font-size: 0.943em;
+		padding: 0.556em 0;
+	}
+	.pv_fna_reg{
+		margin: 0.725em 0;
+	}
+}
+
+.pv_share{
+	@extend %pv_base_section;
+	background-color: #f8882d;
+	.pv_title{
+		color: #ffffff;
+		&+.pv_desc{
+			color: #ffffff;
+			font-size: 1.167em;
+			margin-bottom: 1.389em;
+		}
+	}
+}
+
+@media (max-width: 450px) {
+	.pv_plan .pv_plan_wrap .extra{
+		width: 100%;
+		.card .name{
+			font-size: 11px;
+		}
+		.card .price{
+			font-size: 16px;
+		}
+	}
+}
+
+@media (min-width: 544px) {
+	.pv_productInfo .pv_product_table .pv_table_head{
+		padding-right: 1em;
+		padding-left: 1em;
+	}
+	.pv_compareTable table{padding: 0 15px;}
+}
+
+@media (min-width: 640px) and (max-width: 768px){
+	.pv_overlay_text_wrap{
+		.pv_title{
+			font-size: 45px;
+		}
+		.pv_desc{
+			font-size: 25px;
+		}
+	}
+}
+@media (min-width: 768px) and (max-width: 1024px){
+	.chin .savie-regular-landing .page-banner .img-banner-text.savie-landing{
+		bottom: 10px;
+	}
+}
+@media (min-width: 1024px){
+	.pv_overlay_text_wrap{
+		.pv_title{
+			font-size: 80px;
+			margin-bottom: 0;
+		}
+		.pv_desc{
+			font-size: 25px;
+		}
+	}
+
+	.pv_compareTable table td .inner{
+		padding: 10px 10px 10px 24px;
+	}
+	.pv_compareTable table td:nth-child(1) .inner{
+		padding-left: 50px;
+		text-align: left;
+	}
+}
+@media (min-width: 768px){
+	.pv_sec_action .pv_btn{
+		font-size: 18px;
+	}
+	.pv_productInfo .pv_product_table .pv_table_head{
+		text-align: right;
+	}
+}
+@media (min-width: 992px){
+	.pv_sec_action .pv_btn{
+		font-size: 24px;
+		padding: 12.5px 0;
+		margin-top: 0;
+	}
+}
+
+
+//override to always align center
+.savie-regular-landing .page-banner .img-banner-text{
+	width: 100%;
+    left: 0;
+    text-align: center;
+    padding-left: 0;
+}
+.carousel-inner{overflow: hidden;}
+
+.fwd-savie-wrapper h2{
+	font-size: 2.25em;
+}
+.savie-regular-landing .page-banner .img-banner-text .start-btn{
+	max-width: 230px;
+}
+#clearfix-height-rp{
+	height: initial;
+}
+
+// #3774
+.form-group {
+	&.has-success,
+	&.has-error {
+		color: #333333;
+	}
+}
+
+/* #3753 bug fix */
+
+.savie-regular-landing .page-banner .img-banner-text .start-btn {
+  max-width: 230px;
+}
+
+.pv_mobile_middle_buttons {
+  background-color: #041d29;
+  padding: 26px 0;
+  text-align: center;
+  .img-banner-text {
+    .start-btn {
+      background: #fdb714;
+      border-color: #cf9611;
+      font-size: 14px;
+      max-width: 230px;
+      padding: 4.5px 0 5.5px;
+      margin-top: 8px;
+    }
+    .savie-product a {
+      font-size: 14px;
+    }
+  }
+  a {
+    color: #ffffff;
+  }
+  .savie-product.text-bold {
+    color: #ffffff;
+    a {
+      margin-top: 8px;
+      color: #ffffff;
+      &:hover {
+        color: #f68a1d;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  /* line 898, ../sass/provie-landing-style.scss */
+  .pv_mobile_middle_buttons {
+    background-color: #041d29;
+    padding: 26px 0;
+    text-align: center;
+    .img-banner-text {
+      .start-btn {
+        background: #fdb714;
+        border-color: #cf9611;
+        font-size: 14px;
+        max-width: 230px;
+        padding: 4.5px 0 5.5px;
+        margin-top: 8px;
+      }
+      .savie-product a {
+        font-size: 14px;
+      }
+    }
+    a {
+      color: #ffffff;
+    }
+    .savie-product.text-bold {
+      font-size: 12px;
+      color: #ffffff;
+      a {
+        margin-top: 8px;
+        color: #ffffff;
+        &:hover {
+          color: #f68a1d;
+        }
+      }
+    }
+  }
+}
+
+/* ./#3753 bug fix */

@@ -276,8 +276,8 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 </script>
 <!--END -Google Code for SEO-->
 	<div class="fwd-savie-wrapper">
-				<%@ include file="include/merged/header.jsp"%>
-		<div class="closeMobileMenu"><dec:body /></div>
+		<%@ include file="include/merged/header.jsp"%>
+		<div class="closeMobileMenu commonBody"><dec:body /></div>
 		<%@ include file="include/merged/footer.jsp"%>
 	</div>
 

@@ -113,7 +113,13 @@ function stickToHeader() {
 		                   </div>
 		                   <span class="error-msg centreErrMsg"></span>
 		               </div>
-		           </div>  
+		           </div>
+		           <div class="centre-info visible-xs visible-sm" id="centre-info">
+		           		<img src="/resources/images/savie/qb.jpg" class="img-centre img-responsive">
+		           		<h4><fmt:message key="provie.appoint.address" bundle="${provieMsg}" /></h4>
+		           		<p class="centre-address"></p>
+		           		<a target="_blank" class="viewmap-link" href="#"><fmt:message key="provie.appoint.viewmap" bundle="${provieMsg}" /></a>
+		           	</div>
 		           <div class="">
 						<div class="payment-select-wrapper so-mdl-textfield">
 							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.date" bundle="${provieMsg}" /></p>  
@@ -139,7 +145,7 @@ function stickToHeader() {
 		           <div class="after-login">
 						<div class="form-group">
                             <div class="fld-wrapper">
-                                <p class="fld-label">Confirm log in as</p>
+                                <p class="fld-label"><fmt:message key="provie.appoint.afterlogin.text" bundle="${provieMsg}" /></p>
                                 <p class="fld-val"></p>
                             </div>
                         </div>
@@ -200,6 +206,9 @@ function stickToHeader() {
 														<h4 class="panel-title"><fmt:message key="provie.appoint.forget.username" bundle="${provieMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
 													</div>
 													
+													<div class="hide alert alert-success your_username_box">
+														<span id="your_username"></span>
+													</div>
 
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -385,13 +394,13 @@ function stickToHeader() {
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
 						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-						<h2>Sorry, the center or date/time you selected is not available.</h2>
+						<h2><fmt:message key="provie.appoint.popup.errormsg.text1" bundle="${provieMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">
-						<p class="registered">Please select another center or try again tomorrow.</p>
+						<p class="registered"><fmt:message key="provie.appoint.popup.errormsg.text2" bundle="${provieMsg}" /></p>
 						
 						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-						<button type="button" class="btn btn-orange" id="pick-another-centre-btn">Try again</button>
+						<button type="button" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="provie.appoint.popup.errormsg.tryagain" bundle="${provieMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -453,11 +462,11 @@ function stickToHeader() {
 			<div class="modal-dialog teaserSurvey" role="document">
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
-						<h2>Sorry, the center or date/time you selected is not available.</h2>
+						<h2><fmt:message key="savie.customerServiceCentre.reservationInvalid" bundle="${msg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">
-						<p class="registered">Please select another center or try again tomorrow.</p>
-						<button type="button" class="btn btn-orange" id="reservationInvalid-btn">Try again</button>
+						<p class="registered"><fmt:message key="savie.customerServiceCentre.reservationInvalid.body" bundle="${msg}" /></p>
+						<button type="button" class="btn btn-orange" id="reservationInvalid-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -468,11 +477,11 @@ function stickToHeader() {
 			<div class="modal-dialog teaserSurvey cs-modal-dialog" role="document">
 				<div class="modal-content teaserSurvey cs-modal-content">
 					<div class="modal-header teaserSurvey cs-modal-header">
-						<h2 class="cs-modal-h2">Sorry, you can make no more than 2 appointments in advance.</h2>
+						<h2 class="cs-modal-h2"><fmt:message key="provie.appoint.moreThan2Triesmodalheader" bundle="${provieMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey cs-modal-body">
-						<p class="registered cs-modal-p">For any enquiries, please call our Customer Hotline at 3123 3123.</p>
-						<button type="button" class="btn btn-orange cs-modal-btn" id="moreThan2Tries-button">Back to Plan Options</button>
+						<p class="registered cs-modal-p"><fmt:message key="provie.appoint.moreThan2Triesmodalbody" bundle="${provieMsg}" /></p>
+						<button type="button" class="btn btn-orange cs-modal-btn" id="moreThan2Tries-button"><fmt:message key="provie.appoint.moreThan2TriesmodalbtnTxt" bundle="${provieMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -482,7 +491,7 @@ function stickToHeader() {
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
-	var getpath = "/fwdhk";
+	var getpath = context;
 	
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
@@ -491,11 +500,32 @@ function stickToHeader() {
 	$(document).ready(function() {
 		
 		$('#moreThan2Tries-button').click(function(){
-			//alert('clicked');
+			//alert(language);
 			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
-			window.location.href= context + "/" + language + "/savings-insurance/provie";
+			window.location.href= context + "/" + language.toLowerCase() + "/savings-insurance/provie";
 		});
 		
+		$('#pick-another-centre-btn').click(function(){
+			$('#pickAnotherCentre').modal('hide');
+		});
+		$('#fullyBooked-button').click(function(){
+			$('#fullyBooked').modal('hide');
+			window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+		});
+		$('#moreThan2Tries-button').click(function(){
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie-plan-details';
+		});
+		$('#perferredTimeIsNull-btn').click(function(){
+			$('#perferredTimeIsNull').modal('hide');
+		});
+		$('#reservationInvalid-btn').click(function(){
+			$('#reservationInvalid').modal('hide');
+		});
+	
+		$('#back-to-home-btn').click(function(){
+			window.location.href= context + "/" + language + "/savings-insurance/provie";
+		});
+
 		return;
 //Check is more than 2 tries from backend
 		var isMoreThan2Tries = false;
@@ -708,7 +738,7 @@ function stickToHeader() {
 		$('#reservationInvalid-btn').click(function(){
 			$('#reservationInvalid').modal('hide');
 		});
-
+	
 		$('#back-to-home-btn').click(function(){
 			window.location.href= context + "/" + language + "/savings-insurance";
 		});

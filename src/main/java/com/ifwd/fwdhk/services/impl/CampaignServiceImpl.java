@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -131,16 +132,25 @@ public class CampaignServiceImpl implements CampaignService {
 		Map<String,String> map = new HashMap<String,String>();
 		String Url;
 		JSONObject responseJsonObj;
+		Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNTS + "?";
 		for(int i = 0; i < indexs.length; i++) {
-			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
-			logger.info("CAMPAIGN_PROMO_CODE_GET_COUNT : " + responseJsonObj);
-			if (responseJsonObj.get("errMsgs") == null) {
-				map.put("count" + i, responseJsonObj.get("availableCount").toString());
-			} else {
-				map.put("count" + i, "0");
-			} 
+			if (i > 0) {
+				Url = Url + "&";
+			}
+			Url = Url + "campaign_id" + (i + 1) + "=" + indexs[i];
 		}
+		
+		responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+		if (responseJsonObj.get("errMsgs") == null) {
+			JSONArray promoCodeCounts = (JSONArray) responseJsonObj.get("promoCodeCounts");
+			for (int i =0; i< promoCodeCounts.size(); i++) {
+				JSONObject o = (JSONObject) promoCodeCounts.get(i);
+				map.put("count" + i, o.get("count").toString());
+			}
+		}
+		
+		
+		
 		return map;
 	}
 }
