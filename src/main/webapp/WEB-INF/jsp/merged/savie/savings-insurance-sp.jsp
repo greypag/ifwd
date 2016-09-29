@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/savie-discount.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/savie-ocean-park.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/provie-payment-discount.css" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -277,6 +278,176 @@ var home_url = "<%=request.getContextPath()%>";
 		  			</ul>
 
 				</div>
+
+				<div class="pv_offers">
+            	<div class="container">
+            		<div class="row">
+		            	<div class="col-xs-12">
+		            		<h2 class="pv_offer_title">
+		            			<fmt:message key="savie.landing.discount.title" bundle="${msg}" />
+		            		</h2>
+		            	</div>
+	            	</div>
+	            	<div id="pv_offer_cat_1" class="row pv_offer_cat">
+	            		<div class="col-xs-12 col-md-4 pv_offer">
+	            			<div class="inner">
+	            				<div class="pv_offer_tag">
+	            					<fmt:message key="savie.landing.discount.btn.text1" bundle="${msg}" />
+	            				</div>
+		            			<p class="pv_offer_req">
+		            				<span class="pv_req_type">
+		            					<fmt:message key="savie.landing.discount.paymentmode.text1" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_amount">
+		            					<span class="pv_offer_gteq">></span> 
+		            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" />
+		            					<span class="value">
+		            						<fmt:message key="savie.landing.discount.hkd1.value.text1" bundle="${msg}" />
+		            					</span>
+		            				</span>
+		            				<span class="pv_req_or">
+		            					<fmt:message key="savie.landing.discount.or.text1" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_type">
+		            					<fmt:message key="savie.landing.discount.paymentmode.text2" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_amount">
+		            					<span class="pv_offer_gteq">></span> 
+		            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" />
+		            					<span class="value">
+		            						<fmt:message key="savie.landing.discount.hkd1.value.text2" bundle="${msg}" />
+		            					</span>
+		            				</span>
+		            			</p>
+		            			<div class="pv_offer_rslt">
+		            				<p>
+		            					<span class="pv_rslt_type">
+		            						<fmt:message key="savie.landing.discount.paymentmode.text3" bundle="${msg}" />
+		            					</span>
+		            					<span class="pv_rslt_amount">
+			            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" /> 
+			            					<span class="value">
+			            						<fmt:message key="savie.landing.discount.hkd1.value.text3" bundle="${msg}" />
+			            					</span>
+		            					</span>
+		            				</p>
+		            			</div>
+		            		</div>
+	            		</div>
+	            		<div class="col-xs-12 col-md-4 pv_offer">
+	            			<div class="inner">
+	            				<div class="pv_offer_tag">
+	            					<fmt:message key="savie.landing.discount.btn.text1" bundle="${msg}" />
+	            				</div>
+		            			<p class="pv_offer_req">
+		            				<span class="pv_req_type">
+		            					<fmt:message key="savie.landing.discount.paymentmode.text1" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_amount">
+		            					<span class="pv_offer_gteq">></span> 
+		            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" />
+		            					<span class="value">
+		            						<fmt:message key="savie.landing.discount.hkd2.value.text1" bundle="${msg}" />
+		            					</span>
+		            				</span>
+		            				<span class="pv_req_or">
+		            					<fmt:message key="savie.landing.discount.or.text1" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_type">
+		            					<fmt:message key="savie.landing.discount.paymentmode.text2" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_amount">
+		            					<span class="pv_offer_gteq">></span> 
+		            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" />
+		            					<span class="value">
+		            						<fmt:message key="savie.landing.discount.hkd2.value.text2" bundle="${msg}" />
+		            					</span>
+		            				</span>
+		            			</p>
+		            			<div class="pv_offer_rslt">
+		            				<p>
+		            					<span class="pv_rslt_type">
+		            						<fmt:message key="savie.landing.discount.paymentmode.text3" bundle="${msg}" />
+		            					</span>
+		            					<span class="pv_rslt_amount">
+			            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" /> 
+			            					<span class="value">
+			            						<fmt:message key="savie.landing.discount.hkd2.value.text3" bundle="${msg}" />
+			            					</span>
+		            					</span>
+		            				</p>
+		            			</div>
+		            		</div>
+	            		</div>
+	            		<div class="col-xs-12 col-md-4 pv_offer">
+	            			<div class="inner">
+	            				<div class="pv_offer_tag">
+	            					<fmt:message key="savie.landing.discount.btn.text1" bundle="${msg}" />
+	            				</div>
+		            			<p class="pv_offer_req">
+		            				<span class="pv_req_type">
+		            					<fmt:message key="savie.landing.discount.paymentmode.text1" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_amount">
+		            					<span class="pv_offer_gteq">></span> 
+		            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" />
+		            					<span class="value">
+		            						<fmt:message key="savie.landing.discount.hkd3.value.text1" bundle="${msg}" />
+		            					</span>
+		            				</span>
+		            				<span class="pv_req_or">
+		            					<fmt:message key="savie.landing.discount.or.text1" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_type">
+		            					<fmt:message key="savie.landing.discount.paymentmode.text2" bundle="${msg}" />
+		            				</span>
+		            				<span class="pv_req_amount">
+		            					<span class="pv_offer_gteq">></span> 
+		            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" />
+		            					<span class="value">
+		            						<fmt:message key="savie.landing.discount.hkd3.value.text2" bundle="${msg}" />
+		            					</span>
+		            				</span>
+		            			</p>
+		            			<div class="pv_offer_rslt">
+		            				<p>
+		            					<span class="pv_rslt_type">
+		            						<fmt:message key="savie.landing.discount.paymentmode.text3" bundle="${msg}" />
+		            					</span>
+		            					<span class="pv_rslt_amount">
+			            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" /> 
+			            					<span class="value">
+			            						<fmt:message key="savie.landing.discount.hkd3.value.text3" bundle="${msg}" />
+			            					</span>
+		            					</span>
+		            				</p>
+		            			</div>
+		            		</div>
+	            		</div>
+	            	</div>
+	            	<div class="row">
+	            		<a href="<%=request.getContextPath()%>/resources/pdf/provie/Provie Premium discount TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="savie.landing.discount.pdf.link1" bundle="${msg}" /></a>
+	            	</div>
+
+	            	<div class="row pv_offer_remarks">
+	            		<p>
+	            			<fmt:message key="savie.landing.offer.text8" bundle="${msg}" />
+	            			<br>
+	            			<fmt:message key="savie.landing.offer.text1" bundle="${msg}" />
+	            			<br>
+	            			<fmt:message key="savie.landing.offer.text2" bundle="${msg}" />
+	            		</p>
+						<ul>
+							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text3" bundle="${msg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text4" bundle="${msg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text5" bundle="${msg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text6" bundle="${msg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text7" bundle="${msg}" /></li>
+						</ul>
+	            	</div>
+				</div>
+            </div>
+
 
 		         <div class="fwd-container-limit">
 	        		<div class="usp row">
