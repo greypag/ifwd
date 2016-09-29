@@ -387,7 +387,7 @@ button.dropdown-toggle{
 		.btn-group{
 			line-height: 1.188em;
 			.dropdown-menu{
-				height: 200px;
+				max-height: 200px;
 				overflow: auto;
 			}
 			.dropdown-menu li{
