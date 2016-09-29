@@ -1,4 +1,4 @@
-@include bp-interim(768px, 991px) {
+@include breakpoint-between(768px, 991px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;

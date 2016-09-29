@@ -1,0 +1,131 @@
+.get-quote-form{
+    $class-slug: q !default;
+
+    @for $i from 1 through 5 {
+        .#{$class-slug}#{$i}{
+            position: relative;
+            z-index: 5 - $i;
+        }
+    }
+    .q2:hover{
+        z-index: 5;
+    }
+    input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button{
+        display: none;
+    }
+    .form-group{
+        padding-bottom: 30px;
+    }
+    a{
+        text-decoration: underline;
+    }
+    .btn{
+        text-decoration: none;
+    }
+    .form-control{
+        display: inline;
+        margin-bottom: 15px;
+        background: #fff;
+        border: none;
+        color: $orange;
+        height: auto;
+        font-size: inherit;
+        box-shadow: none !important;
+        text-align-last: center;
+        line-height: 1;
+    }
+    [type="checkbox"]{
+        float: none !important;
+        display: none;
+        visibility: hidden;
+    }
+    select.init {
+        color: #ccc !important;
+    }
+    option{
+        color: $orange !important;
+    }
+    .checkbox{
+        padding-left: 25px;
+        img{
+            max-height: 12px;
+        }
+    }
+    .custom-checkbox{
+        padding-bottom: 15px;
+    }
+    &.get-quote-form .get-quote-field .form-control{
+        vertical-align: bottom;
+        width: auto;
+        border-bottom: solid 1px #ccc;
+        text-align: center;
+        padding: 0 15px;
+        margin: 0 15px;
+    }
+    [data-toggle="tooltip"] {
+        border: none;
+        background: #fff !important;
+        color: $light-gray;
+        padding: 0;
+        font-size: 1.2em;
+        :hover{
+            color: $orange;
+        }
+    }
+    .tooltip {
+				    opacity: 1;
+    filter: alpha(opacity=100);
+        background: transparent;
+        margin: 0 !important;
+        > .tooltip-arrow{
+            border-top-color: $orange !important;
+        }
+		> .tooltip-inner{
+			background:  $orange !important;
+		}
+    }
+    .selectize-control{
+        display: inline-block;
+        min-width: 250px;
+        padding: 0 !important;
+        margin: 0 !important;
+        vertical-align: middle !important;
+        .selectize-input{
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            min-height: 0;
+            &:after{
+                border-color: #f68a1d transparent transparent transparent !important;
+            }
+
+        }
+    }
+
+    .selectize-dropdown{
+        top: 24px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: solid 1px #ccc;
+        border-radius: 0;
+        border-top: 0;
+        z-index: 99;
+        background: #fff;
+    }
+
+    .help-block-wrap{
+        position: relative;
+        display: inline-block;
+    }
+    .help-block{
+    position: absolute;
+        li{
+       line-height: 1.2;
+    }
+
+    }
+    button[type="submit"].disabled{
+        background: $orange;
+        border-color: $orange;
+    }
+}

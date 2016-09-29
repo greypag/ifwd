@@ -21,7 +21,7 @@
 		String dividerCls = "";
 
 		String template_item = "<li class=\"%s\">%s</li>";
-		String template_divider = "<li class=\"%s\"><i class=\"fa fa-play\"></i></li>";
+		String template_divider = "<li class=\"%s\"><i class=\"fa fa-angle-right\"></i></li>";
 
 		String path_to_resources[]= new String[2];
 		if(lang.equalsIgnoreCase("EN")){

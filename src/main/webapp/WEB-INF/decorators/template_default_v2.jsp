@@ -59,6 +59,17 @@
 			var getpath = "<%=request.getContextPath()%>";
 			<%--For Savie online 2016 JS END--%>
 			var actionName = "<%=actionName%>";
+
+			/*
+			 * Global Site Variables
+			 */
+			var Site = {
+				'context':'${pageContext.request.contextPath}',
+				'language': '${language}',
+				'affiliate': '${affiliate}',
+				'actionName': '<%=actionName%>'
+			};
+
 		</script>
 	<%-- End Core Header Scripts--%>
 

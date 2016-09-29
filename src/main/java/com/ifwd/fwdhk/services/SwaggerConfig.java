@@ -21,6 +21,7 @@ package com.ifwd.fwdhk.services;
 
 import com.fasterxml.classmate.TypeResolver;
 import com.ifwd.fwdhk.controller.MemberController;
+import com.ifwd.fwdhk.controller.MotorCareController;
 
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;

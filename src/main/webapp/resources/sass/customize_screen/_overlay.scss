@@ -1,4 +1,4 @@
-@include bp-max(991px) {
+@include breakpoint-max(#{$screen-sm-max}) {
 	#loading-overlay .overlay__wrapper{
 		position: absolute;
 		left: 50%;

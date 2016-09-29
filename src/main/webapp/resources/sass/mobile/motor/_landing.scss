@@ -1,0 +1,21 @@
+.motor-landing{ 
+    .featured{
+        margin-top: 30px;
+    }
+    .center .motor-ttl{
+        margin-bottom: 30px !important;
+    }
+    .motor-landing .featured.no-border > .row > div > .row{
+        padding-top: 0;
+    }
+}
+
+.motor-landing .featured > .row > div > .row{
+height: 470px;
+}
+
+body.chin{ 
+.motor-landing .featured > .row > div > .row{
+height: 380px;
+}
+}

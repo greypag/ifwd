@@ -10169,16 +10169,87 @@ ul.promotion-sub-tnc.bullets {
 }
 
 /******** Desktop header menutab v2 ********/
-@media ( min-width : 992px){
-	.no-padding{
+.no-padding{
+	padding:0;
+}
+@media (max-width : 1199px) and ( min-width : 992px) {
+	.protect-save-enjoy-tab{
+	    font-size: 22px;
+	    margin: auto;
+	}
+	ul.menutab-V2{
+		float:right;
+		font-size:22px;
+		margin:0;
 		padding:0;
 	}
+	ul.menutab-V2 li.dropdown:hover .dropdown-menu{
+	    display: block;
+	    margin-top: 0;
+	    width:510%;
+	    border-top:1px;
+	    background-clip: border-box;
+	    text-align:left;
+	    /*padding: 20px 0 20px 44px;*/
+		padding: 20px 0 20px 35px;
+	}
+	ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column{
+		width:201%;
+	}
+	.dropdown-menu.one-column.enjoy-tab{
+		left:-100%;
+	}
+	.dropdown-menu.protect-tab{
+	    left:-209%;
+	}
+	.dropdown-menu li.menu-subtitle{
+	    color: #373a36;
+		/*font-size: 22px;*/
+		font-size: 18px;
+	    font-weight: 700;
+	}
+	ul.maintabs li li.menu-link, li.menu-subtitle{
+		display:block;
+		line-height: 2;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link *{
+	    color: #f6871e;
+		/*font-size: 18px;*/
+		font-size: 15px;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+		color: #9fb1b2;
+		/*font-size: 18px;*/
+		font-size: 15px;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+		/*font-size: 18px;*/
+		font-size: 15px;
+		font-weight: 300;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+		margin-right:7px;
+		font-size: 11px;
+	}
+    .nav-group{
+       width: 25%;
+       float: left;
+    }
+	.partition-on-the-right{
+	    border-width: 1px;
+	    border-color: #9fb1b2;
+	    border-right-style: solid;
+	    margin-right: 2%;
+	    /*margin-left: 2%;*/
+	}
+}
+@media ( min-width : 1200px) {
 	.protect-save-enjoy-tab{
 	    font-size: 24px;
 	    margin: auto;
 	}
 	ul.menutab-V2{
-		flaot:right;
+		float:right;
 		font-size:24px;
 		margin:0;
 		padding:0;
@@ -10203,7 +10274,7 @@ ul.promotion-sub-tnc.bullets {
 	}
 	.dropdown-menu li.menu-subtitle{
 	    color: #373a36;
-	    font-size: 22px;
+		font-size: 22px;
 	    font-weight: 700;
 	}
 	ul.maintabs li li.menu-link, li.menu-subtitle{
@@ -10212,7 +10283,7 @@ ul.promotion-sub-tnc.bullets {
 	}
 	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link *{
 	    color: #f6871e;
-	    font-size: 18px;
+		font-size: 18px;
 	}
 	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
 		color: #9fb1b2;
@@ -10230,7 +10301,7 @@ ul.promotion-sub-tnc.bullets {
        width: 25%;
        float: left;
     }
-	.middle-group{
+	/*.middle-group{
 	    border-left-style: solid;
 	    border-width: 1px;
 	    border-color: #9fb1b2;
@@ -10238,6 +10309,13 @@ ul.promotion-sub-tnc.bullets {
 	    margin-right: 5%;
 	    margin-left: 5%;
 	    padding-left: 5%;
+	}*/
+	.partition-on-the-right{
+	    border-width: 1px;
+	    border-color: #9fb1b2;
+	    border-right-style: solid;
+	    margin-right: 2%;
+	    /*margin-left: 2%;*/
 	}
     .nav-group.middle-group{
        width: 37%;
@@ -12370,6 +12448,7 @@ button[disabled].btn.btn-default--vc {
 .support-reminder__list li span{
 	color: #333;
 }
+
 /* End ticket 3448 Add tag and go payment reminder 31-08-2016 By Irvine*/
 
 /* ticket 3490 Add tag and go payment reminder 15-09-2016 By Irvine*/
@@ -12398,4 +12477,3 @@ button[disabled].btn.btn-default--vc {
   width: 42px !important;
   height: 42px !important;
 }
-

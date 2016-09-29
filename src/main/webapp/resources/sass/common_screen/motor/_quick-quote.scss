@@ -1,0 +1,75 @@
+.quick-quote{
+#testimonials{
+        padding: 0 15px;
+        background: #f6871e;
+    }
+    #testimonials > .row {
+        background: #f6871e;
+    }
+    .landing_h2{
+        color: #f6871e;
+        line-height: 1.5;
+    }
+    .center .landing_h2{
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
+    }
+    .silver{
+        border-bottom: solid 4px #12afbf !important;
+    }
+    .gold{
+        border-bottom: solid 4px #fbbf15 !important;
+    }
+    h4{
+        color: #1f4146;
+        font-weight: 600;
+        margin: 15px 0 15px;
+    }
+    form.add-on .checkbox [type="checkbox"]{
+        display: none;
+        visibility: hidden;
+    }
+    form.add-on .checkbox label::before{
+        font-family: FontAwesome;
+        content: "\f111";
+        border: none;
+        background: transparent;
+        font-size: 4.2em;
+        color: #ccc;
+    }
+    form.add-on .checkbox label::after{
+        font-family: FontAwesome;
+        content: "\f00c";
+        border: none;
+        background: transparent;
+        font-size: 3em;
+        color: #fff;
+    }
+    form.add-on .checkbox input[type="checkbox"]:checked+label::before{
+        color: #f6871e;
+    }
+    .motor-select-plan .price{
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    .motor-select-plan .collapse-addon{
+        cursor: default;
+    }
+    .ready-panel{
+        padding: 0 !important;
+    } 
+    .ready-content{
+        padding-left: 0;
+    }
+    .ready-content h3{
+        color: #061d2a;
+        font-size: 1.2em;
+        padding-top: 0.5em;
+    }
+    .ready-container{
+        padding-top: 40px;
+    }
+					 .addOn-content{
+		 height: 195px;
+		 }
+	}

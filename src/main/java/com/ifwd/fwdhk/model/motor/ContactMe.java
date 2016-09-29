@@ -5,6 +5,10 @@ public class ContactMe {
 	private String fullName;
 	private String contactNum;
 	private String preferredContactTime;
+	private String email;
+	private QuoteMotorCare quoteMotorCare;
+	private String from;
+	private String reason;
 	
 	public String getRefNum() {
 		return refNum;
@@ -30,7 +34,28 @@ public class ContactMe {
 	public void setPreferredContactTime(String preferredContactTime) {
 		this.preferredContactTime = preferredContactTime;
 	}
-	
-	
-	
+	public QuoteMotorCare getQuoteMotorCare() {
+		return quoteMotorCare;
+	}
+	public void setQuoteMotorCare(QuoteMotorCare quoteMotorCare) {
+		this.quoteMotorCare = quoteMotorCare;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
+	}
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
+	}	
 }

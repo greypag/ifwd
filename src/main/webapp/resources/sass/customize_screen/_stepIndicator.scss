@@ -1,4 +1,4 @@
-@include bp-min(420px) {
+@include breakpoint-min(420px) {
 	.stepIndicator--numberOnly{
 	
 		.stepIndicator__item{
@@ -16,7 +16,7 @@
 	}
 }
 
-@include bp-max(419px) {
+@include breakpoint-max(419px) {
 	.stepIndicator--numberOnly{
 	
 		.stepIndicator__item{
@@ -34,7 +34,7 @@
 	}
 }
 
-@include bp-interim(992px,1069px){
+@include breakpoint-between(992px,1069px){
 	.stepIndicator{
 		font-size: 16px;
 	}
@@ -44,7 +44,7 @@
 	}
 }
 
-@include bp-min(1200px){
+@include breakpoint-min(1200px){
 	.stepIndicator__divider{
 		padding-left: 6px;
 	}

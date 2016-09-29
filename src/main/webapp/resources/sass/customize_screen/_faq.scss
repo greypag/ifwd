@@ -1,4 +1,4 @@
-@media (max-width: 767px){
+@media (max-width: #{$screen-xs-max}) {
 	.faq-answer__orderList__listItem{
 		width: 100%;
 		clear: both;
