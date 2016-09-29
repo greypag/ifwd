@@ -418,6 +418,8 @@ var home_url = "<%=request.getContextPath()%>";
 
 	            	<div class="row pv_offer_remarks">
 	            		<p>
+	            			<fmt:message key="savie.landing.offer.text8" bundle="${msg}" />
+	            			<br>
 	            			<fmt:message key="savie.landing.offer.text1" bundle="${msg}" />
 	            			<br>
 	            			<fmt:message key="savie.landing.offer.text2" bundle="${msg}" />
@@ -427,6 +429,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text4" bundle="${msg}" /></li>
 							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text5" bundle="${msg}" /></li>
 							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text6" bundle="${msg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text7" bundle="${msg}" /></li>
 						</ul>
 	            	</div>
 				</div>
