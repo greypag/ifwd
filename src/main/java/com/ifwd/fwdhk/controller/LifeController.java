@@ -336,10 +336,12 @@ public class LifeController extends BaseController{
 			//request.setAttribute("referralCode", saviePlanDetails.getPromoCode());
 			//request.setAttribute("sumInsured", saviePlanDetails.getInsuredAmount());
 			try {
+				/*
 				jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),userDetails.getHkid(),request);
 				logger.debug("lifecontroller referral discount=" + (String) jsonObject.get("value"));
-				saviePlanDetails.setInsuredAmountDiscount((String) jsonObject.get("value")); 
+                saviePlanDetails.setInsuredAmountDiscount((String) jsonObject.get("value")); 
 				saviePlanDetails.setInsuredAmountDue(String.valueOf(Integer.valueOf(saviePlanDetails.getInsuredAmount()) - Integer.valueOf((String) jsonObject.get("value"))));
+				*/
 				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 			}
 			catch (Exception e) {
@@ -949,7 +951,7 @@ public class LifeController extends BaseController{
 	public ModelAndView getSavieOnlineUploadConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request
 			,HttpSession session) {
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
-		logger.debug("confirmation discount =" + saviePlanDetails.getInsuredAmountDiscount());
+		//logger.debug("confirmation discount =" + saviePlanDetails.getInsuredAmountDiscount());
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
