@@ -732,6 +732,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<h3 class="pv_title_extra">
 											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_slider_plus.png" alt="+" class="img-responsive imgPlus"><fmt:message key="provie.landing.calculation.3riders.title" bundle="${provieMsg}" />
 									</h3>
+									<div class="pv_content_extra"><fmt:message key="provie.landing.calculation.3riders.content" bundle="${provieMsg}" /></div>
 									<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_slider_line_b.png" alt="line" class="img-responsive center line">
 									<div class="cardWrap">
 										<div class="card card1">
