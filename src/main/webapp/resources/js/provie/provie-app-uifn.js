@@ -94,13 +94,16 @@ $(document).ready(function(){
 			
 			$("th.cell-extra-rider").each(function(){
 				var t = $(this).html();
-				t = t.replace("100%","{percent}");
-				t = t.replace("50%","{percent}");
-				t = t.replace("500%","{percent}");
+				var riderName = getRiderName(cls);
+				//t = t.replace("100%","{percent}");
+				//t = t.replace("50%","{percent}");
+				//t = t.replace("500%","{percent}");
+				//
+				//t = t.replace("{percent}",cls.replace("p","") + "%");
 				
-				t = t.replace("{percent}",cls.replace("p","") + "%");
-				
-				$(this).html(t);
+				//$(this).html(t);
+				$(this).find('.cell-extra-rider-perc').html(cls.replace('p','') + '%');
+				$(this).find('.cell-extra-rider-name').html(riderName);
 			});
 		});
 
@@ -1483,4 +1486,17 @@ function commaSeparateNumber(val){
       val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
     }
     return val;
+}
+
+function getRiderName(riderType){
+	switch(riderType){
+		case 'p50':
+		case 'CANCER_BENEFIT': return option_rider_cancer;
+		case 'p100':
+		case 'TERM_LIFE_BENEFIT': return option_rider_term;
+		case 'p500':
+		case 'ACCIDENTIAL_DEATH_BENEFIT': return option_rider_adb;
+		default: return '';
+	}
+	return '';
 }
