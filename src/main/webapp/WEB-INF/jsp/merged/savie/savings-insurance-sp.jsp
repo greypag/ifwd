@@ -143,140 +143,6 @@ var home_url = "<%=request.getContextPath()%>";
 							</ul>
 		        		</div>
 	        		</div>
-		        	<!-- Savie Discount Start -->
-
-					<div class="ocean-park-wrapper">
-						<div id="ocean-park-wrapper-inner-anchor"></div>
-						<div class="ocean-park-wrapper-inner">
-							<table class="tbl-ocean-park hidden-xs">
-								<tr>
-									<th rowspan="2"><fmt:message key="savie.online.home.ocean.park.card.holder" bundle="${msg}" /></th>
-									<td class="card-head premium-head"><fmt:message key="savie.online.home.ocean.park.card.premium" bundle="${msg}" /><div class='arrow'></div></td>
-									<td class="card-head gold-head"><fmt:message key="savie.online.home.ocean.park.card.gold" bundle="${msg}" /><div class='arrow'></div></td>
-									<td class="card-head silver-head"><fmt:message key="savie.online.home.ocean.park.card.silver" bundle="${msg}" /><div class='arrow'></div></td>
-								</tr>
-								<tr>
-									<td class="card-img premium-img"><img src="<%=request.getContextPath()%>/resources/images/savie/savie-ocean-park/premiumpass.jpg" class="img-responsive"></td>
-									<td class="card-img gold-img"><img src="<%=request.getContextPath()%>/resources/images/savie/savie-ocean-park/goldpass.jpg" class="img-responsive"></td>
-									<td class="card-img silver-img"><img src="<%=request.getContextPath()%>/resources/images/savie/savie-ocean-park/silverpass.jpg" class="img-responsive"></td>
-								</tr>
-								<tr>
-									<th><fmt:message key="savie.online.home.ocean.park.initial.premium" bundle="${msg}" /></th>
-									<td class="premium-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,190<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-									<td class="gold-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,040<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-									<td class="silver-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-								</tr>
-								<tr>
-									<th>
-										<fmt:message key="savie.online.home.ocean.park.oneoff.premium" bundle="${msg}" />
-										<div class="min-amount"><fmt:message key="savie.online.home.ocean.park.min.amount" bundle="${msg}" /></div>
-									</th>
-									<td class="premium-2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-									<td class="gold-2"><fmt:message key="savie.online.home.ocean.park.larger.sign" bundle="${msg}" /><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 100,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-									<td class="silver-2"><fmt:message key="savie.online.home.ocean.park.larger.sign" bundle="${msg}" /><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 100,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-								</tr>
-								<tr>
-									<th>
-										<fmt:message key="savie.online.home.ocean.park.monthly" bundle="${msg}" />
-										<div class="min-amount"><fmt:message key="savie.online.home.ocean.park.min.amount" bundle="${msg}" /></div>
-									</th>
-									<td class="premium-3"><fmt:message key="savie.online.home.ocean.park.not.available" bundle="${msg}" /></td>
-									<td class="gold-3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-									<td class="silver-3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-								</tr>
-							</table>
-							<div class="tbl-ocean-park-mobile visible-xs clearfix">
-								<div class="sticky-header">
-									<table>
-										<tr>
-											<th rowspan="2"><fmt:message key="savie.online.home.ocean.park.card.holder" bundle="${msg}" /></th>
-										</tr>
-										<tr></tr>
-										<tr>
-											<th><fmt:message key="savie.online.home.ocean.park.initial.premium" bundle="${msg}" /></th>
-										</tr>
-										<tr>
-											<th>
-												<fmt:message key="savie.online.home.ocean.park.oneoff.premium" bundle="${msg}" />
-												<div class="min-amount"><fmt:message key="savie.online.home.ocean.park.min.amount" bundle="${msg}" /></div>
-											</th>
-										</tr>
-										<tr>
-											<th>
-												<fmt:message key="savie.online.home.ocean.park.monthly" bundle="${msg}" />
-												<div class="min-amount"><fmt:message key="savie.online.home.ocean.park.min.amount" bundle="${msg}" /></div>
-											</th>
-										</tr>
-									</table>
-								</div>
-
-								<div class="sticky-btns">
-									<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
-									<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
-								</div>
-
-								<div class="overflow-body">
-									<table>
-										<tr>
-											<td class="card-head premium-head"><fmt:message key="savie.online.home.ocean.park.card.premium" bundle="${msg}" /><div class='arrow'></div></td>
-											<td class="card-head gold-head"><fmt:message key="savie.online.home.ocean.park.card.gold" bundle="${msg}" /><div class='arrow'></div></td>
-											<td class="card-head silver-head"><fmt:message key="savie.online.home.ocean.park.card.silver" bundle="${msg}" /><div class='arrow'></div></td>
-										</tr>
-										<tr>
-											<td class="card-img premium-img"><img src="<%=request.getContextPath()%>/resources/images/savie/savie-ocean-park/premiumpass.jpg" class="img-responsive"></td>
-											<td class="card-img gold-img"><img src="<%=request.getContextPath()%>/resources/images/savie/savie-ocean-park/goldpass.jpg" class="img-responsive"></td>
-											<td class="card-img silver-img"><img src="<%=request.getContextPath()%>/resources/images/savie/savie-ocean-park/silverpass.jpg" class="img-responsive"></td>
-										</tr>
-										<tr>
-											<td class="premium-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,190<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-											<td class="gold-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,040<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-											<td class="silver-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-										</tr>
-										<tr>
-											<td class="premium-2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-											<td class="gold-2"><fmt:message key="savie.online.home.ocean.park.larger.sign" bundle="${msg}" /><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 100,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-											<td class="silver-2"><fmt:message key="savie.online.home.ocean.park.larger.sign" bundle="${msg}" /><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 100,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-										</tr>
-										<tr>
-											<td class="premium-3"><fmt:message key="savie.online.home.ocean.park.not.available" bundle="${msg}" /></td>
-											<td class="gold-3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-											<td class="silver-3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-										</tr>
-									</table>
-								</div>
-							</div>
-							<div class="text-center pans">
-								<div class="won-panel">
-									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" class="btn-ocean-park btn-spd-next"><fmt:message key="savie.online.home.discount.btn.start" bundle="${msg}" /></a>
-								</div>
-							</div>
-							<ul>
-								<li class="remarks grey"><fmt:message key="savie.online.home.ocean.park.tnc1" bundle="${msg}" /></li>
-								<li class="remarks grey"><fmt:message key="savie.online.home.ocean.park.tnc2.prefix" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.online.home.ocean.park.tnc2.url" bundle="${msg}" />" target="_blank"><fmt:message key="savie.online.home.ocean.park.tnc2.linktext" bundle="${msg}" /></a><fmt:message key="savie.online.home.ocean.park.tnc2.suffix" bundle="${msg}" /></li>
-							</ul>
-						</div>
-					</div>
-				<!-- Savie Discount End -->
-
-
-       				<ul class="availability-notice" style="padding-left: 10px;">
-		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_0" bundle="${msg}" /></li> --%>
-		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_1" bundle="${msg}" /></li> --%>
-		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_8" bundle="${msg}" /></li> --%>
-		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_2_1" bundle="${msg}" />
-		  					<ul class="availability-notice inner">
-		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_a" bundle="${msg}" />
-		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_b" bundle="${msg}" />
-		  					</ul>
-		  				</li>--%>
-		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_3" bundle="${msg}" /></li> --%>
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_9" bundle="${msg}" /></li>
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_10" bundle="${msg}" /></li>
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_11" bundle="${msg}" /></li>
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_12" bundle="${msg}" /></li>
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_13" bundle="${msg}" /></li>
-		  			</ul>
-
 				</div>
 
 				<div class="pv_offers">
@@ -504,17 +370,6 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 		        				</div>-->
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
-		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-7.png">
-		        					<span><fmt:message key="product.details.savie.group7.section1.title" bundle="${msg}" /></span>
-									<div class="hidden-benefits benefits-content">
-										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-7.png" />
-										<div class="info hidden-benefits-info">
-											<h3><fmt:message key="product.details.savie.group7.title" bundle="${msg}" /></h3>
-											<p><fmt:message key="product.details.savie7.summary" bundle="${msg}" />  </p>
-										</div>
-									</div>
-		        				</div>
-		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
 		        					<span><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
@@ -582,19 +437,16 @@ var home_url = "<%=request.getContextPath()%>";
 										<!--<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
 											<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /> </a>
 										</li>-->
-									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-7">
-										<a href="#benefits-navtabs-7" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="product.details.savie.group7.section1.title" bundle="${msg}" /> </a>
-									</li>
-									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-6">
+									<li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li active" id="benefits-nav-title-6">
 										<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></a>
 									</li>
-									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
+									<li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li" id="benefits-nav-title-2">
 										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /> </a>
 									</li>
 										<!--  <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
 											<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="savie.online.landing.navtabs.withdrawal" bundle="${msg}" /> <span><fmt:message key="savie.online.landing.navtabs.without" bundle="${msg}" /></span></a>
 										</li> -->
-									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-4">
+									<li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li last" id="benefits-nav-title-4">
 										<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /> </a>
 									</li>
 										<!-- <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
@@ -612,15 +464,6 @@ var home_url = "<%=request.getContextPath()%>";
 													</div>
 												</div>
 											</div>-->
-										<div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-7">
-											<div class="benefits-content clearfix">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-7.png">
-												<div class="info">
-													<h3><fmt:message key="product.details.savie.group7.title" bundle="${msg}" /></h3>
-													<p><fmt:message key="product.details.savie7.summary" bundle="${msg}" />  </p>
-												</div>
-											</div>
-										</div>
 										<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-2">
 											<div class="benefits-content clearfix">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
@@ -657,7 +500,7 @@ var home_url = "<%=request.getContextPath()%>";
 													</div>
 												</div>
 											</div> -->
-										<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-6">
+										<div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-6">
 											<div class="benefits-content clearfix">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" alt="<fmt:message key="image.alt_55" bundle="${msg}" />">
 												<div class="info">
