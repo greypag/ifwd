@@ -244,7 +244,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                     <div class="row">
                         <div class="col-xs-6">
-                            <span class="ci" id="yourQuoteTitle">Quoted Price</span>
+                            <span class="ci" id="yourQuoteTitle"></span>
                         </div>
                         <div class="col-xs-6 text-right">
                             <span>
@@ -450,6 +450,8 @@ var nextPage = "${nextPageFlow}";
             totalDue = parseFloat(motorPrice[planType].amountDueAmount);
             addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
             addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+
+ $('#yourQuoteTitle').html(motorPrice[planType].planCode);
 
             $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
             $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
