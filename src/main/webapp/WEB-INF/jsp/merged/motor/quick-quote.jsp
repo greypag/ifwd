@@ -470,13 +470,11 @@ var nextPage = "${nextPageFlow}";
             if($this.is(':checked')){
                 $('.summary__addOn2').removeClass('hidden');
 				$('.summary__addOn').removeClass('hidden');
-                toggleSummaryAddOn();
             }
             else{
             	$('.summary__addOn2').addClass('hidden');
                	if($('.summary__addOn1').hasClass('hidden'))
      				$('.summary__addOn').addClass('hidden');
-                toggleSummaryAddOn();
             }
 		});
 		$('#addOnPaAmtClick').click(function() {
@@ -489,13 +487,11 @@ var nextPage = "${nextPageFlow}";
             if($this.is(':checked')){
                 $('.summary__addOn1').removeClass('hidden');
 				$('.summary__addOn').removeClass('hidden');
-                toggleSummaryAddOn();
             }
             else{
                 $('.summary__addOn1').addClass('hidden');
                 if($('.summary__addOn2').hasClass('hidden'))
      				$('.summary__addOn').addClass('hidden');
-                toggleSummaryAddOn();
             }
         });
 		
