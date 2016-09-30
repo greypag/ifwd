@@ -281,6 +281,15 @@ var nextPage = "${nextPageFlow}";
                             </strong>
                         </div>
                         <div class="clearfix"></div>
+                        <div class="col-xs-12">
+                        <p>
+                        <br>
+                        <br>
+                        <small>
+                        <fmt:message key="motor.quickquote.document.disclamier.copy" bundle="${motorMsg}" />
+                        </small>
+                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

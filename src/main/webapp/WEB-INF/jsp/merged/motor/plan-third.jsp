@@ -13,6 +13,9 @@ var nextPage = "${nextPageFlow}";
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 <style type="text/css" media="all">
+.light-green-color p{
+color: #fff;
+}
     #testimonials{
         padding: 0;
     }

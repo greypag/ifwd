@@ -121,7 +121,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <label><fmt:message key="motor.getquote.statement.part8" bundle="${motorMsg}" /> </label> 
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.">
+                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-html="true" title="<fmt:message key="motor.getquote.statement.tooltips" bundle="${motorMsg}" />">
                                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                                 </button>
                             </div>

@@ -44,8 +44,8 @@
     </div>
     <div class="whole-banner">
         <div class="page-banner">
-            <img src="http://dummyimage.com/992x500/ccc/555.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-            <img src="http://dummyimage.com/1400x480/ccc/555.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+            <img src="<%=request.getContextPath()%>/resources/images/motor/Motor-Insurance_Mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+            <img src="<%=request.getContextPath()%>/resources/images/motor/Motor-Insurance_PC.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
 
             <div class="container up">
                 <div class="row">
@@ -489,7 +489,17 @@
                         </div>
                         <div class="content">
                             <p>
-                                <fmt:message key="motor.landing.features.1.copy" bundle="${motorMsg}" /> 
+                             <fmt:message key="motor.landing.features.1.copy" bundle="${motorMsg}" />
+                            <br>
+                            <br>
+                            <a href="<fmt:message key="motor.landing.features.1.extralink1" bundle="${motorMsg}" />">
+                            <fmt:message key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
+                            </a>
+                            </p>
+                            <p>
+                            <small>
+                            <fmt:message key="motor.landing.features.1.extracopy2" bundle="${motorMsg}" />
+                            </small>
                             </p>
                         </div>
                     </div>
