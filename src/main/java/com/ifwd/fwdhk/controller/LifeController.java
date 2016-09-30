@@ -336,12 +336,10 @@ public class LifeController extends BaseController{
 			//request.setAttribute("referralCode", saviePlanDetails.getPromoCode());
 			//request.setAttribute("sumInsured", saviePlanDetails.getInsuredAmount());
 			try {
-				/*
 				jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),userDetails.getHkid(),request);
 				logger.debug("lifecontroller referral discount=" + (String) jsonObject.get("value"));
-                saviePlanDetails.setInsuredAmountDiscount((String) jsonObject.get("value")); 
+				saviePlanDetails.setInsuredAmountDiscount((String) jsonObject.get("value")); 
 				saviePlanDetails.setInsuredAmountDue(String.valueOf(Integer.valueOf(saviePlanDetails.getInsuredAmount()) - Integer.valueOf((String) jsonObject.get("value"))));
-				*/
 				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 			}
 			catch (Exception e) {
