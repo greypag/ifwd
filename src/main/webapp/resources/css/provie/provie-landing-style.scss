@@ -546,8 +546,7 @@ button.dropdown-toggle{
 
 .pv_sec_action{
 	@extend %pv_base_section;
-	background: url(../../images/provie/provie_landing_s5_bg.jpg) 50% 50%;
-	background-size: cover;
+	background-color: #061d29;
 	font-size: 24px;
 	padding-bottom: 50px;
 	.pv_title{
