@@ -76,11 +76,9 @@
 
 
 <div class="comp breadcrumb">
-	<div class="breadcrumb__container">
-	   <ul class="breadcrumb__list breadcrumb__list--none">
-			<%= createBreadcrumb(breadcrumbItems, breadcrumbActive, breadcrumbBold, lang) %>
-	   </ul>
-	</div>
+	<ul class="breadcrumb__list breadcrumb__list--none">
+		<%= createBreadcrumb(breadcrumbItems, breadcrumbActive, breadcrumbBold, lang) %>
+	</ul>
 </div>
 
 <%--

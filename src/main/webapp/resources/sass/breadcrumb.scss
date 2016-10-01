@@ -14,9 +14,11 @@
 
 // #Apply for all screens   // #Localize the internal css applying for ALL SCREENs and but only one THEME
 @import "common_screen/breadcrumb";
+@import "common_screen/container"; // temporarily included before full template migration
 
 @media screen and #{$mobile} {
 	@import "mobile/breadcrumb";
+	@import "mobile/container"; // temporarily included before full template migration
 }
 
 @media screen and #{$desktop_mdlg} {

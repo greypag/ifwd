@@ -22,6 +22,7 @@
 // #Apply for all screens   // #Localize the internal css applying for ALL SCREENs and but only one THEME
 @import "common_screen/header";
 @import "common_screen/footer";
+@import "common_screen/container";
 @import "common_screen/loginpopup";
 @import "common_screen/overlay";
 @import "common_screen/becomeOurPartner";
@@ -32,6 +33,7 @@
 @media screen and #{$mobile} {
   @import "mobile/header";
   @import "mobile/footer";
+  @import "mobile/container";
   @import "mobile/loginpopup";
   @import "mobile/becomeOurPartner";
   @import "mobile/faq"; // BEM Naming for faq page 20160513

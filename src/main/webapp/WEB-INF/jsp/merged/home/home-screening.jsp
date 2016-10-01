@@ -19,28 +19,28 @@ var nextPage = "${nextPageFlow}";
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-home/easyhome-app-uifn.js"></script>
 
     <!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
+        <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+        <c:set var="breadcrumbActive" value="0" />
 
-    <c:set var="breadcrumbItems" value="breadcrumb.item.home" />
-    <c:set var="breadcrumbActive" value="0" />
+        <c:if test="${planIndex == 'easy-home-care'}">
+            <c:set var="breadcrumbItems">
+                breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.household,breadcrumb.item.easyhome
+            </c:set>
+            <c:set var="breadcrumbActive">3</c:set>
+        </c:if>
+        <c:if test="${planIndex == 'home-liability'}">
+            <c:set var="breadcrumbItems">
+                breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.household,breadcrumb.item.home.liability
+            </c:set>
+            <c:set var="breadcrumbActive">3</c:set>
+        </c:if>
 
-    <c:if test="${planIndex == 'easy-home-care'}">
-        <c:set var="breadcrumbItems">
-            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.household,breadcrumb.item.easyhome
-        </c:set>
-        <c:set var="breadcrumbActive">3</c:set>
-    </c:if>
-    <c:if test="${planIndex == 'home-liability'}">
-        <c:set var="breadcrumbItems">
-            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.household,breadcrumb.item.home.liability
-        </c:set>
-        <c:set var="breadcrumbActive">3</c:set>
-    </c:if>
-
-    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
-        <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
-        <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
-    </jsp:include>
-
+        <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+            <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+            <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+        </jsp:include>
+    </div>
     <!-- Breadcrumb Component End-->
 
      <div class="savie-online-container app-pg-ctnr theme-white" id="ehome-app-screening">

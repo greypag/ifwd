@@ -28,9 +28,9 @@
     }
 </style>
 <section id="" class="motor-landing">
-    <div class="container container-fluid breadcrumbs motor pad-0">
-        <!-- Breadcrumb Component Start-->
-
+    
+    <!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
             breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor
         </c:set>
@@ -42,9 +42,9 @@
             <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
             <jsp:param name="breadcrumbBold" value="${breadcrumbBold}"/>
         </jsp:include>
-
-        <!-- Breadcrumb Component End-->
     </div>
+    <!-- Breadcrumb Component End-->
+    
     <div class="whole-banner">
         <div class="page-banner">
             <img src="<%=request.getContextPath()%>/resources/images/motor/Motor-Insurance_Mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">

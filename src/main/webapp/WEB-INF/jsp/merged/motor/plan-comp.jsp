@@ -46,9 +46,9 @@ var nextPage = "${nextPageFlow}";
 
 </style>
 <section id="" class="motor-select-plan">
-    <div class="container container-fluid breadcrumbs motor pad-0">
-        <!-- Breadcrumb Component Start-->
-
+    
+    <!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
             breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.get.quote
         </c:set>
@@ -58,9 +58,9 @@ var nextPage = "${nextPageFlow}";
             <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
             <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
         </jsp:include>
-
-        <!-- Breadcrumb Component End-->
     </div>
+    <!-- Breadcrumb Component End-->
+    
     <div class="container">
         <div class="center" > 
             <!--desktop-->

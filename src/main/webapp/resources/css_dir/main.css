@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-09-30 03:04:59 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-10-01 14:04:28 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -1293,6 +1293,11 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   color: #fc6d08;
 }
 
+/* line 1, ../sass/common_screen/_container.scss */
+.container--breadcrumb {
+  padding: 0 !important;
+}
+
 /* line 1, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup,
 .loginpopup {
@@ -2397,6 +2402,15 @@ body.chin .partner-headline-wrapper .headline-title {
   /* line 21, ../sass/mobile/_footer.scss */
   .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link {
     width: auto;
+  }
+
+  /* line 1, ../sass/mobile/_container.scss */
+  .container--breadcrumb {
+    margin-left: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-left: 30px !important;
   }
 
   /* line 3, ../sass/mobile/_loginpopup.scss */
