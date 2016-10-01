@@ -31,13 +31,15 @@
         <!-- Breadcrumb Component Start-->
 
         <c:set var="breadcrumbItems">
-            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.get.quote
+            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor
         </c:set>
-        <c:set var="breadcrumbActive">3</c:set>
+        <c:set var="breadcrumbActive">2</c:set>
+        <c:set var="breadcrumbBold">true</c:set>
         
         <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
             <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
             <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+            <jsp:param name="breadcrumbBold" value="${breadcrumbBold}"/>
         </jsp:include>
 
         <!-- Breadcrumb Component End-->

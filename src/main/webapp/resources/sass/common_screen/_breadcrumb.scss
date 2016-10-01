@@ -20,7 +20,7 @@
 
 .breadcrumb__item{
 
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 600;
 	padding-right: 5px;
 	display: inline-block;
@@ -28,6 +28,12 @@
 
 	&--active{
 		color: #ff8200;
+	}
+
+	&--last{
+		display: block;
+		line-height: 2;
+		font-size: 30px;
 	}
 }
 
@@ -44,6 +50,10 @@
 		color: #ff8200;
 	}
 
+	&--last{
+		color: #9fb1b2;
+	}
+	
 	& .fa {
 		//position: absolute;
 		//top: -8px;

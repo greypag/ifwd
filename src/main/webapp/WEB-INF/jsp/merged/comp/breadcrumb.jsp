@@ -6,17 +6,19 @@
 <% 
 	String[] breadcrumbItems = request.getParameter("breadcrumbItems").replace(" ", "").split(",");
 	int breadcrumbActive = Integer.parseInt(request.getParameter("breadcrumbActive"));
+	Boolean breadcrumbBold = Boolean.parseBoolean(request.getParameter("breadcrumbBold"));
 	String lang = ((String)session.getAttribute("uiLocale")).substring(0, 2);
 %>
 
 <%!
 
-	public String createBreadcrumb(String[] bcList, int breadcrumbActive, String lang){
+	public String createBreadcrumb(String[] bcList, int breadcrumbActive, Boolean breadcrumbBold, String lang){
 
 		String output = "";
 		
 		Boolean isActive = false;
 		Boolean isLast = false;
+		Boolean isBold = breadcrumbBold;
 		String itemCls = "";
 		String dividerCls = "";
 
@@ -40,9 +42,19 @@
 			isActive = (breadcrumbActive==i)?true:false;
 			isLast = (i==bcList.length-1)?true:false;
 
-			itemCls = (isActive)?"breadcrumb__item breadcrumb__item--active":"breadcrumb__item";
-			dividerCls = (isActive)?"breadcrumb__divider breadcrumb__divider--active":"breadcrumb__divider";
+			if( isActive ){
+				itemCls = "breadcrumb__item breadcrumb__item--active";
+				dividerCls = "breadcrumb__divider breadcrumb__divider--active";
+			}else {
+				itemCls = "breadcrumb__item";
+				dividerCls = "breadcrumb__divider";
+			}
 
+			if ( isLast && isBold ){
+				itemCls += " breadcrumb__item--last";
+				dividerCls += "breadcrumb__divider--last";
+			}
+			
 			//render divider
 			if( i!=0 ){
 				output += String.format(template_divider, dividerCls);
@@ -66,7 +78,7 @@
 <div class="comp breadcrumb">
 	<div class="breadcrumb__container">
 	   <ul class="breadcrumb__list breadcrumb__list--none">
-			<%= createBreadcrumb(breadcrumbItems, breadcrumbActive, lang) %>
+			<%= createBreadcrumb(breadcrumbItems, breadcrumbActive, breadcrumbBold, lang) %>
 	   </ul>
 	</div>
 </div>
