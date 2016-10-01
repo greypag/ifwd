@@ -91,7 +91,79 @@
 	</head>
 
 	<body class="<%=langBodyClass%>">
+<%
+	if (com.ifwd.fwdhk.controller.UserRestURIConstants.isContentEditable()) {
+%>
+	<div id=editPanel style="z-index:99; display:none; background-color:yellow; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+<textarea id=cmsContent cols=50 rows=5></textarea><br>
+<button id=cmsUpdate>Update</button><button id=cmsExport>Export</button><small>Browse<input type=checkbox id=cmsIsDefault></small><br>
+<textarea id=cmsExportContent cols=100 style="display: none"></textarea><br>
+</div>
+<script language="javascript">
 
+var control;
+var tagsKey = [];
+var tagsValue = [];
+
+$(document).ready(function(){
+  var j = 0;
+  $( "tag" ).each(function( i ) {
+      tagsKey[j] = $( this ).attr("key");
+      tagsValue[j] = $( this ).html();
+      j++;
+  })
+  alert('Loaded');
+});
+
+$( "#cmsUpdate" ).click(function() {
+  control.html($( "#cmsContent" ).val());
+  var i;
+  for (i=0; i<tagsKey.length; i++) {
+      if (tagsKey[i]==control.attr("key")) {
+          tagsValue[i] = $( "#cmsContent" ).val();
+      }
+  }
+  $( '#editPanel' ).hide();  
+});
+
+$( "#cmsExport" ).click(function() {
+  var content;
+  $( "#cmsExportContent" ).show();
+  $( "#cmsExportContent" ).html("");
+  var i;
+  for (i=0; i<tagsKey.length; i++) {
+      content = $( "#cmsExportContent" ).html(); 
+      if (content.length > 0) {
+          content += "\n";
+      }
+      $( "#cmsExportContent" ).html(content + tagsKey[i] + "=" + tagsValue[i]);
+  }
+});
+
+$( "body" ).click(function( event ) {
+  if (event.target.id != 'cmsContent' && event.target.id != 'cmsExport' && event.target.id != 'cmsIsDefault' && event.target.id != 'cmsUpdate' && event.target.id != 'cmsExportContent') {
+      control = $( event.target );
+	  for (i=0; i<tagsKey.length; i++) {
+	      if (tagsKey[i]==control.attr("key")) {
+		  		$( '#editPanel' ).show();
+				$( '#editPanel' ).css('left', event.pageX);      // <<< use pageX and pageY
+				$( '#editPanel' ).css('top', event.pageY);
+				$( '#editPanel' ).css('display', 'inline');     
+				$( '#editPanel' ).css("position", "absolute");  // <<< also make it absolute!
+	          
+				if (!$( '#cmsIsDefault' ).is(':checked')) {
+				    event.preventDefault();    
+				}
+				$( "#cmsContent" ).val( event.target.innerHTML );
+	      }
+	  }
+  }
+});
+
+</script>
+<%
+	}
+%>
 	<%-- GTM Scripts--%>
 		<%@ include file="include/shared/google_tag_manager.jsp"%>
 	<%-- End GTM Scripts--%>
