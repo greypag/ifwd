@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tag" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <fmt:setBundle basename="motor" var="motorMsg" />
@@ -53,7 +54,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h1>
-                            <fmt:message key="motor.landing.page.heading" bundle="${motorMsg}" />
+                            <tag:messageDisplay key="motor.landing.page.heading" bundle="${motor}" />
                         </h1>
                     </div>
                 </div>
@@ -76,7 +77,7 @@
            <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                     <p>
-                        <fmt:message key="motor.landing.page.content" bundle="${motorMsg}" />
+                        <tag:messageDisplay key="motor.landing.page.content" bundle="${motorMsg}" />
                         <br/>
                         <br/>
                     </p>
