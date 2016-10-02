@@ -4336,6 +4336,18 @@ a.eserv-link:hover {
   height: 263px;
 }
 
+/* Temp remove Savie Appointment - 20160929*/
+#step-online .one-step{
+  height: auto;
+}
+@media (max-width: 992px) {
+  #step-online .one-step{
+    height: 320px;
+  }
+}
+/* End Temp remove Savie Appointment - 20160929*/
+
+
 /* line 121, ../sass/partials/savie/_online-offline-fna.scss */
 #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-online #online-application-btn {
   font-size: 16px;
