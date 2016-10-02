@@ -462,11 +462,11 @@ function stickToHeader() {
 			<div class="modal-dialog teaserSurvey" role="document">
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
-						<h2>Sorry, the center or date/time you selected is not available.</h2>
+						<h2><fmt:message key="savie.customerServiceCentre.reservationInvalid" bundle="${msg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">
-						<p class="registered">Please select another center or try again tomorrow.</p>
-						<button type="button" class="btn btn-orange" id="reservationInvalid-btn">Try again</button>
+						<p class="registered"><fmt:message key="savie.customerServiceCentre.reservationInvalid.body" bundle="${msg}" /></p>
+						<button type="button" class="btn btn-orange" id="reservationInvalid-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -505,6 +505,27 @@ function stickToHeader() {
 			window.location.href= context + "/" + language.toLowerCase() + "/savings-insurance/provie";
 		});
 		
+		$('#pick-another-centre-btn').click(function(){
+			$('#pickAnotherCentre').modal('hide');
+		});
+		$('#fullyBooked-button').click(function(){
+			$('#fullyBooked').modal('hide');
+			window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+		});
+		$('#moreThan2Tries-button').click(function(){
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie-plan-details';
+		});
+		$('#perferredTimeIsNull-btn').click(function(){
+			$('#perferredTimeIsNull').modal('hide');
+		});
+		$('#reservationInvalid-btn').click(function(){
+			$('#reservationInvalid').modal('hide');
+		});
+	
+		$('#back-to-home-btn').click(function(){
+			window.location.href= context + "/" + language + "/savings-insurance/provie";
+		});
+
 		return;
 //Check is more than 2 tries from backend
 		var isMoreThan2Tries = false;
@@ -717,7 +738,7 @@ function stickToHeader() {
 		$('#reservationInvalid-btn').click(function(){
 			$('#reservationInvalid').modal('hide');
 		});
-
+	
 		$('#back-to-home-btn').click(function(){
 			window.location.href= context + "/" + language + "/savings-insurance";
 		});
