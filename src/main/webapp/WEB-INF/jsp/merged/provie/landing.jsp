@@ -6,8 +6,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 
-<script src="http://192.168.185.130:8081/target/target-script-min.js#anonymous"></script>
-
 <c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
