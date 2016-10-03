@@ -1271,11 +1271,11 @@
 		
 		$('.btn-after-5-years').on('click touchup', function(){
 			if($('.btn-after-5-years').hasClass('collapsed')){
-				$('.btn-after-5-years .first-5').removeClass('hidden');
-				$('.btn-after-5-years .after-5').addClass('hidden');
-			}else{
 				$('.btn-after-5-years .first-5').addClass('hidden');
 				$('.btn-after-5-years .after-5').removeClass('hidden');
+			}else{
+				$('.btn-after-5-years .first-5').removeClass('hidden');
+				$('.btn-after-5-years .after-5').addClass('hidden');
 			}
 		});
 		
