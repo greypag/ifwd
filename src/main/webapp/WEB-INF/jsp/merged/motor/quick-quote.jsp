@@ -257,7 +257,7 @@ var nextPage = "${nextPageFlow}";
                             <br/>
                         </div>
                         <div class="col-xs-12 summary__addOn hidden">
-                            <strong>Add On:</strong> 
+                            <strong><fmt:message key="motor.label.addontable" bundle="${motorMsg}" /></strong> 
                         </div>
                         <div class="col-xs-6 summary__addOn1 hidden">
                            
@@ -392,7 +392,7 @@ var nextPage = "${nextPageFlow}";
                                           <div class="help-block-wrap">
                                  <select class="form-control" id="perferedDate" data-required-error='<fmt:message key="motor.error.msg.calltime.empty" bundle="${motorMsg}" />' name="perferedDate">
                                         <option value="anytime" disabled selected hidden><fmt:message key="motor.quickquote.contactme.form.prefereddate" bundle="${motorMsg}" /></option>
-                                        <option value="Anytime">Anytime</option>
+                                        <option value="Anytime"><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.0" bundle="${motorMsg}" /></option>
                                         <option value="Morning" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.1" bundle="${motorMsg}" /></option>
                                          <option value="Afternoon" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.2" bundle="${motorMsg}" /></option>
                                             <option value="Evening" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.3" bundle="${motorMsg}" /></option>

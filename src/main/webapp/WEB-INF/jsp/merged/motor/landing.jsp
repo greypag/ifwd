@@ -116,8 +116,8 @@ filter: alpha(opacity=0.5 times 100) !important;
             </div>
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
-                    <a id="dlProductBrochure" class="" href="javascript:;"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<tag:messageDisplay  key="motor.button.productbrochure" bundle="${motorMsg}" /></a>
-                    <a id="dlPolicyTerms" class="" href="javascript:;"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<tag:messageDisplay  key="motor.button.policyterms" bundle="${motorMsg}" /></a>
+                    <a id="dlProductBrochure" class="" href="<fmt:message key="motor.link.productbrochure" bundle="${motorMsg}" />" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<tag:messageDisplay  key="motor.button.productbrochure" bundle="${motorMsg}" /></a>
+                    <a id="dlPolicyTerms" class="" href="<fmt:message key="motor.link.policyterms" bundle="${motorMsg}" />" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<tag:messageDisplay  key="motor.button.policyterms" bundle="${motorMsg}" /></a>
                 </div>
             </div>
         </div>
@@ -591,17 +591,42 @@ filter: alpha(opacity=0.5 times 100) !important;
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-    <img src="http://dummyimage.com/992x500/ccc/555.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-            <img src="http://dummyimage.com/1400x480/ccc/555.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+    <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+    <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+   
+    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+    
     </div>
     <div class="item">
- <img src="http://dummyimage.com/992x500/ccc/555.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-            <img src="http://dummyimage.com/1400x480/ccc/555.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-2_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-02_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+     <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+  
+    </div>
+        <div class="item">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-Eng-3_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+<img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-03_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+     <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+  
+    </div>
+        <div class="item">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-4_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+   <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-04_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+    </div>
+        <div class="item">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-5_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-05_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+   <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
+    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+  
     </div>
   </div>
 
   <!-- Controls -->
- <div class="carousel-control-wrap">
+ <div class="carousel-control-wrap" id="infoGraphic">
  <a class="left carousel-control" href="#landing-carousel" role="button" data-slide="prev">
     <i class="fa fa-angle-left" aria-hidden="true"></i>
   </a>
