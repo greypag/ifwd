@@ -96,7 +96,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                         <h3>
                             <tag:messageDisplay  key="motor.landing.hero.getquote.label" bundle="${motorMsg}" />
                         </h3>
-                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><tag:messageDisplay key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
+                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><span><tag:messageDisplay key="motor.landing.table.header.col2" bundle="${motorMsg}" /></span></a>
                         <a id="getThirdParty" class="btn btn-primary bdr-curve light-green-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><tag:messageDisplay key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
@@ -750,7 +750,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                     <div class="col-md-10 col-md-offset-1">
                         <div class="row button-group">
                             <div class="col-xs-6 text-right">
-                                <a id="getComprehensive" class=" btn btn-primary bdr-curve nxt-btn" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><tag:messageDisplay  key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
+                                <a id="getComprehensive" class=" btn btn-primary bdr-curve nxt-btn" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><tag:messageDisplay key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
                                 <br />
                                 <br />
                             </div>    
