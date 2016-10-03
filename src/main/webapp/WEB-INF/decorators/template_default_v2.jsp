@@ -97,7 +97,7 @@
 <small>Enable Browse?<input type=checkbox id=cmsIsDefault></small>
 <div id=editPanel style="z-index:99; display:none; background-color:yellow; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
 <textarea id=cmsContent cols=50 rows=5></textarea><br>
-<button id=cmsUpdate>Update</button><button id=cmsExport>Export</button><br>
+<button id=cmsUpdate>Update</button><button id=cmsCancel>Cancel</button><button id=cmsExport>Export</button><br>
 <textarea id=cmsExportContent cols=50 rows=3 style="display: none"></textarea><br>
 </div>
 <script language="javascript">
@@ -115,6 +115,12 @@ $(document).ready(function(){
   })
   alert('Content Loaded');
 });
+
+$( "#cmsCancel" ).click(function() {
+	  $( "#cmsExportContent" ).hide();
+	  $( '#editPanel' ).hide();  
+});
+
 
 $( "#cmsUpdate" ).click(function() {
   control.html($( "#cmsContent" ).val());
