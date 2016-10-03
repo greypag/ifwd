@@ -61,6 +61,10 @@ filter: alpha(opacity=0.5 times 100) !important;
    #hero #getComprehensive, #hero #getThirdParty{
     	white-space: initial;
     }
+    
+    #landing-carousel{
+    padding-top: 50px;
+    }
 </style>
 <section id="" class="motor-landing">
     
@@ -501,7 +505,7 @@ filter: alpha(opacity=0.5 times 100) !important;
 
         </div>
     </div>
-    <div class="container featured">
+    <div class="container featured" id="featured">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
             <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><tag:messageDisplay  key="motor.landing.features.heading" bundle="${motorMsg}" /></h2>
