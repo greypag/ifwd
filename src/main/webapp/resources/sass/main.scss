@@ -49,11 +49,11 @@
 }
 
 @media screen and #{$desktop_md} {
-  @import "desktop_md/header";
+  // @import "desktop_md/header";
 }
 
 @media screen and #{$desktop_lg} {
-  @import "desktop_lg/header";
+  // @import "desktop_lg/header";
 }
 
 // # Other rules and diff. screen standards for overwrite above

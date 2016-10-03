@@ -174,13 +174,13 @@ var nBarConfig = {
 			</div>
 
             <div class="col-lg-8 col-md-7 pull-right">
-                <ul class="col-lg-10 col-md-12 maintabs menutab-V2 pull-right">
+                <ul class="col-lg-11 col-md-12 maintabs menutab-V2 pull-right">
                     <li class="col-lg-4 col-md-4 pad-0 main-tab dropdown <%if (isProtectTabActive) {%> active <%}%>">
 						<a class="protect-save-enjoy-tab">
 							<fmt:message key="header.product.type1" bundle="${msg}" />
 						</a>
 						<ul class="dropdown-menu protect-tab">
-							<li class="nav-group pad-0 partition-on-the-right" style="width:21%;">
+							<li class="nav-group pad-0 partition-on-the-right protect-tab__1st_col">
 								<ul class="col-lg-12 col-md-12 pad-0">
 									<li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}"/></li>
 									<li class="menu-link">
@@ -198,7 +198,7 @@ var nBarConfig = {
 									</li>
 								</ul>
 							</li>
-							<li class="nav-group pad-0 partition-on-the-right" style="width:21%;">
+							<li class="nav-group pad-0 partition-on-the-right protect-tab__2nd_col">
 								<ul class="col-lg-12 col-md-12 pad-0">
 									<li class="menu-subtitle"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></li>
 									<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
@@ -207,7 +207,7 @@ var nBarConfig = {
 									<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
 							  	</ul>
 							</li>
-							<li class="nav-group pad-0 partition-on-the-right" style="width:28%;">
+							<li class="nav-group pad-0 partition-on-the-right protect-tab__3rd_col">
 							  	<ul class="col-lg-12 col-md-12 pad-0">
 									<li class="menu-subtitle"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></li>
 									<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
@@ -216,7 +216,7 @@ var nBarConfig = {
 									<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/phone-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname4" bundle="${msg}" /></a></li>
 								</ul>
 							</li>
-							<li class="nav-group pad-0" style="width:18%;">
+							<li class="nav-group pad-0 protect-tab__4th_col">
 							  	<ul class="col-lg-12 col-md-12 pad-0">
 									<li class="menu-subtitle"><fmt:message key="header.product.type1.group4.title" bundle="${msg}" /></li>
   	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/motor-insurance"><fmt:message key="header.product.type1.group4.linkname1" bundle="${msg}" /></a></li>

@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-10-01 14:04:28 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-10-03 13:42:33 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -1202,7 +1202,30 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   border-right: none;
 }
 
-/* line 306, ../sass/common_screen/_header.scss */
+/* line 305, ../sass/common_screen/_header.scss */
+.pad-0.partition-on-the-right {
+  border-width: 1px;
+  border-color: #9fb1b2;
+  border-right-style: solid;
+  margin-right: 2%;
+}
+
+/* line 311, ../sass/common_screen/_header.scss */
+.nav-group {
+  width: 25%;
+  float: left;
+}
+
+/* line 315, ../sass/common_screen/_header.scss */
+.menutab-V2 .main-tab {
+  height: 76px;
+}
+/* line 318, ../sass/common_screen/_header.scss */
+.menutab-V2 .main-tab a.protect-save-enjoy-tab {
+  top: 30px;
+}
+
+/* line 324, ../sass/common_screen/_header.scss */
 .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog .modal-content {
   padding: inherit !important;
 }
@@ -2757,202 +2780,13 @@ body.chin .partner-headline-wrapper .headline-title {
     line-height: 1.3;
   }
 }
-@media screen and (max-width: 1199px) and (min-width: 992px) {
-  /* line 1, ../sass/desktop_md/_header.scss */
-  ul.maintabs.menutab-V2 {
-    float: right;
-    font-size: 22px;
-    margin: 0;
-    padding: 0;
-  }
-  /* line 9, ../sass/desktop_md/_header.scss */
-  ul.maintabs.menutab-V2 li.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-    width: 510%;
-    border-top: 1px;
-    background-clip: border-box;
-    text-align: left;
-    padding: 20px 0 20px 35px;
-  }
-  /* line 17, ../sass/desktop_md/_header.scss */
-  ul.maintabs.menutab-V2 li.dropdown:hover .dropdown-menu.one-column {
-    width: 201%;
-  }
-
-  /* line 27, ../sass/desktop_md/_header.scss */
-  .dropdown-menu.one-column.enjoy-tab {
-    left: -100%;
-  }
-  /* line 30, ../sass/desktop_md/_header.scss */
-  .dropdown-menu.protect-tab {
-    left: -209%;
-    word-break: normal;
-    word-wrap: break-all;
-  }
-  /* line 35, ../sass/desktop_md/_header.scss */
-  .dropdown-menu li.menu-subtitle {
-    color: #373a36;
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  /* line 42, ../sass/desktop_md/_header.scss */
-  li.menu-subtitle,
-  ul.maintabs.menutab-V2 li li.menu-link {
-    display: block;
-    line-height: 2;
-  }
-
-  /* line 49, ../sass/desktop_md/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
-    color: #f6871e;
-    font-size: 15px;
-  }
-  /* line 54, ../sass/desktop_md/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
-    color: #9fb1b2;
-    font-size: 15px;
-  }
-  /* line 59, ../sass/desktop_md/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
-    font-size: 15px;
-    font-weight: 300;
-  }
-  /* line 64, ../sass/desktop_md/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
-    margin-right: 7px;
-    font-size: 11px;
-  }
-
-  /* line 72, ../sass/desktop_md/_header.scss */
-  .header .navbar.navbar-inverse {
-    border-bottom: 1px solid #d7d8d7;
-  }
-
-  /* line 78, ../sass/desktop_md/_header.scss */
-  .nav-group {
-    width: 25%;
-    float: left;
-  }
-
-  /* line 83, ../sass/desktop_md/_header.scss */
-  .partition-on-the-right {
-    border-width: 1px;
-    border-color: #9fb1b2;
-    border-right-style: solid;
-    margin-right: 2%;
-    /*margin-left: 2%;*/
-  }
-
-  /* line 91, ../sass/desktop_md/_header.scss */
-  .menutab-V2 .main-tab {
-    height: 76px;
-  }
-  /* line 94, ../sass/desktop_md/_header.scss */
-  .menutab-V2 .main-tab a.protect-save-enjoy-tab {
-    top: 30px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  /* line 1, ../sass/desktop_lg/_header.scss */
-  ul.maintabs.menutab-V2 {
-    float: right;
-    font-size: 24px;
-    margin: 0;
-    padding: 0;
-  }
-  /* line 10, ../sass/desktop_lg/_header.scss */
-  ul.maintabs.menutab-V2 li .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-    width: 510%;
-    border-top: 1px;
-    background-clip: border-box;
-    text-align: left;
-    padding: 20px 0 20px 44px;
-  }
-  /* line 19, ../sass/desktop_lg/_header.scss */
-  ul.maintabs.menutab-V2 li .dropdown:hover .dropdown-menu.one-column {
-    width: 201%;
-  }
-
-  /* line 29, ../sass/desktop_lg/_header.scss */
-  .dropdown-menu.one-column.enjoy-tab {
-    left: -100%;
-  }
-  /* line 33, ../sass/desktop_lg/_header.scss */
-  .dropdown-menu.protect-tab {
-    left: -209%;
-    word-break: normal;
-    word-wrap: break-all;
-  }
-  /* line 39, ../sass/desktop_lg/_header.scss */
-  .dropdown-menu li.menu-subtitle {
-    color: #373a36;
-    font-size: 22px;
-    font-weight: 700;
-  }
-
-  /* line 46, ../sass/desktop_lg/_header.scss */
-  li.menu-subtitle,
-  ul.maintabs.menutab-V2 li li.menu-link {
-    display: block;
-    line-height: 2;
-  }
-
-  /* line 53, ../sass/desktop_lg/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
-    color: #f6871e;
-    font-size: 18px;
-  }
-  /* line 58, ../sass/desktop_lg/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
-    color: #9fb1b2;
-    font-size: 18px;
-  }
-  /* line 63, ../sass/desktop_lg/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
-    font-size: 18px;
-    font-weight: 300;
-  }
-  /* line 68, ../sass/desktop_lg/_header.scss */
-  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
-    margin-right: 7px;
-    font-size: 11px;
-  }
-
-  /* line 76, ../sass/desktop_lg/_header.scss */
-  .header .navbar.navbar-inverse {
-    border-bottom: 1px solid #d7d8d7;
-  }
-
-  /* line 82, ../sass/desktop_lg/_header.scss */
-  .nav-group {
-    width: 25%;
-    float: left;
-  }
-
-  /* line 87, ../sass/desktop_lg/_header.scss */
-  .partition-on-the-right {
-    border-width: 1px;
-    border-color: #9fb1b2;
-    border-right-style: solid;
-    margin-right: 2%;
-    /*margin-left: 2%;*/
-  }
-
-  /* line 95, ../sass/desktop_lg/_header.scss */
-  .menutab-V2 .main-tab {
-    height: 76px;
-  }
-  /* line 98, ../sass/desktop_lg/_header.scss */
-  .menutab-V2 .main-tab a.protect-save-enjoy-tab {
-    top: 30px;
-  }
-}
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 2, ../sass/customize_screen/_header.scss */
+  /* line 4, ../sass/customize_screen/_header.scss */
+  .header .navbar.navbar-inverse {
+    border-bottom: 1px solid #d7d8d7;
+  }
+
+  /* line 10, ../sass/customize_screen/_header.scss */
   .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;
@@ -2963,7 +2797,7 @@ body.chin .partner-headline-wrapper .headline-title {
     box-shadow: none;
   }
 
-  /* line 11, ../sass/customize_screen/_header.scss */
+  /* line 20, ../sass/customize_screen/_header.scss */
   .navbar-fixed-top div.logobox > div.navbar-collapse.mobile-menu-V2 {
     display: none !important;
     max-height: 9999px;
@@ -2971,40 +2805,399 @@ body.chin .partner-headline-wrapper .headline-title {
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  /* line 17, ../sass/customize_screen/_header.scss */
+  /* line 27, ../sass/customize_screen/_header.scss */
   .navbar-fixed-top div.logobox > div.navbar-collapse.mobile-menu-V2.in {
     display: block !important;
     overflow-y: scroll;
   }
 
-  /* line 22, ../sass/customize_screen/_header.scss */
+  /* line 33, ../sass/customize_screen/_header.scss */
   .col-sm-12.nav.navbar-nav {
     padding: 0;
     margin: 0;
   }
 
-  /* line 26, ../sass/customize_screen/_header.scss */
+  /* line 38, ../sass/customize_screen/_header.scss */
   #myDropdownMob div.drop-width {
     width: 768px !important;
     border-style: none;
     padding: 0;
   }
-  /* line 30, ../sass/customize_screen/_header.scss */
+  /* line 43, ../sass/customize_screen/_header.scss */
   #myDropdownMob div.drop-width > ul {
     background-color: #061d29;
   }
 
-  /* line 34, ../sass/customize_screen/_header.scss */
+  /* line 48, ../sass/customize_screen/_header.scss */
   body {
     padding-top: 98px;
   }
 }
-/* line 38, ../sass/customize_screen/_header.scss */
+/* line 53, ../sass/customize_screen/_header.scss */
 .log-to-acc {
   color: #fff !important;
   font-size: 24px;
 }
 
+@media screen and (max-width: 1079px) and (min-width: 992px) {
+  /* line 60, ../sass/customize_screen/_header.scss */
+  .protect-save-enjoy-tab {
+    font-size: 22px;
+    margin: auto;
+  }
+
+  /* line 66, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__1st_col {
+    width: 18%;
+  }
+  /* line 70, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__2nd_col {
+    width: 19%;
+  }
+  /* line 74, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__3rd_col {
+    width: 27%;
+  }
+  /* line 78, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__4th_col {
+    width: 21%;
+  }
+
+  /* line 83, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 {
+    float: right;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 89, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 li.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    width: 550%;
+    border-top: 1px;
+    background-clip: border-box;
+    text-align: left;
+    padding: 20px 0 20px 35px;
+  }
+  /* line 98, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column {
+    width: 201%;
+  }
+
+  /* line 105, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.one-column.enjoy-tab {
+    left: -100%;
+  }
+  /* line 109, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab {
+    left: -249%;
+  }
+  /* line 113, ../sass/customize_screen/_header.scss */
+  .dropdown-menu li.menu-subtitle {
+    color: #373a36;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  /* line 120, ../sass/customize_screen/_header.scss */
+  li.menu-subtitle,
+  ul.maintabs li li.menu-link {
+    display: block;
+    line-height: 2.3;
+  }
+
+  /* line 127, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
+    color: #f6871e;
+    font-size: 15px;
+  }
+  /* line 132, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+    color: #9fb1b2;
+    font-size: 15px;
+  }
+  /* line 137, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 15px;
+    font-weight: 300;
+  }
+  /* line 142, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+    margin-right: 7px;
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 1199px) and (min-width: 1080px) {
+  /* line 151, ../sass/customize_screen/_header.scss */
+  .protect-save-enjoy-tab {
+    font-size: 22px;
+    margin: auto;
+  }
+
+  /* line 157, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__1st_col,
+  .dropdown-menu.protect-tab .protect-tab__2nd_col {
+    width: 20%;
+  }
+  /* line 162, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__3rd_col {
+    width: 28%;
+  }
+  /* line 166, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__4th_col {
+    width: 24%;
+  }
+
+  /* line 171, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 {
+    float: right;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 177, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 li.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    width: 510%;
+    border-top: 1px;
+    background-clip: border-box;
+    text-align: left;
+    padding: 20px 0 20px 35px;
+  }
+  /* line 186, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column {
+    width: 201%;
+  }
+
+  /* line 193, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.one-column.enjoy-tab {
+    left: -100%;
+  }
+  /* line 197, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab {
+    left: -209%;
+  }
+  /* line 201, ../sass/customize_screen/_header.scss */
+  .dropdown-menu li.menu-subtitle {
+    color: #373a36;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  /* line 208, ../sass/customize_screen/_header.scss */
+  li.menu-subtitle,
+  ul.maintabs li li.menu-link {
+    display: block;
+    line-height: 2.3;
+  }
+
+  /* line 215, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
+    color: #f6871e;
+    font-size: 15px;
+  }
+  /* line 220, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+    color: #9fb1b2;
+    font-size: 15px;
+  }
+  /* line 225, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 15px;
+    font-weight: 300;
+  }
+  /* line 230, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+    margin-right: 7px;
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 1399px) and (min-width: 1200px) {
+  /* line 238, ../sass/customize_screen/_header.scss */
+  .protect-save-enjoy-tab {
+    font-size: 22px;
+    margin: auto;
+  }
+
+  /* line 244, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__1st_col {
+    width: 20%;
+  }
+  /* line 248, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__2nd_col {
+    width: 19%;
+  }
+  /* line 252, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__3rd_col {
+    width: 28%;
+  }
+  /* line 256, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__4th_col {
+    width: 23%;
+  }
+
+  /* line 261, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 {
+    float: right;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 267, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 li.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    width: 500%;
+    border-top: 1px;
+    background-clip: border-box;
+    text-align: left;
+    padding: 20px 0 20px 44px;
+  }
+  /* line 276, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column {
+    width: 201%;
+  }
+
+  /* line 283, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.one-column.enjoy-tab {
+    left: -100%;
+  }
+  /* line 287, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab {
+    left: -199%;
+  }
+  /* line 291, ../sass/customize_screen/_header.scss */
+  .dropdown-menu li.menu-subtitle {
+    color: #373a36;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  /* line 298, ../sass/customize_screen/_header.scss */
+  li.menu-subtitle,
+  ul.maintabs li li.menu-link {
+    display: block;
+    line-height: 2.1;
+  }
+
+  /* line 305, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
+    color: #f6871e;
+    font-size: 18px;
+  }
+  /* line 310, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+    color: #9fb1b2;
+    font-size: 18px;
+  }
+  /* line 315, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  /* line 320, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+    margin-right: 7px;
+    font-size: 11px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  /* line 329, ../sass/customize_screen/_header.scss */
+  .protect-save-enjoy-tab {
+    font-size: 24px;
+    margin: auto;
+  }
+
+  /* line 335, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__1st_col {
+    width: 20%;
+  }
+  /* line 339, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__2nd_col {
+    width: 19%;
+  }
+  /* line 343, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__3rd_col {
+    width: 28%;
+  }
+  /* line 347, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab .protect-tab__4th_col {
+    width: 23%;
+  }
+
+  /* line 352, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 {
+    float: right;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+  }
+  /* line 358, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 li.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    width: 500%;
+    border-top: 1px;
+    background-clip: border-box;
+    text-align: left;
+    padding: 20px 0 20px 44px;
+  }
+  /* line 367, ../sass/customize_screen/_header.scss */
+  ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column {
+    width: 201%;
+  }
+
+  /* line 374, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.one-column.enjoy-tab {
+    left: -100%;
+  }
+  /* line 378, ../sass/customize_screen/_header.scss */
+  .dropdown-menu.protect-tab {
+    left: -209%;
+  }
+  /* line 382, ../sass/customize_screen/_header.scss */
+  .dropdown-menu li.menu-subtitle {
+    color: #373a36;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  /* line 389, ../sass/customize_screen/_header.scss */
+  li.menu-subtitle,
+  ul.maintabs li li.menu-link {
+    display: block;
+    line-height: 2.1;
+  }
+
+  /* line 396, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link * {
+    color: #f6871e;
+    font-size: 18px;
+  }
+  /* line 401, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+    color: #9fb1b2;
+    font-size: 18px;
+  }
+  /* line 406, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  /* line 411, ../sass/customize_screen/_header.scss */
+  ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+    margin-right: 7px;
+    font-size: 11px;
+  }
+
+  /* line 418, ../sass/customize_screen/_header.scss */
+  .nav-group.middle-group {
+    width: 37%;
+    float: left;
+  }
+}
 @media screen and (min-width: 768px) {
   /* line 5, ../sass/customize_screen/_loginpopup.scss */
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog {
