@@ -291,10 +291,6 @@ var home_url = "<%=request.getContextPath()%>";
 		            		</div>
 	            		</div>
 	            	</div>
-	            	<div class="row">
-	            		<a href="<%=request.getContextPath()%>/resources/pdf/provie/Provie Premium discount TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="savie.landing.discount.pdf.link1" bundle="${msg}" /></a>
-	            	</div>
-
 	            	<div class="row pv_offer_remarks">
 	            		<p>
 	            			<fmt:message key="savie.landing.offer.text8" bundle="${msg}" />
@@ -310,6 +306,9 @@ var home_url = "<%=request.getContextPath()%>";
 							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text6" bundle="${msg}" /></li>
 							<li class="pv_offer_remark"><fmt:message key="savie.landing.offer.text7" bundle="${msg}" /></li>
 						</ul>
+	            	</div>
+	            	<div class="row">
+	            		<a href="<%=request.getContextPath()%>/resources/pdf/provie/Provie Premium discount TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="savie.landing.discount.pdf.link1" bundle="${msg}" /></a>
 	            	</div>
 				</div>
             </div>
