@@ -329,10 +329,10 @@ $(document).ready(function(){
 });
 
 function updatePriceTable(){
-    $('#youngDriverExcess').html(motorPrice.third.youngDriverExcess);
-    $('#inexperiencedDriverExcess').html(motorPrice.third.inexperiencedDriverExcess);
-    $('#tPPDExcess').html(motorPrice.third.tPPDExcess);
-    $('#parkingExcess').html(motorPrice.third.parkingExcess);
+    $('#youngDriverExcess').html(formatCurrency(motorPrice.third.youngDriverExcess));
+    $('#inexperiencedDriverExcess').html(formatCurrency(motorPrice.third.inexperiencedDriverExcess));
+    $('#tPPDExcess').html(formatCurrency(motorPrice.third.tPPDExcess));
+    $('#parkingExcess').html(formatCurrency(motorPrice.third.parkingExcess));
 }
 
 </script>
