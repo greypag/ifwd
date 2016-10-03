@@ -524,16 +524,6 @@ filter: alpha(opacity=0.5 times 100) !important;
                         <div class="content">
                             <p>
                              <tag:messageDisplay  key="motor.landing.features.1.copy" bundle="${motorMsg}" />
-                            <br>
-                            <br>
-                            <a href="<tag:messageDisplay  key="motor.landing.features.1.extralink1" bundle="${motorMsg}" />">
-                            <tag:messageDisplay  key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
-                            </a>
-                            </p>
-                            <p>
-                            <small>
-                            <tag:messageDisplay  key="motor.landing.features.1.extracopy2" bundle="${motorMsg}" />
-                            </small>
                             </p>
                         </div>
                     </div>
@@ -578,6 +568,16 @@ filter: alpha(opacity=0.5 times 100) !important;
                         <div class="content">
                             <p>
                                 <tag:messageDisplay  key="motor.landing.features.3.copy" bundle="${motorMsg}" />
+                                                            <br>
+                            <br>
+                            <a href="<tag:messageDisplay  key="motor.landing.features.1.extralink1" bundle="${motorMsg}" />">
+                            <tag:messageDisplay  key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
+                            </a>
+                            </p>
+                            <p>
+                            <small>
+                            <tag:messageDisplay  key="motor.landing.features.1.extracopy2" bundle="${motorMsg}" />
+                            </small>
                             </p>
                         </div>
                     </div>
@@ -591,37 +591,24 @@ filter: alpha(opacity=0.5 times 100) !important;
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-    <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-    <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
-   
-    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
-    
+    <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.1.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
+    <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.1.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
     </div>
     <div class="item">
- <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-2_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
- <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-02_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
-     <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
-  
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.2.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.2.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
     </div>
         <div class="item">
- <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-Eng-3_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-<img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-03_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
-     <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
-  
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.3.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
+<img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.3.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
     </div>
         <div class="item">
- <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-4_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-   <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-04_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.4.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
+   <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.4.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
     </div>
         <div class="item">
- <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-5_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
- <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-05_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
-   <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/en/Drivamatics-1003_mobile-eng-1_mb_en.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
-    <img class="chin hidden" src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/en/Drivamatics-icon_v0927_fwd-Drivamatic-01_pc_en.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
-  
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.5.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.5.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
     </div>
   </div>
 
