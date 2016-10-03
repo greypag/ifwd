@@ -142,7 +142,7 @@ var nBarConfig = {
 				<div class="col-lg-5 col-md-5 pad-0">
 					<ul class="nav navbar-nav lang-btn-grp">
 						<li class="lang-btn-grp__item">
-							<a class="lang lang-btn-grp__item__selector lang-btn-grp__item__selector--<%=langClass%> pull-left" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
+							<a class="lang lang-btn-grp__item__selector lang-btn-grp__item__selector--<%=langClass%> pull-left anchor-lang" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
 						</li>
 						<li class="lang-btn-grp__item">
 							<span class="lang-btn-grp__item__top-livechat">
@@ -409,7 +409,7 @@ var nBarConfig = {
 				<li class="pad-0 col-sm-12 dropdown lang-grp">
 					<ul>
 						<li>
-							<a class="lang menu-lang" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
+							<a class="lang menu-lang anchor-lang" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
 						</li>
 					</ul>
 				</li>
@@ -484,7 +484,7 @@ var nBarConfig = {
 	if (isPostRedirect) {
 %>
 <script>
-$('#anchor-lang').on('click', function(){
+$('.anchor-lang').on('click', function(){
 	var quoteData = JSON.stringify(<%=request.getParameter("data").replace("&quot;", "\"")%>);
 	var url = "${language}"=="en"?window.location.href.replace("/en/", "/tc/"):window.location.href.replace("/tc/", "/en/")
     var $form = $("<form />");
