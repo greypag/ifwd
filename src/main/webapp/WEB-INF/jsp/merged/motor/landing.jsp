@@ -571,10 +571,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                         </div>
                         <div class="content">
                             <p>
-                                <tag:messageDisplay  key="motor.landing.features.3.copy" bundle="${motorMsg}" />
-                                                            <br>
-                            <br>
-                            <a href="#landing-carousel">
+                                <tag:messageDisplay  key="motor.landing.features.3.copy" bundle="${motorMsg}" /><a href="#landing-carousel">
                             <tag:messageDisplay  key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
                             </a>
                             </p>
