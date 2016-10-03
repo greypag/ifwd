@@ -57,6 +57,10 @@ filter: alpha(opacity=0.5 times 100) !important;
             */
         }
     }
+
+   #hero #getComprehensive, #hero #getThirdParty{
+    	white-space: initial;
+    }
 </style>
 <section id="" class="motor-landing">
     
@@ -76,7 +80,7 @@ filter: alpha(opacity=0.5 times 100) !important;
     </div>
     <!-- Breadcrumb Component End-->
     
-    <div class="whole-banner">
+    <div class="whole-banner" id="hero">
         <div class="page-banner">
             <img src="<%=request.getContextPath()%>/resources/images/motor/Motor-Insurance_Mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="FWD Saving Insurance Hong Kong">
             <img src="<%=request.getContextPath()%>/resources/images/motor/Motor-Insurance_PC.jpg" class="img-responsive hidden-xs hidden-sm" alt="FWD Saving Insurance Hong Kong">
@@ -96,7 +100,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                         <h3>
                             <tag:messageDisplay  key="motor.landing.hero.getquote.label" bundle="${motorMsg}" />
                         </h3>
-                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><span><tag:messageDisplay key="motor.landing.table.header.col2" bundle="${motorMsg}" /></span></a>
+                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><tag:messageDisplay key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
                         <a id="getThirdParty" class="btn btn-primary bdr-curve light-green-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><tag:messageDisplay key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
