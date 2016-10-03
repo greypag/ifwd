@@ -17,8 +17,12 @@ $(window).resize(function(){
     }
 });
 $(window).load(function(){
+    var w = $('#compare-table-wrap').width();
+    $('#compare-table-wrap').find('th, td').outerWidth(w);
+    
     ref = $('#ref-table').width() - 15;
     thArr[0] = 0;
+
     for(var i =1; i<$('#compare-table-wrap th').length; i++){
         thArr[i] = $('#compare-table-wrap th').eq(i).offset().left-ref;
     }

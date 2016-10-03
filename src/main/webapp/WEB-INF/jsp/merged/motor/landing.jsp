@@ -49,10 +49,12 @@ filter: alpha(opacity=0.5 times 100) !important;
             padding: 0 20px;
         }
         #testimonials{
-            margin-left: -20px;
+       /*     
+       margin-left: -20px;
             margin-right: -20px;
             padding-left: 20px;
             padding-right: 20px;
+            */
         }
     }
 </style>
@@ -94,8 +96,8 @@ filter: alpha(opacity=0.5 times 100) !important;
                         <h3>
                             <tag:messageDisplay  key="motor.landing.hero.getquote.label" bundle="${motorMsg}" />
                         </h3>
-                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><tag:messageDisplay  key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
-                        <a id="getThirdParty" class="btn btn-primary bdr-curve light-green-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><tag:messageDisplay  key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
+                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><tag:messageDisplay key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
+                        <a id="getThirdParty" class="btn btn-primary bdr-curve light-green-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><tag:messageDisplay key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
@@ -670,7 +672,7 @@ filter: alpha(opacity=0.5 times 100) !important;
             </div>
         </div>
     </div>
-    <div class="container" id="testimonials" >
+    <div class="container hidden" id="testimonials" >
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
             <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Partnership Benefits</h2>
@@ -704,7 +706,7 @@ filter: alpha(opacity=0.5 times 100) !important;
             </div>
         </div>
     </div>
-    <div class="container" >
+    <div class="container hidden" >
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
             <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><tag:messageDisplay  key="motor.landing.partnership.heading" bundle="${motorMsg}" /></h2>

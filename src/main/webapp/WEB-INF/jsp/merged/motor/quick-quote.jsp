@@ -459,8 +459,31 @@ var nextPage = "${nextPageFlow}";
             totalDue = parseFloat(motorPrice[planType].amountDueAmount);
             addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
             addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+console.log(motorPrice);
+console.log(quote);
+if($('body').hasClass('chin')){
+if(quote.planCode=="Comp"){
+ if(quote.compPlan=="Gold")
+ $('#yourQuoteTitle').html('綜合保險(金)');
+else
+ $('#yourQuoteTitle').html('綜合保險(銀)');
+}
+else
+$('#yourQuoteTitle').html('第三保');
+}
+else{
+if(quote.planCode=="Comp"){
+ if(quote.compPlan=="Gold")
+ $('#yourQuoteTitle').html('Comprehensive Gold');
+else
+ $('#yourQuoteTitle').html('Comprehensive Silver');
+}
+else
+$('#yourQuoteTitle').html('Third Party');
+}
 
- $('#yourQuoteTitle').html(motorPrice[planType].planCode);
+
+ 
 
             $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
             $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
