@@ -656,7 +656,7 @@
 			
 			</div>
 			<div class="text-center">
-				<button type="button" class="text-bold white-btn collapsed btn-after-5-years" data-toggle="collapse" data-target="#after-5-years-container" aria-expanded="false" ><span class="after-5"><fmt:message key="provie.plandetails.5years.before" bundle="${provieMsg}" /></span><span class="hidden first-5"><fmt:message key="provie.plandetails.5years.after" bundle="${provieMsg}" /></span></button>
+				<button type="button" class="text-bold white-btn collapsed btn-after-5-years" data-toggle="collapse" data-target="#after-5-years-container" aria-expanded="false" ><span class="hidden after-5"><fmt:message key="provie.plandetails.5years.before" bundle="${provieMsg}" /></span><span class="first-5"><fmt:message key="provie.plandetails.5years.after" bundle="${provieMsg}" /></span></button>
 			</div>
 		</div>
 	</div>
@@ -1267,6 +1267,18 @@
 		}
 		
         //end of getProvieRiderEligibility
+		  
+		
+		$('.btn-after-5-years').on('click touchup', function(){
+			if($('.btn-after-5-years').hasClass('collapsed')){
+				$('.btn-after-5-years .first-5').removeClass('hidden');
+				$('.btn-after-5-years .after-5').addClass('hidden');
+			}else{
+				$('.btn-after-5-years .first-5').addClass('hidden');
+				$('.btn-after-5-years .after-5').removeClass('hidden');
+			}
+		});
+		
 	});
 
 	// changing first/after 3 years button content
