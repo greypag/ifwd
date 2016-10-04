@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-10-03 13:42:33 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-10-04 11:44:09 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -1938,7 +1938,15 @@ a.link-forgotPassword:hover {
   border-radius: 0px !important;
 }
 
-/* line 15, ../sass/common_screen/_overlay.scss */
+/* line 14, ../sass/common_screen/_overlay.scss */
+.overlay__close {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+}
+
+/* line 22, ../sass/common_screen/_overlay.scss */
 #loading-overlay .overlay__wrapper {
   width: 300px;
 }

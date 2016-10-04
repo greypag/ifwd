@@ -267,7 +267,7 @@ width: 100px !important;
     </div>
     <div class="modal-dialog modal-lg">
         <div class="modal-content plan-modal">
-            <div class=""><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class=""><a class="close overlay__close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="contact-us-wrap">
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 plan-panel">
