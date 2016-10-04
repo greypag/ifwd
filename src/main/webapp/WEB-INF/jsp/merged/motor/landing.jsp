@@ -57,8 +57,8 @@
                         <h3>
                             <fmt:message key="motor.landing.hero.getquote.label" bundle="${motorMsg}" />
                         </h3>
-                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><fmt:message key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
-                        <a id="getThirdParty" class="btn btn-primary bdr-curve light-green-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><fmt:message key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
+                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><strong><fmt:message key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></strong></a>
+                        <a id="getThirdParty" class="btn btn-primary bdr-curve light-green-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><strong><fmt:message key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></strong></a>
                     </div>
                 </div>
             </div>

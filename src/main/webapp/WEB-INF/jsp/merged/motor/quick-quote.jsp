@@ -246,13 +246,17 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-6">
                             <span class="ci" id="yourQuoteTitle"></span>
                         </div>
+                        
                         <div class="col-xs-6 text-right">
+                        <!--
                             <span>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
                                 </span>
-                                <!--span id="yourQuotefromPrice"></span-->
+                                
+                                <span id="yourQuotefromPrice"></span>
                                 <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
-
+                               
+                                -->
                         </div>
                         <div class="col-xs-12">
                             <br/>
