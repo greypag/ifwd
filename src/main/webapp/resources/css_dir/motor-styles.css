@@ -639,10 +639,10 @@
     margin-left: -485px; }
 
   .motor-landing #featured > .row > div > .row {
-    height: 650px; }
+    height: 500px; }
 
   body.chin .motor-landing #featured > .row > div > .row {
-    height: 650px; }
+    height: 40px; }
 
   .plan-panel-content {
     height: 145px; }
@@ -671,10 +671,10 @@
     padding-top: 0; }
 
   .motor-landing #featured > .row > div > .row {
-    height: 800px; }
+    height: 620px; }
 
   body.chin .motor-landing #featured > .row > div > .row {
-    height: 750px; }
+    height: 520px; }
 
   .plan-panel-content {
     height: 226px; }
@@ -808,7 +808,6 @@
     .motor-landing #compare-table-2 #compare-table tr {
       display: flex; }
     .motor-landing #compare-table-2 #compare-table td, .motor-landing #compare-table-2 #compare-table th {
-      white-space: pre-wrap;
       display: -ms-inline-flexbox;
       display: inline-flex;
       -ms-flex-pack: center;

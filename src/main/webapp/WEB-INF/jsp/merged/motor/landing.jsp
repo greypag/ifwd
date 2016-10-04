@@ -119,6 +119,10 @@ filter: alpha(opacity=0.5 times 100) !important;
                         <tag:messageDisplay key="motor.landing.page.content" bundle="${motorMsg}" />
                         <br/>
                         <br/>
+                        <small>
+<fmt:message key="motor.landing.page.content.remark" bundle="${motorMsg}" />
+</small>
+                        <br/>
                     </p>
                 </div>
             </div>
@@ -454,8 +458,8 @@ filter: alpha(opacity=0.5 times 100) !important;
                                             <tr>
                                                 <td class="text-center yellow-border"><tag:messageDisplay  key="motor.landing.table.row1.col1" bundle="${motorMsg}" /></td>
                                                 <td class="text-center yellow-border"><tag:messageDisplay  key="motor.landing.table.row2.col1" bundle="${motorMsg}" /></td>
-                                                <td class="text-center yellow-border"></td>
-                                                <td class="text-center yellow-border"></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center yellow-border"></td>
                                                 <td class="text-center yellow-border"></td>
                                                 <td class="text-center yellow-border"></td>
@@ -579,17 +583,19 @@ filter: alpha(opacity=0.5 times 100) !important;
                             <tag:messageDisplay  key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
                             </a>
                             </p>
-                            <p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                <div class="col-xs-12 text-center">
+                                                <p>
                             <small>
                             <tag:messageDisplay  key="motor.landing.features.1.extracopy2" bundle="${motorMsg}" />
                         <a href="<%=request.getContextPath()%>/resources/pdf/motor/<fmt:message key="motor.landing.features.1.extralink2" bundle="${motorMsg}" />" target="_blank"><fmt:message key="motor.landing.features.1.extracopy3" bundle="${motorMsg}" /></a>
                         <fmt:message key="motor.landing.features.1.extracopy4" bundle="${motorMsg}" />
                                                     </small>
                             </p>
-                        </div>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
     
