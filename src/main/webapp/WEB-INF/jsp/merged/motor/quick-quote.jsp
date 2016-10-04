@@ -249,7 +249,8 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-6 text-right">
                             <span>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
-                                </span><span id="yourQuotefromPrice"></span>
+                                </span>
+                                <!--span id="yourQuotefromPrice"></span-->
                                 <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
 
                         </div>
@@ -469,7 +470,7 @@ else
  $('#yourQuoteTitle').html('綜合保險(銀)');
 }
 else
-$('#yourQuoteTitle').html('第三保');
+$('#yourQuoteTitle').html('第三者保險');
 }
 else{
 if(quote.planCode=="Comp"){
@@ -487,7 +488,7 @@ $('#yourQuoteTitle').html('Third Party');
 
             $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
             $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
-            $('#yourQuotefromPrice').html(formatCurrency(totalDue));
+         //   $('#yourQuotefromPrice').html(formatCurrency(totalDue));
             updateTotalDue(totalDue);
         });
 

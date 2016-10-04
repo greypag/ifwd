@@ -625,7 +625,7 @@
 .quick-quote .ready-container {
   padding-top: 40px; }
 .quick-quote .addOn-content {
-  height: 195px; }
+  height: 145px; }
 
 @media screen and (min-width: 1200px) {
   .quick-quote .ready-content h3 {
@@ -681,7 +681,8 @@
     padding-top: 0; }
 
   #hero h1 {
-    font-size: 30px; }
+    font-size: 30px;
+    margin-bottom: 0; }
   #hero h3 {
     font-size: 22px; }
   #hero .bdr-curve {
@@ -712,7 +713,14 @@
   .quick-quote .ready-content h3 {
     padding-top: 0; }
   .quick-quote .addOn-content {
-    height: 240px; } }
+    height: 200px; }
+  .quick-quote .motor-select-plan .collapse-addon {
+    min-height: 103px; }
+
+  body.chin .quick-quote .motor-select-plan .collapse-addon {
+    min-height: 63px; }
+  body.chin .quick-quote .addOn-content {
+    height: 140px; } }
 @media (max-width: 767px) {
   .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input {
     height: auto; } }

@@ -50,8 +50,10 @@ color: #fff;
     @media screen and (min-width: 992px){
     .plan-panel:first-of-type > div {
     margin-right: 15px;
-    
-}
+    }
+ .plan-panel > div {
+    margin-right: 0 ;
+	}
     }
 
     
@@ -67,6 +69,7 @@ color: #fff;
     margin-left: 0;
     margin-right: 0;
 }
+
     }
 
 </style>
@@ -202,8 +205,7 @@ color: #fff;
                         <div class="col-xs-6 text-center">
                             <a href="javascript:;" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /></a>
                             <br />
-                            <br />
-                                                        <br />
+                            <br /> <br />
                             <br />
                         </div>
                         <div class="col-xs-6 text-center">
