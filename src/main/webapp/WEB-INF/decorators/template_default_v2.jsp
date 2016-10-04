@@ -90,7 +90,7 @@
 
 	</head>
 
-	<body class="<%=langBodyClass%> <% if(request.getAttribute("controller").toString()=="Motor"){ %>motor-Body<% } %>">
+	<body class="<%=langBodyClass%> <% if(request.getAttribute("controller") != null && request.getAttribute("controller").toString()=="Motor"){ %>motor-Body<% } %>">
 <%
 	if (com.ifwd.fwdhk.controller.UserRestURIConstants.isContentEditable()) {
 %>
