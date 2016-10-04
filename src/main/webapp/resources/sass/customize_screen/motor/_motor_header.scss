@@ -1,0 +1,27 @@
+@media screen and ( min-width : 1400px ) {
+	body{
+		&.motor-Body{
+			ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+				font-size: 17px;
+			}
+		}
+	}
+}
+@media screen and (max-width : 1399px) and ( min-width : 1200px) {
+	body{
+		&.motor-Body{
+			ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+				font-size: 15px;
+			}
+		}
+	}
+}
+@media screen and (max-width : 1079px) and ( min-width : 992px) {
+	body{
+		&.motor-Body{
+			ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+				font-size: 13px;
+			}
+		}
+	}	
+}
