@@ -9,31 +9,6 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 <style type="text/css" media="all">
 
-#landing-carousel .carousel-control-wrap{
-	position: relative;
-	    width: 120px;
-    float: right;
-top: -60px;
-}
-
-#landing-carousel .carousel-control{
-position: absolute;
-width: 60px;
-height: 60px;
-}
-
-#landing-carousel .fa{
-	text-shadow: none;
-    font-size: 200%;
-    line-height: 1.5;
-}
-
-    .quote-form-wrapper{
-        margin: 0 15px;
-    }
-    .q5:last-of-type{
-        margin-bottom: 30px;
-    }
     @media screen and (max-width: 767px){
         .quote-form-wrapper{
             margin: 0;
@@ -42,13 +17,7 @@ height: 60px;
 
     }
 
-   #hero #getComprehensive, #hero #getThirdParty{
-    	white-space: initial;
-    }
-    
-    #landing-carousel{
-    padding-top: 50px;
-    }
+
 </style>
 <section id="" class="motor-landing">
     
@@ -123,8 +92,12 @@ height: 60px;
         <div  id="testimonials"> 
             <div class="panel panel-default">
                 <div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
-						<span><fmt:message key="motor.landing.table.title" bundle="${motorMsg}" /></span>
                     <div class="panel-body">
+                   	<div class="row">
+							<div class="text-center col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+                    <h3 class="orange"><fmt:message key="motor.landing.table.title" bundle="${motorMsg}" /></h3>
+                    </div>
+                    </div>
                         <div class="table-responsive hidden-xs">
                             <table class="table table-striped" id="compare-table">
                                 <thead>
@@ -489,8 +462,14 @@ height: 60px;
                             </div>
                         </div>
                     </div>
-						<span><fmt:message key="motor.landing.table2.title" bundle="${motorMsg}" /></span>
+						
 						<div class="panel-body">
+						<div class="row">
+							<div class="text-center col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+						<h3 class="orange"><fmt:message key="motor.landing.table2.title" bundle="${motorMsg}" /></h3>
+						</div>
+						</div>
+					
 							<div class="table-responsive hidden-xs">
 								<table class="table table-striped" id="compare-table2">
 									<thead>

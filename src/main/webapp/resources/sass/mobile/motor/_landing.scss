@@ -25,9 +25,19 @@ padding: 0 15px !important;
 }
 
 #landing-carousel{
+ .carousel-control-wrap{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+	}
+
 .carousel-control{
 &.right, &.left{
 background: transparent !important;
+}
+.fa{
+font-size: 300%;
+line-height: 1;
 }
 color: #333 !important;
 }

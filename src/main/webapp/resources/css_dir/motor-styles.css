@@ -346,6 +346,37 @@ body.chin .bold {
   .plan-accordion .table tr > th:first-of-type {
     border: none !important; }
 
+#landing-carousel .carousel-inner > .item > img, #landing-carousel .carousel-inner > .item > a > img {
+  width: 100%; }
+
+#landing-carousel .carousel-control-wrap {
+  position: relative;
+  width: 120px;
+  float: right;
+  top: -60px; }
+
+#landing-carousel .carousel-control {
+  position: absolute;
+  width: 60px;
+  height: 60px; }
+
+#landing-carousel .fa {
+  text-shadow: none;
+  font-size: 200%;
+  line-height: 1.5; }
+
+.quote-form-wrapper {
+  margin: 0 15px; }
+
+.q5:last-of-type {
+  margin-bottom: 30px; }
+
+#hero #getComprehensive, #hero #getThirdParty {
+  white-space: initial; }
+
+#landing-carousel {
+  padding-top: 50px; }
+
 .table-responsive {
   border: none; }
 
@@ -713,10 +744,17 @@ body.chin .bold {
     width: 147px;
     padding: 0 15px !important; }
 
+  #landing-carousel .carousel-control-wrap {
+    position: absolute;
+    width: 100%;
+    top: 50%; }
   #landing-carousel .carousel-control {
     color: #333 !important; }
     #landing-carousel .carousel-control.right, #landing-carousel .carousel-control.left {
       background: transparent !important; }
+    #landing-carousel .carousel-control .fa {
+      font-size: 300%;
+      line-height: 1; }
 
   .motor-landing #featured > .row > div > .row {
     height: 620px; }
