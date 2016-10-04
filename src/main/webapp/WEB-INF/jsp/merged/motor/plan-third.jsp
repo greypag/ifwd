@@ -131,7 +131,7 @@ color: #fff;
                             </div>
                             <div class="col-xs-12 col-sm-3 text-right">
                                 <div class="currency">
-                                    <fmt:message key="motor.label.currency" bundle="${motorMsg}" /> 
+                                    <fmt:message key="motor.label.currency.from" bundle="${motorMsg}" /> 
                                 </div>
                                 <div class="price">
                                     <small><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small>
