@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-10-04 11:44:09 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-10-04 12:11:08 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -780,6 +780,11 @@ body.chin .bold {
   outline: none;
   box-shadow: none;
   border: 1px solid #f6871e;
+}
+
+/* line 1, ../sass/base/_text.scss */
+.text--shadow-default {
+  text-shadow: 0 0 10px #666;
 }
 
 /* line 3, ../sass/_other.scss */

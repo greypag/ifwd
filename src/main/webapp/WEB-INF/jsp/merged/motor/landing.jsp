@@ -92,7 +92,7 @@ filter: alpha(opacity=0.5 times 100) !important;
             <div class="container up">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h1>
+                        <h1 class="text--shadow-default">
                             <fmt:message key="motor.landing.page.heading" bundle="${motorMsg}" />
                         </h1>
                     </div>
