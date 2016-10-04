@@ -38,11 +38,6 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 
 <!--LightBox Pop Up-->
 <script type=text/javascript>
-	var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
-	document.write('<scr'+'ipt src="', hostProtocol+
-	'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
-</script>
-<script type=text/javascript>
 	var params = new Array();
 	params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
 	params[1]='type=Registration';
@@ -61,11 +56,6 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 </noscript>
 
 <script type=text/javascript>
-	var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
-	document.write('<scr'+'ipt src="', hostProtocol+
-	'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
-	</script>
-	<script type=text/javascript>
 	var params = new Array();
 	params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
 	params[1]='type=Registration_Savie_Survey';
