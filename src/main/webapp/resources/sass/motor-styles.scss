@@ -1,5 +1,5 @@
 @import 'variable';
-@import 'font';
+@import 'base/font2016';
 @import "color";
 @import 'mixin';
 
@@ -33,7 +33,7 @@
 @import 'customize_screen/motor/breadcrumb';
 
 h1, h2, h3, h4, h5, h6, h7{
-font-family: 'Calibri-Bold', Arial, sans-serif !important;
+font-family: 'CirculaPro-Bold', Arial, sans-serif !important;
 font-weight: 900;
 }
 h3{
