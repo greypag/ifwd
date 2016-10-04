@@ -90,7 +90,7 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                                 <div class="col-xs-12 text-right">
                                     <div class="currency">
-                                        <fmt:message key="motor.label.currency" bundle="${motorMsg}" /> 
+                                        <fmt:message key="motor.label.currency.from" bundle="${motorMsg}" /> 
                                     </div>
                                     <div class="price">
                                         <small><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small>
@@ -121,7 +121,7 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                                 <div class="col-xs-12 text-right">
                                     <div class="currency">
-                                        <fmt:message key="motor.label.currency" bundle="${motorMsg}" /> 
+                                        <fmt:message key="motor.label.currency.from" bundle="${motorMsg}" /> 
                                     </div>
                                     <div class="price">
                                         <small><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small>
@@ -229,10 +229,7 @@ var nextPage = "${nextPageFlow}";
                                                 <td class="text-center"></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
                                             </tr>
-                                            
-                                           
-                                            
-                                           <!-- <tr>
+                                            <tr>
                                                 <td><fmt:message key="motor.selectplan1.table.1.row11.copy" bundle="${motorMsg}" /></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
@@ -241,8 +238,8 @@ var nextPage = "${nextPageFlow}";
                                                 <td><fmt:message key="motor.selectplan1.table.1.row12.copy" bundle="${motorMsg}" /></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                            </tr> -->
-                                                <tr class="hidden-xs">
+                                            </tr>
+                                            <tr class="hidden-xs">
                                                 <td></td>
                                                 <td class="text-center"><a href="javascript:;" class="bdr-curve btn btn-primary nxt-btn get-silver"><fmt:message key="motor.button.getsilver" bundle="${motorMsg}" /></a></td>
                                                 <td class="text-center"><a href="javascript:;" class="bdr-curve btn btn-primary nxt-btn get-gold"><fmt:message key="motor.button.getgold" bundle="${motorMsg}" /></a></td>
