@@ -123,12 +123,13 @@ height: 60px;
         <div  id="testimonials"> 
             <div class="panel panel-default">
                 <div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+						<span><fmt:message key="motor.landing.table.title" bundle="${motorMsg}" /></span>
                     <div class="panel-body">
                         <div class="table-responsive hidden-xs">
                             <table class="table table-striped" id="compare-table">
                                 <thead>
                                     <tr>
-                                        <th class="col-xs-6 "></th>
+                                        <th class="col-xs-6 text-center "><fmt:message key="motor.landing.table.header" bundle="${motorMsg}" /></th>
                                         <th class="col-xs-2  silver text-center yellow-color"><fmt:message key="motor.landing.table.header.col1" bundle="${motorMsg}" /></th>
                                         <th class="col-xs-2  gold text-center orange-color"><fmt:message key="motor.landing.table.header.col2" bundle="${motorMsg}" /></th>
                                         <th class="col-xs-2  gold text-center light-green-color"><fmt:message key="motor.landing.table.header.col3" bundle="${motorMsg}" /></th>
@@ -151,61 +152,61 @@ height: 60px;
                                         <td><fmt:message key="motor.landing.table.row3.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row4.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row5.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"></td>
+                                        <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row6.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"></td>
+                                        <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row7.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"></td>
+                                        <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row8.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"></td>
+                                        <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row9.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"></td>
+                                        <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row10.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"></td>
+                                        <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row11.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"></td>
+                                        <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr class="hidden">
                                         <td><fmt:message key="motor.landing.table.row12.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"></td>
+                                        <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                        <td class="text-center light-green-border"></td>
+                                        <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                     </tr>
                                     <tr>
                                         <td colspan=4 class="text-center">
@@ -221,7 +222,7 @@ height: 60px;
                                 <table class="table" id="ref-table">
                                     <thead>
                                         <tr>
-                                            <th class="col-xs-6 "></th>
+                                            <th class="col-xs-6 text-center"><fmt:message key="motor.landing.table.header" bundle="${motorMsg}" /></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -444,14 +445,14 @@ height: 60px;
                                                 <td class="text-center yellow-border"><fmt:message key="motor.landing.table.row2.col1" bundle="${motorMsg}" /></td>
                                                 <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                                <td class="text-center yellow-border"></td>
-                                                <td class="text-center yellow-border"></td>
-                                                <td class="text-center yellow-border"></td>
-                                                <td class="text-center yellow-border"></td>
-                                                <td class="text-center yellow-border"></td>
-                                                <td class="text-center yellow-border"></td>
-                                                <td class="text-center yellow-border"></td>
-                                                <td class="text-center yellow-border"></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                             </tr>
                                             <tr>
                                                 <td class="text-center orange-border"><fmt:message key="motor.landing.table.row1.col2" bundle="${motorMsg}" /></td>
@@ -470,16 +471,16 @@ height: 60px;
                                             <tr>
                                                 <td class="text-center light-green-border"><fmt:message key="motor.landing.table.row1.col3" bundle="${motorMsg}" /></td>
                                                 <td class="text-center light-green-border"><fmt:message key="motor.landing.table.row2.col3" bundle="${motorMsg}" /></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
-                                                <td class="text-center light-green-border"></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                <td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -488,11 +489,110 @@ height: 60px;
                             </div>
                         </div>
                     </div>
+						<span><fmt:message key="motor.landing.table2.title" bundle="${motorMsg}" /></span>
+						<div class="panel-body">
+							<div class="table-responsive hidden-xs">
+								<table class="table table-striped" id="compare-table2">
+									<thead>
+										<tr>
+											<th class="col-xs-6 text-center"><fmt:message key="motor.landing.table.header" bundle="${motorMsg}" /></th>
+											<th class="col-xs-2  silver text-center yellow-color"><fmt:message key="motor.landing.table.header.col1" bundle="${motorMsg}" /></th>
+											<th class="col-xs-2  gold text-center orange-color"><fmt:message key="motor.landing.table.header.col2" bundle="${motorMsg}" /></th>
+											<th class="col-xs-2  gold text-center light-green-color"><fmt:message key="motor.landing.table.header.col3" bundle="${motorMsg}" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><fmt:message key="motor.landing.table2.row1.copy" bundle="${motorMsg}" /></td>
+											<td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+											<td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+											<td class="text-center light-green-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+										</tr>
+										<tr>
+											<td><fmt:message key="motor.landing.table2.row2.copy" bundle="${motorMsg}" /></td>
+											<td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+											<td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+											<td class="text-center light-green-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="row visible-xs" id="compare-table-2">
+								<div class="col-xs-5">
+									<table class="table" id="ref-table2">
+										<thead>
+											<tr>
+												<th class="col-xs-6 text-center"><fmt:message key="motor.landing.table.header" bundle="${motorMsg}" /></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th class="col-xs-2  silver text-center yellow-color"><fmt:message key="motor.landing.table.header.col1" bundle="${motorMsg}" /></th>
+											</tr>
+											<tr>
+												<th class="col-xs-2  gold text-center orange-color"><fmt:message key="motor.landing.table.header.col2" bundle="${motorMsg}" /></th>
+											</tr>
+											<tr>
+												<th class="col-xs-2  gold text-center light-green-color"><fmt:message key="motor.landing.table.header.col3" bundle="${motorMsg}" /></th>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="col-xs-7">
+									<div class="table-responsive" id="compare-table2-wrap">
+										<table class="table table-striped" id="compare-table">
+											<thead>
+												<tr>
+													<th>
+														<div class="row">
+															<div class="col-xs-10">
+																<fmt:message key="motor.landing.table2.row1.copy" bundle="${motorMsg}" />
+															</div>
+															<div class="col-xs-2">
+																<a class="nxt" href="javascript:;">
+																	<i class="fa fa-chevron-right" aria-hidden="true"></i>
+																</a>
+															</div>
+														</div>
+													</th>
+													<th>
+														<div class="row">
+															<div class="col-xs-2">
+																<a class="prev" href="javascript:;">
+																	<i class="fa fa-chevron-left" aria-hidden="true"></i>
+																</a>
+															</div>
+															<div class="col-xs-10">
+																<fmt:message key="motor.landing.table2.row2.copy" bundle="${motorMsg}" />      
+															</div>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+													<td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+												</tr>
+												<tr>
+													<td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+													<td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+												</tr>
+												<tr>
+													<td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+													<td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
                 </div>
             </div>
-
         </div>
     </div>
+
     <div class="container featured" id="featured">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
@@ -510,7 +610,7 @@ height: 60px;
                             <fmt:message key="motor.landing.features.1.title" bundle="${motorMsg}" />
                         </div>
                         <div class="thumbnail">
-                            <img src="<%=request.getContextPath()%>/resources/images/motor/safety-driver-bouns.png" alt="" />
+                            <img src="<%=request.getContextPath()%>/resources/images/motor/Telematics-Promotion.png" alt="" />
                         </div>
                     </div>
                     <div class="col-xs-8 col-sm-12">
@@ -519,7 +619,10 @@ height: 60px;
                         </div>
                         <div class="content">
                             <p>
-                             <fmt:message key="motor.landing.features.1.copy" bundle="${motorMsg}" />
+										<fmt:message key="motor.landing.features.1.copy" bundle="${motorMsg}" />
+										<a href="#landing-carousel">
+											<fmt:message key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
+										</a>
                             </p>
                         </div>
                     </div>
@@ -554,7 +657,7 @@ height: 60px;
                             <fmt:message key="motor.landing.features.3.title" bundle="${motorMsg}" />
                         </div>
                         <div class="thumbnail">
-                            <img src="<%=request.getContextPath()%>/resources/images/motor/Telematics-Promotion.png" alt="" />
+                            <img src="<%=request.getContextPath()%>/resources/images/motor/safety-driver-bouns.png" alt="" />
                         </div>
                     </div>
                     <div class="col-xs-8 col-sm-12">
@@ -563,23 +666,21 @@ height: 60px;
                         </div>
                         <div class="content">
                             <p>
-                                <fmt:message key="motor.landing.features.3.copy" bundle="${motorMsg}" /><a href="#landing-carousel">
-                            <fmt:message key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
-                            </a>
+                             <fmt:message key="motor.landing.features.3.copy" bundle="${motorMsg}" />
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-                                <div class="col-xs-12 text-center">
-                                                <p>
-                            <small>
-                            <fmt:message key="motor.landing.features.1.extracopy2" bundle="${motorMsg}" />
-                        <a href="<%=request.getContextPath()%>/resources/pdf/motor/<fmt:message key="motor.landing.features.1.extralink2" bundle="${motorMsg}" />" target="_blank"><fmt:message key="motor.landing.features.1.extracopy3" bundle="${motorMsg}" /></a>
-                        <fmt:message key="motor.landing.features.1.extracopy4" bundle="${motorMsg}" />
-                                                    </small>
-                            </p>
-                    </div>
+				<div class="col-xs-12 text-center">
+					<p>
+						<small>
+							<fmt:message key="motor.landing.features.1.extracopy2" bundle="${motorMsg}" />
+								<a href="<%=request.getContextPath()%>/resources/pdf/motor/<fmt:message key="motor.landing.features.1.extralink2" bundle="${motorMsg}" />" target="_blank"><fmt:message key="motor.landing.features.1.extracopy3" bundle="${motorMsg}" /></a>
+							<fmt:message key="motor.landing.features.1.extracopy4" bundle="${motorMsg}" />
+						</small>
+					</p>
+				</div>
         </div>
     </div>
     
