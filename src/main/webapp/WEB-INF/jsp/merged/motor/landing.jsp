@@ -795,7 +795,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                     <div class="overlay ">
                         <h2><fmt:message key="motor.landing.tips.1.title" bundle="${motorMsg}" /></h2>
                         <div class="hidden-xs">
-                        <a class="info" href='<fmt:message key="motor.landing.tips.1.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <a class="info" href='<fmt:message key="motor.landing.tips.1.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                         </div>
                     </div>
                 </div>
@@ -804,7 +804,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="row text-center">
                     <div class="col-xs-4 col-xs-offset-4">
                         <br />
-                        <a class="info visible-xs btn btn-primary bdr-curve" href='<fmt:message key="motor.landing.tips.1.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <a class="info visible-xs btn btn-primary bdr-curve" href='<fmt:message key="motor.landing.tips.1.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
 
@@ -815,7 +815,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                     <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/2nd_blog_image.jpg" alt="">
                     <div class="overlay">
                         <h2><fmt:message key="motor.landing.tips.2.title" bundle="${motorMsg}" /></h2>
-                        <a class="info" href='<fmt:message key="motor.landing.tips.2.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <a class="info" href='<fmt:message key="motor.landing.tips.2.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
@@ -824,7 +824,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                     <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/3rd_blog_image.jpg" alt="">
                     <div class="overlay">
                         <h2><fmt:message key="motor.landing.tips.3.title" bundle="${motorMsg}" /></h2>
-                        <a class="info" href='<fmt:message key="motor.landing.tips.3.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <a class="info" href='<fmt:message key="motor.landing.tips.3.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
@@ -833,7 +833,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                     <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/4th_blog_image.jpg" alt="">
                     <div class="overlay">
                         <h2><fmt:message key="motor.landing.tips.4.title" bundle="${motorMsg}" /></h2>
-                        <a class="info" href='<fmt:message key="motor.landing.tips.4.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <a class="info" href='<fmt:message key="motor.landing.tips.4.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
