@@ -287,7 +287,10 @@ width: 100px !important;
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
                         <p>
                         <br/>
-                            <fmt:message key="motor.quickquote.contanctme.copy.part1" bundle="${motorMsg}" /><a href="tel:23123123"><fmt:message key="motor.quickquote.contanctme.copy.part2" bundle="${motorMsg}" /></a><fmt:message key="motor.quickquote.contanctme.copy.part3" bundle="${motorMsg}" />
+                            <fmt:message key="motor.getquote.contanctme.copy.part1" bundle="${motorMsg}" /><br><br>
+                            <em id="reasonMsg"></em><br><br>
+                            <fmt:message key="motor.getquote.contanctme.copy.part2" bundle="${motorMsg}" />
+                            <a href="tel:23123123"><fmt:message key="motor.getquote.contanctme.copy.part3" bundle="${motorMsg}" /></a> <fmt:message key="motor.getquote.contanctme.copy.part4" bundle="${motorMsg}" />
                         </p>
                         
                     </div>

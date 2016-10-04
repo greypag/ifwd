@@ -471,118 +471,118 @@ $(document).ready(function(){
                         	e.preventDefault();
                             if (xhr.status == 400) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[400]));
+                            		$("#reasonMsg").text(cnErr[400]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[400]));
+                            		$("#reasonMsg").text(enErr[400]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             if (xhr.status == 405) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[417]));
+                            		$("#reasonMsg").text(cnErr[417]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[417]));
+                            		$("#reasonMsg").text(enErr[417]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 410) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[410]));
+                            		$("#reasonMsg").text(cnErr[410]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[410]));
+                            		$("#reasonMsg").text(enErr[410]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 417) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[417]));
+                            		$("#reasonMsg").text(cnErr[417]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[417]));
+                            		$("#reasonMsg").text(enErr[417]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 406) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[406]));
+                            		$("#reasonMsg").text(cnErr[406]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[406]));
+                            		$("#reasonMsg").text(enErr[406]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 408) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[408]));
+                            		$("#reasonMsg").text(cnErr[408]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[408]));
+                            		$("#reasonMsg").text(enErr[408]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 409) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[409]));
+                            		$("#reasonMsg").text(cnErr[409]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[409]));
+                            		$("#reasonMsg").text(enErr[409]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 410) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[410]));
+                            		$("#reasonMsg").text(cnErr[410]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[410]));
+                            		$("#reasonMsg").text(enErr[410]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 412) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[412]));
+                            		$("#reasonMsg").text(cnErr[412]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[412]));
+                            		$("#reasonMsg").text(enErr[412]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 413) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[413]));
+                            		$("#reasonMsg").text(cnErr[413]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[413]));
+                            		$("#reasonMsg").text(enErr[413]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 414) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[414]));
+                            		$("#reasonMsg").text(cnErr[414]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[414]));
+                            		$("#reasonMsg").text(enErr[414]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 415) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[415]));
+                            		$("#reasonMsg").text(cnErr[415]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[415]));
+                            		$("#reasonMsg").text(enErr[415]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 416) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[416]));
+                            		$("#reasonMsg").text(cnErr[416]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[416]));
+                            		$("#reasonMsg").text(enErr[416]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                             } 
                             else if (xhr.status == 500) {
                             	if(chin)
-                            		$(".generalErrMsg").html($("<small/>").text(cnErr[500]));
+                            		$("#reasonMsg").text(cnErr[500]);
                             	else
-                            		$(".generalErrMsg").html($("<small/>").text(enErr[500]));
+                            		$("#reasonMsg").text(enErr[500]);
                                 $("#contactpopup").modal('show');
                                 console.log(xhr.status, textStatus, errorThrown);
                                 
                             } else {
-                                $(".generalErrMsg").html($("<small/>").text('System error'));
+                                $("#reasonMsg").text('System error');
                                 console.log(xhr.status, textStatus, errorThrown);
                              
                             }
