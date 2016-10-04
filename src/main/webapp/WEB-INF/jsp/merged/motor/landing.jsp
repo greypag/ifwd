@@ -699,6 +699,16 @@
   </a>
  </div>
   
+  
+	<div class="visible-xs col-xs-12 text-center">
+		<p>
+			<small>
+				<fmt:message key="motor.landing.inforgraphic.extracopy1" bundle="${motorMsg}" />
+					<a href="<%=request.getContextPath()%>/resources/pdf/motor/<fmt:message key="motor.landing.inforgraphic.extralink1" bundle="${motorMsg}" />" target="_blank"><fmt:message key="motor.landing.inforgraphic.extracopy2" bundle="${motorMsg}" /></a>
+				<fmt:message key="motor.landing.inforgraphic.extracopy3" bundle="${motorMsg}" />
+			</small>
+		</p>
+	</div>
 </div>
     <div class="container featured no-border">
         <div class="center wow fadeInDown animated" > 
