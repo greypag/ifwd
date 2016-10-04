@@ -9,6 +9,29 @@
         padding-top: 0;
     }
 }
+#hero{
+h1{
+	font-size: 28px;
+}
+h3{
+font-size: 22px;
+}
+.bdr-curve{
+min-width: 0;
+width: 147px;
+padding: 0 15px !important;
+}
+}
+
+#landing-carousel{
+.carousel-control{
+&.right, &.left{
+background: transparent !important;
+}
+color: #333 !important;
+}
+} 
+
 
 .motor-landing #featured > .row > div > .row{
 height: 620px;

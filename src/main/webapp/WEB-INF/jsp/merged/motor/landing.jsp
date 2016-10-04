@@ -21,16 +21,7 @@ position: absolute;
 width: 60px;
 height: 60px;
 }
-#landing-carousel .carousel-control.left{
-background: #909393 !important;
-opacity: 1 !important;
-filter: alpha(opacity=0.5 times 100) !important;
-}
-#landing-carousel .carousel-control.right{
-background: #484c48 !important;
-opacity: 1 !important;
-filter: alpha(opacity=0.5 times 100) !important;
-}
+
 #landing-carousel .fa{
 	text-shadow: none;
     font-size: 200%;
@@ -48,14 +39,7 @@ filter: alpha(opacity=0.5 times 100) !important;
             margin: 0;
             padding: 0 20px;
         }
-        #testimonials{
-       /*     
-       margin-left: -20px;
-            margin-right: -20px;
-            padding-left: 20px;
-            padding-right: 20px;
-            */
-        }
+
     }
 
    #hero #getComprehensive, #hero #getThirdParty{

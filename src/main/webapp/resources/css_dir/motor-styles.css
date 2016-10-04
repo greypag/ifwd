@@ -633,6 +633,16 @@
   .quick-quote .addOn-content {
     height: 145px; } }
 @media screen and (min-width: 992px) {
+  #landing-carousel .carousel-control.left {
+    background: #909393 !important;
+    opacity: 1 !important;
+    filter: alpha(opacity=0.5 times 100) !important; }
+
+  #landing-carousel .carousel-control.right {
+    background: #484c48 !important;
+    opacity: 1 !important;
+    filter: alpha(opacity=0.5 times 100) !important; }
+
   .motor-landing .whole-banner .container {
     width: 970px;
     left: 50%;
@@ -642,7 +652,7 @@
     height: 500px; }
 
   body.chin .motor-landing #featured > .row > div > .row {
-    height: 40px; }
+    height: 400px; }
 
   .plan-panel-content {
     height: 145px; }
@@ -669,6 +679,20 @@
     margin-bottom: 30px !important; }
   .motor-landing .motor-landing .featured.no-border > .row > div > .row {
     padding-top: 0; }
+
+  #hero h1 {
+    font-size: 28px; }
+  #hero h3 {
+    font-size: 22px; }
+  #hero .bdr-curve {
+    min-width: 0;
+    width: 147px;
+    padding: 0 15px !important; }
+
+  #landing-carousel .carousel-control {
+    color: #333 !important; }
+    #landing-carousel .carousel-control.right, #landing-carousel .carousel-control.left {
+      background: transparent !important; }
 
   .motor-landing #featured > .row > div > .row {
     height: 620px; }
