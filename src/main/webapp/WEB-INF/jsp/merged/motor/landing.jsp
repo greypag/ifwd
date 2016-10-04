@@ -93,7 +93,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="row">
                     <div class="col-xs-12">
                         <h1>
-                            <tag:messageDisplay key="motor.landing.page.heading" bundle="${motor}" />
+                            <fmt:message key="motor.landing.page.heading" bundle="${motorMsg}" />
                         </h1>
                     </div>
                 </div>
@@ -102,10 +102,10 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="row">
                     <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                         <h3>
-                            <tag:messageDisplay  key="motor.landing.hero.getquote.label" bundle="${motorMsg}" />
+                            <fmt:message key="motor.landing.hero.getquote.label" bundle="${motorMsg}" />
                         </h3>
-                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><tag:messageDisplay key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
-                        <a id="getThirdParty" class="btn btn-primary bdr-curve light-green-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><tag:messageDisplay key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
+                        <a id="getComprehensive" class="btn btn-primary bdr-curve yellow-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><fmt:message key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
+                        <a id="getThirdParty" class="btn btn-primary bdr-curve light-green-color" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><fmt:message key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@ filter: alpha(opacity=0.5 times 100) !important;
            <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                     <p>
-                        <tag:messageDisplay key="motor.landing.page.content" bundle="${motorMsg}" />
+                        <fmt:message key="motor.landing.page.content" bundle="${motorMsg}" />
                         <br/>
                         <br/>
                         <small>
@@ -128,8 +128,8 @@ filter: alpha(opacity=0.5 times 100) !important;
             </div>
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
-                    <a id="dlProductBrochure" class="" href="<fmt:message key="motor.link.productbrochure" bundle="${motorMsg}" />" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<tag:messageDisplay  key="motor.button.productbrochure" bundle="${motorMsg}" /></a>
-                    <a id="dlPolicyTerms" class="" href="<fmt:message key="motor.link.policyterms" bundle="${motorMsg}" />" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<tag:messageDisplay  key="motor.button.policyterms" bundle="${motorMsg}" /></a>
+                    <a id="dlProductBrochure" class="" href="<fmt:message key="motor.link.productbrochure" bundle="${motorMsg}" />" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="motor.button.productbrochure" bundle="${motorMsg}" /></a>
+                    <a id="dlPolicyTerms" class="" href="<fmt:message key="motor.link.policyterms" bundle="${motorMsg}" />" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="motor.button.policyterms" bundle="${motorMsg}" /></a>
                 </div>
             </div>
         </div>
@@ -145,80 +145,80 @@ filter: alpha(opacity=0.5 times 100) !important;
                                 <thead>
                                     <tr>
                                         <th class="col-xs-6 "></th>
-                                        <th class="col-xs-2  silver text-center yellow-color"><tag:messageDisplay  key="motor.landing.table.header.col1" bundle="${motorMsg}" /></th>
-                                        <th class="col-xs-2  gold text-center orange-color"><tag:messageDisplay  key="motor.landing.table.header.col2" bundle="${motorMsg}" /></th>
-                                        <th class="col-xs-2  gold text-center light-green-color"><tag:messageDisplay  key="motor.landing.table.header.col3" bundle="${motorMsg}" /></th>
+                                        <th class="col-xs-2  silver text-center yellow-color"><fmt:message key="motor.landing.table.header.col1" bundle="${motorMsg}" /></th>
+                                        <th class="col-xs-2  gold text-center orange-color"><fmt:message key="motor.landing.table.header.col2" bundle="${motorMsg}" /></th>
+                                        <th class="col-xs-2  gold text-center light-green-color"><fmt:message key="motor.landing.table.header.col3" bundle="${motorMsg}" /></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><tag:messageDisplay  key="motor.landing.table.row1.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"><tag:messageDisplay  key="motor.landing.table.row1.col1" bundle="${motorMsg}" /></td>
-                                        <td class="text-center orange-border"><tag:messageDisplay  key="motor.landing.table.row1.col2" bundle="${motorMsg}" /></td>
-                                        <td class="text-center light-green-border"><tag:messageDisplay  key="motor.landing.table.row1.col3" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row1.copy" bundle="${motorMsg}" /></td>
+                                        <td class="text-center yellow-border"><fmt:message key="motor.landing.table.row1.col1" bundle="${motorMsg}" /></td>
+                                        <td class="text-center orange-border"><fmt:message key="motor.landing.table.row1.col2" bundle="${motorMsg}" /></td>
+                                        <td class="text-center light-green-border"><fmt:message key="motor.landing.table.row1.col3" bundle="${motorMsg}" /></td>
                                     </tr>
                                     <tr>
-                                        <td><tag:messageDisplay  key="motor.landing.table.row2.copy" bundle="${motorMsg}" /></td>
-                                        <td class="text-center yellow-border"><tag:messageDisplay  key="motor.landing.table.row2.col1" bundle="${motorMsg}" /></td>
-                                        <td class="text-center orange-border"><tag:messageDisplay  key="motor.landing.table.row2.col2" bundle="${motorMsg}" /></td>
-                                        <td class="text-center light-green-border"><tag:messageDisplay  key="motor.landing.table.row2.col3" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row2.copy" bundle="${motorMsg}" /></td>
+                                        <td class="text-center yellow-border"><fmt:message key="motor.landing.table.row2.col1" bundle="${motorMsg}" /></td>
+                                        <td class="text-center orange-border"><fmt:message key="motor.landing.table.row2.col2" bundle="${motorMsg}" /></td>
+                                        <td class="text-center light-green-border"><fmt:message key="motor.landing.table.row2.col3" bundle="${motorMsg}" /></td>
                                     </tr>
                                     <tr>
-                                        <td><tag:messageDisplay  key="motor.landing.table.row3.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row3.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row4.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row4.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row5.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row5.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row6.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row6.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row7.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row7.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row8.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row8.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row9.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row9.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row10.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row10.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row11.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row11.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
                                     </tr>
                                     <tr class="hidden">
-                                        <td><tag:messageDisplay  key="motor.landing.table.row12.copy" bundle="${motorMsg}" /></td>
+                                        <td><fmt:message key="motor.landing.table.row12.copy" bundle="${motorMsg}" /></td>
                                         <td class="text-center yellow-border"></td>
                                         <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                         <td class="text-center light-green-border"></td>
@@ -226,7 +226,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                     <tr>
                                         <td colspan=4 class="text-center">
                                             <br />
-                                            <a id="seeMore" href="javascript:;"><i class="fa fa-caret-down" aria-hidden="true"></i>&nbsp;&nbsp;<tag:messageDisplay  key="motor.button.seemorecoverage" bundle="${motorMsg}" /></a>
+                                            <a id="seeMore" href="javascript:;"><i class="fa fa-caret-down" aria-hidden="true"></i>&nbsp;&nbsp;<fmt:message key="motor.button.seemorecoverage" bundle="${motorMsg}" /></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -242,13 +242,13 @@ filter: alpha(opacity=0.5 times 100) !important;
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th class="col-xs-2  silver text-center yellow-color"><tag:messageDisplay  key="motor.landing.table.header.col1" bundle="${motorMsg}" /></th>
+                                            <th class="col-xs-2  silver text-center yellow-color"><fmt:message key="motor.landing.table.header.col1" bundle="${motorMsg}" /></th>
                                         </tr>
                                         <tr>
-                                            <th class="col-xs-2  gold text-center orange-color"><tag:messageDisplay  key="motor.landing.table.header.col2" bundle="${motorMsg}" /></th>
+                                            <th class="col-xs-2  gold text-center orange-color"><fmt:message key="motor.landing.table.header.col2" bundle="${motorMsg}" /></th>
                                         </tr>
                                         <tr>
-                                            <th class="col-xs-2  gold text-center light-green-color"><tag:messageDisplay  key="motor.landing.table.header.col3" bundle="${motorMsg}" /></th>
+                                            <th class="col-xs-2  gold text-center light-green-color"><fmt:message key="motor.landing.table.header.col3" bundle="${motorMsg}" /></th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -261,7 +261,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                 <th>
                                                     <div class="row">
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row1.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row1.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-2">
                                                             <a class="nxt" href="javascript:;">
@@ -278,7 +278,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row2.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row2.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -295,7 +295,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row3.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row3.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -312,7 +312,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row4.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row4.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -329,7 +329,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row5.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row5.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -346,7 +346,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row6.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row6.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -363,7 +363,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row7.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row7.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -380,7 +380,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row8.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row8.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -397,7 +397,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row9.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row9.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -414,7 +414,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row10.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row10.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -431,7 +431,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row11.copy" bundle="${motorMsg}" />      
+                                                            <fmt:message key="motor.landing.table.row11.copy" bundle="${motorMsg}" />      
                                                         </div>
                                                         <div class="col-xs-1">
                                                             <a class="nxt" href="javascript:;">
@@ -448,7 +448,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                             </a>
                                                         </div>
                                                         <div class="col-xs-10">
-                                                            <tag:messageDisplay  key="motor.landing.table.row12.copy" bundle="${motorMsg}" />        
+                                                            <fmt:message key="motor.landing.table.row12.copy" bundle="${motorMsg}" />        
                                                         </div>
                                                     </div>
                                                 </th>
@@ -456,8 +456,8 @@ filter: alpha(opacity=0.5 times 100) !important;
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center yellow-border"><tag:messageDisplay  key="motor.landing.table.row1.col1" bundle="${motorMsg}" /></td>
-                                                <td class="text-center yellow-border"><tag:messageDisplay  key="motor.landing.table.row2.col1" bundle="${motorMsg}" /></td>
+                                                <td class="text-center yellow-border"><fmt:message key="motor.landing.table.row1.col1" bundle="${motorMsg}" /></td>
+                                                <td class="text-center yellow-border"><fmt:message key="motor.landing.table.row2.col1" bundle="${motorMsg}" /></td>
                                                 <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center yellow-border"></td>
@@ -470,8 +470,8 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                 <td class="text-center yellow-border"></td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center orange-border"><tag:messageDisplay  key="motor.landing.table.row1.col2" bundle="${motorMsg}" /></td>
-                                                <td class="text-center orange-border"><tag:messageDisplay  key="motor.landing.table.row2.col2" bundle="${motorMsg}" /></td>
+                                                <td class="text-center orange-border"><fmt:message key="motor.landing.table.row1.col2" bundle="${motorMsg}" /></td>
+                                                <td class="text-center orange-border"><fmt:message key="motor.landing.table.row2.col2" bundle="${motorMsg}" /></td>
                                                 <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
@@ -484,8 +484,8 @@ filter: alpha(opacity=0.5 times 100) !important;
                                                 <td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
                                             </tr>
                                             <tr>
-                                                <td class="text-center light-green-border"><tag:messageDisplay  key="motor.landing.table.row1.col3" bundle="${motorMsg}" /></td>
-                                                <td class="text-center light-green-border"><tag:messageDisplay  key="motor.landing.table.row2.col3" bundle="${motorMsg}" /></td>
+                                                <td class="text-center light-green-border"><fmt:message key="motor.landing.table.row1.col3" bundle="${motorMsg}" /></td>
+                                                <td class="text-center light-green-border"><fmt:message key="motor.landing.table.row2.col3" bundle="${motorMsg}" /></td>
                                                 <td class="text-center light-green-border"></td>
                                                 <td class="text-center light-green-border"></td>
                                                 <td class="text-center light-green-border"></td>
@@ -512,10 +512,10 @@ filter: alpha(opacity=0.5 times 100) !important;
     <div class="container featured" id="featured">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><tag:messageDisplay  key="motor.landing.features.heading" bundle="${motorMsg}" /></h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.landing.features.heading" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><tag:messageDisplay  key="motor.landing.features.heading" bundle="${motorMsg}" /></h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.landing.features.heading" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row">
@@ -523,7 +523,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="row">
                     <div class="col-xs-4 col-sm-12">
                         <div class="title hidden-xs" >
-                            <tag:messageDisplay  key="motor.landing.features.1.title" bundle="${motorMsg}" />
+                            <fmt:message key="motor.landing.features.1.title" bundle="${motorMsg}" />
                         </div>
                         <div class="thumbnail">
                             <img src="<%=request.getContextPath()%>/resources/images/motor/safety-driver-bouns.png" alt="" />
@@ -531,11 +531,11 @@ filter: alpha(opacity=0.5 times 100) !important;
                     </div>
                     <div class="col-xs-8 col-sm-12">
                         <div class="title visible-xs" >
-                            <tag:messageDisplay  key="motor.landing.features.1.title" bundle="${motorMsg}" />
+                            <fmt:message key="motor.landing.features.1.title" bundle="${motorMsg}" />
                         </div>
                         <div class="content">
                             <p>
-                             <tag:messageDisplay  key="motor.landing.features.1.copy" bundle="${motorMsg}" />
+                             <fmt:message key="motor.landing.features.1.copy" bundle="${motorMsg}" />
                             </p>
                         </div>
                     </div>
@@ -545,7 +545,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="row">
                     <div class="col-xs-4 col-sm-12">
                         <div class="title hidden-xs" >
-                            <tag:messageDisplay  key="motor.landing.features.2.title" bundle="${motorMsg}" />
+                            <fmt:message key="motor.landing.features.2.title" bundle="${motorMsg}" />
                         </div>
                         <div class="thumbnail">
                             <img src="<%=request.getContextPath()%>/resources/images/motor/mobile-coverage.png" alt="" />
@@ -553,11 +553,11 @@ filter: alpha(opacity=0.5 times 100) !important;
                     </div>
                     <div class="col-xs-8 col-sm-12">
                         <div class="title visible-xs" >
-                            <tag:messageDisplay  key="motor.landing.features.2.title" bundle="${motorMsg}" />
+                            <fmt:message key="motor.landing.features.2.title" bundle="${motorMsg}" />
                         </div>
                         <div class="content">
                             <p>
-                                <tag:messageDisplay  key="motor.landing.features.2.copy" bundle="${motorMsg}" />
+                                <fmt:message key="motor.landing.features.2.copy" bundle="${motorMsg}" />
                             </p>
                         </div>
                     </div>
@@ -567,7 +567,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="row">
                     <div class="col-xs-4 col-sm-12">
                         <div class="title hidden-xs" >
-                            <tag:messageDisplay  key="motor.landing.features.3.title" bundle="${motorMsg}" />
+                            <fmt:message key="motor.landing.features.3.title" bundle="${motorMsg}" />
                         </div>
                         <div class="thumbnail">
                             <img src="<%=request.getContextPath()%>/resources/images/motor/Telematics-Promotion.png" alt="" />
@@ -575,12 +575,12 @@ filter: alpha(opacity=0.5 times 100) !important;
                     </div>
                     <div class="col-xs-8 col-sm-12">
                         <div class="title visible-xs" >
-                            <tag:messageDisplay  key="motor.landing.features.3.title" bundle="${motorMsg}" />
+                            <fmt:message key="motor.landing.features.3.title" bundle="${motorMsg}" />
                         </div>
                         <div class="content">
                             <p>
-                                <tag:messageDisplay  key="motor.landing.features.3.copy" bundle="${motorMsg}" /><a href="#landing-carousel">
-                            <tag:messageDisplay  key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
+                                <fmt:message key="motor.landing.features.3.copy" bundle="${motorMsg}" /><a href="#landing-carousel">
+                            <fmt:message key="motor.landing.features.1.extracopy1" bundle="${motorMsg}" />
                             </a>
                             </p>
                         </div>
@@ -590,7 +590,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                                 <div class="col-xs-12 text-center">
                                                 <p>
                             <small>
-                            <tag:messageDisplay  key="motor.landing.features.1.extracopy2" bundle="${motorMsg}" />
+                            <fmt:message key="motor.landing.features.1.extracopy2" bundle="${motorMsg}" />
                         <a href="<%=request.getContextPath()%>/resources/pdf/motor/<fmt:message key="motor.landing.features.1.extralink2" bundle="${motorMsg}" />" target="_blank"><fmt:message key="motor.landing.features.1.extracopy3" bundle="${motorMsg}" /></a>
                         <fmt:message key="motor.landing.features.1.extracopy4" bundle="${motorMsg}" />
                                                     </small>
@@ -639,10 +639,10 @@ filter: alpha(opacity=0.5 times 100) !important;
     <div class="container featured no-border">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><tag:messageDisplay  key="motor.landing.addition.heading" bundle="${motorMsg}" /></h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.landing.addition.heading" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><tag:messageDisplay  key="motor.landing.addition.heading" bundle="${motorMsg}" /></h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.landing.addition.heading" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row">
@@ -652,7 +652,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                         <div class="row">
                             <div class="col-xs-4 col-sm-12">
                                 <div class="title hidden-xs" >
-                                    <tag:messageDisplay  key="motor.landing.addition.addition1.title" bundle="${motorMsg}" />
+                                    <fmt:message key="motor.landing.addition.addition1.title" bundle="${motorMsg}" />
                                 </div>
                                 <div class="thumbnail">
                                     <img src="<%=request.getContextPath()%>/resources/images/motor/personal-acc.png" alt="" />
@@ -660,11 +660,11 @@ filter: alpha(opacity=0.5 times 100) !important;
                             </div>
                             <div class="col-xs-8 col-sm-12">
                                 <div class="title visible-xs" >
-                                    <tag:messageDisplay  key="motor.landing.addition.addition1.title" bundle="${motorMsg}" />
+                                    <fmt:message key="motor.landing.addition.addition1.title" bundle="${motorMsg}" />
                                 </div>
                                 <div class="content">
                                     <p>
-                                        <tag:messageDisplay  key="motor.landing.addition.addition1.copy" bundle="${motorMsg}" />
+                                        <fmt:message key="motor.landing.addition.addition1.copy" bundle="${motorMsg}" />
                                     </p>
                                 </div>
                             </div>
@@ -674,7 +674,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                         <div class="row">
                             <div class="col-xs-4 col-sm-12">
                                 <div class="title hidden-xs" >
-                                    <tag:messageDisplay  key="motor.landing.addition.addition2.title" bundle="${motorMsg}" />
+                                    <fmt:message key="motor.landing.addition.addition2.title" bundle="${motorMsg}" />
                                 </div>
                                 <div class="thumbnail">
                                     <img src="<%=request.getContextPath()%>/resources/images/motor/Benefits.png" alt="" />
@@ -682,11 +682,11 @@ filter: alpha(opacity=0.5 times 100) !important;
                             </div>
                             <div class="col-xs-8 col-sm-12">
                                 <div class="title visible-xs" >
-                                    <tag:messageDisplay  key="motor.landing.addition.addition2.title" bundle="${motorMsg}" />
+                                    <fmt:message key="motor.landing.addition.addition2.title" bundle="${motorMsg}" />
                                 </div>
                                 <div class="content">
                                     <p>
-                                        <tag:messageDisplay  key="motor.landing.addition.addition2.copy" bundle="${motorMsg}" />
+                                        <fmt:message key="motor.landing.addition.addition2.copy" bundle="${motorMsg}" />
                                     </p>
                                 </div>
                             </div>
@@ -734,10 +734,10 @@ filter: alpha(opacity=0.5 times 100) !important;
     <div class="container hidden" >
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><tag:messageDisplay  key="motor.landing.partnership.heading" bundle="${motorMsg}" /></h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.landing.partnership.heading" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><tag:messageDisplay  key="motor.landing.partnership.heading" bundle="${motorMsg}" /></h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.landing.partnership.heading" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row text-center">
@@ -757,18 +757,18 @@ filter: alpha(opacity=0.5 times 100) !important;
         <div class="row bottom">
             <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <h3>
-                    <tag:messageDisplay  key="motor.landing.hero.getquote.label" bundle="${motorMsg}" />
+                    <fmt:message key="motor.landing.hero.getquote.label" bundle="${motorMsg}" />
                 </h3>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="row button-group">
                             <div class="col-xs-6 text-right">
-                                <a id="getComprehensive" class=" btn btn-primary bdr-curve nxt-btn" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><tag:messageDisplay key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
+                                <a id="getComprehensive" class=" btn btn-primary bdr-curve nxt-btn" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=comp"><fmt:message key="motor.landing.hero.getquote.comprehensive" bundle="${motorMsg}" /></a>
                                 <br />
                                 <br />
                             </div>    
                             <div class="col-xs-6 text-left">
-                                <a id="getThirdParty" class="btn btn-primary bdr-curve nxt-btn" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><tag:messageDisplay  key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
+                                <a id="getThirdParty" class="btn btn-primary bdr-curve nxt-btn" href="<%=request.getContextPath()%>/${language}/motor-insurance/get-quote?plan=third"><fmt:message key="motor.landing.hero.getquote.thirdparty" bundle="${motorMsg}" /></a>
                                 <br />
                                 <br />
                             </div>    
@@ -782,10 +782,10 @@ filter: alpha(opacity=0.5 times 100) !important;
     <div class="container">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><tag:messageDisplay  key="motor.landing.tips.heading" bundle="${motorMsg}" /></h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.landing.tips.heading" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><tag:messageDisplay  key="motor.landing.tips.heading" bundle="${motorMsg}" /></h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.landing.tips.heading" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row read-more-blog">
@@ -793,9 +793,9 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="hovereffect">
                     <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/1st_blog_image.jpg" alt="">
                     <div class="overlay ">
-                        <h2><tag:messageDisplay  key="motor.landing.tips.1.title" bundle="${motorMsg}" /></h2>
+                        <h2><fmt:message key="motor.landing.tips.1.title" bundle="${motorMsg}" /></h2>
                         <div class="hidden-xs">
-                        <a class="info" href='<tag:messageDisplay  key="motor.landing.tips.1.link" bundle="${motorMsg}" />'><tag:messageDisplay  key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <a class="info" href='<fmt:message key="motor.landing.tips.1.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                         </div>
                     </div>
                 </div>
@@ -804,7 +804,7 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="row text-center">
                     <div class="col-xs-4 col-xs-offset-4">
                         <br />
-                        <a class="info visible-xs btn btn-primary bdr-curve" href='<tag:messageDisplay  key="motor.landing.tips.1.link" bundle="${motorMsg}" />'><tag:messageDisplay  key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <a class="info visible-xs btn btn-primary bdr-curve" href='<fmt:message key="motor.landing.tips.1.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
 
@@ -814,8 +814,8 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="hovereffect">
                     <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/2nd_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2><tag:messageDisplay  key="motor.landing.tips.2.title" bundle="${motorMsg}" /></h2>
-                        <a class="info" href='<tag:messageDisplay  key="motor.landing.tips.2.link" bundle="${motorMsg}" />'><tag:messageDisplay  key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <h2><fmt:message key="motor.landing.tips.2.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.landing.tips.2.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
@@ -823,8 +823,8 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="hovereffect">
                     <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/3rd_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2><tag:messageDisplay  key="motor.landing.tips.3.title" bundle="${motorMsg}" /></h2>
-                        <a class="info" href='<tag:messageDisplay  key="motor.landing.tips.3.link" bundle="${motorMsg}" />'><tag:messageDisplay  key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <h2><fmt:message key="motor.landing.tips.3.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.landing.tips.3.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
@@ -832,8 +832,8 @@ filter: alpha(opacity=0.5 times 100) !important;
                 <div class="hovereffect">
                     <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/4th_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2><tag:messageDisplay  key="motor.landing.tips.4.title" bundle="${motorMsg}" /></h2>
-                        <a class="info" href='<tag:messageDisplay  key="motor.landing.tips.4.link" bundle="${motorMsg}" />'><tag:messageDisplay  key="motor.button.readmore" bundle="${motorMsg}" /></a>
+                        <h2><fmt:message key="motor.landing.tips.4.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.landing.tips.4.link" bundle="${motorMsg}" />'><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
