@@ -22,6 +22,7 @@ package com.ifwd.fwdhk.services;
 import com.fasterxml.classmate.TypeResolver;
 import com.ifwd.fwdhk.controller.MemberController;
 import com.ifwd.fwdhk.controller.MotorCareController;
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
 
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +65,7 @@ import static springfox.documentation.schema.AlternateTypeRules.*;
 public class SwaggerConfig {
 
   @Bean
-  public Docket petApi() {
+  public Docket fwdApi() {
     return new Docket(DocumentationType.SWAGGER_2)
         .select()
           .apis(RequestHandlerSelectors.any())
@@ -87,6 +88,7 @@ public class SwaggerConfig {
                 .build()))
         .securitySchemes(newArrayList(apiKey()))
         .securityContexts(newArrayList(securityContext()))
+        .enable(UserRestURIConstants.isSwaggerUiEnable())
         ;
   }
 

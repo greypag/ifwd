@@ -47,6 +47,17 @@ public class ConfigBean {
 
 	@Value("#{configProperties['isContentEditable']?:false}")
 	private boolean isContentEditable;
+
+	@Value("#{configProperties['isSwaggerUiEnable']?:false}")
+	private boolean isSwaggerUiEnable;
+
+	public boolean getIsSwaggerUiEnable() {
+		return this.isSwaggerUiEnable;
+	}
+	
+	public void setIsSwaggerUiEnable(boolean isSwaggerUiEnable) {
+		this.isSwaggerUiEnable = isSwaggerUiEnable;
+	}
 	
 	public boolean getIsContentEditable() {
 		return this.isContentEditable;

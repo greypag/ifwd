@@ -593,6 +593,10 @@ public class UserRestURIConstants {
 	public static boolean isContentEditable() {
 		return ((ConfigBean)obj).getIsContentEditable();
 	}
+
+	public static boolean isSwaggerUiEnable() {
+		return ((ConfigBean)obj).getIsSwaggerUiEnable();
+	}
 	
 	public static String getController() {
 		return controller;
