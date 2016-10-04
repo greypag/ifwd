@@ -51,13 +51,24 @@ color: #fff;
     .plan-panel:first-of-type > div {
     margin-right: 15px;
     }
- .plan-panel > div {
-    margin-right: 0 ;
-	}
+    .planbox-wrapper.dark-green-color .plan-panel-content{
+    height: 240px;
+    }
+      .chin .planbox-wrapper.dark-green-color .plan-panel-content{
+    height: 200px;
+    }
+
     }
 
     
     @media screen and (max-width: 991px){
+      .planbox-wrapper.dark-green-color .plan-panel-content{
+    height: 400px;
+    }
+     .chin .planbox-wrapper.dark-green-color .plan-panel-content{
+    height: 250px;
+    }
+    
         .motor-select-plan2 > .container:first-of-type{
             background: #1f4146;
         }
@@ -69,8 +80,20 @@ color: #fff;
     margin-left: 0;
     margin-right: 0;
 }
+ .plan-panel > .red-color {
+  margin-right: 0;
+ }
+
 
     }
+    
+      @media screen and (max-width: 767px){
+      
+       .plan-panel > .red-color {
+  margin-left: 0;
+ }
+ 
+ }
 
 </style>
 
