@@ -27,19 +27,19 @@ var home_url = "<%=request.getContextPath()%>";
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
   
-  <!-- Breadcrumb Component Start-->
-
-      <c:set var="breadcrumbItems">
-          breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
-      </c:set>
-        <c:set var="breadcrumbActive">4</c:set>
-      
-      <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
-        <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
-        <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
-    </jsp:include>
-
-  <!-- Breadcrumb Component End-->
+	<!-- Breadcrumb Component Start-->
+	<div class="container container-fluid container--breadcrumb">
+		<c:set var="breadcrumbItems">
+		    breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+		</c:set>
+		  <c:set var="breadcrumbActive">4</c:set>
+		
+		<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+		  <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+		  <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+		</jsp:include>
+	</div>
+	<!-- Breadcrumb Component End-->
 
   <!-- StepIndicator Component Start-->
 

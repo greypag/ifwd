@@ -15,9 +15,9 @@ var nextPage = "${nextPageFlow}";
 
 <div class="motor-form-wrap quick-quote">
 <section id="" class="motor-select-plan">
-    <div class="container container-fluid breadcrumbs motor pad-0">
-        <!-- Breadcrumb Component Start-->
-
+    
+    <!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
             breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.get.quote
         </c:set>
@@ -27,9 +27,9 @@ var nextPage = "${nextPageFlow}";
             <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
             <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
         </jsp:include>
-
-        <!-- Breadcrumb Component End-->
     </div>
+    <!-- Breadcrumb Component End-->
+
     <div class="container">
         <div class="center" > 
             <!--desktop-->
@@ -244,20 +244,25 @@ var nextPage = "${nextPageFlow}";
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                     <div class="row">
                         <div class="col-xs-6">
-                            <span class="ci" id="yourQuoteTitle">Quoted Price</span>
+                            <span class="ci" id="yourQuoteTitle"></span>
                         </div>
+                        
                         <div class="col-xs-6 text-right">
+                        <!--
                             <span>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
-                                </span><span id="yourQuotefromPrice"></span>
+                                </span>
+                                
+                                <span id="yourQuotefromPrice"></span>
                                 <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
-
+                               
+                                -->
                         </div>
                         <div class="col-xs-12">
                             <br/>
                         </div>
                         <div class="col-xs-12 summary__addOn hidden">
-                            <strong>Add On:</strong> 
+                            <strong><fmt:message key="motor.label.addontable" bundle="${motorMsg}" /></strong> 
                         </div>
                         <div class="col-xs-6 summary__addOn1 hidden">
                            
@@ -281,6 +286,15 @@ var nextPage = "${nextPageFlow}";
                             </strong>
                         </div>
                         <div class="clearfix"></div>
+                        <div class="col-xs-12">
+                        <p>
+                        <br>
+                        <br>
+                        <small>
+                        <fmt:message key="motor.quickquote.document.disclamier.copy" bundle="${motorMsg}" />
+                        </small>
+                        </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -298,7 +312,7 @@ var nextPage = "${nextPageFlow}";
     </div>
     <div class="modal-dialog modal-lg">
         <div class="modal-content plan-modal">
-            <div class=""><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class=""><a class="close overlay__close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="contact-us-wrap">
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 plan-panel">
@@ -383,7 +397,7 @@ var nextPage = "${nextPageFlow}";
                                           <div class="help-block-wrap">
                                  <select class="form-control" id="perferedDate" data-required-error='<fmt:message key="motor.error.msg.calltime.empty" bundle="${motorMsg}" />' name="perferedDate">
                                         <option value="anytime" disabled selected hidden><fmt:message key="motor.quickquote.contactme.form.prefereddate" bundle="${motorMsg}" /></option>
-                                        <option value="Anytime">Anytime</option>
+                                        <option value="Anytime"><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.0" bundle="${motorMsg}" /></option>
                                         <option value="Morning" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.1" bundle="${motorMsg}" /></option>
                                          <option value="Afternoon" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.2" bundle="${motorMsg}" /></option>
                                             <option value="Evening" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.3" bundle="${motorMsg}" /></option>
@@ -450,10 +464,35 @@ var nextPage = "${nextPageFlow}";
             totalDue = parseFloat(motorPrice[planType].amountDueAmount);
             addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
             addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+console.log(motorPrice);
+console.log(quote);
+if($('body').hasClass('chin')){
+if(quote.planCode=="Comp"){
+ if(quote.compPlan=="Gold")
+ $('#yourQuoteTitle').html('綜合保險(金)');
+else
+ $('#yourQuoteTitle').html('綜合保險(銀)');
+}
+else
+$('#yourQuoteTitle').html('第三者保險');
+}
+else{
+if(quote.planCode=="Comp"){
+ if(quote.compPlan=="Gold")
+ $('#yourQuoteTitle').html('Comprehensive Gold');
+else
+ $('#yourQuoteTitle').html('Comprehensive Silver');
+}
+else
+$('#yourQuoteTitle').html('Third Party');
+}
+
+
+ 
 
             $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
             $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
-            $('#yourQuotefromPrice').html(formatCurrency(totalDue));
+         //   $('#yourQuotefromPrice').html(formatCurrency(totalDue));
             updateTotalDue(totalDue);
         });
 
@@ -470,13 +509,11 @@ var nextPage = "${nextPageFlow}";
             if($this.is(':checked')){
                 $('.summary__addOn2').removeClass('hidden');
 				$('.summary__addOn').removeClass('hidden');
-                toggleSummaryAddOn();
             }
             else{
             	$('.summary__addOn2').addClass('hidden');
                	if($('.summary__addOn1').hasClass('hidden'))
      				$('.summary__addOn').addClass('hidden');
-                toggleSummaryAddOn();
             }
 		});
 		$('#addOnPaAmtClick').click(function() {
@@ -489,13 +526,11 @@ var nextPage = "${nextPageFlow}";
             if($this.is(':checked')){
                 $('.summary__addOn1').removeClass('hidden');
 				$('.summary__addOn').removeClass('hidden');
-                toggleSummaryAddOn();
             }
             else{
                 $('.summary__addOn1').addClass('hidden');
                 if($('.summary__addOn2').hasClass('hidden'))
      				$('.summary__addOn').addClass('hidden');
-                toggleSummaryAddOn();
             }
         });
 		

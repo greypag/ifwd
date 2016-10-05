@@ -45,7 +45,9 @@
     color: #ccc;
 }
 .mdl-textfield--floating-label.is-dirty .mdl-textfield__label{
-display: none;
+    color: #ff8200;
+    font-size: 12px !important;
+    top: 1px !important;
 }
 
     .help-block-wrap{

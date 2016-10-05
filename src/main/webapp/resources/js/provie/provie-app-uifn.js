@@ -1159,14 +1159,15 @@ function bsvFormRegister(form){
 				error:function(xhr, textStatus, errorThrown){
 
 					var resp = {message:"Unknown Error"};
-					
-					try{
-						resp = $.parseJSON(xhr.responseText);
-					}catch(e){
-						
-					}
+					$(".regPanErrMsg").text('');
+                    if (xhr.status == 406) {
+                    	$(".regPanErrMsg").append($("<small/>").text(getBundle(getBundleLanguage, "member.registration.fail.username.registered")));
+                    } else if (xhr.status == 409) {
+                    	$(".regPanErrMsg").append($("<small/>").text(getBundle(getBundleLanguage, "member.registration.fail.emailMobile.registered")));
+                    } else {
+    					$(".regPanErrMsg").append($("<small/>").text(resp.message));	
+                    }
 
-					$(".regPanErrMsg").append($("<small/>").text(resp.message));	
 					$("#loading-overlay").modal("hide");
 			    },
 			    success:function(response){

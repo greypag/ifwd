@@ -90,8 +90,87 @@
 
 	</head>
 
-	<body class="<%=langBodyClass%>">
+	<body class="<%=langBodyClass%> <% if(request.getAttribute("controller") != null && request.getAttribute("controller").toString()=="Motor"){ %>motor-Body<% } %>">
+<%
+	if (com.ifwd.fwdhk.controller.UserRestURIConstants.isContentEditable()) {
+%>
+<small>Enable Browse?<input type=checkbox id=cmsIsDefault></small>
+<div id=editPanel style="z-index:99; display:none; background-color:yellow; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px">
+<textarea id=cmsContent cols=50 rows=5></textarea><br>
+<button id=cmsUpdate>Update</button><button id=cmsCancel>Cancel</button><button id=cmsExport>Export</button><br>
+<textarea id=cmsExportContent cols=50 rows=3 style="display: none"></textarea><br>
+</div>
+<script language="javascript">
 
+var control;
+var tagsKey = [];
+var tagsValue = [];
+
+$(document).ready(function(){
+  var j = 0;
+  $( "tag" ).each(function( i ) {
+      tagsKey[j] = $( this ).attr("key");
+      tagsValue[j] = $( this ).html();
+      j++;
+  })
+  alert('Content Loaded');
+});
+
+$( "#cmsCancel" ).click(function() {
+	  $( "#cmsExportContent" ).hide();
+	  $( '#editPanel' ).hide();  
+});
+
+
+$( "#cmsUpdate" ).click(function() {
+  control.html($( "#cmsContent" ).val());
+  var i;
+  for (i=0; i<tagsKey.length; i++) {
+      if (tagsKey[i]==control.attr("key")) {
+          tagsValue[i] = $( "#cmsContent" ).val();
+      }
+  }
+  $( "#cmsExportContent" ).hide();
+  $( '#editPanel' ).hide();  
+});
+
+$( "#cmsExport" ).click(function() {
+  var content;
+  $( "#cmsExportContent" ).show();
+  $( "#cmsExportContent" ).html("");
+  var i;
+  for (i=0; i<tagsKey.length; i++) {
+      content = $( "#cmsExportContent" ).html(); 
+      if (content.length > 0) {
+          content += "\n";
+      }
+      $( "#cmsExportContent" ).html(content + tagsKey[i] + "=" + tagsValue[i]);
+  }
+});
+
+$( "body" ).click(function( event ) {
+	if (event.target.id != 'cmsContent' && event.target.id != 'cmsExport' && event.target.id != 'cmsIsDefault' && event.target.id != 'cmsUpdate' && event.target.id != 'cmsExportContent') {
+		if (!$( '#cmsIsDefault' ).is(':checked')) {
+		    event.preventDefault();    
+		}
+	    control = $( event.target );
+		for (i=0; i<tagsKey.length; i++) {
+		    if (tagsKey[i]==control.attr("key")) {
+		 		$( '#editPanel' ).show();
+			$( '#editPanel' ).css('left', event.pageX);      // <<< use pageX and pageY
+			$( '#editPanel' ).css('top', event.pageY);
+			$( '#editPanel' ).css('display', 'inline');     
+			$( '#editPanel' ).css("position", "absolute");  // <<< also make it absolute!
+			$( "#cmsContent" ).val( event.target.innerHTML );
+		    }
+		}
+	}
+});
+
+</script>
+<%
+	}
+%>
 	<%-- GTM Scripts--%>
 		<%@ include file="include/shared/google_tag_manager.jsp"%>
 	<%-- End GTM Scripts--%>

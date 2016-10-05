@@ -44,7 +44,29 @@ public class ConfigBean {
 	
 	@Value("#{configProperties['tagGoUrl']}")
 	private String tagGoUrl;
+
+	@Value("#{configProperties['isContentEditable']?:false}")
+	private boolean isContentEditable;
+
+	@Value("#{configProperties['isSwaggerUiEnable']?:false}")
+	private boolean isSwaggerUiEnable;
+
+	public boolean getIsSwaggerUiEnable() {
+		return this.isSwaggerUiEnable;
+	}
 	
+	public void setIsSwaggerUiEnable(boolean isSwaggerUiEnable) {
+		this.isSwaggerUiEnable = isSwaggerUiEnable;
+	}
+	
+	public boolean getIsContentEditable() {
+		return this.isContentEditable;
+	}
+	
+	public void setIsContentEditable(boolean isContentEditable) {
+		this.isContentEditable = isContentEditable;
+	}
+
 	public String getUrl_SZWS() {
 		return Url_SZWS;
 	}

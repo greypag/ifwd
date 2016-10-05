@@ -30,7 +30,7 @@ var home_url = "<%=request.getContextPath()%>";
     </script>
     
     <!-- Breadcrumb Component Start-->
-  
+    <div class="container container-fluid container--breadcrumb">
     	<c:set var="breadcrumbItems">
     		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 		</c:set>
@@ -40,7 +40,7 @@ var home_url = "<%=request.getContextPath()%>";
 	    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
 	    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
 		</jsp:include>
-
+	</div>
 	<!-- Breadcrumb Component End-->
  
 	<!-- StepIndicator Component Start-->

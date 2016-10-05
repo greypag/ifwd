@@ -36,20 +36,20 @@
 	<!-- HEADER -->
 
 	<!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
+		<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
+		<c:set var="breadcrumbActive" value="0"/>
 
-	<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
-	<c:set var="breadcrumbActive" value="0"/>
+		<c:set var="breadcrumbItems">
+			breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.provie,breadcrumb.item.plan.details
+		</c:set>
+		<c:set var="breadcrumbActive">3</c:set>
 
-	<c:set var="breadcrumbItems">
-		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.provie,breadcrumb.item.plan.details
-	</c:set>
-	<c:set var="breadcrumbActive">3</c:set>
-
-	<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
-		<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
-		<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
-	</jsp:include>
-
+		<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+			<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+			<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+		</jsp:include>
+	</div>
 	<!-- Breadcrumb Component End-->
 
 	<!-- StepIndicator Component Start-->

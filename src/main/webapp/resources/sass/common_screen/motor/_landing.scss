@@ -1,3 +1,41 @@
+#landing-carousel{
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{
+width: 100%;
+}
+}
+#landing-carousel .carousel-control-wrap{
+	position: relative;
+	    width: 120px;
+    float: right;
+top: -60px;
+}
+
+#landing-carousel .carousel-control{
+position: absolute;
+width: 60px;
+height: 60px;
+}
+
+#landing-carousel .fa{
+	text-shadow: none;
+    font-size: 200%;
+    line-height: 1.5;
+}
+
+    .quote-form-wrapper{
+        margin: 0 15px;
+    }
+    .q5:last-of-type{
+        margin-bottom: 30px;
+    }
+    
+       #hero #getComprehensive, #hero #getThirdParty{
+    	white-space: initial;
+    }
+    
+    #landing-carousel{
+    padding-top: 50px;
+    }
 .table-responsive{
     border: none;
 }

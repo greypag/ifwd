@@ -558,7 +558,7 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
             </div>
 
-            <div class="pv_sec_calculator">
+            <!--div class="pv_sec_calculator">
             	<div class="container">
             		<div class="row">
             			<div class="col-xs-12">
@@ -674,7 +674,7 @@ var home_url = "<%=request.getContextPath()%>";
 
             		</div>
             	</div>
-            </div>
+            </div-->
 
 			<div class="pv_plan">
 				<div class="container">

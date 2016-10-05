@@ -1,14 +1,25 @@
+#landing-carousel .carousel-control.left{
+background: #909393 !important;
+opacity: 1 !important;
+filter: alpha(opacity=0.5 times 100) !important;
+}
+#landing-carousel .carousel-control.right{
+background: #484c48 !important;
+opacity: 1 !important;
+filter: alpha(opacity=0.5 times 100) !important;
+}
+
 .motor-landing .whole-banner .container{
     width: 970px;
     left: 50%;    
     margin-left: -485px;
 }
-.motor-landing .featured > .row > div > .row{
-height: 370px;
+.motor-landing #featured > .row > div > .row{
+height: 500px;
 }
 
 body.chin{ 
-.motor-landing .featured > .row > div > .row{
-height: 325px;
+.motor-landing #featured > .row > div > .row{
+height: 400px;
 }
 }

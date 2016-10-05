@@ -13,6 +13,9 @@ var nextPage = "${nextPageFlow}";
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 <style type="text/css" media="all">
+.light-green-color p{
+color: #fff;
+}
     #testimonials{
         padding: 0;
     }
@@ -47,12 +50,25 @@ var nextPage = "${nextPageFlow}";
     @media screen and (min-width: 992px){
     .plan-panel:first-of-type > div {
     margin-right: 15px;
-    
-}
+    }
+    .planbox-wrapper.dark-green-color .plan-panel-content{
+    height: 240px;
+    }
+      .chin .planbox-wrapper.dark-green-color .plan-panel-content{
+    height: 200px;
+    }
+
     }
 
     
     @media screen and (max-width: 991px){
+      .planbox-wrapper.dark-green-color .plan-panel-content{
+    height: 400px;
+    }
+     .chin .planbox-wrapper.dark-green-color .plan-panel-content{
+    height: 250px;
+    }
+    
         .motor-select-plan2 > .container:first-of-type{
             background: #1f4146;
         }
@@ -64,14 +80,27 @@ var nextPage = "${nextPageFlow}";
     margin-left: 0;
     margin-right: 0;
 }
+ .plan-panel > .red-color {
+  margin-right: 0;
+ }
+
+
     }
+    
+      @media screen and (max-width: 767px){
+      
+       .plan-panel > .red-color {
+  margin-left: 0;
+ }
+ 
+ }
 
 </style>
 
 <section id="" class="motor-select-plan">
-    <div class="container container-fluid breadcrumbs motor pad-0">
-        <!-- Breadcrumb Component Start-->
-
+    
+    <!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
             breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.get.quote
         </c:set>
@@ -81,9 +110,9 @@ var nextPage = "${nextPageFlow}";
             <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
             <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
         </jsp:include>
-
-        <!-- Breadcrumb Component End-->
     </div>
+    <!-- Breadcrumb Component End-->
+
     <!--/.container--> 
     <div class="container select-plan-main">
         <div id="testimonials">
@@ -102,7 +131,7 @@ var nextPage = "${nextPageFlow}";
                             </div>
                             <div class="col-xs-12 col-sm-3 text-right">
                                 <div class="currency">
-                                    <fmt:message key="motor.label.currency" bundle="${motorMsg}" /> 
+                                    <fmt:message key="motor.label.currency.from" bundle="${motorMsg}" /> 
                                 </div>
                                 <div class="price">
                                     <small><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small>
@@ -199,8 +228,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-6 text-center">
                             <a href="javascript:;" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /></a>
                             <br />
-                            <br />
-                                                        <br />
+                            <br /> <br />
                             <br />
                         </div>
                         <div class="col-xs-6 text-center">
@@ -326,10 +354,10 @@ $(document).ready(function(){
 });
 
 function updatePriceTable(){
-    $('#youngDriverExcess').html(motorPrice.third.youngDriverExcess);
-    $('#inexperiencedDriverExcess').html(motorPrice.third.inexperiencedDriverExcess);
-    $('#tPPDExcess').html(motorPrice.third.tPPDExcess);
-    $('#parkingExcess').html(motorPrice.third.parkingExcess);
+    $('#youngDriverExcess').html(formatCurrency(motorPrice.third.youngDriverExcess));
+    $('#inexperiencedDriverExcess').html(formatCurrency(motorPrice.third.inexperiencedDriverExcess));
+    $('#tPPDExcess').html(formatCurrency(motorPrice.third.tPPDExcess));
+    $('#parkingExcess').html(formatCurrency(motorPrice.third.parkingExcess));
 }
 
 </script>

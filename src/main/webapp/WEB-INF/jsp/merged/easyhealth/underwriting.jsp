@@ -22,6 +22,7 @@ var home_url = "<%=request.getContextPath()%>";
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 
 	<!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
 	    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
 		<c:set var="breadcrumbActive" value="0" />
 
@@ -42,7 +43,7 @@ var home_url = "<%=request.getContextPath()%>";
 	    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
 	    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
 		</jsp:include>
-
+	</div>
 	<!-- Breadcrumb Component End-->
 
      <div class="savie-online-container app-pg-ctnr" id="eh-app-underwriting">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.util.StringUtils;
 
+import com.ifwd.fwdhk.model.ConfigBean;
 import com.ifwd.fwdhk.util.SpringUtil;
 
 
@@ -589,6 +590,14 @@ public class UserRestURIConstants {
 	
 	static String controller;
 
+	public static boolean isContentEditable() {
+		return ((ConfigBean)obj).getIsContentEditable();
+	}
+
+	public static boolean isSwaggerUiEnable() {
+		return ((ConfigBean)obj).getIsSwaggerUiEnable();
+	}
+	
 	public static String getController() {
 		return controller;
 	}

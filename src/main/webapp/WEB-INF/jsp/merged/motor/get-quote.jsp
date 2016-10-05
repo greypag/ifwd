@@ -15,6 +15,16 @@ var nextPage = "${nextPageFlow}";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/selectize.bootstrap3.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 <style type="text/css" media="all">
+#carValue{
+max-width: 150px;
+}
+.get-quote-form [data-toggle="tooltip"]{
+line-height: 1;
+}
+.q4 select{
+width: 100px !important;
+}
+
     .quote-form-wrapper{
         margin: 0 15px;
     }
@@ -41,9 +51,9 @@ var nextPage = "${nextPageFlow}";
 
 </style>
 <section id="" class="motor-get-quote">
-    <div class="container container-fluid breadcrumbs motor pad-0">
-        <!-- Breadcrumb Component Start-->
-
+    
+    <!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
             breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.get.quote
         </c:set>
@@ -53,9 +63,10 @@ var nextPage = "${nextPageFlow}";
             <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
             <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
         </jsp:include>
-
-        <!-- Breadcrumb Component End-->
     </div>
+
+    <!-- Breadcrumb Component End-->
+    
     <div class="container">
         <div class="center" > 
             <!--desktop-->
@@ -118,12 +129,14 @@ var nextPage = "${nextPageFlow}";
                                 <label for=""><fmt:message key="motor.getquote.statement.part7" bundle="${motorMsg}" /></label>
                                 <div class="help-block-wrap">
                                     <input type="text" class="form-control" id="carValue" placeholder="0" name="carEstimatedValue" data-required-error='<fmt:message key="motor.error.msg.carvalue.empty" bundle="${motorMsg}" />' data-min-error='<fmt:message key="motor.error.msg.carvalue.toohigh" bundle="${motorMsg}" />' required>
+                                   <label><fmt:message key="motor.getquote.statement.part8" bundle="${motorMsg}" /> </label> 
+                                   <button type="button" class="btn btn-default pull-right" data-toggle="tooltip" data-html="true" title="<fmt:message key="motor.getquote.statement.tooltips" bundle="${motorMsg}" />">
+                                 <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                </button>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                                <label><fmt:message key="motor.getquote.statement.part8" bundle="${motorMsg}" /> </label> 
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-html="true" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.">
-                                    <i class="fa fa-question-circle" aria-hidden="true"></i>
-                                </button>
+                                
+
                             </div>
                         </div>
                         
@@ -254,7 +267,7 @@ var nextPage = "${nextPageFlow}";
     </div>
     <div class="modal-dialog modal-lg">
         <div class="modal-content plan-modal">
-            <div class=""><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class=""><a class="close overlay__close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="contact-us-wrap">
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 plan-panel">
@@ -274,7 +287,10 @@ var nextPage = "${nextPageFlow}";
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
                         <p>
                         <br/>
-                            <fmt:message key="motor.quickquote.contanctme.copy.part1" bundle="${motorMsg}" /><a href="tel:23123123"><fmt:message key="motor.quickquote.contanctme.copy.part2" bundle="${motorMsg}" /></a><fmt:message key="motor.quickquote.contanctme.copy.part3" bundle="${motorMsg}" />
+                            <fmt:message key="motor.getquote.contanctme.copy.part1" bundle="${motorMsg}" /><br><br>
+                            <em id="reasonMsg"></em><br><br>
+                            <fmt:message key="motor.getquote.contanctme.copy.part2" bundle="${motorMsg}" />
+                            <a href="tel:23123123"><fmt:message key="motor.getquote.contanctme.copy.part3" bundle="${motorMsg}" /></a> <fmt:message key="motor.getquote.contanctme.copy.part4" bundle="${motorMsg}" />
                         </p>
                         
                     </div>
@@ -333,7 +349,7 @@ var nextPage = "${nextPageFlow}";
                                           <div class="help-block-wrap">
                                     <select class="form-control" id="perferedDate" data-required-error='<fmt:message key="motor.error.msg.calltime.empty" bundle="${motorMsg}" />' name="perferedDate" required>
                                         <option value="anytime" disabled selected hidden><fmt:message key="motor.quickquote.contactme.form.prefereddate" bundle="${motorMsg}" /></option>
-                                        <option value="Anytime">Anytime</option>
+                                        <option value="Anytime"><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.0" bundle="${motorMsg}" /></option>
                                         <option value="Morning" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.1" bundle="${motorMsg}" /></option>
                                          <option value="Afternoon" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.2" bundle="${motorMsg}" /></option>
                                             <option value="Evening" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.3" bundle="${motorMsg}" /></option>

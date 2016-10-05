@@ -72,6 +72,8 @@ public class MemberController extends BaseController {
 		response = MemberActionResult.class
 		)
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid input")
+							, @ApiResponse(code = 406, message = "Cannot create member - This username already in use")
+							, @ApiResponse(code = 409, message = "Cannot create member - Email address and mobile no. already registered")
 							, @ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<MemberActionResult> register(
 			@ApiParam(value = "Username and Password to login", required = true) @RequestBody Member member
@@ -111,8 +113,15 @@ public class MemberController extends BaseController {
 			} else {
 				logger.info(member.getUserName()+" "+washGIMessage(jsonResponse.get("errMsgs").toString()));
 				MemberActionResult result = new MemberActionResult();
-				result.setMessage(washGIMessage(jsonResponse.get("errMsgs").toString()));
-				return Responses.error(result);
+				
+                if (washGIMessage(jsonResponse.get("errMsgs").toString()).equals("This username already in use, please try again")) {
+    				return Responses.notAcceptable(result);
+                } else if (washGIMessage(jsonResponse.get("errMsgs").toString()).equals("email address and mobile no. already registered")) {
+    				return Responses.conflict(result);
+                } else {
+    				return Responses.error(result);
+                }
+                
 			}
 		} catch (Exception e) {
 			logger.error(ExceptionUtils.getStackTrace(e));

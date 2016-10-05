@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css"> --%>
 
 <%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" /> --%>
-<% 
+<%
 	/**********
 	Vendor CSS
 	**********/
@@ -38,7 +38,7 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css">
 
-<% 
+<%
 	/**********
 	Page Specific Vendor CSS
 	**********/
@@ -94,7 +94,7 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 }
 %>
 
-<% 
+<%
 	/**********
 	Custom CSS
 	**********/

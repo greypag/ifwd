@@ -1,6 +1,14 @@
 @media (max-width: 767px){
+.motor-form-wrap.quick-quote{
+margin-top: 70px;
+}
     .yourQuote{
         display: table-header-group;
+		    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 50px;
+    width: 100%;
         #yourQuote{
             background: #f5f5f5;
             overflow: hidden;
