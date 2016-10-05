@@ -47,9 +47,11 @@
 			            	<div id="screenProtectorFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'sp', false);"><fmt:message key="faq.screenProtector" bundle="${msg}" /></div>
 			            	<div id="3hkIphoneFaq" class="faq_menu_item" onclick="faqChangeCare(this, '3hk', false);"><fmt:message key="faq.3hk" bundle="${msg}" /></div>
 			            	<div id="ProvieFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'prvoie', false);"><fmt:message key="faq.provie" bundle="${msg}" /></div>
+			            	<div id="drivaFaq" class="faq_menu_item last" onclick="faqChangeCare(this, 'driva', false);"><fmt:message key="faq.driva" bundle="${msg}" /></div>
 			            </div>
 			        </div>
 			        
+			        <jsp:include page="/WEB-INF/jsp/merged/faq/faq_driva.jsp" />
 					<jsp:include page="/WEB-INF/jsp/merged/faq/faq_provie.jsp" />		        
 			        
 					<!-- 3hk Iphone start -->
