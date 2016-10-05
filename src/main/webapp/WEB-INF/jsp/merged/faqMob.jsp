@@ -31,6 +31,7 @@
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('sp');"><fmt:message key="faq.screenProtector.mobile" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('3hk');"><fmt:message key="faq.3hk.mobile" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('provie');"><fmt:message key="faq.provie" bundle="${msg}" /></div>
+	                        <div class="faq_menu_item" onclick="faqChangeCareMob('driva');"><fmt:message key="faq.driva" bundle="${msg}" /></div>
 	                        <div class="clearfix"></div>
 	                    </div>
 				    </div>

@@ -1,6 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
-<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
