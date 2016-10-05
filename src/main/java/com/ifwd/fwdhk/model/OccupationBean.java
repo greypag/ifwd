@@ -5,6 +5,8 @@ public class OccupationBean {
 	private String id;
 	private String code;
 	private String desc;
+	private String descZh;
+	private boolean standard;
 	
 	public String getId() {
 		return id;
@@ -23,6 +25,18 @@ public class OccupationBean {
 	}
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+	public boolean isStandard() {
+		return standard;
+	}
+	public void setStandard(boolean standard) {
+		this.standard = standard;
+	}
+	public String getDescZh() {
+		return descZh;
+	}
+	public void setDescZh(String descZh) {
+		this.descZh = descZh;
 	}	
 
 }

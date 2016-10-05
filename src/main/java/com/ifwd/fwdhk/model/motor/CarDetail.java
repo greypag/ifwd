@@ -8,6 +8,11 @@ public class CarDetail {
 	private String makeCode;
 	private String model;
 	private String engineCapacity;
+	private String typeOfBody;
+	private String carGroup;
+	private boolean electricCar;
+	private String alarm;
+	private String modelDesc;
 	
 	private BigDecimal estimatedValue;
 	
@@ -41,7 +46,34 @@ public class CarDetail {
 	public void setEstimatedValue(BigDecimal estimatedValue) {
 		this.estimatedValue = estimatedValue;
 	}
-	
-	
-	
+	public String getTypeOfBody() {
+		return typeOfBody;
+	}
+	public void setTypeOfBody(String typeOfBody) {
+		this.typeOfBody = typeOfBody;
+	}
+	public String getCarGroup() {
+		return carGroup;
+	}
+	public void setCarGroup(String carGroup) {
+		this.carGroup = carGroup;
+	}
+	public boolean isElectricCar() {
+		return electricCar;
+	}
+	public void setElectricCar(boolean electricCar) {
+		this.electricCar = electricCar;
+	}
+	public String getAlarm() {
+		return alarm;
+	}
+	public void setAlarm(String alarm) {
+		this.alarm = alarm;
+	}
+	public String getModelDesc() {
+		return modelDesc;
+	}
+	public void setModelDesc(String modelDesc) {
+		this.modelDesc = modelDesc;
+	}
 }

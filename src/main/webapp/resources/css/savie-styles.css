@@ -9944,6 +9944,7 @@ select::-ms-value {
 		/*height: 625px;*/
     /*height: 675px;*/ /*1.16.000 - Add Home Liability*/
     /*height: 710px;*/ /*1.24.000 - Remove height*/
+    /*height: 690px;*/ /*1.24.000 - Add Motor */
 	}
 }
 .psa-divider:hover,

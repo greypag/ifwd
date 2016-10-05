@@ -1,0 +1,22 @@
+.yourQuote{
+hr{
+border-top: 1px solid #333;
+}
+    a[href="#yourQuote"] > h3:after{
+        font-family: FontAwesome;
+        content: "\f0d7";
+        font-size: 20px;
+        float: right;
+        margin-right: 20px;
+    }
+    .title{
+        color: #fff;
+        padding-right: 30px;
+    }
+    .from{
+        padding-right: 15px;
+    }
+    #yourQuote{
+        padding: 30px 0;
+    }
+}

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.util.StringUtils;
 
+import com.ifwd.fwdhk.model.ConfigBean;
 import com.ifwd.fwdhk.util.SpringUtil;
 
 
@@ -163,7 +164,6 @@ public class UserRestURIConstants {
 	/*API For Campaign Promo Code*/
 	public static final String CAMPAIGN_PROMO_CODE_GET_COUNT = SERVICE_URL + "/leads/campaign/promoCodeCount";
 	public static final String CAMPAIGN_PROMO_CODE_GET_COUNTS = SERVICE_URL + "/leads/campaign/promoCodeCounts";
-	
 	public static final String CAMPAIGN_PROMO_CODE_ASSIGN = SERVICE_URL + "/leads/campaign/assignPromoCode";
 	
 	/*API For savie online*/
@@ -357,70 +357,66 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASY_HOME_SUMMARY = "easy.home.summary";
 	public static final String PAGE_PROPERTIES_EASY_HOME_CONFIRMATION = "easy.home.confirmation";
 	
-	/* API For provie online */
-	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";
-	public static final String GET_PROVIE_RIDER_ELIGIBILITY = SERVICE_URL + "/life/provie/rider/eligibility";
-
-	
-	/* Page Flow Control For provie online */
-	public static final String URL_PROVIE_SINGLE_PREMIUM = "single-premium";
-	public static final String URL_PROVIE_REGULAR_PREMIUM = "regular-premium";
-	
-	public static final String PAGE_PROVIE_LANDING = "landing";
-	public static final String PAGE_PROVIE_PLANDETAILS = "provie-plan-details";
-	public static final String PAGE_PROVIE_SERVICE_CENTER = "provie-customer-service-centre";
-//	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT = "confirmation-appointment-sp";
-	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP="provie-confirmation-appointment-sp";
-	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP="provie-confirmation-appointment-rp";
-	public static final String PAGE_PROVIE_SALES_ILLUSTRATION= "sales-illustration";
-	public static final String PAGE_PROVIE_FATCA = "fatca";
-	public static final String PAGE_PROVIE_MEDICAL_HISTORY_CANCER= "medical-history-cancer";
-	public static final String PAGE_PROVIE_MEDICAL_HISTORY_TERM_LIFE= "medical-history-term-life";
-	public static final String PAGE_PROVIE_PERSONAL_DETAILS= "personal-details";
-	public static final String PAGE_PROVIE_EMPLOYMENT_INFO= "employment-info";
-	public static final String PAGE_PROVIE_BENEFICARY_INFO = "beneficiary-info";
-	public static final String PAGE_PROVIE_PAYMENT = "payment";
-	public static final String PAGE_PROVIE_CONFIRMATION_PAYLATER = "confirmation-paylater";
-	public static final String PAGE_PROVIE_APPLICATION_SUMMARY = "application-summary";
-	public static final String PAGE_PROVIE_DECLARATION = "declaration";
-	public static final String PAGE_PROVIE_SIGNATURE = "signature";
-	public static final String PAGE_PROVIE_CONFIRMATION_OFFLINE_SIGNATURE = "confirmation-offline-signature";
-	public static final String PAGE_PROVIE_DOCUMENT_UPLOAD =  "document-upload";
-	public static final String PAGE_PROVIE_CONFIRMATION_UPLOAD_LATER = "confirmation-upload-later";
-	public static final String PAGE_PROVIE_CONFIRMATION = "confirmation";
-
-	//public static final String PAGE_PROVIE_PLANDETAILS_SP = "plan-details-sp";
-	//public static final String PAGE_PROVIE_PLANDETAILS_RP = "plan-details-rp";
-	
-	public static final String PAGE_PROPERTIES_PROVIE = "provie";
-	public static final String PAGE_PROPERTIES_PROVIE_LANDING = "provie.landing";
-	public static final String PAGE_PROPERTIES_PROVIE_SINGLE_PREMIUM = "provie.landing.sp";
-	public static final String PAGE_PROPERTIES_PROVIE_REGULAR_PREMIUM = "provie.landing.rp";
-	public static final String PAGE_PROPERTIES_PROVIE_PLANDETAILS = "provie.plan.details";
-	public static final String PAGE_PROPERTIES_PROVIE_SERVICE_CENTER = "provie.customer.service.centre";
-	//public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT = "provie.confirmation.appointment";
-	
-	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_SP="provie.confirmation.appointment.sp";
-	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_RP="provie.confirmation.appointment.rp";
-	public static final String PAGE_PROPERTIES_PROVIE_SALES_ILLUSTRATION= "provie.sales.illustration";
-	public static final String PAGE_PROPERTIES_PROVIE_FATCA = "provie.fatca";
-	public static final String PAGE_PROPERTIES_PROVIE_MEDICAL_HISTORY_CANCER= "provie.medical.history.cancer";
-	public static final String PAGE_PROPERTIES_PROVIE_MEDICAL_HISTORY_TERM_LIFE= "provie.medical.history.term.life";
-	public static final String PAGE_PROPERTIES_PROVIE_PERSONAL_DETAILS= "provie.personal.details";
-	public static final String PAGE_PROPERTIES_PROVIE_EMPLOYMENT_INFO= "provie.employment.info";
-	public static final String PAGE_PROPERTIES_PROVIE_BENEFICARY_INFO = "provie.beneficiary.info";
-	public static final String PAGE_PROPERTIES_PROVIE_PAYMENT = "provie.payment";
-	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_PAYLATER = "provie.confirmation.paylater";
-	public static final String PAGE_PROPERTIES_PROVIE_APPLICATION_SUMMARY = "provie.application.summary";
-	public static final String PAGE_PROPERTIES_PROVIE_DECLARATION = "provie.declaration";
-	public static final String PAGE_PROPERTIES_PROVIE_SIGNATURE = "provie.signature";
-	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_OFFLINE_SIGNATURE = "provie.confirmation.offline.signature";
-	public static final String PAGE_PROPERTIES_PROVIE_DOCUMENT_UPLOAD =  "provie.document.upload";
-	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_UPLOAD_LATER = "provie.confirmation.upload.later";
+	/* API For provie online */		
+	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";		
+	public static final String GET_PROVIE_RIDER_ELIGIBILITY = SERVICE_URL + "/life/provie/rider/eligibility";		
+			
+	/* Page Flow Control For provie online */		
+	public static final String URL_PROVIE_SINGLE_PREMIUM = "single-premium";		
+	public static final String URL_PROVIE_REGULAR_PREMIUM = "regular-premium";		
+			
+	public static final String PAGE_PROVIE_LANDING = "landing";		
+	public static final String PAGE_PROVIE_PLANDETAILS = "provie-plan-details";		
+	public static final String PAGE_PROVIE_SERVICE_CENTER = "provie-customer-service-centre";		
+//	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT = "confirmation-appointment-sp";		
+	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP="provie-confirmation-appointment-sp";		
+	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP="provie-confirmation-appointment-rp";		
+	public static final String PAGE_PROVIE_SALES_ILLUSTRATION= "sales-illustration";		
+	public static final String PAGE_PROVIE_FATCA = "fatca";		
+	public static final String PAGE_PROVIE_MEDICAL_HISTORY_CANCER= "medical-history-cancer";		
+	public static final String PAGE_PROVIE_MEDICAL_HISTORY_TERM_LIFE= "medical-history-term-life";		
+	public static final String PAGE_PROVIE_PERSONAL_DETAILS= "personal-details";		
+	public static final String PAGE_PROVIE_EMPLOYMENT_INFO= "employment-info";		
+	public static final String PAGE_PROVIE_BENEFICARY_INFO = "beneficiary-info";		
+	public static final String PAGE_PROVIE_PAYMENT = "payment";		
+	public static final String PAGE_PROVIE_CONFIRMATION_PAYLATER = "confirmation-paylater";		
+	public static final String PAGE_PROVIE_APPLICATION_SUMMARY = "application-summary";		
+	public static final String PAGE_PROVIE_DECLARATION = "declaration";		
+	public static final String PAGE_PROVIE_SIGNATURE = "signature";		
+	public static final String PAGE_PROVIE_CONFIRMATION_OFFLINE_SIGNATURE = "confirmation-offline-signature";		
+	public static final String PAGE_PROVIE_DOCUMENT_UPLOAD =  "document-upload";		
+	public static final String PAGE_PROVIE_CONFIRMATION_UPLOAD_LATER = "confirmation-upload-later";		
+	public static final String PAGE_PROVIE_CONFIRMATION = "confirmation";		
+	//public static final String PAGE_PROVIE_PLANDETAILS_SP = "plan-details-sp";		
+	//public static final String PAGE_PROVIE_PLANDETAILS_RP = "plan-details-rp";		
+			
+	public static final String PAGE_PROPERTIES_PROVIE = "provie";		
+	public static final String PAGE_PROPERTIES_PROVIE_LANDING = "provie.landing";		
+	public static final String PAGE_PROPERTIES_PROVIE_SINGLE_PREMIUM = "provie.landing.sp";		
+	public static final String PAGE_PROPERTIES_PROVIE_REGULAR_PREMIUM = "provie.landing.rp";		
+	public static final String PAGE_PROPERTIES_PROVIE_PLANDETAILS = "provie.plan.details";		
+	public static final String PAGE_PROPERTIES_PROVIE_SERVICE_CENTER = "provie.customer.service.centre";		
+	//public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT = "provie.confirmation.appointment";		
+			
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_SP="provie.confirmation.appointment.sp";		
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_RP="provie.confirmation.appointment.rp";		
+	public static final String PAGE_PROPERTIES_PROVIE_SALES_ILLUSTRATION= "provie.sales.illustration";		
+	public static final String PAGE_PROPERTIES_PROVIE_FATCA = "provie.fatca";		
+	public static final String PAGE_PROPERTIES_PROVIE_MEDICAL_HISTORY_CANCER= "provie.medical.history.cancer";		
+	public static final String PAGE_PROPERTIES_PROVIE_MEDICAL_HISTORY_TERM_LIFE= "provie.medical.history.term.life";		
+	public static final String PAGE_PROPERTIES_PROVIE_PERSONAL_DETAILS= "provie.personal.details";		
+	public static final String PAGE_PROPERTIES_PROVIE_EMPLOYMENT_INFO= "provie.employment.info";		
+	public static final String PAGE_PROPERTIES_PROVIE_BENEFICARY_INFO = "provie.beneficiary.info";		
+	public static final String PAGE_PROPERTIES_PROVIE_PAYMENT = "provie.payment";		
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_PAYLATER = "provie.confirmation.paylater";		
+	public static final String PAGE_PROPERTIES_PROVIE_APPLICATION_SUMMARY = "provie.application.summary";		
+	public static final String PAGE_PROPERTIES_PROVIE_DECLARATION = "provie.declaration";		
+	public static final String PAGE_PROPERTIES_PROVIE_SIGNATURE = "provie.signature";		
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_OFFLINE_SIGNATURE = "provie.confirmation.offline.signature";		
+	public static final String PAGE_PROPERTIES_PROVIE_DOCUMENT_UPLOAD =  "provie.document.upload";		
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_UPLOAD_LATER = "provie.confirmation.upload.later";		
 	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION = "provie.confirmation";
 
-
-	
 	/* Page Flow Control For savie online */
 	public static final String URL_SAVIEONLINE_SINGLE_PREMIUM = "single-premium";
 	public static final String URL_SAVIEONLINE_REGULAR_PREMIUM = "regular-premium";
@@ -505,6 +501,42 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASYHEALTH_UPLOAD_CONFIRMATION = "easyhealth.confirmation";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_UPLOAD_LATER_CONFIRMATION = "easyhealth.confirmation.upload.later";
 	
+	
+	/* Page Flow Control For motor */			
+	
+
+	public static final String URL_MOTOR_LANDING = "landing";
+	public static final String URL_MOTOR_GET_QUOTE = "get-quote";
+	public static final String URL_MOTOR_QUICK_QUOTE = "rider-options";
+	public static final String URL_MOTOR_PLAN_THIRD = "third-party-quote";
+	public static final String URL_MOTOR_PLAN_COMP = "comprehensive-quote";
+
+	public static final String FILE_MOTOR_LANDING = "landing";
+	public static final String FILE_MOTOR_GET_QUOTE = "get-quote";
+	public static final String FILE_MOTOR_QUICK_QUOTE = "quick-quote";
+	public static final String FILE_MOTOR_PLAN_THIRD = "plan-third";
+	public static final String FILE_MOTOR_PLAN_COMP = "plan-comp";
+	
+	public static final String PAGE_PROPERTIES_MOTOR_LANDING = "motor.landing";
+	public static final String PAGE_PROPERTIES_MOTOR_GET_QUOTE = "motor.get-quote";
+	public static final String PAGE_PROPERTIES_MOTOR_QUICK_QUOTE = "motor.quick-quote";
+	public static final String PAGE_PROPERTIES_MOTOR_PLAN_THIRD = "motor.plan-third";
+	public static final String PAGE_PROPERTIES_MOTOR_PLAN_COMP = "motor.plan-comp";
+	
+	public static final String PAGE_PROPERTIES_MOTOR_QUOTE = "motor.quote";	
+	public static final String PAGE_PROPERTIES_MOTOR_RIDER_OPTIONS = "motor.rider-options";	
+	public static final String PAGE_PROPERTIES_MOTOR_CAR_DETAILS = "motor.car-details";
+	public static final String PAGE_PROPERTIES_MOTOR_DRIVERS_DETAILS = "motor.drivers-details";
+	public static final String PAGE_PROPERTIES_MOTOR_POLICY_DETAILS = "motor.policy-details";
+	public static final String PAGE_PROPERTIES_MOTOR_DECLARATIONS = "motor.declarations";
+	public static final String PAGE_PROPERTIES_MOTOR_APPLICATION_SUMMARY = "motor.application-summary";
+	public static final String PAGE_PROPERTIES_MOTOR_CONFIRMATION = "motor.confirmation";
+	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD = "motor.document-upload";
+	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "motor.document-upload-confirmation";
+	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER = "motor.document-upload-later";
+	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "motor.document-upload-later-confirmation";
+	
+	
 	/*API For easy health*/
 	public static final String GET_EASYHEALTH_PREMIUM = SERVICE_URL + "/premium/rophi";
 
@@ -544,8 +576,28 @@ public class UserRestURIConstants {
 	/*API For Referal Discount*/ 
 	public static final String GET_SAVIE_REFERRAL_DISCOUNT = SERVICE_URL + "/premium/savie/referral/discount";
 	
+	/*API For (iMotor)*/
+	public static final String MOTOR_CARE_CARDETAILS_BY_MAKE_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}";
+	public static final String MOTOR_CARE_CARMAKE_LIST_GET = SERVICE_URL + "/iMotor/list/carMakes";
+	public static final String MOTOR_CARE_GET_QUOTE_POST = SERVICE_URL + "/iMotor/quote";
+	public static final String MOTOR_CARE_SAVE_QUOTE_POST = SERVICE_URL + "/iMotor/quote/saving";
+	public static final String MOTOR_CARE_OCCUPATIONS_GET = SERVICE_URL + "/iMotor/list/occupations";
+    public static final String MOTOR_CARE_CONTACT_ME_POST = SERVICE_URL + "/iMotor/contactMe";
+    public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}/{carModel}/supplement";
+    public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET = SERVICE_URL + "/iMotor/carDetails/supplement";
+	public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
+
+	
 	static String controller;
 
+	public static boolean isContentEditable() {
+		return ((ConfigBean)obj).getIsContentEditable();
+	}
+
+	public static boolean isSwaggerUiEnable() {
+		return ((ConfigBean)obj).getIsSwaggerUiEnable();
+	}
+	
 	public static String getController() {
 		return controller;
 	}

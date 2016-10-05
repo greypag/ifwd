@@ -30,7 +30,7 @@
 			<div id="savie-online">
 
 				<!-- Breadcrumb Component Start-->
-
+	    		<div class="container container-fluid container--breadcrumb">
 				<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
 				<c:set var="breadcrumbActive" value="0"/>
 
@@ -51,7 +51,7 @@
 					<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
 					<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
 				</jsp:include>
-
+				</div>
 				<!-- Breadcrumb Component End-->
 
 				<!-- StepIndicator Component Start-->

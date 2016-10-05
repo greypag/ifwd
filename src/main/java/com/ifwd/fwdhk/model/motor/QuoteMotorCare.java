@@ -1,136 +1,259 @@
 package com.ifwd.fwdhk.model.motor;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "QuoteDriver",
-    "PlanCode",
-    "CompPlan",
-    "GrossPremium",
-    "DiscountAmount",
-    "PersonalAccident",
-    "ThirdPartyPropertyDemage",
-    "AddOnPaAmt",
-    "AddOnTppdAmt",
-    "QuoteId",
-    "RefNumber",
-    "MotorFile"
-})
 public class QuoteMotorCare {
+	private long id;
 
-	@JsonProperty("QuoteDriver")
-	private QuoteDriver quoteDriver;
-	@JsonProperty("PlanCode")
-	private String planCode;
-	@JsonProperty("CompPlan")
-	private String compPlan;
-	@JsonProperty("GrossPremium")
-	private String grossPremium;
-	@JsonProperty("DiscountAmount")
-	private String discountAmount;
-	@JsonProperty("PersonalAccident")
-	private boolean personalAccident;
-	@JsonProperty("ThirdPartyPropertyDemage")
-	private boolean thirdPartyPropertyDemage;
-	@JsonProperty("AddOnPaAmt")
-	private String addOnPaAmt;
-	@JsonProperty("AddOnTppdAmt")
-	private String addOnTppdAmt;
-	@JsonProperty("QuoteId")	
-	private String quoteId;
-	@JsonProperty("RefNumber")
-	private String refNumber;
 	
-	@JsonProperty("QuoteDriver")
+	private QuoteDriver quoteDriver;
+	private String planCode;
+	private String compPlan;
+	private String grossPremium;
+	private String discountAmount;
+	private boolean personalAccident;
+	private boolean thirdPartyPropertyDamage;	
+	private String addOnPaAmt;	
+	private String addOnTppdAmt;		
+	private String addOnPaBenefit;
+	private String addOnTppdIncrease;
+	private String policyId;
+	private String refNumber;
+	private String amtFromThirdPartyToCompSilver;
+	private String amtFromThirdPartyToCompGold;
+	private String compInsuranceAmount;
+	private String personalAccidentAmount;
+	private String subTotalAmount;
+	private String amountDueAmount;
+	private String ownDamageExcess;
+	private String theftExcess;
+	private String unnamedDriverExcess;
+	private String youngDriverExcess;
+	private String inexperiencedDriverExcess;
+	private String tPPDExcess;
+	private String parkingExcess;
+	private String promoCode;
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public QuoteDriver getQuoteDriver() {
 		return quoteDriver;
 	}
-	@JsonProperty("QuoteDriver")
+	
 	public void setQuoteDriver(QuoteDriver quoteDriver) {
 		this.quoteDriver = quoteDriver;
 	}
-	@JsonProperty("PlanCode")
+	
 	public String getPlanCode() {
 		return planCode;
 	}
-	@JsonProperty("PlanCode")
+	
 	public void setPlanCode(String planCode) {
 		this.planCode = planCode;
 	}
-	@JsonProperty("CompPlan")
+	
 	public String getCompPlan() {
 		return compPlan;
 	}
-	@JsonProperty("CompPlan")
+	
 	public void setCompPlan(String compPlan) {
 		this.compPlan = compPlan;
 	}
-	@JsonProperty("GrossPremium")
+	
 	public String getGrossPremium() {
 		return grossPremium;
 	}
-	@JsonProperty("GrossPremium")
+	
 	public void setGrossPremium(String grossPremium) {
 		this.grossPremium = grossPremium;
 	}
-	@JsonProperty("DiscountAmount")
+	
 	public String getDiscountAmount() {
 		return discountAmount;
 	}
-	@JsonProperty("DiscountAmount")
+	
 	public void setDiscountAmount(String discountAmount) {
 		this.discountAmount = discountAmount;
 	}
-	@JsonProperty("PersonalAccident")
+	
 	public boolean isPersonalAccident() {
 		return personalAccident;
 	}
-	@JsonProperty("PersonalAccident")
+	
 	public void setPersonalAccident(boolean personalAccident) {
 		this.personalAccident = personalAccident;
 	}
-	@JsonProperty("ThirdPartyPropertyDemage")
-	public boolean isThirdPartyPropertyDemage() {
-		return thirdPartyPropertyDemage;
-	}
-	@JsonProperty("ThirdPartyPropertyDemage")
-	public void setThirdPartyPropertyDemage(boolean thirdPartyPropertyDemage) {
-		this.thirdPartyPropertyDemage = thirdPartyPropertyDemage;
-	}
-	@JsonProperty("AddOnPaAmt")
+	
 	public String getAddOnPaAmt() {
 		return addOnPaAmt;
 	}
-	@JsonProperty("AddOnPaAmt")
+	
 	public void setAddOnPaAmt(String addOnPaAmt) {
 		this.addOnPaAmt = addOnPaAmt;
 	}
-	@JsonProperty("AddOnTppdAmt")
+	
 	public String getAddOnTppdAmt() {
 		return addOnTppdAmt;
 	}
-	@JsonProperty("AddOnTppdAmt")
+	
 	public void setAddOnTppdAmt(String addOnTppdAmt) {
 		this.addOnTppdAmt = addOnTppdAmt;
 	}
-	@JsonProperty("QuoteId")
-	public String getQuoteId() {
-		return quoteId;
+
+	public String getPolicyId() {
+		return policyId;
 	}
-	@JsonProperty("QuoteId")
-	public void setQuoteId(String quoteId) {
-		this.quoteId = quoteId;
+
+	public void setPolicyId(String policyId) {
+		this.policyId = policyId;
 	}
-	@JsonProperty("RefNumber")
+
 	public String getRefNumber() {
 		return refNumber;
 	}
-	@JsonProperty("RefNumber")
+	
 	public void setRefNumber(String refNumber) {
 		this.refNumber = refNumber;
+	}
+
+	public String getAmtFromThirdPartyToCompSilver() {
+		return amtFromThirdPartyToCompSilver;
+	}
+
+	public void setAmtFromThirdPartyToCompSilver(
+			String amtFromThirdPartyToCompSilver) {
+		this.amtFromThirdPartyToCompSilver = amtFromThirdPartyToCompSilver;
+	}
+
+	public String getAmtFromThirdPartyToCompGold() {
+		return amtFromThirdPartyToCompGold;
+	}
+
+	public void setAmtFromThirdPartyToCompGold(String amtFromThirdPartyToCompGold) {
+		this.amtFromThirdPartyToCompGold = amtFromThirdPartyToCompGold;
+	}
+
+	public String getCompInsuranceAmount() {
+		return compInsuranceAmount;
+	}
+
+	public void setCompInsuranceAmount(String compInsuranceAmount) {
+		this.compInsuranceAmount = compInsuranceAmount;
+	}
+
+	public String getSubTotalAmount() {
+		return subTotalAmount;
+	}
+
+	public void setSubTotalAmount(String subTotalAmount) {
+		this.subTotalAmount = subTotalAmount;
+	}
+
+	public String getAmountDueAmount() {
+		return amountDueAmount;
+	}
+
+	public void setAmountDueAmount(String amountDueAmount) {
+		this.amountDueAmount = amountDueAmount;
+	}
+	
+	public boolean isThirdPartyPropertyDamage() {
+		return thirdPartyPropertyDamage;
+	}
+
+	public void setThirdPartyPropertyDamage(boolean thirdPartyPropertyDamage) {
+		this.thirdPartyPropertyDamage = thirdPartyPropertyDamage;
+	}
+	
+	public String getPersonalAccidentAmount() {
+		return personalAccidentAmount;
+	}
+
+	public void setPersonalAccidentAmount(String personalAccidentAmount) {
+		this.personalAccidentAmount = personalAccidentAmount;
+	}
+
+	public String getAddOnPaBenefit() {
+		return addOnPaBenefit;
+	}
+
+	public void setAddOnPaBenefit(String addOnPaBenefit) {
+		this.addOnPaBenefit = addOnPaBenefit;
+	}
+
+	public String getAddOnTppdIncrease() {
+		return addOnTppdIncrease;
+	}
+
+	public void setAddOnTppdIncrease(String addOnTppdIncrease) {
+		this.addOnTppdIncrease = addOnTppdIncrease;
+	}
+
+	public String getOwnDamageExcess() {
+		return ownDamageExcess;
+	}
+
+	public void setOwnDamageExcess(String ownDamageExcess) {
+		this.ownDamageExcess = ownDamageExcess;
+	}
+
+	public String getTheftExcess() {
+		return theftExcess;
+	}
+
+	public void setTheftExcess(String theftExcess) {
+		this.theftExcess = theftExcess;
+	}
+
+	public String getUnnamedDriverExcess() {
+		return unnamedDriverExcess;
+	}
+
+	public void setUnnamedDriverExcess(String unnamedDriverExcess) {
+		this.unnamedDriverExcess = unnamedDriverExcess;
+	}
+
+	public String getYoungDriverExcess() {
+		return youngDriverExcess;
+	}
+
+	public void setYoungDriverExcess(String youngDriverExcess) {
+		this.youngDriverExcess = youngDriverExcess;
+	}
+
+	public String getInexperiencedDriverExcess() {
+		return inexperiencedDriverExcess;
+	}
+
+	public void setInexperiencedDriverExcess(String inexperiencedDriverExcess) {
+		this.inexperiencedDriverExcess = inexperiencedDriverExcess;
+	}	
+
+	public String gettPPDExcess() {
+		return tPPDExcess;
+	}
+
+	public void settPPDExcess(String tPPDExcess) {
+		this.tPPDExcess = tPPDExcess;
+	}
+
+	public String getParkingExcess() {
+		return parkingExcess;
+	}
+
+	public void setParkingExcess(String parkingExcess) {
+		this.parkingExcess = parkingExcess;
+	}
+
+	public String getPromoCode() {
+		return promoCode;
+	}
+
+	public void setPromoCode(String promoCode) {
+		this.promoCode = promoCode;
 	}
 	
 }

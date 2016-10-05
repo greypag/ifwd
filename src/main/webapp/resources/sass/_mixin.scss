@@ -1,11 +1,11 @@
 // #Mixins below are for all SCSS files //
-@mixin bp-min($min...) {                  // How to use? @include bp-min { ... }
+@mixin breakpoint-min($min...) {                  // How to use? @include breakpoint-min { ... }
   @media screen and (min-width: $min) { @content; }
 }
-@mixin bp-max($max...) {                  // How to use? @include bp-max { ... }
+@mixin breakpoint-max($max...) {                  // How to use? @include breakpoint-max { ... }
   @media screen and (max-width: $max) { @content; }
 }
-@mixin bp-interim($min, $max) {            // How to use? @include bp-intrim { ... }
+@mixin breakpoint-between($min, $max) {            // How to use? @include bp-intrim { ... }
   @media screen and (min-width: $min) and (max-width: $max) { @content; }
 }
 

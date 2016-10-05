@@ -1,0 +1,1668 @@
+/* 
+ * New Branding Guideline 2016
+ */
+@font-face {
+  font-family: 'CirculaPro-Book';
+  src: url("../font/CircularPro-Book.otf");
+  src: url("../font/CircularPro-Book.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CircularPro-Bold';
+  src: url("../font/CircularPro-Bold.otf");
+  src: url("../font/CircularPro-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Calibri';
+  src: url("../fonts/Calibri_gdi.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/Calibri_gdi.eot?#iefix") format("embedded-opentype"), url("../fonts/Calibri_gdi.woff") format("woff"), url("../fonts/Calibri_gdi.ttf") format("truetype"), url("../fonts/Calibri_gdi.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+}
+/*
+    Default Font Family
+*/
+/* line 34, ../sass/base/_font2016.scss */
+body {
+  font-size: 18px;
+  font-family: 'CirculaPro-Book', 'Calibri', sans-serif !important;
+}
+
+/* line 39, ../sass/base/_font2016.scss */
+body .bold {
+  font-family: 'CirculaPro-Bold', 'Calibri', sans-serif !important;
+}
+
+/* line 43, ../sass/base/_font2016.scss */
+body.chin,
+body.chin .bold {
+  font-family: 'Microsoft JhengHei', 'Calibri', sans-serif !important;
+}
+
+/* line 5, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .q1 {
+  position: relative;
+  z-index: 4;
+}
+/* line 5, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .q2 {
+  position: relative;
+  z-index: 3;
+}
+/* line 5, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .q3 {
+  position: relative;
+  z-index: 2;
+}
+/* line 5, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .q4 {
+  position: relative;
+  z-index: 1;
+}
+/* line 5, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .q5 {
+  position: relative;
+  z-index: 0;
+}
+/* line 10, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .q2:hover {
+  z-index: 5;
+}
+/* line 13, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form input[type="number"]::-webkit-outer-spin-button, .get-quote-form input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+/* line 16, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .form-group {
+  padding-bottom: 30px;
+}
+/* line 19, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form a {
+  text-decoration: underline;
+}
+/* line 22, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .btn {
+  text-decoration: none;
+}
+/* line 25, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .form-control {
+  display: inline;
+  margin-bottom: 15px;
+  background: #fff;
+  border: none;
+  color: #f68a1d;
+  height: auto;
+  font-size: inherit;
+  box-shadow: none !important;
+  text-align-last: center;
+  line-height: 1;
+}
+/* line 37, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form [type="checkbox"] {
+  float: none !important;
+  display: none;
+  visibility: hidden;
+}
+/* line 42, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form select.init {
+  color: #ccc !important;
+}
+/* line 45, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form option {
+  color: #f68a1d !important;
+}
+/* line 48, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .checkbox {
+  padding-left: 25px;
+}
+/* line 50, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .checkbox img {
+  max-height: 12px;
+}
+/* line 54, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .custom-checkbox {
+  padding-bottom: 15px;
+}
+/* line 57, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form.get-quote-form .get-quote-field .form-control {
+  vertical-align: bottom;
+  width: auto;
+  border-bottom: solid 1px #ccc;
+  text-align: center;
+  padding: 0 15px;
+  margin: 0 15px;
+}
+/* line 65, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form [data-toggle="tooltip"] {
+  border: none;
+  background: #fff !important;
+  color: #9fb1b2;
+  padding: 0;
+  font-size: 1.2em;
+}
+/* line 71, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form [data-toggle="tooltip"] :hover {
+  color: #f68a1d;
+}
+/* line 75, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .tooltip {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  background: transparent;
+  margin: 0 !important;
+}
+/* line 80, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .tooltip > .tooltip-arrow {
+  border-top-color: #f68a1d !important;
+}
+/* line 83, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .tooltip > .tooltip-inner {
+  background: #f68a1d !important;
+}
+/* line 87, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .selectize-control {
+  display: inline-block;
+  min-width: 250px;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+}
+/* line 93, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .selectize-control .selectize-input {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-height: 0;
+}
+/* line 98, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .selectize-control .selectize-input:after {
+  border-color: #f68a1d transparent transparent transparent !important;
+}
+/* line 105, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .selectize-dropdown {
+  top: 24px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: solid 1px #ccc;
+  border-radius: 0;
+  border-top: 0;
+  z-index: 99;
+  background: #fff;
+}
+/* line 116, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .help-block-wrap {
+  position: relative;
+  display: inline-block;
+}
+/* line 120, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .help-block {
+  position: absolute;
+}
+/* line 122, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form .help-block li {
+  line-height: 1.2;
+}
+/* line 127, ../sass/common_screen/motor/_getQuote-form.scss */
+.get-quote-form button[type="submit"].disabled {
+  background: #f68a1d;
+  border-color: #f68a1d;
+}
+
+/* line 1, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  outline-color: transparent;
+}
+/* line 9, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup .thumbnail img {
+  width: 90px;
+}
+/* line 12, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup .heading-h3 {
+  margin-top: 30px;
+}
+/* line 15, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup p {
+  color: #061d2a;
+}
+/* line 18, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup .plan-panel > div {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+/* line 22, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup .ref-number {
+  margin-top: 0;
+}
+/* line 25, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup .close {
+  margin-right: 15px;
+  line-height: 1.5;
+  font-size: 150%;
+}
+/* line 31, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup #perferedDate {
+  background: #f1f3f5;
+}
+/* line 35, ../sass/common_screen/motor/_contact-modal.scss */
+#contactpopup #submitContactus {
+  max-width: 150px;
+}
+
+/* line 39, ../sass/common_screen/motor/_contact-modal.scss */
+.contact-form {
+  padding-top: 30px;
+}
+/* line 40, ../sass/common_screen/motor/_contact-modal.scss */
+.contact-form .custom-checkbox {
+  padding-left: 40px;
+}
+/* line 44, ../sass/common_screen/motor/_contact-modal.scss */
+.contact-form .mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
+  color: #ccc;
+}
+/* line 47, ../sass/common_screen/motor/_contact-modal.scss */
+.contact-form .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+  color: #ff8200;
+  font-size: 12px !important;
+  top: 1px !important;
+}
+/* line 53, ../sass/common_screen/motor/_contact-modal.scss */
+.contact-form .help-block-wrap {
+  position: relative;
+}
+/* line 56, ../sass/common_screen/motor/_contact-modal.scss */
+.contact-form .help-block {
+  position: absolute;
+}
+/* line 58, ../sass/common_screen/motor/_contact-modal.scss */
+.contact-form .help-block li {
+  line-height: 1.2;
+}
+
+/* line 64, ../sass/common_screen/motor/_contact-modal.scss */
+.datepicker.dropdown-menu {
+  z-index: 1151 !important;
+}
+
+/* line 67, ../sass/common_screen/motor/_contact-modal.scss */
+#content-datepicker:hover {
+  cursor: default;
+}
+
+/* login page || login.jsp */
+/* line 73, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .col-sm-12.col-md-6.left, #contactform-pop .col-sm-12.col-md-12.left {
+  padding-right: 100px;
+}
+
+/* line 76, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop a#forgotUserName, #contactform-pop a#link-forgotPassword {
+  text-decoration: none;
+  font-style: normal;
+}
+
+/* line 80, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .mdl-textfield {
+  width: 100% !important;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+/* line 85, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .form-control.gray-textbox {
+  font-size: 18px;
+  font-family: 'Calibri';
+  color: #000;
+  margin-top: 6px;
+  background-color: #f1f3f5 !important;
+  box-shadow: inset 0 1px 1px transparent;
+  padding: 12px 15px 0 15px;
+  border-radius: 0;
+  border: 0 transparent;
+}
+
+/* line 96, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .mdl-textfield__label {
+  padding-top: 5px;
+  font-size: 14px;
+  left: 0;
+  top: 10px;
+  padding-left: 15px;
+  font-family: 'Calibri-Bold';
+}
+
+/* line 104, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .mdl-textfield.is-focused label, #loginform-pop .mdl-textfield.is-dirty label {
+  color: #ff8200;
+  font-size: 12px;
+  top: 1px;
+}
+
+/* line 109, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .mdl-textfield.is-not-active label {
+  color: #ff8200;
+}
+
+/* line 112, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .mdl-textfield input:hover, #loginform-pop .mdl-textfield input:focus,
+#contactform-pop .mdl-textfield textarea:hover, #loginform-pop .mdl-textfield textarea:focus {
+  border-bottom: 2px solid #Ff8200;
+}
+
+/* line 116, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .mdl-textfield__input:focus {
+  transition: all 0.1s;
+  background-color: #ffffff;
+}
+
+/* line 120, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .mdl-textfield__input:focus, #loginform-pop .mdl-textfield__input:hover {
+  outline: none;
+  outline-offset: 0;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 1px transparent;
+}
+
+/* line 126, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .mdl-textfield label:after {
+  background-color: transparent;
+}
+
+/* line 129, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop textarea.form-control.gray-textbox {
+  height: 135px;
+}
+
+/* line 132, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .next-btn {
+  padding: 20px 0 40px 0;
+  text-align: center;
+}
+
+/* line 136, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop .apply-btn {
+  background: #ffa500;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 37px;
+  border-radius: 4px !important;
+  border-bottom: 3px solid #c56501;
+}
+
+/* line 145, ../sass/common_screen/motor/_contact-modal.scss */
+#contactform-pop #applyPartner {
+  padding: 5px 90px;
+  font-size: 24px;
+  margin-left: -52px;
+}
+
+/* line 1, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel {
+  color: #fff;
+  padding: 0;
+}
+/* line 4, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel .thumbnail {
+  padding: 0;
+  padding-right: 10px;
+  border: none;
+  background: transparent;
+  margin-bottom: 0;
+}
+/* line 12, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel > div {
+  margin: 15px;
+  padding: 30px;
+}
+/* line 17, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel .row:first-of-type > div:first-of-type {
+  padding-right: 0;
+}
+/* line 23, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #fff;
+  padding-bottom: 15px;
+}
+/* line 30, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel .currency, .plan-panel .price {
+  color: #fff;
+}
+/* line 33, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel .currency, .plan-panel small {
+  font-size: small;
+}
+/* line 36, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel .currency {
+  margin-bottom: 5px;
+}
+/* line 39, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel .price > small {
+  margin-right: 5px;
+}
+/* line 42, ../sass/common_screen/motor/_plan-panel.scss */
+.plan-panel big {
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+/* line 1, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion {
+  padding-bottom: 40px !important;
+}
+/* line 3, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .panel-default {
+  background: transparent;
+  border-top: none !important;
+}
+/* line 7, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .panel-heading {
+  border-bottom: solid 2px #1f4146;
+  background: transparent;
+}
+/* line 11, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .panel-title a {
+  color: #1f4146;
+  text-decoration: none;
+  font-size: x-large;
+  text-align: center;
+  display: block;
+  font-weight: 600;
+}
+/* line 18, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .panel-title a:after {
+  font-family: FontAwesome;
+  content: "\f107";
+  float: right;
+}
+/* line 24, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table {
+  width: 100%;
+}
+/* line 26, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table th, .plan-accordion .table td {
+  border: solid 2px;
+  border-left-width: 8px;
+  padding: 15px 10px;
+  vertical-align: middle;
+}
+/* line 32, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table th {
+  border-left-width: 8px;
+  border-color: #f5f5f5;
+}
+/* line 37, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table tr:nth-of-type(odd) td {
+  border-color: #fff;
+  background: #fff;
+}
+/* line 43, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table tr:nth-of-type(even) td {
+  border-color: #f5f5f5;
+}
+/* line 47, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table td {
+  border: none !important;
+}
+/* line 50, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table tr.hidden-xs > td {
+  background-color: #f5f5f5 !important;
+}
+/* line 54, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .panel-collapse, .plan-accordion .panel-body {
+  background: transparent !important;
+}
+/* line 57, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table-striped > tbody > tr:nth-child(odd) > td, .plan-accordion .table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #fff;
+}
+/* line 60, ../sass/common_screen/motor/_plan-accordion.scss */
+.plan-accordion .table tr > th:first-of-type {
+  border: none !important;
+}
+
+/* line 2, ../sass/common_screen/motor/_landing.scss */
+#landing-carousel .carousel-inner > .item > img, #landing-carousel .carousel-inner > .item > a > img {
+  width: 100%;
+}
+
+/* line 6, ../sass/common_screen/motor/_landing.scss */
+#landing-carousel .carousel-control-wrap {
+  position: relative;
+  width: 120px;
+  float: right;
+  top: -60px;
+}
+
+/* line 13, ../sass/common_screen/motor/_landing.scss */
+#landing-carousel .carousel-control {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+}
+
+/* line 19, ../sass/common_screen/motor/_landing.scss */
+#landing-carousel .fa {
+  text-shadow: none;
+  font-size: 200%;
+  line-height: 1.5;
+}
+
+/* line 25, ../sass/common_screen/motor/_landing.scss */
+.quote-form-wrapper {
+  margin: 0 15px;
+}
+
+/* line 28, ../sass/common_screen/motor/_landing.scss */
+.q5:last-of-type {
+  margin-bottom: 30px;
+}
+
+/* line 32, ../sass/common_screen/motor/_landing.scss */
+#hero #getComprehensive, #hero #getThirdParty {
+  white-space: initial;
+}
+
+/* line 36, ../sass/common_screen/motor/_landing.scss */
+#landing-carousel {
+  padding-top: 50px;
+}
+
+/* line 39, ../sass/common_screen/motor/_landing.scss */
+.table-responsive {
+  border: none;
+}
+
+/* line 42, ../sass/common_screen/motor/_landing.scss */
+.motor-landing {
+  overflow: hidden;
+}
+/* line 43, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .bottom a {
+  color: #fff !important;
+}
+/* line 46, ../sass/common_screen/motor/_landing.scss */
+.motor-landing #testimonials {
+  padding: 20px 0;
+}
+/* line 49, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .table {
+  width: 100%;
+}
+/* line 51, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .table th, .motor-landing .table td {
+  border: solid 2px;
+  border-left-width: 8px;
+  padding: 15px 10px;
+  vertical-align: middle;
+}
+/* line 57, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .table th {
+  border-left-width: 8px;
+  border-color: #f5f5f5;
+}
+/* line 62, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .table tr:nth-of-type(odd) td {
+  border-color: #fff;
+  background: #fff;
+}
+/* line 68, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .table tr:nth-of-type(even) td {
+  border-color: #f5f5f5;
+}
+/* line 74, ../sass/common_screen/motor/_landing.scss */
+.motor-landing #compare-table-2 > div {
+  padding: 0;
+}
+/* line 77, ../sass/common_screen/motor/_landing.scss */
+.motor-landing #compare-table-2 th, .motor-landing #compare-table-2 td {
+  height: 82px;
+}
+/* line 82, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .light-green-color {
+  color: #fff;
+  border-color: #97d0ce;
+}
+/* line 86, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .yellow-color {
+  color: #fff;
+  border-color: #fbbf15;
+}
+/* line 90, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .btn.yellow-color:hover {
+  background: #fff !important;
+  color: #fbbf15 !important;
+}
+/* line 94, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .btn.yellow-color:active {
+  background: #fff;
+  color: #fbbf15;
+}
+/* line 98, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .btn.yellow-color:visited {
+  background: #fbbf15;
+  color: #fff;
+}
+/* line 102, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .btn.light-green-color:hover {
+  background: #fff !important;
+  color: #97d0ce !important;
+}
+/* line 106, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .btn.light-green-color:active {
+  background: #fff;
+  color: #97d0ce;
+}
+/* line 110, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .btn.light-green-color:visited {
+  background: #97d0ce;
+  color: #fff;
+}
+/* line 114, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .light-green-border {
+  border-bottom-color: #97d0ce !important;
+}
+/* line 117, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .yellow-border {
+  border-bottom-color: #fbbf15 !important;
+}
+/* line 120, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .orange-border {
+  border-bottom-color: #f68a1d !important;
+}
+/* line 123, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .button-group > div {
+  padding: 0 5px;
+}
+/* line 126, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .container {
+  padding-top: 40px;
+  padding-bottom: 0px;
+}
+/* line 129, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .container:first-of-type {
+  padding: 0px;
+}
+/* line 132, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .container:last-of-type {
+  padding-bottom: 40px;
+}
+/* line 136, ../sass/common_screen/motor/_landing.scss */
+.motor-landing #compare {
+  padding: 0;
+}
+/* line 138, ../sass/common_screen/motor/_landing.scss */
+.motor-landing #compare a {
+  text-decoration: underline;
+}
+/* line 141, ../sass/common_screen/motor/_landing.scss */
+.motor-landing #compare .panel-body {
+  padding-bottom: 0;
+}
+/* line 145, ../sass/common_screen/motor/_landing.scss */
+.motor-landing #compare-table {
+  margin: 0;
+}
+/* line 148, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .panel-default > .panel-heading, .motor-landing .panel {
+  background-color: transparent;
+}
+/* line 152, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .whole-banner {
+  position: relative;
+}
+/* line 153, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .whole-banner img {
+  width: 100%;
+}
+/* line 156, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .whole-banner .container {
+  position: absolute;
+  bottom: 0;
+}
+/* line 159, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .whole-banner .container h1 {
+  color: #fff;
+}
+/* line 163, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .whole-banner .container.up {
+  bottom: 80px;
+}
+/* line 166, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .whole-banner .container.down {
+  bottom: 0;
+  width: 100% !important;
+  left: 0;
+  margin: 0 !important;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* line 173, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .whole-banner .container.down h3 {
+  color: #f68b1f;
+  padding-right: 15px;
+  vertical-align: middle;
+}
+/* line 178, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .whole-banner .container.down .btn {
+  margin: 15px 5px;
+  width: 169px;
+  white-space: pre-wrap;
+  height: 58px;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+}
+/* line 192, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .download-section {
+  padding: 30px 0;
+}
+/* line 195, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .download-section a {
+  padding: 15px;
+}
+/* line 198, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .thumbnail {
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin: 0 auto;
+  max-width: 90px;
+}
+/* line 206, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .featured .title {
+  font-size: 22px;
+  font-weight: 900;
+  font-family: 'Calibri-Bold', Arial, sans-serif;
+}
+/* line 211, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .featured > .row > div {
+  margin-bottom: 30px;
+}
+/* line 213, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .featured > .row > div > .row {
+  border: solid 1px #ccc;
+}
+/* line 219, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .featured.no-border > .row > div > .row {
+  border: none;
+}
+/* line 225, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .middle-carousel img {
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+}
+/* line 230, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .middle-carousel .carousel-right {
+  background: #022c2f;
+}
+/* line 233, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .middle-carousel .carousel-left {
+  padding-right: 0;
+}
+/* line 236, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .middle-carousel .content {
+  padding: 30px 20px 40px;
+  color: #fff;
+}
+/* line 240, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .middle-carousel h3 {
+  padding: 10px 0 30px;
+  color: #fff;
+}
+/* line 246, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .read-more-blog > div {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/* line 249, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .read-more-blog > div :first-of-type {
+  padding-left: 0;
+}
+/* line 252, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .read-more-blog > div :last-of-type {
+  padding-right: 0;
+}
+/* line 257, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .bottom {
+  background: #222;
+}
+/* line 259, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .bottom h3 {
+  color: #f68a1d;
+}
+/* line 263, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .bdr-curve {
+  padding: 5px 20px !important;
+  min-width: 150px;
+  max-width: 250px;
+  border-radius: 3px !important;
+}
+
+/* line 270, ../sass/common_screen/motor/_landing.scss */
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+/* line 279, ../sass/common_screen/motor/_landing.scss */
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background: #f68a1d;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+/* line 292, ../sass/common_screen/motor/_landing.scss */
+.hovereffect:hover .overlay {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+/* line 296, ../sass/common_screen/motor/_landing.scss */
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+/* line 302, ../sass/common_screen/motor/_landing.scss */
+.hovereffect:hover img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
+  filter: grayscale(1) blur(3px);
+  -webkit-filter: grayscale(1) blur(3px);
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+/* line 310, ../sass/common_screen/motor/_landing.scss */
+.hovereffect h2 {
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+}
+
+/* line 317, ../sass/common_screen/motor/_landing.scss */
+.hovereffect a.info {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid #fff;
+  padding: 8px 30px !important;
+  background-color: transparent;
+}
+
+/* line 326, ../sass/common_screen/motor/_landing.scss */
+.hovereffect a.info:hover {
+  box-shadow: 0 0 5px #fff;
+}
+
+/* line 329, ../sass/common_screen/motor/_landing.scss */
+.hovereffect a.info, .hovereffect h2 {
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  color: #fff;
+}
+
+/* line 340, ../sass/common_screen/motor/_landing.scss */
+.hovereffect:hover a.info, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+/* line 2, ../sass/common_screen/motor/_your-quote.scss */
+.yourQuote hr {
+  border-top: 1px solid #333;
+}
+/* line 5, ../sass/common_screen/motor/_your-quote.scss */
+.yourQuote a[href="#yourQuote"] > h3:after {
+  font-family: FontAwesome;
+  content: "\f0d7";
+  font-size: 20px;
+  float: right;
+  margin-right: 20px;
+}
+/* line 12, ../sass/common_screen/motor/_your-quote.scss */
+.yourQuote .title {
+  color: #fff;
+  padding-right: 30px;
+}
+/* line 16, ../sass/common_screen/motor/_your-quote.scss */
+.yourQuote .from {
+  padding-right: 15px;
+}
+/* line 19, ../sass/common_screen/motor/_your-quote.scss */
+.yourQuote #yourQuote {
+  padding: 30px 0;
+}
+
+/* line 2, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote #testimonials {
+  padding: 0 15px;
+  background: #f6871e;
+}
+/* line 6, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote #testimonials > .row {
+  background: #f6871e;
+}
+/* line 9, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .landing_h2 {
+  color: #f6871e;
+  line-height: 1.5;
+}
+/* line 13, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .center .landing_h2 {
+  font-size: 20px !important;
+  margin-bottom: 10px !important;
+}
+/* line 17, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .silver {
+  border-bottom: solid 4px #12afbf !important;
+}
+/* line 20, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .gold {
+  border-bottom: solid 4px #fbbf15 !important;
+}
+/* line 23, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote h4 {
+  color: #1f4146;
+  font-weight: 600;
+  margin: 15px 0 15px;
+}
+/* line 28, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote form.add-on .checkbox [type="checkbox"] {
+  display: none;
+  visibility: hidden;
+}
+/* line 32, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote form.add-on .checkbox label::before {
+  font-family: FontAwesome;
+  content: "\f111";
+  border: none;
+  background: transparent;
+  font-size: 4.2em;
+  color: #ccc;
+}
+/* line 40, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote form.add-on .checkbox label::after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  border: none;
+  background: transparent;
+  font-size: 3em;
+  color: #fff;
+}
+/* line 48, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote form.add-on .checkbox input[type="checkbox"]:checked + label::before {
+  color: #f6871e;
+}
+/* line 51, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .motor-select-plan .price {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+/* line 55, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .motor-select-plan .collapse-addon {
+  cursor: default;
+}
+/* line 58, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .ready-panel {
+  padding: 0 !important;
+}
+/* line 61, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .ready-content {
+  padding-left: 0;
+}
+/* line 64, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .ready-content h3 {
+  color: #061d2a;
+  font-size: 1.2em;
+  padding-top: 0.5em;
+}
+/* line 69, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .ready-container {
+  padding-top: 40px;
+}
+/* line 72, ../sass/common_screen/motor/_quick-quote.scss */
+.quick-quote .addOn-content {
+  height: 145px;
+}
+
+@media screen and (min-width: 1200px) {
+  /* line 2, ../sass/desktop_lg/motor/_quick-quote.scss */
+  .quick-quote .ready-content h3 {
+    padding-top: 1em;
+  }
+  /* line 5, ../sass/desktop_lg/motor/_quick-quote.scss */
+  .quick-quote .addOn-content {
+    height: 145px;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 1, ../sass/desktop/motor/_landing.scss */
+  #landing-carousel .carousel-control.left {
+    background: #909393 !important;
+    opacity: 1 !important;
+    filter: alpha(opacity=0.5 times 100) !important;
+  }
+
+  /* line 6, ../sass/desktop/motor/_landing.scss */
+  #landing-carousel .carousel-control.right {
+    background: #484c48 !important;
+    opacity: 1 !important;
+    filter: alpha(opacity=0.5 times 100) !important;
+  }
+
+  /* line 12, ../sass/desktop/motor/_landing.scss */
+  .motor-landing .whole-banner .container {
+    width: 970px;
+    left: 50%;
+    margin-left: -485px;
+  }
+
+  /* line 17, ../sass/desktop/motor/_landing.scss */
+  .motor-landing #featured > .row > div > .row {
+    height: 500px;
+  }
+
+  /* line 22, ../sass/desktop/motor/_landing.scss */
+  body.chin .motor-landing #featured > .row > div > .row {
+    height: 400px;
+  }
+
+  /* line 1, ../sass/desktop/motor/_plan-panel.scss */
+  .plan-panel-content {
+    height: 264px;
+  }
+
+  /* line 5, ../sass/desktop/motor/_plan-panel.scss */
+  body.chin .plan-panel-content {
+    height: 196px;
+  }
+
+  /* line 9, ../sass/desktop/motor/_plan-panel.scss */
+  .plan-panel:first-of-type > div {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  /* line 1, ../sass/mobile/motor/_contact-modal.scss */
+  #contactform-pop .col-sm-12.col-md-6.left {
+    padding-right: 0;
+  }
+
+  /* line 4, ../sass/mobile/motor/_contact-modal.scss */
+  #contactform-pop #applyPartner {
+    margin-left: 0;
+  }
+
+  /* line 7, ../sass/mobile/motor/_contact-modal.scss */
+  .contact-us-wrap {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* line 2, ../sass/mobile/motor/_landing.scss */
+  .motor-landing .featured {
+    margin-top: 30px;
+  }
+  /* line 5, ../sass/mobile/motor/_landing.scss */
+  .motor-landing .center .motor-ttl {
+    margin-bottom: 30px !important;
+  }
+  /* line 8, ../sass/mobile/motor/_landing.scss */
+  .motor-landing .motor-landing .featured.no-border > .row > div > .row {
+    padding-top: 0;
+  }
+
+  /* line 13, ../sass/mobile/motor/_landing.scss */
+  #hero h1 {
+    font-size: 30px;
+  }
+  /* line 16, ../sass/mobile/motor/_landing.scss */
+  #hero h3 {
+    font-size: 22px;
+  }
+  /* line 19, ../sass/mobile/motor/_landing.scss */
+  #hero .bdr-curve {
+    min-width: 0;
+    width: 147px;
+    padding: 0 15px !important;
+  }
+
+  /* line 27, ../sass/mobile/motor/_landing.scss */
+  #landing-carousel .carousel-control-wrap {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+  }
+  /* line 33, ../sass/mobile/motor/_landing.scss */
+  #landing-carousel .carousel-control {
+    color: #333 !important;
+  }
+  /* line 34, ../sass/mobile/motor/_landing.scss */
+  #landing-carousel .carousel-control.right, #landing-carousel .carousel-control.left {
+    background: transparent !important;
+  }
+  /* line 37, ../sass/mobile/motor/_landing.scss */
+  #landing-carousel .carousel-control .fa {
+    font-size: 300%;
+    line-height: 1;
+  }
+
+  /* line 46, ../sass/mobile/motor/_landing.scss */
+  .motor-landing #featured > .row > div > .row {
+    height: 620px;
+  }
+
+  /* line 51, ../sass/mobile/motor/_landing.scss */
+  body.chin .motor-landing #featured > .row > div > .row {
+    height: 520px;
+  }
+
+  /* line 1, ../sass/mobile/motor/_plan-panel.scss */
+  .plan-panel-content {
+    height: 400px;
+  }
+
+  /* line 5, ../sass/mobile/motor/_plan-panel.scss */
+  body.chin .plan-panel-content {
+    height: 256px;
+  }
+
+  /* line 9, ../sass/mobile/motor/_plan-panel.scss */
+  .plan-panel:first-of-type > div {
+    margin-right: 0;
+  }
+
+  /* line 2, ../sass/mobile/motor/_quick-quote.scss */
+  .quick-quote .ready-content h3 {
+    padding-top: 0;
+  }
+  /* line 5, ../sass/mobile/motor/_quick-quote.scss */
+  .quick-quote .addOn-content {
+    height: 200px;
+  }
+  /* line 8, ../sass/mobile/motor/_quick-quote.scss */
+  .quick-quote .motor-select-plan .collapse-addon {
+    min-height: 103px;
+  }
+
+  /* line 15, ../sass/mobile/motor/_quick-quote.scss */
+  body.chin .quick-quote .motor-select-plan .collapse-addon {
+    min-height: 63px;
+  }
+  /* line 18, ../sass/mobile/motor/_quick-quote.scss */
+  body.chin .quick-quote .addOn-content {
+    height: 140px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 2, ../sass/customize_screen/motor/_contact-modal.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input {
+    height: auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 3, ../sass/customize_screen/motor/_plan-panel.scss */
+  .plan-panel .row:first-of-type > div:first-of-type {
+    padding-left: 0;
+  }
+  /* line 6, ../sass/customize_screen/motor/_plan-panel.scss */
+  .plan-panel .thumbnail {
+    padding-right: 0;
+  }
+  /* line 9, ../sass/customize_screen/motor/_plan-panel.scss */
+  .plan-panel:first-of-type > div {
+    margin-right: 15px;
+  }
+
+  /* line 14, ../sass/customize_screen/motor/_plan-panel.scss */
+  .plan-panel-content {
+    height: auto !important;
+  }
+
+  /* line 18, ../sass/customize_screen/motor/_plan-panel.scss */
+  body.chin .plan-panel-content {
+    height: auto !important;
+  }
+}
+@media (min-width: 768px) {
+  /* line 3, ../sass/customize_screen/motor/_plan-accordion.scss */
+  .plan-accordion .table tr > td:first-of-type {
+    padding-left: 30px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 12, ../sass/customize_screen/motor/_plan-accordion.scss */
+  .plan-accordion .table-responsive > .table > thead > tr > th, .plan-accordion .table-responsive > .table > thead > tr > td, .plan-accordion .table-responsive > .table > tbody > tr > th, .plan-accordion .table-responsive > .table > tbody > tr > td, .plan-accordion .table-responsive > .table > tfoot > tr > th, .plan-accordion .table-responsive > .table > tfoot > tr > td {
+    white-space: initial;
+    min-width: 200px;
+  }
+  /* line 17, ../sass/customize_screen/motor/_plan-accordion.scss */
+  .plan-accordion .table tr > td:first-of-type {
+    padding: 0 10px;
+  }
+}
+@media (min-width: 768px) {
+  /* line 3, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .whole-banner .container.down h3 {
+    display: inline-block;
+  }
+  /* line 6, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .whole-banner .container {
+    width: 750px;
+    left: 50%;
+    margin-left: -375px;
+  }
+  /* line 11, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .thumbnail {
+    width: 50%;
+    margin: 15px auto;
+  }
+  /* line 15, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .featured {
+    text-align: center;
+  }
+  /* line 17, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .featured > .row > div > .row {
+    padding: 20px 0;
+    margin: 0px;
+  }
+  /* line 23, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .featured.no-border > .row > div > .row .content {
+    padding: 0 30px;
+  }
+  /* line 29, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .middle-carousel {
+    padding-left: 15px;
+    padding-right: 30px;
+  }
+  /* line 30, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .middle-carousel .carousel-right, .motor-landing .middle-carousel .carousel-left {
+    height: 540px;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 39, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .whole-banner .container {
+    width: 1170px;
+    left: 50%;
+    margin-left: -585px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 47, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .hovereffect .overlay {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+  }
+  /* line 50, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .hovereffect .overlay h2 {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    font-size: 1em !important;
+    margin-top: 80px;
+    transform: none;
+  }
+  /* line 61, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .whole-banner .container.up {
+    bottom: 140px;
+    padding-left: 15px;
+    max-width: 75%;
+  }
+  /* line 66, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .whole-banner .container.up h1 {
+    line-height: 1;
+    margin-bottom: 0;
+  }
+  /* line 70, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .whole-banner .container.down h3 {
+    margin-bottom: 0;
+    margin-top: 15px;
+  }
+  /* line 74, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .whole-banner .page-banner {
+    height: 384px;
+    overflow: hidden;
+  }
+  /* line 78, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .whole-banner .page-banner img {
+    height: 100%;
+    max-width: none;
+    width: auto;
+    left: 50%;
+    margin-left: -381px;
+    position: absolute;
+  }
+  /* line 87, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .featured > .row > div > .row {
+    padding: 15px 0;
+    margin: 0px;
+    height: auto !important;
+  }
+  /* line 88, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .featured > .row > div > .row > div:first-of-type {
+    margin-bottom: 30px;
+  }
+  /* line 94, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .featured > .row > div > .row .title {
+    padding-bottom: 15px;
+  }
+  /* line 98, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .middle-carousel {
+    padding-top: 30px;
+  }
+  /* line 100, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .middle-carousel .carousel-left {
+    padding-left: 0;
+  }
+  /* line 103, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .middle-carousel .carousel-right {
+    text-align: center;
+  }
+  /* line 108, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .button-group .btn {
+    width: 150px;
+    white-space: pre-wrap;
+    height: 58px;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  /* line 120, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing .download-section > .content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  /* line 124, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare .panel-body {
+    padding: 0;
+  }
+  /* line 127, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 {
+    font-size: 14px;
+  }
+  /* line 129, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 th {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 14px;
+  }
+  /* line 135, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 #compare-table tr {
+    display: flex;
+  }
+  /* line 138, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 #compare-table td, .motor-landing #compare-table-2 #compare-table th {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+  }
+  /* line 148, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 #compare-table th, .motor-landing #compare-table-2 #compare-table td {
+    padding-right: 25px;
+  }
+  /* line 151, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 #compare-table td {
+    border-left-width: 0 !important;
+  }
+  /* line 154, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 #compare-table th {
+    border: none;
+  }
+  /* line 156, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 #compare-table th .row {
+    white-space: initial;
+    margin: 0;
+  }
+  /* line 160, ../sass/customize_screen/motor/_landing.scss */
+  .motor-landing #compare-table-2 #compare-table th .row > div {
+    padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  /* line 2, ../sass/customize_screen/motor/_your-quote.scss */
+  .motor-form-wrap.quick-quote {
+    margin-top: 70px;
+  }
+
+  /* line 5, ../sass/customize_screen/motor/_your-quote.scss */
+  .yourQuote {
+    display: table-header-group;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 50px;
+    width: 100%;
+  }
+  /* line 12, ../sass/customize_screen/motor/_your-quote.scss */
+  .yourQuote #yourQuote {
+    background: #f5f5f5;
+    overflow: hidden;
+  }
+  /* line 15, ../sass/customize_screen/motor/_your-quote.scss */
+  .yourQuote #yourQuote .row {
+    padding: 0 40px;
+  }
+  /* line 16, ../sass/customize_screen/motor/_your-quote.scss */
+  .yourQuote #yourQuote .row > div {
+    padding: 0;
+    font-size: smaller;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 3, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .motor-select-plan .collapse {
+    height: auto !important;
+    display: block !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 11, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .yourQuote .collapse-addon.orange-color {
+    background: #032c30;
+    color: #f68a1d;
+  }
+  /* line 12, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .yourQuote .collapse-addon.orange-color .title {
+    color: #f68a1d;
+  }
+  /* line 17, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .yourQuote .collapse-addon.orange-color h3 {
+    color: #f68a1d;
+  }
+  /* line 22, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .motor-form-wrap {
+    display: table;
+    width: 100%;
+  }
+  /* line 26, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .motor-select-plan {
+    display: table-footer-group;
+  }
+  /* line 29, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .select-plan-main {
+    background: #f5f5f5;
+  }
+  /* line 32, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .motor-select-plan .collapse-addon:after {
+    font-family: FontAwesome;
+    color: #f6871e;
+    content: "\f0d7";
+    font-size: 1.5em;
+    right: 0.1em;
+    top: 0;
+    position: absolute;
+  }
+  /* line 41, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .select-plan-main {
+    background: #f6871e;
+  }
+  /* line 44, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .ready-content h3 {
+    font-size: 20px;
+    padding-left: 15px;
+  }
+  /* line 48, ../sass/customize_screen/motor/_quick-quote.scss */
+  .quick-quote .addOn-content {
+    height: auto !important;
+  }
+}
+@media (max-width: 767px) {
+  /* line 2, ../sass/customize_screen/motor/_breadcrumb.scss */
+  .breadcrumbs.motor.pad-0 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  /* line 4, ../sass/customize_screen/motor/_motor_header.scss */
+  body.motor-Body ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 1399px) and (min-width: 1200px) {
+  /* line 13, ../sass/customize_screen/motor/_motor_header.scss */
+  body.motor-Body ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 1079px) and (min-width: 992px) {
+  /* line 22, ../sass/customize_screen/motor/_motor_header.scss */
+  body.motor-Body ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a {
+    font-size: 13px;
+  }
+}
+/* line 36, ../sass/motor-styles.scss */
+h1, h2, h3, h4, h5, h6, h7 {
+  font-family: 'CirculaPro-Bold', Arial, sans-serif !important;
+  font-weight: 600;
+}
+
+/* line 40, ../sass/motor-styles.scss */
+h3 {
+  font-size: 24px;
+}
+
+/* line 43, ../sass/motor-styles.scss */
+p {
+  font-size: 16px;
+}
+
+/*color guild*/
+/* line 48, ../sass/motor-styles.scss */
+.blue-color {
+  background: #12afbf;
+}
+
+/* line 51, ../sass/motor-styles.scss */
+.red-color {
+  background: #f85100;
+}
+
+/* line 55, ../sass/motor-styles.scss */
+.orange-color {
+  background: #f68a1d;
+}
+/* line 57, ../sass/motor-styles.scss */
+.orange-color, .orange-color h3 {
+  color: #fff;
+}
+
+/* line 61, ../sass/motor-styles.scss */
+.yellow-color {
+  background: #fbbf15;
+}
+
+/* line 64, ../sass/motor-styles.scss */
+.dark-green-color {
+  background: #1f4146;
+}
+
+/* line 68, ../sass/motor-styles.scss */
+.light-green-color {
+  background: #97d0ce;
+  color: #061d2a;
+}
+
+/* line 72, ../sass/motor-styles.scss */
+.white-color {
+  background: #fff;
+}
+/* line 74, ../sass/motor-styles.scss */
+.white-color, .white-color a {
+  color: #061d2a;
+}
+/* line 77, ../sass/motor-styles.scss */
+.white-color h3, .white-color .price {
+  color: #f68a1d;
+}
+
+/* line 81, ../sass/motor-styles.scss */
+.bdr-curve {
+  padding: 5px 2px !important;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+  max-width: 250px;
+}
+
+/* line 88, ../sass/motor-styles.scss */
+.center .motor-ttl {
+  font-size: 20px !important;
+  margin: 20px auto !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  font-weight: bold !important;
+  line-height: 1.3;
+}
+
+/* line 96, ../sass/motor-styles.scss */
+.underline {
+  text-decoration: underline !important;
+}
+
+/*# sourceMappingURL=motor-styles.css.map */

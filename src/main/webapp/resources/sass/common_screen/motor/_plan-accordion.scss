@@ -1,0 +1,63 @@
+.plan-accordion{
+	padding-bottom: 40px !important;
+    .panel-default{
+        background: transparent;
+        border-top: none !important;
+    }
+    .panel-heading{
+        border-bottom: solid 2px $dark-green;
+        background: transparent;
+    }
+    .panel-title a{
+        color: $dark-green;
+        text-decoration: none;
+        font-size: x-large;
+        text-align: center;
+        display: block;
+        font-weight: 600;
+        &:after{
+            font-family: FontAwesome;
+            content: "\f107";
+            float: right;
+        }
+    }
+    .table{
+        width: 100%;
+        th, td{
+            border: solid 2px;
+            border-left-width: 8px;
+            padding: 15px 10px;
+            vertical-align: middle;
+        }
+        th{
+            border-left-width: 8px;
+            border-color: #f5f5f5;
+        }
+        tr:nth-of-type(odd){
+            td{
+                border-color: #fff;
+                background: #fff;
+            }
+        }
+        tr:nth-of-type(even){
+            td{
+                border-color: #f5f5f5;
+            }
+        }
+        td{
+            border: none !important;
+        }
+		tr.hidden-xs > td{
+			background-color: #f5f5f5 !important;
+		}
+    }
+    .panel-collapse, .panel-body{
+        background: transparent !important;
+    }
+    .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+        background-color: #fff;
+    }
+    .table tr>th:first-of-type{
+        border: none !important;
+    }
+}

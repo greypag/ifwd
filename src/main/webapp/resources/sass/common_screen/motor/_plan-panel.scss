@@ -1,0 +1,46 @@
+.plan-panel{
+    color: #fff;
+    padding: 0;
+    .thumbnail{
+        padding: 0;
+        padding-right: 10px;
+        border: none;
+        background: transparent;
+        margin-bottom: 0;
+    }
+
+    >div{
+		
+        margin: 15px;
+        padding: 30px;
+    }
+    .row:first-of-type > div:first-of-type{
+        padding-right: 0;
+    }
+    .row:first-of-type > div:last-of-type{
+        //  padding-left: 0;
+    }
+    h3{
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 600;
+        color: #fff;
+		padding-bottom: 15px;
+    }
+    .currency, .price{
+        color: #fff;
+    }
+    .currency, small{
+        font-size: small;
+    }
+	.currency{
+		margin-bottom: 5px;
+	}
+		.price > small{
+		margin-right: 5px;
+	}
+    big{
+        font-size: xx-large;
+        font-weight: 600;
+    }
+}

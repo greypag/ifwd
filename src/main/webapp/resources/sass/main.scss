@@ -1,12 +1,12 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: #{timestamp()}
-* for branch#1.15.000 (ROPHI_fwdhk)
+* FWD revamp v0.1.6, last compiled on: #{timestamp()}
 *
 **/
 
 // @import "normalize";        // #Insert the normalized css for eliminate the difference of browsers [Optional use]
 @import "color";
+// @import "font";
 @import "variable";         // #Define all scss variables
 @import "mixin";            // #Contains all kinds of @mixin & @funct
 
@@ -16,12 +16,14 @@
 @import "base/font";
 @import "base/input_textarea";
 @import "base/button";
+@import "base/text";
 
 @import "other";            // #Insert the styles which are currently existing in the main.css, but not in current development [Optional use]
 
 // #Apply for all screens   // #Localize the internal css applying for ALL SCREENs and but only one THEME
 @import "common_screen/header";
 @import "common_screen/footer";
+@import "common_screen/container";
 @import "common_screen/loginpopup";
 @import "common_screen/overlay";
 @import "common_screen/becomeOurPartner";
@@ -32,15 +34,27 @@
 @media screen and #{$mobile} {
   @import "mobile/header";
   @import "mobile/footer";
+  @import "mobile/container";
   @import "mobile/loginpopup";
   @import "mobile/becomeOurPartner";
   @import "mobile/faq"; // BEM Naming for faq page 20160513
 }
 
-@media screen and #{$desktop} {
-  @import "desktop/header";
-  @import "desktop/footer";
-  @import "desktop/loginpopup";
+@media screen and #{$desktop_lg} {
+  @import "desktop_lg/motor/quick-quote";
+}
+
+@media screen and #{$desktop_mdlg} {
+  @import "desktop_mdlg/footer";
+  @import "desktop_mdlg/loginpopup";
+}
+
+@media screen and #{$desktop_md} {
+  // @import "desktop_md/header";
+}
+
+@media screen and #{$desktop_lg} {
+  // @import "desktop_lg/header";
 }
 
 // # Other rules and diff. screen standards for overwrite above

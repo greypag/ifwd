@@ -26,6 +26,8 @@
 <script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/savie-2016/material.min.js"></script>
 
+<script src="<%=request.getContextPath()%>/resources/js/common/fwd-utility.js"></script>
+
 <% 
 	/**********
 	Page Specific Vendor JS

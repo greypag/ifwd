@@ -1,6 +1,10 @@
-@media (max-width: 767px){
+
+@media (max-width: #{$screen-xs-max}) {
 	.faq-answer__orderList__listItem{
 		width: 100%;
 		clear: both;
+	}
+	.faq_answer a{
+		word-wrap: break-word;
 	}
 }
