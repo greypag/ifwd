@@ -550,16 +550,16 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
-													<td class="text-center yellow-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+													<td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+													<td class="text-center yellow-border"><i class="fa fa-check" aria-hidden="true"></i></td>
 												</tr>
 												<tr>
 													<td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
 													<td class="text-center orange-border"><i class="fa fa-check" aria-hidden="true"></i></td>
 												</tr>
 												<tr>
-													<td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
-													<td class="text-center light-green-border"><i class="fa fa-times" aria-hidden="true"></i></td>
+													<td class="text-center light-green-border"><i class="fa fa-check" aria-hidden="true"></i></td>
+													<td class="text-center light-green-border"><i class="fa fa-check" aria-hidden="true"></i></td>
 												</tr>
 											</tbody>
 										</table>
