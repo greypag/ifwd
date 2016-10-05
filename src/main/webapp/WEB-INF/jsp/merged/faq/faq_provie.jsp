@@ -73,7 +73,7 @@
             <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                 <div class="col-md-12 col-lg-12 pad-none faq_answer">
                     <fmt:message key="faq.provie.group1.a3.part1" bundle="${msg}" />
-                    <ol>
+                    <ol class="faq_answer__list--pad-left20">
                     	<li><fmt:message key="faq.provie.group1.a3.part1.li1" bundle="${msg}" /></li>
                     	<li><fmt:message key="faq.provie.group1.a3.part1.li2" bundle="${msg}" /></li>
                     	<li><fmt:message key="faq.provie.group1.a3.part1.li3" bundle="${msg}" /></li>
@@ -139,13 +139,13 @@
                 <div class="col-md-12 col-lg-12 pad-none faq_answer">
                     <p>
                     	<fmt:message key="faq.provie.group1.a6.part1" bundle="${msg}" />
-                    	<ul>
-                    		<li><fmt:message key="faq.provie.group1.a6.part1" bundle="${msg}" /></li>
+                    	<ul class="faq_answer__list--no-Style faq_answer__list--pad-left20">
+                    		<li><fmt:message key="faq.provie.group1.a6.part1.li1" bundle="${msg}" /></li>
                     	</ul>                                        	
                     </p>
                      <p>
                     	<fmt:message key="faq.provie.group1.a6.part2" bundle="${msg}" />
-                    	<ul>
+                    	<ol class="faq_answer__list--pad-left20">
                     		<li><fmt:message key="faq.provie.group1.a6.part2.li1" bundle="${msg}" /></li>
                     		<li><fmt:message key="faq.provie.group1.a6.part2.li2" bundle="${msg}" /></li>
                     		<li><fmt:message key="faq.provie.group1.a6.part2.li3" bundle="${msg}" /></li>
@@ -154,11 +154,11 @@
                     		<li><fmt:message key="faq.provie.group1.a6.part2.li6" bundle="${msg}" /></li>
                     		<li><fmt:message key="faq.provie.group1.a6.part2.li7" bundle="${msg}" /></li>
                     		<li><fmt:message key="faq.provie.group1.a6.part2.li8" bundle="${msg}" /></li>
-                    	</ul>                                        	
+                    	</ol>                                        	
                     </p>
                     <p>
                     	<fmt:message key="faq.provie.group1.a6.part3" bundle="${msg}" />
-                    	<ol>
+                    	<ol class="faq_answer__list--lo-roman faq_answer__list--pad-left20">
                     		<li><fmt:message key="faq.provie.group1.a6.part3.li1" bundle="${msg}" /></li>
                     		<li><fmt:message key="faq.provie.group1.a6.part3.li2" bundle="${msg}" /></li>
                     	</ol>                                        	

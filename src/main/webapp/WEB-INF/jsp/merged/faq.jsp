@@ -50,7 +50,7 @@
 			            </div>
 			        </div>
 			        
-					<jsp:include page="/WEB-INF/jsp/merged/faq_provie.jsp" />		        
+					<jsp:include page="/WEB-INF/jsp/merged/faq/faq_provie.jsp" />		        
 			        
 					<!-- 3hk Iphone start -->
                     <div id="faq_3hk" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
