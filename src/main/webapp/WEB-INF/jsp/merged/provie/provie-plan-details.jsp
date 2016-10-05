@@ -210,7 +210,7 @@
 								<div class="col-xs-12 plan-promo-code">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
 										<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
-										<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="provie.plandetails.promocode" bundle="${provieMsg}" /></label>
+										<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="provie.plandetails.promocode.referral" bundle="${provieMsg}" /></label>
 									</div>
 									<span class="error-msg hidden" id="promoCodeErrorMsg"><fmt:message key="plan.detail.promo.code.error" bundle="${msg}" /></span>
 								</div>
@@ -656,7 +656,7 @@
 			
 			</div>
 			<div class="text-center">
-				<button type="button" class="text-bold white-btn collapsed btn-after-5-years" data-toggle="collapse" data-target="#after-5-years-container" aria-expanded="false" ><span class="after-5"><fmt:message key="provie.plandetails.5years.before" bundle="${provieMsg}" /></span><span class="hidden first-5"><fmt:message key="provie.plandetails.5years.after" bundle="${provieMsg}" /></span></button>
+				<button type="button" class="text-bold white-btn collapsed btn-after-5-years" data-toggle="collapse" data-target="#after-5-years-container" aria-expanded="false" ><span class="hidden after-5"><fmt:message key="provie.plandetails.5years.before" bundle="${provieMsg}" /></span><span class="first-5"><fmt:message key="provie.plandetails.5years.after" bundle="${provieMsg}" /></span></button>
 			</div>
 		</div>
 	</div>
@@ -1267,6 +1267,18 @@
 		}
 		
         //end of getProvieRiderEligibility
+		  
+		
+		$('.btn-after-5-years').on('click touchup', function(){
+			if($('.btn-after-5-years').hasClass('collapsed')){
+				$('.btn-after-5-years .first-5').addClass('hidden');
+				$('.btn-after-5-years .after-5').removeClass('hidden');
+			}else{
+				$('.btn-after-5-years .first-5').removeClass('hidden');
+				$('.btn-after-5-years .after-5').addClass('hidden');
+			}
+		});
+		
 	});
 
 	// changing first/after 3 years button content

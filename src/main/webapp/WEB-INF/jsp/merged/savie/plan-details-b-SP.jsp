@@ -181,7 +181,7 @@ var affordabilityPremium = ${sliderMax};
 					<div class="col-xs-12 col-md-3 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
 							<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
-							<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode" bundle="${msg}" /></label>
+							<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode.referral" bundle="${msg}" /></label>
 						</div>
 						<span class="error-msg hidden" id="promoCodeErrorMsg"><fmt:message key="plan.detail.promo.code.error" bundle="${msg}" /></span>
 					</div>
@@ -520,18 +520,18 @@ var affordabilityPremium = ${sliderMax};
 		<div class="next-btn text-center">
 
 			<!-- for online -->
-			<%--<div class="btn__proceed_online js-display-savie-sp">
+			<div class="btn__proceed_online js-display-savie-sp">
 				<button id="btn-proceed" class="btn plan-details-btn savie-common-btn white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
 			</div>
 			<a onclick="applyCentre();" class="pd-link" style="color: #ff8200;"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a>
-			--%>
 			<!-- for offline -->
-			<div class="">
+			<%--<div class="">
 				<button onclick="applyCentre();" class="btn plan-details-btn savie-common-btn white-btn text-orange text-hover-orange"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></button>
 			</div>
 			<div class="btn__proceed_online js-display-savie-sp">
 				<a id="btn-proceed" class="pd-link" style="color: #ff8200;"><fmt:message key="button.proceed.next" bundle="${msg}" /></a>
 			</div>
+			--%>
 			<a id="btn-login" class="pd-link hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></a>
 			<!-- <button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button> -->
 			<a id="btn-back" class="pd-link hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></a>
@@ -874,15 +874,15 @@ var affordabilityPremium = ${sliderMax};
 		}
 
 		//changing labels of promo code
-		$('#promoCode').focus(function() {
-			$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
-		}).focusout(function () {
-			if($(this).val() == '' ) {
-				$('.promocode-label').text('<fmt:message key="label.promocode" bundle="${msg}" />');
-			} else {
-				$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
-			}
-		});
+		//$('#promoCode').focus(function() {
+		//	$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+		//}).focusout(function () {
+		//	if($(this).val() == '' ) {
+		//		$('.promocode-label').text('<fmt:message key="label.promocode" bundle="${msg}" />');
+		//	} else {
+		//		$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+		//	}
+		//});
 
 		$('#plan-dob-datepicker').focus(function () {
 			$(this).parent().find('.custom-made-label').css({color: '#ff8200'});

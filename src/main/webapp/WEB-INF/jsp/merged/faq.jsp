@@ -46,8 +46,12 @@
 			            <div class="faq-btn-wrapper-bottom">
 			            	<div id="screenProtectorFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'sp', false);"><fmt:message key="faq.screenProtector" bundle="${msg}" /></div>
 			            	<div id="3hkIphoneFaq" class="faq_menu_item" onclick="faqChangeCare(this, '3hk', false);"><fmt:message key="faq.3hk" bundle="${msg}" /></div>
+			            	<div id="ProvieFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'prvoie', false);"><fmt:message key="faq.provie" bundle="${msg}" /></div>
 			            </div>
 			        </div>
+			        
+					<jsp:include page="/WEB-INF/jsp/merged/faq_provie.jsp" />		        
+			        
 					<!-- 3hk Iphone start -->
                     <div id="faq_3hk" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -4962,6 +4966,8 @@
                 faqChangeCare(productName,"t", true);
             }else if(productName=="HomecareFaq"){
                 faqChangeCare(productName,"h", true);
+            }else if(productName=="Provie"){
+                faqChangeCare(productName,"provie", true);
             }else{
             	faqChangeCare("ElitetermFaq","e", true);
             }
