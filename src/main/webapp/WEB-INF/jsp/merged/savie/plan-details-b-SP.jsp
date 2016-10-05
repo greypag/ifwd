@@ -811,7 +811,7 @@ var affordabilityPremium = ${sliderMax};
 				$('#promoCodeErrorMsg').addClass('hidden');
 			}
 		*/
-			alert('clicked');
+			//alert('clicked');
 			var planCode=$("#type-of-payment").val();
 			//alert('planCode=' + planCode + '<<<');
 			if (planCode=='one-off-premium'){
