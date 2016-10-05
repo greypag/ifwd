@@ -32,6 +32,7 @@ var languageP = "${language}";
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps employment-info-page" id="unemployed-page">
 			<!-- Breadcrumb Component Start-->
+    		<div class="container container-fluid container--breadcrumb">
 
 			    <c:set var="breadcrumbItems" value="breadcrumb.item.home" />
 				<c:set var="breadcrumbActive" value="0" />
@@ -53,7 +54,7 @@ var languageP = "${language}";
 			    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
 			    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
 				</jsp:include>
-
+			</div>
 			<!-- Breadcrumb Component End-->
 
 			<!-- StepIndicator Component Start-->

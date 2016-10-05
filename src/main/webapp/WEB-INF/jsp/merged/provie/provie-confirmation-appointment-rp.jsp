@@ -122,7 +122,7 @@ function stickToHeader() {
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
 						<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.branch" bundle="${provieMsg}" /></p>
-						<p><span class="branch-name">尖沙咀</span></p>
+						<p><span class="branch-name"></span></p>
 						<p class="branch-address"></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">

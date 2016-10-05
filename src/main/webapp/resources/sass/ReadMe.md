@@ -30,4 +30,5 @@
 >                   Merge to the development server environment - branch# 1.15.000 (ROPHI_fwdhk)
 > v0.1.5            : 19 May, 2016
 >                   
->                   
+> v0.1.6            : 22 Sep, 2016
+>                   # Apply color.scss & font.scss

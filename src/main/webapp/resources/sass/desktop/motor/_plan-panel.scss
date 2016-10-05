@@ -1,0 +1,12 @@
+.plan-panel-content{
+height: 264px;
+}
+
+body.chin .plan-panel-content{
+height: 196px;
+}
+.plan-panel{
+	&:first-of-type>div{
+	margin-right: 0;
+		}
+		}

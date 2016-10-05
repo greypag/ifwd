@@ -1,0 +1,22 @@
+@media (min-width: 768px){
+    .plan-accordion{
+        .table tr>td:first-of-type{
+            padding-left: 30px;
+        }
+    }
+
+}
+@media (max-width: 767px){
+    .plan-accordion{
+
+	.table-responsive > .table > thead > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > tfoot > tr > td{
+   white-space: initial;
+   min-width: 200px;
+}
+	
+        .table tr>td:first-of-type{
+            padding: 0 10px;
+        }
+    }
+
+}

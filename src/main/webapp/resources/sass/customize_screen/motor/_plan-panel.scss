@@ -1,0 +1,21 @@
+@media (max-width: 767px){
+    .plan-panel{
+        .row:first-of-type > div:first-of-type{
+            padding-left: 0;
+        }
+        .thumbnail{
+            padding-right: 0;
+        }
+		&:first-of-type > div{
+		    margin-right: 15px;
+		}
+    }
+
+	.plan-panel-content{
+height: auto !important;
+}
+
+body.chin .plan-panel-content{
+height: auto !important;
+}
+	}

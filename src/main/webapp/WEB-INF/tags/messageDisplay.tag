@@ -2,5 +2,13 @@
 <%@ attribute name="key" required="true" %>
 <%@ attribute name="bundle" required="true" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
-<fmt:setBundle basename="messages" var="msg" />
-<tag key=${key}><fmt:message key="${key}" bundle="${msg}" /></tag>
+<fmt:setBundle basename="motor" var="msg" />
+<%
+	if (com.ifwd.fwdhk.controller.UserRestURIConstants.isContentEditable()) {
+%><tag key=${key}><%
+	}
+%><fmt:message key="${key}" bundle="${msg}" /><%
+	if (com.ifwd.fwdhk.controller.UserRestURIConstants.isContentEditable()) {
+%></tag><%
+	}
+%>

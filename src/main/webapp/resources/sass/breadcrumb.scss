@@ -8,17 +8,21 @@
 
 // @import "normalize";        // #Insert the normalized css for eliminate the difference of browsers [Optional use]
 @import "variable";         // #Define all scss variables
-@import "mixin";            // #Contains all kinds of @mixin & @funct
+@import "mixin";
+@import "color";
+// @import "font";
 
 // #Apply for all screens   // #Localize the internal css applying for ALL SCREENs and but only one THEME
 @import "common_screen/breadcrumb";
+@import "common_screen/container"; // temporarily included before full template migration
 
 @media screen and #{$mobile} {
 	@import "mobile/breadcrumb";
+	@import "mobile/container"; // temporarily included before full template migration
 }
 
-@media screen and #{$desktop} {
-	@import "desktop/breadcrumb";
+@media screen and #{$desktop_mdlg} {
+	@import "desktop_mdlg/breadcrumb";
 }
 
 // # Other rules and diff. screen standards for overwrite above

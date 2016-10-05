@@ -374,7 +374,6 @@ ul.maintabs li a:hover {
 }
 
 #numOfDays {
-	/*font-size: 18px;*/
 	/*margin-top: 10px;*/
 	/*font-weight: bold;*/
 
@@ -10169,50 +10168,216 @@ ul.promotion-sub-tnc.bullets {
 }
 
 /******** Desktop header menutab v2 ********/
-@media ( min-width : 992px){
-	.no-padding{
-		padding:0;
-	}
+.no-padding{
+	padding:0;
+}
+@media screen and (max-width : 1079px) and ( min-width : 992px) {
 	.protect-save-enjoy-tab{
-	    font-size: 24px;
+	    font-size: 22px;
 	    margin: auto;
 	}
+	.protect-tab .protect-tab__1st_col {
+		width:18%;
+	}
+	.protect-tab .protect-tab__2nd_col {
+		width:19%;
+	}
+	.protect-tab .protect-tab__3rd_col {
+		width:27%;
+	}
+	.protect-tab .protect-tab__4th_col {
+		width:21%;
+	}
 	ul.menutab-V2{
-		flaot:right;
-		font-size:24px;
+		float:right;
+		font-size:22px;
 		margin:0;
 		padding:0;
 	}
 	ul.menutab-V2 li.dropdown:hover .dropdown-menu{
 	    display: block;
 	    margin-top: 0;
-	    width:510%;
+	    width: 550%;
+	    border-top:1px;
+	    background-clip: border-box;
+	    text-align:left;
+		padding: 20px 0 20px 35px;
+	}
+	ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column{
+		width: 201%;
+	}
+	.dropdown-menu.one-column.enjoy-tab{
+		left: -100%;
+	}
+	.dropdown-menu.protect-tab{
+	    left: -249%;
+	}
+	.dropdown-menu li.menu-subtitle{
+	    color: #373a36;
+		font-size: 18px;
+	    font-weight: 700;
+	}
+	ul.maintabs li li.menu-link, li.menu-subtitle{
+		display: block;
+		line-height: 2.3;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link *{
+	    color: #f6871e;
+		font-size: 15px;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+		color: #9fb1b2;
+		font-size: 15px;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+		font-size: 15px;
+		font-weight: 300;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+		margin-right:7px;
+		font-size: 11px;
+	}
+    .nav-group{
+       width: 25%;
+       float: left;
+    }
+	.partition-on-the-right{
+	    border-width: 1px;
+	    border-color: #9fb1b2;
+	    border-right-style: solid;
+	    margin-right: 2%;
+	}
+}
+@media screen and (max-width : 1199px) and ( min-width : 1080px) {
+	.protect-save-enjoy-tab{
+	    font-size: 22px;
+	    margin: auto;
+	}
+	.protect-tab .protect-tab__1st_col {
+		width:20%;
+	}
+	.protect-tab .protect-tab__2nd_col {
+		width:20%;
+	}
+	.protect-tab .protect-tab__3rd_col {
+		width:28%;
+	}
+	.protect-tab .protect-tab__4th_col {
+		width:24%;
+	}
+	ul.menutab-V2{
+		float:right;
+		font-size:22px;
+		margin:0;
+		padding:0;
+	}
+	ul.menutab-V2 li.dropdown:hover .dropdown-menu{
+	    display: block;
+	    margin-top: 0;
+	    width: 510%;
+	    border-top:1px;
+	    background-clip: border-box;
+	    text-align:left;
+		padding: 20px 0 20px 35px;
+	}
+	ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column{
+		width: 201%;
+	}
+	.dropdown-menu.one-column.enjoy-tab{
+		left: -100%;
+	}
+	.dropdown-menu.protect-tab{
+		left: -209%;
+	}
+	.dropdown-menu li.menu-subtitle{
+	    color: #373a36;
+		font-size: 18px;
+	    font-weight: 700;
+	}
+	ul.maintabs li li.menu-link, li.menu-subtitle{
+		display: block;
+		line-height: 2.3;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link *{
+	    color: #f6871e;
+		font-size: 15px;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+		color: #9fb1b2;
+		font-size: 15px;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+		font-size: 15px;
+		font-weight: 300;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+		margin-right:7px;
+		font-size: 11px;
+	}
+    .nav-group {
+       width: 25%;
+       float: left;
+    }
+	.partition-on-the-right{
+	    border-width: 1px;
+	    border-color: #9fb1b2;
+	    border-right-style: solid;
+	    margin-right: 2%;
+	}
+}
+@media screen and (max-width : 1399px) and ( min-width : 1200px) {
+	.protect-save-enjoy-tab{
+	    font-size: 22px;
+	    margin: auto;
+	}
+	.protect-tab .protect-tab__1st_col {
+		width:20%;
+	}
+	.protect-tab .protect-tab__2nd_col {
+		width:19%;
+	}
+	.protect-tab .protect-tab__3rd_col {
+		width:28%;
+	}
+	.protect-tab .protect-tab__4th_col {
+		width:23%;
+	}
+	ul.menutab-V2{
+		float:right;
+		font-size:22px;
+		margin:0;
+		padding:0;
+	}
+	ul.menutab-V2 li.dropdown:hover .dropdown-menu{
+	    display: block;
+	    margin-top: 0;
+	    width: 500%;
 	    border-top:1px;
 	    background-clip: border-box;
 	    text-align:left;
 	    padding: 20px 0 20px 44px;
 	}
 	ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column{
-		width:201%;
+		width: 201%;
 	}
 	.dropdown-menu.one-column.enjoy-tab{
-		left:-100%;
+		left: -100%;
 	}
 	.dropdown-menu.protect-tab{
-	    left:-209%;
+		left: -199%;
 	}
 	.dropdown-menu li.menu-subtitle{
 	    color: #373a36;
-	    font-size: 22px;
+		font-size: 20px;
 	    font-weight: 700;
 	}
 	ul.maintabs li li.menu-link, li.menu-subtitle{
-		display:block;
-		line-height: 2;
+		display: block;
+		line-height: 2.1;
 	}
 	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link *{
 	    color: #f6871e;
-	    font-size: 18px;
+		font-size: 18px;
 	}
 	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
 		color: #9fb1b2;
@@ -10230,14 +10395,88 @@ ul.promotion-sub-tnc.bullets {
        width: 25%;
        float: left;
     }
-	.middle-group{
-	    border-left-style: solid;
+	.partition-on-the-right{
 	    border-width: 1px;
 	    border-color: #9fb1b2;
 	    border-right-style: solid;
-	    margin-right: 5%;
-	    margin-left: 5%;
-	    padding-left: 5%;
+	    margin-right: 2%;
+	}
+}
+@media screen and ( min-width : 1400px ) {
+	.protect-save-enjoy-tab{
+	    font-size: 24px;
+	    margin: auto;
+	}
+	.protect-tab .protect-tab__1st_col {
+		width:20%;
+	}
+	.protect-tab .protect-tab__2nd_col {
+		width:19%;
+	}
+	.protect-tab .protect-tab__3rd_col {
+		width:28%;
+	}
+	.protect-tab .protect-tab__4th_col {
+		width:23%;
+	}
+	ul.menutab-V2{
+		float:right;
+		font-size:24px;
+		margin:0;
+		padding:0;
+	}
+	ul.menutab-V2 li.dropdown:hover .dropdown-menu{
+	    display: block;
+	    margin-top: 0;
+	    width: 500%;
+	    border-top:1px;
+	    background-clip: border-box;
+	    text-align:left;
+	    padding: 20px 0 20px 44px;
+	}
+	ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column{
+		width:201%;
+	}
+	.dropdown-menu.one-column.enjoy-tab{
+		left:-100%;
+	}
+	.dropdown-menu.protect-tab{
+	    left:-209%;
+	}
+	.dropdown-menu li.menu-subtitle{
+	    color: #373a36;
+		font-size: 22px;
+	    font-weight: 700;
+	}
+	ul.maintabs li li.menu-link, li.menu-subtitle{
+		display: block;
+		line-height: 2.1;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link *{
+	    color: #f6871e;
+		font-size: 18px;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+		color: #9fb1b2;
+		font-size: 18px;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+		font-size: 18px;
+		font-weight: 300;
+	}
+	ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+		margin-right:7px;
+		font-size: 11px;
+	}
+    .nav-group{
+       width: 25%;
+       float: left;
+    }
+	.partition-on-the-right{
+	    border-width: 1px;
+	    border-color: #9fb1b2;
+	    border-right-style: solid;
+	    margin-right: 2%;
 	}
     .nav-group.middle-group{
        width: 37%;
@@ -10371,7 +10610,7 @@ ul.promotion-sub-tnc.bullets {
         display:none;
     }
     .mob-login-form-wrapper.open{
-        display:block;
+        display: block;
     }
     .link-arrow{
         margin-top:8px;
@@ -10825,7 +11064,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     }
     #loginpopup .login-info{/*height:235px !important;*/margin-top:50px;/*padding:20px 30px;*/padding:0;text-align:center;flaot:none;}
     #loginpopup .login-info-savie{/*background-image:url(/fwdhk/resources/images/login/savie-mobile.png);*/background-color:#16ab95;}
-    #loginpopup .login-info .heading-h4,#loginpopup .login-info .heading-h5{display:block;padding-bottom:20px}
+    #loginpopup .login-info .heading-h4,#loginpopup .login-info .heading-h5{display: block;padding-bottom:20px}
     #loginpopup .login-form, #loginpopup .modal-content.plan-modal,#loginpopup .login-form{/*height:432px;*/height: auto;}
     #loginpopup .loginpopupext{padding-top:0;/*top:-58px;*/}
     #loginpopup .loginpopupext.modal-dialog .modal-content,#loginpopup .loginpopupext{height:auto;padding:0;}
@@ -11231,7 +11470,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
         position: absolute;
         vertical-align: middle;
         z-index: 1;
-        display:block;
+        display: block;
 	}
 	.mob-lang-btn {
 	    float: right;
@@ -12370,6 +12609,7 @@ button[disabled].btn.btn-default--vc {
 .support-reminder__list li span{
 	color: #333;
 }
+
 /* End ticket 3448 Add tag and go payment reminder 31-08-2016 By Irvine*/
 
 /* ticket 3490 Add tag and go payment reminder 15-09-2016 By Irvine*/
@@ -12398,4 +12638,3 @@ button[disabled].btn.btn-default--vc {
   width: 42px !important;
   height: 42px !important;
 }
-

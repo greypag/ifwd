@@ -77,6 +77,7 @@ var languageP = "${language}";
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.home.liability" bundle="${msg}" />" bundle="${msg}" /><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/screen-insurance/${language}" bundle="${msg}" /><fmt:message key="header.product.type1.group3.linkname3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 	                             	<li><a href="<%=request.getContextPath()%>/phone-insurance/${language}" bundle="${msg}" /><fmt:message key="header.product.type1.group3.linkname4" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/motor-insurance" bundle="${msg}" /><fmt:message key="header.product.type1.group4.linkname1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 	                             </ul>
 								</ul>
 							</div>

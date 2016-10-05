@@ -24,8 +24,7 @@ var language = "${language}";
 	<!-- HEADER -->
 	
 	<!-- Breadcrumb Component Start-->
-
-
+    <div class="container container-fluid container--breadcrumb">
 		<c:set var="breadcrumbItems">
 	    	breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application
 		</c:set>
@@ -35,7 +34,7 @@ var language = "${language}";
 	    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
 	    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
 		</jsp:include>
-
+	</div>
 	<!-- Breadcrumb Component End-->
 
 	<!-- StepIndicator Component Start-->

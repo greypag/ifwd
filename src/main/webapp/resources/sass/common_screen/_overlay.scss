@@ -11,6 +11,13 @@
     border-radius: 0px !important;
 }
 
+.overlay__close{
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	right: 0;
+}
+
 #loading-overlay{
 	.overlay__wrapper{
 		width: 300px;

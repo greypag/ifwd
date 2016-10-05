@@ -1,0 +1,54 @@
+.motor-landing{ 
+    .featured{
+        margin-top: 30px;
+    }
+    .center .motor-ttl{
+        margin-bottom: 30px !important;
+    }
+    .motor-landing .featured.no-border > .row > div > .row{
+        padding-top: 0;
+    }
+}
+#hero{
+h1{
+	font-size: 30px;
+}
+h3{
+font-size: 22px;
+}
+.bdr-curve{
+min-width: 0;
+width: 147px;
+padding: 0 15px !important;
+}
+}
+
+#landing-carousel{
+ .carousel-control-wrap{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+	}
+
+.carousel-control{
+&.right, &.left{
+background: transparent !important;
+}
+.fa{
+font-size: 300%;
+line-height: 1;
+}
+color: #333 !important;
+}
+} 
+
+
+.motor-landing #featured > .row > div > .row{
+height: 620px;
+}
+
+body.chin{ 
+.motor-landing #featured > .row > div > .row{
+height: 520px;
+}
+}

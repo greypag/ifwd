@@ -9,6 +9,8 @@
 // @import "normalize";        // #Insert the normalized css for eliminate the difference of browsers [Optional use]
 @import "variable";         // #Define all scss variables
 @import "mixin";            // #Contains all kinds of @mixin & @funct
+@import "color";
+// @import "font";
 
 // #Apply for all screens   // #Localize the internal css applying for ALL SCREENs and but only one THEME
 @import "common_screen/stepIndicator";
@@ -17,8 +19,8 @@
 	@import "mobile/stepIndicator";
 }
 
-@media screen and #{$desktop} {
-  @import "desktop/stepIndicator";
+@media screen and #{$desktop_mdlg} {
+  @import "desktop_mdlg/stepIndicator";
 }
 
 @import "customize_screen/stepIndicator";

@@ -10,17 +10,29 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.OccupationBean;
@@ -35,33 +47,62 @@ import com.ifwd.fwdhk.model.motor.PolicyMotorCare;
 import com.ifwd.fwdhk.model.motor.QuoteMotorCare;
 import com.ifwd.fwdhk.model.motor.SaveForLater;
 import com.ifwd.fwdhk.model.motor.UnderWriting;
+import com.ifwd.fwdhk.services.MotorCareValidationService;
+import com.ifwd.fwdhk.util.HeaderUtil;
 
 @Controller
 @RequestMapping(value = "/api/iMotor", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE} )
 @Api(value = "/iMotor", description = "To serve all operations regarding MotorCare")
 public class MotorCareController extends BaseController{
 			
+	private final static Logger logger = LoggerFactory.getLogger(MotorCareController.class);
+
+	@Autowired
+	private MotorCareValidationService motorCareValidationService;
+	@Autowired
+	private HeaderUtil headerUtil;
+	
 	@ApiOperation(
 			value = "This API is used to get available list of motor brands",
 			response = CarDetail.class,
 			responseContainer = "List"
 			)
-	@ApiResponses(value = {			
+	@ApiResponses(value = {				
 			@ApiResponse(code = 404, message = "System cannot find the list of car brands"),
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = "/list/carMakes", method = GET)
 	public ResponseEntity<List<CarDetail>> getCarMakes(HttpServletRequest request) {
 		
-		// super.IsAuthenticate(request);
+		// super.IsAuthenticate(request);		
+		List<CarDetail> apiResponse = new ArrayList<CarDetail>();
+		JSONObject responseJsonObj = new JSONObject();		
 		
-		try {
-			List<CarDetail> apiResponse = new ArrayList<CarDetail>();
-			return Responses.ok(apiResponse);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.MOTOR_CARE_CARMAKE_LIST_GET;
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("carDetail") != null && responseJsonObj.get("carDetail").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();				
+					apiResponse = mapper.readValue(responseJsonObj.get("carDetail").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CarDetail.class));
+				} else {
+					logger.info("getCarMakes carDetail not found");
+					return Responses.notFound(null);
+				}
+				
+			} else {
+				logger.info("getCarMakes System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}
 			
 		} catch (Exception e) {
-			throw new RuntimeException("System error");
+			logger.info("getCarMakes System error:" + e.toString());
+			return Responses.error(null);	
 		}
+		return Responses.ok(apiResponse);
 	}	
 	
 	@ApiOperation(
@@ -73,19 +114,43 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid car make code"),
 			@ApiResponse(code = 500, message = "System error")
 			})
-	@RequestMapping(value = "/carDetails", method = GET)
+
+    @RequestMapping(value = "/carDetails/{makeCode}", method = GET)
 	public ResponseEntity<List<CarDetail>> getCarDetailsByMake(
-			@ApiParam(value = "Car Make by", required = true) @RequestParam("makeCode") String makeCode,			
+            @ApiParam(value = "Car Make by", required = true) @PathVariable("makeCode") String makeCode,            
 			HttpServletRequest request) {
 		
-		// super.IsAuthenticate(request);
+		// super.IsAuthenticate(request);		
+		// ******************* Valid input *******************
 		
-		List<CarDetail> apiResponse = new ArrayList<CarDetail>();
-		
-		try {			
+		// ******************* Init *******************
+		List<CarDetail> apiResponse = new ArrayList<CarDetail>();		
+		JSONObject responseJsonObj = new JSONObject();
+		try {		
+			// ******************* Form URL *******************
+			String encodedMake = urlEncodeInputSpace(makeCode);
+			String url = StringUtils.replace(UserRestURIConstants.MOTOR_CARE_CARDETAILS_BY_MAKE_GET,"{makeCode}", encodedMake);
 			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("carDetail") != null && responseJsonObj.get("carDetail").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();				
+					apiResponse = mapper.readValue(responseJsonObj.get("carDetail").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CarDetail.class));
+				} else {
+					logger.info("getCarDetailsByMake carDetail not found");
+					return Responses.notFound(null);
+				}
+				
+			} else {
+				logger.info("getCarDetailsByMake System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);				
+			}
 		} catch (Exception e) {
-			throw new RuntimeException("System error");
+			logger.info("getCarDetailsByMake System error:" + e.toString());
+			return Responses.error(null);		
 		}
 		return Responses.ok(apiResponse);
 	}	
@@ -103,13 +168,38 @@ public class MotorCareController extends BaseController{
 	public ResponseEntity<List<OccupationBean>> getOccupations(HttpServletRequest request) {
 		
 		// super.IsAuthenticate(request);
+		// ******************* Valid input *******************
 		
-		try {
-			List<OccupationBean> apiResponse = new ArrayList<OccupationBean>();
-			return Responses.ok(apiResponse);
-		} catch (Exception e) {
-			throw new RuntimeException("System error");
-		}
+		// ******************* Init *******************
+		List<OccupationBean> apiResponse = new ArrayList<OccupationBean>();
+//		JSONObject responseJsonObj = new JSONObject();		
+//		try {
+//			
+//			// ******************* Form URL *******************
+//			String url = UserRestURIConstants.MOTOR_CARE_OCCUPATIONS_GET;
+//			
+//			// ******************* Consume Service *******************
+//			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+//			
+//			// ******************* Makeup result *******************
+//			if (responseJsonObj.get("errMsgs") == null) {
+//				if(responseJsonObj.get("occupationBean") != null && responseJsonObj.get("occupationBean").toString().length() > 0) {
+//					ObjectMapper mapper = new ObjectMapper();				
+//					apiResponse = mapper.readValue(responseJsonObj.get("occupationBean").toString(), mapper.getTypeFactory().constructCollectionType(List.class, OccupationBean.class));
+//				} else {
+//					return Responses.notFound(null);
+//				}
+//				
+//			} else {
+//				// add error handle
+//			}
+//			
+//		} catch (Exception e) {
+//			throw new RuntimeException("System error");
+//		}
+		
+		apiResponse = motorCareValidationService.getMotorOccupationList();//TODO Quick solution, need to replace when eBao side ready
+		return Responses.ok(apiResponse);
 	}	
 		
 	@ApiOperation(
@@ -165,6 +255,16 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 400, message = "Invalid info for quotation"),
+			@ApiResponse(code = 417, message ="Invalid Make/Model" ),
+			@ApiResponse(code = 414, message ="Invalid Make/Model Electronic Car" ),
+			@ApiResponse(code = 406, message ="Invalid Occupation" ),
+			@ApiResponse(code = 415, message ="Invalid NCD" ),
+			@ApiResponse(code = 408, message ="Invalid Age" ),
+			@ApiResponse(code = 409, message ="Invalid Driving Years" ),
+			@ApiResponse(code = 416, message ="Invalid Year of Manufacture 8-13" ),
+			@ApiResponse(code = 410, message ="Invalid Year of Manufacture" ),
+			@ApiResponse(code = 412, message ="Invalid Estimated Value Maximum" ),
+			@ApiResponse(code = 413, message ="Invalid Estimated Value Minimum" ),
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/quote"}, method = POST)
@@ -173,38 +273,129 @@ public class MotorCareController extends BaseController{
 			HttpServletRequest request) {
 		
 		// super.IsAuthenticate(request);
+		// ******************* Valid input *******************
+		HttpStatus ifwdValidStatus = motorCareValidationService.validateMotorCareIfwd(quoteMotor);
+		if(!HttpStatus.OK.equals(ifwdValidStatus)){
+			logger.info("getQuote ifwdValidStatus:"+ifwdValidStatus);
+			return new ResponseEntity<QuoteMotorCare>((QuoteMotorCare)null, ifwdValidStatus);
+		}
+		
+		// ******************* Init *******************
+		QuoteMotorCare apiResponse = new QuoteMotorCare();	
+		JSONObject responseJsonObj = new JSONObject();		
 		
 		try {
-			QuoteMotorCare apiResponse = new QuoteMotorCare();
-			return Responses.ok(apiResponse);
+			// ******************* Form URL and Object *******************
+			String url = UserRestURIConstants.MOTOR_CARE_GET_QUOTE_POST;						
+			String jsonString = new ObjectMapper().writeValueAsString(quoteMotor);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("quoteMotorCare") != null && responseJsonObj.get("quoteMotorCare").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					apiResponse = mapper.readValue(responseJsonObj.get("quoteMotorCare").toString(), QuoteMotorCare.class);
+				} else {
+					logger.info("getQuote quoteMotorCare not found");
+					return Responses.notFound(null);
+				}
+				
+			} else {
+				logger.info("getQuote System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);				
+			}						
 		} catch (Exception e) {
-			throw new RuntimeException("System error");
+			logger.info("getQuote System error:" + e.toString());
+			return Responses.error(null);			
 		}
+		return Responses.ok(apiResponse);
 	}	
 	
 	@ApiOperation(
 			value = "This API is used to save the quote and return policyID for further actions",
-			response = String.class			
+			response = QuoteMotorCare.class				
 			)
-	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid quote info"),
+	@ApiResponses(value = {
+			@ApiResponse(code = 400, message = "Invalid info for quotation"),
+			@ApiResponse(code = 417, message ="Invalid Make/Model" ),
+			@ApiResponse(code = 414, message ="Invalid Make/Model Electronic Car" ),
+			@ApiResponse(code = 406, message ="Invalid Occupation" ),
+			@ApiResponse(code = 415, message ="Invalid NCD" ),
+			@ApiResponse(code = 408, message ="Invalid Age" ),
+			@ApiResponse(code = 409, message ="Invalid Driving Years" ),
+			@ApiResponse(code = 416, message ="Invalid Year of Manufacture 8-13" ),
+			@ApiResponse(code = 410, message ="Invalid Year of Manufacture" ),
+			@ApiResponse(code = 412, message ="Invalid Estimated Value Maximum" ),
+			@ApiResponse(code = 413, message ="Invalid Estimated Value Minimum" ),
 			@ApiResponse(code = 500, message = "System error")
-			})
-	@RequestMapping(value = "/quote/saving", method = POST)
-	public ResponseEntity<String> saveQuote(
+			}) 
+	@RequestMapping(value = "/quote/saving", method = POST) 
+	public ResponseEntity<QuoteMotorCare> saveQuote( 
 			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody QuoteMotorCare quoteMotor,
 			HttpServletRequest request) {
 		
 		// super.IsAuthenticate(request);
+		// ******************* Valid input *******************
+		if(!motorCareValidationService.isValidPlanCode(quoteMotor.getPlanCode())){
+			logger.info("saveQuote Invalid Plan Code:"+quoteMotor.getPlanCode());
+			if(quoteMotor.getPlanCode()!=null && quoteMotor.getPlanCode().startsWith("4")){//testing
+				try {
+					int testHttpStatus = Integer.parseInt(quoteMotor.getPlanCode());
+					if(testHttpStatus>400 && testHttpStatus<500){
+						return new ResponseEntity<QuoteMotorCare>((QuoteMotorCare)null, HttpStatus.valueOf(testHttpStatus));
+					}
+				} catch (NumberFormatException e) {}
+			}
+			
+			return Responses.badRequest(null);
+		}
+		HttpStatus ifwdValidStatus = motorCareValidationService.validateMotorCareIfwd(quoteMotor);
+		if(!HttpStatus.OK.equals(ifwdValidStatus)){
+			logger.info("saveQuote ifwdValidStatus:"+ifwdValidStatus);
+			return new ResponseEntity<QuoteMotorCare>((QuoteMotorCare)null, ifwdValidStatus);
+		}
+		
+		
+		
+		// ******************* Init *******************
+		JSONObject responseJsonObj = new JSONObject();
+		QuoteMotorCare apiResponse = new QuoteMotorCare();	
 		
 		try {
-			String apiResponse = new String();
-			return Responses.ok(apiResponse);
+			// ******************* Form URL and Object *******************
+			String url = UserRestURIConstants.MOTOR_CARE_SAVE_QUOTE_POST;						
+			String jsonString = new ObjectMapper().writeValueAsString(quoteMotor);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug("saveQuote jsonInput:"+jsonInput.toString());
 			
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug("saveQuote responseJsonObj:"+responseJsonObj.toString());
+			
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("quoteMotorCare") != null && responseJsonObj.get("quoteMotorCare").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					apiResponse = mapper.readValue(responseJsonObj.get("quoteMotorCare").toString(), QuoteMotorCare.class);
+				} else {
+					logger.info("saveQuote quoteMotorCare not found");
+					return Responses.notFound(null);
+				}
+				
+			} else {
+				logger.info("saveQuote System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
 		} catch (Exception e) {
-			throw new RuntimeException("System error");
+			logger.info("saveQuote System error:"+e.toString());
+			return Responses.error(null);
 		}
+
+		return Responses.ok(apiResponse);
 	}	
 	
 	/******** Policy related ********/
@@ -221,7 +412,7 @@ public class MotorCareController extends BaseController{
 			@ApiParam(value = "Policy ID", required = true) @RequestBody String id,	
 			HttpServletRequest request) {
 		
-		super.IsAuthenticate(request);
+		// super.IsAuthenticate(request);
 		
 		try {
 			PolicyMotorCare apiResponse = new PolicyMotorCare();
@@ -269,7 +460,7 @@ public class MotorCareController extends BaseController{
 			@ApiParam(value = "Driver Details", required = true) @RequestBody PolicyDriverDetails body,
 			HttpServletRequest request) {
 		
-		super.IsAuthenticate(request);
+		// super.IsAuthenticate(request);
 		
 		try {
 			String apiResponse = new String();
@@ -293,7 +484,7 @@ public class MotorCareController extends BaseController{
 			@ApiParam(value = "Policy Details", required = true) @RequestBody PolicyInfo body,
 			HttpServletRequest request) {
 		
-		super.IsAuthenticate(request);
+		// super.IsAuthenticate(request);
 		
 		try {
 			String apiResponse = new String();
@@ -317,7 +508,7 @@ public class MotorCareController extends BaseController{
 			@ApiParam(value = "Declarations", required = true) @RequestBody PolicyDeclaration body,
 			HttpServletRequest request) {
 		
-		super.IsAuthenticate(request);
+		// super.IsAuthenticate(request);
 		
 		try {
 			String apiResponse = new String();
@@ -342,7 +533,7 @@ public class MotorCareController extends BaseController{
 			
 			HttpServletRequest request) {
 		
-		super.IsAuthenticate(request);
+		// super.IsAuthenticate(request);
 		
 		try {
 			String apiResponse = new String();
@@ -440,17 +631,84 @@ public class MotorCareController extends BaseController{
 			@ApiParam(value = "Contact me Info", required = true) @RequestBody ContactMe contactMe,			
 			HttpServletRequest request) {
 		
-		super.IsAuthenticate(request);
 		
-		try {
-			String apiResponse = new String();
-			return Responses.ok(apiResponse);
+		// super.IsAuthenticate(request);
+		// ******************* Valid input *******************
+		
+		
+		// ******************* Init *******************
+		JSONObject responseJsonObj = new JSONObject();
+		
+		try {			
+			String url = UserRestURIConstants.MOTOR_CARE_CONTACT_US_POST;						
+			String jsonString = new ObjectMapper().writeValueAsString(contactMe);
+			System.out.println("jsonString " + jsonString);
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			return Responses.ok(responseJsonObj.toJSONString());
 			
 		} catch (Exception e) {
-			throw new RuntimeException("System error");
+			logger.info("contactMe System error:" + e.toString());
+			return Responses.error(null);			
 		}
+		
 	}
 	
+	@ApiOperation(
+			value = "This API is used to supplement car details by make and model",
+			response = CarDetail.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "System cannot car supplement details"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = "/carDetails/{makeCode}/supplement", method = GET)							  
+	public ResponseEntity<CarDetail> getCarSupplementDetailsByMakeAndModel(
+			@ApiParam(value = "Car Make by", required = true) @PathVariable ("makeCode") String makeCode,
+			@ApiParam(value = "Car Model", required = true) @RequestParam ("carModel") String carModel,	
+			HttpServletRequest request) {
+		
+		// super.IsAuthenticate(request);		
+		// ******************* Valid input *******************
+		
+		// ******************* Init *******************
+		CarDetail apiResponse = new CarDetail();
+		JSONObject responseJsonObj = new JSONObject();
+		try {		
+			// ******************* Form URL *******************
+			String encodedMake = urlEncodeInputSpace(makeCode);
+			String encodedCarModel = urlEncodeInputSpace(carModel);			
+			String url = UserRestURIConstants.MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET + "?makeCode=" + encodedMake + "&carModel=" + encodedCarModel;
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("carDetail") != null && responseJsonObj.get("carDetail").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();					
+					apiResponse = mapper.readValue(responseJsonObj.get("carDetail").toString(), CarDetail.class);
+				} else {
+					logger.info("getCarSupplementDetailsByMakeAndModel carDetail not found");
+					return Responses.notFound(null);
+				}
+				
+			} else {
+				logger.info("getCarSupplementDetailsByMakeAndModel System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);		
+			}
+		} catch (Exception e) {
+			logger.info("getCarSupplementDetailsByMakeAndModel System error:" + e.toString());
+			return Responses.error(null);	
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	private String urlEncodeInputSpace (String input) throws UnsupportedEncodingException {
+		return StringUtils.replace(URLEncoder.encode(input, "UTF-8"), "+", "%20");
+	}
 	
 	
 }

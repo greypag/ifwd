@@ -1,4 +1,4 @@
-@include bp-min(768px) {
+@include breakpoint-min(#{$screen-sm}) {
     // source from line#263 (main_00_orgin.css)
     .modal.fade.loginpopup {
         // changed from "#loginpopup .modal-dialog {}"
@@ -8,7 +8,7 @@
         }
     }
 }
-@include bp-max(767px) {
+@include breakpoint-max(#{$screen-xs-max}) {
     .promo-active-page {
         .right-side-content #promo-offers-tab-contents {
             .tab-content {
