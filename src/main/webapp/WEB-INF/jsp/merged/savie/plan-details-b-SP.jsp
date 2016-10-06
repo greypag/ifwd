@@ -239,7 +239,7 @@ var affordabilityPremium = ${sliderMax};
 							</tr>
 						</tbody>
 					</table>
-					<p class="small"><fmt:message key="saive.plandetails.summary.totalpremium.remark" bundle="${msg}" /></p>
+					<!--p class="small"><fmt:message key="saive.plandetails.summary.totalpremium.remark" bundle="${msg}" /></p-->
 				</div>
 			</div>
 			<div class="after-3-years-container" id="after-3-years-container" style="display:none">
