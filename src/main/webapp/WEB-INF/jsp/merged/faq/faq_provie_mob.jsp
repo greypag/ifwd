@@ -94,30 +94,6 @@
         <div class="col-xs-12 col-sm-12 pad-none faq_qna">
             <div class="col-xs-12 col-sm-12 pad-none">
                 <div class="col-xs-11 col-sm-11 pad-none faq_question">
-                    <fmt:message key="faq.provie.group1.q3" bundle="${msg}" />
-                </div>
-                <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
-                    <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
-                <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                    <fmt:message key="faq.provie.group1.a3.part1" bundle="${msg}" />
-                    <ol>
-                    	<li><fmt:message key="faq.provie.group1.a3.part1.li1" bundle="${msg}" /></li>
-                    	<li><fmt:message key="faq.provie.group1.a3.part1.li2" bundle="${msg}" /></li>
-                    	<li><fmt:message key="faq.provie.group1.a3.part1.li3" bundle="${msg}" /></li>
-                    </ol>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-        <div class="col-xs-12 col-sm-12 pad-none faq_qna">
-            <div class="col-xs-12 col-sm-12 pad-none">
-                <div class="col-xs-11 col-sm-11 pad-none faq_question">
                     <fmt:message key="faq.provie.group1.q4" bundle="${msg}" />
                 </div>
                 <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">

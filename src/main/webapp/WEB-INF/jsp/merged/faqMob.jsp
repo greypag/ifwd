@@ -36,6 +36,7 @@
 	                    </div>
 				    </div>
 				    
+				    <jsp:include page="/WEB-INF/jsp/merged/faq/faq_driva_mob.jsp" />
 				    <jsp:include page="/WEB-INF/jsp/merged/faq/faq_provie_mob.jsp" />
 				    
 					<!-- 3hk Iphone start -->

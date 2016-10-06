@@ -280,7 +280,7 @@
             </div>
             <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                 <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                    <fmt:message key="faq.driva.group2.q13" bundle="${msg}" />
+                    <fmt:message key="faq.driva.group2.a13" bundle="${msg}" />
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -299,7 +299,7 @@
             </div>
             <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                 <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                    <fmt:message key="faq.driva.group2.q14" bundle="${msg}" />
+                    <fmt:message key="faq.driva.group2.a14" bundle="${msg}" />
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -436,7 +436,7 @@
         <div class="col-md-12 col-lg-12 pad-none faq_qna">
             <div class="col-md-12 col-lg-12 pad-none">
                 <div class="col-md-11 col-lg-11 pad-none faq_question">
-                    <fmt:message key="faq.driva.group2.q21" bundle="${msg}" />
+                    <fmt:message key="faq.driva.group3.q21" bundle="${msg}" />
                 </div>
                 <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                     <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
@@ -445,7 +445,7 @@
             </div>
             <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                 <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                    <fmt:message key="faq.driva.group2.a21" bundle="${msg}" />
+                    <fmt:message key="faq.driva.group3.a21" bundle="${msg}" />
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -515,11 +515,11 @@
             </div>
             <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                 <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                	<ul>
+                	<ol class="faq_answer__list--pad-left20">
                 		<li><fmt:message key="faq.driva.group4.a24.li1" bundle="${msg}" /></li>
                 		<li><fmt:message key="faq.driva.group4.a24.li2" bundle="${msg}" /></li>
                 		<li><fmt:message key="faq.driva.group4.a24.li3" bundle="${msg}" /></li>
-                	</ul>
+                	</ol>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -538,10 +538,10 @@
             </div>
             <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                 <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                	<ul>
+                	<ol class="faq_answer__list--pad-left20">
                 		<li><fmt:message key="faq.driva.group4.a25.li1" bundle="${msg}" /></li>
                 		<li><fmt:message key="faq.driva.group4.a25.li2" bundle="${msg}" /></li>
-                	</ul>
+                	</ol>
                 </div>
                 <div class="clearfix"></div>
             </div>

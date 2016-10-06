@@ -12629,8 +12629,8 @@ button[disabled].btn.btn-default--vc {
 .faq_answer__list--lo-roman{
 	list-style-type: lower-roman;
 }
-/* line 39, ../sass/common_screen/_faq.scss */
-.faq-answer * {
+/* line 42, ../sass/common_screen/_faq.scss */
+.faq-answer *, .faq_answer * {
   font-size: 16px;
 }
 /* line 38, ../sass/common_screen/_faq.scss */

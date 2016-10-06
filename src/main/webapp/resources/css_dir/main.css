@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-10-05 15:40:19 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-10-06 10:45:28 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -2151,7 +2151,7 @@ body.chin .partner-headline-wrapper .headline-title {
 }
 
 /* line 42, ../sass/common_screen/_faq.scss */
-.faq-answer * {
+.faq-answer *, .faq_answer * {
   font-size: 16px;
 }
 
