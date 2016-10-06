@@ -859,16 +859,12 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/evergreen/bootstrap-select.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/evergreen/jquery.touchSwipe.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 		<!--script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script-->
 		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/evergreen/date.format.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/evergreen/fwd-teaser.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie-discount.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie-ocean-park.js"></script>
 
