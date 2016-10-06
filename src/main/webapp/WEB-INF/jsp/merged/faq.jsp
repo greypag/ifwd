@@ -589,14 +589,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.screenProtector.group1.a4.list" bundle="${msg}" />
-                                        <ul class="faq_answer__list">
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item1" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item2" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item3" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item4" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item5" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item6" bundle="${msg}" /></li>
-                                        </ul>
+                                        <ul class="faq_answer__list"><fmt:message key="faq.screenProtector.group1.a4.list.item" bundle="${msg}" /></ul>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
