@@ -5,46 +5,7 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-<url>
-  <loc>https://i.fwd.com.hk/7-11/en</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/7-11/tc</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/phone-insurance/tc</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/phone-insurance/en</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/screen-insurance/tc</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/screen-insurance/en</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/tc/savings-insurance/provie</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/en/savings-insurance/provie</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/tc/savings-insurance/provie-plan-details</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/en/savings-insurance/provie-plan-details</loc>
-  <changefreq>weekly</changefreq>
-</url>
+
 <url>
   <loc>https://i.fwd.com.hk/tc/household-insurance/home-liability</loc>
   <changefreq>weekly</changefreq>

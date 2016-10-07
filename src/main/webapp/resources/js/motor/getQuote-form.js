@@ -53,6 +53,15 @@ $(document).ready(function(){
         if(!empty_text.length && !empty_select.length && !error)
         	$q1.next().removeClass('hidden');
     });
+    
+    $q1.find('input[name="cc"]').keyup(function(e){
+    	if($(this).val().length > 2){
+    		$q2.next().removeClass('hidden');
+    		if(selValue == "")
+	        	occupation.open();
+    	}
+    });
+    
     $q1.find('input[type="number"]').keyup(function(e){
     	
     	if($(this).val() > parseInt($(this).prop('max'))){

@@ -339,9 +339,6 @@ button.dropdown-toggle{
 					vertical-align: top;
 				}
 			}
-			.pv_content_extra{
-				margin-bottom: 12px;
-			}
 			.line{
 				max-width: 66%;
 			}
@@ -481,12 +478,6 @@ button.dropdown-toggle{
 			display: table-cell;
 			float: none;
 			vertical-align: middle;
-			
-			.pv_link{
-				&:hover, &:focus{
-					color: #ffc450;
-				}
-			}
 		}
 		.pv_title{
 			font-size: 1.75em;

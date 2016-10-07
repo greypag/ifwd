@@ -1,5 +1,13 @@
 jQuery(function($) {'use strict',
-
+	
+	$('a[href="#vModal"]').on('click', function() {
+        var vUrl;
+        vUrl = $(this).attr('data-url');
+        $('#vModal').find('#youtube-video').attr('src', vUrl);
+	});
+	$('#vModal').on('hide.bs.modal', function() {
+		$(this).find('#youtube-video').removeAttr('src');
+	});
 	//#main-slider
 	$(function(){
         isMobileHead = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;

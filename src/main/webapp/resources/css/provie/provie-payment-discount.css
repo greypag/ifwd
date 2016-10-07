@@ -1,24 +1,35 @@
+/* line 7, ../../sass/provie/provie-payment-discount.scss */
 .pv_req_type, .pv_req_amount, .pv_rslt_type, .pv_rslt_amount {
-  padding: 0.214em 0; }
+  padding: 0.214em 0;
+}
 
+/* line 11, ../../sass/provie/provie-payment-discount.scss */
 .pv_offers {
   background-color: #19afbe;
   color: #fff;
   font-weight: bold;
   line-height: initial;
   padding: 20px 0;
-  text-align: center; }
-  .pv_offers p {
-    font-size: 16px; }
+  text-align: center;
+}
+/* line 18, ../../sass/provie/provie-payment-discount.scss */
+.pv_offers p {
+  font-size: 16px;
+}
 
+/* line 23, ../../sass/provie/provie-payment-discount.scss */
 .pv_offer {
   margin-top: 20px;
   margin-bottom: 20px;
-  text-align: center; }
-  .pv_offer .inner {
-    background-color: #fff;
-    position: relative; }
+  text-align: center;
+}
+/* line 27, ../../sass/provie/provie-payment-discount.scss */
+.pv_offer .inner {
+  background-color: #fff;
+  position: relative;
+}
 
+/* line 33, ../../sass/provie/provie-payment-discount.scss */
 .pv_offer_tag {
   background-color: #fa9337;
   color: #fff;
@@ -28,97 +39,142 @@
   position: absolute;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  top: 0; }
-  .pv_offer_tag:after {
-    bottom: 0;
-    border-left: 21.735px solid transparent;
-    border-right: 21.735px solid transparent;
-    border-bottom: 9px solid #fff;
-    content: '';
-    display: inline-block;
-    left: 0;
-    position: absolute; }
+  top: 0;
+}
+/* line 43, ../../sass/provie/provie-payment-discount.scss */
+.pv_offer_tag:after {
+  bottom: 0;
+  border-left: 21.735px solid transparent;
+  border-right: 21.735px solid transparent;
+  border-bottom: 9px solid #fff;
+  content: '';
+  display: inline-block;
+  left: 0;
+  position: absolute;
+}
 
+/* line 55, ../../sass/provie/provie-payment-discount.scss */
 .pv_offer_title {
   color: #fff;
-  font-size: 1.857em; }
+  font-size: 1.857em;
+}
 
+/* line 60, ../../sass/provie/provie-payment-discount.scss */
 .pv_offer_req {
   color: #000;
-  padding: 2.375em 1em; }
+  padding: 2.375em 1em;
+}
 
+/* line 65, ../../sass/provie/provie-payment-discount.scss */
 .pv_req_type {
   color: #fa9337;
   display: block;
   font-size: 1.125em;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
+/* line 73, ../../sass/provie/provie-payment-discount.scss */
 .pv_req_amount {
   display: block;
-  font-size: 1.5em; }
-  .pv_req_amount .pv_offer_gteq {
-    text-decoration: underline; }
+  font-size: 1.5em;
+}
+/* line 77, ../../sass/provie/provie-payment-discount.scss */
+.pv_req_amount .pv_offer_gteq {
+  text-decoration: underline;
+}
 
+/* line 82, ../../sass/provie/provie-payment-discount.scss */
 .pv_req_or {
   color: #979797;
-  display: block; }
+  display: block;
+}
 
+/* line 87, ../../sass/provie/provie-payment-discount.scss */
 .pv_offer_rslt {
   background-color: #fa9337;
   color: #fff;
-  padding: 1em; }
+  padding: 1em;
+}
 
+/* line 93, ../../sass/provie/provie-payment-discount.scss */
 .pv_rslt_type {
   clear: both;
   display: block;
   font-size: 1.125em;
   font-weight: bold;
-  line-height: 1em; }
+  line-height: 1em;
+}
 
+/* line 102, ../../sass/provie/provie-payment-discount.scss */
 .pv_rslt_amount {
   background: url(../../images/provie/icon_discount.png) no-repeat 0% 50%;
   clear: both;
   font-size: 1.75em;
-  padding-left: 35px; }
+  padding-left: 35px;
+}
 
+/* line 110, ../../sass/provie/provie-payment-discount.scss */
 .pv_currency_btns {
   display: inline-block;
-  margin: 1em 0.5em; }
+  margin: 1em 0.5em;
+}
 
+/* line 115, ../../sass/provie/provie-payment-discount.scss */
 .pv_currency_btn {
   background-color: #fff;
   color: #fa9337;
   display: inline-block;
-  padding: 0.5em 2em; }
-  .pv_currency_btn:hover, .pv_currency_btn.active {
-    background-color: #fa9337;
-    color: #fff; }
+  padding: 0.5em 2em;
+}
+/* line 120, ../../sass/provie/provie-payment-discount.scss */
+.pv_currency_btn:hover, .pv_currency_btn.active {
+  background-color: #fa9337;
+  color: #fff;
+}
 
+/* line 126, ../../sass/provie/provie-payment-discount.scss */
 .pv_offer_link {
   color: #fff;
   display: inline-block;
   margin: 1em 0;
-  text-decoration: underline; }
-  .pv_offer_link:hover {
-    color: #ff8200; }
+  text-decoration: underline;
+}
+/* line 131, ../../sass/provie/provie-payment-discount.scss */
+.pv_offer_link:hover {
+  color: #ff8200;
+}
 
+/* line 136, ../../sass/provie/provie-payment-discount.scss */
 .pv_offer_remarks {
   padding: 0 1em;
-  text-align: left; }
-  .pv_offer_remarks .pv-landing-text0 {
-    margin-bottom: 20px; }
-  .pv_offer_remarks ul {
-    padding-left: 1em; }
-  .pv_offer_remarks .pv_offer_remark {
-    list-style: disc; }
+  text-align: left;
+}
+/* line 139, ../../sass/provie/provie-payment-discount.scss */
+.pv_offer_remarks .pv-landing-text0 {
+  margin-bottom: 20px;
+}
+/* line 142, ../../sass/provie/provie-payment-discount.scss */
+.pv_offer_remarks ul {
+  padding-left: 1em;
+}
+/* line 145, ../../sass/provie/provie-payment-discount.scss */
+.pv_offer_remarks .pv_offer_remark {
+  list-style: disc;
+}
 
+/* line 152, ../../sass/provie/provie-payment-discount.scss */
 .usd .pv_offer_tag {
-  background-color: #ffc450; }
+  background-color: #ffc450;
+}
+/* line 155, ../../sass/provie/provie-payment-discount.scss */
 .usd .pv_req_type {
-  color: #ffc450; }
+  color: #ffc450;
+}
+/* line 158, ../../sass/provie/provie-payment-discount.scss */
 .usd .pv_offer_rslt {
-  background-color: #ffc450; }
+  background-color: #ffc450;
+}
+/* line 161, ../../sass/provie/provie-payment-discount.scss */
 .usd .pv_currency_btn:hover, .usd .pv_currency_btn.active {
-  background-color: #ffc450; }
-
-/*# sourceMappingURL=provie-payment-discount.css.map */
+  background-color: #ffc450;
+}
