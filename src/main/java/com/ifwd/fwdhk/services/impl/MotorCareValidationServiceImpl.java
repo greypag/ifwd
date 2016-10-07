@@ -23,7 +23,8 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.OccupationBean;
 import com.ifwd.fwdhk.model.motor.CarDetail;
-import com.ifwd.fwdhk.model.motor.QuoteMotorCare;
+import com.ifwd.fwdhk.model.motor.MotorCareDetails;
+import com.ifwd.fwdhk.model.motor.Driver;
 import com.ifwd.fwdhk.services.MotorCareValidationService;
 
 
@@ -118,41 +119,46 @@ public class MotorCareValidationServiceImpl implements
 		return false;
 	}
 	
-	public HttpStatus validateMotorCareIfwd(QuoteMotorCare motorCare){
-		if(motorCare==null || motorCare.getQuoteDriver()==null){
+	public HttpStatus validateMotorCareIfwd(MotorCareDetails motorCare){
+		
+		if(motorCare==null 
+				|| motorCare.getDriver()==null || motorCare.getDriver().get(0) ==null
+				|| motorCare.getCarDetail()==null){
 			return HttpStatus.OK;
 		}
+				
+		Driver driver = motorCare.getDriver().get(0);
 		
 //		Make/Model
-		HttpStatus validCarMakeMode = validationCarMakeMode(motorCare.getQuoteDriver().getCarMakeCode(),motorCare.getQuoteDriver().getCarModel());
+		HttpStatus validCarMakeMode = validationCarMakeMode(motorCare.getCarDetail().getMakeCode(),motorCare.getCarDetail().getModel());
 		if(!HttpStatus.OK.equals(validCarMakeMode)){
 			return validCarMakeMode;
 		}
 		
 //		Occupation
-		String occupationCode = motorCare.getQuoteDriver().getOccupation();
+		String occupationCode = driver.getOccupation();
 		if(!isStandardOccupation(occupationCode)){
 			return HttpStatus.valueOf(406);	
 		}
 
 		
 //		NCD
-		if(motorCare.getQuoteDriver().getNcb()!=null 
-				&& motorCare.getQuoteDriver().getNcb()<=0){
+		if(driver.getNcb()!=null 
+				&& driver.getNcb()<=0){
 			return HttpStatus.valueOf(415);
 		}
 		
 //		I am between 25-70 years old
-		if(!motorCare.getQuoteDriver().isValidAgeGroup()){
+		if(!driver.isValidAgeGroup()){
 			return HttpStatus.valueOf(408);
 		}
 //		I’ve been driving for 2 or more years
-		if(!motorCare.getQuoteDriver().isDriveMoreThanTwo()){
+		if(!driver.isDriveMoreThanTwo()){
 			return HttpStatus.valueOf(409);
 		}
 			
 //		Year of Manufacture
-		String carYearStr = motorCare.getQuoteDriver().getCarYearOfManufacture();
+		String carYearStr = motorCare.getCarDetail().getYearOfManufacture();
 		if(carYearStr!=null){
 			try {
 				int carYear = Integer.parseInt(carYearStr);
@@ -169,7 +175,7 @@ public class MotorCareValidationServiceImpl implements
 		}
 		
 //		Estimated Value
-		Integer estVal = motorCare.getQuoteDriver().getCarEstimatedValue();
+		Integer estVal = motorCare.getCarDetail().getEstimatedValue();
 		if(estVal !=null){
 			if(estVal > 2000000){
 				return HttpStatus.valueOf(412);

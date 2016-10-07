@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PolicyDeclaration {
 	
-	private List<UnderWriting> underWritingList = new ArrayList<UnderWriting> ();
+	private List<MotorCareDeclaration> underWritingList = new ArrayList<MotorCareDeclaration> ();
 	
 	private boolean psPICS;
 	
@@ -14,11 +14,11 @@ public class PolicyDeclaration {
 	private boolean psNoProvidePersonalData;
 	
 	
-	public List<UnderWriting> getUnderWritingList() {
+	public List<MotorCareDeclaration> getUnderWritingList() {
 		return underWritingList;
 	}
 	
-	public void setUnderWritingList(List<UnderWriting> underWritingList) {
+	public void setUnderWritingList(List<MotorCareDeclaration> underWritingList) {
 		this.underWritingList = underWritingList;
 	}
 	

@@ -1,20 +1,23 @@
 package com.ifwd.fwdhk.model.motor;
 
-import java.math.BigDecimal;
 
 public class CarDetail {
 	
 	private String id;
 	private String makeCode;
 	private String model;
-	private String engineCapacity;
+	private Integer engineCapacity;
 	private String typeOfBody;
 	private String carGroup;
 	private boolean electricCar;
 	private String alarm;
 	private String modelDesc;
-	
-	private BigDecimal estimatedValue;
+	private String yearOfManufacture;
+	private Integer estimatedValue;
+	private String chassisNumber;
+	private boolean bankMortgage;
+	private String bankMortgageCode;
+	private String bankMortgageName;
 	
 	public String getId() {
 		return id;
@@ -34,18 +37,12 @@ public class CarDetail {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	public String getEngineCapacity() {
+	public Integer getEngineCapacity() {
 		return engineCapacity;
 	}
-	public void setEngineCapacity(String engineCapacity) {
+	public void setEngineCapacity(Integer engineCapacity) {
 		this.engineCapacity = engineCapacity;
-	}
-	public BigDecimal getEstimatedValue() {
-		return estimatedValue;
-	}
-	public void setEstimatedValue(BigDecimal estimatedValue) {
-		this.estimatedValue = estimatedValue;
-	}
+	}	
 	public String getTypeOfBody() {
 		return typeOfBody;
 	}
@@ -76,4 +73,41 @@ public class CarDetail {
 	public void setModelDesc(String modelDesc) {
 		this.modelDesc = modelDesc;
 	}
+	public String getYearOfManufacture() {
+		return yearOfManufacture;
+	}
+	public void setYearOfManufacture(String yearOfManufacture) {
+		this.yearOfManufacture = yearOfManufacture;
+	}
+	public Integer getEstimatedValue() {
+		return estimatedValue;
+	}
+	public void setEstimatedValue(Integer estimatedValue) {
+		this.estimatedValue = estimatedValue;
+	}
+	public String getChassisNumber() {
+		return chassisNumber;
+	}
+	public void setChassisNumber(String chassisNumber) {
+		this.chassisNumber = chassisNumber;
+	}
+	public boolean isBankMortgage() {
+		return bankMortgage;
+	}
+	public void setBankMortgage(boolean bankMortgage) {
+		this.bankMortgage = bankMortgage;
+	}
+	public String getBankMortgageCode() {
+		return bankMortgageCode;
+	}
+	public void setBankMortgageCode(String bankMortgageCode) {
+		this.bankMortgageCode = bankMortgageCode;
+	}
+	public String getBankMortgageName() {
+		return bankMortgageName;
+	}
+	public void setBankMortgageName(String bankMortgageName) {
+		this.bankMortgageName = bankMortgageName;
+	}
+	
 }

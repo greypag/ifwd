@@ -411,18 +411,21 @@ $(document).ready(function(){
             	else
             		var carEstimatedValue = num;
             	
-                quote = {
-                    "quoteDriver": {
-                        "carEstimatedValue": carEstimatedValue,
-                        "carMakeCode": carMakeCode,
-                        "carCC": cc,
-                        "carModel": carModel,
-                        "carYearOfManufacture": carYearOfManufacture,
-                        "driveMoreThanTwo": driveMoreThanTwo,
-                        "ncb": ncd,
-                        "occupation": occupation,
-                        "validAgeGroup": validAgeGroup
-                    },
+                quote = {             
+                    "driver" : [
+                    {   
+                    	"ncb": ncd,
+                    	"occupation": occupation,
+                    	"driveMoreThanTwo": driveMoreThanTwo,         
+                    	"validAgeGroup": validAgeGroup, 
+                    }],
+                    "carDetail": {
+                    	 "estimatedValue": carEstimatedValue,
+                         "makeCode": carMakeCode,
+                         "engineCapacity": cc,
+                         "model": carModel,
+                         "yearOfManufacture": carYearOfManufacture                        
+                    },                   
                     "planCode": null,
                     "compPlan": null,
                     "personalAccident": false,

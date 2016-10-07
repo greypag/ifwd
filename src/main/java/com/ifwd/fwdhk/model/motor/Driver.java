@@ -8,6 +8,9 @@ public class Driver {
 	private String contactNo;
 	private String email;
 	private String occupation;
+	private Double ncb;
+	private boolean validAgeGroup;
+	private boolean driveMoreThanTwo;	
 	
 	public String getName() {
 		return name;
@@ -45,6 +48,22 @@ public class Driver {
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-	
-	
+	public Double getNcb() {
+		return ncb;
+	}
+	public void setNcb(Double ncb) {
+		this.ncb = ncb;
+	}
+	public boolean isValidAgeGroup() {
+		return validAgeGroup;
+	}
+	public void setValidAgeGroup(boolean validAgeGroup) {
+		this.validAgeGroup = validAgeGroup;
+	}
+	public boolean isDriveMoreThanTwo() {
+		return driveMoreThanTwo;
+	}
+	public void setDriveMoreThanTwo(boolean driveMoreThanTwo) {
+		this.driveMoreThanTwo = driveMoreThanTwo;
+	}	
 }

@@ -55,18 +55,21 @@ function getMotorQuotePrice(planType, quote){
         dataType: "json",
         async: true,
         cache: false,
-        data: JSON.stringify({
-            "quoteDriver": {
-                "carEstimatedValue": quote.quoteDriver.carEstimatedValue,
-                "carMakeCode": quote.quoteDriver.carMakeCode,
-                "carCC": quote.quoteDriver.carCC,
-                "carModel": quote.quoteDriver.carModel,
-                "carYearOfManufacture": quote.quoteDriver.carYearOfManufacture,
-                "driveMoreThanTwo": true,
-                "ncb": quote.quoteDriver.ncb,
-                "occupation": quote.quoteDriver.occupation,
-                "validAgeGroup": true
-            },
+        data: JSON.stringify({            
+            "driver" : [
+	        {   
+	        	"ncb": quote.driver[0].ncb,
+	        	"occupation": quote.driver[0].occupation,
+	        	"driveMoreThanTwo": true,         
+	        	"validAgeGroup": true, 
+	        }],
+	        "carDetail": {
+	        	 "estimatedValue": quote.carDetail.estimatedValue,
+	             "makeCode": quote.carDetail.makeCode,
+	             "engineCapacity": quote.carDetail.engineCapacity,
+	             "model": quote.carDetail.model,
+	             "yearOfManufacture": quote.carDetail.yearOfManufacture                        
+	        },  
             "planCode": _planCode,
             "compPlan": _compPlan,
             "personalAccident": quote.personalAccident,

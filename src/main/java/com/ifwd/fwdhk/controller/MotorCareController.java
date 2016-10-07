@@ -44,9 +44,9 @@ import com.ifwd.fwdhk.model.motor.PolicyDeclaration;
 import com.ifwd.fwdhk.model.motor.PolicyDriverDetails;
 import com.ifwd.fwdhk.model.motor.PolicyInfo;
 import com.ifwd.fwdhk.model.motor.PolicyMotorCare;
-import com.ifwd.fwdhk.model.motor.QuoteMotorCare;
+import com.ifwd.fwdhk.model.motor.MotorCareDetails;
 import com.ifwd.fwdhk.model.motor.SaveForLater;
-import com.ifwd.fwdhk.model.motor.UnderWriting;
+import com.ifwd.fwdhk.model.motor.MotorCareDeclaration;
 import com.ifwd.fwdhk.services.MotorCareValidationService;
 import com.ifwd.fwdhk.util.HeaderUtil;
 
@@ -228,7 +228,7 @@ public class MotorCareController extends BaseController{
 	
 	@ApiOperation(
 			value = "This API is used to get Underwriting List during MotorCare policy application ",
-			response = UnderWriting.class,
+			response = MotorCareDeclaration.class,
 			responseContainer = "List"
 			)
 	@ApiResponses(value = {			
@@ -236,12 +236,12 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = "/list/underWriting", method = GET)
-	public ResponseEntity<List<UnderWriting>> getUnderWriting(HttpServletRequest request) {
+	public ResponseEntity<List<MotorCareDeclaration>> getUnderWriting(HttpServletRequest request) {
 		
 		// super.IsAuthenticate(request);
 		
 		try {
-			List<UnderWriting> apiResponse = new ArrayList<UnderWriting>();
+			List<MotorCareDeclaration> apiResponse = new ArrayList<MotorCareDeclaration>();
 			return Responses.ok(apiResponse);
 		} catch (Exception e) {
 			throw new RuntimeException("System error");
@@ -251,7 +251,7 @@ public class MotorCareController extends BaseController{
 	/******** Quotation related ********/
 	@ApiOperation(
 			value = "This API is used to get quotation details",
-			response = QuoteMotorCare.class			
+			response = MotorCareDetails.class			
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 400, message = "Invalid info for quotation"),
@@ -268,8 +268,8 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/quote"}, method = POST)
-	public ResponseEntity<QuoteMotorCare> getQuote(
-			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody QuoteMotorCare quoteMotor,
+	public ResponseEntity<MotorCareDetails> getQuote(
+			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody MotorCareDetails quoteMotor,
 			HttpServletRequest request) {
 		
 		// super.IsAuthenticate(request);
@@ -277,11 +277,11 @@ public class MotorCareController extends BaseController{
 		HttpStatus ifwdValidStatus = motorCareValidationService.validateMotorCareIfwd(quoteMotor);
 		if(!HttpStatus.OK.equals(ifwdValidStatus)){
 			logger.info("getQuote ifwdValidStatus:"+ifwdValidStatus);
-			return new ResponseEntity<QuoteMotorCare>((QuoteMotorCare)null, ifwdValidStatus);
+			return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, ifwdValidStatus);
 		}
 		
 		// ******************* Init *******************
-		QuoteMotorCare apiResponse = new QuoteMotorCare();	
+		MotorCareDetails apiResponse = new MotorCareDetails();	
 		JSONObject responseJsonObj = new JSONObject();		
 		
 		try {
@@ -295,11 +295,11 @@ public class MotorCareController extends BaseController{
 			
 			// ******************* Makeup result *******************
 			if (responseJsonObj.get("errMsgs") == null) {
-				if(responseJsonObj.get("quoteMotorCare") != null && responseJsonObj.get("quoteMotorCare").toString().length() > 0) {
+				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
-					apiResponse = mapper.readValue(responseJsonObj.get("quoteMotorCare").toString(), QuoteMotorCare.class);
+					apiResponse = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class);
 				} else {
-					logger.info("getQuote quoteMotorCare not found");
+					logger.info("getQuote motorCareDetails not found");
 					return Responses.notFound(null);
 				}
 				
@@ -316,7 +316,7 @@ public class MotorCareController extends BaseController{
 	
 	@ApiOperation(
 			value = "This API is used to save the quote and return policyID for further actions",
-			response = QuoteMotorCare.class				
+			response = MotorCareDetails.class				
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 400, message = "Invalid info for quotation"),
@@ -333,8 +333,8 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 500, message = "System error")
 			}) 
 	@RequestMapping(value = "/quote/saving", method = POST) 
-	public ResponseEntity<QuoteMotorCare> saveQuote( 
-			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody QuoteMotorCare quoteMotor,
+	public ResponseEntity<MotorCareDetails> saveQuote( 
+			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody MotorCareDetails quoteMotor,
 			HttpServletRequest request) {
 		
 		// super.IsAuthenticate(request);
@@ -345,7 +345,7 @@ public class MotorCareController extends BaseController{
 				try {
 					int testHttpStatus = Integer.parseInt(quoteMotor.getPlanCode());
 					if(testHttpStatus>400 && testHttpStatus<500){
-						return new ResponseEntity<QuoteMotorCare>((QuoteMotorCare)null, HttpStatus.valueOf(testHttpStatus));
+						return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(testHttpStatus));
 					}
 				} catch (NumberFormatException e) {}
 			}
@@ -355,14 +355,14 @@ public class MotorCareController extends BaseController{
 		HttpStatus ifwdValidStatus = motorCareValidationService.validateMotorCareIfwd(quoteMotor);
 		if(!HttpStatus.OK.equals(ifwdValidStatus)){
 			logger.info("saveQuote ifwdValidStatus:"+ifwdValidStatus);
-			return new ResponseEntity<QuoteMotorCare>((QuoteMotorCare)null, ifwdValidStatus);
+			return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, ifwdValidStatus);
 		}
 		
 		
 		
 		// ******************* Init *******************
 		JSONObject responseJsonObj = new JSONObject();
-		QuoteMotorCare apiResponse = new QuoteMotorCare();	
+		MotorCareDetails apiResponse = new MotorCareDetails();	
 		
 		try {
 			// ******************* Form URL and Object *******************
@@ -378,11 +378,11 @@ public class MotorCareController extends BaseController{
 			
 			// ******************* Makeup result *******************
 			if (responseJsonObj.get("errMsgs") == null) {
-				if(responseJsonObj.get("quoteMotorCare") != null && responseJsonObj.get("quoteMotorCare").toString().length() > 0) {
+				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
-					apiResponse = mapper.readValue(responseJsonObj.get("quoteMotorCare").toString(), QuoteMotorCare.class);
+					apiResponse = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class);
 				} else {
-					logger.info("saveQuote quoteMotorCare not found");
+					logger.info("saveQuote motorCareDetails not found");
 					return Responses.notFound(null);
 				}
 				
