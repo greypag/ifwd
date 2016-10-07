@@ -32,10 +32,12 @@
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('3hk');"><fmt:message key="faq.3hk.mobile" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('provie');"><fmt:message key="faq.provie" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('driva');"><fmt:message key="faq.driva" bundle="${msg}" /></div>
+	                        <div class="faq_menu_item" onclick="faqChangeCareMob('motor');"><fmt:message key="faq.motor" bundle="${msg}" /></div>
 	                        <div class="clearfix"></div>
 	                    </div>
 				    </div>
 				    
+				    <jsp:include page="/WEB-INF/jsp/merged/faq/faq_motor_mob.jsp" />
 				    <jsp:include page="/WEB-INF/jsp/merged/faq/faq_driva_mob.jsp" />
 				    <jsp:include page="/WEB-INF/jsp/merged/faq/faq_provie_mob.jsp" />
 				    

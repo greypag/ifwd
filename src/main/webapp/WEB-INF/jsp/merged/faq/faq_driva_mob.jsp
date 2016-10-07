@@ -7,7 +7,6 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-<!-- Easy Health start -->
 <div id="faq_driva_mob" class="col-xs-12 col-sm-12 pad-none faq_care_container" style="display:none;">
     <div class="col-xs-12 col-sm-12 hidden-md hidden-lg pad-none faq_title_container">
         <div class="faq_back" onclick="faqMainMenuMob('driva')">
@@ -686,4 +685,3 @@
            
 	<div class="clearfix"></div>
 </div>
-<!-- Easy Health end -->
