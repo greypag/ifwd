@@ -8,7 +8,16 @@ $(document).ready(function () {
         $(this).addClass('hidden');
         $('#compare-table').find('tr').removeClass('hidden');   
     });
+    $('[data-toggle="tooltip"]').tooltip();
+    $('a[href="#vModal"]').on('click', function() {
+	  var vUrl;
+	  vUrl = $(this).attr('data-url');
+	  $('#vModal').find('#youtube-video').attr('src', vUrl);
+	});
 
+	$('#vModal').on('hide.bs.modal', function() {
+	  $(this).find('#youtube-video').removeAttr('src');
+	});
 });
 $(window).resize(function(){
     var w = $('#compare-table-wrap').width();

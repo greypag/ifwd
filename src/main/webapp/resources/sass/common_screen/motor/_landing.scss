@@ -344,3 +344,45 @@ color: #fff;
     -ms-transform: scale(1);
     transform: scale(1);
 }
+@media (min-width: 768px){
+.motor-landing .appthumbnail {
+    width: 50%;
+    margin: 15px auto;
+}
+}
+@media (max-width: 768px){
+    .motor-landing .appthumbnail .appgap{display:none !important;}
+    .tooltip{display:none !important;}
+    .appthumbnail > img, .appthumbnail a > img{width:200px !important;}
+    .motor-landing .featured{margin-top:0px;}
+    .motor-landing .container{padding-top:0px;}
+    .motor-landing .appthumbnail .appdes{display:none !important;}
+    .motor-landing .appthumbnail .appmob{display:block !important;}
+}
+@media (max-width: 991px){
+	.motor-landing .appthumbnail .appgap{display:none !important;}
+}
+/*.tooltip.top{top:2835px !important;}*/
+.motor-landing .bottom{background-color:white}
+.tooltip-inner{background-color:#F68A1D}
+.tooltip.bottom .tooltip-arrow{border-bottom-color:#F68A1D}
+.motor-landing .appbox{margin-top: 40px;}
+.motor-landing .appthumbnail {
+    padding: 0;
+    border: none;
+    background: transparent;
+    margin: 0 auto;
+    text-align: center;
+}
+.motor-landing .appthumbnail .appdes{display:inline-block}
+.motor-landing .appthumbnail .appmob{display:none}
+.motor-landing .appthumbnail .appbtn{border:0px;background-color:white;}
+.motor-landing .appthumbnail .appgap{display:inline-block;margin:0px 30px 0px 30px;}
+.appthumbnail .appbtn > img, .appthumbnail .appbtn a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width:169px !important;
+}
