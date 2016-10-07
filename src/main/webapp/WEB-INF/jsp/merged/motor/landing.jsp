@@ -683,28 +683,12 @@
  <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.4.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
    <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.4.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
     </div>
-    <div class="item">
-        <a class="img-bg" href="#vModal" data-url="//www.youtube.com/embed/idmG5sdvfxU?enablejsapi=1" data-toggle="modal">
-			<img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.5.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
- 			<img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.5.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
-		</a>
-    </div>
+        <!-- div class="item">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.5.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
+ <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.5.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
+    </div> -->
   </div>
-  <!-- video Modal -->
-	<div id="vModal" class="vModal modal fade" style="z-index: 999999999999;">
-	    <div class="modal-dialog">
-	        <a href="#close-video" class="close-btn" data-dismiss="modal" aria-hidden="true" >
-	            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="44px" height="44px" viewBox="-1 3 44 44" enable-background="new -1 3 44 44" xml:space="preserve">
-	                <g>
-	                    <line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="11" y1="15" x2="31" y2="35"></line>
-	                    <line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="31" y1="15" x2="11" y2="35"></line>
-	                </g>
-	            </svg>
-	        </a>
-	        <div class="embed-container"><iframe id="youtube-video" src="" frameborder="0" allowfullscreen=""></iframe></div>
-	    </div>
-	</div>
-  
+
   <!-- Controls -->
  <div class="carousel-control-wrap" id="infoGraphic">
  <a class="left carousel-control" href="#landing-carousel" role="button" data-slide="prev">

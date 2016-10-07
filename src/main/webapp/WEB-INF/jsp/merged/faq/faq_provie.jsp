@@ -76,6 +76,7 @@
                     	<li><fmt:message key="faq.provie.group1.a3.part1.li2" bundle="${msg}" /></li>
                     	<li><fmt:message key="faq.provie.group1.a3.part1.li3" bundle="${msg}" /></li>
                     </ol>
+                    <fmt:message key="faq.provie.group1.a3.part2" bundle="${msg}" />
                 </div>
                 <div class="clearfix"></div>
             </div>

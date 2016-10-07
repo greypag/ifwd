@@ -354,9 +354,9 @@ $(document).ready(function(){
 });
 
 function updatePriceTable(){
-    $('#youngDriverExcess').html(formatCurrency(motorPrice.third.youngDriverExcess).substring(0,formatCurrency(motorPrice.third.youngDriverExcess).length - 3));
-    $('#inexperiencedDriverExcess').html(formatCurrency(motorPrice.third.inexperiencedDriverExcess).substring(0,formatCurrency(motorPrice.third.inexperiencedDriverExcess).length - 3));
-    $('#tPPDExcess').html(formatCurrency(motorPrice.third.tPPDExcess).substring(0,formatCurrency(motorPrice.third.tPPDExcess).length - 3));
+    $('#youngDriverExcess').html(formatCurrency(motorPrice.third.youngDriverExcess));
+    $('#inexperiencedDriverExcess').html(formatCurrency(motorPrice.third.inexperiencedDriverExcess));
+    $('#tPPDExcess').html(formatCurrency(motorPrice.third.tPPDExcess));
     $('#parkingExcess').html(formatCurrency(motorPrice.third.parkingExcess));
 }
 
