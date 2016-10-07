@@ -56,7 +56,7 @@ $(document).ready(function(){
     
     $q1.find('input[name="cc"]').keyup(function(e){
     	if($(this).val().length > 2){
-    		$q2.next().removeClass('hidden');
+    		$q1.next().removeClass('hidden');
     		if(selValue == "")
 	        	occupation.open();
     	}
