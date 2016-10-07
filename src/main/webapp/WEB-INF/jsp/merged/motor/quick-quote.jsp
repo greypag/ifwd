@@ -233,6 +233,10 @@ var nextPage = "${nextPageFlow}";
 <section class="yourQuote">
         <div class="container">
             <div class="row" >
+					<div class="col-xs-12 text-center hidden-xs">
+						<p><small><fmt:message key="motor.quickquote.document.disclamier.copy" bundle="${motorMsg}" /></small></p>
+					</div>
+
                 <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
                     <h3>
                         <span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span>
@@ -286,7 +290,7 @@ var nextPage = "${nextPageFlow}";
                             </strong>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 visible-xs">
                         <p>
                         <br>
                         <br>
