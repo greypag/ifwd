@@ -308,7 +308,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</ul>
 	            	</div>
 	            	<div class="row">
-	            		<a href="<%=request.getContextPath()%>/resources/pdf/provie/Provie Premium discount TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="savie.landing.discount.pdf.link1" bundle="${msg}" /></a>
+	            		<a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Savie_Premium_discount_TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="savie.landing.discount.pdf.link1" bundle="${msg}" /></a>
 	            	</div>
 				</div>
             </div>
