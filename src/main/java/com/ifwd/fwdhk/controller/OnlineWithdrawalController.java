@@ -20,8 +20,10 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,15 +35,16 @@ import springfox.documentation.annotations.ApiIgnore;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpResponse;
-import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngLinkupSaveRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngOtpSmsReqResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistory;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfo;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyListRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicySimple;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawPerformResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawRequest;
+import com.ifwd.fwdhk.util.HeaderUtil;
 
 
 @Controller
@@ -49,6 +52,9 @@ import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawRequest;
 @Api(value = "/withdrawal", description = "Operations about Tap n Go Savie Online Withdrawal")
 public class OnlineWithdrawalController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(OnlineWithdrawalController.class);
+	
+	@Autowired
+	private HeaderUtil headerUtil;
 	
 	@ApiOperation(
 			value = "Get Policy info List",
@@ -67,11 +73,31 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<List<TngPolicyInfo>> getPolicyInfoList(
 			@ApiParam(value = "Customer Id", required = true) @RequestBody TngPolicyListRequest tplReq,
 			HttpServletRequest request) {
+		String methodName="getPolicyInfoList";
 		
-		logger.debug("getCustomerId:"+tplReq.getCustomerId());
+		logger.debug(methodName+" getCustomerId:"+tplReq.getCustomerId());
+		
+		List<TngPolicyInfo> resultList = new ArrayList<TngPolicyInfo>();
+		JSONObject responseJsonObj = new JSONObject();		
+		
+//		try {			
+//			// ******************* Form URL *******************
+//			String url = "";//UserRestURIConstants.ONLINE_WITHDRAWAL_POLICY_LIST_POST;
+//			// ******************* Consume Service *******************
+//			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), null);
+//			// ******************* Makeup result *******************			
+//			if (responseJsonObj.get("errMsgs") == null) {
+//				//TODO
+//			} else {
+//				logger.info(methodName+" System error:" + responseJsonObj.get("errMsgs").toString());
+//				return Responses.error(null);	
+//			}
+//		} catch (Exception e) {
+//			logger.info(methodName+" System error:",e);
+//			return Responses.error(null);
+//		}
 		
 		TngPolicyInfo policyInfo = new TngPolicyInfo();
-		List<TngPolicyInfo> resultList = new ArrayList<TngPolicyInfo>();
 		resultList.add(policyInfo);
 		return Responses.ok(resultList);
 	}
@@ -249,7 +275,7 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@ApiIgnore
 	@RequestMapping(value = "/getVersion", method = GET)
-	public ResponseEntity<String> getCarSupplementDetailsByMakeAndModel(
+	public ResponseEntity<String> getVersion(
 			@RequestParam String more,
 			HttpServletRequest request)throws Exception {
 		super.IsAuthenticate(request);
