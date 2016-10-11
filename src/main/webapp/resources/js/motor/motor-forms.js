@@ -101,7 +101,7 @@ $(document).ready(function(){
 				success: function(data) {
 					e.preventDefault();
 					$('#contactform-pop').addClass('hidden');
-					$('#successMessage').removeClass('hidden');
+					//$('#successMessage').removeClass('hidden');
 					}
 				});
 			  }
