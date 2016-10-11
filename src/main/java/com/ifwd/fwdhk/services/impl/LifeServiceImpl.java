@@ -266,6 +266,7 @@ public class LifeServiceImpl implements LifeService {
 					resultJsonObject.put("planCode", proviePlanDetails.getPaymentType() + "-" + proviePlanDetails.getCurrency());
 					resultJsonObject.put("currency", proviePlanDetails.getCurrency());
 					resultJsonObject.put("rider", proviePlanDetails.getRider());
+					
 					net.sf.json.JSONObject credit0Rates = new net.sf.json.JSONObject();
 					net.sf.json.JSONObject credit1Rates = new net.sf.json.JSONObject();					
 					net.sf.json.JSONObject credit2Rates = new net.sf.json.JSONObject();
@@ -279,6 +280,7 @@ public class LifeServiceImpl implements LifeService {
 						//only retrieve 5 years data from 0 Rate
 						if (yearNum <= 5) {
 							planRider.put("premiumYear", yearNum);
+							
 							Double drate0 = Double.parseDouble(planDetails0Rate.get(i).getInterestedRate())*100;
 							double rate0= 0.0;
 							if(drate0.compareTo(new Double("0.00"))==0) {
@@ -309,6 +311,13 @@ public class LifeServiceImpl implements LifeService {
 							plan0.put("accountValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
 							plan0.put("deathBenefit", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit())));
 							plan0.put("totalPaid", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getTotalPremium())));
+							
+							if ((yearNum + issueAge) >= 66) {
+								plan0.put("riderEligible", 0);
+							} else {
+								plan0.put("riderEligible", 1);
+							}
+							
 							credit0Rates.accumulate("plans", plan0);
 						}
 					}
@@ -322,6 +331,12 @@ public class LifeServiceImpl implements LifeService {
 							plan1.put("accountValue", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getAccountEOP())));
 							plan1.put("deathBenefit", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getGuranteedDeathBenefit())));							
 							plan1.put("totalPaid", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getTotalPremium())));
+							if ((yearNum + issueAge) >= 66) {
+								plan1.put("riderEligible", 0);
+							} else {
+								plan1.put("riderEligible", 1);
+							}
+							
 							credit1Rates.accumulate("plans", plan1);
 							
 						}
@@ -335,6 +350,12 @@ public class LifeServiceImpl implements LifeService {
 							plan2.put("accountValue", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getAccountEOP())));
 							plan2.put("deathBenefit", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit())));							
 							plan2.put("totalPaid", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getTotalPremium())));
+							if ((yearNum + issueAge) >= 66) {
+								plan2.put("riderEligible", 0);
+							} else {
+								plan2.put("riderEligible", 1);
+							}
+							
 							credit2Rates.accumulate("plans", plan2);
 						}
 						
