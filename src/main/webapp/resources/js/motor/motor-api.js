@@ -56,13 +56,12 @@ function getMotorQuotePrice(planType, quote){
         async: true,
         cache: false,
         data: JSON.stringify({            
-            "driver" : [
-	        {   
-	        	"ncb": quote.driver[0].ncb,
-	        	"occupation": quote.driver[0].occupation,
+           "applicant": {
+	        	"ncb": quote.applicant.ncb,
+	        	"occupation": quote.applicant.occupation,
 	        	"driveMoreThanTwo": true,         
-	        	"validAgeGroup": true, 
-	        }],
+	        	"validAgeGroup": true
+	        },
 	        "carDetail": {
 	        	 "estimatedValue": quote.carDetail.estimatedValue,
 	             "makeCode": quote.carDetail.makeCode,

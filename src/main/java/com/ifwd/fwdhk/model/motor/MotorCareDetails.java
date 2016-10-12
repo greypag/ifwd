@@ -33,8 +33,7 @@ public class MotorCareDetails {
 	private String parkingExcess;
 	private String promoCode;	
 	private CarDetail carDetail;
-	private List<Driver> driver = new ArrayList<>();
-	private List<AddressLine> addressLine = new ArrayList<>();
+	private List<Driver> driver = new ArrayList<>();	
 	private String policyStartDate;
 	private String nameOfPreviousInusrancer;
 	private String regNoofPreviousPolicy;
@@ -46,6 +45,7 @@ public class MotorCareDetails {
 	private boolean psNoProvidePersonalData;	
 	private String theClubMemberNum;
 	private String coverNoteNum;
+	private Applicant applicant;
 	
 	public long getId() {
 		return id;
@@ -285,15 +285,7 @@ public class MotorCareDetails {
 	public void setDriver(List<Driver> driver) {
 		this.driver = driver;
 	}
-	
-	public List<AddressLine> getAddressLine() {
-		return addressLine;
-	}
-	
-	public void setAddressLine(List<AddressLine> addressLine) {
-		this.addressLine = addressLine;
-	}
-	
+		
 	public String getPolicyStartDate() {
 		return policyStartDate;
 	}
@@ -382,6 +374,12 @@ public class MotorCareDetails {
 		this.coverNoteNum = coverNoteNum;
 	}
 	
+	public Applicant getApplicant() {
+		return applicant;
+	}
 	
+	public void setApplicant(Applicant applicant) {
+		this.applicant = applicant;
+	}
 	
 }

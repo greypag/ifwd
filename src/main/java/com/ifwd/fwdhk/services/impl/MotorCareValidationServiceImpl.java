@@ -24,7 +24,6 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.OccupationBean;
 import com.ifwd.fwdhk.model.motor.CarDetail;
 import com.ifwd.fwdhk.model.motor.MotorCareDetails;
-import com.ifwd.fwdhk.model.motor.Driver;
 import com.ifwd.fwdhk.services.MotorCareValidationService;
 
 
@@ -121,13 +120,9 @@ public class MotorCareValidationServiceImpl implements
 	
 	public HttpStatus validateMotorCareIfwd(MotorCareDetails motorCare){
 		
-		if(motorCare==null 
-				|| motorCare.getDriver()==null || motorCare.getDriver().get(0) ==null
-				|| motorCare.getCarDetail()==null){
+		if(motorCare==null || motorCare.getCarDetail()==null || motorCare.getApplicant()==null){
 			return HttpStatus.OK;
 		}
-				
-		Driver driver = motorCare.getDriver().get(0);
 		
 //		Make/Model
 		HttpStatus validCarMakeMode = validationCarMakeMode(motorCare.getCarDetail().getMakeCode(),motorCare.getCarDetail().getModel());
@@ -136,24 +131,24 @@ public class MotorCareValidationServiceImpl implements
 		}
 		
 //		Occupation
-		String occupationCode = driver.getOccupation();
+		String occupationCode = motorCare.getApplicant().getOccupation();
 		if(!isStandardOccupation(occupationCode)){
 			return HttpStatus.valueOf(406);	
 		}
 
 		
 //		NCD
-		if(driver.getNcb()!=null 
-				&& driver.getNcb()<=0){
+		if(motorCare.getApplicant().getNcb()!=null 
+				&& motorCare.getApplicant().getNcb()<=0){
 			return HttpStatus.valueOf(415);
 		}
 		
 //		I am between 25-70 years old
-		if(!driver.isValidAgeGroup()){
+		if(!motorCare.getApplicant().isValidAgeGroup()){
 			return HttpStatus.valueOf(408);
 		}
 //		I’ve been driving for 2 or more years
-		if(!driver.isDriveMoreThanTwo()){
+		if(!motorCare.getApplicant().isDriveMoreThanTwo()){
 			return HttpStatus.valueOf(409);
 		}
 			

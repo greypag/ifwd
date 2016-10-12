@@ -411,14 +411,13 @@ $(document).ready(function(){
             	else
             		var carEstimatedValue = num;
             	
-                quote = {             
-                    "driver" : [
-                    {   
-                    	"ncb": ncd,
-                    	"occupation": occupation,
-                    	"driveMoreThanTwo": driveMoreThanTwo,         
-                    	"validAgeGroup": validAgeGroup, 
-                    }],
+                quote = {   
+	        		"applicant": {
+	    	        	"ncb": ncd,
+	    	        	"occupation": occupation,
+	    	        	"driveMoreThanTwo": driveMoreThanTwo,         
+	    	        	"validAgeGroup": validAgeGroup
+	    	        },	
                     "carDetail": {
                     	 "estimatedValue": carEstimatedValue,
                          "makeCode": carMakeCode,
