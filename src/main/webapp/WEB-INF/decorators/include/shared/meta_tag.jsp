@@ -18,13 +18,13 @@
 <link rel="canonical" href="${canonical}"/>
 
 <% 
-	if(!requestUri.endsWith("-insurance") 
+	if((!requestUri.endsWith("-insurance") 
 		&&!(requestUri.endsWith("/tc/home") || requestUri.endsWith("/tc/home/") 
 			|| requestUri.endsWith("/tc") || requestUri.endsWith("/tc/"))
 		&&!(requestUri.endsWith("/en/home") || requestUri.endsWith("/en/home/") 
 			|| requestUri.endsWith("/en") || requestUri.endsWith("/en/"))
 		&& !requestUri.endsWith("/offers") 
-		&& !requestUri.endsWith("/faq")) { 
+		&& !requestUri.endsWith("/faq")) && !(requestUri.endsWith("/provie"))) { 
 %>
 <meta name="robots" content="noindex">
 <% }
