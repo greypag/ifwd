@@ -99,6 +99,9 @@
                             <div class="partner_tnc">
                                 <div class="partner_tnc_list">
                                     <ul class="bullets">
+                                    	<li>
+                                    	   <p class="h4-5"><fmt:message key="partner.the.club.3x.period" bundle="${msg}" /></p>
+                                    	</li>
                                         <li>
                                            <p class="h4-5"><fmt:message key="the.club.copy8.1" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.the.club.tnc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.the.club.tnc1.part3" bundle="${msg}" /></p>
                                          </li>

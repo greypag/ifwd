@@ -676,7 +676,7 @@
                 <div class="form-container">
                     <div class="row">
                         <div class="col-xs-12">   
-                            <p><fmt:message key="flight.club.membership.pop.up" bundle="${msg}" /></p>
+                            <p><fmt:message key="flight.club.membership.pop.up" bundle="${msg}" /><fmt:message key="partner.the.club.3x.period" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div class="row">
