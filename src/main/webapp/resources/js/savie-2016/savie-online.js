@@ -1660,7 +1660,7 @@ function validatePromoCode(){
 	var paymentMode = 'SAVIE-SP';
 	var promoCode= $('#promoCode').val().trim();
 	$('#promoCodeErrorMsg').addClass('hidden');
-	//alert('savie-online.js' + amount);
+	
 	$.ajax({     
 	    url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
 	    type:'get',     

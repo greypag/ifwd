@@ -562,7 +562,7 @@ function stickToHeader() {
 			    }
 			}
 		}).on('changeDate', function (ev) {
-			alert('clicked');
+			
 			if(ev.date != null){
 				$("#preferred-date-mirror").val($("#preferred-date-QB").val().trim());
 				$("#preferred-date").val($("#preferred-date-QB").val().trim());

@@ -290,6 +290,8 @@ public class ProvieController extends BaseController{
 					plan.setAccountValue(Float.valueOf(jo.getInt("accountValue")));
 					//logger.info(String.valueOf(jo.getInt("accountValue")));
 					plan.setDeathBenefit(Float.valueOf(jo.getInt("deathBenefit")));
+					
+					
 					plan.setRiderValue(Integer.valueOf(calculateRider(jo.getInt("accountValue"), plans.getRider())));
 					//logger.info(String.valueOf(jo.getInt("riderValue")));
 					list.add(plan);
@@ -312,8 +314,12 @@ public class ProvieController extends BaseController{
 					plan.setAccountValue(Float.valueOf(pa.getInt("accountValue")));
 					plan.setDeathBenefit(Float.valueOf(pa.getInt("deathBenefit")));
 					plan.setTotalPaid(Float.valueOf(pa.getInt("totalPaid")));
+					if (pa.getInt("riderEligible") == 1) {
+						plan.setRiderValue(calculateRider(pa.getInt("accountValue"), plans.getRider()));
+					} else {
+						plan.setRiderValue(0);
+					}
 					
-					plan.setRiderValue(calculateRider(pa.getInt("accountValue"), plans.getRider()));
 					paList.add(plan);
 				 }
 				 crdt.setPlans(paList);

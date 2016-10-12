@@ -46,8 +46,18 @@
 			            <div class="faq-btn-wrapper-bottom">
 			            	<div id="screenProtectorFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'sp', false);"><fmt:message key="faq.screenProtector" bundle="${msg}" /></div>
 			            	<div id="3hkIphoneFaq" class="faq_menu_item" onclick="faqChangeCare(this, '3hk', false);"><fmt:message key="faq.3hk" bundle="${msg}" /></div>
+			            	<div id="ProvieFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'prvoie', false);"><fmt:message key="faq.provie" bundle="${msg}" /></div>
+			            	<div id="drivaFaq" class="faq_menu_item last" onclick="faqChangeCare(this, 'driva', false);"><fmt:message key="faq.driva" bundle="${msg}" /></div>
 			            </div>
+			            <div class="faq-btn-wrapper-bottom">
+			            	<div id="MotorFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'motor', false);"><fmt:message key="faq.motor" bundle="${msg}" /></div>
+			            </div>			            
 			        </div>
+			        
+			        <jsp:include page="/WEB-INF/jsp/merged/faq/faq_motor.jsp" />
+			        <jsp:include page="/WEB-INF/jsp/merged/faq/faq_driva.jsp" />
+					<jsp:include page="/WEB-INF/jsp/merged/faq/faq_provie.jsp" />		        
+			        
 					<!-- 3hk Iphone start -->
                     <div id="faq_3hk" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -583,14 +593,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.screenProtector.group1.a4.list" bundle="${msg}" />
-                                        <ul class="faq_answer__list">
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item1" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item2" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item3" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item4" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item5" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a4.list.item6" bundle="${msg}" /></li>
-                                        </ul>
+                                        <ul class="faq_answer__list"><fmt:message key="faq.screenProtector.group1.a4.list.item" bundle="${msg}" /></ul>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -4962,6 +4965,10 @@
                 faqChangeCare(productName,"t", true);
             }else if(productName=="HomecareFaq"){
                 faqChangeCare(productName,"h", true);
+            }else if(productName=="ProvieFaq"){
+                faqChangeCare(productName,"provie", true);
+            }else if(productName=="MotorFaq"){
+                faqChangeCare(productName,"motor", true);
             }else{
             	faqChangeCare("ElitetermFaq","e", true);
             }

@@ -946,6 +946,117 @@ body.chin .bold {
   transform: scale(1);
 }
 
+@media (min-width: 768px) {
+  /* line 348, ../sass/common_screen/motor/_landing.scss */
+  .motor-landing .appthumbnail {
+    width: 50%;
+    margin: 15px auto;
+  }
+}
+@media (max-width: 768px) {
+  /* line 354, ../sass/common_screen/motor/_landing.scss */
+  .motor-landing .appthumbnail .appgap {
+    display: none !important;
+  }
+
+  /* line 355, ../sass/common_screen/motor/_landing.scss */
+  .tooltip {
+    display: none !important;
+  }
+
+  /* line 356, ../sass/common_screen/motor/_landing.scss */
+  .appthumbnail > img, .appthumbnail a > img {
+    width: 200px !important;
+  }
+
+  /* line 357, ../sass/common_screen/motor/_landing.scss */
+  .motor-landing .featured {
+    margin-top: 0px;
+  }
+
+  /* line 358, ../sass/common_screen/motor/_landing.scss */
+  .motor-landing .container {
+    padding-top: 0px;
+  }
+
+  /* line 359, ../sass/common_screen/motor/_landing.scss */
+  .motor-landing .appthumbnail .appdes {
+    display: none !important;
+  }
+
+  /* line 360, ../sass/common_screen/motor/_landing.scss */
+  .motor-landing .appthumbnail .appmob {
+    display: block !important;
+  }
+}
+@media (max-width: 991px) {
+  /* line 363, ../sass/common_screen/motor/_landing.scss */
+  .motor-landing .appthumbnail .appgap {
+    display: none !important;
+  }
+}
+/*.tooltip.top{top:2835px !important;}*/
+/* line 366, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .tooltip.bottom {
+  background-color: white;
+}
+
+/* line 367, ../sass/common_screen/motor/_landing.scss */
+.tooltip-inner {
+  background-color: #F68A1D;
+}
+
+/* line 368, ../sass/common_screen/motor/_landing.scss */
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #F68A1D;
+}
+
+/* line 369, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .appbox {
+  margin-top: 40px;
+}
+
+/* line 370, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .appthumbnail {
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 377, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .appthumbnail .appdes {
+  display: inline-block;
+}
+
+/* line 378, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .appthumbnail .appmob {
+  display: none;
+}
+
+/* line 379, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .appthumbnail .appbtn {
+  border: 0px;
+  background-color: white;
+}
+
+/* line 380, ../sass/common_screen/motor/_landing.scss */
+.motor-landing .appthumbnail .appgap {
+  display: inline-block;
+  margin: 0px 30px 0px 30px;
+}
+
+/* line 381, ../sass/common_screen/motor/_landing.scss */
+.appthumbnail .appbtn > img, .appthumbnail .appbtn a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 169px !important;
+}
+
 /* line 2, ../sass/common_screen/motor/_your-quote.scss */
 .yourQuote hr {
   border-top: 1px solid #333;

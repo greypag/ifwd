@@ -12134,16 +12134,19 @@ body.chin .partner-headline-wrapper .headline-title{
 	float: left;
 	width: 33.3%;
 	font-size: 16px;
-}@media (max-width: 991px){
-	.faq-answer__orderList__listItem{
-		width: 50%;
-	}
 }
-@media (max-width: 767px){
-	.faq-answer__orderList__listItem{
-		width: 100%;
-		clear: both;
-	}
+@media all and (max-width: 767px) {
+  /* line 2, ../sass/customize_screen/_faq.scss */
+  .faq-answer__orderList__listItem {
+    width: 100%;
+    clear: both;
+  }
+}
+@media all and (max-width: 480px) {
+  /* line 8, ../sass/customize_screen/_faq.scss */
+  .faq-answer a {
+    word-wrap: break-word;
+  }
 }
 /* BEM Naming for faq page End 20160513 */
 
@@ -12625,6 +12628,26 @@ button[disabled].btn.btn-default--vc {
 }
 .faq_answer__list--lo-roman{
 	list-style-type: lower-roman;
+}
+/* line 42, ../sass/common_screen/_faq.scss */
+.faq-answer *, .faq_answer * {
+  font-size: 16px;
+}
+/* line 38, ../sass/common_screen/_faq.scss */
+.faq_answer__list--pad-left20 {
+  padding-left: 20px;
+}
+@media (max-width: 767px) {
+  /* line 3, ../sass/customize_screen/_faq.scss */
+  .faq-answer__orderList__listItem {
+    width: 100%;
+    clear: both;
+  }
+
+  /* line 7, ../sass/customize_screen/_faq.scss */
+  .faq_answer a {
+    word-wrap: break-word;
+  }
 }
 /* End ticket 3448 Add tag and go payment reminder 15-09-2016 By Irvine*/
 
