@@ -165,7 +165,7 @@ var home_url = "<%=request.getContextPath()%>";
 		            					<fmt:message key="savie.landing.discount.paymentmode.text1" bundle="${msg}" />
 		            				</span>
 		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span> 
+		            					 
 		            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" />
 		            					<span class="value">
 		            						<fmt:message key="savie.landing.discount.hkd1.value.text1" bundle="${msg}" />
@@ -178,7 +178,7 @@ var home_url = "<%=request.getContextPath()%>";
 		            					<fmt:message key="savie.landing.discount.paymentmode.text2" bundle="${msg}" />
 		            				</span>
 		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span> 
+		            					
 		            					<fmt:message key="savie.landing.discount.hkd1.value.prefix" bundle="${msg}" />
 		            					<span class="value">
 		            						<fmt:message key="savie.landing.discount.hkd1.value.text2" bundle="${msg}" />
