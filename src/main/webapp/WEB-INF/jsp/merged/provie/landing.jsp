@@ -267,7 +267,6 @@ var home_url = "<%=request.getContextPath()%>";
 		            					<fmt:message key="provie.landing.discount.paymentmode.text1" bundle="${provieMsg}" />
 		            				</span>
 		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
 		            					<fmt:message key="provie.landing.discount.hkd1.value.prefix" bundle="${provieMsg}" />
 		            					<span class="value">
 		            						<fmt:message key="provie.landing.discount.hkd1.value.text1" bundle="${provieMsg}" />
@@ -280,7 +279,6 @@ var home_url = "<%=request.getContextPath()%>";
 		            					<fmt:message key="provie.landing.discount.paymentmode.text2" bundle="${provieMsg}" />
 		            				</span>
 		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
 		            					<fmt:message key="provie.landing.discount.hkd1.value.prefix" bundle="${provieMsg}" />
 		            					<span class="value">
 		            						<fmt:message key="provie.landing.discount.hkd1.value.text2" bundle="${provieMsg}" />
