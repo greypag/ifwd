@@ -75,6 +75,7 @@ import com.ifwd.fwdhk.util.PDFToImages;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.ifwd.fwdhk.util.ValidationUtils;
 
 @Service
 public class LifeServiceImpl implements LifeService {
@@ -1995,6 +1996,19 @@ public class LifeServiceImpl implements LifeService {
 					request.getSession().setAttribute("isVulnerable", false);
 				}*/
 				//request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
+				if (ValidationUtils.isEmail(saviePlanDetails.getPromoCode())) {
+						BaseResponse apiReturn = null;
+						try {
+							net.sf.json.JSONObject params = new net.sf.json.JSONObject();
+							params.put("policyNo", lifePolicy.getPolicyNo());
+							params.put("agentEmail", saviePlanDetails.getPromoCode());
+							apiReturn = connector.setEliteTermPolicyAgentEmail(params, header);
+						}catch(Exception e){
+							logger.info("EliteTermServiceImpl setEliteTermPolicyAgentEmail occurs an exception!");
+							logger.info(e.getMessage());
+							e.printStackTrace();
+						}
+				}
 			}
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
