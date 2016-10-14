@@ -71,13 +71,27 @@ function updateNotificationBox(content, contentIndex) {
 
         if (typeof mobileBoxElem !== "undefined" && mobileBoxElem !== null) {
             mobileBoxElem.innerHTML = "";
-            mobileBoxElem.innerHTML = content[contentIndex].mobile;
+            if ($.isArray(contentIndex)){
+            	$.each(contentIndex, function(i){
+            		if(i > 0){
+            			mobileBoxElem.innerHTML += "<br/>";
+            		}            		
+            		mobileBoxElem.innerHTML += content[contentIndex[i]].mobile;
+            	});
+            }
         } else {
             console.error("Element with the class \"notification-bar-content-mobile\" may not existed.");
         }
         if (typeof desktopBoxElem !== "undefined" && desktopBoxElem !== null) {
             desktopBoxElem.innerHTML = "";
-            desktopBoxElem.innerHTML = content[contentIndex].desktop;
+            if ($.isArray(contentIndex)){
+            	$.each(contentIndex, function(i){
+            		if(i > 0){
+            			desktopBoxElem.innerHTML += "<br/>";
+            		}            		
+            		desktopBoxElem.innerHTML += content[contentIndex[i]].desktop;
+            	});
+            }           
         } else {
             console.error("Element with the class \"notification-bar-content-desktop\" may not existed.");
         }
@@ -89,7 +103,6 @@ function updateNotificationBox(content, contentIndex) {
 $(function() {
 
     isClicked = false;
-
     if (nBarConfig.isVisible == true) {
 
         isVisible(true);
