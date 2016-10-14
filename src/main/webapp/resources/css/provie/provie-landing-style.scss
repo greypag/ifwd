@@ -543,6 +543,24 @@ button.dropdown-toggle{
 		}
 	}
 }
+.ie11 .pv_sec_extra{
+	.flip-container{
+		.back{
+			transition: 0.6s;
+			opacity: 0;
+			backface-visibility: visible;
+		}
+	}
+	.flip-container:hover{
+		.front{
+			opacity: 0;
+		}
+		.back{
+			opacity: 1;
+			
+		}
+	}
+}
 .pv_extra_card.card1 .back{
 	background-color: #fbb616;
 }

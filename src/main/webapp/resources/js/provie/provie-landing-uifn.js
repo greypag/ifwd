@@ -22,6 +22,12 @@ var pvCtr = {
 			var url = $(".blogs.first .btn-read-now").attr("href");
 			window.open(url,'_blank');
 		});
+		
+		var ieVer = this.detectIEVersion();
+		if(!!ieVer && ieVer < 12){
+			$("body").addClass("ie11");
+		}
+
 	},
 	initAutoHeight: function(){
 		this.cal3Card = $(".pv_plan_wrap .cardWrap").autoAlignHeight({child: ".card", minWidth: 0});
@@ -94,6 +100,31 @@ var pvCtr = {
 	},
 	hideAjaxLoading: function (){
 		$("#loading-overlay").modal("hide");
+	},
+	detectIEVersion: function (){
+		var ua = window.navigator.userAgent;
+
+	    var msie = ua.indexOf('MSIE ');
+	    if (msie > 0) {
+	        // IE 10 or older => return version number
+	        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+	    }
+
+	    var trident = ua.indexOf('Trident/');
+	    if (trident > 0) {
+	        // IE 11 => return version number
+	        var rv = ua.indexOf('rv:');
+	        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+	    }
+
+	    var edge = ua.indexOf('Edge/');
+	    if (edge > 0) {
+	       // Edge (IE 12+) => return version number
+	       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+	    }
+
+	    // other browser
+	    return false;
 	}
 };
 
