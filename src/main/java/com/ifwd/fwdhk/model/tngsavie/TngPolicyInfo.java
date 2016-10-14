@@ -1,145 +1,116 @@
+
 package com.ifwd.fwdhk.model.tngsavie;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+
+@JsonPropertyOrder({
+    "msg",
+    "policyId",
+    "product_code",
+    "product_en",
+    "product_zh",
+    "validPolicy",
+    "policyBalance",
+    "asOfDate",
+    "tngAccountId",
+    "tngExpiryDate",
+    "tngPolicyStatus"
+})
 public class TngPolicyInfo {
-	
-	private String customerId;
-	private String mobileNumber;//for send SMS OTP display to user
-	
-	private String policyId;
-	private String product_en;//plan name
-	private String product_zh;
-	private String policyStatus_en;
-	private String policyStatus_zh;
-	private boolean validPolicy;
-	private Double principle;
-	private String asOfDate;//principle asOfDate
-	
-	private String tngAccountId;
-	private String tngExpiryDate;
-	private boolean ableLinkup;
-	private boolean ableWithdrawal;
-	
-	private String warningMsg;
 
-	public String getCustomerId() {
-		return customerId;
+    @JsonProperty("msg")
+    private List<ResponseMsg> msg = new ArrayList<ResponseMsg>();
+    @JsonProperty("policyId")
+    private String policyId;
+    @JsonProperty("product_code")
+    private String productCode;
+    @JsonProperty("product_en")
+    private String productEn;
+    @JsonProperty("product_zh")
+    private String productZh;
+    @JsonProperty("validPolicy")
+    private Boolean validPolicy;
+    @JsonProperty("policyBalance")
+    private Double policyBalance;
+    @JsonProperty("asOfDate")
+    private String asOfDate;
+    @JsonProperty("tngAccountId")
+    private String tngAccountId;
+    @JsonProperty("tngExpiryDate")
+    private String tngExpiryDate;
+    @JsonProperty("tngPolicyStatus")
+    private String tngPolicyStatus;
+    
+	public List<ResponseMsg> getMsg() {
+		return msg;
 	}
-
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
+	public void setMsg(List<ResponseMsg> msg) {
+		this.msg = msg;
 	}
-
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
-
 	public String getPolicyId() {
 		return policyId;
 	}
-
 	public void setPolicyId(String policyId) {
 		this.policyId = policyId;
 	}
-
-	public String getProduct_en() {
-		return product_en;
+	public String getProductCode() {
+		return productCode;
 	}
-
-	public void setProduct_en(String product_en) {
-		this.product_en = product_en;
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
-
-	public String getProduct_zh() {
-		return product_zh;
+	public String getProductEn() {
+		return productEn;
 	}
-
-	public void setProduct_zh(String product_zh) {
-		this.product_zh = product_zh;
+	public void setProductEn(String productEn) {
+		this.productEn = productEn;
 	}
-
-	public String getPolicyStatus_en() {
-		return policyStatus_en;
+	public String getProductZh() {
+		return productZh;
 	}
-
-	public void setPolicyStatus_en(String policyStatus_en) {
-		this.policyStatus_en = policyStatus_en;
+	public void setProductZh(String productZh) {
+		this.productZh = productZh;
 	}
-
-	public String getPolicyStatus_zh() {
-		return policyStatus_zh;
-	}
-
-	public void setPolicyStatus_zh(String policyStatus_zh) {
-		this.policyStatus_zh = policyStatus_zh;
-	}
-
-	public boolean isValidPolicy() {
+	public Boolean getValidPolicy() {
 		return validPolicy;
 	}
-
-	public void setValidPolicy(boolean validPolicy) {
+	public void setValidPolicy(Boolean validPolicy) {
 		this.validPolicy = validPolicy;
 	}
-
-	public Double getPrinciple() {
-		return principle;
+	public Double getPolicyBalance() {
+		return policyBalance;
 	}
-
-	public void setPrinciple(Double principle) {
-		this.principle = principle;
+	public void setPolicyBalance(Double policyBalance) {
+		this.policyBalance = policyBalance;
 	}
-
 	public String getAsOfDate() {
 		return asOfDate;
 	}
-
 	public void setAsOfDate(String asOfDate) {
 		this.asOfDate = asOfDate;
 	}
-
 	public String getTngAccountId() {
 		return tngAccountId;
 	}
-
 	public void setTngAccountId(String tngAccountId) {
 		this.tngAccountId = tngAccountId;
 	}
-
 	public String getTngExpiryDate() {
 		return tngExpiryDate;
 	}
-
 	public void setTngExpiryDate(String tngExpiryDate) {
 		this.tngExpiryDate = tngExpiryDate;
 	}
-
-	public boolean isAbleLinkup() {
-		return ableLinkup;
+	public String getTngPolicyStatus() {
+		return tngPolicyStatus;
+	}
+	public void setTngPolicyStatus(String tngPolicyStatus) {
+		this.tngPolicyStatus = tngPolicyStatus;
 	}
 
-	public void setAbleLinkup(boolean ableLinkup) {
-		this.ableLinkup = ableLinkup;
-	}
-
-	public boolean isAbleWithdrawal() {
-		return ableWithdrawal;
-	}
-
-	public void setAbleWithdrawal(boolean ableWithdrawal) {
-		this.ableWithdrawal = ableWithdrawal;
-	}
-
-	public String getWarningMsg() {
-		return warningMsg;
-	}
-
-	public void setWarningMsg(String warningMsg) {
-		this.warningMsg = warningMsg;
-	}
-	
-	
 }

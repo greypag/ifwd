@@ -39,11 +39,13 @@ import com.ifwd.fwdhk.model.tngsavie.TngLinkupSaveRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngOtpSmsReqResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistory;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryRequest;
-import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfo;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryResponse;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyListRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicySimple;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawPerformResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawRequest;
+import com.ifwd.fwdhk.model.tngsavie.TngUnlinkRequest;
 import com.ifwd.fwdhk.util.HeaderUtil;
 
 
@@ -57,27 +59,21 @@ public class OnlineWithdrawalController extends BaseController{
 	private HeaderUtil headerUtil;
 	
 	@ApiOperation(
-			value = "Get Policy info List",
-			response = TngPolicyInfo.class,
-			responseContainer = "List",
-			notes ="Warning include following cases:"
-					+ "<br/>GPW002 Warning Annual withdrawal limit"
-					+ "<br/>GPW003 Warning Daily withdrawal limit "
-					+ "<br/>GPW004 Warning Daily withdrawal count limit"
+			value = "Get Policy info List by Customer",
+			response = TngPolicyInfoResponse.class
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/getPolicyInfoList", method = POST)
-	public ResponseEntity<List<TngPolicyInfo>> getPolicyInfoList(
+	public ResponseEntity<TngPolicyInfoResponse> getPolicyInfoList(
 			@ApiParam(value = "Customer Id", required = true) @RequestBody TngPolicyListRequest tplReq,
 			HttpServletRequest request) {
 		String methodName="getPolicyInfoList";
 		
 		logger.debug(methodName+" getCustomerId:"+tplReq.getCustomerId());
 		
-		List<TngPolicyInfo> resultList = new ArrayList<TngPolicyInfo>();
 		JSONObject responseJsonObj = new JSONObject();		
 		
 //		try {			
@@ -97,9 +93,28 @@ public class OnlineWithdrawalController extends BaseController{
 //			return Responses.error(null);
 //		}
 		
-		TngPolicyInfo policyInfo = new TngPolicyInfo();
-		resultList.add(policyInfo);
-		return Responses.ok(resultList);
+		TngPolicyInfoResponse policyInfoResp = new TngPolicyInfoResponse();
+		return Responses.ok(policyInfoResp);
+	}
+	
+	@ApiOperation(
+			value = "Get Policy info By Policy",
+			response = TngPolicyInfoResponse.class
+			)
+	@ApiResponses(value = {
+			@ApiResponse(code = 500, message = "System error"),
+			@ApiResponse(code = 400, message = "Invalid Input")
+			})
+	@RequestMapping(value = "/getPolicyInfo", method = POST)
+	public ResponseEntity<TngPolicyInfoResponse> getPolicyInfo(
+			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicySimple simple,
+			HttpServletRequest request) {
+		String methodName="getPolicyInfoList";
+		
+		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
+		
+		TngPolicyInfoResponse policyInfoResp = new TngPolicyInfoResponse();
+		return Responses.ok(policyInfoResp);
 	}
 	
 	@ApiOperation(
@@ -108,14 +123,7 @@ public class OnlineWithdrawalController extends BaseController{
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 461, message = "Tap & Go Linkup function is locked"),
-			@ApiResponse(code = 462, message = "Topup withdrawal function is locked"),
-			@ApiResponse(code = 463, message = "Invalid policy ID"),
-			@ApiResponse(code = 464, message = "Invalid customer mobile number for receive OTP via SMS"),
-			@ApiResponse(code = 465, message = "Exceed the number of re-send OTP"),
-			@ApiResponse(code = 491, message = "SMS gateway send message failed"),
-			@ApiResponse(code = 499, message = "System error")
+			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/sendTngOtpSms", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> sendTngOtpSms(
@@ -134,14 +142,7 @@ public class OnlineWithdrawalController extends BaseController{
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 461, message = "Tap & Go Linkup function is locked"),
-			@ApiResponse(code = 462, message = "Topup withdrawal function is locked"),
-			@ApiResponse(code = 463, message = "Invalid policy ID"),
-			@ApiResponse(code = 466, message = "The session and OTP are not match"),
-			@ApiResponse(code = 467, message = "OTP expired"),
-			@ApiResponse(code = 468, message = "The OTP is already authentic"),
-			@ApiResponse(code = 499, message = "System error")
+			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/authTngOtp", method = POST)
 	public ResponseEntity<TngAuthOtpResponse> authTngOtp(
@@ -161,11 +162,7 @@ public class OnlineWithdrawalController extends BaseController{
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 461, message = "Tap & Go Linkup function is locked"),
-			@ApiResponse(code = 463, message = "Invalid policy ID"),
-			@ApiResponse(code = 469, message = "Fail to save Tap & Go Linkup information"),
-			@ApiResponse(code = 499, message = "System error")
+			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/saveTngLinkupInfo", method = POST)
 	public ResponseEntity<TngPolicySimple> saveTngLinkupInfo(
@@ -178,23 +175,11 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@ApiOperation(
 			value = "Request Tap n Go Policy withdrawal",
-			response = TngOtpSmsReqResponse.class,
-			notes ="470 include following cases: "
-					+ "<br/>Fail due to OTP not match "
-					+ "<br/>Fail due to Min per transaction"
-					+ "<br/>Fail due to Max per day"
-					+ "<br/>Fail due to Max per year"
-					+ "<br/>Fail due to User does not meet withdrawal criteria "
+			response = TngOtpSmsReqResponse.class
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 462, message = "Topup withdrawal function is locked"),
-			@ApiResponse(code = 463, message = "Invalid policy ID"),
-			@ApiResponse(code = 464, message = "Invalid customer mobile number for receive OTP via SMS"),
-			@ApiResponse(code = 470, message = "Withdrawal validation fail with error message"),
-			@ApiResponse(code = 491, message = "SMS gateway send message failed"),
-			@ApiResponse(code = 499, message = "System error")
+			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/requestTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> requestTngPolicyWithdraw(
@@ -205,26 +190,13 @@ public class OnlineWithdrawalController extends BaseController{
 		return Responses.ok(result);
 	}
 
-	/**
-	 * 490 include following cases:
-	 * PWF001 Cannot connect to Tap n Go API
-	 * PWF002 Unable to complete transaction, please contact CS
-	 * PWF003 Duplicate Tap n Go transaction ID exists
-	 */
 	@ApiOperation(
 			value = "Perform Tap n Go Policy withdrawal",
 			response = TngPolicyWithdrawPerformResponse.class
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 462, message = "Topup withdrawal function is locked"),
-			@ApiResponse(code = 463, message = "Invalid policy ID"),
-			@ApiResponse(code = 466, message = "The session and OTP are not match"),
-			@ApiResponse(code = 467, message = "OTP expired"),
-			@ApiResponse(code = 468, message = "The OTP is already authentic"),
-			@ApiResponse(code = 490, message = "Perform withdrawal failed (Ref: PWExxx)"),
-			@ApiResponse(code = 499, message = "System error")
+			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/performTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngPolicyWithdrawPerformResponse> performTngPolicyWithdraw(
@@ -236,7 +208,6 @@ public class OnlineWithdrawalController extends BaseController{
 	}
 	
 	@ApiOperation(
-			hidden=true, //not yet have detail
 			value = "Unlink Tap n Go from Policy",
 			response = TngPolicySimple.class
 			)
@@ -246,7 +217,7 @@ public class OnlineWithdrawalController extends BaseController{
 			})
 	@RequestMapping(value = "/unlinkTngPolicy", method = POST)
 	public ResponseEntity<TngPolicySimple> unlinkTngPolicy(
-			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicySimple simple,
+			@ApiParam(value = "Policy Id, Tap n Go Acount Id", required = true) @RequestBody TngUnlinkRequest unlinkReq,
 			HttpServletRequest request) {
 
 		TngPolicySimple result = new TngPolicySimple();
@@ -255,22 +226,19 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@ApiOperation(
 			value = "Get Tap n Go Policy History",
-			response = TngPolicyHistory.class,
-			responseContainer = "List"
+			response = TngPolicyHistoryResponse.class
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/getTngPolicyHistory", method = POST)
-	public ResponseEntity<List<TngPolicyHistory>> getTngPolicyHistory(
-			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicyHistoryRequest simple,
+	public ResponseEntity<TngPolicyHistoryResponse> getTngPolicyHistory(
+			@ApiParam(value = "Policy Id, Start Date, End Date", required = true) @RequestBody TngPolicyHistoryRequest historyReq,
 			HttpServletRequest request) {
 
-		TngPolicyHistory result = new TngPolicyHistory();
-		List<TngPolicyHistory> resultList = new ArrayList<TngPolicyHistory>();
-		resultList.add(result);
-		return Responses.ok(resultList);
+		TngPolicyHistoryResponse result = new TngPolicyHistoryResponse();
+		return Responses.ok(result);
 	}
 	
 	@ApiIgnore

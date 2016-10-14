@@ -1,23 +1,45 @@
 package com.ifwd.fwdhk.model.tngsavie;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonPropertyOrder({
+"customerId",
+"mobile",
+"result",
+"otpExpiryDate",
+"msg"
+})
 public class TngOtpSmsReqResponse {
 
-	private String policyId;
-	private String mobileNumber;
+	@JsonProperty("customerId")
+	private String customerId;
+	@JsonProperty("mobile")
+	private String mobile;
+	@JsonProperty("result")
+	private Boolean result;
+	@JsonProperty("otpExpiryDate")
 	private String otpExpiryDate;
+	@JsonProperty("msg")
+	private ResponseMsg msg;
 	
-	public String getPolicyId() {
-		return policyId;
+	public String getCustomerId() {
+		return customerId;
 	}
-	public void setPolicyId(String policyId) {
-		this.policyId = policyId;
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
 	}
-	public String getMobileNumber() {
-		return mobileNumber;
+	public String getMobile() {
+		return mobile;
 	}
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public Boolean getResult() {
+		return result;
+	}
+	public void setResult(Boolean result) {
+		this.result = result;
 	}
 	public String getOtpExpiryDate() {
 		return otpExpiryDate;
@@ -25,5 +47,12 @@ public class TngOtpSmsReqResponse {
 	public void setOtpExpiryDate(String otpExpiryDate) {
 		this.otpExpiryDate = otpExpiryDate;
 	}
+	public ResponseMsg getMsg() {
+		return msg;
+	}
+	public void setMsg(ResponseMsg msg) {
+		this.msg = msg;
+	}
+
 	
 }

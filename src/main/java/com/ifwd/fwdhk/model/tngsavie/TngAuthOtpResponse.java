@@ -1,14 +1,29 @@
 package com.ifwd.fwdhk.model.tngsavie;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TngAuthOtpResponse {
 
+	@JsonProperty("policyId")
 	private String policyId;
+	@JsonProperty("appId")
 	private String appId;
+	@JsonProperty("merTradeNo")
 	private String merTradeNo;
+	@JsonProperty("paymentType")
 	private String paymentType;
+	@JsonProperty("payload")
 	private String payload;
+	@JsonProperty("extras")
 	private String extras;
+	@JsonProperty("sign")
 	private String sign;
+	@JsonProperty("otp")
+	private String otp;
+	@JsonProperty("result")
+	private Boolean result;
+	@JsonProperty("msg")
+	private ResponseMsg msg;
 	
 	public String getPolicyId() {
 		return policyId;
@@ -51,6 +66,24 @@ public class TngAuthOtpResponse {
 	}
 	public void setSign(String sign) {
 		this.sign = sign;
+	}
+	public String getOtp() {
+		return otp;
+	}
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+	public Boolean getResult() {
+		return result;
+	}
+	public void setResult(Boolean result) {
+		this.result = result;
+	}
+	public ResponseMsg getMsg() {
+		return msg;
+	}
+	public void setMsg(ResponseMsg msg) {
+		this.msg = msg;
 	}
 	
 }
