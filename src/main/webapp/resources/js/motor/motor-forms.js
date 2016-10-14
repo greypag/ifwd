@@ -100,6 +100,7 @@ $(document).ready(function(){
 				},
 				success: function(data) {
 					e.preventDefault();
+					window.location.hash = "callme=complete";
 					$('#contactform-pop').addClass('hidden');
 					$('#successMessage').removeClass('hidden');
 					}

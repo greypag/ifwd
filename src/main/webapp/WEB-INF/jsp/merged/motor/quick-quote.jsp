@@ -549,6 +549,7 @@ $('#yourQuoteTitle').html('Third Party');
         });
 
         $('#apply-link').on("click", function(){
+            window.location.hash = "callme=popup";
             quote.personalAccident = $('[name="addon1"]').is(':checked');
             quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
         	if ($('#quote-num').html().trim().length==0){
