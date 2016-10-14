@@ -23,6 +23,7 @@ import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
+import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
 
 public interface LifeService {
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request, HttpSession session) throws ECOMMAPIException;
@@ -74,4 +75,7 @@ public interface LifeService {
 	public JSONObject getProvieRiderEligibility(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getSavieReferralDiscount(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getSavieReferralDiscountParams(String planCode,String referralCode,String sumInsured,String hkId,HttpServletRequest request)throws ECOMMAPIException;
+	public JSONObject validatePolicyByPolicyNo(String policyNo,HttpServletRequest request)throws ECOMMAPIException;
+	public JSONObject validatePolicyHoldersByPolicyNo(String policyNo,String hkId,HttpServletRequest request)throws ECOMMAPIException;
+	public JSONObject createTravelCarePassKit(PassPolicyNoBean passPolicy,HttpServletRequest request)throws ECOMMAPIException;
 }

@@ -360,7 +360,12 @@ public class UserRestURIConstants {
 	/* API For provie online */		
 	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";		
 	public static final String GET_PROVIE_RIDER_ELIGIBILITY = SERVICE_URL + "/life/provie/rider/eligibility";		
-			
+	
+	/* API For Passkit      */		
+	public static final String VALIDATE_POLICY_BY_POLICY_NO = SERVICE_URL + "/passkit/policies/validate";	
+	public static final String VALIDATE_POLICY_HOLDERS_BY_POLICY_NO = SERVICE_URL + "/passkit/policies/policiesHolder/validate";
+	public static final String CREATE_TRAVEL_CARE_PASS_KIT = SERVICE_URL + "/passkit/travelCare";
+	
 	/* Page Flow Control For provie online */		
 	public static final String URL_PROVIE_SINGLE_PREMIUM = "single-premium";		
 	public static final String URL_PROVIE_REGULAR_PREMIUM = "regular-premium";		
