@@ -1331,16 +1331,16 @@ function soFormValidation() {
 	}).on('error.form.bv', function (e) {});
 }
 
-$('.chinese-input').bind('keydown', function (event) {
-	var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
-	var key = String.fromCharCode(!event.charCode
-		? event.which
-		: event.charCode);
-	var keycode = event.keyCode || event.which;
-	if (!regex.test(key) && keycode != 8) {
-		event.preventDefault();
-		return false;
-	}
+$('.chinese-input').bind('keydown keyup change', function (event) {
+	var value = $(this).val();
+	$(this).val(value.replace(/[^\s\u4e00-\u9fa5]/g, "").trim());
+});
+
+$('.chinese-input').bind('paste', function (event) {
+	var thisInput = $(this);
+	setTimeout(function() { 
+		thisInput.trigger('change');
+    }, 100);
 });
 
 function isChin(str) {
