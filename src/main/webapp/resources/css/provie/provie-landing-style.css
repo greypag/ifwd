@@ -427,7 +427,8 @@ button.dropdown-toggle {
 .ie11 .pv_sec_extra .flip-container:hover .front {
   opacity: 0; }
 .ie11 .pv_sec_extra .flip-container:hover .back {
-  opacity: 1; }
+  opacity: 1;
+  z-index: 12; }
 
 .pv_extra_card.card1 .back {
   background-color: #fbb616; }
