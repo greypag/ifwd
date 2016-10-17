@@ -4135,10 +4135,12 @@ public class LifeServiceImpl implements LifeService {
 		return responseJsonObj;
 	}
 	
-	public JSONObject createTravelCarePassKit(PassPolicyNoBean policyNo,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
+	public JSONObject createTravelCarePassKit(PassPolicyNoBean policy,HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.CREATE_TRAVEL_CARE_PASS_KIT;
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("policyNo", policy.getPolicyNo());
 		final Map<String,String> header = headerUtil.getHeader(request);
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		return responseJsonObj;
 	}
 }

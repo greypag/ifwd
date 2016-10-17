@@ -62,6 +62,7 @@ import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.passkit.TravelCarePass;
 import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
+import com.ifwd.fwdhk.model.passkit.ValidationResult;
 import com.ifwd.fwdhk.model.ProvieRiderEligibility;
 import com.ifwd.fwdhk.model.motor.PolicyDriverDetails;
 import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
@@ -85,7 +86,7 @@ public class PasskitController extends BaseController{
 	
 	private final static Logger logger = LoggerFactory.getLogger(PasskitController.class);
 
-	private static final RequestMethod[] POST = null;
+	//private static final RequestMethod[] POST = null;
 	
 	@Autowired
 	private RestServiceDao restService;
@@ -96,46 +97,52 @@ public class PasskitController extends BaseController{
 	
 	@RequestMapping(value = "/policies/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
-		value = "Check if policy is available"
+		value = "Check if policy is available",
+		response = ValidationResult.class
 		)
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy Number"),
 						   @ApiResponse(code = 500, message = "System error")})
-	public boolean validatePolicyByPolicyNo(
+	public ResponseEntity<ValidationResult> validatePolicyByPolicyNo(
 			@ApiParam(value = "PolicyNo", required = true) @RequestParam("policyNo") String policyNo
 			, HttpServletRequest request) {
 		
-
+		
 		JSONObject resultJsonObject = new JSONObject();
+		ValidationResult validationResult = new ValidationResult();
     	try {
     		resultJsonObject = passkitOnlineService.validatePolicyByPolicyNo(policyNo,request);
-
-    		boolean valid = (boolean) resultJsonObject.get("valid");
-    		return valid;
+    		//String errMsgs= (String) resultJsonObject.get("errMsgs");
+    		validationResult.setValid((boolean) resultJsonObject.get("valid"));
+    		return Responses.ok(validationResult);
     	} catch (Exception e) {
     		e.printStackTrace();
-    		return false;
+    		return Responses.error(null);
     	}
 	}
 
 	@RequestMapping(value = "/policies/policiesHolder/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
-		value = "Check if policy holders is available"
+		value = "Check if policy holders is available",
+		response = ValidationResult.class
 		)
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy holder"),
 						   @ApiResponse(code = 500, message = "System error")})
-	public boolean validatePolicyHoldersByPolicyNo(
+	public ResponseEntity<ValidationResult> validatePolicyHoldersByPolicyNo(
 			@ApiParam(value = "PolicyNo", required = true) @RequestParam("policyNo") String policyNo,
 			@ApiParam(value = "HkId", required = true) @RequestParam("hkId") String hkId
 			, HttpServletRequest request) {
-
+		
+		
 		JSONObject resultJsonObject = new JSONObject();
+		ValidationResult validationResult = new ValidationResult();
     	try {
     		resultJsonObject = passkitOnlineService.validatePolicyHoldersByPolicyNo(policyNo,hkId,request);
-    		boolean valid = (boolean) resultJsonObject.get("valid");
-    		return valid;
+    		//String errMsgs= (String) resultJsonObject.get("errMsgs");
+    		validationResult.setValid((boolean) resultJsonObject.get("valid"));
+    		return Responses.ok(validationResult);
     	} catch (Exception e) {
     		e.printStackTrace();
-    		return false;
+    		return Responses.error(null);
     	}
 	}
 
@@ -152,13 +159,12 @@ public class PasskitController extends BaseController{
 	public ResponseEntity<TravelCarePass> createTravelCarePassKit(
 			@ApiParam(value = "PolicyNo", required = true) @RequestBody PassPolicyNoBean passPolicy,
 			HttpServletRequest request) {
-
+		
 		JSONObject resultJsonObject = new JSONObject();
 		TravelCarePass travelCarePass = new TravelCarePass();
 		try {
 			resultJsonObject = passkitOnlineService.createTravelCarePassKit(passPolicy,request);
-			String errMsgs= (String) resultJsonObject.get("errMsgs");
-			travelCarePass.setErrMsgs(errMsgs);
+			//String errMsgs= (String) resultJsonObject.get("errMsgs");
 			travelCarePass.setPassId((String) resultJsonObject.get("passId"));
 			travelCarePass.setPassId((String) resultJsonObject.get("url"));
 			return Responses.ok(travelCarePass);
