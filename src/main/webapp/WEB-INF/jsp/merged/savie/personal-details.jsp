@@ -786,12 +786,53 @@ maxlength="19"/>
 </div>
 
 <!-- JS INCLUDES -->
+<c:if test="${planIndex == 'savings-insurance'}">
+<script type="text/javascript">
+//Check if referral code owner is the applicant.
+	$('#hkId').blur(function () {
+		 var promoCode = '${saviePlanDetails.promoCode}';
+		 var amount =  ${saviePlanDetails.insuredAmount};
+		 var hkId = $('#hkId').val();
+		 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
+			$.ajax({     
+		   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
+		    		type:'get',     
+		    		data:{    
+		    				"planCode": "SAVIE-SP",
+		        			"referralCode":promoCode,
+		        			"sumInsured":amount,
+		        			"hkId":hkId
+	  					},     
+		    		error:function(){       
+		    				},     
+		    		success:function(data){
+		    			//console.log(data);
+		    			//alert('personal-details.jsp2 ' + data.errMsgs);
+		    			if(data.value ='0'){
+		    				console.log(data);
+		    				$("#hkid-continue-back-modal").modal("show");
+		    				$('.save-hkid-exit-btn1').click(function () {
+		    					$('#hkid-continue-back-modal').modal('hide');
+		    				});
+
+		    				$('.save-hkid-exit-btn2').click(function () {
+		    					window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2';
+		    				});
+				   			//alert('personal-details.jsp3--you can not use yourself policy as promoCode');
+		    			} else {
+		    	   			//$('#promoCodeErrorMsg').addClass('hidden');
+		    			}
+		    		}  
+				});
+		 }
+	});	
+</script>
+</c:if>
 <script type="text/javascript">
 var language = "en";
 var getpath = "<%=request.getContextPath()%>";
 
 $(document).ready(function () {
-	console.log('${saviePlanDetails.promoCode}');
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
 
 	setSelectReadonly('tmpGender', true);
@@ -901,45 +942,6 @@ $(document).ready(function () {
 		});
 	});
 
-	//Check if referral code owner is the applicant.
-	$('#hkId').blur(function () {
-		 var promoCode = '${saviePlanDetails.promoCode}';
-		 var amount =  ${saviePlanDetails.insuredAmount};
-		 var hkId = $('#hkId').val();
-		 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
-			$.ajax({     
-		   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
-		    		type:'get',     
-		    		data:{    
-		    				"planCode": "SAVIE-SP",
-		        			"referralCode":promoCode,
-		        			"sumInsured":amount,
-		        			"hkId":hkId
-	  					},     
-		    		error:function(){       
-		    				},     
-		    		success:function(data){
-		    			//console.log(data);
-		    			//alert('personal-details.jsp2 ' + data.errMsgs);
-		    			if(data.value ='0'){
-		    				console.log(data);
-		    				$("#hkid-continue-back-modal").modal("show");
-		    				$('.save-hkid-exit-btn1').click(function () {
-		    					$('#hkid-continue-back-modal').modal('hide');
-		    				});
-
-		    				$('.save-hkid-exit-btn2').click(function () {
-		    					window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2';
-		    				});
-				   			//alert('personal-details.jsp3--you can not use yourself policy as promoCode');
-		    			} else {
-		    	   			//$('#promoCodeErrorMsg').addClass('hidden');
-		    			}
-		    		}  
-				});
-		 }
-	});	
-	
 	$('#btn-app-save').click(function () {
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 	});
