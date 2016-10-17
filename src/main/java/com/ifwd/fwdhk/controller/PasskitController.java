@@ -241,7 +241,7 @@ public class PasskitController extends BaseController{
 		return ProviePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_RP);
 	}
 */	
-	@RequestMapping(value = "/api/passkit/validatePolicyByPolicyNo", method = GET, produces = {APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/api/passkit/policies/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy is available"
 		)
@@ -266,11 +266,11 @@ public class PasskitController extends BaseController{
     	}
 	}
 
-	@RequestMapping(value = "/api/passkit/validatePolicyHoldersByPolicyNo", method = GET, produces = {APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy holders is available"
 		)
-	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy holders"),
+	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy holder"),
 						   @ApiResponse(code = 500, message = "System error")})
 	public boolean validatePolicyHoldersByPolicyNo(
 			@ApiParam(value = "PolicyNo", required = true) @RequestParam("policyNo") String policyNo,
@@ -300,7 +300,7 @@ public class PasskitController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Policy Number"),
 			@ApiResponse(code = 500, message = "System error")
 			})
-	@RequestMapping(value = {"/api/passkit/createTravelCarePassKit"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/api/passkit/travelCare"}, method = RequestMethod.POST)
 	public ResponseEntity<TravelCarePass> createTravelCarePassKit(
 			@ApiParam(value = "Policy Number", required = true) @RequestBody PassPolicyNoBean passPolicy,
 			HttpServletRequest request) {
