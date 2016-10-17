@@ -1357,16 +1357,30 @@ function soFormValidation() {
 	}).on('error.form.bv', function (e) {});
 }
 
-$('.chinese-input').bind('keydown keyup change', function (event) {
-	var value = $(this).val();
-	$(this).val(value.replace(/[^\s\u4e00-\u9fa5]/g, "").trim());
+$('.chinese-input').bind('keydown change', function (event) {
+	var keycode = event.keyCode || event.which;
+	//console.log('keycode: ' + keycode + ' event: ' + event.type + ' event.ctrlKey: ' + event.ctrlKey);
+
+	if (keycode != 8 && keycode != 37 && keycode != 39 && event.ctrlKey !== true) {
+		//console.log('old: ' + $(this).val() + ' u16: '+ escape($(this).val()).replace(/%u/g, "\\u"));
+
+		var value = $(this).val();
+		var new_value = value.replace(/[^\s\u3000\u4e00-\u9fa5]/g, "");
+		//console.log('new: ' + new_value);
+
+		$(this).val(new_value);
+	}
 });
 
-$('.chinese-input').bind('paste', function (event) {
-	var thisInput = $(this);
-	setTimeout(function() { 
-		thisInput.trigger('change');
-    }, 100);
+$('.chinese-input').bind('keyup paste', function (event) {
+	var keycode = event.keyCode || event.which;
+
+	if (event.type == 'paste' || keycode == 229) {
+		var thisInput = $(this);
+		setTimeout(function() { 
+			thisInput.trigger('change');
+    	}, 100);
+	}
 });
 
 function isChin(str) {
