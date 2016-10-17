@@ -716,6 +716,21 @@ maxlength="19"/>
 </div>
 <!-- FOOTER -->
 </div>
+<!-- hkid referral modal -->
+<div class="modal fade common-welcome-modal" id="hkid-continue-back-modal" tabindex="-1" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content save-con-modal-content">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">x</span>
+</button>
+<p class="text-center description-msg"><fmt:message key="label.savie.referral.error" bundle="${msg}"/></p>
+<div class="save-con-btns text-center clearfix">
+<button class="btn savie-common-btn save-hkid-exit-btn1"><fmt:message key="button.keep.going.referral" bundle="${msg}"/></button>
+<button class="btn savie-common-btn save-hkid-exit-btn2"><fmt:message key="button.save.and.exit.referral" bundle="${msg}"/></button>
+</div>
+</div>
+</div>
+</div>
 <!-- Save and continue modal -->
 <div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
 <div class="modal-dialog">
@@ -776,7 +791,7 @@ var language = "en";
 var getpath = "<%=request.getContextPath()%>";
 
 $(document).ready(function () {
-
+	console.log('${saviePlanDetails.promoCode}');
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
 
 	setSelectReadonly('tmpGender', true);
@@ -887,34 +902,43 @@ $(document).ready(function () {
 	});
 
 	//Check if referral code owner is the applicant.
-	//$('#hkId').blur(function () {
-	//	 var promoCode = '${saviePlanDetails.promoCode}';
-	//	 var amount =  ${saviePlanDetails.insuredAmount};
-	//	 var hkId = $('#hkId').val();
-	//	 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
-	//		$.ajax({     
-	//	   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
-	//	    		type:'get',     
-	//	    		data:{    
-	//	    				"planCode": "SAVIE-SP",
-	//	        			"referralCode":promoCode,
-	//	        			"sumInsured":amount,
-	//	        			"hkId":hkId
-	//   					},     
-	//	    		error:function(){       
-	//	    				},     
-	//	    		success:function(data){
-	//	    			//console.log(data);
-	//	    			//alert('personal-details.jsp2 ' + data.errMsgs);
-	//	    			if(data.value ='0'){
-	//			   			alert('personal-details.jsp3--you can not use yourself policy as promoCode');
-	//	    			} else {
-	//	    	   			//$('#promoCodeErrorMsg').addClass('hidden');
-	//	    			}
-	//	    		}  
-	//			});
-	//	 }
-	//});	
+	$('#hkId').blur(function () {
+		 var promoCode = '${saviePlanDetails.promoCode}';
+		 var amount =  ${saviePlanDetails.insuredAmount};
+		 var hkId = $('#hkId').val();
+		 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
+			$.ajax({     
+		   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
+		    		type:'get',     
+		    		data:{    
+		    				"planCode": "SAVIE-SP",
+		        			"referralCode":promoCode,
+		        			"sumInsured":amount,
+		        			"hkId":hkId
+	  					},     
+		    		error:function(){       
+		    				},     
+		    		success:function(data){
+		    			//console.log(data);
+		    			//alert('personal-details.jsp2 ' + data.errMsgs);
+		    			if(data.value ='0'){
+		    				console.log(data);
+		    				$("#hkid-continue-back-modal").modal("show");
+		    				$('.save-hkid-exit-btn1').click(function () {
+		    					$('#hkid-continue-back-modal').modal('hide');
+		    				});
+
+		    				$('.save-hkid-exit-btn2').click(function () {
+		    					window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2';
+		    				});
+				   			//alert('personal-details.jsp3--you can not use yourself policy as promoCode');
+		    			} else {
+		    	   			//$('#promoCodeErrorMsg').addClass('hidden');
+		    			}
+		    		}  
+				});
+		 }
+	});	
 	
 	$('#btn-app-save').click(function () {
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
