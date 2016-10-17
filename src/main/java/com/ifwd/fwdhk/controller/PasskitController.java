@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import io.swagger.annotations.Api;
@@ -78,7 +79,8 @@ import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
-@Api(value = "/passkit", description = "Operations about passkit")
+@RequestMapping(value = "/api/passkit", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE} )
+@Api(value = "/api/passkit", description = "Operations about passkit")
 public class PasskitController extends BaseController{
 	
 	private final static Logger logger = LoggerFactory.getLogger(PasskitController.class);
@@ -92,156 +94,7 @@ public class PasskitController extends BaseController{
 	@Autowired
 	private CommonUtils commonUtils;
 	
-	/*
-	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie"})
-	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
-		provieOnlineService.removeProvieOnlineSession(request);
-		String affiliate = (String) request.getParameter("affiliate");
-		if(affiliate == null){
-			affiliate = "";
-		}
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		List<OptionItemDesc> savieAns;
-		if(lang.equals("tc")){
-			lang = "CN";
-			savieAns=InitApplicationMessage.savieAnsCN;
-		}else{
-			savieAns=InitApplicationMessage.savieAnsEN;
-		}
-		model.addAttribute("savieAns", savieAns);
-		model.addAttribute("affiliate", affiliate);
-		return ProviePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_LANDING);
-	}
-		
-	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie-plan-details"})
-	public ModelAndView getProviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	
-		HttpSession session = request.getSession();
-
-		String accessCode = (String) httpSession.getAttribute("accessCode");
-		logger.info(accessCode);
-		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
-				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
-			httpSession.setAttribute("accessCode", accessCode);
-			if("thankyou".equals(request.getParameter("thankyou"))){
-				model.addAttribute("thankyou", request.getParameter("thankyou"));
-			}
-			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-			Date date = new Date();
-			Calendar startDOB = new GregorianCalendar();
-			startDOB.setTime(date); 
-			startDOB.add(startDOB.YEAR, -70);
-			startDOB.add(startDOB.DATE, 1);
-			model.addAttribute("startDOB", format.format(startDOB.getTime()));
-			
-			Calendar defaultDOB = new GregorianCalendar();
-			defaultDOB.setTime(date); 
-			defaultDOB.add(defaultDOB.YEAR, -18);
-			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
-			model.addAttribute("sliderMin", "30000");
-			model.addAttribute("sliderMax", "400000");
-			model.addAttribute("sliderValue", "100000");
-			//model.addAttribute("extraRiderDisabled", "ddd");
-			return ProviePageFlowControl.pageFlow("", model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS);
-		}else {
-			// Temporarily add the meta og keys
-			String key = UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS;
-			model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page."+key, UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("pageMetaDataDescription", WebServiceUtils.getPageTitle("meta."+key, UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("ogTitle", WebServiceUtils.getPageTitle(key + ".og.title", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("ogType", WebServiceUtils.getPageTitle(key + ".og.type", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("ogUrl", WebServiceUtils.getPageTitle(key + ".og.url", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("ogImage", WebServiceUtils.getPageTitle(key + ".og.imgage", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("ogDescription", WebServiceUtils.getPageTitle(key + ".og.description", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("scriptName", WebServiceUtils.getPageTitle(key + ".script.name", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("scriptDescription", WebServiceUtils.getPageTitle(key + ".script.description", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("scriptChildName", WebServiceUtils.getPageTitle(key + ".script.child.name", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("scriptImg", WebServiceUtils.getPageTitle(key + ".og.image", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("planIndex", ""); //Plan Name
-			model.addAttribute("pageIndex", key); // Page Index
-
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "provie/provie-plan-details");
-		}
-	}	
-
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/ajax/savings-insurance/getProvieRiderEligibility"})
-	public void getProvieRiderEligibility(HttpServletRequest request,HttpServletResponse response) {
-		JSONObject jsonObject = new JSONObject();
-		if(Methods.isXssAjax(request)){
-			return;
-		}
-		try {
-			jsonObject=provieOnlineService.getProvieRiderEligibility(request);
-		}
-		catch (ECOMMAPIException e) {
-			jsonObject.put("errorMsg", "api error");
-		}
-		logger.info(jsonObject.toString());
-		ajaxReturn(response, jsonObject);
-	}
-		
-	
-	@RequestMapping(value = {"/ajax/savings-insurance/getProvieRiderPlan"})
-	public void getProvieRiderPlan(ProviePlanDetailsBean proviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		String language = (String) session.getAttribute("language");
-		net.sf.json.JSONObject jsonObject = new net.sf.json.JSONObject();
-		if(Methods.isXssAjax(request)){
-			return;
-		}
-		try {
-			proviePlanDetails.validate(language);
-			proviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(proviePlanDetails.getInsuredAmount()));
-			jsonObject = provieOnlineService.getProvieRiderPlan(proviePlanDetails, request, session);
-			//String[] dob1 = (String) request.getAttribute("dob");
-			String[] dob = proviePlanDetails.getDob().split("-");
-			proviePlanDetails.setDob1(dob[2]+"路"+dob[1]+"路"+dob[0]);
-			proviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
-			
-			request.getSession().setAttribute("proviePlanDetails", proviePlanDetails);
-		}
-		catch (ValidateExceptions e) {
-			jsonObject.put("errorMsg", e.getList().toString());
-		}
-		catch (ECOMMAPIException e) {
-			jsonObject.put("errorMsg", e.getMessage());
-		} 
-		logger.info(jsonObject.toString());
-		ajaxReturn(response, jsonObject);
-	}
-	
-	
-	
-	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie-customer-service-centre"})
-	public ModelAndView getProvieAppointment(Model model, HttpServletRequest request) {
-		String planCode= (String) request.getParameter("planCode");
-		model.addAttribute("planCode", planCode);
-		HttpSession session=request.getSession();
-		session.setAttribute("planCode", planCode);
-		return ProviePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_SERVICE_CENTER);
-	}
-	
-	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie-confirmation-appointment-sp"})
-	public ModelAndView getProvieThankyouSp(Model model, HttpServletRequest request) {
-		HttpSession session=request.getSession();
-		String planCode = (String) session.getAttribute("planCode");
-		return ProviePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_SP);
-	}
-	
-	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie-confirmation-appointment-rp"})
-	public ModelAndView getProvieThankyouRp(Model model, HttpServletRequest request) {
-		HttpSession session=request.getSession();
-		String planCode = (String) session.getAttribute("planCode");
-		return ProviePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT_RP);
-	}
-*/	
-	@RequestMapping(value = "/api/passkit/policies/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/policies/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy is available"
 		)
@@ -251,13 +104,11 @@ public class PasskitController extends BaseController{
 			@ApiParam(value = "PolicyNo", required = true) @RequestParam("policyNo") String policyNo
 			, HttpServletRequest request) {
 		
-		//super.IsAuthenticate(request);
-		
-		//HttpSession session=request.getSession();
+
 		JSONObject resultJsonObject = new JSONObject();
     	try {
     		resultJsonObject = passkitOnlineService.validatePolicyByPolicyNo(policyNo,request);
-    		//String errMsgs= (String) resultJsonObject.get("errMsgs");
+
     		boolean valid = (boolean) resultJsonObject.get("valid");
     		return valid;
     	} catch (Exception e) {
@@ -266,7 +117,7 @@ public class PasskitController extends BaseController{
     	}
 	}
 
-	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/policies/policiesHolder/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy holders is available"
 		)
@@ -276,13 +127,10 @@ public class PasskitController extends BaseController{
 			@ApiParam(value = "PolicyNo", required = true) @RequestParam("policyNo") String policyNo,
 			@ApiParam(value = "HkId", required = true) @RequestParam("hkId") String hkId
 			, HttpServletRequest request) {
-		
-		
-		//HttpSession session=request.getSession();
+
 		JSONObject resultJsonObject = new JSONObject();
     	try {
     		resultJsonObject = passkitOnlineService.validatePolicyHoldersByPolicyNo(policyNo,hkId,request);
-    		//String errMsgs= (String) resultJsonObject.get("errMsgs");
     		boolean valid = (boolean) resultJsonObject.get("valid");
     		return valid;
     	} catch (Exception e) {
@@ -300,12 +148,11 @@ public class PasskitController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Policy Number"),
 			@ApiResponse(code = 500, message = "System error")
 			})
-	@RequestMapping(value = {"/api/passkit/travelCare"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/travelCare"}, method = RequestMethod.POST)
 	public ResponseEntity<TravelCarePass> createTravelCarePassKit(
-			@ApiParam(value = "Policy Number", required = true) @RequestBody PassPolicyNoBean passPolicy,
+			@ApiParam(value = "PolicyNo", required = true) @RequestBody PassPolicyNoBean passPolicy,
 			HttpServletRequest request) {
-		
-		// super.IsAuthenticate(request);
+
 		JSONObject resultJsonObject = new JSONObject();
 		TravelCarePass travelCarePass = new TravelCarePass();
 		try {
