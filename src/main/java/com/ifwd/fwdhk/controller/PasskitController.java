@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiResponses;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -63,10 +64,7 @@ import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.passkit.TravelCarePass;
 import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
 import com.ifwd.fwdhk.model.passkit.ValidationResult;
-import com.ifwd.fwdhk.model.ProvieRiderEligibility;
 import com.ifwd.fwdhk.model.motor.PolicyDriverDetails;
-import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
-import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.LifeService;
 //import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
@@ -75,9 +73,11 @@ import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
+import com.ifwd.fwdhk.util.PasskitPageFlowControl;
 import com.ifwd.fwdhk.util.ProviePageFlowControl;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.ifwd.fwdhk.util.HMAC;
 
 @Controller
 @RequestMapping(value = "/api/passkit", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE} )
@@ -92,9 +92,59 @@ public class PasskitController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private LifeService passkitOnlineService;
-	@Autowired
-	private CommonUtils commonUtils;
 	
+	
+	@ApiIgnore
+	@RequestMapping(value = {"/{lang}/passkit/travelCare"})
+	public ModelAndView passkitVerification(Model model, HttpServletRequest request, HttpSession httpSession) {
+		//passkitOnlineService.removeProvieOnlineSession(request);
+		String base64PolicyNo = (String) request.getParameter("policyNo");
+		byte[] bytePolicyNo = null;
+		try {
+			bytePolicyNo = HMAC.decryptBase64(base64PolicyNo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String PolicyNo="";
+		try {
+			PolicyNo = new String(bytePolicyNo,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		model.addAttribute("PolicyNo", PolicyNo);
+		return PasskitPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_LANDING);
+	}
+	
+	@ApiIgnore
+	@RequestMapping(value = {"/{lang}/passkit/travelCare/applicant"})
+	public ModelAndView passkitApplicant(Model model, HttpServletRequest request, HttpSession httpSession) {
+		//passkitOnlineService.removeProvieOnlineSession(request);
+		//String base64PolicyNo = (String) request.getParameter("policyNo");
+		//model.addAttribute("PolicyNo", PolicyNo);
+		return PasskitPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_APPLICANT);
+	}
+
+	@ApiIgnore
+	@RequestMapping(value = {"/{lang}/passkit/travelCare/insuredPerson"})
+	public ModelAndView passkitInsuredPerson(Model model, HttpServletRequest request, HttpSession httpSession) {
+		//passkitOnlineService.removeProvieOnlineSession(request);
+		//String base64PolicyNo = (String) request.getParameter("policyNo");
+		//model.addAttribute("PolicyNo", PolicyNo);
+		return PasskitPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_INSURED_PERSON);
+	}
+		
+	@ApiIgnore
+	@RequestMapping(value = {"/{lang}/passkit/travelCare/insuredPerson"})
+	public ModelAndView passkitDownload(Model model, HttpServletRequest request, HttpSession httpSession) {
+		//passkitOnlineService.removeProvieOnlineSession(request);
+		//String base64PolicyNo = (String) request.getParameter("policyNo");
+		//model.addAttribute("PolicyNo", PolicyNo);
+		return PasskitPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_DOWNLOAD);
+	}
+			
 	@RequestMapping(value = "/policies/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy is available",
