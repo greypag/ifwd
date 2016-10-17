@@ -297,12 +297,12 @@ public class PasskitController extends BaseController{
 			response = TravelCarePass.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Driver info"),
+			@ApiResponse(code = 400, message = "Invalid Policy Number"),
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/api/passkit/createTravelCarePassKit"}, method = RequestMethod.POST)
 	public ResponseEntity<TravelCarePass> createTravelCarePassKit(
-			@ApiParam(value = "Plicy Number", required = true) @RequestBody PassPolicyNoBean passPolicy,
+			@ApiParam(value = "Policy Number", required = true) @RequestBody PassPolicyNoBean passPolicy,
 			HttpServletRequest request) {
 		
 		// super.IsAuthenticate(request);
