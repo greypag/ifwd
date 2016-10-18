@@ -1660,6 +1660,7 @@ function validatePromoCode(){
 	var paymentMode = 'SAVIE-SP';
 	var promoCode= $('#promoCode').val().trim();
 	$('#promoCodeErrorMsg').addClass('hidden');
+	$('#promoCodeSuccessMsg').addClass('hidden');
 	
 	$.ajax({     
 	    url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
@@ -1673,14 +1674,17 @@ function validatePromoCode(){
 	    error:function(){       
 	    },     
 	    success:function(data){
+	    	console.log(data);
 	    	//if(data.errMsgs[0]!=null)
 	    	//console.log(data);
 	    	//alert('savie-online.js ' + data.errMsgs[0]);
-	    	if(data != null && data.errMsgs[0] != null && data.errMsgs[0] != ""){
+	    	if(data.value == "400"){
 			   //$("#errorMsg").html(data.errMsgs[0]);
 			   $('#promoCodeErrorMsg').removeClass('hidden');
+			   $('#promoCodeSuccessMsg').addClass('hidden');
 	    	} else {
 	    	   $('#promoCodeErrorMsg').addClass('hidden');
+	    	   $('#promoCodeSuccessMsg').removeClass('hidden');
 	    	}
 	    }  
 	});
