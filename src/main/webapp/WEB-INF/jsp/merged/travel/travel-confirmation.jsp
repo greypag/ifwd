@@ -95,11 +95,21 @@
 
 	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.reference.no" bundle="${msg}" /></strong><span id="policyNo"> ${referenceNo}</span></h4>
 
-	       <c:choose>
+	       		<c:choose>
 				   <c:when test="${paymentMethod=='TapNGo'}">
 				       <h3 class="bmg-confirmation-h3"><strong><fmt:message key="label.tapNGo.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h3>
 				   </c:when>
 			   </c:choose>
+			   
+			   <div id="qrcode_div"></div>
+			   
+			   <script>
+			    $(document).ready(function(){
+			    		
+			    			$("#qrcode_div").empty().append("<img id='qrImg' />");
+			    			$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url=<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?policyNo=${policyNo}");
+			    	});
+			    </script>
 
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
