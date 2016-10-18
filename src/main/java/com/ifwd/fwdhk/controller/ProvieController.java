@@ -105,7 +105,7 @@ public class ProvieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
-		if(lang.equalsIgnoreCase("cn"))
+		if(lang.equalsIgnoreCase("cn")||lang.equalsIgnoreCase("tc"))
 		{
 			lang="tc";
 		}
