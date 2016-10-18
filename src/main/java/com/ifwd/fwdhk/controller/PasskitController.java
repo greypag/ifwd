@@ -137,7 +137,7 @@ public class PasskitController extends BaseController{
 	}
 		
 	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/passkit/travelCare/insuredPerson"})
+	@RequestMapping(value = {"/{lang}/passkit/travelCare/download"})
 	public ModelAndView passkitDownload(Model model, HttpServletRequest request, HttpSession httpSession) {
 		//passkitOnlineService.removeProvieOnlineSession(request);
 		//String base64PolicyNo = (String) request.getParameter("policyNo");
