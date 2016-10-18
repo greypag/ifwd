@@ -188,10 +188,22 @@ public class LifeController extends BaseController{
 					sliderValue = savieFna.getQ4_b_amount().replace(",", "");
 				}
 			}
+			if (request.getSession().getAttribute("saviePlanDetails")!=null){
+				
+				model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+			}else{
+				model.addAttribute("promoCode", "");
+			}
 			logger.info(sliderValue.replace(",", ""));
 			model.addAttribute("sliderValue", sliderValue.replace(",", ""));
 			defaultDOB.setTime(date1);
 		}else if("3".equals(type)){
+			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+			if (request.getSession().getAttribute("saviePlanDetails")!=null){
+				model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+			}else{
+				model.addAttribute("promoCode", "");
+			}
 			model.addAttribute("type", type);
 			request.getSession().setAttribute("savieType", "SP");
 			model.addAttribute("sliderMin", "30000");
