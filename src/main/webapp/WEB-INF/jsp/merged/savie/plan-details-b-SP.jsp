@@ -89,7 +89,7 @@ var affordabilityPremium = ${sliderMax};
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="row">
-					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa hidden fa-info-circle info-tooltip"></i><c:if test="${type == '2' }"><p><fmt:message key="plan.detail.guild" bundle="${msg}" /></p></c:if></h3>
+					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa hidden fa-info-circle info-tooltip"></i><c:choose><c:when test="${type == '2' || type == '3' || backSummary == 'y'}"><p><fmt:message key="plan.detail.guild_2" bundle="${msg}" /></p></c:when><c:otherwise> <p><fmt:message key="plan.detail.guild" bundle="${msg}" /></p> </c:otherwise></c:choose></h3>
 					<div class="col-md-4 plan-payment-type">
 						<div class="row">
 							<div class="col-xs-12">
@@ -177,6 +177,7 @@ var affordabilityPremium = ${sliderMax};
 							</div>
 						</div>
 					</div>
+					<c:if test="${type == '2' || type == '3' || backSummary == 'y'}">
 					<div class="col-xs-12 col-md-3 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
 							<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  value="${promoCode}" />
@@ -185,6 +186,7 @@ var affordabilityPremium = ${sliderMax};
 						<span class="error-msg hidden" id="promoCodeErrorMsg"><fmt:message key="plan.detail.promo.code.error" bundle="${msg}" /></span>
 						<span class="success-msg hidden" id="promoCodeSuccessMsg"><fmt:message key="plan.detail.promo.code.success" bundle="${msg}" /></span>
 					</div>
+					</c:if>
 					<div class="col-xs-12 col-md-2 plan-calculate">
 						<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="button.calculate" bundle="${msg}" /></button>
 					</div>
