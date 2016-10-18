@@ -87,7 +87,38 @@ public class ProvieController extends BaseController{
 	private CommonUtils commonUtils;
 	
 	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie","/provie"})
+	@RequestMapping(value = {"/provie"})
+	public ModelAndView o2OLanding1(Model model, HttpServletRequest request, HttpSession httpSession) {
+		provieOnlineService.removeProvieOnlineSession(request);
+		String affiliate = (String) request.getParameter("affiliate");
+		if(affiliate == null){
+			affiliate = "";
+		}
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
+		model.addAttribute("affiliate", affiliate);
+		if(lang.equalsIgnoreCase("cn"))
+		{
+			lang="tc";
+		}
+		else
+		{
+			lang="en";
+		}
+		return new ModelAndView("redirect:/"+lang+"/savings-insurance/provie");
+		//return ProviePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_LANDING);
+	}
+	
+	@ApiIgnore
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		provieOnlineService.removeProvieOnlineSession(request);
 		String affiliate = (String) request.getParameter("affiliate");
