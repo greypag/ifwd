@@ -934,7 +934,7 @@ var languageP = "${language}";
 											return false;
 										}
 										*/
-										if(!isValidHKID(value)){
+										if(!IsHKID(value)){
 											return false;
 										}
 										
@@ -1126,7 +1126,7 @@ var languageP = "${language}";
 											return false;
 										}
 										*/
-										if(!isValidHKID(value)){
+										if(!IsHKID(value)){
 											return false;
 										}
 										
@@ -1347,14 +1347,14 @@ var languageP = "${language}";
 											return false;
 										}
 										*/
-										if(!isValidHKID(value)){
+										if(!IsHKID(value)){
 											return false;
 										}
 										
 										return true;
 		                     }
 			                  /* callback: function(value, validator) {
-										if(!isValidHKID(value)) {
+										if(!IsHKID(value)) {
 											return {
 												valid: false,
 												message: getBundle(getBundleLanguage, "form.hkid.invalid")

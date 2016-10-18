@@ -57,7 +57,7 @@ $(function() {
 	
 	$('#checkHKValidID').click(function(){
 		var hkid=$('#sampleValidHKID').val();	
-		console.log('Answer:'+isValidHKID(hkid));
+		console.log('Answer:'+IsHKID(hkid));
 
 	});
 	
@@ -439,7 +439,7 @@ $(function() {
 								message: getBundle(getBundleLanguage, "error.beneficiary.equal.applicant")
 							}
 						}
-						if( !isValidHKID(value) ){
+						if( !IsHKID(value) ){
 							return {
 								valid: false,
 								message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid")
@@ -628,7 +628,7 @@ $(function() {
 										message: getBundle(getBundleLanguage, "error.beneficiary.equal.applicant")
 									}
 								}
-								if( !isValidHKID(value) ){
+								if( !IsHKID(value) ){
 									return {
 										valid: false,
 										message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid")
@@ -690,7 +690,7 @@ $(function() {
 				var value = $(this).val();
 				value = value.replace(/[()]/g,'');
 				$(this).val(value);
-				//if(isValidHKID($('#savieBeneficiaryBean\\[1\\]\\.hkId').val())) {
+				//if(IsHKID($('#savieBeneficiaryBean\\[1\\]\\.hkId').val())) {
 				//	$('#beneficiaryInfoForm\\[1\\]')
 				//    .data('bootstrapValidator')
 				//    .updateStatus('savieBeneficiaryBean[1].hkId','VALID');
@@ -827,7 +827,7 @@ $(function() {
 										message: getBundle(getBundleLanguage, "error.beneficiary.equal.applicant")
 									}
 								}
-								if( !isValidHKID(value) ){
+								if( !IsHKID(value) ){
 									return {
 										valid: false,
 										message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid")
@@ -889,7 +889,7 @@ $(function() {
 				var value = $(this).val();
 				value = value.replace(/[()]/g,'');
 				$(this).val(value);
-				//if(isValidHKID($('#savieBeneficiaryBean\\[2\\]\\.hkId').val())) {
+				//if(IsHKID($('#savieBeneficiaryBean\\[2\\]\\.hkId').val())) {
 				//	$('#beneficiaryInfoForm\\[2\\]')
 				//    .data('bootstrapValidator')
 				//    .updateStatus('savieBeneficiaryBean[2].hkId','VALID');
@@ -932,7 +932,7 @@ $(function() {
 		//$(this).val(value);
 		$('#savieApplicantBean\\.hkId')[0].value = value;
 
-		if(isValidHKID($('#savieApplicantBean\\.hkId').val())) {
+		if(IsHKID($('#savieApplicantBean\\.hkId').val())) {
 			$('#eliteTermsInsuredInfoForm')
 		    .data('bootstrapValidator')
 		    .updateStatus('savieApplicantBean.hkId','VALID');
@@ -945,7 +945,7 @@ $(function() {
 		//$(this).val(value);
 		$('#savieBeneficiaryBean\\[0\\]\\.hkId')[0].value = value;
 
-		//if(isValidHKID($('#savieBeneficiaryBean\\[0\\]\\.hkId').val())) {
+		//if(IsHKID($('#savieBeneficiaryBean\\[0\\]\\.hkId').val())) {
 		//	$('#beneficiaryInfoForm\\[0\\]')
 		//    .data('bootstrapValidator')
 		//    .updateStatus('savieBeneficiaryBean[0].hkId','VALID');
@@ -1067,7 +1067,7 @@ $(function() {
 						callback: {
                      message: getBundle(getBundleLanguage, "form.hkid.invalid"),
                      callback: function(value, validator) {
-                                    return isValidHKID(value);
+                                    return IsHKID(value);
                                 }
                             }
 					}
@@ -1198,7 +1198,7 @@ $(function() {
 	});
 });
 
-function isValidHKID(hkid){
+/*function isValidHKID(hkid){
    var isValid = false;
    
    if (hkid && (hkid.length > 7)) {
@@ -1296,7 +1296,7 @@ function equivalentInteger(hkidChar){
          
    }
    return digit;
-}
+}*/
 
 function maxLengthCheck(object){
 	if (object.value.length > object.maxLength)

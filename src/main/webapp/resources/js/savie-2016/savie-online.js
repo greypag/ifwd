@@ -489,7 +489,7 @@ function correspondenceCheckbox() {
 }
 
 //Checking HKID is valid
-function isValidHKID(hkid) {
+/*function isValidHKID(hkid) {
    var isValid = false;
    
    if (hkid && (hkid.length > 7)) {
@@ -583,7 +583,7 @@ function equivalentInteger(hkidChar){
          
    }
    return digit;
-}
+}*/
 
 // Maxlength checking
 function maxLengthCheck(object){

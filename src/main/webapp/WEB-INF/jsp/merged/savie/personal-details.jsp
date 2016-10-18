@@ -1156,7 +1156,7 @@ function soFormValidation() {
 					callback: {
 						message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 						callback: function (value, validator) {
-							return isValidHKID(value);
+							return IsHKID(value);
 						}
 					}
 				}
