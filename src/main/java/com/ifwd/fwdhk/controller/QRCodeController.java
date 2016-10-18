@@ -55,6 +55,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 
 
+
 import com.google.zxing.WriterException;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
@@ -79,6 +80,7 @@ import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
+import com.ifwd.fwdhk.util.PasskitPageFlowControl;
 import com.ifwd.fwdhk.util.ProviePageFlowControl;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -124,6 +126,17 @@ public class QRCodeController extends BaseController{
 		}
 		
 	}
+	@ApiIgnore
+	@RequestMapping(value = {"/qrcode"})
+	public String passkitDownload(Model model, HttpServletRequest request, HttpSession httpSession) {
+		//passkitOnlineService.removeProvieOnlineSession(request);
+		//String base64PolicyNo = (String) request.getParameter("policyNo");
+		//model.addAttribute("PolicyNo", PolicyNo);
+		return UserRestURIConstants.getSitePath(request)	+ "passkit/passkit-qrcode";
+
+		//return PasskitPageFlowControl.pageFlow("",model,request, "passkit-qrcode");
+	}
+	
 	
 	
 	
