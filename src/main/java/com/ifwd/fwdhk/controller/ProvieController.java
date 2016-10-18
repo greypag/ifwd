@@ -87,7 +87,7 @@ public class ProvieController extends BaseController{
 	private CommonUtils commonUtils;
 	
 	@ApiIgnore
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie","/provie"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		provieOnlineService.removeProvieOnlineSession(request);
 		String affiliate = (String) request.getParameter("affiliate");
