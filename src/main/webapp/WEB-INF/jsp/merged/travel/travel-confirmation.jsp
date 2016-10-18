@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@page import="com.ifwd.fwdhk.util.Constants"%>
-
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -107,7 +106,7 @@
 			    $(document).ready(function(){
 			    		
 			    			$("#qrcode_div").empty().append("<img id='qrImg' />");
-			    			$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url=<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?policyNo=${policyNo}");
+			    			$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url=<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?policyNo=${policyNoBase64}");
 			    	});
 			    </script>
 
