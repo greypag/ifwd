@@ -12,11 +12,11 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 public class PasskitPageFlowControl {
 	private final static Logger logger = LoggerFactory.getLogger(PasskitPageFlowControl.class);
 
-	public static ModelAndView pageFlow(String plan,Model model, HttpServletRequest request, String key) {
+	public static ModelAndView pageFlow(String identity,Model model, HttpServletRequest request, String key) {
 
 		logger.debug("-----------------------------------page flow start--------------------------------------------");
 		
-		UserRestURIConstants.setController("Provie");
+		UserRestURIConstants.setController("Passkit");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
 		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
@@ -56,63 +56,56 @@ public class PasskitPageFlowControl {
 		model.addAttribute("scriptChildName", scriptChildName);
 		model.addAttribute("scriptImg", scriptImg);
 
-		model.addAttribute("planIndex", plan); //Plan Name
+		model.addAttribute("planIndex", identity); //Plan Name
 		model.addAttribute("pageIndex", key); // Page Index
 
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
-			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("provie")){
-				//referer = UserRestURIConstants.PAGE_PASSKIT_LANDING;
-				referer = UserRestURIConstants.PAGE_PROVIE_LANDING;
+			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("passkit")){
+				referer = UserRestURIConstants.PAGE_PASSKIT_LANDING;
 			} else {
-				referer = getProvieOnlinePage(referer);
+				referer = getPasskitPage(referer);
 			}
 		}
 
 		if (current != null) {
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("provie")){
-				//current = UserRestURIConstants.PAGE_PASSKIT_LANDING;
-				current = UserRestURIConstants.PAGE_PROVIE_LANDING;
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("passkit")){
+				current = UserRestURIConstants.PAGE_PASSKIT_LANDING;
 			} else {
-				current = getProvieOnlinePage(current);
+				current = getPasskitPage(current);
 			}
 		}
 
 		// Landing Page
 		String to = "";
 		//String to2 = "";
-		String filePath = "provie/";
+		String filePath = "passkit/";
 
 		logger.debug("referer : " + referer);
 		logger.debug("current : " + current);
 
 		switch (current) {
 		
-		case UserRestURIConstants.PAGE_PROVIE_LANDING:
-			to = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
-			//filePath = "provie/";
-			break;
-
-		case UserRestURIConstants.PAGE_PROVIE_PLANDETAILS: 
-			to = UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER;
-			//filePath = "provie/";
-			current = "plan-details-sp";
-			break;
-			
-			
-		case UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER: 
-			
-			if("SP".equals(plan.split("-")[1])){
-				to = UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP;
+		case UserRestURIConstants.PAGE_PASSKIT_LANDING:
+			if("Applicant".equalsIgnoreCase(identity)){
+				to = UserRestURIConstants.PAGE_PASSKIT_APPLICANT;
 			} else {
-				to = UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP;
+				to = UserRestURIConstants.PAGE_PASSKIT_INSURED_PERSON;
 			}
 			break;
 
+		case UserRestURIConstants.PAGE_PASSKIT_APPLICANT: 
+			to = UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD;
+			break;
+
+		case UserRestURIConstants.PAGE_PASSKIT_INSURED_PERSON: 
+			to = UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD;
+			break;	
+			
+
 		default:
-			//to = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
-			to = UserRestURIConstants.PAGE_PROVIE_LANDING;
+			to = UserRestURIConstants.PAGE_PASSKIT_LANDING;
 		}
 
 		logger.debug("nextPageFlow : " + to);
@@ -127,25 +120,23 @@ public class PasskitPageFlowControl {
 
 	}
 	
-	public static String getProvieOnlinePage(String url){	
+	public static String getPasskitPage(String url){	
 
-		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_LANDING)) {
-			return UserRestURIConstants.PAGE_PROVIE_LANDING;
+		if(url.endsWith(UserRestURIConstants.PAGE_PASSKIT_LANDING)) {
+			return UserRestURIConstants.PAGE_PASSKIT_LANDING;
 		}
 		
-		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_PLANDETAILS)) {
-			return UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
+		if(url.endsWith(UserRestURIConstants.PAGE_PASSKIT_APPLICANT)) {
+			return UserRestURIConstants.PAGE_PASSKIT_APPLICANT;
 		}
 		
-		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER)) {
-			return UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER;
+		if(url.endsWith(UserRestURIConstants.PAGE_PASSKIT_INSURED_PERSON)) {
+			return UserRestURIConstants.PAGE_PASSKIT_INSURED_PERSON;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP)) {
-			return UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_SP;
+		if(url.endsWith(UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD)) {
+			return UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP)) {
-			return UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT_RP;
-		}
+
 		return "";
 	}
 }

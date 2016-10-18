@@ -367,7 +367,10 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_PASSKIT_INSURED_PERSON = "passkit.insured.person";
 	public static final String PAGE_PROPERTIES_PASSKIT_DOWNLOAD = "passkit.download";
 	
-	
+	public static final String PAGE_PASSKIT_LANDING = "passkit-landing";	
+	public static final String PAGE_PASSKIT_APPLICANT = "passkit-applicatn";		
+	public static final String PAGE_PASSKIT_INSURED_PERSON = "passkit-insured-person";	
+	public static final String PAGE_PASSKIT_DOWNLOAD = "";	
 	
 	/* API For provie online */		
 	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";		

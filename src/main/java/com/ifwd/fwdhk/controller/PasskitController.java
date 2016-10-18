@@ -96,7 +96,7 @@ public class PasskitController extends BaseController{
 	
 	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/passkit/travelCare"})
-	public ModelAndView passkitVerification(Model model, HttpServletRequest request, HttpSession httpSession) {
+	public ModelAndView passkitLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		//passkitOnlineService.removeProvieOnlineSession(request);
 		String base64PolicyNo = (String) request.getParameter("policyNo");
 		byte[] bytePolicyNo = null;
@@ -124,7 +124,7 @@ public class PasskitController extends BaseController{
 		//passkitOnlineService.removeProvieOnlineSession(request);
 		//String base64PolicyNo = (String) request.getParameter("policyNo");
 		//model.addAttribute("PolicyNo", PolicyNo);
-		return PasskitPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_APPLICANT);
+		return PasskitPageFlowControl.pageFlow("Applicant",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_APPLICANT);
 	}
 
 	@ApiIgnore
@@ -133,18 +133,22 @@ public class PasskitController extends BaseController{
 		//passkitOnlineService.removeProvieOnlineSession(request);
 		//String base64PolicyNo = (String) request.getParameter("policyNo");
 		//model.addAttribute("PolicyNo", PolicyNo);
-		return PasskitPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_INSURED_PERSON);
+		return PasskitPageFlowControl.pageFlow("InsuredPerson",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_INSURED_PERSON);
 	}
 		
 	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/passkit/travelCare/download"})
-	public ModelAndView passkitDownload(Model model, HttpServletRequest request, HttpSession httpSession) {
-		//passkitOnlineService.removeProvieOnlineSession(request);
-		//String base64PolicyNo = (String) request.getParameter("policyNo");
-		//model.addAttribute("PolicyNo", PolicyNo);
-		return PasskitPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_DOWNLOAD);
+	public RedirectView passkitDownload(Model model, HttpServletRequest request, HttpSession httpSession) {
+		//String passId = (String)httpSession.getAttribute("passId");
+		String url = (String)httpSession.getAttribute("url");
+		RedirectView rv = new RedirectView(url);
+		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
+		return rv;
 	}
-			
+		
+
+	
+	
 	@RequestMapping(value = "/policies/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy is available",
@@ -205,10 +209,12 @@ public class PasskitController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Policy Number"),
 			@ApiResponse(code = 500, message = "System error")
 			})
-	@RequestMapping(value = {"/travelCare"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/travelCare"}, method = POST)
 	public ResponseEntity<TravelCarePass> createTravelCarePassKit(
 			@ApiParam(value = "PolicyNo", required = true) @RequestBody PassPolicyNoBean passPolicy,
 			HttpServletRequest request) {
+		
+		super.IsAuthenticate(request);
 		
 		JSONObject resultJsonObject = new JSONObject();
 		TravelCarePass travelCarePass = new TravelCarePass();
@@ -216,7 +222,7 @@ public class PasskitController extends BaseController{
 			resultJsonObject = passkitOnlineService.createTravelCarePassKit(passPolicy,request);
 			//String errMsgs= (String) resultJsonObject.get("errMsgs");
 			travelCarePass.setPassId((String) resultJsonObject.get("passId"));
-			travelCarePass.setPassId((String) resultJsonObject.get("url"));
+			travelCarePass.setUrl((String) resultJsonObject.get("url"));
 			return Responses.ok(travelCarePass);
 		} catch (Exception e) {
 			e.printStackTrace();

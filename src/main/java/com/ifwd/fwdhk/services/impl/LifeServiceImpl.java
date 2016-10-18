@@ -4140,7 +4140,7 @@ public class LifeServiceImpl implements LifeService {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("policyNo", policy.getPolicyNo());
 		final Map<String,String> header = headerUtil.getHeader(request);
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.PUT,Url, header, jsonObject);
 		return responseJsonObj;
 	}
 }
