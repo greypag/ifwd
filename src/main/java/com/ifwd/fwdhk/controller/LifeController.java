@@ -158,10 +158,12 @@ public class LifeController extends BaseController{
 		startDOB.add(startDOB.YEAR, -70);
 		startDOB.add(startDOB.DATE, 1);
 		model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
-		
 		Calendar defaultDOB = new GregorianCalendar();
 		Date date1 = new Date();
 		String type = request.getParameter("type");
+		String backSummary=request.getParameter("backSummary");
+		model.addAttribute("type", type);
+		model.addAttribute("backSummary", backSummary);
 		if("2".equals(type)){
 			request.getSession().setAttribute("type", type);
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
