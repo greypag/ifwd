@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.JSONNull;
+
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -71,6 +73,11 @@ public class AjaxLifeController extends BaseController{
 			saviePlanDetails.validate(language);
 			saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, session);
+			Object promoCode=jsonObject.getJSONObject("salesIllustration").getJSONArray("inputTable").getJSONObject(0).get("promoCode");
+			if(promoCode.equals("null")){
+				jsonObject.getJSONObject("salesIllustration").getJSONArray("inputTable").getJSONObject(0).put("promoCode", "");
+			}
+			
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"路"+dob[1]+"路"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
