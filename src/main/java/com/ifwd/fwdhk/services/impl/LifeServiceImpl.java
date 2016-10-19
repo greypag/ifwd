@@ -2167,6 +2167,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -2239,6 +2240,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -2370,6 +2372,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -2425,6 +2428,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -2484,6 +2488,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);

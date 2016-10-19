@@ -632,8 +632,11 @@ public class AjaxLifeController extends BaseController{
 				saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 				saviePlanDetails.setPaymentType("SP");
 				saviePlanDetails.setDob(savieFna.getDob());
+				saviePlanDetails.setPromoCode(policyApplication.getReferralCode());
+				
 				savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, request.getSession());
 				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
+				request.getSession().setAttribute("promoCode", saviePlanDetails.getPromoCode());
 				request.getSession().setAttribute("fatcaYes", "fatcaYes");
 			}
 		}
