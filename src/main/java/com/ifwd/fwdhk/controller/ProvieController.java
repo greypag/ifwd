@@ -89,22 +89,8 @@ public class ProvieController extends BaseController{
 	@ApiIgnore
 	@RequestMapping(value = {"/provie"})
 	public ModelAndView o2OLanding1(Model model, HttpServletRequest request, HttpSession httpSession) {
-		provieOnlineService.removeProvieOnlineSession(request);
-		String affiliate = (String) request.getParameter("affiliate");
-		if(affiliate == null){
-			affiliate = "";
-		}
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		List<OptionItemDesc> savieAns;
-		if(lang.equals("tc")){
-			lang = "CN";
-			savieAns=InitApplicationMessage.savieAnsCN;
-		}else{
-			savieAns=InitApplicationMessage.savieAnsEN;
-		}
-		model.addAttribute("savieAns", savieAns);
-		model.addAttribute("affiliate", affiliate);
+		provieOnlineService.removeProvieOnlineSession(request);		
+		String lang = UserRestURIConstants.getLanaguage(request);		
 		if(lang.equalsIgnoreCase("cn")||lang.equalsIgnoreCase("tc"))
 		{
 			lang="tc";
