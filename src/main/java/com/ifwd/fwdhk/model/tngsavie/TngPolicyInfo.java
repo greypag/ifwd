@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 @JsonPropertyOrder({
-    "msg",
     "policyId",
     "product_code",
     "product_en",
@@ -23,8 +22,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 public class TngPolicyInfo {
 
-    @JsonProperty("msg")
-    private List<ResponseMsg> msg = new ArrayList<ResponseMsg>();
     @JsonProperty("policyId")
     private String policyId;
     @JsonProperty("product_code")
@@ -45,13 +42,9 @@ public class TngPolicyInfo {
     private String tngExpiryDate;
     @JsonProperty("tngPolicyStatus")
     private String tngPolicyStatus;
+    @JsonProperty("warnMsg")
+    private List<WarnMsg> warnMsg = new ArrayList<WarnMsg>();
     
-	public List<ResponseMsg> getMsg() {
-		return msg;
-	}
-	public void setMsg(List<ResponseMsg> msg) {
-		this.msg = msg;
-	}
 	public String getPolicyId() {
 		return policyId;
 	}
@@ -111,6 +104,12 @@ public class TngPolicyInfo {
 	}
 	public void setTngPolicyStatus(String tngPolicyStatus) {
 		this.tngPolicyStatus = tngPolicyStatus;
+	}
+	public List<WarnMsg> getWarnMsg() {
+		return warnMsg;
+	}
+	public void setWarnMsg(List<WarnMsg> warnMsg) {
+		this.warnMsg = warnMsg;
 	}
 
 }

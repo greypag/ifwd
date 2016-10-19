@@ -60,7 +60,12 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@ApiOperation(
 			value = "Get Policy info List by Customer",
-			response = TngPolicyInfoResponse.class
+			response = TngPolicyInfoResponse.class,
+			notes ="Warning Code:"
+					+ "<br/>TPW001 Warning Tap n Go expired"
+                    + "<br/>TPW002 Warning Annual withdrawal limit"
+                    + "<br/>TPW003 Warning Daily withdrawal limit "
+                    + "<br/>TPW004 Warning Daily withdrawal count limit"
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
@@ -99,7 +104,12 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@ApiOperation(
 			value = "Get Policy info By Policy",
-			response = TngPolicyInfoResponse.class
+			response = TngPolicyInfoResponse.class,
+			notes ="Warning Code:"
+					+ "<br/>TPW001 Warning Tap n Go expired"
+                    + "<br/>TPW002 Warning Annual withdrawal limit"
+                    + "<br/>TPW003 Warning Daily withdrawal limit "
+                    + "<br/>TPW004 Warning Daily withdrawal count limit"
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
@@ -123,7 +133,11 @@ public class OnlineWithdrawalController extends BaseController{
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input")
+			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 455, message = "Invalid Policy"),
+			@ApiResponse(code = 456, message = "Linkup function has been temporarily suspended"),
+			@ApiResponse(code = 457, message = "Invalid customer mobile number for receive OTP via SMS"),
+			@ApiResponse(code = 458, message = "Exceed the number of re-send OTP")
 			})
 	@RequestMapping(value = "/sendTngOtpSms", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> sendTngOtpSms(
@@ -131,6 +145,7 @@ public class OnlineWithdrawalController extends BaseController{
 			HttpServletRequest request) {
 		
 		//get session from header, same session only 1 otp at same time, otp will expire
+		
 		
 		TngOtpSmsReqResponse result = new TngOtpSmsReqResponse();
 		return Responses.ok(result);
@@ -142,7 +157,12 @@ public class OnlineWithdrawalController extends BaseController{
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input")
+			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 455, message = "Invalid Policy"),
+			@ApiResponse(code = 456, message = "Linkup function has been temporarily suspended"),
+			@ApiResponse(code = 457, message = "OTP not match"),
+			@ApiResponse(code = 458, message = "OTP expired"),
+			@ApiResponse(code = 459, message = "OTP is already authentic")
 			})
 	@RequestMapping(value = "/authTngOtp", method = POST)
 	public ResponseEntity<TngAuthOtpResponse> authTngOtp(
@@ -179,7 +199,12 @@ public class OnlineWithdrawalController extends BaseController{
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input")
+			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 455, message = "Invalid Policy"),
+			@ApiResponse(code = 456, message = "Linkup function has been temporarily suspended"),
+			@ApiResponse(code = 457, message = "Invalid customer mobile number for receive OTP via SMS"),
+			@ApiResponse(code = 458, message = "Exceed the number of re-send OTP"),
+			@ApiResponse(code = 459, message = "Invalid Withdrawal")
 			})
 	@RequestMapping(value = "/requestTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> requestTngPolicyWithdraw(
@@ -196,7 +221,13 @@ public class OnlineWithdrawalController extends BaseController{
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input")
+			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 455, message = "Invalid Policy"),
+			@ApiResponse(code = 456, message = "Linkup function has been temporarily suspended"),
+			@ApiResponse(code = 457, message = "OTP not match"),
+			@ApiResponse(code = 458, message = "OTP expired"),
+			@ApiResponse(code = 459, message = "OTP is already authentic"),
+			@ApiResponse(code = 460, message = "Tap n Go side cannot perform withdraw")
 			})
 	@RequestMapping(value = "/performTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngPolicyWithdrawPerformResponse> performTngPolicyWithdraw(

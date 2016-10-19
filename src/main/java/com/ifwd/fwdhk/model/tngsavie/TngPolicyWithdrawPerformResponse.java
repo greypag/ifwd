@@ -11,8 +11,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"tngStatus",
 	"tngRefNo",
 	"sendEmailResult",
-	"withdrawAmount",
-	"msg"
+	"withdrawAmount"
 })
 public class TngPolicyWithdrawPerformResponse {
 
@@ -32,8 +31,6 @@ public class TngPolicyWithdrawPerformResponse {
 	private Boolean sendEmailResult;
 	@JsonProperty("withdrawAmount")
 	private Double withdrawAmount;
-	@JsonProperty("msg")
-	private ResponseMsg msg;
 	
 	public String getPolicyId() {
 		return policyId;
@@ -77,12 +74,7 @@ public class TngPolicyWithdrawPerformResponse {
 	public void setSendEmailResult(Boolean sendEmailResult) {
 		this.sendEmailResult = sendEmailResult;
 	}
-	public ResponseMsg getMsg() {
-		return msg;
-	}
-	public void setMsg(ResponseMsg msg) {
-		this.msg = msg;
-	}
+
 	public Double getWithdrawAmount() {
 		return withdrawAmount;
 	}

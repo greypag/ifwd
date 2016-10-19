@@ -11,8 +11,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"tngAccountId",
 	"product_en",
 	"product_zh",
-	"transaction",
-	"msg"
+	"transaction"
 })
 public class TngPolicyHistoryResponse {
 
@@ -26,8 +25,6 @@ public class TngPolicyHistoryResponse {
 	private String productZh;
 	@JsonProperty("transaction")
 	private List<TngPolicyHistory> transaction = new ArrayList<TngPolicyHistory>();
-	@JsonProperty("msg")
-	private ResponseMsg msg;
 	
 	public String getPolicyId() {
 		return policyId;
@@ -59,11 +56,5 @@ public class TngPolicyHistoryResponse {
 	public void setTransaction(List<TngPolicyHistory> transaction) {
 		this.transaction = transaction;
 	}
-	public ResponseMsg getMsg() {
-		return msg;
-	}
-	public void setMsg(ResponseMsg msg) {
-		this.msg = msg;
-	}
-	
+
 }

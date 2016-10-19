@@ -20,8 +20,6 @@ public class TngOtpSmsReqResponse {
 	private Boolean result;
 	@JsonProperty("otpExpiryDate")
 	private String otpExpiryDate;
-	@JsonProperty("msg")
-	private ResponseMsg msg;
 	
 	public String getCustomerId() {
 		return customerId;
@@ -47,12 +45,5 @@ public class TngOtpSmsReqResponse {
 	public void setOtpExpiryDate(String otpExpiryDate) {
 		this.otpExpiryDate = otpExpiryDate;
 	}
-	public ResponseMsg getMsg() {
-		return msg;
-	}
-	public void setMsg(ResponseMsg msg) {
-		this.msg = msg;
-	}
-
 	
 }

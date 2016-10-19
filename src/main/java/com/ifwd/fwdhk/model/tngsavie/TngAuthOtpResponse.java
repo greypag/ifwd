@@ -22,8 +22,6 @@ public class TngAuthOtpResponse {
 	private String otp;
 	@JsonProperty("result")
 	private Boolean result;
-	@JsonProperty("msg")
-	private ResponseMsg msg;
 	
 	public String getPolicyId() {
 		return policyId;
@@ -78,12 +76,6 @@ public class TngAuthOtpResponse {
 	}
 	public void setResult(Boolean result) {
 		this.result = result;
-	}
-	public ResponseMsg getMsg() {
-		return msg;
-	}
-	public void setMsg(ResponseMsg msg) {
-		this.msg = msg;
 	}
 	
 }
