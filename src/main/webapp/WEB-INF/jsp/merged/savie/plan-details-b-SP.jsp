@@ -89,7 +89,7 @@ var affordabilityPremium = ${sliderMax};
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="row">
-					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa hidden fa-info-circle info-tooltip"></i><c:choose><c:when test="${type == '2' || type == '3' || backSummary == 'y'}"><p><fmt:message key="plan.detail.guild_2" bundle="${msg}" /></p></c:when><c:otherwise> <p><fmt:message key="plan.detail.guild" bundle="${msg}" /></p> </c:otherwise></c:choose></h3>
+					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa hidden fa-info-circle info-tooltip"></i><c:choose><c:when test="${type == '2' || type == '3' || backSummary == 'Y'}"><p><fmt:message key="plan.detail.guild_2" bundle="${msg}" /></p></c:when><c:otherwise> <p><fmt:message key="plan.detail.guild" bundle="${msg}" /></p> </c:otherwise></c:choose></h3>
 					<div class="col-md-4 plan-payment-type">
 						<div class="row">
 							<div class="col-xs-12">
@@ -177,7 +177,7 @@ var affordabilityPremium = ${sliderMax};
 							</div>
 						</div>
 					</div>
-					<c:if test="${type == '2' || type == '3' || backSummary == 'y'}">
+					<c:if test="${type == '2' || type == '3' || backSummary == 'Y'}">
 					<div class="col-xs-12 col-md-3 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
 							<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  value="${promoCode}" />
@@ -877,12 +877,12 @@ var affordabilityPremium = ${sliderMax};
 
 		//changing labels of promo code
 		$('#promoCode').focus(function() {
-			$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+			$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 		}).focusout(function () {
 			if($(this).val() == '' ) {
 				$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 			} else {
-				$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+				$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 			}
 		});
 
