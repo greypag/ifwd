@@ -1680,7 +1680,7 @@ function validatePromoCode(){
 	    	//alert('savie-online.js ' + data.errMsgs[0]);
 	    	if(data.value == "400"){
 			   //$("#errorMsg").html(data.errMsgs[0]);
-			   $('#promoCodeErrorMsg').removeClass('hidden');
+			   $('#promoCodeErrorMsg').toggleClass('hidden', promoCode.trim() == "");
 			   $('#promoCodeSuccessMsg').addClass('hidden');
 	    	} else {
 	    	   $('#promoCodeErrorMsg').addClass('hidden');
