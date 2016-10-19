@@ -187,6 +187,17 @@ var affordabilityPremium = ${sliderMax};
 						<span class="success-msg hidden" id="promoCodeSuccessMsg"><fmt:message key="plan.detail.promo.code.success" bundle="${msg}" /></span>
 					</div>
 					</c:if>
+					<c:if test="${type != '2' && type != '3' && backSummary != 'Y'}">
+					<div class="col-xs-12 col-md-3 plan-promo-code">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
+							<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  />
+							<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode.referral" bundle="${msg}" /></label>
+						</div>
+						<span class="error-msg hidden" id="promoCodeErrorMsg"><fmt:message key="plan.detail.promo.code.error" bundle="${msg}" /></span>
+						<span class="success-msg hidden" id="promoCodeSuccessMsg"><fmt:message key="plan.detail.promo.code.success" bundle="${msg}" /></span>
+					</div>
+					
+					</c:if>
 					<div class="col-xs-12 col-md-2 plan-calculate">
 						<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="button.calculate" bundle="${msg}" /></button>
 					</div>
