@@ -877,12 +877,12 @@ var affordabilityPremium = ${sliderMax};
 
 		//changing labels of promo code
 		$('#promoCode').focus(function() {
-			$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+			$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 		}).focusout(function () {
 			if($(this).val() == '' ) {
 				$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 			} else {
-				$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+				$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 			}
 		});
 
