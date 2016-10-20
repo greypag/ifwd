@@ -61,7 +61,6 @@ import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.passkit.TravelCarePass;
 import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
 import com.ifwd.fwdhk.model.passkit.ValidatePolicyResult;
 import com.ifwd.fwdhk.model.passkit.ValidateHolderResult;
