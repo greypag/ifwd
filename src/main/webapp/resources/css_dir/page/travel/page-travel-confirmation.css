@@ -1,3 +1,18 @@
+/* line 2, ../../../sass/page/travel/page-travel-confirmation.scss */
+.passkit-link-wrapper #qrImg {
+  margin-left: 50px;
+}
 
+@media screen and (max-width: 991px) {
+  /* line 7, ../../../sass/page/travel/page-travel-confirmation.scss */
+  .passkit-link-wrapper {
+    text-align: center;
+  }
+  /* line 9, ../../../sass/page/travel/page-travel-confirmation.scss */
+  .passkit-link-wrapper #qrImg {
+    display: block;
+    margin: 20px auto 0 auto;
+  }
+}
 
 /*# sourceMappingURL=page-travel-confirmation.css.map */

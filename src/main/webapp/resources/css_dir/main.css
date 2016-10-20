@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-10-06 10:45:28 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-10-20 12:14:22 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -2155,6 +2155,22 @@ body.chin .partner-headline-wrapper .headline-title {
   font-size: 16px;
 }
 
+/* line 2, ../sass/page/travel/page-travel-confirmation.scss */
+.passkit-link-wrapper #qrImg {
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 7, ../sass/page/travel/page-travel-confirmation.scss */
+  .passkit-link-wrapper {
+    text-align: center;
+  }
+  /* line 9, ../sass/page/travel/page-travel-confirmation.scss */
+  .passkit-link-wrapper #qrImg {
+    display: block;
+    margin: 20px auto 0 auto;
+  }
+}
 @media screen and (max-width: 991px) {
   /* line 1, ../sass/mobile/_header.scss */
   body {

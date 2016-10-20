@@ -99,14 +99,18 @@
 				       <h3 class="bmg-confirmation-h3"><strong><fmt:message key="label.tapNGo.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h3>
 				   </c:when>
 			   </c:choose>
-			   
-			   <div id="qrcode_div"></div>
+
+			   <div id="qrcode_div">
+			   	<div class="bmg-confirmation-h3"><fmt:message key="travel.confirmation.qr.cotent1" bundle="${msg}" /></div>
+			   	<div class="passkit-link-wrapper"><a class="border-radius btn btn-primary get-btn passkit-btn" href="#" target="_blank"><fmt:message key="travel.confirmation.qr.btn" bundle="${msg}" /></a></div>
+			   	<div class="bmg-confirmation-h3"><fmt:message key="travel.confirmation.qr.cotent2" bundle="${msg}" /></div>
+			   </div>
 			   
 			   <script>
 			    $(document).ready(function(){
-			    		
-			    			$("#qrcode_div").empty().append("<img id='qrImg' />");
-			    			$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url=<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?policyNo=${policyNoBase64}");
+			    			$(".passkit-link-wrapper").append("<img id='qrImg' />");
+			    			<%--$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url=<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?policyNo=${policyNoBase64}");--%>
+			    			$("#qrImg").attr("src", "${pageContext.request.contextPath}/resources/images/qr_code_mock.png");
 			    	});
 			    </script>
 
