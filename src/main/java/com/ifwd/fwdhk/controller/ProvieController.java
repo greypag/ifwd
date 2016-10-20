@@ -87,6 +87,23 @@ public class ProvieController extends BaseController{
 	private CommonUtils commonUtils;
 	
 	@ApiIgnore
+	@RequestMapping(value = {"/provie"})
+	public ModelAndView o2OLanding1(Model model, HttpServletRequest request, HttpSession httpSession) {
+		provieOnlineService.removeProvieOnlineSession(request);		
+		String lang = UserRestURIConstants.getLanaguage(request);		
+		if(lang.equalsIgnoreCase("cn")||lang.equalsIgnoreCase("tc"))
+		{
+			lang="tc";
+		}
+		else
+		{
+			lang="en";
+		}
+		return new ModelAndView("redirect:/"+lang+"/savings-insurance/provie");
+		//return ProviePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_LANDING);
+	}
+	
+	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		provieOnlineService.removeProvieOnlineSession(request);
