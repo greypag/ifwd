@@ -360,16 +360,10 @@ public class UserRestURIConstants {
 	/* API For Passkit      */		
 	public static final String VALIDATE_POLICY_BY_POLICY_NO = SERVICE_URL + "/passkit/policies/validate";	
 	public static final String VALIDATE_POLICY_HOLDERS_BY_POLICY_NO = SERVICE_URL + "/passkit/policies/policiesHolder/validate";
-	public static final String CREATE_TRAVEL_CARE_PASS_KIT = SERVICE_URL + "/passkit/travelCare";
 	
 	public static final String PAGE_PROPERTIES_PASSKIT_LANDING = "passkit.landing";
-	public static final String PAGE_PROPERTIES_PASSKIT_APPLICANT = "passkit.applicant";
-	public static final String PAGE_PROPERTIES_PASSKIT_INSURED_PERSON = "passkit.insured.person";
-	public static final String PAGE_PROPERTIES_PASSKIT_DOWNLOAD = "passkit.download";
 	
-	public static final String PAGE_PASSKIT_LANDING = "passkit-landing";	
-	public static final String PAGE_PASSKIT_APPLICANT = "passkit-applicatn";		
-	public static final String PAGE_PASSKIT_INSURED_PERSON = "passkit-insured-person";	
+	public static final String PAGE_PASSKIT_LANDING = "passkit-verification";	
 	public static final String PAGE_PASSKIT_DOWNLOAD = "";	
 	
 	/* API For provie online */		

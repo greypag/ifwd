@@ -88,21 +88,8 @@ public class PasskitPageFlowControl {
 		switch (current) {
 		
 		case UserRestURIConstants.PAGE_PASSKIT_LANDING:
-			if("Applicant".equalsIgnoreCase(identity)){
-				to = UserRestURIConstants.PAGE_PASSKIT_APPLICANT;
-			} else {
-				to = UserRestURIConstants.PAGE_PASSKIT_INSURED_PERSON;
-			}
-			break;
-
-		case UserRestURIConstants.PAGE_PASSKIT_APPLICANT: 
 			to = UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD;
 			break;
-
-		case UserRestURIConstants.PAGE_PASSKIT_INSURED_PERSON: 
-			to = UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD;
-			break;	
-			
 
 		default:
 			to = UserRestURIConstants.PAGE_PASSKIT_LANDING;
@@ -126,13 +113,6 @@ public class PasskitPageFlowControl {
 			return UserRestURIConstants.PAGE_PASSKIT_LANDING;
 		}
 		
-		if(url.endsWith(UserRestURIConstants.PAGE_PASSKIT_APPLICANT)) {
-			return UserRestURIConstants.PAGE_PASSKIT_APPLICANT;
-		}
-		
-		if(url.endsWith(UserRestURIConstants.PAGE_PASSKIT_INSURED_PERSON)) {
-			return UserRestURIConstants.PAGE_PASSKIT_INSURED_PERSON;
-		}
 		if(url.endsWith(UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD)) {
 			return UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD;
 		}

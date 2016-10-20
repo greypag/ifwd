@@ -1,7 +1,7 @@
 package com.ifwd.fwdhk.model.passkit;
 
 
-public class ValidationResult {
+public class ValidatePolicyResult {
 	
 	private boolean valid;
 

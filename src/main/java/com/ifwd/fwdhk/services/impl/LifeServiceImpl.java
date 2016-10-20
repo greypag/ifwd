@@ -4121,26 +4121,20 @@ public class LifeServiceImpl implements LifeService {
 	
 	public JSONObject validatePolicyByPolicyNo(String policyNo,HttpServletRequest request) throws ECOMMAPIException{
 		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
-		String Url = UserRestURIConstants.VALIDATE_POLICY_BY_POLICY_NO;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_BY_POLICY_NO + "?policyNo=" + policyNo;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
 	}
 
-	public JSONObject validatePolicyHoldersByPolicyNo(String policyNo,String hkId,HttpServletRequest request) throws ECOMMAPIException{
+	public JSONObject validatePolicyHoldersByPolicyNo(PassPolicyNoBean policy,HttpServletRequest request) throws ECOMMAPIException{
 		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
-		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO +"?policyNo=" + policy.getPolicyNo() + 
+				"&role=" + policy.getRole() + "&hkId=" + policy.getHkId();
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
 	}
 	
-	public JSONObject createTravelCarePassKit(PassPolicyNoBean policy,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.CREATE_TRAVEL_CARE_PASS_KIT;
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("policyNo", policy.getPolicyNo());
-		final Map<String,String> header = headerUtil.getHeader(request);
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.PUT,Url, header, jsonObject);
-		return responseJsonObj;
-	}
+
 }

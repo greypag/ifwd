@@ -76,6 +76,5 @@ public interface LifeService {
 	public JSONObject getSavieReferralDiscount(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getSavieReferralDiscountParams(String planCode,String referralCode,String sumInsured,String hkId,HttpServletRequest request)throws ECOMMAPIException;
 	public JSONObject validatePolicyByPolicyNo(String policyNo,HttpServletRequest request)throws ECOMMAPIException;
-	public JSONObject validatePolicyHoldersByPolicyNo(String policyNo,String hkId,HttpServletRequest request)throws ECOMMAPIException;
-	public JSONObject createTravelCarePassKit(PassPolicyNoBean passPolicy,HttpServletRequest request)throws ECOMMAPIException;
+	public JSONObject validatePolicyHoldersByPolicyNo(PassPolicyNoBean passPolicy,HttpServletRequest request)throws ECOMMAPIException;
 }
