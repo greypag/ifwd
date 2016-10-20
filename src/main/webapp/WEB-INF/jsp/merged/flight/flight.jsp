@@ -579,6 +579,9 @@ $(document).ready(function() {
         <li>
           <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></p>
         </li>
+	    <li>
+	      <p class="h4-5"><fmt:message key="partner.the.club.3x.period" bundle="${msg}" /></p>
+	    </li>          
         <!--<li>
           <p class="h4-5"><a href="<fmt:message key="special.promotion.copy5.1.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy5.1" bundle="${msg}" /></a><fmt:message key="special.promotion.copy5.2" bundle="${msg}" /><a href="<fmt:message key="special.promotion.copy5.3.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy5.3" bundle="${msg}" /></a><fmt:message key="special.promotion.copy5.4" bundle="${msg}" /></p>
         </li>-->
