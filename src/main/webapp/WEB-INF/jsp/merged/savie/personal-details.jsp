@@ -1407,25 +1407,24 @@ function soFormValidation() {
 	}).on('error.form.bv', function (e) {});
 }
 
+var isIEforChineseInput = window.navigator.userAgent.indexOf("MSIE") > 0 || window.navigator.userAgent.match(/Trident.*rv\:11\./) != null;
+
 $('.chinese-input').bind('keydown change', function (event) {
-	var keycode = event.keyCode || event.which;
-	//console.log('keycode: ' + keycode + ' event: ' + event.type + ' event.ctrlKey: ' + event.ctrlKey);
+	if (!isIEforChineseInput || event.type != 'keydown') {
+		var keycode = event.keyCode || event.which;
 
-	if (keycode != 8 && keycode != 37 && keycode != 39 && event.ctrlKey !== true) {
-		//console.log('old: ' + $(this).val() + ' u16: '+ escape($(this).val()).replace(/%u/g, "\\u"));
-
-		var value = $(this).val();
-		var new_value = value.replace(/[^\s\u3000\u4e00-\u9fa5]/g, "");
-		//console.log('new: ' + new_value);
-
-		$(this).val(new_value);
+		if ((keycode == undefined || [8,35,36,37,38,39,40].indexOf(keycode) == -1) && event.ctrlKey !== true) {
+			var value = $(this).val();
+			var new_value = value.replace(/[^\s\u3000\u4e00-\u9fa5]/g, "");
+			$(this).val(new_value);
+		}
 	}
 });
 
 $('.chinese-input').bind('keyup paste', function (event) {
 	var keycode = event.keyCode || event.which;
 
-	if (event.type == 'paste' || keycode == 229) {
+	if (event.type == 'paste' || (!isIEforChineseInput && [8,35,36,37,38,39,40].indexOf(keycode) == -1)) {
 		var thisInput = $(this);
 		setTimeout(function() { 
 			thisInput.trigger('change');
