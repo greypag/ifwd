@@ -1678,13 +1678,13 @@ function validatePromoCode(){
 	    	//if(data.errMsgs[0]!=null)
 	    	//console.log(data);
 	    	//alert('savie-online.js ' + data.errMsgs[0]);
-	    	if(data.value == "400"){
+	    	if(data.errMsgs !== undefined && data.errMsgs != null){
 			   //$("#errorMsg").html(data.errMsgs[0]);
 			   $('#promoCodeErrorMsg').toggleClass('hidden', promoCode.trim() == "");
 			   $('#promoCodeSuccessMsg').addClass('hidden');
 	    	} else {
 	    	   $('#promoCodeErrorMsg').addClass('hidden');
-	    	   $('#promoCodeSuccessMsg').removeClass('hidden');
+	    	   $('#promoCodeSuccessMsg').toggleClass('hidden', promoCode.trim() == "");
 	    	}
 	    }  
 	});
