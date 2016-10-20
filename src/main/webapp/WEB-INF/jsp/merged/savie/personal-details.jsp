@@ -717,15 +717,11 @@ maxlength="19"/>
 <!-- FOOTER -->
 </div>
 <!-- hkid referral modal -->
-<div class="modal fade common-welcome-modal" id="hkid-continue-back-modal" tabindex="-1" role="dialog">
+<div class="modal fade common-welcome-modal" id="hkid-continue-back-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
 <div class="modal-dialog">
 <div class="modal-content save-con-modal-content">
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">x</span>
-</button>
 <p class="text-center description-msg"><fmt:message key="label.savie.referral.error" bundle="${msg}"/></p>
 <div class="save-con-btns text-center clearfix">
-<button class="btn savie-common-btn save-hkid-exit-btn1"><fmt:message key="button.keep.going.referral" bundle="${msg}"/></button>
 <button class="btn savie-common-btn save-hkid-exit-btn2"><fmt:message key="button.save.and.exit.referral" bundle="${msg}"/></button>
 </div>
 </div>
@@ -786,10 +782,49 @@ maxlength="19"/>
 </div>
 
 <!-- JS INCLUDES -->
-<c:if test="${planIndex == 'savings-insurance'}">
+<c:if test="${planIndex == 'savings-insurance' && not empty saviePlanDetails.promoCode}">
 <script type="text/javascript">
 //Check if referral code owner is the applicant.
-	$('#hkId').blur(function () {
+$('.save-hkid-exit-btn1').click(function () {
+	$('#hkid-continue-back-modal').modal('hide');
+});
+
+$('.save-hkid-exit-btn2').click(function () {
+	window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2';
+});
+function getSavieReferralDiscount(){
+	 var promoCode = '${saviePlanDetails.promoCode}';
+	 var amount =  ${saviePlanDetails.insuredAmount};
+	 var hkId = $("#hkId").val();
+	 var result;
+	 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
+		$.ajax({     
+	   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
+	    		type:'get',     
+	    		data:{    
+	    				"planCode": "SAVIE-SP",
+	        			"referralCode":promoCode,
+	        			"sumInsured":amount,
+	        			"hkId":hkId
+  					},     
+	    		error:function(){       
+	    				},     
+	    		success:function(data){
+	    			//console.log(data);
+	    			//alert('personal-details.jsp2 ' + data.errMsgs);
+	    			if(data.value =='0'){
+	    				console.log(data);
+	    				$("#hkid-continue-back-modal").modal("show");
+	    			} else {
+	    	   			//$('#promoCodeErrorMsg').addClass('hidden');
+	    			}
+	    			return data;
+	    		}  
+			});
+	 }	
+}
+
+<%-- 	$('#hkId').blur(function () {
 		 var promoCode = '${saviePlanDetails.promoCode}';
 		 var amount =  ${saviePlanDetails.insuredAmount};
 		 var hkId = $('#hkId').val();
@@ -808,7 +843,7 @@ maxlength="19"/>
 		    		success:function(data){
 		    			//console.log(data);
 		    			//alert('personal-details.jsp2 ' + data.errMsgs);
-		    			if(data.value ='0'){
+		    			if(data.value =='0'){
 		    				console.log(data);
 		    				$("#hkid-continue-back-modal").modal("show");
 		    				$('.save-hkid-exit-btn1').click(function () {
@@ -825,7 +860,7 @@ maxlength="19"/>
 		    		}  
 				});
 		 }
-	});	
+	});	 --%>
 </script>
 </c:if>
 <script type="text/javascript">
@@ -1156,7 +1191,22 @@ function soFormValidation() {
 					callback: {
 						message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 						callback: function (value, validator) {
-							return IsHKID(value);
+							if(IsHKID(value)){
+								if(typeof getSavieReferralDiscount != 'function'){
+									return true;
+								}else{
+									//console.log(getSavieReferralDiscount());
+									//getSavieReferralDiscount();
+									console.log(getSavieReferralDiscount());
+									if(getSavieReferralDiscount()=="0"){
+										return false;
+									}else{
+										return true;
+									}
+								}
+							}else{
+								return false;
+							}
 						}
 					}
 				}
