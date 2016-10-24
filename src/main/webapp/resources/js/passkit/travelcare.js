@@ -72,7 +72,7 @@ $(function () {
   function checkPolicyExpiry() {
     loading(function () {
       var $policyNo = $('#tbx-policy-no');
-      return $.get('/api/passkit/policies/validate', {
+      return $.get(context+'/api/passkit/policies/validate', {
         policyNo: $policyNo.val().trim()
       }).done(function (data) {
         if (data.valid) {
@@ -89,7 +89,7 @@ $(function () {
 
   function goPasskitUrl(policyNo) {
     loading(function () {
-      return $.post('/api/passkit/travelCare', {
+      return $.post(context+'/api/passkit/travelCare', {
         policyNo: policyNo
       }).done(function (data) {
         console.log('redirect to passkit url %s', data.url);
@@ -103,7 +103,7 @@ $(function () {
 
   function submitPolicyDetail(userType, hkid, policyNo) {
     loading(function () {
-      return $.get('/api/passkit/policies/policiesHolder/validate', {
+      return $.get(context+'/api/passkit/policies/policiesHolder/validate', {
         policyNo: policyNo,
         hkId: hkid,
         role: userType === USER_TYPE.APPLICANT ? 'A' : 'I'

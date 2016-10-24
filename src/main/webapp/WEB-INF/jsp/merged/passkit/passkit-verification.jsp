@@ -13,9 +13,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 
 <head>
+
+
 	<script type="text/javascript">
     window.status = "Loading: Document body...";
-  </script>
+	var context="<%=request.getContextPath()%>";
+</script>
+  
 
 	<!-- Title -->
 	<title>Travel Care - Traveling Insurance| FWD Hong Kong</title>
