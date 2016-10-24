@@ -76,17 +76,15 @@ public class PasskitController extends BaseController{
 		ValidatePolicyResult validatePolicyResult = new ValidatePolicyResult();
     	try {
     		resultJsonObject = passkitOnlineService.validatePolicyByPolicyNo(policyNo,request);
-    		//String errMsgs= (String) resultJsonObject.get("errMsgs");
     		validatePolicyResult.setValid((boolean) resultJsonObject.get("valid"));
+    		//validatePolicyResult.setValid(true);
     		return Responses.ok(validatePolicyResult);
     	} catch (Exception e) {
-    		//e.printStackTrace();
-    		//return Responses.error(null);
-    		validatePolicyResult.setValid(true);
-    		return Responses.ok(validatePolicyResult);
+    		e.printStackTrace();
+    		return Responses.error(null);
     	}
 	}
-
+/*
 	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = POST, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy holders is available",
@@ -95,7 +93,7 @@ public class PasskitController extends BaseController{
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy holder/applicant"),
 						   @ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<ValidateHolderResult> validatePolicyHoldersByPolicyNo(
-			@ApiParam(value = "PolicyInfo", required = true) @RequestParam("PolicyInfo") PassPolicyNoBean passPolicy,
+			@ApiParam(value = "PolicyInfo", required = true) @RequestParam("policyInfo") PassPolicyNoBean passPolicy,
 			HttpServletRequest request) {
 		
 		
@@ -103,18 +101,42 @@ public class PasskitController extends BaseController{
 		ValidateHolderResult validateHolderResult = new ValidateHolderResult();
     	try {
     		resultJsonObject = passkitOnlineService.validatePolicyHoldersByPolicyNo(passPolicy,request);
-    		//String errMsgs= (String) resultJsonObject.get("errMsgs");
     		validateHolderResult.setValid((boolean) resultJsonObject.get("valid"));
     		validateHolderResult.setPassId((String) resultJsonObject.get("passId"));
     		validateHolderResult.setUrl((String) resultJsonObject.get("url"));
     		return Responses.ok(validateHolderResult);
     	} catch (Exception e) {
-    		//e.printStackTrace();
-    		//return Responses.error(null);
-    		validateHolderResult.setValid(true);
-    		validateHolderResult.setPassId("dzVNXvibnkd6yZ");
-    		validateHolderResult.setUrl("https://q.passkit.net/~/#/p/dzVNXvibnkd6yZ");  
+    		e.printStackTrace();
+    		return Responses.error(null);
+    	}
+	}
+	
+*/
+	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
+	@ApiOperation(
+		value = "Check if policy holders is available",
+		response = ValidateHolderResult.class
+		)
+	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy holder/applicant"),
+						   @ApiResponse(code = 500, message = "System error")})
+	public ResponseEntity<ValidateHolderResult> validatePolicyHoldersByPolicyNo(
+			@ApiParam(value = "PolicyNo", required = true) @RequestParam("policyNo") String policyNo,
+			@ApiParam(value = "HkId", required = true) @RequestParam("hkId") String hkId,
+			@ApiParam(value = "Role", required = true) @RequestParam("role") String role,
+			HttpServletRequest request) {
+		
+		
+		JSONObject resultJsonObject = new JSONObject();
+		ValidateHolderResult validateHolderResult = new ValidateHolderResult();
+    	try {
+    		resultJsonObject = passkitOnlineService.validatePolicyHoldersByPolicyNoGet(policyNo,hkId,role,request);
+    		validateHolderResult.setValid((boolean) resultJsonObject.get("valid"));
+    		validateHolderResult.setPassId((String) resultJsonObject.get("passId"));
+    		validateHolderResult.setUrl((String) resultJsonObject.get("url"));
     		return Responses.ok(validateHolderResult);
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    		return Responses.error(null);
     	}
 	}
 

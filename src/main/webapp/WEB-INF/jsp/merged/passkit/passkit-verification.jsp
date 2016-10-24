@@ -25,7 +25,7 @@
 					<p>您即將下載電子版本的保險證明書。<br/>請選擇您於保單的身份以繼續︰</p>
 					<div class="verify-content">
 						<!-- server update -->
-						<input type="hidden" id="tbx-policy-no" value="74ZZ20349" />
+						<input type="hidden" id="tbx-policy-no" value="${policyNo}" />
 						<div class="verify-option">
 							<label>
 							<span class="radio"></span>

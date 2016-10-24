@@ -87,28 +87,37 @@ $(function () {
     });
   }
 
-  function goPasskitUrl(policyNo) {
-    loading(function () {
-      return $.post(context+'/api/passkit/travelCare', {
-        policyNo: policyNo
-      }).done(function (data) {
-        console.log('redirect to passkit url %s', data.url);
-        window.location = data.url;
-      }).fail(function (err) {
-        console.log(err);
-        showPage(PAGE_NAME.VERIFY_SYSTEM_ERROR);
+  function goPasskitUrl(url) {
+    loading(function (url) {    	
+        console.log('redirect to passkit url %s', url);
+        window.location = url;
       });
-    });
   }
 
+  /*
+  function goPasskitUrl(policyNo) {
+	    loading(function () {
+	      return $.post(context+'/api/passkit/travelCare', {
+	        policyNo: policyNo
+	      }).done(function (data) {
+	        console.log('redirect to passkit url %s', data.url);
+	        window.location = data.url;
+	      }).fail(function (err) {
+	        console.log(err);
+	        showPage(PAGE_NAME.VERIFY_SYSTEM_ERROR);
+	      });
+	    });
+	  }  
+ */ 
   function submitPolicyDetail(userType, hkid, policyNo) {
     loading(function () {
-      return $.post(context+'/api/passkit/policies/policiesHolder/validate', {
-        policyNo: policyNo,
+      return $.get(context+'/api/passkit/policies/policiesHolder/validate', {
+    	policyNo: policyNo,
         hkId: hkid,
         role: userType === USER_TYPE.APPLICANT ? 'A' : 'I'
       }).done(function (data) {
         if (data.valid) {
+        	/*
           switch (data.code) {
             case RESULT_CODE.MISISNG_ROLE_INFO:
             case RESULT_CODE.MISSING_APPLICANT_INFO:
@@ -133,6 +142,9 @@ $(function () {
               console.log('Unknown result code: %s', data.code);
               break;
           }
+          */
+        	//alert("44444444444444444>>" + data.url);
+        	goPasskitUrl(data.url);
         }
       }).fail(function (err) {
         console.log(err);

@@ -4,8 +4,9 @@ package com.ifwd.fwdhk.model.passkit;
 public class PassPolicyNoBean {
 	
 	private String policyNo;
-	private String role;
 	private String hkId;
+	private String role;
+	
 	
 	
 	public String getPolicyNo() {

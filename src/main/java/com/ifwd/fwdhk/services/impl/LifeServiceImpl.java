@@ -4121,7 +4121,7 @@ public class LifeServiceImpl implements LifeService {
 	
 	public JSONObject validatePolicyByPolicyNo(String policyNo,HttpServletRequest request) throws ECOMMAPIException{
 		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
-		String Url = UserRestURIConstants.VALIDATE_POLICY_BY_POLICY_NO + "?policyNo=" + policyNo;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_BY_POLICY_NO + "?referenceNo=" + policyNo;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
@@ -4131,7 +4131,7 @@ public class LifeServiceImpl implements LifeService {
 		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
 		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
 		JSONObject params = new JSONObject();
-		params.put("policyNo", passPolicy.getPolicyNo());
+		params.put("referenceNo", passPolicy.getPolicyNo());
 		params.put("hkId", passPolicy.getHkId());
 		params.put("role", passPolicy.getRole());
 		final Map<String,String> header = headerUtil.getHeader(request);
@@ -4139,5 +4139,16 @@ public class LifeServiceImpl implements LifeService {
 		return responseJsonObj;
 	}
 	
-
+	public JSONObject validatePolicyHoldersByPolicyNoGet(String policyNo, String hkId,String role,HttpServletRequest request) throws ECOMMAPIException{
+		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
+		JSONObject params = new JSONObject();
+		params.put("referenceNo", policyNo);
+		params.put("hkId", hkId);
+		params.put("role", role);
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, params);
+		return responseJsonObj;
+	}
+	
 }
