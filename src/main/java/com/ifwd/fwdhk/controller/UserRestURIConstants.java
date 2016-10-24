@@ -587,6 +587,17 @@ public class UserRestURIConstants {
     public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET = SERVICE_URL + "/iMotor/carDetails/supplement";
 	public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
 
+	/*API For (Online Withdrawal)*/
+	public final static String ONLINE_WITHDRAWAL_POLICY_BY_CUST = "/withdrawal/getPolicyInfoByCustomer"; 
+	public final static String ONLINE_WITHDRAWAL_POLICY_BY_POLICY = "/withdrawal/getPolicyInfoByPolicy"; 
+	public final static String ONLINE_WITHDRAWAL_SEND_TNG_OTP = "/withdrawal/sendTngOTP";
+	public final static String ONLINE_WITHDRAWAL_AUTH_TNG_OTP = "/withdrawal/authTngOTP";
+	public final static String ONLINE_WITHDRAWAL_SAVE_LINKUP = "/withdrawal/saveTngLinkup";
+	public final static String ONLINE_WITHDRAWAL_REQUEST_WITHDRAWAL = "/withdrawal/requestTngWithdrawal";
+	public final static String ONLINE_WITHDRAWAL_PERFORM_WITHDRAWAL = "/withdrawal/performTngWithdrawal";
+	public final static String ONLINE_WITHDRAWAL_TNG_TRANS_HISTORY = "/withdrawal/getTngTransactionHistory";
+	public final static String ONLINE_WITHDRAWAL_TNG_UNLINK_POLICY = "/withdrawal/unlinkTngPolicy";
+	
 	
 	static String controller;
 

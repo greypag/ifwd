@@ -14,9 +14,7 @@ import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,6 +22,7 @@ import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +36,6 @@ import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngLinkupSaveRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngOtpSmsReqResponse;
-import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistory;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoResponse;
@@ -80,25 +78,26 @@ public class OnlineWithdrawalController extends BaseController{
 		logger.debug(methodName+" getCustomerId:"+tplReq.getCustomerId());
 		
 		JSONObject responseJsonObj = new JSONObject();		
-		
-//		try {			
-//			// ******************* Form URL *******************
-//			String url = "";//UserRestURIConstants.ONLINE_WITHDRAWAL_POLICY_LIST_POST;
-//			// ******************* Consume Service *******************
-//			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), null);
-//			// ******************* Makeup result *******************			
-//			if (responseJsonObj.get("errMsgs") == null) {
-//				//TODO
-//			} else {
-//				logger.info(methodName+" System error:" + responseJsonObj.get("errMsgs").toString());
-//				return Responses.error(null);	
-//			}
-//		} catch (Exception e) {
-//			logger.info(methodName+" System error:",e);
-//			return Responses.error(null);
-//		}
-		
 		TngPolicyInfoResponse policyInfoResp = new TngPolicyInfoResponse();
+		
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_POLICY_BY_CUST;
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				//TODO convert responseJsonObj to policyInfoResp
+				
+			} else {
+				logger.info(methodName+" System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return Responses.error(null);
+		}
+		
 		return Responses.ok(policyInfoResp);
 	}
 	
@@ -119,11 +118,31 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngPolicyInfoResponse> getPolicyInfo(
 			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicySimple simple,
 			HttpServletRequest request) {
-		String methodName="getPolicyInfoList";
+		String methodName="getPolicyInfo";
 		
 		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
 		
+		JSONObject responseJsonObj = new JSONObject();		
 		TngPolicyInfoResponse policyInfoResp = new TngPolicyInfoResponse();
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_POLICY_BY_POLICY;
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				//TODO convert responseJsonObj to policyInfoResp
+				
+			} else {
+				logger.info(methodName+" System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return Responses.error(null);
+		}
+		
+		
 		return Responses.ok(policyInfoResp);
 	}
 	
@@ -143,8 +162,6 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngOtpSmsReqResponse> sendTngOtpSms(
 			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicySimple simple,
 			HttpServletRequest request) {
-		
-		//get session from header, same session only 1 otp at same time, otp will expire
 		
 		
 		TngOtpSmsReqResponse result = new TngOtpSmsReqResponse();
