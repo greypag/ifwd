@@ -363,7 +363,7 @@ public class UserRestURIConstants {
 	
 	public static final String PAGE_PROPERTIES_PASSKIT_LANDING = "passkit.landing";
 	
-	public static final String PAGE_PASSKIT_LANDING = "passkit-verify";	
+	public static final String PAGE_PASSKIT_LANDING = "passkit-verification";	
 	public static final String PAGE_PASSKIT_DOWNLOAD = "";	
 	
 	/* API For provie online */		
