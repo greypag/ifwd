@@ -76,7 +76,7 @@
 	<%-- Browser Specific Scripts--%>
 		<%@ include file="include/shared/IE8_scripts.jsp"%>
 		<%@ include file="include/shared/IE9_scripts.jsp"%>
-		<%@ include file="include/shared/IOS_chrome.jsp"%>
+		<%--<%@ include file="include/shared/IOS_chrome.jsp"%>--%>
 	<%-- End Browser Specific Scripts--%>
 
 	<%-- Tracking Scripts--%>
