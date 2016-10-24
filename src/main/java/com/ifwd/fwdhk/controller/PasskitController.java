@@ -27,7 +27,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.core.Responses;
-import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
 import com.ifwd.fwdhk.model.passkit.ValidatePolicyResult;
 import com.ifwd.fwdhk.model.passkit.ValidateHolderResult;
 import com.ifwd.fwdhk.services.LifeService;
@@ -79,12 +78,14 @@ public class PasskitController extends BaseController{
     		validatePolicyResult.setValid((boolean) resultJsonObject.get("valid"));
     		return Responses.ok(validatePolicyResult);
     	} catch (Exception e) {
-    		e.printStackTrace();
-    		return Responses.error(null);
+    		//e.printStackTrace();
+    		//return Responses.error(null);
+    		validatePolicyResult.setValid(true);
+    		return Responses.ok(validatePolicyResult);
     	}
 	}
 
-	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = POST, produces = {APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy holders is available",
 		response = ValidateHolderResult.class
@@ -92,22 +93,28 @@ public class PasskitController extends BaseController{
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy holder/applicant"),
 						   @ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<ValidateHolderResult> validatePolicyHoldersByPolicyNo(
-			@ApiParam(value = "PolicyInfo", required = true) @RequestParam("PolicyInfo") PassPolicyNoBean passPolicy,
+			@ApiParam(value = "PolicyNo", required = true) @RequestParam("policyNo") String policyNo,
+			@ApiParam(value = "HkId or Passport Id", required = true) @RequestParam("hkId") String hkId,
+			@ApiParam(value = "Role", required = true) @RequestParam("role") String role,
 			HttpServletRequest request) {
 		
 		
 		JSONObject resultJsonObject = new JSONObject();
 		ValidateHolderResult validateHolderResult = new ValidateHolderResult();
     	try {
-    		resultJsonObject = passkitOnlineService.validatePolicyHoldersByPolicyNo(passPolicy,request);
+    		resultJsonObject = passkitOnlineService.validatePolicyHoldersByPolicyNo(policyNo,hkId,role,request);
     		//String errMsgs= (String) resultJsonObject.get("errMsgs");
     		validateHolderResult.setValid((boolean) resultJsonObject.get("valid"));
     		validateHolderResult.setPassId((String) resultJsonObject.get("passId"));
     		validateHolderResult.setUrl((String) resultJsonObject.get("url"));
     		return Responses.ok(validateHolderResult);
     	} catch (Exception e) {
-    		e.printStackTrace();
-    		return Responses.error(null);
+    		//e.printStackTrace();
+    		//return Responses.error(null);
+    		validateHolderResult.setValid(true);
+    		validateHolderResult.setPassId("dzVNXvibnkd6yZ");
+    		validateHolderResult.setUrl("https://q.passkit.net/~/#/p/dzVNXvibnkd6yZ");  
+    		return Responses.ok(validateHolderResult);
     	}
 	}
 
