@@ -1,10 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="passkit" var="msg" />
 <footer class="footer-small visible-sm visible-xs">
 		<div class="container">
 			<div class="corp-links">
 				<ul class="nav">
-					<li><a href="http://www.fwd.com.hk/tc" target="_blank">富衛主頁</a></li>
+					<li><a href="http://www.fwd.com.hk/tc" target="_blank"><fmt:message key="footer.product.type1.link" bundle="${msg}" />富衛主頁</a></li>
 					<li><a href="http://blog.fwd.com.hk/zh" target="_blank">富衛博客</a></li>
 				</ul>
 			</div>
@@ -35,7 +38,7 @@
 				</div>
 				<div class="col-sm-4 corp-links">
 					<ul class="nav">
-						<li><a href="http://www.fwd.com.hk/tc" target="_blank">富衛主頁</a></li>
+						<li><a href="http://www.fwd.com.hk/tc" target="_blank"><fmt:message key="breadcrumb.item.home" bundle="${msg}" />富衛主頁</a></li>
 						<li><a href="http://blog.fwd.com.hk/zh" target="_blank">富衛博客</a></li>
 					</ul>
 				</div>
