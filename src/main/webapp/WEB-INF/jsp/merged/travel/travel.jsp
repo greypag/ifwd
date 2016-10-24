@@ -22,7 +22,7 @@
 <%
 	TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 	if( sessTravelQuoteBean != null ) {
-		//System.out.println("------------------------------------------------------------");		
+		//System.out.println("------------------------------------------------------------");
 		//System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
 		//System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
 		//System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
@@ -63,19 +63,19 @@
 
 <script type="text/javascript">
   // personal or family
-  var traveller;  
+  var traveller;
   // personal
   var personalTraveller = parseInt("${corrTravelQuote.totalPersonalTraveller}");
   // family
   var familyAdult = "${corrTravelQuote.totalAdultTraveller}";
   var familyChild = "${corrTravelQuote.totalChildTraveller}";
-  var familyOther = "${corrTravelQuote.totalOtherTraveller}";  
+  var familyOther = "${corrTravelQuote.totalOtherTraveller}";
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
-  
+
   var t1 = "${corrTravelQuote.totalAdultTraveller}";
   var t2 = "${corrTravelQuote.totalChildTraveller}";
-  var t3 = "${corrTravelQuote.totalOtherTraveller}";  
-    
+  var t3 = "${corrTravelQuote.totalOtherTraveller}";
+
   function reset_desktop_submit(){
       if(document.getElementById("family_plan_desk").checked){
           $('#txtTravellersDesk').val(0);
@@ -85,8 +85,8 @@
           $('#txtChildDesk').val(0);
       }
       var frm = document.getElementById("frmTravelGetQuoteDesk");
-  }  
-  function reset_mobile_submit(){        
+  }
+  function reset_mobile_submit(){
       if(document.getElementById("family_plan_mob").checked){
           $('#txtTravellersMob').val(0);
       }else if (document.getElementById("personal_plan_mob").checked){
@@ -95,9 +95,9 @@
           $('#txtChildMob').val(0);
       }
       var frm = document.getElementById("frmTravelGetQuoteMob");
-  }  
- 
-  function reset_bottom_submit(){        
+  }
+
+  function reset_bottom_submit(){
       if(document.getElementById("family_plan_btm").checked){
           $('#txtTravellersBtm').val(0);
       }else if (document.getElementById("personal_plan_btm").checked){
@@ -107,30 +107,30 @@
       }
       var frm = document.getElementById("frmTravelGetQuoteBtm");
   }
- 
+
  function selectTravelCareType(type, type_string){
 	 $(".travel_type_label").html(type_string);
-	 
+
 	 if(type=='single'){
 		 //$('.family_plan_selectArea').show();
-		 
+
 		 $('.personal-data-updown').show();
 		 $('.other-data-container').show();
-		 
+
 		 $('#tdp2').parent().show();
 		 $('#endDateDeskIn').show();
 		 $('#tdp4').parent().show();
          $('#tdp4').parent().prev().show();
          $('#tdp6').parent().show();
          $('#endDateBtmIn').show();
-         
+
          $("#travelTypeDesk").val('single');
          $("#travelTypeMob").val('single');
          $("#travelTypeBtm").val('single');
          $("#frmTravelGetQuoteDesk").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
          $("#frmTravelGetQuoteMob").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
          $("#frmTravelGetQuoteBtm").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
-         
+
          $(".travel_feature").hide();
          $("#single_travel_feature").show();
          $("#annual_travel_provision_button").hide();
@@ -140,31 +140,31 @@
 	 }else{
 		 //$('.personal_plan_selectArea').trigger('click');
 		 //$('.family_plan_selectArea').hide();
-		 
+
 		 if($('input[name=planSelected]').val()=='personal'){
 			 $('.family_plan_selectArea').trigger('click');
 			 $('.personal_plan_selectArea').trigger('click');
 		 }else{
 			 $('.personal_plan_selectArea').trigger('click');
 		 }
-		 
+
 		 $('.personal-data-updown').hide();
 		 $('.other-data-container').hide();
-		 
+
 		 $('#tdp2').parent().hide();
 		 $('#endDateDeskIn').hide();
 		 $('#tdp4').parent().hide();
          $('#tdp4').parent().prev().hide();
 		 $('#tdp6').parent().hide();
 		 $('#endDateBtmIn').hide();
-		 
+
          $("#travelTypeDesk").val('annual');
          $("#travelTypeMob").val('annual');
          $("#travelTypeBtm").val('annual');
          $("#frmTravelGetQuoteDesk").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
          $("#frmTravelGetQuoteMob").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
          $("#frmTravelGetQuoteBtm").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
-         
+
          $(".travel_feature").hide();
          $("#annual_travel_feature").show();
          $("#travel_provision_button").hide();
@@ -178,11 +178,11 @@
 <script type='text/javascript'>
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
-    
+
     var errMsgFromWrongUrl="${errMsgs[0]}";
     errMsgFromWrongUrl=errMsgFromWrongUrl.substring(1,errMsgFromWrongUrl.length-1);
     $('#errMsgFromWrongUrl .text-red').html(errMsgFromWrongUrl);
-   
+
     // update quote area to show headcounts
     if("${corrTravelQuote.planSelected}".toLowerCase() == "family"){
     	if (familyTraveller > 0){
@@ -194,7 +194,7 @@ $(document).ready(function() {
      }else{
        traveller = personalTraveller;
      }
-    
+
     if(getParameterByUrl("product")=="annual"){
     	selectTravelCareType('annual', getBundle(getBundleLanguage, "travel.main.quote.annualtravel"));
     }else {
@@ -214,7 +214,7 @@ function getParameterByUrl(name){
 <!-- End fixed header -->
 <%
 
-	
+
 
     String PersonalPlanChecked = "";
   String FamilyPlanChecked = "";
@@ -226,18 +226,18 @@ function getParameterByUrl(name){
 	      PersonalPlanChecked = "checked";
 	    }
 	    else if(sessTravelQuoteBean.getPlanSelected().equalsIgnoreCase("family")){
-	      
+
 	      FamilyPlanChecked = "checked";
 	      personalSpinnerStyle = "style='display:none'";
 	      familySpinnerStyle = "";
-	    } 
+	    }
 	    //System.out.println(familySpinnerStyle);
 	    //System.out.println(personalSpinnerStyle);
   }
 %>
-<section id="main-slider" class="travel-hero-wrapper no-margin"> 
-  <!--Mobilebanner--> 
-  <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="travel.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
+<section id="main-slider" class="travel-hero-wrapper no-margin">
+  <!--Mobilebanner-->
+  <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="travel.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  />
   <!--Mobilebanner-->
 <div class="carousel slide hidden-xs hidden-sm">
 <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
@@ -245,24 +245,24 @@ function getParameterByUrl(name){
 	     <li><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></li>
 	     <i class="fa fa-chevron-right"></i>
          <li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></li>
-         <i class="fa fa-chevron-right"></i>	    
+         <i class="fa fa-chevron-right"></i>
 	    <li class="active"><fmt:message key="home.breadcrumb1.travel" bundle="${msg}" /></li>
 	 </ol>
-</div> 
+</div>
 <div class="carousel-inner">
 <div class="item active">
 
 <!--/#middle-->
         <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image" bundle="${msg}" />" alt="<fmt:message key="travel.hero.image.alt" bundle="${msg}" />"  />
          </div>
-      <!--/.item--> 
+      <!--/.item-->
     </div>
-    <!--/.carousel inner--> 
+    <!--/.carousel inner-->
   </div>
   <div class="tagline-holder">
       <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.text.image" bundle="${msg}" />" class="img-responsive">
-  </div>  
-  <!--/.carousel--> 
+  </div>
+  <!--/.carousel-->
   <form name="frmTravelGetQuote" id="frmTravelGetQuoteDesk" commandName="travelQuote" action="" method="post" onsubmit="return flightValidateDeskTravel();">
 	<section id="middle" class="hidden-sm hidden-xs">
         <div class="container bmg_flighttravel_main_container">
@@ -299,11 +299,11 @@ function getParameterByUrl(name){
                              </div>
                            </div>
                            <div class="clearfix"></div>
-                           
+
                            <input type="hidden" id="travelTypeDesk" name="travel_type" />
                         </div>
                      </td>
-	                  
+
 	                  <td class="" style="min-width: 150px;">
 	                    <div class="input-group date" id="tdp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius bmg_custom_placeholder" style="display:inline-block;width:70%;" id="txtStartDateDesk" <%-- value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" --%> placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
@@ -356,7 +356,7 @@ function getParameterByUrl(name){
 	                       </div>
 	                       <!-- end of personal plan bottom spinner-->
 	                       <div class="clearfix"></div>
-	
+
 	                       <!-- start of family plan bottom spinner-->
 	                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
 	                         <div class="col-lg-6">
@@ -406,7 +406,7 @@ function getParameterByUrl(name){
 	                         </div>
 	                         <div class="clearfix"></div>
 	                       </div>
-	                       
+
 	                       <!-- start of family plan bottom spinner-->
 	                       <div class="clearfix"></div>
 	                     </div>
@@ -436,12 +436,12 @@ function getParameterByUrl(name){
 	           </tbody>
 	         </table>
 	      </div>
-	      <!--/.col-sm-6--> 
-	      
+	      <!--/.col-sm-6-->
+
 	    </div>
-	    <!--/.row--> 
+	    <!--/.row-->
 	  </div>
-	  <!--/.container--> 
+	  <!--/.container-->
 	</section>
 	</form>
 </section>
@@ -462,7 +462,7 @@ function getParameterByUrl(name){
     <h2 style="text-align: center;color: #f6871e;padding-top: 10px;padding-bottom: 10px;"><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.planSelect" bundle="${msg}" /></h4>
     <div class="dropdown  form-group drop-down" id="travelTypeDropdownMob" style="background-color: #fff;">
-      
+
       <a href="#" class="dropdown-toggle col-xs-12 col-sm-12" data-toggle="dropdown"> <label class="select-label travel_type_label" style="cursor: pointer;font-size: 23px !important;"><fmt:message key="travel.main.quote.pleaseselect" bundle="${msg}" /></label>&nbsp; <i class="fa fa-caret-down pull-right"></i></a>
     <div class="dropdown-menu bdr1 pad-none" style="width: 100%;">
       <div class="drop-content pad-none">
@@ -490,7 +490,7 @@ function getParameterByUrl(name){
     <span id="endDateMobIn" style="color:red"> </span>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q3" bundle="${msg}" /></h4>
     <div class="dropdown  form-group drop-down" id="myFWDropdownMob" style="background-color: #fff;">
-      
+
       <a href="#" class="dropdown-toggle col-sm-12 col-xs-12" data-toggle="dropdown"> <label id="lblCountMob"></label> <i class="fa fa-caret-down pull-right"></i> </a>
       <div class="dropdown-menu bdr1">
         <div class="drop-content">
@@ -518,7 +518,7 @@ function getParameterByUrl(name){
             <h4><fmt:message key="travel.main.quote.plan1.type" bundle="${msg}" /></h4>
           </div>
            <div class="col-xs-6 col-sm-4">
-            <div class="input-group number-spinner none-bd "> 
+            <div class="input-group number-spinner none-bd ">
               <span class="input-group-btn data-dwn personal-data-updown">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtTravellersMob" data-parent="personal">
                       <span class="glyphicon glyphicon-minus"></span>
@@ -543,7 +543,7 @@ function getParameterByUrl(name){
             <h4><fmt:message key="travel.main.quote.plan2.type1" bundle="${msg}" /></h4>
           </div>
            <div class="col-xs-6 col-sm-4">
-            <div class="input-group number-spinner none-bd "> 
+            <div class="input-group number-spinner none-bd ">
               <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtAdultsMob" data-parent="family">
                       <span class="glyphicon glyphicon-minus"></span>
@@ -564,7 +564,7 @@ function getParameterByUrl(name){
             <h4><fmt:message key="travel.main.quote.plan2.type2" bundle="${msg}" /></h4>
           </div>
            <div class="col-xs-6 col-sm-4">
-            <div class="input-group number-spinner none-bd "> 
+            <div class="input-group number-spinner none-bd ">
               <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" data-parent="family">
                       <span class="glyphicon glyphicon-minus"></span>
@@ -585,7 +585,7 @@ function getParameterByUrl(name){
             <h4><fmt:message key="travel.main.quote.plan2.type3" bundle="${msg}" /></h4>
           </div>
            <div class="col-xs-6 col-sm-4 other-data-container">
-            <div class="input-group number-spinner none-bd "> 
+            <div class="input-group number-spinner none-bd ">
               <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtOtherMob" data-parent="family">
                       <span class="glyphicon glyphicon-minus"></span>
@@ -625,28 +625,28 @@ function getParameterByUrl(name){
         <fmt:message key="travel.main.quote.total.days" bundle="${msg}" /></small>
     </div>
   </div>
-  
+
   <div class="form-container">
-    <h3 class="text-center"> 
+    <h3 class="text-center">
       <!-- <a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()">立即申請免費保障! </a>  -->
       <button type="submit" onclick="reset_mobile_submit()" class="two-test-002 bdr-curve btn btn-primary btn-lg btn-block btn-color-ylw">
-              <fmt:message key="travel.main.quote.top.action" bundle="${msg}" /> 
+              <fmt:message key="travel.main.quote.top.action" bundle="${msg}" />
              </button>
     </h3>
   </div>
   </form>
 </div>
-<!--Mobileform--> 
+<!--Mobileform-->
 
 <!--/#main slider-->
 
 <section id="feature" style="margin-top:40px;">
   <div class="container pad-none">
-    <div class="center wow fadeInDown"> 
+    <div class="center wow fadeInDown">
       <!--desktop-->
 		<h2 class="hidden-sm hidden-xs"><fmt:message key="travel.main.desc1" bundle="${msg}" /></h2>
-		<!--end desktop--> 
-		
+		<!--end desktop-->
+
 		<!--Mobile-->
 		<h2 class="col-xs-12 hidden-lg hidden-md feature-ttl">
 		<fmt:message key="travel.main.mobile.desc1" bundle="${msg}" />
@@ -655,8 +655,8 @@ function getParameterByUrl(name){
 		</h2>
 		<!--end Mobile-->
 	</div>
-	
-	
+
+
     <div id="single_travel_feature" class="travel_feature">
 	    <div class="center wow fadeInDown">
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -704,7 +704,7 @@ function getParameterByUrl(name){
 	          <div class="clearfix"></div>
 	      </div>
       </div>
-      
+
       <div id="annual_travel_feature" class="travel_feature" style="display:none;">
         <div class="center wow fadeInDown">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -752,8 +752,8 @@ function getParameterByUrl(name){
               <div class="clearfix"></div>
           </div>
       </div>
-      
-      
+
+
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;">
         <h4 class="product_landing_download_button h4-4 pull-left">
 	          <i class="fa fa-download"></i> <a
@@ -761,7 +761,7 @@ function getParameterByUrl(name){
 	              target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" /></a>
 	      </h4>
 	      <h4 class="product_landing_download_button h4-4 pull-left">
-	          <i class="fa fa-download"></i> 
+	          <i class="fa fa-download"></i>
 	          	  <a
 	              id="travel_provision_button" href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare_Insurance_JacketLatest.pdf"
 	              target="_blank" style="display:none;" ><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
@@ -773,7 +773,7 @@ function getParameterByUrl(name){
       <div class="clearfix"></div>
    </div>
 </section>
-      
+
 <div style="background-color:#F2F3F5;text-align:center;padding-top: 20px;padding-bottom: 20px;">
     <div class="container pad-none">
         <h2><fmt:message key="annual.main.policycoverage" bundle="${msg}" /></h2>
@@ -889,9 +889,9 @@ function getParameterByUrl(name){
       <li>
         <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc9.part1" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc9.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc9.part3" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc9.part4" bundle="${msg}" /></p>
       </li>
-      <li>
-        <p class="h4-5"><fmt:message key="partner.the.club.3x.period" bundle="${msg}" /></p>
-      </li>      
+      <%--<li>
+        <p class="h4-5"> <fmt:message key="partner.the.club.3x.period" bundle="${msg}" /></p>
+      </li>--%>
       <li>
         <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="flight.landing.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc7.part2" bundle="${msg}" /></a><fmt:message key="travel.main.other.benefit.desc7.part3" bundle="${msg}" />
         </p>
@@ -901,10 +901,10 @@ function getParameterByUrl(name){
 </div>
 
 
-  
+
   <div class="spacer3"></div>
   <!--<p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare_Insurance_JacketLatest.pdf" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
-  
+
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p> -->
   <p class="h4-6"><fmt:message key="annual.quote.disclaimer2" bundle="${msg}" /></p>
 </div>
@@ -963,7 +963,7 @@ function getParameterByUrl(name){
     <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
   </div>
   <div class="clearfix"></div>
-  
+
   <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
   	<div class="col-lg-12 col-md-12 col-xs-12">
     	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
@@ -975,7 +975,7 @@ function getParameterByUrl(name){
 
   <div class="spacer3"></div>
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare_Insurance_JacketLatest.pdf" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
-  
+
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div> -->
 
@@ -1018,10 +1018,10 @@ function getParameterByUrl(name){
         </div>
       </div>
     </div>
-    <!--End Desktop Support--> 
-    <!--/.row--> 
+    <!--End Desktop Support-->
+    <!--/.row-->
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
 <!--/#recent-works-->
 
@@ -1046,7 +1046,7 @@ function getParameterByUrl(name){
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap-mid text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  /> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/secure.png" alt=""  />
               <h2><fmt:message key="travel.main.highlight2.heading.line1" bundle="${msg}" /> <fmt:message key="travel.main.highlight2.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight2.desc" bundle="${msg}" /></p>
               </div>
@@ -1059,7 +1059,7 @@ function getParameterByUrl(name){
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"  /> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"  />
               <h2><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight3.desc" bundle="${msg}" /></p>
               </div>
@@ -1067,20 +1067,20 @@ function getParameterByUrl(name){
           </div>
         </div>
       </div>
-      <!--/.item--> 
+      <!--/.item-->
     </div>
-    <!--/.carousel-inner--> 
+    <!--/.carousel-inner-->
   </div>
-  <!--/.carousel--> 
+  <!--/.carousel-->
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
 
 <div class="content-disclaimer">
    <p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
 </div>
-            
+
 <!--/#testiomonials-->
 <section id="testimonials" class="hidden-sm hidden-xs">
-  <div class="container"> 
+  <div class="container">
     <!--desktop-testimonials-->
     <div class="row hidden-sm hidden-xs">
       <div class="center">
@@ -1113,13 +1113,13 @@ function getParameterByUrl(name){
       <p class="pad-none p1"><br>
       <fmt:message key="travel.main.testimonial.disclaimer" bundle="${msg}" /></p>
     </div>
-    <!--/.row--> 
-    <!--/.desktop-testimonials--> 
-    
+    <!--/.row-->
+    <!--/.desktop-testimonials-->
+
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
-<!--/#testiomonials--> 
+<!--/#testiomonials-->
 
 <!--/#testiomonials mob-->
 <section id="testimonials-mob" class="hidden-lg hidden-md">
@@ -1161,9 +1161,9 @@ function getParameterByUrl(name){
         </div>
       </div>
     </div>
-    <!--/.carousel-inner--> 
+    <!--/.carousel-inner-->
   </div>
-  <!--/.carousel--> 
+  <!--/.carousel-->
   <a class="prev" href="#testimonials-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#testimonials-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
   <p class="p1" style="padding:20px;"><br>
       <fmt:message key="travel.main.testimonial.disclaimer" bundle="${msg}" /></p>
@@ -1180,7 +1180,7 @@ function getParameterByUrl(name){
         <div class="services-wrap service-bx1">
           <div> <a href="<fmt:message key="travel.blog.post1.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/blog-spots-view-snow.jpg" alt=""></a>
             <h3> <a href="<fmt:message key="travel.blog.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading1" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
-         
+
           </div>
         </div>
       </div>
@@ -1188,7 +1188,7 @@ function getParameterByUrl(name){
         <div class="services-wrap service-bx2">
           <div> <a href="<fmt:message key="travel.blog.post2.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/blog-kala-patthar.jpg" alt=""></a>
             <h3><a href="<fmt:message key="travel.blog.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading2" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
-         
+
           </div>
         </div>
       </div>
@@ -1196,19 +1196,19 @@ function getParameterByUrl(name){
         <div class="services-wrap service-bx3">
           <div> <a href="<fmt:message key="travel.blog.post3.link" bundle="${msg}" />" target="_blank"><img class="bdr-img" src="<%=request.getContextPath()%>/resources/images/blog-annual-travel-single-trip-travel-insurance.jpg" alt=""></a>
             <h3> <a href="<fmt:message key="travel.blog.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.blog.subheading3" bundle="${msg}" /> <i class="fa fa-caret-right"></i> </a></h3>
-           
+
           </div>
         </div>
       </div>
     </div>
     <div class="clearfix"></div>
-    <!--/.row--> 
+    <!--/.row-->
      <p><fmt:message key="travel.main.blog.disclaimer" bundle="${msg}" /></p>
-    
-   
-   
+
+
+
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
 <!--/#services-->
 
@@ -1239,7 +1239,7 @@ function getParameterByUrl(name){
                      <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
                         <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;"><fmt:message key="travel.main.quote.pleaseselect" bundle="${msg}" /></label>
                         <span class="product_landing_custom_fa-caret-down">
-                           <i class="fa fa-caret-down"></i> 
+                           <i class="fa fa-caret-down"></i>
                         </span>
                      </a>
                      <div class="dropdown-menu bdr1 pad-none" style="width: 190px;">
@@ -1249,11 +1249,11 @@ function getParameterByUrl(name){
                         </div>
                       </div>
                       <div class="clearfix"></div>
-                      
+
                       <input type="hidden" id="travelTypeBtm" name="travel_type" />
                    </div>
                 </td>
-            
+
               <td class="" style="min-width: 150px;">
                 <div class="input-group date" id="tdp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" <%-- value="${corrTravelQuote.trLeavingDate}" --%> placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
@@ -1266,7 +1266,7 @@ function getParameterByUrl(name){
                 </td>
               <td class="" style="min-width: 190px;">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
-                 
+
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right" style="position: absolute;right: 7px;"></i> </a>
                   <div class="dropdown-menu bdr1" style="width:355px;">
                     <div class="drop-content">
@@ -1309,7 +1309,7 @@ function getParameterByUrl(name){
                       </div>
                       <!-- end of personal plan bottom spinner-->
                       <div class="clearfix"></div>
-                      
+
                       <!-- start of family plan bottom spinner-->
                       <div class="plan_spinner_btm" id="family_plan_btm_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
@@ -1362,7 +1362,7 @@ function getParameterByUrl(name){
                         </div>
                         <div class="clearfix"></div>
                       </div>
-                      
+
                       <!-- start of family plan bottom spinner-->
 
                       <div class="clearfix"></div>
@@ -1370,7 +1370,7 @@ function getParameterByUrl(name){
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                
+
         </td>
               <td class="">
                   <button type="submit" onclick="reset_bottom_submit()" class="two-test-002 border-radius btn btn-primary get-btn btn-color-ylw" style="line-height:32px;padding: 8px 20px !important;width: 100%;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
@@ -1388,12 +1388,12 @@ function getParameterByUrl(name){
           </tbody>
         </table>
       </div>
-      <!--/.col-sm-6--> 
+      <!--/.col-sm-6-->
       </form>
     </div>
-    <!--/.row--> 
+    <!--/.row-->
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
 <!--/#middle-->
 
@@ -1440,7 +1440,7 @@ $(document).ready(function() {
             $("#policyCoveragePopup").on('show.bs.modal', function () {
                 $('body').css("position", "inital");
                 //$('body').css("position", "fixed");
-                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+                $('body').animate({scrollTop: itemTop.top - 60}, 0);
             });
             $("#policyCoveragePopup").on('hide.bs.modal', function () {
                 //alert(itemTop.top);
@@ -1450,7 +1450,7 @@ $(document).ready(function() {
             });
             $("#policyCoveragePopup").on('hidden.bs.modal', function () {
                 $('body').attr("style", "");
-            });			
+            });
 		});
 	}
 });
@@ -1462,7 +1462,7 @@ $(document).ready(function() {
       padding-top: 50px;
    }
 </style>
-      
+
 <div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content plan-modal">

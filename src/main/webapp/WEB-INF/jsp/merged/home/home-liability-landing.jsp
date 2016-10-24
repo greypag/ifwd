@@ -203,7 +203,7 @@ var plan="${plan}";
                     <div class="row">
                         <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
                             <div class="apr_content"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s4_logo.png" alt='<fmt:message key="partner.card.theclub.home.liability.copy1" bundle="${msg}" />' class="img-responsive">
-                                <div class="col-xs-12 nopadding eh_hb_desc"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy1" bundle="${msg}" /></a> <fmt:message key="partner.card.theclub.home.liability.copy2" bundle="${msg}" /><br/><br/><fmt:message key="partner.the.club.3x.period" bundle="${msg}" /></div>
+                                <div class="col-xs-12 nopadding eh_hb_desc"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy1" bundle="${msg}" /></a> <fmt:message key="partner.card.theclub.home.liability.copy2" bundle="${msg}" /><br/><br/><%-- <fmt:message key="partner.the.club.3x.period" bundle="${msg}" /> --%></div>
                                 <div class="col-xs-12 nopadding"><a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" class="eh_btn_more_details" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy3" bundle="${msg}" /></a></div>
                             </div>
                         </div>
