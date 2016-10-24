@@ -23,12 +23,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import springfox.documentation.annotations.ApiIgnore;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.core.Responses;
-import com.ifwd.fwdhk.model.passkit.ValidatePolicyResult;
 import com.ifwd.fwdhk.model.passkit.ValidateHolderResult;
+import com.ifwd.fwdhk.model.passkit.ValidatePolicyResult;
+import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.PasskitPageFlowControl;
 
@@ -85,7 +87,7 @@ public class PasskitController extends BaseController{
     	}
 	}
 
-	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = POST, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy holders is available",
 		response = ValidateHolderResult.class
@@ -93,16 +95,14 @@ public class PasskitController extends BaseController{
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy holder/applicant"),
 						   @ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<ValidateHolderResult> validatePolicyHoldersByPolicyNo(
-			@ApiParam(value = "PolicyNo", required = true) @RequestParam("policyNo") String policyNo,
-			@ApiParam(value = "HkId or Passport Id", required = true) @RequestParam("hkId") String hkId,
-			@ApiParam(value = "Role", required = true) @RequestParam("role") String role,
+			@ApiParam(value = "PolicyInfo", required = true) @RequestParam("PolicyInfo") PassPolicyNoBean passPolicy,
 			HttpServletRequest request) {
 		
 		
 		JSONObject resultJsonObject = new JSONObject();
 		ValidateHolderResult validateHolderResult = new ValidateHolderResult();
     	try {
-    		resultJsonObject = passkitOnlineService.validatePolicyHoldersByPolicyNo(policyNo,hkId,role,request);
+    		resultJsonObject = passkitOnlineService.validatePolicyHoldersByPolicyNo(passPolicy,request);
     		//String errMsgs= (String) resultJsonObject.get("errMsgs");
     		validateHolderResult.setValid((boolean) resultJsonObject.get("valid"));
     		validateHolderResult.setPassId((String) resultJsonObject.get("passId"));

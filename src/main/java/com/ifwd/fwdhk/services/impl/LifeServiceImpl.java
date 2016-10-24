@@ -59,6 +59,7 @@ import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.life.ProductRecommendation;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
 import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
@@ -4126,12 +4127,15 @@ public class LifeServiceImpl implements LifeService {
 		return responseJsonObj;
 	}
 
-	public JSONObject validatePolicyHoldersByPolicyNo(String policyNo,String hkId,String role,HttpServletRequest request) throws ECOMMAPIException{
+	public JSONObject validatePolicyHoldersByPolicyNo(PassPolicyNoBean passPolicy,HttpServletRequest request) throws ECOMMAPIException{
 		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
-		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO +"?policyNo=" + policyNo + 
-				"&role=" + role + "&hkId=" + hkId;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
+		JSONObject params = new JSONObject();
+		params.put("policyNo", passPolicy.getPolicyNo());
+		params.put("hkId", passPolicy.getHkId());
+		params.put("role", passPolicy.getRole());
 		final Map<String,String> header = headerUtil.getHeader(request);
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, params);
 		return responseJsonObj;
 	}
 	
