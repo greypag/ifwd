@@ -103,7 +103,7 @@ $(function () {
 
   function submitPolicyDetail(userType, hkid, policyNo) {
     loading(function () {
-      return $.get(context+'/api/passkit/policies/policiesHolder/validate', {
+      return $.post(context+'/api/passkit/policies/policiesHolder/validate', {
         policyNo: policyNo,
         hkId: hkid,
         role: userType === USER_TYPE.APPLICANT ? 'A' : 'I'
