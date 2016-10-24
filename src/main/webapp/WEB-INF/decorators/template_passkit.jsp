@@ -5,252 +5,194 @@
 <fmt:setBundle basename="messages" var="msg" />
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="dec"%>
-
+	
 <!DOCTYPE HTML>
 <html>
-<head>
-<script type="text/javascript">
-	window.status = "Loading: Document body...";
-</script>
 
-<!-- Title -->
-<title>${pageTitle}</title>
-<meta name='description' content="${pageMetaDataDescription}" >
-<meta name="format-detection" content="telephone=no">
-<meta http-equiv="Cache-control" content="no-cache, no-store">
+<!-- <head>
+	<script type="text/javascript">
+    window.status = "Loading: Document body...";
+  </script>
 
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<% boolean langFlag = false;
- if(session.getAttribute("language") != null){
-	 langFlag = true;
- } else {
-	 langFlag = false;
- }
-%> 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	Title
+	<title>Travel Care - Traveling Insurance| FWD Hong Kong</title>
+	<meta name='description' content="">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="Cache-control" content="no-cache, no-store">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name='keywords' content="meta keywords here" />
+	Schema.org markup for Google+
+	<meta itemprop="headline" content="" />
+	<meta itemprop="description" content="" />
+	<meta itemprop="image" content="" />
+	Open Graph data
+	<meta property="og:title" content="" />
+	<meta property="og:type" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:image:secure_url" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:site_name" content="" />
+	Twitter Card data
+	<meta property="twitter:title" content="" />
+	<meta property="twitter:description" content="" />
+	<meta property="twitter:card" content="" />
+	<meta property="twitter:image" content="" />
+	<meta name="twitter:site" content="" />
+	<meta name="twitter:url" content="" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<!-- <meta name="robots" content="NOODP"> -->
-<meta name='keywords' content="meta keywords here"/>
+	<link rel="canonical" href="" />
 
+	<link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
 
-<!-- Schema.org markup for Google+ -->
-<meta itemprop="name" content="${ogTitle}" />
-<meta itemprop="description" content="${ogDescription}"/>
-<meta itemprop="image" content="${ogImage}" />
+	<script src="resources/js/jquery-1.12.2.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="resources/js/animatescroll.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<script src="resources/js/moment-with-locales.min.js"></script>
+	<script src="resources/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="resources/js/bootstrapValidator.min.js"></script>
+	<script src="resources/js/mobiscroll.custom-2.17.2.min.js"></script>
+	<script src="resources/js/mobiscroll.i18n.en_fwd.js"></script>
+	<script src="resources/js/mobiscroll.i18n.zh_fwd.js"></script>
+	<script src="resources/js/dropzone.js"></script>
+	<script src="resources/js/common.js"></script>
 
-<!-- Open Graph data -->
-<meta property="og:title" content="${ogTitle}" />
-<meta property="og:type" content="${ogType}" />
-<meta property="og:url" content="${ogUrl}" />
-<meta property="og:image" content="${ogImage}" />
-<meta property="og:image:secure_url" content="${ogImage}" />
-<meta property="og:description" content="${ogDescription}"/>
-<meta property="og:site_name" content="${ogSiteName}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+	/>
+	<link rel="stylesheet" href="resources/css/bootstrap-datetimepicker.min.css">
+	<link rel="resources/css/bootstrapValidator.min.css">
+	<link rel="stylesheet" href="resources/css/titatoggle-dist-min.css">
+	<link rel="stylesheet" href="resources/css/mobiscroll.custom-2.17.2.min.css">
+	<link rel="stylesheet" href="resources/css/dropzone.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/all.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/common.css" />
 
-<!-- Twitter Card data -->     
-<meta property="twitter:title" content="${ogTitle}" />
-<meta property="twitter:description" content="${ogDescription}"/>
-<meta property="twitter:card" content="${twitterCard}" />
-<meta property="twitter:image" content="${twitterImage}" />
-<meta name="twitter:site" content="${twitterSite}" />
-<meta name="twitter:url" content="${twitterUrl}" />
+	<link rel="stylesheet" type="text/css" href="include/css/travelcare.css" />
+	<link rel="stylesheet" type="text/css" href="include/css/loading.css" />
 
-<meta name="apple-mobile-web-app-capable" content="yes" />
+	<script src="include/js/travelcare.js"></script>
 
-<link rel="canonical" href="${canonical}"/>
+	<script>
+    // handle when console is null/undefined especially in IE
+    if (typeof console == "undefined") {
+      this.console = {
+        log: function() {},
+        info: function() {},
+        error: function() {},
+        warn: function() {}
+      };
+    }
 
-<!-- Bootstrap -->
-<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
-<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-select.min.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/savie/styles.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
+    // global variables
+    var UILANGUAGE = 'en';
+  </script>
 
-<!--Font Awesome Css-->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-slider.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/icomoon.min.css">
-<link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
-
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
-
-<!--Mini Calculator Css-->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.theme.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/style.css">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-
-<script>
-
-	// handle when console is null/undefined especially in IE
-	if (typeof console == "undefined") {
-		this.console = {
-	    	log: function() {},
-	    	info: function() {},
-	    	error: function() {},
-	    	warn: function() {}
-	  	};
-	}
-	
-	// global variables
-	var UILANGUAGE = '<%=session.getAttribute("language")%>';
-	
-</script>
-
-<!-- Start Visual Website Optimizer Asynchronous Code -->
-<script type='text/javascript'>
-var _vwo_code=(function(){
-var account_id=190010,
-settings_tolerance=5000,
-library_tolerance=5000,
-use_existing_jquery=false,
-// DO NOT EDIT BELOW THIS LINE
-f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
-</script>
-<!-- End Visual Website Optimizer Asynchronous Code -->
-
-		<script type=text/javascript>
-			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
-			document.write('<scr'+'ipt src="', hostProtocol+
-			'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
-		</script>
-		<script type=text/javascript>
-			var params = new Array();
-			params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-			params[1]='type=Registration_Step1';
-			params[2]='val=0.0';
-			params[3]='orderId=0';
-			params[4]='promoCode=Regis_Savie_Step1 ZH';
-			params[5]='valueCurrency=USD';
-			params[6]='GCID='; //For Live Tracking only
-			params[7]='kw='; //For Live Tracking only
-			params[8]='product='; //For Live Tracking only
-			k_trackevent(params,'5198');
-		</script>
-	
-		<noscript>
-			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Step1&val=0.0&orderId=0&promoCode=Regis_Savie_Step1 ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
-		</noscript>
-		
-		<!--LightBox Pop Up-->
-		<script type=text/javascript>
-			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
-			document.write('<scr'+'ipt src="', hostProtocol+
-			'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
-		</script>
-		<script type=text/javascript>
-			var params = new Array();
-			params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-			params[1]='type=Registration';
-			params[2]='val=0.0';
-			params[3]='orderId=0';
-			params[4]='promoCode=Regis_Savie ZH';
-			params[5]='valueCurrency=USD';
-			params[6]='GCID='; //For Live Tracking only
-			params[7]='kw='; //For Live Tracking only
-			params[8]='product='; //For Live Tracking only
-			k_trackevent(params,'5198');
-		</script>
-		
-		<noscript>
-			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=0&promoCode=Regis_Savie ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
-		</noscript>
-
-		<script type=text/javascript>
-			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
-			document.write('<scr'+'ipt src="', hostProtocol+
-			'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
-			</script>
-			<script type=text/javascript>
-			var params = new Array();
-			params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-			params[1]='type=Registration_Savie_Survey';
-			params[2]='val=0.0';
-			params[3]='orderId=0';
-			params[4]='promoCode=Regis_Savie_Survey ZH';
-			params[5]='valueCurrency=USD';
-			params[6]='GCID='; //For Live Tracking only
-			params[7]='kw='; //For Live Tracking only
-			params[8]='product='; //For Live Tracking only
-			k_trackevent(params,'5198');
-		</script>
-		
-		<noscript>
-			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Savie_Survey&val=0.0&orderId=0&promoCode=Regis_Savie_Survey ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
-		</noscript>
-		
-<dec:head />
-<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="resources/images/favicon.ico" />
 </head>
-	<%
-	if (langFlag && "EN".equals(session.getAttribute("language").toString().toUpperCase())) {
-	%>
-		<body>
-	<%
-	} else {
-	%>
-		<body class="chin">	
-	<%
-	}
-	%>
-	
-	<!--Google Code for SEO-->
+ -->
+ <head>
+	<script type="text/javascript">
+    window.status = "Loading: Document body...";
+    var context="<%=request.getContextPath()%>";
 
-<noscript>
-	<iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWPF25"
-		height="0" width="0" style="display: none; visibility: hidden"></iframe>
-</noscript>
-<script>
-	(function(w, d, s, l, i) {
-		w[l] = w[l] || [];
-		w[l].push({
-			'gtm.start' : new Date().getTime(),
-			event : 'gtm.js'
-		});
-		var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
-				+ l
-				: '';
-		j.async = true;
-		j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-		f.parentNode.insertBefore(j, f);
-	})(window, document, 'script', 'dataLayer', 'GTM-MWPF25');
-</script>
+  </script>
 
-<!--END -Google Code for SEO-->
-	
-	<div class="fwd-savie-wrapper">
-		<%@ include file="include/merged/passkit/header.jsp"%>
-		<div class="closeMobileMenu commonBody"><dec:body /></div>
-		<%@ include file="include/merged/passkit/footer.jsp"%>
-	</div>
-	
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
-	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script> -->
-	<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/savie/jasny-bootstrap.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
+	<!-- Title -->
+	<title>Travel Care - Traveling Insurance| FWD Hong Kong</title>
+	<meta name='description' content="">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="Cache-control" content="no-cache, no-store">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name='keywords' content="meta keywords here" />
+	<!-- Schema.org markup for Google+ -->
+	<meta itemprop="headline" content="" />
+	<meta itemprop="description" content="" />
+	<meta itemprop="image" content="" />
+	<!-- Open Graph data -->
+	<meta property="og:title" content="" />
+	<meta property="og:type" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:image:secure_url" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:site_name" content="" />
+	<!-- Twitter Card data -->
+	<meta property="twitter:title" content="" />
+	<meta property="twitter:description" content="" />
+	<meta property="twitter:card" content="" />
+	<meta property="twitter:image" content="" />
+	<meta name="twitter:site" content="" />
+	<meta name="twitter:url" content="" />
+
+	<link rel="canonical" href="" />
+
+	<link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
+
+	<%-- 	<script src="<%=request.getContextPath()%>/resources/js/passkit/jquery-1.12.2.min.js"></script>
+ --%>	<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/animatescroll.min.js"></script>
+<%-- 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/passkit/bootstrap-datepicker.min.js"></script>
+ --%>	<script src="<%=request.getContextPath()%>/resources/js/passkit/moment-with-locales.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/bootstrap-datetimepicker.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/bootstrapValidator.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/mobiscroll.custom-2.17.2.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/mobiscroll.i18n.en_fwd.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/mobiscroll.i18n.zh_fwd.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/dropzone.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/common.js"></script>
+
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"/>
+<%-- 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-theme.min.css"/>
+ --%>	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker3.min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-datetimepicker.css"/>
+	<link rel="<%=request.getContextPath()%>/resources/css/bootstrapValidator.min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/titatoggle-dist-min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/mobiscroll.custom-2.17.2.min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/dropzone.css"/>
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/all.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/common.css" />
+
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/travelcare.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/loading.css" />
+
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/travelcare.js"></script>
+
+	<script>
+    // handle when console is null/undefined especially in IE
+    if (typeof console == "undefined") {
+      this.console = {
+        log: function() {},
+        info: function() {},
+        error: function() {},
+        warn: function() {}
+      };
+    }
+
+    // global variables
+    var UILANGUAGE = 'en';
+  </script>
+
+	<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/images/passkit/favicon.ico" />
+</head>
+<body>
+
+	<%@ include file="include/merged/passkit/header.jsp"%>
+	<div class="closeMobileMenu commonBody"><dec:body /></div>
+	<%@ include file="include/merged/passkit/footer.jsp"%>	
 
 	<script type="text/javascript">
-		window.status = "Done";
-	</script>
-
+    window.status = "Done";
+  </script>
 </body>
+
 </html>

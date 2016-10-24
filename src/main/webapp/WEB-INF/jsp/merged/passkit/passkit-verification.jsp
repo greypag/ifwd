@@ -1,25 +1,18 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
+	prefix="dec"%>
+	
+<!DOCTYPE HTML>
 <html>
 
-<head>
-
-
+<%-- <head>
 	<script type="text/javascript">
     window.status = "Loading: Document body...";
-	var context="<%=request.getContextPath()%>";
-</script>
-  
+  </script>
 
 	<!-- Title -->
 	<title>Travel Care - Traveling Insurance| FWD Hong Kong</title>
@@ -55,12 +48,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
 
-<%-- 	<script src="<%=request.getContextPath()%>/resources/js/passkit/jquery-1.12.2.min.js"></script>
- --%>	<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/passkit/jquery-1.12.2.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/passkit/animatescroll.min.js"></script>
-<%-- 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/passkit/bootstrap-datepicker.min.js"></script>
- --%>	<script src="<%=request.getContextPath()%>/resources/js/passkit/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/passkit/bootstrap-datepicker.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/moment-with-locales.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/passkit/bootstrap-datetimepicker.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/passkit/bootstrapValidator.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/passkit/mobiscroll.custom-2.17.2.min.js"></script>
@@ -70,8 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="<%=request.getContextPath()%>/resources/js/passkit/common.js"></script>
 
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"/>
-<%-- 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-theme.min.css"/>
- --%>	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker3.min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker3.min.css"/>
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-datetimepicker.css"/>
 	<link rel="<%=request.getContextPath()%>/resources/css/bootstrapValidator.min.css"/>
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/titatoggle-dist-min.css"/>
@@ -100,32 +93,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     var UILANGUAGE = 'en';
   </script>
 
-	<link rel="icon" type="image/x-icon" href="resources/images/passkit/favicon.ico" />
-</head>
+	<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/images/passkit/favicon.ico" />
+</head> --%>
 
 <body>
 
-	<header>
-		<div class="full-width-container">
-			<div class="container">
-				<div class="top-nav">
-					<div class="float-right">
-						<div class="language">
-							<ul class="nav">
-								<li><a class="active" href="/fwdhk/changeLang?selectLang=en&action=/en" target="_top" data-lang="en">EN</a></li>
-								<li><a class="inactive" href="/fwdhk/changeLang?selectLang=tc&action=/en" target="_top" data-lang="tc">中</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="logo-wrap">
-						<a href="/fwdhk/en">
-							<img class="logo" src="<%=request.getContextPath()%>/resources/images/passkit/mobile_logo.png" alt="" />
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	
 
 	<div class="container main landing travelcare">
 		<div class="hero" style="background-image: url('<%=request.getContextPath()%>/resources/images/passkit/banner.jpg');"></div>
@@ -232,7 +205,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 
-	<footer class="footer-small visible-sm visible-xs">
+	<!-- <footer class="footer-small visible-sm visible-xs">
 		<div class="container">
 			<div class="corp-links">
 				<ul class="nav">
@@ -273,7 +246,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 
 	<script type="text/javascript">
     window.status = "Done";
