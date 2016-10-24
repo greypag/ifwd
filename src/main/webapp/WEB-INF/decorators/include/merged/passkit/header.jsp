@@ -6,8 +6,23 @@
 					<div class="float-right">
 						<div class="language">
 							<ul class="nav">
-								<li><a class="active" href="/fwdhk/changeLang?selectLang=en&action=/en" target="_top" data-lang="en">EN</a></li>
-								<li><a class="inactive" href="/fwdhk/changeLang?selectLang=tc&action=/en" target="_top" data-lang="tc">中</a></li>
+								<!-- <li><a class="active" href="/fwdhk/changeLang?selectLang=en&action=/en" target="_top" data-lang="en">EN</a></li>
+								<li><a class="inactive" href="/fwdhk/changeLang?selectLang=tc&action=/en" target="_top" data-lang="tc">中</a></li> -->
+								<%
+									//System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
+									if ("en".equals(session.getAttribute("language").toString())) {
+									%>
+										<li><a class="inactive" href="" target="_top" onclick="" data-lang="en">EN</a></li>
+										<li><a class="active" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>" target="_top" onclick="perventRedirect=false;" data-lang="tc">中</a></li>
+									<%
+									} else {
+									%>
+										<li><a class="active" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>" target="_top" onclick="perventRedirect=false;" data-lang="en">EN</a></li>
+										<li><a class="inactive" href="" target="_top" onclick="" data-lang="tc">中</a></li>
+									<%
+									}
+									
+									 %>
 							</ul>
 						</div>
 					</div>

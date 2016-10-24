@@ -5,101 +5,18 @@
 <fmt:setBundle basename="messages" var="msg" />
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="dec"%>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
+<c:set var="captchaLang" value="${language == 'tc' ? 'zh-TW' : 'en'}" />
+	
 	
 <!DOCTYPE HTML>
 <html>
-
-<!-- <head>
-	<script type="text/javascript">
-    window.status = "Loading: Document body...";
-  </script>
-
-	Title
-	<title>Travel Care - Traveling Insurance| FWD Hong Kong</title>
-	<meta name='description' content="">
-	<meta name="format-detection" content="telephone=no">
-	<meta http-equiv="Cache-control" content="no-cache, no-store">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta name='keywords' content="meta keywords here" />
-	Schema.org markup for Google+
-	<meta itemprop="headline" content="" />
-	<meta itemprop="description" content="" />
-	<meta itemprop="image" content="" />
-	Open Graph data
-	<meta property="og:title" content="" />
-	<meta property="og:type" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:image:secure_url" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:site_name" content="" />
-	Twitter Card data
-	<meta property="twitter:title" content="" />
-	<meta property="twitter:description" content="" />
-	<meta property="twitter:card" content="" />
-	<meta property="twitter:image" content="" />
-	<meta name="twitter:site" content="" />
-	<meta name="twitter:url" content="" />
-
-	<link rel="canonical" href="" />
-
-	<link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
-
-	<script src="resources/js/jquery-1.12.2.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="resources/js/animatescroll.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-	<script src="resources/js/moment-with-locales.min.js"></script>
-	<script src="resources/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="resources/js/bootstrapValidator.min.js"></script>
-	<script src="resources/js/mobiscroll.custom-2.17.2.min.js"></script>
-	<script src="resources/js/mobiscroll.i18n.en_fwd.js"></script>
-	<script src="resources/js/mobiscroll.i18n.zh_fwd.js"></script>
-	<script src="resources/js/dropzone.js"></script>
-	<script src="resources/js/common.js"></script>
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
-	/>
-	<link rel="stylesheet" href="resources/css/bootstrap-datetimepicker.min.css">
-	<link rel="resources/css/bootstrapValidator.min.css">
-	<link rel="stylesheet" href="resources/css/titatoggle-dist-min.css">
-	<link rel="stylesheet" href="resources/css/mobiscroll.custom-2.17.2.min.css">
-	<link rel="stylesheet" href="resources/css/dropzone.css">
-	<link rel="stylesheet" type="text/css" href="resources/css/all.css" />
-	<link rel="stylesheet" type="text/css" href="resources/css/common.css" />
-
-	<link rel="stylesheet" type="text/css" href="include/css/travelcare.css" />
-	<link rel="stylesheet" type="text/css" href="include/css/loading.css" />
-
-	<script src="include/js/travelcare.js"></script>
-
-	<script>
-    // handle when console is null/undefined especially in IE
-    if (typeof console == "undefined") {
-      this.console = {
-        log: function() {},
-        info: function() {},
-        error: function() {},
-        warn: function() {}
-      };
-    }
-
-    // global variables
-    var UILANGUAGE = 'en';
-  </script>
-
-	<link rel="icon" type="image/x-icon" href="resources/images/favicon.ico" />
-</head>
- -->
  <head>
 	<script type="text/javascript">
     window.status = "Loading: Document body...";
     var context="<%=request.getContextPath()%>";
+    var language = "${language}";
 
   </script>
 
