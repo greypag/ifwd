@@ -51,35 +51,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
 
-	<script src="resources/js/jquery-1.12.2.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.12.2.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="resources/js/animatescroll.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/animatescroll.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-	<script src="resources/js/moment-with-locales.min.js"></script>
-	<script src="resources/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="resources/js/bootstrapValidator.min.js"></script>
-	<script src="resources/js/mobiscroll.custom-2.17.2.min.js"></script>
-	<script src="resources/js/mobiscroll.i18n.en_fwd.js"></script>
-	<script src="resources/js/mobiscroll.i18n.zh_fwd.js"></script>
-	<script src="resources/js/dropzone.js"></script>
-	<script src="resources/js/common.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/moment-with-locales.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/dropzone.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
 	/>
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/bootstrap-datetimepicker.min.css">
-	<link rel="<%=request.getContextPath()%>/resources/css/passkit/bootstrapValidator.min.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/titatoggle-dist-min.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/mobiscroll.custom-2.17.2.min.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/dropzone.css">
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/all.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/common.css" />
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-datetimepicker.min.css">
+	<link rel="<%=request.getContextPath()%>/resources/css/bootstrapValidator.min.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/titatoggle-dist-min.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/dropzone.css">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/all.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/common.css" />
 
-	<link rel="stylesheet" type="text/css" href="include/css/travelcare.css" />
-	<link rel="stylesheet" type="text/css" href="include/css/loading.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/travelcare.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/loading.css" />
 
-	<script src="include/js/travelcare.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/travelcare.js"></script>
 
 	<script>
     // handle when console is null/undefined especially in IE
