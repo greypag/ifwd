@@ -51,30 +51,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
 
-	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.12.2.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/animatescroll.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/moment-with-locales.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/dropzone.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
+<%-- 	<script src="<%=request.getContextPath()%>/resources/js/passkit/jquery-1.12.2.min.js"></script>
+ --%>	<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/animatescroll.min.js"></script>
+<%-- 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/passkit/bootstrap-datepicker.min.js"></script>
+ --%>	<script src="<%=request.getContextPath()%>/resources/js/passkit/moment-with-locales.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/bootstrap-datetimepicker.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/bootstrapValidator.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/mobiscroll.custom-2.17.2.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/mobiscroll.i18n.en_fwd.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/mobiscroll.i18n.zh_fwd.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/dropzone.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/passkit/common.js"></script>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
-	/>
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-datetimepicker.min.css">
-	<link rel="<%=request.getContextPath()%>/resources/css/bootstrapValidator.min.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/titatoggle-dist-min.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css">
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/dropzone.css">
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/all.css" />
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/common.css" />
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"/>
+<%-- 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-theme.min.css"/>
+ --%>	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker3.min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-datetimepicker.css"/>
+	<link rel="<%=request.getContextPath()%>/resources/css/bootstrapValidator.min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/titatoggle-dist-min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/mobiscroll.custom-2.17.2.min.css"/>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/passkit/dropzone.css"/>
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/all.css" />
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/common.css" />
 
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/travelcare.css" />
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/passkit/loading.css" />
@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     var UILANGUAGE = 'en';
   </script>
 
-	<link rel="icon" type="image/x-icon" href="resources/images/favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="resources/images/passkit/favicon.ico" />
 </head>
 
 <body>
@@ -115,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="logo-wrap">
 						<a href="/fwdhk/en">
-							<img class="logo" src="resources/images/mobile_logo.png" alt="" />
+							<img class="logo" src="<%=request.getContextPath()%>/resources/images/passkit/mobile_logo.png" alt="" />
 						</a>
 					</div>
 				</div>
@@ -124,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</header>
 
 	<div class="container main landing travelcare">
-		<div class="hero" style="background-image: url('include/images/banner.jpg');"></div>
+		<div class="hero" style="background-image: url('<%=request.getContextPath()%>/resources/images/passkit/banner.jpg');"></div>
 		<div>
 			<!-- body start -->
 			<div class="col-xs-12 center verify-page">
@@ -190,7 +190,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						下載證明書
 					</h3>
 					<p>請以手機掃描以下QR條碼以下載流動版本的保險證明書。</p>
-					<div class="qr-code"><img src="include/images/qr-sample.png" /></div>
+					<div class="qr-code"><img src="<%=request.getContextPath()%>/resources/images/passkit/qr-sample.png" /></div>
 					<p class="verify-remark">提示：於下載證明書期間，您的個人資料將會轉交予服務供應商以作於流動手機版本下載之用。</p>
 				</div>
 
