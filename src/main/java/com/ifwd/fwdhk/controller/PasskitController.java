@@ -84,7 +84,7 @@ public class PasskitController extends BaseController{
     	}
 	}
 
-	@RequestMapping(value = "/policies/policiesHolder/validate", method = POST, produces = {APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = POST, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy holders is available",
 		response = ValidateHolderResult.class

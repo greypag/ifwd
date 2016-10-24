@@ -62,7 +62,7 @@ public class PasskitPageFlowControl {
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
-			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("passkit")){
+			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("travelcare")){
 				referer = UserRestURIConstants.PAGE_PASSKIT_LANDING;
 			} else {
 				referer = getPasskitPage(referer);
@@ -70,7 +70,7 @@ public class PasskitPageFlowControl {
 		}
 
 		if (current != null) {
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("passkit")){
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("travelcare")){
 				current = UserRestURIConstants.PAGE_PASSKIT_LANDING;
 			} else {
 				current = getPasskitPage(current);
