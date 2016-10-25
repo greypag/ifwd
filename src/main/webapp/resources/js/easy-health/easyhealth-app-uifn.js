@@ -175,11 +175,18 @@ $(document).ready(function(){
 
 								var cc = $('#ccNumber').val();
 								if( fwdPayment.isValid(cc) ){
+									$(".cardtype").find("span").removeClass("detected");
+									$(".cardtype").find("span").removeClass("detected-n");
 									if( fwdPayment.isMaster(cc) ){
-										$("#pMethod").val("Master");	
+										$("#pMethod").val("Master");
+										$(".cardtype").find("span.mastercard").addClass("detected");
+										$(".cardtype").find("span.visa").addClass("detected-n");
 									} else {
-										$("#pMethod").val("VISA");	
+										$("#pMethod").val("VISA");
+										$(".cardtype").find("span.visa").addClass("detected");
+										$(".cardtype").find("span.mastercard").addClass("detected-n");
 									}
+									$(".cardtype").find("span.cardtype-slash").addClass("detected-n");
 									return true;
 								} else {
 									return false;
