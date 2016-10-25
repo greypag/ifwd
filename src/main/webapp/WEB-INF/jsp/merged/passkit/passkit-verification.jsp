@@ -87,9 +87,9 @@
 
 				<div class="verify-system-error tabbed-page">
 					<h3 class="verify-title">
-						System busy
+						<fmt:message key="verification.pass.system.busy.message" bundle="${msg}" />
 					</h3>
-					<p>System busy, please try again later.</p>
+					<p><fmt:message key="verification.pass.system.busy.try.later.message" bundle="${msg}" /></p>
 				</div>
 			</div>
 
@@ -111,7 +111,7 @@
 						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(300deg) translate(0,-60px);transform:rotate(300deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
 						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(330deg) translate(0,-60px);transform:rotate(330deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
 					</div>
-					<div class="loading-text">請稍後</div>
+					<div class="loading-text"><fmt:message key="verification.pass.wait" bundle="${msg}" /></div>
 				</div>
 			</div>
 

@@ -7,8 +7,8 @@
 		<div class="container">
 			<div class="corp-links">
 				<ul class="nav">
-					<li><a href="http://www.fwd.com.hk/tc" target="_blank">富衛主頁</a></li>
-					<li><a href="http://blog.fwd.com.hk/zh" target="_blank">富衛博客</a></li>
+					<li><a href="http://www.fwd.com.hk/tc" target="_blank"><fmt:message key="passkit.footer.home.link" bundle="${msg}" /></a></li>
+					<li><a href="http://blog.fwd.com.hk/zh" target="_blank"><fmt:message key="passkit.footer.blog.link" bundle="${msg}" /></a></li>
 				</ul>
 			</div>
 		</div>
@@ -16,11 +16,11 @@
 			<div class="container">
 				<div class="copyright-links">
 					<ul class="nav">
-						<li><a href="https://www.fwd.com.hk/tc/online-security/" target="_blank">網上保安</a></li>
-						<li><a href="https://www.fwd.com.hk/tc/disclaimer/" target="_blank">免責聲明</a></li>
-						<li><a href="https://www.fwd.com.hk/tc/personal-data-protection-policy-and-practices/" target="_blank">個人資料保護政策及執行</a></li>
+						<li><a href="https://www.fwd.com.hk/tc/online-security/" target="_blank"><fmt:message key="passkit.footer.online.security.link" bundle="${msg}" /></a></li>
+						<li><a href="https://www.fwd.com.hk/tc/disclaimer/" target="_blank"><fmt:message key="passkit.footer.disclaimer.link" bundle="${msg}" /></a></li>
+						<li><a href="https://www.fwd.com.hk/tc/personal-data-protection-policy-and-practices/" target="_blank"><fmt:message key="passkit.footer.personal.data.protection.policy.practices.link" bundle="${msg}" /></a></li>
 					</ul>
-					<p>&copy; 2016 富衛香港　版權所有　不得轉載</p>
+					<p>&copy; <fmt:message key="passkit.footer.copyright" bundle="${msg}" /></p>
 				</div>
 			</div>
 		</div>
@@ -30,16 +30,16 @@
 			<div class="row">
 				<div class="col-sm-8 copyright-links">
 					<ul class="nav">
-						<li><a href="https://www.fwd.com.hk/tc/online-security/" target="_blank">網上保安</a></li>
-						<li><a href="https://www.fwd.com.hk/tc/disclaimer/" target="_blank">免責聲明</a></li>
-						<li><a href="https://www.fwd.com.hk/tc/personal-data-protection-policy-and-practices/" target="_blank">個人資料保護政策及執行</a></li>
+						<li><a href="https://www.fwd.com.hk/tc/online-security/" target="_blank"><fmt:message key="passkit.footer.online.security.link" bundle="${msg}" /></a></li>
+						<li><a href="https://www.fwd.com.hk/tc/disclaimer/" target="_blank"><fmt:message key="passkit.footer.disclaimer.link" bundle="${msg}" /></a></li>
+						<li><a href="https://www.fwd.com.hk/tc/personal-data-protection-policy-and-practices/" target="_blank"><fmt:message key="passkit.footer.personal.data.protection.policy.practices.link" bundle="${msg}" /></a></li>
 					</ul>
-					<p>&copy; 2016 富衛香港　版權所有　不得轉載</p>
+					<p>&copy; <fmt:message key="passkit.footer.copyright" bundle="${msg}" /></p>
 				</div>
 				<div class="col-sm-4 corp-links">
 					<ul class="nav">
-						<li><a href="http://www.fwd.com.hk/tc" target="_blank">富衛主頁</a></li>
-						<li><a href="http://blog.fwd.com.hk/zh" target="_blank">富衛博客</a></li>
+						<li><a href="http://www.fwd.com.hk/tc" target="_blank"><fmt:message key="passkit.footer.home.link" bundle="${msg}" /></a></li>
+						<li><a href="http://blog.fwd.com.hk/zh" target="_blank"><fmt:message key="passkit.footer.blog.link" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 			</div>
