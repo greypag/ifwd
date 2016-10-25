@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-10-14 14:38:57 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-10-25 17:35:24 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -2459,6 +2459,34 @@ body.chin .partner-headline-wrapper .headline-title {
     padding-left: 30px !important;
   }
 
+  /* line 3, ../sass/mobile/_landing.scss */
+  #business-partners-container img.hk3_logo {
+    height: 12%;
+    width: 12%;
+  }
+  /* line 7, ../sass/mobile/_landing.scss */
+  #business-partners-container img.sony_logo {
+    height: 30%;
+    width: 30%;
+  }
+  /* line 11, ../sass/mobile/_landing.scss */
+  #business-partners-container img.cx_logo {
+    height: 40%;
+    width: 40%;
+  }
+  /* line 15, ../sass/mobile/_landing.scss */
+  #business-partners-container img.cfucome_logo {
+    margin-top: 20px;
+    height: 14%;
+    width: 14%;
+  }
+  /* line 21, ../sass/mobile/_landing.scss */
+  #business-partners-container img.seven_eleven_logo {
+    margin-top: 20px;
+    height: 35%;
+    width: 35%;
+  }
+
   /* line 3, ../sass/mobile/_loginpopup.scss */
   .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog,
   .loginpopup .loginpopup__modal-dialog {
@@ -2750,6 +2778,51 @@ body.chin .partner-headline-wrapper .headline-title {
     color: #ffffff;
     font-size: 14px;
     line-height: 18px;
+  }
+
+  /* line 3, ../sass/desktop/_landing.scss */
+  #business-partners-container img.hk3_logo {
+    margin-top: 15px;
+    height: 40%;
+    width: 40%;
+  }
+  /* line 8, ../sass/desktop/_landing.scss */
+  #business-partners-container img.seven_eleven_logo {
+    margin-top: 25px;
+    height: 55%;
+    width: 55%;
+  }
+  /* line 13, ../sass/desktop/_landing.scss */
+  #business-partners-container img.agoda_logo {
+    margin-top: 15px;
+    height: 55%;
+    width: 55%;
+  }
+  /* line 18, ../sass/desktop/_landing.scss */
+  #business-partners-container img.cx_logo {
+    margin-top: 20px;
+  }
+  /* line 21, ../sass/desktop/_landing.scss */
+  #business-partners-container img.cfucome_logo {
+    margin-top: 40px;
+    height: 38%;
+    width: 38%;
+  }
+  /* line 26, ../sass/desktop/_landing.scss */
+  #business-partners-container img.csl_logo {
+    margin-top: 30px;
+  }
+  /* line 29, ../sass/desktop/_landing.scss */
+  #business-partners-container img.sony_logo {
+    margin-top: 45px;
+    height: 55%;
+    width: 55%;
+  }
+  /* line 34, ../sass/desktop/_landing.scss */
+  #business-partners-container img.club_logo {
+    margin-top: 53px;
+    height: 55%;
+    width: 55%;
   }
 
   /* line 1, ../sass/desktop/_loginpopup.scss */
