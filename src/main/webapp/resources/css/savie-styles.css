@@ -10024,3 +10024,18 @@ a.to-orange{
 		padding-top: 0;
 	}
 }
+@media (max-width: 992px){
+	.savie-common-btn.save-hkid-exit-btn1{
+		margin-right: 0;
+	}
+	.savie-common-btn.save-hkid-exit-btn1,.savie-common-btn.save-hkid-exit-btn2{
+		width: 100%;
+	}	
+}
+.savie-common-btn.save-hkid-exit-btn1{
+	margin-right: 10px;
+}
+.savie-common-btn.save-hkid-exit-btn1,.savie-common-btn.save-hkid-exit-btn2{
+	padding: 10px;
+	margin-bottom: 10px;
+}

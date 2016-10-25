@@ -32,7 +32,9 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.connector.response.life.GetVulnerableCustomerResponse;
+import com.ifwd.fwdhk.connector.response.life.PolicyApplication;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -158,10 +160,12 @@ public class LifeController extends BaseController{
 		startDOB.add(startDOB.YEAR, -70);
 		startDOB.add(startDOB.DATE, 1);
 		model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
-		
 		Calendar defaultDOB = new GregorianCalendar();
 		Date date1 = new Date();
 		String type = request.getParameter("type");
+		String backSummary=request.getParameter("backSummary");
+		model.addAttribute("type", type);
+		model.addAttribute("backSummary", backSummary);
 		if("2".equals(type)){
 			request.getSession().setAttribute("type", type);
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
@@ -188,10 +192,33 @@ public class LifeController extends BaseController{
 					sliderValue = savieFna.getQ4_b_amount().replace(",", "");
 				}
 			}
+			if (request.getSession().getAttribute("saviePlanDetails")!=null){
+				
+				model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+			}else{
+				model.addAttribute("promoCode", "");
+			}
 			logger.info(sliderValue.replace(",", ""));
 			model.addAttribute("sliderValue", sliderValue.replace(",", ""));
 			defaultDOB.setTime(date1);
 		}else if("3".equals(type)){
+			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+			try {
+				GetPolicyApplicationResponse apiResponse = savieOnlineService.getPolicyApplicationSaveforLater(request);
+				PolicyApplication policyApplication = apiResponse.getPolicyApplication();
+				saviePlanDetails.setPromoCode(policyApplication.getReferralCode());
+				
+			} catch (ECOMMAPIException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			/*if (request.getSession().getAttribute("saviePlanDetails")!=null){
+				model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+			}else{
+				model.addAttribute("promoCode", "");
+			}*/
+			model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+			request.getSession().setAttribute("promoCode", saviePlanDetails.getPromoCode());
 			model.addAttribute("type", type);
 			request.getSession().setAttribute("savieType", "SP");
 			model.addAttribute("sliderMin", "30000");

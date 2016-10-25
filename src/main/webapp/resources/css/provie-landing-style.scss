@@ -463,6 +463,13 @@ button.dropdown-toggle{
 			.pv_extra_desc{
 				font-size: 1.125em;
 			}
+			.pv_link{
+				color: #fff;
+				text-decoration: underline;
+				&:hover{
+					color: #ff8200;
+				}
+			}
 		}
 	}
 	.pv_extra_mobile .pv_extra_point{
