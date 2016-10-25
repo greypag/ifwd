@@ -88,10 +88,10 @@ $(function () {
   }
 
   function goPasskitUrl(url) {
-    loading(function (url) {    	
+   	
         console.log('redirect to passkit url %s', url);
         window.location = url;
-      });
+
   }
 
   /*
@@ -109,12 +109,26 @@ $(function () {
 	    });
 	  }  
  */ 
+  $.post = function(url, data, callback) {
+	    return jQuery.ajax({
+	    headers: { 
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json' 
+	    },
+	    'type': 'POST',
+	    'url': url,
+	    'data': JSON.stringify(data),
+	    'dataType': 'json',
+	    'success': callback
+	    });
+	};
+	
   function submitPolicyDetail(userType, hkid, policyNo) {
     loading(function () {
-      return $.get(context+'/api/passkit/policies/policiesHolder/validate', {
-    	policyNo: policyNo,
+      return $.post(context+'/api/passkit/policies/policiesHolder/validate', {
+    	referenceNo: policyNo,
         hkId: hkid,
-        role: userType === USER_TYPE.APPLICANT ? 'A' : 'I'
+        role: userType === USER_TYPE.APPLICANT ? 'A' : 'P'
       }).done(function (data) {
         if (data.valid) {
         	/*
