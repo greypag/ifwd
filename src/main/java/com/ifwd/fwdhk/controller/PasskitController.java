@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,6 +29,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.core.Responses;
+import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.model.passkit.ValidateHolderResult;
 import com.ifwd.fwdhk.model.passkit.ValidatePolicyResult;
 import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
@@ -84,8 +86,8 @@ public class PasskitController extends BaseController{
     		return Responses.error(null);
     	}
 	}
-/*
-	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = POST, produces = {APPLICATION_JSON_VALUE})
+
+	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = POST, consumes = {APPLICATION_JSON_VALUE}, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy holders is available",
 		response = ValidateHolderResult.class
@@ -93,7 +95,7 @@ public class PasskitController extends BaseController{
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid policy holder/applicant"),
 						   @ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<ValidateHolderResult> validatePolicyHoldersByPolicyNo(
-			@ApiParam(value = "PolicyInfo", required = true) @RequestParam("policyInfo") PassPolicyNoBean passPolicy,
+			@ApiParam(value = "PolicyInfo", required = true)  @RequestBody PassPolicyNoBean passPolicy,
 			HttpServletRequest request) {
 		
 		
@@ -111,7 +113,8 @@ public class PasskitController extends BaseController{
     	}
 	}
 	
-*/
+	
+
 	@RequestMapping(value = "/api/passkit/policies/policiesHolder/validate", method = GET, produces = {APPLICATION_JSON_VALUE})
 	@ApiOperation(
 		value = "Check if policy holders is available",
