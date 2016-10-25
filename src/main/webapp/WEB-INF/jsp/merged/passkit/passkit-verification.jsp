@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
-<fmt:setBundle basename="messages" var="msg" />
+<fmt:setBundle basename="passkit" var="msg" />
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="dec"%>
 
@@ -20,46 +20,48 @@
 
 				<div class="verify-form tabbed-page">
 					<h3 class="verify-title">
-						身份驗證
+						<fmt:message key="verification.identity.text" bundle="${msg}" />
 					</h3>
-					<p>您即將下載電子版本的保險證明書。<br/>請選擇您於保單的身份以繼續︰</p>
+					<p><fmt:message key="verification.identity.description" bundle="${msg}" /><br/><fmt:message key="verification.identity.select.description" bundle="${msg}" /></p>
 					<div class="verify-content">
 						<!-- server update -->
 						<input type="hidden" id="tbx-policy-no" value="${policyNo}" />
 						<div class="verify-option">
 							<label>
 							<span class="radio"></span>
-							<span class="radio-txt">投保人</span>
+							<span class="radio-txt"><fmt:message key="verification.identity.applicant" bundle="${msg}" /></span>
 							<input type="radio" name="usertype" value="applicant" />
 						</label>
 						</div>
 						<div class="verify-detail" data-type="applicant">
-							<p>
+							<!-- <p>
 								請輸入您香港身份證號碼<br/>的頭5位字母或數字以作驗證
 								<br/>（您輸入的資料，必須與申請紀錄一致)
-							</p>
-							<input class="verify-textfield" type="text" id="tbx-applicant-hkid" placeholder="(例如︰A1234)" maxlength="5" />
-							<div class="verify-error" data-error-for="tbx-applicant-hkid" data-error-validate="投保人資料不正確" data-error-required="請輸入您香港身份證號碼"></div>
+							</p> -->
+							<p><fmt:message key="verification.identity.type.applicant.description" bundle="${msg}" /></p>
+							<input class="verify-textfield" type="text" id="tbx-applicant-hkid" placeholder="<fmt:message key="verification.identity.example" bundle="${msg}" />" maxlength="5" />
+							<div class="verify-error" data-error-for="tbx-applicant-hkid" data-error-validate="<fmt:message key="verification.identity.applicant.error.massage" bundle="${msg}" />" data-error-required="<fmt:message key="verification.identity.applicant.error.need.massage" bundle="${msg}" />"></div>
 						</div>
 						<div class="verify-option">
 							<label>
 							<span class="radio"></span>
-							<span class="radio-txt">被保人</span>
+							<span class="radio-txt"><fmt:message key="verification.identity.insured.person" bundle="${msg}" /></span>
 							<input type="radio" name="usertype" value="insuredperson" />
 						</label>
 						</div>
 						<div class="verify-detail" data-type="insuredperson">
-							<p>
+							<!-- <p>
 								請輸入您的香港身份證或護照號碼<br/>的頭5位字母或數字以作驗證
 								<br/>（您輸入的資料，必須與申請紀錄一致)
-							</p>
-							<input class="verify-textfield" type="text" id="tbx-insuredperson-hkid" placeholder="(例如︰A1234)" maxlength="5" />
-							<div class="verify-error" data-error-for="tbx-insuredperson-hkid" data-error-validate="被保人資料不正確" data-error-required="請輸入您的香港身份證或護照號碼"></div>
+							</p> -->
+							<p><fmt:message key="verification.identity.type.insured.person.description" bundle="${msg}" /></p>
+							<input class="verify-textfield" type="text" id="tbx-insuredperson-hkid" placeholder="<fmt:message key="verification.identity.example" bundle="${msg}" />" maxlength="5" />
+							<div class="verify-error" data-error-for="tbx-insuredperson-hkid" data-error-validate="<fmt:message key="verification.identity.insured.person.error.massage" bundle="${msg}" />" data-error-required="<fmt:message key="verification.identity.insured.person.error.need.massage" bundle="${msg}" />"></div>
 						</div>
 						<div class="verify-action">
-							<input type="submit" value="提交" class="verify-button" id="tbx-verify-submit" />
+							<input type="submit" value="<fmt:message key="verification.identity.submit" bundle="${msg}" />" class="verify-button" id="tbx-verify-submit" />
 							<p class="verify-remark">
-								只要按下提交，您便可下載流動版本的保險證明書。此證書可於iOS或Andriod系統上顯示及儲存於您的手機，方便您聯絡我們或查閱保單詳情。
+							<fmt:message key="verification.identity.details.description" bundle="${msg}" />
 							</p>
 						</div>
 					</div>
@@ -67,20 +69,20 @@
 
 				<div class="verify-expired tabbed-page">
 					<h3 class="verify-title">
-						證明書已逾期
+						<fmt:message key="verification.pass.expired.text" bundle="${msg}" />
 					</h3>
-					<p>您好！您的證明書已逾期，我們希望您有一個愉快的旅程。</p>
-					<p class="verify-remark">如欲查看更多精彩優惠，請到<a href="https://i.fwd.com.hk">i.fwd.com.hk</a>。</p>
-					<p class="verify-remark">如有任何查詢或索償，請致電富衛24小時服務熱線(852) 3123 3123或瀏覽本公司的<a href="https://www.fwd.com.hk">網站</a>以了解索償程序。</p>
+					<p><fmt:message key="verification.pass.expired.text.detail" bundle="${msg}" /></p>
+					<p class="verify-remark"><fmt:message key="verification.pass.expired.more" bundle="${msg}" /><a href="https://i.fwd.com.hk">i.fwd.com.hk</a>。</p>
+					<p class="verify-remark"><fmt:message key="verification.pass.expired.contact.detail" bundle="${msg}" /><a href="https://www.fwd.com.hk"><fmt:message key="verification.pass.expired.contact.detail.website" bundle="${msg}" /></a><fmt:message key="verification.pass.expired.contact.detail.2" bundle="${msg}" /></p>
 				</div>
 
 				<div class="verify-qr-code tabbed-page">
 					<h3 class="verify-title">
-						下載證明書
+						<fmt:message key="verification.download.qrcode.text" bundle="${msg}" />
 					</h3>
-					<p>請以手機掃描以下QR條碼以下載流動版本的保險證明書。</p>
+					<p><fmt:message key="verification.download.qrcode.description" bundle="${msg}" /></p>
 					<div class="qr-code"><img src="<%=request.getContextPath()%>/resources/images/passkit/qr-sample.png" /></div>
-					<p class="verify-remark">提示：於下載證明書期間，您的個人資料將會轉交予服務供應商以作於流動手機版本下載之用。</p>
+					<p class="verify-remark"><fmt:message key="verification.download.qrcode.tips" bundle="${msg}" /></p>
 				</div>
 
 				<div class="verify-system-error tabbed-page">

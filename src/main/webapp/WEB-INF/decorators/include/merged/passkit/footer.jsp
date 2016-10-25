@@ -7,7 +7,7 @@
 		<div class="container">
 			<div class="corp-links">
 				<ul class="nav">
-					<li><a href="http://www.fwd.com.hk/tc" target="_blank"><fmt:message key="footer.product.type1.link" bundle="${msg}" />富衛主頁</a></li>
+					<li><a href="http://www.fwd.com.hk/tc" target="_blank">富衛主頁</a></li>
 					<li><a href="http://blog.fwd.com.hk/zh" target="_blank">富衛博客</a></li>
 				</ul>
 			</div>
@@ -38,7 +38,7 @@
 				</div>
 				<div class="col-sm-4 corp-links">
 					<ul class="nav">
-						<li><a href="http://www.fwd.com.hk/tc" target="_blank"><fmt:message key="breadcrumb.item.home" bundle="${msg}" />富衛主頁</a></li>
+						<li><a href="http://www.fwd.com.hk/tc" target="_blank">富衛主頁</a></li>
 						<li><a href="http://blog.fwd.com.hk/zh" target="_blank">富衛博客</a></li>
 					</ul>
 				</div>
