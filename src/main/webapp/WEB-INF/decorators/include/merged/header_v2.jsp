@@ -103,16 +103,24 @@
 			    'flightcare_moncare': {
 			        'mobile': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />'
-			    }
+			    },
+			    'ios_chrome': {
+			        'mobile': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />'
+			    }			    
 			}
 	    }
 	};
 
 // Default value
+var isChromeIOS = navigator.userAgent.match('CriOS') ? true : false;
+var contentIndexArr = [];
+if ( isChromeIOS ) { contentIndexArr.push('ios_chrome'); }
 var nBarConfig = {
-	'contentIndex': 'ifwd_repair',
-	'isVisible': <%=showNotification%>
+	'contentIndex': contentIndexArr,
+	'isVisible': ( <%=showNotification%> == false && isChromeIOS == false ) ? false : true
 }
+
 </script>
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 

@@ -70,7 +70,7 @@
 	                	<div class="clearfix"></div>
                 	</div>
                 	<hr class="partner_hr"/>
-                	
+
                     <div id="theclub_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="theclub">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="<fmt:message key="image.alt_61" bundle="${msg}" />"/>
@@ -99,6 +99,9 @@
                             <div class="partner_tnc">
                                 <div class="partner_tnc_list">
                                     <ul class="bullets">
+                                    	<%-- <li>
+                                    	   <p class="h4-5"> <fmt:message key="partner.the.club.3x.period" bundle="${msg}" /></p>
+                                    	</li>--%>
                                         <li>
                                            <p class="h4-5"><fmt:message key="the.club.copy8.1" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.the.club.tnc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.the.club.tnc1.part3" bundle="${msg}" /></p>
                                          </li>

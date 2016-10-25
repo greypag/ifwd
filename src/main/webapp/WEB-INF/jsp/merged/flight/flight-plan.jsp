@@ -11,8 +11,8 @@
 <script type="text/javascript">
 
   // personal or family
-  var traveller;  
-  
+  var traveller;
+
   // personal
   var personalTraveller = parseInt("${planDetails.totalPersonalTraveller}");
   // family
@@ -20,7 +20,7 @@
   var familyChild = parseInt("${planDetails.totalChildTraveller}");
   var familyOther = parseInt("${planDetails.totalOtherTraveller}");
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
- 
+
 //bmg inline variable
   var updateQuoteFlag = true;
   var tempPersonalTraveller = personalTraveller;
@@ -35,9 +35,9 @@
       tempTotalTraveller=familyTraveller;
   }
   //bmg inline variable
-  
+
   perventRedirect=true;
-  
+
   $(document).ready(function() {
 		 // update quote area to show headcounts
 	    if("${planDetails.planSelected}".toLowerCase() == "family"){
@@ -45,12 +45,12 @@
 	            $('#family_plan_desk_spinner').show();
 	            $('#family_plan_btm_spinner').show();
 	            $('#family_plan_mob_spinner').show();
-	        } 
+	        }
 	        traveller = familyTraveller;
 	    }else{
 	      traveller = personalTraveller;
 	    }
-		 
+
 		 // inline changes for 3 departure date and traveller numbers
 	    $("#inline-change-1").click(function() {
 	          $('#dp1').datepicker('show');
@@ -66,30 +66,30 @@
 	    });
 
     });
-  
+
   function submitPlan(){
 	    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-	    
+
 	    setTimeout(function(){
 	    	if(chkClubMember()){
 	            $("#frmFlightPlan").submit();
 	        }else{
 	            $('#loading-overlay').modal('hide');
-	        }	    	
+	        }
 	    }, 500);
 	}
 
   function chkClubMember() {
 	    $(".errDue").html('');
-	    var flag = true;        
+	    var flag = true;
 	    var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
-	    var the_club_membership_no = document.getElementById("theClubMembershipNo").value; 
+	    var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
 	    if (the_club_member_check_box) {
 	        if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
 	        	$("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
 	            document.getElementById("theClubMembershipNo").focus();
 	            $("#theClubMembershipNo").addClass("invalid-field");
-	            
+
 	            flag = false;
 	        }else if (the_club_membership_no != ""){
                 if(/^8/.test(the_club_membership_no) == false){
@@ -101,14 +101,14 @@
                     $("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
                     document.getElementById("theClubMembershipNo").focus();
                     $("#theClubMembershipNo").addClass("invalid-field");
-                    flag = false;                   
+                    flag = false;
                 }
             }
 	    }
 	    return flag;
-	}  
-  
-  
+	}
+
+
   function updateFlightQuote() {
 	  if(updateQuoteFlag){
 		  $('#loading-overlay').modal({
@@ -116,13 +116,13 @@
               keyboard: false
           })
           updateQuoteFlag = false;
-          
+
           $('#lblCountDesk').html(tempTotalTraveller);
           $("#totalPersonalTraveller").val(tempPersonalTraveller);
           $("#totalAdultTraveller").val(tempAdultTraveller);
           $("#totalChildTraveller").val(tempChildTraveller);
           $("#totalOtherTraveller").val(tempOtherTraveller);
-          
+
           $('#myFWDropdown').toggleClass('open');
           console.log($('#frmFlightPlan input').serialize());
 	      $.ajax({
@@ -132,7 +132,7 @@
 	          success : function(data) {
 	        	  $('#loading-overlay').modal('hide');
 	        	  updateQuoteFlag = true;
-	        	  
+
 	              var json = JSON.parse(data);
 	              promoData = json;
 	              $("#totalTravellingDays").val(json.totalDays);
@@ -157,7 +157,7 @@
     FamilyPlanChecked = "checked";
       //personalSpinnerStyle = "style='display:none'";
       familySpinnerStyle = "style='display:block'";
-    } 
+    }
 %>
 
 <!--/#main-Content-->
@@ -165,17 +165,17 @@
 	<div id="cn" class="container">
 		<div class="row">
 			<form name="frmFlightPlan" id="frmFlightPlan" action="<%=request.getContextPath()%>/${language}/flight-insurance/user-details" method="post">
-				<!-- <input type="hidden" name="totalAdultTraveller" id="totalAdultTraveller" value="${planDetails.getTotalAdultTraveller()}"> --> 
+				<!-- <input type="hidden" name="totalAdultTraveller" id="totalAdultTraveller" value="${planDetails.getTotalAdultTraveller()}"> -->
 				<!-- <input type="hidden" name="totalChildTraveller" id="totalChildTraveller"value="${planDetails.getTotalChildTraveller()}"> -->
 				<!-- <input type="hidden" name="totalOtherTraveller" id="totalOtherTraveller" value="${planDetails.getTotalOtherTraveller()}"> -->
 				<!-- <input type="hidden" name="returnDate" id="returnDate" value="${planDetails.getReturnDate()}"> -->
 				<!-- <input type="hidden" name="departureDate" id="departureDate"value="${planDetails.getDepartureDate()}"> -->
 			    <input type="hidden" id="days" name="days" value="${days}">
-			     <!-- <input type="hidden" name="travellerCount" value="${planDetails.getTravellerCount()}"> --> 
-			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.toalDue}"> 
+			     <!-- <input type="hidden" name="travellerCount" value="${planDetails.getTravellerCount()}"> -->
+			     <input type="hidden" name="ToalDue" value="${flightQuoteDetails.toalDue}">
 			     <!-- <input type="hidden" name="planSelected" value="${planDetails.getPlanSelected()}"> -->
-			     
-			
+
+
 
 
 				<div class="container ">
@@ -193,7 +193,7 @@
 										dots-inactive and dots-active color the dots -->
 										<div class="order-status-timeline-completion dots-inactive"></div>
 										<div class="order-status-timeline-completion dots-inactive"></div>
-										
+
 									</div>
 									<div
 										class="image-order-status image-order-status-new active  img-circle">
@@ -219,7 +219,7 @@
                     <li><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /><i class="fa fa-caret-right"></i></li>
                     <li><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /> </li>
                     <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></li>
-                </ol>				
+                </ol>
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none">
 					   <div class="workingholiday-plan-margin form-wrap">
@@ -230,11 +230,11 @@
 						<div class="plan-box plan-box-flight">
 							<div class="col-md-7 col-sm-6">
 								<h2>
-									<fmt:message key="flight.quote.plan" bundle="${msg}" /><br> 
+									<fmt:message key="flight.quote.plan" bundle="${msg}" /><br>
 								</h2>
 							</div>
 							<div class="col-md-5 col-sm-6">
-								
+
 								<h2>
 									<%-- HK$ <br>
 									<div class="flightcare-hk">${flightQuoteDetails.getToalDue()}
@@ -244,7 +244,7 @@
 								</h2>
 							</div>
 							<div class="clearfix"></div>
-							
+
 						</div>
 
 						<!--Full coverage -->
@@ -266,7 +266,7 @@
                                             <li><fmt:message key="flight.quote.fullDetails.keyFeature.desc1" bundle="${msg}" /></li>
                                             <li><fmt:message key="flight.quote.fullDetails.keyFeature.desc2" bundle="${msg}" /></li>
                                             <li><fmt:message key="flight.quote.fullDetails.keyFeature.desc3" bundle="${msg}" /></li>
-                                            
+
                                         </ol>
                                         <br>
                                         <h4 class="h4-3-b"><fmt:message key="flight.quote.fullDetails.eligibility" bundle="${msg}" /></h4>
@@ -281,7 +281,7 @@
                             </div>
 
                         </div>
-                        
+
                         <!--Full coverage end -->
                         <h4 class="h4-3-b"><fmt:message key="flight.quote.other.tnc" bundle="${msg}" /></h4>
                         <ol class="major-exc">
@@ -323,25 +323,25 @@
 								<!-- <h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" /> <span class="span2 uline">
 									<a href="${pageContext.request.contextPath}/${language}/flight-insurance"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span>
 								</h3>
-								
+
 								 <div class="form-group">
 									<div class="input-group wd2">
 										<input name="departureDate" type="text" class="datepicker form-control bcg-trans"
 											value='<c:out value="${planDetails.getDepartureDate()}"/>'readonly>
-											 
+
 									</div>
 								</div> -->
 								<h3><fmt:message key="flight.quote.summary.option1" bundle="${msg}" />
-								
+
 								<!-- <span class="span2 uline">
 	                                <a id="inline-change-1" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span> -->
-	                                
+
 	                            </h3>
-	                            
+
 								<!-- <div class="input-group date bmg-flight-inline-dp1" id="dp1"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 				                  <input name="departureDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.getDepartureDate()}" readonly>
 				                </div> -->
-				                
+
 				                <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                              <input name="departureDate" type="text" class="datepicker form-control border-radius" value="${planDetails.departureDate}" readonly>
 	                            </div>
@@ -356,52 +356,52 @@
 												readonly>
 										</div>
 									</div> -->
-									 
+
 							  <h3><fmt:message key="flight.quote.summary.option2" bundle="${msg}" />
-							  
+
 							  <!-- <span class="span2 uline">
 	                                <a id="inline-change-2" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span> -->
-	                                
+
 	                                </h3>
-							  
+
 	                              <!-- <div class="input-group date bmg-flight-inline-dp2" id="dp2"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
 							        <input type="text" name="returnDate" class="datepicker form-control" id="txtEndDateMob" onblur="chkValidFlightDate(this, 'endDateMobIn', 'Return Date', 'txtStartDateMob', 'startDateMobIn', '');" value="${planDetails.getReturnDate()}" readonly>
 							      </div> -->
-							      
+
 							      <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
 	                                <input type="text" name="returnDate" class="datepicker form-control" value="${planDetails.returnDate}" readonly>
 	                              </div>
-	                              
+
 								<!-- return date end  -->
-								
-	                            
+
+
 	                            <!--
 	                            <div class="form-group">
-									
+
 										<c:if test="${planDetails.getTotalAdultTraveller() !=0 }">Parent :${planDetails.getTotalAdultTraveller()},</c:if>
 										<c:if test="${planDetails.getTotalChildTraveller() !=0 }">Child :${planDetails.getTotalChildTraveller()}, </c:if>
 										<c:if test="${planDetails.getTotalOtherTraveller() !=0}">Others :${planDetails.getTotalOtherTraveller()}</c:if>
 										<c:if test="${planDetails.getTravellerCount() !=0}"> Travellers :${planDetails.getTravellerCount()}</c:if>
-									
+
 								</div>
 								-->
 								<!-- stay days starts -->
 								<div id="numOfDays">
-	                                <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan">${days}</span> 
+	                                <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan">${days}</span>
 	                                <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
 	                            </div>
 	                            <!-- stay days ends -->
 								<!-- traveller start -->
 								<h3><fmt:message key="flight.quote.summary.option3" bundle="${msg}" />
-								
+
 								<!-- <span class="span2 uline">
 	                                <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span> -->
-	                                
+
 	                            </h3>
-	                            
+
 	                            <span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
-	                            
-	                            <!-- bmg inline change 
+
+	                            <!-- bmg inline change
 	                            <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup hide-html" id="myFWDropdown">
 	                              <a class="dropdown-toggle col-lg-12 col-md-12 disabled" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label>&nbsp;<label id="lblCountDesk"></label> <i class="fa fa-caret-down pull-right"></i> </a>
 	                              <div class="dropdown-menu bdr1">
@@ -410,7 +410,7 @@
 	                                    <label class="radio radio-warning radio-inline">
 	                                      <input type="radio" name="planSelected" id="personal_plan_inline" data-id="desk" class="plan flight-inline-plan" value="personal"  <%=PersonalPlanChecked%> >
 	                                      <label for="personal_plan_inline"><fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
-	                                     </label> 
+	                                     </label>
 	                                  </div>
 	                                  <div class="col-lg-6">
 	                                   <label class="radio radio-warning radio-inline">
@@ -435,7 +435,7 @@
 	                                    </div>
 	                                  </div>
 	                                  <div class="clearfix"></div>
-	                                  
+
 	                                  <div class="plan_spinner_desk" id="family_plan_inline_spinner" <%=familySpinnerStyle%>>
 	                                    <div class="col-lg-6">
 	                                      <h4><fmt:message key="flight.main.quote.plan2.type1" bundle="${msg}" /> </h4>
@@ -479,11 +479,11 @@
 				                            <h4><fmt:message key="flight.main.quote.childnotes" bundle="${msg}" /></h4>
 				                        </div>
 	                                  </div>
-	                                  
+
 	                                  <div class="clearfix"></div>
-	                           
+
 			                           <hr>
-			                           
+
 			                           <div class="col-lg-5 col-md-5">
 			                                <div class="btn-confirm-inline-change pointer" onclick="updateFlightQuote()"><span><fmt:message key="travel.action.apply" bundle="${msg}" /></span></div>
 			                           </div>
@@ -493,29 +493,29 @@
 	                              <div class="clearfix"></div>
 	                            </div>
 	                            -->
-	                            
+
 	                            <input type="hidden" name="totalPersonalTraveller" data-min="1" data-max="15" id="txtTravellersInline" value="${planDetails.totalPersonalTraveller}"/>
 	                            <input type="hidden" name="" id="family_desk_count" value="${planDetails.totalFamilyTravellers}">
 	                            <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${planDetails.totalAdultTraveller}"/>
 	                            <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="14" value="${planDetails.totalChildTraveller}"/>
 	                            <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="14" value="${planDetails.totalOtherTraveller}"/>
-	                            
+
 	                            <div id="show-traveller" class="form-group likeDatePicker bcg-trans">
-	                                <div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
+	                                <div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;">
 	                                <%-- <input type="text" class="datepicker form-control" value=" --%>
 	                                <c:if test="${planDetails.totalAdultTraveller !=0 }"><fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetails.totalAdultTraveller} <br></c:if>
 	                                <c:if test="${planDetails.totalChildTraveller !=0 }"><fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetails.totalChildTraveller} <br></c:if>
 	                                <c:if test="${planDetails.totalOtherTraveller !=0}"><fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetails.totalOtherTraveller} <br></c:if>
-	                                <c:if test="${planDetails.totalPersonalTraveller !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.totalPersonalTraveller}</c:if><!-- readonly> --> 
-	                                    
+	                                <c:if test="${planDetails.totalPersonalTraveller !=0}"><fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetails.totalPersonalTraveller}</c:if><!-- readonly> -->
+
 	                            </div>
 	                            </div>
 	                            <!-- traveller end -->
-								
-								
+
+
 								</div>
 							</div>
-	
+
 							<!-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due </h3> -->
 							<%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
 								&nbsp;
@@ -554,8 +554,8 @@
 	<input type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','USD');perventRedirect=false;submitPlan();" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 </c:otherwise>
 </c:choose>
-	                                
-	                                
+
+
 	                            </div>
 	                            <div class="clearfix"></div>
 	                            <div class="col-xs-14"><span class="text-red errDue"></span></div>
@@ -577,22 +577,22 @@
 					<span id="lblDaysDesk" style="display: none"></span>
 					<div id="quote-wrap" class="clearfix"></div>
 				</div>
-				
+
 				<p class="padding1 workingholiday-plan-disclaimer">
 				<fmt:message key="flight.quote.other.disclaimer.part1" bundle="${msg}" /> <a class="sub-link"
 						href="https://home.fwd.com.hk/gidoc/policyprovisions/FlightCare_JacketLatest.pdf"
 						target="_blank"><fmt:message key="flight.quote.other.disclaimer.part2" bundle="${msg}" /></a> <fmt:message key="flight.quote.other.disclaimer.part3" bundle="${msg}" /> <br>
                         <fmt:message key="flight.quote.other.disclaimer.part4" bundle="${msg}" />
 					</p>
-					
-					<!--mob-#bottom-->					
+
+					<!--mob-#bottom-->
 					<div class="col-xs-12 hidden-md hidden-lg pad-none">
 					   <div style="width: 80%;margin-left: 10%;margin-bottom: 40px;">
 					        <div class="top35 pull-left pad-none" style="width:47%">
 	                            <!-- <a href="${pageContext.request.contextPath}/${language}/flight-insurance" onclick="perventRedirect=false;" class="bdr-curve btn btn-primary bck-btn">
-	                                <fmt:message key="flight.details.action.back" bundle="${msg}" /> 
+	                                <fmt:message key="flight.details.action.back" bundle="${msg}" />
 	                            </a> -->
-	                            
+
 	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="flight.details.action.back" bundle="${msg}" /> </a>
 	                        </div>
 	                        <div class="top35 pull-right pad-none" style="width:47%">
@@ -604,8 +604,8 @@
 	<input type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','','','Regis_Flight_Step1 ZH','USD');perventRedirect=false;submitPlan();" Value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
 </c:otherwise>
 </c:choose>
-	                            
-	                            
+
+
 	                        </div>
 					        <div class="clearfix"></div>
 					    </div>
@@ -634,9 +634,9 @@
 						<div class="form-group">
 							<input type="email" class="form-control" placeholder=""
 								name="emailToSendPromoCode" id="emailToSendPromoCode">
-								
-								
-								
+
+
+
 						</div>
 						<span id="errPromoEmail" class="text-red"></span> <br>
 						<div class="row">
@@ -675,17 +675,17 @@
                 </div>
                 <div class="form-container">
                     <div class="row">
-                        <div class="col-xs-12">   
-                            <p><fmt:message key="flight.club.membership.pop.up" bundle="${msg}" /></p>
+                        <div class="col-xs-12">
+                            <p><fmt:message key="flight.club.membership.pop.up" bundle="${msg}" /><%-- <fmt:message key="partner.the.club.3x.period" bundle="${msg}" /> --%></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p><a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a></p>             
+                            <p><a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a></p>
                         </div>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </div>
