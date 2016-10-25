@@ -157,13 +157,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
 	                data : $('#frmTravelPlan input').serialize(),
 	                success : function(data) {
-	                	
+
 	                	$('#loading-overlay').modal('hide');
 	                    promoCodeInsertFlag = true;
 	                    var json = JSON.parse(data);
 	                    if(json.eligibiltyPlanCode=="B"){
 	                    	$("#box0").hide();
-	                    	$("#box1").click();	                    	
+	                    	$("#box1").click();
 	                    }else{
 	                    	$("#box0").show();
 	                    }
@@ -208,7 +208,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					updateQuoteFlag = true;
 					//console.log("update");
 					var json = JSON.parse(data);
-					promoData = json;					
+					promoData = json;
 					setValue(json);
 					$("#totalTravellingDays").val(json.totalDays);
 					$("#totalTravellingDaysSpan").html(json.totalDays);
@@ -223,7 +223,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			showSubmitError(resultErr, true);
 		};
 	}
-	
+
 	function setValue(result) {
 
 		var selValue = document.getElementById("inputseletedplanname").value;
@@ -1074,7 +1074,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                     </div>
                                 </div>
                             </div>
-                            <div class="fwdpanel-heading product_plan_panel">
+                            <%-- [3951] [Single Travel] Quote page - Incorrect content (HIDE the important note section in accordion) --%>
+                            <%-- <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     <fmt:message key="annual.quote.importantnotes" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
@@ -1108,7 +1109,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                            </div>
+                            </div> --%>
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     <fmt:message key="annual.quote.majorexclusions" bundle="${msg}" />
@@ -2063,7 +2064,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="text-center">
                                     <span class="submit__errormsg" id="submit__errormsg">Testing</span>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="clearfix"></div>
                             <div class="col-xs-14"><span class="text-red errDue"></span></div>
                             <br>
