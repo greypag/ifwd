@@ -3,17 +3,18 @@ package com.ifwd.fwdhk.model.passkit;
 
 public class PassPolicyNoBean {
 	
-	private String policyNo;
+	private String referenceNo;
 	private String hkId;
 	private String role;
 	
 	
 	
-	public String getPolicyNo() {
-		return policyNo;
+
+	public String getReferenceNo() {
+		return referenceNo;
 	}
-	public void setPolicyNo(String policyNo) {
-		this.policyNo = policyNo;
+	public void setReferenceNo(String referenceNo) {
+		this.referenceNo = referenceNo;
 	}
 	public String getRole() {
 		return role;
@@ -27,7 +28,5 @@ public class PassPolicyNoBean {
 	public void setHkId(String hkId) {
 		this.hkId = hkId;
 	}
-
-
 
 }

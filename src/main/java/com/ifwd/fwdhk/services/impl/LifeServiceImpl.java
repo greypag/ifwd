@@ -4131,7 +4131,7 @@ public class LifeServiceImpl implements LifeService {
 		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
 		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
 		JSONObject params = new JSONObject();
-		params.put("referenceNo", passPolicy.getPolicyNo());
+		params.put("referenceNo", passPolicy.getReferenceNo());
 		params.put("hkId", passPolicy.getHkId());
 		params.put("role", passPolicy.getRole());
 		final Map<String,String> header = headerUtil.getHeader(request);
@@ -4139,11 +4139,11 @@ public class LifeServiceImpl implements LifeService {
 		return responseJsonObj;
 	}
 	
-	public JSONObject validatePolicyHoldersByPolicyNoGet(String policyNo, String hkId,String role,HttpServletRequest request) throws ECOMMAPIException{
+	public JSONObject validatePolicyHoldersByPolicyNoGet(String referenceNo, String hkId,String role,HttpServletRequest request) throws ECOMMAPIException{
 		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
 		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
 		JSONObject params = new JSONObject();
-		params.put("referenceNo", policyNo);
+		params.put("referenceNo", referenceNo);
 		params.put("hkId", hkId);
 		params.put("role", role);
 		final Map<String,String> header = headerUtil.getHeader(request);
