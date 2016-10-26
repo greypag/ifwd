@@ -88,7 +88,7 @@ public class PasskitPageFlowControl {
 		switch (current) {
 		
 		case UserRestURIConstants.PAGE_PASSKIT_LANDING:
-			to = UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD;
+			to = UserRestURIConstants.PAGE_PASSKIT_LANDING;
 			break;
 
 		default:
@@ -113,9 +113,6 @@ public class PasskitPageFlowControl {
 			return UserRestURIConstants.PAGE_PASSKIT_LANDING;
 		}
 		
-		if(url.endsWith(UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD)) {
-			return UserRestURIConstants.PAGE_PASSKIT_DOWNLOAD;
-		}
 
 		return "";
 	}

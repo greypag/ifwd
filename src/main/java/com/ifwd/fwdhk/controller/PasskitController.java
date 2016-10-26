@@ -55,7 +55,7 @@ public class PasskitController extends BaseController{
 	@RequestMapping(value = {"/{lang}/passkit/travelCare"})
 	public ModelAndView passkitLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		//passkitOnlineService.removeProvieOnlineSession(request);
-		String policyNo = (String) request.getParameter("policyNo");		
+		String policyNo = (String) request.getParameter("referenceNo");		
 
 		model.addAttribute("policyNo", policyNo);
 		return PasskitPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PASSKIT_LANDING);
