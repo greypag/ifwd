@@ -59,10 +59,22 @@ public class ECommController extends BaseController {
 		try {
 			switch (product) {
 				case "easyHomeCare":
+					if (!Boolean.parseBoolean(request.getParameter("age")) 
+							|| !Boolean.parseBoolean(request.getParameter("storeye"))
+							|| !Boolean.parseBoolean(request.getParameter("areas")))
+					{
+						throw new Exception("Invalid input paramter for Easy Home Care");
+					}
 					homeService.getHomeCareQuote(UserRestURIConstants.URL_EASY_HOME_LANDING, request, request.getParameter("promoCode"), "N", "N");
 					rv = new RedirectView(language+"/household-insurance/easy-home-care/quote");
 					break;
 				case "homeLiability":
+					if (!Boolean.parseBoolean(request.getParameter("age")) 
+							|| !Boolean.parseBoolean(request.getParameter("storeye"))
+							|| !Boolean.parseBoolean(request.getParameter("areas")))
+					{
+						throw new Exception("Invalid input paramter for Easy Home Care");
+					}
 					homeService.getHomeCareQuote(UserRestURIConstants.URL_HOME_LIABILITY_LANDING, request, request.getParameter("promoCode"), "N", "N");
 					rv = new RedirectView(language+"/household-insurance/home-liability/quote");
 					break;
@@ -70,6 +82,10 @@ public class ECommController extends BaseController {
 					rv = new RedirectView(language+"/overseas-study-insurance/plan-options");
 					break;
 				case "workingHoliday":
+					if (request.getParameter("plan") != null && (request.getParameter("plan").equals("A") || request.getParameter("plan").equals("B")))
+					{
+						throw new Exception("Invalid input paramter for Working Holiday"); 
+					}
 					HttpSession session = request.getSession();
 					session.setAttribute("referralCode", request.getParameter("promoCode"));
 					workingHolidayController.prepareWorkingHolidayPlan(request);
@@ -80,7 +96,7 @@ public class ECommController extends BaseController {
 					break;
 			}		
 		} catch (Exception ex) {
-			rv = new RedirectView("/"+language);
+			rv = new RedirectView(language);
 		}
 		rv.setStatusCode(HttpStatus.MOVED_TEMPORARILY);
 		return rv;
