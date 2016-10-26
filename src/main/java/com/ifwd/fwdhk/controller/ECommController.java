@@ -53,7 +53,7 @@ public class ECommController extends BaseController {
 		RedirectView rv = null;
 		String product = request.getParameter("product");
 		String language = request.getParameter("lang");
-		if (language == null || (language != "en" && language != "tc")) {
+		if (language == null || (!language.equals("en") && !language.equals("tc"))) {
 			language = "en";
 		}
 		try {
@@ -82,7 +82,7 @@ public class ECommController extends BaseController {
 					rv = new RedirectView(language+"/overseas-study-insurance/plan-options");
 					break;
 				case "workingHoliday":
-					if (request.getParameter("plan") != null && (request.getParameter("plan").equals("A") || request.getParameter("plan").equals("B")))
+					if (request.getParameter("plan") != null && (!request.getParameter("plan").equals("A") && !request.getParameter("plan").equals("B")))
 					{
 						throw new Exception("Invalid input paramter for Working Holiday"); 
 					}
