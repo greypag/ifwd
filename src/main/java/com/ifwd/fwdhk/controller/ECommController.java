@@ -73,7 +73,7 @@ public class ECommController extends BaseController {
 							|| !Boolean.parseBoolean(request.getParameter("storeye"))
 							|| !Boolean.parseBoolean(request.getParameter("areas")))
 					{
-						throw new Exception("Invalid input paramter for Easy Home Care");
+						throw new Exception("Invalid input paramter for Home Liability");
 					}
 					homeService.getHomeCareQuote(UserRestURIConstants.URL_HOME_LIABILITY_LANDING, request, request.getParameter("promoCode"), "N", "N");
 					rv = new RedirectView(language+"/household-insurance/home-liability/quote");
