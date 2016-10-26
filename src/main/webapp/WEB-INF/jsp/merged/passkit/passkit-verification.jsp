@@ -72,7 +72,7 @@
 						<fmt:message key="verification.pass.expired.text" bundle="${msg}" />
 					</h3>
 					<p><fmt:message key="verification.pass.expired.text.detail" bundle="${msg}" /></p>
-					<p class="verify-remark"><fmt:message key="verification.pass.expired.more" bundle="${msg}" /><a href="https://i.fwd.com.hk">i.fwd.com.hk</a>。</p>
+					<p class="verify-remark"><fmt:message key="verification.pass.expired.more" bundle="${msg}" /><a href="https://i.fwd.com.hk">i.fwd.com.hk</a>.</p>
 					<p class="verify-remark"><fmt:message key="verification.pass.expired.contact.detail" bundle="${msg}" /><a href="https://www.fwd.com.hk"><fmt:message key="verification.pass.expired.contact.detail.website" bundle="${msg}" /></a><fmt:message key="verification.pass.expired.contact.detail.2" bundle="${msg}" /></p>
 				</div>
 
