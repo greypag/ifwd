@@ -12697,9 +12697,9 @@ button[disabled].btn.btn-default--vc {
 	}
 	#business-partners-container img.seven_eleven_logo {}
 	#business-partners-container img.club_logo {
-	    margin-top: 53px;
-		height: 55%;
-		width: 55%;
+	    margin-top: 50px;
+		height: 59%;
+		width: 59%;
 	}
 }
 @media screen and (max-width: 991px) {

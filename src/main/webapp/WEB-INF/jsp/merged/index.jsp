@@ -317,7 +317,7 @@ var currentPath = "<%=request.getContextPath()%>";
 						   <div class="col-xs-1">&nbsp;</div>
 						   <div id="bp-hk3" class="col-xs-12 col-md-2 text-center">
 							   <div class="desktop-center clearfix">
-								   <img class="hk3_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/3_logo_bw.jpg">
+								   <img class="hk3_logo" src="<%=request.getContextPath()%>/resources/images/partner_3hk.png">
 							   </div>
  	 					  </div>
 						  <div id="bp-7eleven" class="col-xs-12 col-md-3 text-center">
@@ -355,7 +355,7 @@ var currentPath = "<%=request.getContextPath()%>";
 					</div>
 					<div id="bp-sony" class="col-xs-12 col-md-3 text-center">
 						<div class="desktop-center clearfix">
-							<img class="sony_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/sonylogo.jpg">
+							<img class="sony_logo" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png">
 						</div>
 					</div>
 					<div id="bp-club" class="col-xs-12 col-md-3 text-center">
@@ -415,16 +415,15 @@ var currentPath = "<%=request.getContextPath()%>";
 
 				if ( languageP == 'en') {
 
-					$('.cx_logo').attr("src", currentPath + "/resources/images/savie-2016/cx_" + languageP + ".jpg");
+					$('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_" + languageP + ".png");
 
 				} else if ( languageP == 'tc') {
 
-					$('.cx_logo').attr("src", currentPath + "/resources/images/savie-2016/cx_" + languageP + ".jpg");
+					$('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_" + languageP + ".png");
 
 				} else {
 
-					var languageP = 'en';
-					$('.cx_logo').attr("src", currentPath + "/resources/images/savie-2016/cx_" + languageP + ".jpg");
+					$('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_en.png");
 					console.error('No defaulted language found');
 
 				}
