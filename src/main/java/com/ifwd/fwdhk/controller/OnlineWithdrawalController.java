@@ -28,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -133,7 +134,7 @@ public class OnlineWithdrawalController extends BaseController{
 				responseJsonObj.remove("msg");
 				if( responseJsonObj.toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
-					responseObject= (T) mapper.readValue(responseJsonObj.toString(), responseObject.getClass());
+					responseObject= (T) mapper.readValue(responseJsonObj.toString(), responseClass);
 					//logger.debug(methodName+" "+class1.getClass().getName()+" apiResponse:"+class1.toString());
 					logger.debug(methodName+" "+responseClass.getName()+" apiResponse: "+responseClass.toString()+" "+responseObject.toString());
 				} else {
@@ -143,7 +144,7 @@ public class OnlineWithdrawalController extends BaseController{
 				
 		}else{
 			logger.info(methodName+" System error:" + responseJsonObj.get("msg").toString());
-			return Responses.error(null);
+			new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt((String)errMsg.get("resultCode"))));
 		}
 		return Responses.ok(responseObject);
 	}
