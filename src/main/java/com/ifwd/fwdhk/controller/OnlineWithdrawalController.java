@@ -15,15 +15,17 @@ import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +59,6 @@ import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawPerformResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngUnlinkRequest;
 import com.ifwd.fwdhk.util.HeaderUtil;
-import com.ifwd.fwdhk.util.MessageCodeUtil;
 
 
 @Controller
@@ -131,7 +132,35 @@ public class OnlineWithdrawalController extends BaseController{
 		JSONObject errMsg=(JSONObject) responseJsonObj.get("msg");
 		//if(responseJsonObj.get("msg") == null){
 		if(errMsg.get("resultCode").equals("0")){
+			//remove msg of response and replace msg of responseobj as warnMsg 
 				responseJsonObj.remove("msg");
+				Set keySet=responseJsonObj.entrySet();
+				JSONObject item=new JSONObject();
+				Iterator<HashMap> it = keySet.iterator();  
+				while (it.hasNext()) {  
+					Map.Entry<String,JSONObject> entry = (Map.Entry<String,JSONObject>)it.next();
+					String key = entry.getKey();
+					if(responseJsonObj.get(key) instanceof JSONArray ){
+						JSONArray array=(JSONArray)responseJsonObj.get(key);
+						for (int i = 0;i<array.size();i++){  
+			                item=(JSONObject)array.get(i);
+			                if(item.containsKey("msg")){
+			                	  item.put("warnMsg",item.get("msg"));
+								  item.remove("msg");
+								}
+			            }  
+					}
+					if(responseJsonObj.get(key) instanceof JSONObject ){
+						JSONObject obj=(JSONObject) responseJsonObj.get(key);
+						if(obj.containsKey("msg")){
+							obj.put("warnMsg", obj.get("msg"));
+							obj.remove("msg");
+						}
+					}
+					
+				  
+				}
+			//mapping
 				if( responseJsonObj.toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
 					responseObject= (T) mapper.readValue(responseJsonObj.toString(), responseClass);
@@ -149,26 +178,6 @@ public class OnlineWithdrawalController extends BaseController{
 		return Responses.ok(responseObject);
 	}
 
-/*	@SuppressWarnings("unchecked")
-	private <T> T mappingWithoutErrMsg(String methodName,
-			Class<T> responseType, JSONObject responseJsonObj)
-			throws IOException, JsonParseException, JsonMappingException {
-		if(responseJsonObj.get("errMsgs") == null) {
-		if(responseJsonObj!= null && responseJsonObj.toString().length() > 0) {
-			ObjectMapper mapper = new ObjectMapper();
-			responseJsonObj.remove("errMsgs");
-			return (T) mapper.readValue(responseJsonObj.toString(), TngPolicyInfoResponse.class);
-			//logger.debug(methodName+" "+class1.getClass().getName()+" apiResponse:"+class1.toString());
-		} else {
-			logger.info(methodName+" "+responseType.getName()+" "+"not found");
-			return null;
-		}
-		}else{
-			return null;
-		}
-		
-		
-	}*/
 	
 	@ApiOperation(
 			value = "Get Policy info By Policy",
@@ -232,9 +241,34 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicySimple simple,
 			HttpServletRequest request) {
 		
+		String methodName="sendTngOtpSms";
+		logger.debug(methodName+" getCustomerId:"+simple.getPolicyId());
 		
-		TngOtpSmsReqResponse result = new TngOtpSmsReqResponse();
-		return Responses.ok(result);
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		TngOtpSmsReqResponse tngOtpSmsReqResp = new TngOtpSmsReqResponse();
+		ResponseEntity responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_SEND_TNG_OTP;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(simple);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			// ******************* Makeup result *******************			
+			
+			responseEntity=getResponseEntityByJsonObj(methodName,tngOtpSmsReqResp.getClass(),responseJsonObj);
+				
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
+		
 	}
 
 	@ApiOperation(

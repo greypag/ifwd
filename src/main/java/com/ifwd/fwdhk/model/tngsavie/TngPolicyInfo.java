@@ -20,7 +20,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"valueAsOfDate",
 	"tngAccountId",
 	"tngExpiryDate",
-    "tngPolicyStatus"
+    "tngPolicyStatus",
+	"tngStatus_zh",
+    "tngStatus_en"
 })
 public class TngPolicyInfo {
 
@@ -48,8 +50,28 @@ public class TngPolicyInfo {
     private String tngExpiryDate;
     @JsonProperty("tngPolicyStatus")
     private String tngPolicyStatus;
+    @JsonProperty("tngStatus_zh")
+    private String tngStatus_zh;
+    @JsonProperty("tngStatus_en")
+    private String tngStatus_en;
     
-    @JsonProperty("warnMsg")
+    public String getTngStatus_zh() {
+		return tngStatus_zh;
+	}
+
+	public void setTngStatus_zh(String tngStatus_zh) {
+		this.tngStatus_zh = tngStatus_zh;
+	}
+
+	public String getTngStatus_en() {
+		return tngStatus_en;
+	}
+
+	public void setTngStatus_en(String tngStatus_en) {
+		this.tngStatus_en = tngStatus_en;
+	}
+
+	@JsonProperty("warnMsg")
     private List<WarnMsg> warnMsg = new ArrayList<WarnMsg>();
 
 	public String getPolicyId() {

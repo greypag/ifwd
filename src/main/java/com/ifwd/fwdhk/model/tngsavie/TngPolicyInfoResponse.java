@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
 	"customerId",
     "mobile",
-    "policy"
+    "policies"
 })
 public class TngPolicyInfoResponse {
 
@@ -18,9 +18,15 @@ public class TngPolicyInfoResponse {
 	private String customerId;
 	@JsonProperty("mobile")
     private String mobile;
-    @JsonProperty("policy")
-    private List<TngPolicyInfo> policy = new ArrayList<TngPolicyInfo>();
-    public String getCustomerId() {
+    @JsonProperty("policies")
+    private List<TngPolicyInfo> policies = new ArrayList<TngPolicyInfo>();
+    public List<TngPolicyInfo> getPolicies() {
+		return policies;
+	}
+	public void setPolicies(List<TngPolicyInfo> policies) {
+		this.policies = policies;
+	}
+	public String getCustomerId() {
 		return customerId;
 	}
 	public void setCustomerId(String customerId) {
@@ -32,11 +38,6 @@ public class TngPolicyInfoResponse {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public List<TngPolicyInfo> getPolicy() {
-		return policy;
-	}
-	public void setPolicy(List<TngPolicyInfo> policy) {
-		this.policy = policy;
-	}
+	
 
 }

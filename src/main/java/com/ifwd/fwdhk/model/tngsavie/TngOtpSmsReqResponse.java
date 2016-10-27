@@ -8,7 +8,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 "mobile",
 "result",
 "otpExpiryDate",
-"msg"
+"msg",
+"policyId"
 })
 public class TngOtpSmsReqResponse {
 
@@ -21,6 +22,15 @@ public class TngOtpSmsReqResponse {
 	@JsonProperty("otpExpiryDate")
 	private String otpExpiryDate;
 	
+	@JsonProperty("policyId")
+	private String policyId;
+	
+	public String getPolicyId() {
+		return policyId;
+	}
+	public void setPolicyId(String policyId) {
+		this.policyId = policyId;
+	}
 	public String getCustomerId() {
 		return customerId;
 	}
