@@ -92,7 +92,6 @@ public class OnlineWithdrawalController extends BaseController{
 		
 		
 		JSONObject responseJsonObj = new JSONObject();		
-		TngPolicyInfoResponse policyInfoResp = new TngPolicyInfoResponse();
 		ResponseEntity responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
@@ -104,15 +103,10 @@ public class OnlineWithdrawalController extends BaseController{
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			// ******************* Makeup result *******************			
-			//testing code 
-			/*responseJsonObj.put("errMsgs", null);
-			responseJsonObj.put("mobile", "85455875");
-			responseJsonObj.put("policy", null);*/
-			//testing code
+	
+			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoResponse.class,responseJsonObj);
 			
-			responseEntity=getResponseEntityByJsonObj(methodName,policyInfoResp.getClass(),responseJsonObj);
-			
-			//policyInfoResp=mappingWithoutErrMsg(methodName, policyInfoResp.getClass(), responseJsonObj);
+			//policyInfoResp=mappingWithoutErrMsg(methodName, policyInfoResp.class, responseJsonObj);
 				
 			
 		} catch (Exception e) {
@@ -128,6 +122,9 @@ public class OnlineWithdrawalController extends BaseController{
 			Class<T> responseClass,
 			JSONObject responseJsonObj) throws JsonParseException, JsonMappingException, IOException {
 		//MessageCodeUtil messageUtil=new MessageCodeUtil();
+		if (responseJsonObj==null){
+			return Responses.error(null);
+		}
 		T responseObject=null;
 		JSONObject errMsg=(JSONObject) responseJsonObj.get("msg");
 		//if(responseJsonObj.get("msg") == null){
@@ -164,7 +161,7 @@ public class OnlineWithdrawalController extends BaseController{
 				if( responseJsonObj.toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
 					responseObject= (T) mapper.readValue(responseJsonObj.toString(), responseClass);
-					//logger.debug(methodName+" "+class1.getClass().getName()+" apiResponse:"+class1.toString());
+					//logger.debug(methodName+" "+class1.class.getName()+" apiResponse:"+class1.toString());
 					logger.debug(methodName+" "+responseClass.getName()+" apiResponse: "+responseClass.toString()+" "+responseObject.toString());
 				} else {
 					logger.info(methodName+" "+responseClass.getName()+" "+"not found");
@@ -207,7 +204,6 @@ public class OnlineWithdrawalController extends BaseController{
 		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
 		
 		JSONObject responseJsonObj = new JSONObject();		
-		TngPolicyInfoResponse policyInfoResp = new TngPolicyInfoResponse();
 		ResponseEntity responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
@@ -219,7 +215,7 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			
-			responseEntity=getResponseEntityByJsonObj(methodName,policyInfoResp.getClass(),responseJsonObj);
+			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoResponse.class,responseJsonObj);
 			// ******************* Makeup result *******************			
 
 		} catch (Exception e) {
@@ -251,7 +247,6 @@ public class OnlineWithdrawalController extends BaseController{
 		
 		
 		JSONObject responseJsonObj = new JSONObject();		
-		TngOtpSmsReqResponse tngOtpSmsReqResp = new TngOtpSmsReqResponse();
 		ResponseEntity responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
@@ -264,7 +259,7 @@ public class OnlineWithdrawalController extends BaseController{
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			// ******************* Makeup result *******************			
 			
-			responseEntity=getResponseEntityByJsonObj(methodName,tngOtpSmsReqResp.getClass(),responseJsonObj);
+			responseEntity=getResponseEntityByJsonObj(methodName,TngOtpSmsReqResponse.class,responseJsonObj);
 				
 			
 		} catch (Exception e) {
@@ -300,7 +295,6 @@ public class OnlineWithdrawalController extends BaseController{
 		
 		
 		JSONObject responseJsonObj = new JSONObject();		
-		TngAuthOtpResponse tngAuthOtpReqResp = new TngAuthOtpResponse();
 		ResponseEntity responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
@@ -313,7 +307,7 @@ public class OnlineWithdrawalController extends BaseController{
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			// ******************* Makeup result *******************			
 			
-			responseEntity=getResponseEntityByJsonObj(methodName,tngAuthOtpReqResp.getClass(),responseJsonObj);
+			responseEntity=getResponseEntityByJsonObj(methodName,TngAuthOtpResponse.class,responseJsonObj);
 				
 			
 		} catch (Exception e) {
@@ -336,8 +330,33 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiParam(value = "Policy ID, TNG Account ID, Token", required = true) @RequestBody TngLinkupSaveRequest saveRequest,
 			HttpServletRequest request) {
 		
-		TngPolicySimple result = new TngPolicySimple();
-		return Responses.ok(result);
+		String methodName="saveTngLinkupInfo";
+		logger.debug(methodName+" getPolicyId:"+saveRequest.getPolicyId());
+		
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		
+		ResponseEntity responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_SAVE_LINKUP;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(saveRequest);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			// ******************* Makeup result *******************			
+			
+			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicySimple.class,responseJsonObj);
+				
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
 	}
 	
 	@ApiOperation(
@@ -358,8 +377,33 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiParam(value = "Policy Id, Withdraw Amount", required = true) @RequestBody TngPolicyWithdrawRequest withdrawReq,
 			HttpServletRequest request) {
 
-		TngOtpSmsReqResponse result = new TngOtpSmsReqResponse();
-		return Responses.ok(result);
+		String methodName="requestTngPolicyWithdraw";
+		logger.debug(methodName+" getPolicyId:"+withdrawReq.getPolicyId());
+		
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		//TngOtpSmsReqResponse tngOtpSmsReqResp = new TngOtpSmsReqResponse();
+		ResponseEntity responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_REQUEST_WITHDRAWAL;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(withdrawReq);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			// ******************* Makeup result *******************			
+			
+			responseEntity=getResponseEntityByJsonObj(methodName,TngOtpSmsReqResponse.class,responseJsonObj);
+				
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
 	}
 
 	@ApiOperation(
@@ -381,8 +425,35 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiParam(value = "Policy Id, Withdraw Amount, OTP", required = true) @RequestBody TngPolicyWithdrawRequest withdrawReq,
 			HttpServletRequest request) {
 
-		TngPolicyWithdrawPerformResponse result = new TngPolicyWithdrawPerformResponse();
-		return Responses.ok(result);
+		String methodName="performTngPolicyWithdraw";
+		logger.debug(methodName+" getPolicyId:"+withdrawReq.getPolicyId());
+		
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		TngPolicyWithdrawPerformResponse tngPolicyWithdrawPerformResp = new TngPolicyWithdrawPerformResponse();
+
+		ResponseEntity responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_PERFORM_WITHDRAWAL;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(withdrawReq);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			// ******************* Makeup result *******************			
+			
+			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyWithdrawPerformResponse.class,responseJsonObj);
+				
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -405,7 +476,6 @@ public class OnlineWithdrawalController extends BaseController{
 		
 		
 		JSONObject responseJsonObj = new JSONObject();		
-		TngPolicySimple tngPolicyResp = new TngPolicySimple();
 		ResponseEntity responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
@@ -419,7 +489,7 @@ public class OnlineWithdrawalController extends BaseController{
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			// ******************* Makeup result *******************			
 			
-			responseEntity=getResponseEntityByJsonObj(methodName,tngPolicyResp.getClass(),responseJsonObj);
+			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicySimple.class,responseJsonObj);
 			
 		} catch (Exception e) {
 			logger.info(methodName+" System error:",e);
@@ -441,9 +511,34 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiParam(value = "Policy Id, Start Date, End Date", required = true) @RequestBody TngPolicyHistoryRequest historyReq,
 			HttpServletRequest request) {
 
-		TngPolicyHistoryResponse result = new TngPolicyHistoryResponse();
+		String methodName="getTngPolicyHistory";
+		logger.debug(methodName+" getPolicyId:"+historyReq.getPolicyId());
 		
-		return Responses.ok(result);
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		//TngPolicyWithdrawPerformResponse tngPolicyWithdrawPerformResp = new TngPolicyWithdrawPerformResponse();
+		ResponseEntity responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_TNG_TRANS_HISTORY;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(historyReq);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			// ******************* Makeup result *******************			
+			
+			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyHistoryResponse.class,responseJsonObj);
+				
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+
+		
+		return responseEntity;
 	}
 	
 	@ApiIgnore
