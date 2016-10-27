@@ -129,7 +129,7 @@ public class OnlineWithdrawalController extends BaseController{
 		T responseObject=null;
 		JSONObject errMsg=(JSONObject) responseJsonObj.get("msg");
 		//if(responseJsonObj.get("msg") == null){
-		if(errMsg.get("resultCode")=="0"){
+		if(errMsg.get("resultCode").equals("0")){
 				responseJsonObj.remove("msg");
 				if( responseJsonObj.toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
