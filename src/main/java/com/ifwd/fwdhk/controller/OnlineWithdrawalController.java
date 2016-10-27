@@ -127,13 +127,7 @@ public class OnlineWithdrawalController extends BaseController{
 			JSONObject responseJsonObj) throws JsonParseException, JsonMappingException, IOException {
 		//MessageCodeUtil messageUtil=new MessageCodeUtil();
 		T responseObject=null;
-		JSONObject errMsg=new JSONObject();
-		try {
-			errMsg = (JSONObject) new JSONParser().parse((String) responseJsonObj.get("msg"));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		JSONObject errMsg=(JSONObject) responseJsonObj.get("msg");
 		//if(responseJsonObj.get("msg") == null){
 		if(errMsg.get("resultCode")=="0"){
 				responseJsonObj.remove("msg");
