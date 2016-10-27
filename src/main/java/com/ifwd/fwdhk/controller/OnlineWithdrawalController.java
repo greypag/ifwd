@@ -10,19 +10,25 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,13 +37,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import springfox.documentation.annotations.ApiIgnore;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifwd.fwdhk.controller.core.Responses;
+import com.ifwd.fwdhk.model.motor.CarDetail;
+import com.ifwd.fwdhk.model.motor.QuoteMotorCare;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngLinkupSaveRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngOtpSmsReqResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryResponse;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfo;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyListRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicySimple;
@@ -45,6 +57,7 @@ import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawPerformResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngUnlinkRequest;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.MessageCodeUtil;
 
 
 @Controller
@@ -74,32 +87,88 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiParam(value = "Customer Id", required = true) @RequestBody TngPolicyListRequest tplReq,
 			HttpServletRequest request) {
 		String methodName="getPolicyInfoList";
-		
 		logger.debug(methodName+" getCustomerId:"+tplReq.getCustomerId());
+		
 		
 		JSONObject responseJsonObj = new JSONObject();		
 		TngPolicyInfoResponse policyInfoResp = new TngPolicyInfoResponse();
-		
+		ResponseEntity responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
 			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_POLICY_BY_CUST;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(tplReq);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			// ******************* Consume Service *******************
-			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), null);
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			// ******************* Makeup result *******************			
-			if (responseJsonObj.get("errMsgs") == null) {
-				//TODO convert responseJsonObj to policyInfoResp
+			//testing code 
+			/*responseJsonObj.put("errMsgs", null);
+			responseJsonObj.put("mobile", "85455875");
+			responseJsonObj.put("policy", null);*/
+			//testing code
+			
+			responseEntity=getResponseEntityByJsonObj(methodName,policyInfoResp.getClass(),responseJsonObj);
+			
+			//policyInfoResp=mappingWithoutErrMsg(methodName, policyInfoResp.getClass(), responseJsonObj);
 				
-			} else {
-				logger.info(methodName+" System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
-			}
+			
 		} catch (Exception e) {
 			logger.info(methodName+" System error:",e);
-			return Responses.error(null);
+			return responseEntity;
 		}
 		
-		return Responses.ok(policyInfoResp);
+		return responseEntity;
 	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked", "null" })
+	private <T> ResponseEntity getResponseEntityByJsonObj(String methodName,
+			Class<T> responseClass,
+			JSONObject responseJsonObj) throws JsonParseException, JsonMappingException, IOException {
+		//MessageCodeUtil messageUtil=new MessageCodeUtil();
+		T responseObject=null;
+		JSONObject errMsg=(JSONObject) responseJsonObj.get("msg");
+		//if(responseJsonObj.get("msg") == null){
+		if(errMsg.get("resultCode").equals("0")){
+				responseJsonObj.remove("msg");
+				if( responseJsonObj.toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					responseObject= (T) mapper.readValue(responseJsonObj.toString(), responseClass);
+					//logger.debug(methodName+" "+class1.getClass().getName()+" apiResponse:"+class1.toString());
+					logger.debug(methodName+" "+responseClass.getName()+" apiResponse: "+responseClass.toString()+" "+responseObject.toString());
+				} else {
+					logger.info(methodName+" "+responseClass.getName()+" "+"not found");
+					return Responses.error(null);
+				}
+				
+		}else{
+			logger.info(methodName+" System error:" + responseJsonObj.get("msg").toString());
+			new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt((String)errMsg.get("resultCode"))));
+		}
+		return Responses.ok(responseObject);
+	}
+
+/*	@SuppressWarnings("unchecked")
+	private <T> T mappingWithoutErrMsg(String methodName,
+			Class<T> responseType, JSONObject responseJsonObj)
+			throws IOException, JsonParseException, JsonMappingException {
+		if(responseJsonObj.get("errMsgs") == null) {
+		if(responseJsonObj!= null && responseJsonObj.toString().length() > 0) {
+			ObjectMapper mapper = new ObjectMapper();
+			responseJsonObj.remove("errMsgs");
+			return (T) mapper.readValue(responseJsonObj.toString(), TngPolicyInfoResponse.class);
+			//logger.debug(methodName+" "+class1.getClass().getName()+" apiResponse:"+class1.toString());
+		} else {
+			logger.info(methodName+" "+responseType.getName()+" "+"not found");
+			return null;
+		}
+		}else{
+			return null;
+		}
+		
+		
+	}*/
 	
 	@ApiOperation(
 			value = "Get Policy info By Policy",
