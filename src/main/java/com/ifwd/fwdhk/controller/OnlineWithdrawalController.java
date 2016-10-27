@@ -173,7 +173,13 @@ public class OnlineWithdrawalController extends BaseController{
 				
 		}else{
 			logger.info(methodName+" System error:" + responseJsonObj.get("msg").toString());
-			new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt((String)errMsg.get("resultCode"))));
+			try {
+				return new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt((String)errMsg.get("resultCode"))));
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return Responses.error(null);
+			}
 		}
 		return Responses.ok(responseObject);
 	}
@@ -242,7 +248,7 @@ public class OnlineWithdrawalController extends BaseController{
 			HttpServletRequest request) {
 		
 		String methodName="sendTngOtpSms";
-		logger.debug(methodName+" getCustomerId:"+simple.getPolicyId());
+		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
 		
 		
 		JSONObject responseJsonObj = new JSONObject();		
@@ -289,11 +295,33 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiParam(value = "Policy Id, OTP", required = true) @RequestBody TngAuthOtpRequest authOtpReq,
 			HttpServletRequest request) {
 		
-		//get session from header
-		//after auth, BE will return the encrypted payload, extra, sign for tng form post  
+		String methodName="authTngOtp";
+		logger.debug(methodName+" getPolicyId:"+authOtpReq.getPolicyId());
 		
-		TngAuthOtpResponse result = new TngAuthOtpResponse();
-		return Responses.ok(result);
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		TngAuthOtpResponse tngAuthOtpReqResp = new TngAuthOtpResponse();
+		ResponseEntity responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_AUTH_TNG_OTP;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(authOtpReq);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			// ******************* Makeup result *******************			
+			
+			responseEntity=getResponseEntityByJsonObj(methodName,tngAuthOtpReqResp.getClass(),responseJsonObj);
+				
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
 	}
 
 	@ApiOperation(
