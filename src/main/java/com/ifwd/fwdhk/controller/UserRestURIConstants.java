@@ -588,15 +588,15 @@ public class UserRestURIConstants {
 	public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
 
 	/*API For (Online Withdrawal)*/
-	public final static String ONLINE_WITHDRAWAL_POLICY_BY_CUST = "/withdrawal/getPolicyInfoByCustomer"; 
-	public final static String ONLINE_WITHDRAWAL_POLICY_BY_POLICY = "/withdrawal/getPolicyInfoByPolicy"; 
-	public final static String ONLINE_WITHDRAWAL_SEND_TNG_OTP = "/withdrawal/sendTngOTP";
-	public final static String ONLINE_WITHDRAWAL_AUTH_TNG_OTP = "/withdrawal/authTngOTP";
-	public final static String ONLINE_WITHDRAWAL_SAVE_LINKUP = "/withdrawal/saveTngLinkup";
-	public final static String ONLINE_WITHDRAWAL_REQUEST_WITHDRAWAL = "/withdrawal/requestTngWithdrawal";
-	public final static String ONLINE_WITHDRAWAL_PERFORM_WITHDRAWAL = "/withdrawal/performTngWithdrawal";
-	public final static String ONLINE_WITHDRAWAL_TNG_TRANS_HISTORY = "/withdrawal/getTngTransactionHistory";
-	public final static String ONLINE_WITHDRAWAL_TNG_UNLINK_POLICY = "/withdrawal/unlinkTngPolicy";
+	public final static String ONLINE_WITHDRAWAL_POLICY_BY_CUST = SERVICE_URL+"/withdrawal/getPolicyInfoByCustomer"; 
+	public final static String ONLINE_WITHDRAWAL_POLICY_BY_POLICY =SERVICE_URL+"/withdrawal/getPolicyInfoByPolicy"; 
+	public final static String ONLINE_WITHDRAWAL_SEND_TNG_OTP =SERVICE_URL+"/withdrawal/sendTngOTP";
+	public final static String ONLINE_WITHDRAWAL_AUTH_TNG_OTP =SERVICE_URL+"/withdrawal/authTngOTP";
+	public final static String ONLINE_WITHDRAWAL_SAVE_LINKUP =SERVICE_URL+"/withdrawal/saveTngLinkup";
+	public final static String ONLINE_WITHDRAWAL_REQUEST_WITHDRAWAL =SERVICE_URL+ "/withdrawal/requestTngWithdrawal";
+	public final static String ONLINE_WITHDRAWAL_PERFORM_WITHDRAWAL =SERVICE_URL+ "/withdrawal/performTngWithdrawal";
+	public final static String ONLINE_WITHDRAWAL_TNG_TRANS_HISTORY =SERVICE_URL+ "/withdrawal/getTngTransactionHistory";
+	public final static String ONLINE_WITHDRAWAL_TNG_UNLINK_POLICY =SERVICE_URL+ "/withdrawal/unlinkTngPolicy";
 	
 	
 	static String controller;
