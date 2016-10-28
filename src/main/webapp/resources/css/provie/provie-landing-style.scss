@@ -19,6 +19,15 @@ a:hover, a:focus{
 	color: #fff;
 }
 
+a{
+	&.pop-youtube{
+		&:hover,
+		&:focus{
+			color: #ffc450;
+		}
+	}
+}
+
 
 
 //========================//

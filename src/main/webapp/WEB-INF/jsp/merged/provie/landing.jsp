@@ -86,7 +86,10 @@ var home_url = "<%=request.getContextPath()%>";
                 <div class="page-banner">
                 	<img src="<%=request.getContextPath()%>/<fmt:message key="provie.online.hero.image.mobile" bundle="${msg}" />" class="img-responsive hidden-sm hidden-md hidden-lg">
 					<img src="<%=request.getContextPath()%>/<fmt:message key="provie.online.hero.image" bundle="${msg}" />" class="img-responsive hidden-xs">
-                	<div class="pv_overlay_text_wrap">
+						<a class="img-bg pop-youtube" href="#vModal" data-toggle="modal" data-youtube-link="<fmt:message key="provie.landing.youtube" bundle="${provieMsg}" />">
+							<img class="play-btn" src="<%=request.getContextPath()%>/resources/images/savie-2016/videoplay.png">
+						</a>
+						<div class="pv_overlay_text_wrap">
             			<h2 class="pv_title">&nbsp;<%-- <fmt:message key="provie.landing.breadcrumb" bundle="${provieMsg}" /> --%></h2>
             			<p class="pv_desc">&nbsp;<%-- <fmt:message key="provie.landing.title1" bundle="${provieMsg}" /> --%></p>
                 	</div>
@@ -780,13 +783,21 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
 								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='<fmt:message key="provie.landing.features.1.title" bundle="${provieMsg}" />' class="img_responsive">
 								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.1.title" bundle="${provieMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.1.text1" bundle="${provieMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="provie.landing.features.1.remarks" bundle="${provieMsg}" /></span></p>
+								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.1.text1" bundle="${provieMsg}" /><span class="pv_remark"><fmt:message key="provie.landing.features.1.remarks" bundle="${provieMsg}" /></span></p>
 							</div>
 
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
 								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt='<fmt:message key="provie.landing.features.2.title" bundle="${provieMsg}" />' class="img_responsive">
 								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.2.title" bundle="${provieMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.2.text" bundle="${provieMsg}" /></p>
+								<div class="pv_feature_desc hidden-xs">
+									<fmt:message key="provie.landing.features.2.text" bundle="${provieMsg}" />
+									<div>
+										<a class="pop-youtube" href="#vModal" data-toggle="modal" data-youtube-link="<fmt:message key="provie.landing.features.2.youtube" bundle="${provieMsg}" />">
+											<fmt:message key="provie.landing.features.playvideo" bundle="${provieMsg}" />
+										</a>
+									</div>
+									<fmt:message key="provie.landing.features.2.remarks" bundle="${provieMsg}" />
+								</div>
 							</div>
 
 							<div class="clearfix hidden-lg"></div>
@@ -794,7 +805,15 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
 								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_03.png" alt='<fmt:message key="provie.landing.features.3.title" bundle="${provieMsg}" />' class="img_responsive">
 								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.3.title" bundle="${provieMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.3.text" bundle="${provieMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="provie.landing.features.3.remarks" bundle="${provieMsg}" /></span></p>
+								<div class="pv_feature_desc hidden-xs">
+									<fmt:message key="provie.landing.features.3.text" bundle="${provieMsg}" />
+									<div>
+										<a class="pop-youtube" href="#vModal" data-toggle="modal" data-youtube-link="<fmt:message key="provie.landing.features.3.youtube" bundle="${provieMsg}" />">
+											<fmt:message key="provie.landing.features.playvideo" bundle="${provieMsg}" />
+										</a>
+									</div>
+									<span class="pv_remark"><fmt:message key="provie.landing.features.3.remarks" bundle="${provieMsg}" /></span>
+								</div>
 							</div>
 
 							<div class="clearfix visible-lg"></div>
@@ -1567,6 +1586,24 @@ var home_url = "<%=request.getContextPath()%>";
 
 		<!--Modal in Customer Service Centre (More than 2 tries)-->
 
+		
+		<!-- video Modal -->
+		<div id="vModal" class="vModal modal fade">
+			<div class="modal-dialog">
+				<a href="#close-video" class="close-btn" data-dismiss="modal" aria-hidden="true">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="44px" height="44px" viewBox="-1 3 44 44" enable-background="new -1 3 44 44" xml:space="preserve">
+							<g>
+								<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="11" y1="15" x2="31" y2="35"></line>
+								<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="31" y1="15" x2="11" y2="35"></line>
+							</g>
+						</svg>
+				</a>
+				<div class="embed-container">
+					<iframe id="ifwdVideo" src="" frameborder="0" allowfullscreen=""></iframe>
+				</div>
+			</div>
+		</div>
+
 </div>
 
 <script src="<%=request.getContextPath()%>/resources/js/vendor/nouislider.min.js"></script>
@@ -1605,6 +1642,22 @@ var home_url = "<%=request.getContextPath()%>";
 			}
 		}
 	};
+	
+$(document).ready(function(){
+	var url = '';
+	// var url = $("#ifwdVideo").attr('src');
+	// stop playing youtube because autoplay just start when press play button
+	// $("#ifwdVideo").attr('src', '');
+	$("#vModal").on('hide.bs.modal', function(){
+		$("#ifwdVideo").attr('src', '');
+	});
+	$("#vModal").on('show.bs.modal', function(){
+		$("#ifwdVideo").attr('src', url);
+	});
+	$('.pop-youtube').on('click touchend', function(){
+		url = $(this).data('youtube-link');
+	});
+});
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-payment-discount.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-landing-style.css">

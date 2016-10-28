@@ -9878,6 +9878,7 @@ select::-ms-value {
 	left: 52%;
 	margin-left: -40px;
 	opacity: 0.7;
+	z-index: 3;
 }
 
 .savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn:hover,
