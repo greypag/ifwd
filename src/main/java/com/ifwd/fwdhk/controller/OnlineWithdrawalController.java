@@ -347,7 +347,9 @@ public class OnlineWithdrawalController extends BaseController{
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			// ******************* Makeup result *******************			
-			
+			responseJsonObj.remove("result");
+			responseJsonObj.remove("tngExpiryDate");
+			responseJsonObj.remove("sendEmailResult");
 			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicySimple.class,responseJsonObj);
 				
 			
