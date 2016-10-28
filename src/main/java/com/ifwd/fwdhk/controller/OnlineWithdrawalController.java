@@ -126,7 +126,12 @@ public class OnlineWithdrawalController extends BaseController{
 			return Responses.error(null);
 		}
 		T responseObject=null;
-		JSONObject errMsg=(JSONObject) responseJsonObj.get("msg");
+		JSONObject errMsg=null;
+		if(responseJsonObj.get("msg") instanceof JSONArray){
+			errMsg=(JSONObject) ((JSONArray) responseJsonObj.get("msg")).get(0);
+		}else{
+		errMsg=(JSONObject) responseJsonObj.get("msg");
+		}
 		//if(responseJsonObj.get("msg") == null){
 		if(errMsg.get("resultCode").equals("0")){
 			//remove msg of response and replace msg of responseobj as warnMsg 
