@@ -43,17 +43,14 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifwd.fwdhk.controller.core.Responses;
-import com.ifwd.fwdhk.model.motor.CarDetail;
-import com.ifwd.fwdhk.model.motor.QuoteMotorCare;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngLinkupSaveRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngOtpSmsReqResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryResponse;
-import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfo;
-import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoByPolicyResponse;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyListRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicySimple;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawPerformResponse;
@@ -257,7 +254,7 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 455, message = "Invalid Policy"),
-			@ApiResponse(code = 456, message = "Linkup function has been temporarily suspended"),
+			@ApiResponse(code = 456, message = "Function has been temporarily suspended"),
 			@ApiResponse(code = 457, message = "Invalid customer mobile number for receive OTP via SMS"),
 			@ApiResponse(code = 458, message = "Exceed the number of re-send OTP")
 			})
@@ -304,7 +301,7 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 455, message = "Invalid Policy"),
-			@ApiResponse(code = 456, message = "Linkup function has been temporarily suspended"),
+			@ApiResponse(code = 456, message = "Function has been temporarily suspended"),
 			@ApiResponse(code = 457, message = "OTP not match"),
 			@ApiResponse(code = 458, message = "OTP expired"),
 			@ApiResponse(code = 459, message = "OTP is already authentic")
@@ -387,13 +384,19 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@ApiOperation(
 			value = "Request Tap n Go Policy withdrawal",
-			response = TngOtpSmsReqResponse.class
+			response = TngOtpSmsReqResponse.class,
+			notes ="459 Invalid Withdrawal Code:"
+					+ "<br/>TWE000 Withdrawal validation fail"
+                    + "<br/>TWE001 Withdrawal amount minimum"
+                    + "<br/>TWE002 Annual withdrawal limit exceeded"
+                    + "<br/>TWE003 Daily withdrawal limit exceeded"
+                    + "<br/>TWE004 Daily withdrawal count limit exceeded"
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 455, message = "Invalid Policy"),
-			@ApiResponse(code = 456, message = "Linkup function has been temporarily suspended"),
+			@ApiResponse(code = 456, message = "Function has been temporarily suspended"),
 			@ApiResponse(code = 457, message = "Invalid customer mobile number for receive OTP via SMS"),
 			@ApiResponse(code = 458, message = "Exceed the number of re-send OTP"),
 			@ApiResponse(code = 459, message = "Invalid Withdrawal")
@@ -440,7 +443,7 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 455, message = "Invalid Policy"),
-			@ApiResponse(code = 456, message = "Linkup function has been temporarily suspended"),
+			@ApiResponse(code = 456, message = "Function has been temporarily suspended"),
 			@ApiResponse(code = 457, message = "OTP not match"),
 			@ApiResponse(code = 458, message = "OTP expired"),
 			@ApiResponse(code = 459, message = "OTP is already authentic"),
