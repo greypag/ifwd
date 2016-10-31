@@ -143,23 +143,42 @@ public class OnlineWithdrawalController extends BaseController{
 					String key = entry.getKey();
 					if(responseJsonObj.get(key) instanceof JSONArray ){
 						JSONArray array=(JSONArray)responseJsonObj.get(key);
+						JSONObject msgObject=null;
 						for (int i = 0;i<array.size();i++){  
 			                item=(JSONObject)array.get(i);
 			                if(item.containsKey("msg")){
 			                	  item.put("warnMsg",item.get("msg"));
 								  item.remove("msg");
+								msgObject=(JSONObject)((JSONArray) item.get("warnMsg")).get(0);
+								  if(msgObject.get("refCode")!=null){
+									  msgObject.put("code",new String((String) msgObject.get("refCode")));
+								  }else{
+									  msgObject.put("code",new String((String) msgObject.get("resultCode")));
+								  }
+								  msgObject.remove("resultCode");
+								  msgObject.remove("message_en");
+								  msgObject.remove("refCode");
+								  msgObject.remove("message_zh");
 								}
 			            }  
 					}
 					if(responseJsonObj.get(key) instanceof JSONObject ){
 						JSONObject obj=(JSONObject) responseJsonObj.get(key);
+						JSONObject msgObject=null;
 						if(obj.containsKey("msg")){
 							obj.put("warnMsg", obj.get("msg"));
 							obj.remove("msg");
+							if(msgObject.get("refCode")!=null){
+								  msgObject.put("code",new String((String) msgObject.get("refCode")));
+							  }else{
+								  msgObject.put("code",new String((String) msgObject.get("resultCode")));
+							  }
+							  msgObject.remove("resultCode");
+							  msgObject.remove("message_en");
+							  msgObject.remove("refCode");
+							  msgObject.remove("message_zh");
 						}
 					}
-					
-				  
 				}
 			//mapping
 				if( responseJsonObj.toString().length() > 0) {
