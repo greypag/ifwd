@@ -12491,10 +12491,6 @@ Be caution: <select> have customed made */
 .color-teal-blue{
 	color: #26484e !important;
 }
-/* added on 20160718 7-eleven logo*/
-.partner_image--711{
-	max-width: 240px;
-}
 /* added on 20160728 Screen Protector*/
 .faq_answer__step{
 	text-decoration: underline;
@@ -12667,13 +12663,73 @@ button[disabled].btn.btn-default--vc {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 7, ../sass/page/travel/page-travel-confirmation.scss */
-  .passkit-link-wrapper {
-    text-align: center;
-  }
-  /* line 9, ../sass/page/travel/page-travel-confirmation.scss */
-  .passkit-link-wrapper #qrImg {
-    display: block;
-    margin: 20px auto 0 auto;
-  }
+	#business-partners-container img.hk3_logo {
+		height: 12%;
+		width: 12%;
+    }
+	#business-partners-container img.sony_logo {
+	    height: 30%;
+	    width: 30%;
+	}
+	#business-partners-container img.cx_logo {
+	    height: 40%;
+	    width: 40%;
+	}
+	#business-partners-container img.cfucome_logo {
+		margin-top: 20px;
+		height: 14%;
+		width: 14%;
+	}
+	#business-partners-container img.csl_logo {}
+	#business-partners-container img.seven_eleven_logo {
+		margin-top: 20px;
+		height: 35%;
+		width: 35%;
+	}
+}
+
+/* 3976 partnership content updated */
+@media screen and (min-width: 992px) {
+	.partner_image.partner_image--3hk {
+		max-width: 240px;
+		width: 40%;
+		height: 40%;
+	}
+	.partner_image.partner_image--cathay-pacific {
+		max-width: 240px;
+		width: 90%;
+		height: 90%;
+	}
+	.partner_image.partner_image--711 {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+	.partner_image.partner_image--sony {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+}
+@media screen and (max-width: 991px) {
+	.partner_image.partner_image--3hk {
+		max-width: 240px;
+		width: 30%;
+		height: 30%;
+	}
+	.partner_image.partner_image--cathay-pacific {
+		max-width: 240px;
+		width: 90%;
+		height: 90%;
+	}
+	.partner_image.partner_image--711 {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+	.partner_image.partner_image--sony {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
 }
