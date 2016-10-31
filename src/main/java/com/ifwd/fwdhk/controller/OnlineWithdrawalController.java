@@ -195,7 +195,15 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			try {
 				logger.info(methodName+" System error:" + responseJsonObj.get("msg").toString());
-				return new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt((String)errMsg.get("resultCode"))));
+				String resultCode=new String((String) errMsg.get("resultCode"));
+				switch (resultCode) {
+				case "462":
+					resultCode="400";
+					break;
+				default:
+					break;
+				}
+				return new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt(resultCode)));
 			} catch (IllegalArgumentException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
