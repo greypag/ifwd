@@ -66,7 +66,7 @@
 			    'ios_chrome': {
 			        'mobile': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />'
-			    }			    
+			    }
 			}
 	    }
 	};
@@ -74,12 +74,24 @@
 // Default value
 var isChromeIOS = navigator.userAgent.match('CriOS') ? true : false;
 var contentIndexArr = [];
+
+<% if(request.getRequestURI().indexOf("/travel-insurance")>0) { %>
+
+var nBarConfig = {
+	'contentIndex': contentIndexArr,
+	'isVisible': ( <%=showNotification%> == false ) ? false : true
+}
+
+<% } else { %>
+
 if ( isChromeIOS ) { contentIndexArr.push('ios_chrome'); }
 var nBarConfig = {
 	'contentIndex': contentIndexArr,
 	'isVisible': ( <%=showNotification%> == false && isChromeIOS == false ) ? false : true
 }
-//alert(nBarConfig.isVisible);
+
+<% } %>
+
 </script>
 
 <%-- if(request.getRequestURI().indexOf("/flight-insurance")>0) { %>

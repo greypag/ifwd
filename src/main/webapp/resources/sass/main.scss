@@ -35,6 +35,7 @@
   @import "mobile/header";
   @import "mobile/footer";
   @import "mobile/container";
+  @import "mobile/landing";
   @import "mobile/loginpopup";
   @import "mobile/becomeOurPartner";
   @import "mobile/faq"; // BEM Naming for faq page 20160513
@@ -42,6 +43,7 @@
 
 @media screen and #{$desktop} {
   @import "desktop/footer";
+  @import "desktop/landing";
   @import "desktop/loginpopup";
 }
 

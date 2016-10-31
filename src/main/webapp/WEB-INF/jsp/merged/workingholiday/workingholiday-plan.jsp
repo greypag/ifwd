@@ -176,8 +176,6 @@ var promoCodeInsertFlag = true;
 		return result;
 	}
 
-
-
 </script>
 <style>
 .workingholidaybox:hover {
@@ -911,7 +909,13 @@ var promoCodeInsertFlag = true;
 			var selValue = document.getElementById("inputseletedplanname").value;
 		});
 
-
+		<c:if test="${selectedPlan!=null}">
+	    	$('#box${selectedPlan}').click();
+		</c:if>
+		<c:if test="${referralCode!=null}">
+	    	document.getElementById("promoCode").value = '${referralCode}';
+	    	applyWorkingHolidayPromoCode();
+    	</c:if>
 	});
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
 		$("#promo-code-body").fadeIn();

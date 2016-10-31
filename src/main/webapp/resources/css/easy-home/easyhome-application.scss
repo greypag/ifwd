@@ -531,10 +531,13 @@
 
 		.cardtype{
 			span {
-				opacity: .26;
+				opacity: 1;
 
 				&.detected{
 					opacity: 1;
+				}
+				&.detected-n{
+					opacity: .26;
 				}
 			};
 

@@ -380,6 +380,57 @@ public class HomeServiceImpl implements HomeService {
 		return responseJsonObj;
 	}
 	
+	public JSONObject getHomeCareQuote(String plan, HttpServletRequest request
+										, String referralCode, String answer1, String answer2) throws ECOMMAPIException{
+		HomeQuoteBean quoteDetails = new HomeQuoteBean();
+		HttpSession session = request.getSession();
+		
+		StringBuffer url = new StringBuffer();
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+			url.append(UserRestURIConstants.HOMELIABILITY_GET_QUOTE);
+			url.append("?planCode=HomeLiability");
+		}else {
+			url.append(UserRestURIConstants.HOMECARE_GET_QUOTE);
+			url.append("?planCode=EasyHomeCare");
+		}
+		url.append("&referralCode=");
+		url.append(referralCode!=null?referralCode.replace(" ", ""):"");
+		url.append("&room&floor&block=block1&building=building1&estate=estate1&streetNo&streetName&district&area");
+		url.append("&answer1=");
+		url.append(answer1);
+		url.append("&answer2=");
+		url.append(answer2);
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject jsonObject = new JSONObject();
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);
+		if(responseJsonObj.get("errMsgs") == null || responseJsonObj.get("errMsgs").toString().contains("Promotion code is not valid")){
+			JSONObject priceInfo = new JSONObject();
+			priceInfo = (JSONObject) responseJsonObj.get("priceInfo");
+			
+			quoteDetails.setDiscountPercentage(priceInfo.get("discountPercentage").toString());
+			quoteDetails.setTotalDue(priceInfo.get("totalDue").toString());
+			quoteDetails.setGrossPremium(priceInfo.get("grossPremium").toString());
+			quoteDetails.setTotalNetPremium(priceInfo.get("totalNetPremium").toString());
+			quoteDetails.setDiscountAmount(priceInfo.get("discountAmount").toString());
+			quoteDetails.setReferralCode((responseJsonObj.get("referralCode")!=null && responseJsonObj.get("errMsgs") == null)?
+					responseJsonObj.get("referralCode").toString():"");
+			quoteDetails.setReferralName(responseJsonObj.get("referralName")!=null?responseJsonObj.get("referralName").toString():"");
+			quoteDetails.setPlanCode(responseJsonObj.get("planCode").toString());
+			quoteDetails.setErrormsg(checkJsonObjNull(responseJsonObj,"errMsgs"));
+			if(responseJsonObj.get("errMsgs") == null) {
+				session.setAttribute("referralCode", quoteDetails.getReferralCode());
+			}else {
+				session.setAttribute("referralCode", "");
+			}
+			session.setAttribute("planQuote", quoteDetails);
+		} 
+		else {
+			quoteDetails.setErrormsg(responseJsonObj.get("errMsgs").toString());
+			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+		}
+		return responseJsonObj;
+	}
+	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {
 			return obj.get(checkByStr).toString();

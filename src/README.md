@@ -11,3 +11,4 @@ Branch Creation Log
 2016-09-29 - UAT Release branch v1.25.000 - iMotor
 2016-10-12 - UAT Release branch v1.25.001 - Savie Referral 
 2016-10-12 - DEV FWDiscover Oct 
+2016-10-25 - UAT Release branch v1.26.000 - FWDiscover Oct/Savie Referral
