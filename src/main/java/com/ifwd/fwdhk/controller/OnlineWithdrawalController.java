@@ -122,9 +122,10 @@ public class OnlineWithdrawalController extends BaseController{
 			Class<T> responseClass,
 			JSONObject responseJsonObj) throws JsonParseException, JsonMappingException, IOException {
 		//MessageCodeUtil messageUtil=new MessageCodeUtil();
-		if (responseJsonObj==null){
+		if (responseJsonObj==null||responseJsonObj.get("errMsgs")!=null){
 			return Responses.error(null);
 		}
+		logger.info(methodName+" response :" + responseJsonObj.toString());
 		T responseObject=null;
 		JSONObject errMsg=null;
 		if(responseJsonObj.get("msg") instanceof JSONArray){
@@ -133,7 +134,7 @@ public class OnlineWithdrawalController extends BaseController{
 		errMsg=(JSONObject) responseJsonObj.get("msg");
 		}
 		//if(responseJsonObj.get("msg") == null){
-		if(errMsg.get("resultCode").equals("0")){
+		if(errMsg!=null&&errMsg.get("resultCode").equals("0")){
 			//remove msg of response and replace msg of responseobj as warnMsg 
 				responseJsonObj.remove("msg");
 				Set keySet=responseJsonObj.entrySet();
@@ -170,12 +171,13 @@ public class OnlineWithdrawalController extends BaseController{
 					logger.debug(methodName+" "+responseClass.getName()+" apiResponse: "+responseClass.toString()+" "+responseObject.toString());
 				} else {
 					logger.info(methodName+" "+responseClass.getName()+" "+"not found");
-					return Responses.error(null);
+					return Responses.notFound(null);
 				}
 				
 		}else{
-			logger.info(methodName+" System error:" + responseJsonObj.get("msg").toString());
+			
 			try {
+				logger.info(methodName+" System error:" + responseJsonObj.get("msg").toString());
 				return new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt((String)errMsg.get("resultCode"))));
 			} catch (IllegalArgumentException e) {
 				// TODO Auto-generated catch block
