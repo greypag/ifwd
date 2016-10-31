@@ -53,6 +53,7 @@ import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfo;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoResponse;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoByPolicyResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyListRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicySimple;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawPerformResponse;
@@ -189,6 +190,7 @@ public class OnlineWithdrawalController extends BaseController{
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	@ApiOperation(
 			value = "Get Policy info By Policy",
 			response = TngPolicyInfoResponse.class,
@@ -203,7 +205,7 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/getPolicyInfo", method = POST)
-	public ResponseEntity<TngPolicyInfoResponse> getPolicyInfo(
+	public ResponseEntity<TngPolicyInfoByPolicyResponse> getPolicyInfo(
 			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicySimple simple,
 			HttpServletRequest request) {
 		String methodName="getPolicyInfo";
@@ -221,9 +223,24 @@ public class OnlineWithdrawalController extends BaseController{
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+		
+			JSONObject beanJsonObj = new JSONObject();
+			beanJsonObj.put("msg", (JSONObject) responseJsonObj.get("msg"));
+			beanJsonObj.put("mobile", (String) responseJsonObj.get("mobile"));
 			
-			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoResponse.class,responseJsonObj);
-			// ******************* Makeup result *******************			
+			JSONObject policy=(JSONObject) responseJsonObj.get("policy");
+			JSONArray warnMsg=(JSONArray) policy.get("msg");
+			String jsonStr = warnMsg.toJSONString().replace("resultCode", "code");
+			
+			warnMsg = (JSONArray) new JSONParser().parse(jsonStr);
+			
+			policy.remove("msg");
+			policy.put("warnMsg", warnMsg);
+			beanJsonObj.put("policy", policy);
+			
+			// ******************* Makeup result *******************
+			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoByPolicyResponse.class,beanJsonObj);
+						
 
 		} catch (Exception e) {
 			logger.info(methodName+" System error:",e);
