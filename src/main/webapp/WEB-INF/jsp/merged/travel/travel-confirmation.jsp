@@ -102,7 +102,7 @@
 
 			   <div id="qrcode_div">
 			   	<div class="bmg-confirmation-h3"><fmt:message key="travel.confirmation.qr.cotent1" bundle="${msg}" /></div>
-			   	<div class="passkit-link-wrapper"><a class="border-radius btn btn-primary get-btn passkit-btn" href="#" target="_blank"><fmt:message key="travel.confirmation.qr.btn" bundle="${msg}" /></a></div>
+			   	<div class="passkit-link-wrapper"><a class="btn btn-primary get-btn passkit-btn" href="#" target="_blank"><fmt:message key="travel.confirmation.qr.btn" bundle="${msg}" /></a></div>
 			   	<div class="bmg-confirmation-h3"><fmt:message key="travel.confirmation.qr.cotent2" bundle="${msg}" /></div>
 			   </div>
 			   
