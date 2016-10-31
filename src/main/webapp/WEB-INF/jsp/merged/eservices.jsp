@@ -38,6 +38,7 @@ var languageP = "${language}";
 						<li class="mobile-dropdown dropdown-profile active"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-insurance-plan"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-promo-offers"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-e-wallet"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
@@ -45,10 +46,11 @@ var languageP = "${language}";
 						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu e-wallet" id="e-wallet-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="e-wallet"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-9 right-side-content">
-					<div id="purchase-history-tab-contents" class="hidden">
+					<div id="purchase-history-tab-contents" class="hidden content">
 						<ul class="nav nav-tabs nav-justified">
 							<li class="active"><a href="#pending" data-toggle="tab"><fmt:message key="tab.member.top.pending" bundle="${msg}" /></a></li>
 							<li><a href="#active" data-toggle="tab"><fmt:message key="tab.member.top.active" bundle="${msg}" /></a></li>
@@ -677,7 +679,7 @@ var languageP = "${language}";
 						</div>
 						<p id="note"><fmt:message key="label.remark.status.account.value" bundle="${msg}" /></p>
 					</div>
-					<div id="eservices-tab-contents">
+					<div id="eservices-tab-contents" class="content">
 						<h3 class="heading-title"><fmt:message key="label.member.detail" bundle="${msg}" /></h3>
 						<div id="member-details">	
 							<div class="row member-data-holder">
@@ -719,7 +721,7 @@ var languageP = "${language}";
 						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> '${fnaLastUpdate }' <fmt:message key="label.complete.fna2" bundle="${msg}" /> <a class="bold text-bold" href="javascript:void(0);" onclick="goFna();" ><fmt:message key="button.review.fna" bundle="${msg}" /></a></p>
 						</c:if>							
 					</div>
-					<div id="promo-offers-tab-contents" class="hidden">
+					<div id="promo-offers-tab-contents" class="hidden content">
 						<ul class="nav nav-tabs nav-justified visible-xs visible-sm mobile-promo-navtab">
 							<li class="active"><a href="#promo-code" data-toggle="tab"><fmt:message key="label.personnal.promotion.code" bundle="${msg}" /></a></li>
 							<li><a href="#ref-program" data-toggle="tab"><fmt:message key="label.refferal.program" bundle="${msg}" /></a></li>
@@ -856,7 +858,98 @@ var languageP = "${language}";
 								</div>
 							</div>		
 						</div>		
-					</div>	
+					</div>
+					<!-- e-wallet Begin-->
+					<div id="e-wallet-tab-contents" class="hidden content">
+						<ul class="nav nav-tabs nav-justified">
+							<li class="active"><a href="#ewallet-plans" data-toggle="tab"><fmt:message key="tab.member.top.pending" bundle="${msg}" /></a></li>
+							<li><a href="#ewallet-logs" data-toggle="tab"><fmt:message key="tab.member.top.active" bundle="${msg}" /></a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="ewallet-plans">
+								<div class="row ew_pol_list">
+									<div class="col-xs-12 ew-tab-title">
+										<h3 class="heading-title">保險計劃</h3>
+									</div>
+									<div class="col-xs-12 ew_pol">
+										<div class="ew_pol_info">
+											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+												<span class="ew_pol_info_fieldName">計劃名稱</span>
+												<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
+											</p>
+											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+												<span class="ew_pol_info_fieldName">保單編號</span>
+												<span class="ew_pol_info_fieldValue">2548451854</span>
+											</p>
+											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+												<span class="ew_pol_info_fieldName">本金*</span>
+												<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
+											</p>
+										</div>
+										<div class="col-xs-12 ew_pol_sep">
+										</div>
+										<div class="col-xs-12">
+											<p>提取方法</p>
+										</div>
+										<div class="col-xs-12 ew_pol_wd_linkup">
+											<div class="col-xs-12 col-sm-8 ew_pol_wd_linkup_status">
+												<img src="<%=request.getContextPath()%>/resources/images/eWallet/ewallet-tng-icon.png" alt="拍住賞" class="img-responsive ew_pol_wd_linkup_icon">
+												<div class="ew_pol_wd_linkup_detail">
+													<p class="ew_pol_info_fieldName">拍住賞<sup>1</sup>帳號:</p>
+													<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_empty">尚未連結</p>
+													<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_connected">
+														<span class="ew_pol_wd_linkup_tngId">1651658698</span><br>
+														<a href="#" class="ew_pol_wd_linkup_unlink">解除連結</a>
+													</p>
+													<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_locked">帳戶被凍結</p>	
+												</div>
+												
+											</div>
+											<div class="col-xs-12 col-sm-4 ew_pol_wd_linkup_action">
+												<a class="ew_pol_wd_linkupBtn" href="javascript:void(0);">請先配對拍住賞</a>
+												<a class="ew_pol_wd_withdrawBtn" href="javascript:void(0);">提取本金至拍住賞</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 ew_pol_wd_form">
+										<a href="#" class="ew_pol_wd_formBtn">下載部份提取申請表格</a>
+									</div>
+								</div>
+
+								
+							</div>
+							<div class="tab-pane" id="ewallet-logs">
+								<!-- log -->
+								<div class="row ew_pol_log">
+									<div class="col-xs-12 ew-tab-title">
+										<h3 class="heading-title">網上提取紀錄</h3>
+									</div>
+									<div class="col-xs-12 ew_log_selectWrapper">
+										<div class="col-xs-3">保單號碼</div>
+										<div class="col-xs-3">123456789</div>
+									</div>
+									<div class="col-xs-12 ew_pol">
+										<div class="ew_pol_info">
+											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+												<span class="ew_pol_info_fieldName">計劃名稱</span>
+												<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
+											</p>
+											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+												<span class="ew_pol_info_fieldName">保單編號</span>
+												<span class="ew_pol_info_fieldValue">2548451854</span>
+											</p>
+											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+												<span class="ew_pol_info_fieldName">本金*</span>
+												<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p id="note"><fmt:message key="label.remark.status.account.value" bundle="${msg}" /></p>
+					</div>
+					<!-- e-wallet End -->
 				</div>
 			</div>
 		</div>
@@ -897,7 +990,247 @@ var languageP = "${language}";
 	
 	<!-- FOOTER -->
 </div>
+<!-- e-Wallet popup Begin-->
+<!-- linkup	 -->
+<div class="modal fade ew_popup_linkup" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="modal-title">配對拍住賞手機錢包</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid bd-example-row">
+					<div class="row">
+						<div class="col-xs-12 ew_popup_sec">
+							<h4 class="ew_popup_sec_title">你所提取的保單</h4>
+							<div class="col-xs-12 ew_popup_sec_pol">
+								<div class="ew_pol_info">
+									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+										<span class="ew_pol_info_fieldName">計劃名稱</span>
+										<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
+									</p>
+									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+										<span class="ew_pol_info_fieldName">保單編號</span>
+										<span class="ew_pol_info_fieldValue">2548451854</span>
+									</p>
+									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+										<span class="ew_pol_info_fieldName">本金*</span>
+										<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 ew_popup_sec">
+							<div class="ew_popup_sec_otpInput">
+								<h4 class="ew_popup_sec_title">核對</h4>
+								<div class="col-xs-12 ew_popup_sec_content">
+									<p class="ew_desc">
+										一次性密碼己發送到您的手提電話<span class="ew_mobile">9876 ****</span>.<br>請於60秒內輸入您的一次性密碼</p>
+									<div class="ew_pol_info">
 
+										<div class="ew_otp_wrapper">
+											<input type="text" class="ew_otp_input" maxlength="6">
+										</div>
+									</div>
+									<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 ew_agreeBox">
+										<input id="chk_otp" type="checkbox" name="chk">
+										<label for="chk_otp">
+											<span>
+												本人同意並授權富衛人壽(百慕達)有限公司(“富衛人壽”)將本人的個人資料提供予HKT Payment Limited作核對用途。HKT Payment Limited將不會保存任何個人資料。
+											</span>
+										</label>
+									</div>
+									<div class="col-xs-12">
+										<a href="#" class="ew_btn_confirm">確認</a>
+									</div>
+									<div class="col-xs-12">
+										<p class="ew_desc_opt"></p>
+									</div>
+									<div class="col-xs-12 ew_desc_err">
+										<p>
+											一次性密碼錯誤,請重試。
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 ew_remark">
+								<p><sup>^</sup>本提取服務不包括保單利息</p>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- linkup success -->
+<div class="modal fade ew_popup_linkupSuccess" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="modal-title">配對拍住賞手機錢包</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid bd-example-row">
+					<div class="row">
+						<div class="col-xs-12 ew_popup_sec">
+							<p class="ew_desc">
+								一次性密碼核實成功。
+							</p>
+							<a href="#" class="ew_btn_confirm">確定</a>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- withdraw -->
+<div class="modal fade ew_popup_withdraw" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="modal-title">提取保單本金至拍住賞</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid bd-example-row">
+					<div class="row">
+						<div class="col-xs-12 ew_popup_sec">
+							<h4 class="ew_popup_sec_title">你所提取的保單</h4>
+							<div class="col-xs-12 ew_popup_sec_pol">
+								<div class="ew_pol_info">
+									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+										<span class="ew_pol_info_fieldName">計劃名稱</span>
+										<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
+									</p>
+									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+										<span class="ew_pol_info_fieldName">保單編號</span>
+										<span class="ew_pol_info_fieldValue">2548451854</span>
+									</p>
+									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+										<span class="ew_pol_info_fieldName">本金*</span>
+										<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
+									</p>
+									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+										<span class="ew_pol_info_fieldName">拍住賞帳號</span>
+										<span class="ew_pol_info_fieldValue ew_tngId">2548451854</span>
+									</p>
+									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+										<span class="ew_pol_info_fieldName">連結限期</span>
+										<span class="ew_pol_info_fieldValue">01/10/2017</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 ew_popup_sec">
+							<div class="ew_popup_sec_amountOpt">
+								<h4 class="ew_popup_sec_title">請選擇提取金額</h4>
+								<div class="col-xs-12 ew_popup_sec_content">
+									<div class="col-xs-12">
+										<p class="ew_hint">
+											最低金額: $500 / 最高金額: $3,000
+										</p>
+									</div>
+									<div class="col-xs-12">
+										<div class="ew_btn_grp">
+											<a href="#" class="ew_btn ew_btn_amount">$500</a><!--
+											--><a href="#" class="ew_btn ew_btn_amount">$1,000</a><!--
+											--><a href="#" class="ew_btn ew_btn_amount">$2,000</a><!--
+											--><a href="#" class="ew_btn ew_btn_amount">$3,000</a>
+										</div>
+										<div class="ew_txt_or ew_desc">或</div>
+										<div class="ew_amount_input">
+											<input type="text" placeholder="請輸入" id="ew_input_amount">
+										</div>
+										<div class="ew_btn_grp">
+											<a href="" class="ew_btn_withdraw">提取</a>
+										</div>
+									</div>									
+									<div class="col-xs-12">
+										<p class="ew_desc_opt"></p>
+									</div>
+									<div class="col-xs-12 ew_desc_err">
+										<p>
+											一次性密碼錯誤,請重試。
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 ew_remark">
+								<p><sup>^</sup>本提取服務不包括保單利息</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 ew_withdrawAmount">
+							<p class="ew_desc">
+								部份提取金額: <span class="ew_amount">港幣$1,000<sup>*</sup></span>
+							</p>
+						</div>
+						<div class="col-xs-12 ew_popup_sec">
+							<div class="ew_popup_sec_otpInput">
+								<h4 class="ew_popup_sec_title">核對</h4>
+								<div class="col-xs-12 ew_popup_sec_content">
+									<p class="ew_desc">
+										一次性密碼己發送到您的手提電話<span class="ew_mobile">9876 ****</span>.<br>請於60秒內輸入您的一次性密碼</p>
+									<p>
+										請<a href="" class="ew_link_resendOTP">按此</a>重新發送一次密碼
+									</p>
+									<div class="ew_pol_info">
+
+										<div class="ew_otp_wrapper">
+											<input type="text" class="ew_otp_input" maxlength="6">
+										</div>
+									</div>
+									<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 ew_agreeBox">
+										<input id="chk_amount" type="checkbox" name="chk_tnc">
+										<label for="chk_amount">
+											<span>
+												本人同意並授權富衛人壽(百慕達)有限公司(“富衛人壽”)將本人的個人資料提供予HKT Payment Limited作核對用途。HKT Payment Limited將不會保存任何個人資料。
+											</span>
+										</label>
+									</div>
+									<div class="col-xs-12">
+										<a href="#" class="ew_btn_confirm">確認</a>
+									</div>
+									<div class="col-xs-12">
+										<p class="ew_desc_opt"></p>
+									</div>
+									<div class="col-xs-12 ew_desc_err">
+										<p>
+											一次性密碼錯誤,請重試。
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 ew_remark">
+								<p><sup>^</sup>本提取服務不包括保單利息</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 ew_popup_sec">
+							<div class="ew_success">
+								<p class="ew_bigTxt">成功</p>
+								<p class="ew_desc">
+									一次性密碼核實成功。
+								</p>
+								<a href="#" class="ew_btn_confirm">確定</a>
+							</div>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- e-Wallet popup End-->
 <!-- JS INCLUDES -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186"></script>
 <script type="text/javascript">
@@ -917,6 +1250,7 @@ var languageP = "${language}";
 		  	$('#purchase-history-tab-contents').addClass('hidden');
 			$('#eservices-tab-contents').removeClass('hidden');
 			$('#promo-offers-tab-contents').addClass('hidden');
+			$('#e-wallet-tab-contents').addClass('hidden');
 		  } else if($(this).parent('li').hasClass('dropdown-insurance-plan')) {
 		  	$('.eservices').addClass('insurance-active-page');
 			$('.eservices').removeClass('profile-active-page promo-active-page');
@@ -925,6 +1259,7 @@ var languageP = "${language}";
 			$('#purchase-history-tab-contents').removeClass('hidden');
 			$('#eservices-tab-contents').addClass('hidden');
 			$('#promo-offers-tab-contents').addClass('hidden');
+			$('#e-wallet-tab-contents').addClass('hidden');
 		  } else if($(this).parent('li').hasClass('dropdown-promo-offers')) {
 		  	$('.eservices').addClass('promo-active-page');
 			$('.eservices').removeClass('profile-active-page insurance-active-page');
@@ -932,10 +1267,23 @@ var languageP = "${language}";
 		  	$('.left-side-tab-menu').removeClass('active');
 		  	$('.promo-offers').addClass('active');
 			$('#promo-offers-tab-contents').removeClass('hidden');
-			$('#eservices-tab-contents').addClass('hidden');
 			$('#purchase-history-tab-contents').addClass('hidden');
+			$('#eservices-tab-contents').addClass('hidden');
+			$('#e-wallet-tab-contents').addClass('hidden');
+			alignMobilePromoNavtab();
+		  } else if($(this).parent('li').hasClass('dropdown-e-wallet')) {
+		  	$('.eservices').addClass('insurance-active-page');
+			$('.eservices').removeClass('profile-active-page promo-active-page');
+		  	$('.fwd-savie-wrapper').attr('id', 'e-wallet');
+		  	$('.left-side-tab-menu').removeClass('active');
+		  	$('.e-wallet').addClass('active');
+			$('#e-wallet-tab-contents').removeClass('hidden');
+			$('#purchase-history-tab-contents').addClass('hidden');
+			$('#eservices-tab-contents').addClass('hidden');
+			$('#promo-offers-tab-contents').addClass('hidden');
 			alignMobilePromoNavtab();
 		  }
+
 		});
 
 		$('.left-side-tab-menu').on('click', function () {
@@ -947,6 +1295,7 @@ var languageP = "${language}";
 				$('#purchase-history-tab-contents').addClass('hidden');
 				$('#eservices-tab-contents').removeClass('hidden');
 				$('#promo-offers-tab-contents').addClass('hidden');
+				$('#e-wallet-tab-contents').addClass('hidden');
 				$('.mobile-dropdown').removeClass('active');
 				$('.dropdown-profile').addClass('active');
 				var selText = '<fmt:message key="tab.member.profile" bundle="${msg}" />'; //'Profile';
@@ -957,6 +1306,7 @@ var languageP = "${language}";
 				$('#purchase-history-tab-contents').removeClass('hidden');
 				$('#eservices-tab-contents').addClass('hidden');
 				$('#promo-offers-tab-contents').addClass('hidden');
+				$('#e-wallet-tab-contents').addClass('hidden');
 				$('.mobile-dropdown').removeClass('active');
 				$('.dropdown-insurance-plan').addClass('active');
 				var selText = '<fmt:message key="tab.insurance.plan" bundle="${msg}" />'; //'Insurance Plan';
@@ -967,11 +1317,25 @@ var languageP = "${language}";
 				$('#promo-offers-tab-contents').removeClass('hidden');
 				$('#purchase-history-tab-contents').addClass('hidden');
 				$('#eservices-tab-contents').addClass('hidden');
+				$('#e-wallet-tab-contents').addClass('hidden');
 				$('.mobile-dropdown').removeClass('active');
 				$('.dropdown-promo-offers').addClass('active');
 				var selText = '<fmt:message key="tab.promo.and.offers" bundle="${msg}" />'; //'Promo & Offers';
 		  		$('.dropdown-menu li a').parents('.btn-group').find('.dropdown-toggle').html(selText+' <i class="fa fa-angle-down"></i>');
-		  	}	
+		  	} else if ($(this).hasClass('e-wallet')) {
+				$('.eservices').addClass('insurance-active-page');
+				$('.eservices').removeClass('profile-active-page promo-active-page');
+
+				$('#e-wallet-tab-contents').removeClass('hidden');
+				$('#purchase-history-tab-contents').addClass('hidden');
+				$('#eservices-tab-contents').addClass('hidden');
+				$('#promo-offers-tab-contents').addClass('hidden');
+
+				$('.mobile-dropdown').removeClass('active');
+				$('.dropdown-e-wallet').addClass('active');
+				var selText = '<fmt:message key="tab.promo.and.offers" bundle="${msg}" />'; //'Promo & Offers';
+		  		$('.dropdown-menu li a').parents('.btn-group').find('.dropdown-toggle').html(selText+' <i class="fa fa-angle-down"></i>');
+		  	}
 		});
 
 		$('.mobile-promo-navtab a[data-toggle="tab"]').on('shown.bs.tab', function () {
@@ -1034,3 +1398,5 @@ var languageP = "${language}";
 		}
 	}
 </script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/eWallet/ewallet.uifn.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/eWallet/ewallet.style.css">
