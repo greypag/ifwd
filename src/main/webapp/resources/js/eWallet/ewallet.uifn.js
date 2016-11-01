@@ -1,6 +1,7 @@
 var eWalletCtr = {
 	init: function (){
 		//this.initTabLink();
+		this.initDatePicker();
 	},
 	initTabLink: function (){
 		$("#e-wallet-tab-link").on("click", function (){
@@ -13,13 +14,21 @@ var eWalletCtr = {
 			$("##savie-online-purchase-history").removeClass("profile-active-page insurance-active-page promo-active-page");
 
 			$(".right-side-content .content").addClass(activeClassName);
-
-
 		});
+	},
+	initDatePicker: function (){
+		$('#dt_log_from, #dt_log_to').mobiscroll().calendar({
+			theme: 'mobiscroll',
+			display: 'bottom',
+			lang: language == "en" ? "en_fwd" : "zh_fwd"
+	    });
 	}
 };
 
-eWalletCtr.init();
+$("document").ready(function(){
+	eWalletCtr.init();	
+});
+
 
 
 

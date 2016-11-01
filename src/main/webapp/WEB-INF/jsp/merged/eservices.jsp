@@ -925,8 +925,17 @@ var languageP = "${language}";
 										<h3 class="heading-title">網上提取紀錄</h3>
 									</div>
 									<div class="col-xs-12 ew_log_selectWrapper">
-										<div class="col-xs-3">保單號碼</div>
-										<div class="col-xs-3">123456789</div>
+										<div class="col-xs-12 col-sm-3">保單號碼</div>
+										<div class="col-xs-12 col-sm-3">
+											<div class="ew_pol_selector">
+												<select>
+												    <option>1258748</option>
+												    <option selected>1258748</option>
+												    <option>1258748</option>
+												    <option>1258748</option>
+												</select>
+											</div>
+										</div>
 									</div>
 									<div class="col-xs-12 ew_pol">
 										<div class="ew_pol_info">
@@ -942,6 +951,19 @@ var languageP = "${language}";
 												<span class="ew_pol_info_fieldName">本金*</span>
 												<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
 											</p>
+										</div>
+									</div>
+									<div class="col-xs-12 ew_log_dt_selectWrapper">
+										<div class="ew_dt_from_txt">
+											查閱交易紀錄期
+										</div>
+										<input id="dt_log_from" placeholder="Please Select..." />
+										<div class="ew_dt_to_txt">
+											至
+										</div>
+										<input id="dt_log_to" placeholder="Please Select..." />
+										<div class="ew_btn_grp">
+											<a href="javascript:void(0);" class="ew_btn_ok">確定</a>
 										</div>
 									</div>
 								</div>
@@ -1398,5 +1420,10 @@ var languageP = "${language}";
 		}
 	}
 </script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/eWallet/ewallet.uifn.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/eWallet/ewallet.style.css">
+<link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/eWallet/ewallet.uifn.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>

@@ -55,10 +55,27 @@ $txt-hint-color: #999999;
 		margin: 0 .3em;
 	}
 }
+%ew_base_dropdown{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	background: #efefef;
+	background-image: url(../../images/eWallet/dropdown_arrow.png);
+	background-position: right top;
+	background-repeat: no-repeat;
+	border: none;
+    border-bottom: 3px solid #fc610b;
+    line-height: 1;
+    min-width: 150px;
+    padding: 5px 40px 5px 18px;
+    text-align: center;
+}
 
 %ew_base_popup{
 	font-size: 16px;
-	.modal-header .close{font-size: 55px;}
+	.modal-header .close{font-size: 55px !important;}
 	.modal-content{
 		padding: 0 !important;
 		.ew_popup_sec_title{
@@ -228,6 +245,7 @@ $txt-hint-color: #999999;
 }
 .ew_pol_list .ew_pol_wd_formBtn{
 	@extend %ew_base_link;
+	text-decoration: underline;
 }
 
 // ============ Policy List End ============
@@ -357,6 +375,14 @@ $txt-hint-color: #999999;
 .ew_pol_log{
 	.ew_log_selectWrapper{
 		@extend %noPadLR;
+		margin: 1.25em auto;
+		[class*=col]{
+			@extend %noPadLR;
+			line-height: 34px;
+		}
+	}
+	.ew_pol_info{
+		@extend %ew_base_pol_info;
 	}
 	.ew_pol{
 		@extend %ew_base_garyBox;
@@ -364,7 +390,35 @@ $txt-hint-color: #999999;
 	.ew_pol_info{
 		@extend %noPadLR;
 	}
+	.ew_pol_selector{
+		font-size: 1em;
+		position: relative;
+		select{
+			@extend %ew_base_dropdown;	
+			font-size: 1em;
+		}
+	}
+
+
+	.ew_log_dt_selectWrapper{
+		@extend %noPadLR;
+		.ew_dt_from_txt,
+		.ew_dt_to_txt{
+			display: inline-block;
+		}
+		.ew_btn_grp{
+			display: inline-block;
+		}
+		.ew_btn_ok{
+			@extend %ew_base_btn;
+		}
+	}
 }
+
+#dt_log_from, #dt_log_to{
+		@extend %ew_base_dropdown;
+		font-size: 1em;
+	}
 
 
 #e-wallet-tab-contents{
@@ -401,10 +455,10 @@ $txt-hint-color: #999999;
 			&:nth-child(even){
 				margin-left: 5px;
 			}
-			.ew_btn_withdraw{
-				margin-left: auto;
-				margin-right: auto;
-			}
+			// .ew_btn_withdraw{
+			// 	margin-left: auto;
+			// 	margin-right: auto;
+			// }
 		}
 		.ew_txt_or{
 			line-height: initial;
@@ -412,13 +466,36 @@ $txt-hint-color: #999999;
 		#ew_input_amount{
 			width: 100%;
 		}
-
 	}
+	
+	
 }
 @media screen and (max-width: 768px) {
 	#savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li{
 		width: 50%;
 		float: left;
+	}
+
+
+}
+
+@media screen and (max-width: 767px){
+	.ew_pol_log{
+		.ew_dt_from_txt,
+		#dt_log_from,
+		#dt_log_to,
+		.ew_dt_to_txt,
+		.ew_btn_grp{
+			width: 100%;
+		}
+		.ew_dt_from_txt,
+		.ew_dt_to_txt{
+			line-height: 50px;
+		}
+		.ew_btn_grp{
+			padding-top: 10px;
+			text-align: center;
+		}
 	}
 }
 

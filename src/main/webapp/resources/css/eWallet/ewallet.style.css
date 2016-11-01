@@ -2,17 +2,17 @@
 .ew_pol_list .ew_pol_wd_linkup_status,
 .ew_pol_list .ew_pol_wd_linkup_action,
 .ew_pol_list .ew_pol_wd_form, .ew_popup_linkup .ew_remark, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content,
-.ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content [class*=col], .ew_popup_withdraw .ew_desc_err, .ew_popup_withdraw .ew_remark, .ew_pol_log .ew_log_selectWrapper, .ew_pol_log .ew_pol_info, #e-wallet-tab-contents .ew-tab-title {
+.ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content [class*=col], .ew_popup_withdraw .ew_desc_err, .ew_popup_withdraw .ew_remark, .ew_pol_log .ew_log_selectWrapper, .ew_pol_log .ew_log_selectWrapper [class*=col], .ew_pol_log .ew_pol_info, .ew_pol_log .ew_log_dt_selectWrapper, #e-wallet-tab-contents .ew-tab-title {
   padding-left: 0;
   padding-right: 0; }
 
-.ew_pol_list .ew_pol_info .ew_pol_blance, .ew_popup_linkup .ew_popup_sec_pol .ew_pol_info .ew_pol_blance, .ew_popup_withdraw .ew_popup_sec_pol .ew_pol_info .ew_pol_blance, .ew_popup_withdraw .ew_withdrawAmount .ew_amount {
+.ew_pol_list .ew_pol_info .ew_pol_blance, .ew_popup_linkup .ew_popup_sec_pol .ew_pol_info .ew_pol_blance, .ew_popup_withdraw .ew_popup_sec_pol .ew_pol_info .ew_pol_blance, .ew_pol_log .ew_pol_info .ew_pol_blance, .ew_popup_withdraw .ew_withdrawAmount .ew_amount {
   color: #fc610b; }
 
 .ew_popup_linkup .modal-content .ew_mobile, .ew_popup_linkupSuccess .modal-content .ew_mobile, .ew_popup_withdraw .modal-content .ew_mobile {
   color: #fc610b; }
 
-.ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_linkupSuccess .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount, .ew_popup_withdraw .ew_btn_withdraw, .ew_popup_withdraw .ew_success .ew_btn_confirm, .ew_pol_list .ew_pol_wd_linkupBtn, .ew_pol_list .ew_pol_wd_withdrawBtn {
+.ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_linkupSuccess .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount, .ew_popup_withdraw .ew_btn_withdraw, .ew_popup_withdraw .ew_success .ew_btn_confirm, .ew_pol_list .ew_pol_wd_linkupBtn, .ew_pol_list .ew_pol_wd_withdrawBtn, .ew_pol_log .ew_log_dt_selectWrapper .ew_btn_ok {
   background-color: #fc610b;
   border-radius: 5px;
   color: #fff !important;
@@ -21,7 +21,7 @@
   margin-bottom: .5em;
   padding: 0.625em 1em;
   text-align: center; }
-  .ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm:hover, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm:hover, .ew_popup_linkupSuccess .ew_btn_confirm:hover, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount:hover, .ew_popup_withdraw .ew_btn_withdraw:hover, .ew_popup_withdraw .ew_success .ew_btn_confirm:hover, .ew_pol_list .ew_pol_wd_linkupBtn:hover, .ew_pol_list .ew_pol_wd_withdrawBtn:hover {
+  .ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm:hover, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm:hover, .ew_popup_linkupSuccess .ew_btn_confirm:hover, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount:hover, .ew_popup_withdraw .ew_btn_withdraw:hover, .ew_popup_withdraw .ew_success .ew_btn_confirm:hover, .ew_pol_list .ew_pol_wd_linkupBtn:hover, .ew_pol_list .ew_pol_wd_withdrawBtn:hover, .ew_pol_log .ew_log_dt_selectWrapper .ew_btn_ok:hover {
     color: #fff; }
 
 .ew_pol_list .ew_pol_wd_formBtn {
@@ -44,10 +44,27 @@
     content: "•";
     margin: 0 .3em; }
 
+.ew_pol_log .ew_pol_selector select, #dt_log_from, #dt_log_to {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  background: #efefef;
+  background-image: url(../../images/eWallet/dropdown_arrow.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  border: none;
+  border-bottom: 3px solid #fc610b;
+  line-height: 1;
+  min-width: 150px;
+  padding: 5px 40px 5px 18px;
+  text-align: center; }
+
 .ew_popup_linkup, .ew_popup_linkupSuccess, .ew_popup_withdraw {
   font-size: 16px; }
   .ew_popup_linkup .modal-header .close, .ew_popup_linkupSuccess .modal-header .close, .ew_popup_withdraw .modal-header .close {
-    font-size: 55px; }
+    font-size: 55px !important; }
   .ew_popup_linkup .modal-content, .ew_popup_linkupSuccess .modal-content, .ew_popup_withdraw .modal-content {
     padding: 0 !important; }
     .ew_popup_linkup .modal-content .ew_popup_sec_title, .ew_popup_linkupSuccess .modal-content .ew_popup_sec_title, .ew_popup_withdraw .modal-content .ew_popup_sec_title {
@@ -71,10 +88,10 @@
   margin-bottom: 1em;
   padding: 0.625em; }
 
-.ew_pol_list .ew_pol_info .ew_pol_info_data, .ew_popup_linkup .ew_popup_sec_pol .ew_pol_info .ew_pol_info_data, .ew_popup_withdraw .ew_popup_sec_pol .ew_pol_info .ew_pol_info_data {
+.ew_pol_list .ew_pol_info .ew_pol_info_data, .ew_popup_linkup .ew_popup_sec_pol .ew_pol_info .ew_pol_info_data, .ew_popup_withdraw .ew_popup_sec_pol .ew_pol_info .ew_pol_info_data, .ew_pol_log .ew_pol_info .ew_pol_info_data {
   margin-top: 0.625em;
   margin-bottom: 0.625em; }
-.ew_pol_list .ew_pol_info .ew_pol_info_fieldName, .ew_popup_linkup .ew_popup_sec_pol .ew_pol_info .ew_pol_info_fieldName, .ew_popup_withdraw .ew_popup_sec_pol .ew_pol_info .ew_pol_info_fieldName {
+.ew_pol_list .ew_pol_info .ew_pol_info_fieldName, .ew_popup_linkup .ew_popup_sec_pol .ew_pol_info .ew_pol_info_fieldName, .ew_popup_withdraw .ew_popup_sec_pol .ew_pol_info .ew_pol_info_fieldName, .ew_pol_log .ew_pol_info .ew_pol_info_fieldName {
   display: block; }
 
 .ew_popup_linkup .ew_popup_sec_otpInput .ew_popup_sec_content, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_popup_sec_content {
@@ -140,6 +157,9 @@
 .ew_pol_list .ew_pol_wd_linkupBtn {
   background-color: #ff9900; }
 
+.ew_pol_list .ew_pol_wd_formBtn {
+  text-decoration: underline; }
+
 .ew_popup_linkup .ew_popup_sec_pol {
   padding: 0; }
 
@@ -189,6 +209,24 @@
     margin-top: 20px;
     margin-bottom: 20px; }
 
+.ew_pol_log .ew_log_selectWrapper {
+  margin: 1.25em auto; }
+  .ew_pol_log .ew_log_selectWrapper [class*=col] {
+    line-height: 34px; }
+.ew_pol_log .ew_pol_selector {
+  font-size: 1em;
+  position: relative; }
+  .ew_pol_log .ew_pol_selector select {
+    font-size: 1em; }
+.ew_pol_log .ew_log_dt_selectWrapper .ew_dt_from_txt,
+.ew_pol_log .ew_log_dt_selectWrapper .ew_dt_to_txt {
+  display: inline-block; }
+.ew_pol_log .ew_log_dt_selectWrapper .ew_btn_grp {
+  display: inline-block; }
+
+#dt_log_from, #dt_log_to {
+  font-size: 1em; }
+
 #e-wallet-tab-contents {
   font-size: 16px; }
 
@@ -213,9 +251,6 @@
       margin-right: 5px; }
     .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_grp .ew_btn_amount:nth-child(even) {
       margin-left: 5px; }
-    .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_grp .ew_btn_amount .ew_btn_withdraw {
-      margin-left: auto;
-      margin-right: auto; }
   .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_txt_or {
     line-height: initial; }
   .ew_popup_withdraw .ew_popup_sec_amountOpt #ew_input_amount {
@@ -224,6 +259,19 @@
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li {
     width: 50%;
     float: left; } }
+@media screen and (max-width: 767px) {
+  .ew_pol_log .ew_dt_from_txt,
+  .ew_pol_log #dt_log_from,
+  .ew_pol_log #dt_log_to,
+  .ew_pol_log .ew_dt_to_txt,
+  .ew_pol_log .ew_btn_grp {
+    width: 100%; }
+  .ew_pol_log .ew_dt_from_txt,
+  .ew_pol_log .ew_dt_to_txt {
+    line-height: 50px; }
+  .ew_pol_log .ew_btn_grp {
+    padding-top: 10px;
+    text-align: center; } }
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li:last-child {
   border-right: none; }
 
