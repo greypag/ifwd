@@ -885,9 +885,11 @@ public class LifeServiceImpl implements LifeService {
 	    		}else{
 	    		switch ((String) jsonArray.get(1)) {
 				case "SAVIE REFERRAL AGENT EMAIL":
+					attributeList.add(new PdfAttribute("PromoCode",lifePersonalDetails.getEmailAddress()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountAgentEmail";
 					break;
 				case "SAVIE REFERRAL POLICY NUMBER":
+					attributeList.add(new PdfAttribute("PromoCode",lifePolicy.getPolicyNo()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountSavieReferral";
 					break;
 				case "FWD 1111 CAMPAIGN":
@@ -896,8 +898,6 @@ public class LifeServiceImpl implements LifeService {
 				default:
 					pdfName = "SavieOnlineApplicationFormDiscount";
 					break;
-					//SavieOnlineApplicationFormPremiumDiscountSavieReferral
-					//SavieOnlineApplicationFormPremiumDiscountCampaign1111
 				}
 	    		}
 	    	}else{
