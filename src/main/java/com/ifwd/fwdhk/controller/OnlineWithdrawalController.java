@@ -197,9 +197,49 @@ public class OnlineWithdrawalController extends BaseController{
 				logger.info(methodName+" System error:" + responseJsonObj.get("msg").toString());
 				String resultCode=new String((String) errMsg.get("resultCode"));
 				switch (resultCode) {
+				case "461":
+					resultCode="456";
+					break;
 				case "462":
 					resultCode="400";
 					break;
+				case "463":
+					resultCode="455";
+					break;
+				case "464":
+					resultCode="400";
+					break;
+				case "465":
+					resultCode="457";
+					break;
+				case "466":
+					resultCode="458";
+					break;
+				case "467":
+					resultCode="457";
+					break;
+				case "468":
+					resultCode="458";
+					break;
+				case "469":
+					resultCode="459";
+					break;
+				case "470":
+					resultCode="500";
+					break;
+				case "471":
+					resultCode="459";
+					break;
+				case "472":
+					resultCode="500";
+					break;
+				case "476":
+					resultCode="400";
+					break;
+				case "2":
+					resultCode="200";
+					break;
+					
 				default:
 					break;
 				}
