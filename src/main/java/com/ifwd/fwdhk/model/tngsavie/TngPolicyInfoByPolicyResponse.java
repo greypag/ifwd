@@ -8,23 +8,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({
-	//"customerId",
+	"customerId",
     "mobile",
     "policy"
 })
 public class TngPolicyInfoByPolicyResponse {
-
+	@JsonProperty("customerId")
+	private String customerId;
 	@JsonProperty("mobile")
     private String mobile;
     @JsonProperty("policy")
     private TngPolicyInfo policy = new TngPolicyInfo();
 
-	/*public String getCustomerId() {
+	public String getCustomerId() {
 		return customerId;
 	}
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
-	}*/
+	}
 	public String getMobile() {
 		return mobile;
 	}

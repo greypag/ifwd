@@ -168,6 +168,7 @@ public class OnlineWithdrawalController extends BaseController{
 						if(obj.containsKey("msg")){
 							obj.put("warnMsg", obj.get("msg"));
 							obj.remove("msg");
+							
 							if(msgObject.get("refCode")!=null){
 								  msgObject.put("code",new String((String) msgObject.get("refCode")));
 							  }else{
@@ -198,37 +199,37 @@ public class OnlineWithdrawalController extends BaseController{
 				String resultCode=new String((String) errMsg.get("resultCode"));
 				switch (resultCode) {
 				case "461":
-					resultCode="456";
+					resultCode="412";
 					break;
 				case "462":
 					resultCode="400";
 					break;
 				case "463":
-					resultCode="455";
+					resultCode="411";
 					break;
 				case "464":
 					resultCode="400";
 					break;
 				case "465":
-					resultCode="457";
+					resultCode="413";
 					break;
 				case "466":
-					resultCode="458";
+					resultCode="414";
 					break;
 				case "467":
-					resultCode="457";
+					resultCode="413";
 					break;
 				case "468":
-					resultCode="458";
+					resultCode="414";
 					break;
 				case "469":
-					resultCode="459";
+					resultCode="415";
 					break;
 				case "470":
 					resultCode="500";
 					break;
 				case "471":
-					resultCode="459";
+					resultCode="415";
 					break;
 				case "472":
 					resultCode="500";
@@ -257,7 +258,7 @@ public class OnlineWithdrawalController extends BaseController{
 	@SuppressWarnings("unchecked")
 	@ApiOperation(
 			value = "Get Policy info By Policy",
-			response = TngPolicyInfoResponse.class,
+			response = TngPolicyInfoByPolicyResponse.class,
 			notes ="Warning Code:"
 					+ "<br/>TPW001 Warning Tap n Go expired"
                     + "<br/>TPW002 Warning Annual withdrawal limit"
@@ -288,15 +289,26 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 		
+			
 			JSONObject beanJsonObj = new JSONObject();
 			beanJsonObj.put("msg", (JSONObject) responseJsonObj.get("msg"));
 			beanJsonObj.put("mobile", (String) responseJsonObj.get("mobile"));
+			beanJsonObj.put("customerId", (String) responseJsonObj.get("customerId"));
 			
 			JSONObject policy=(JSONObject) responseJsonObj.get("policy");
-			JSONArray warnMsg=(JSONArray) policy.get("msg");
-			String jsonStr = warnMsg.toJSONString().replace("resultCode", "code");
-			
-			warnMsg = (JSONArray) new JSONParser().parse(jsonStr);
+			JSONArray msgArr=(JSONArray) policy.get("msg");
+			JSONArray warnMsg=new JSONArray();
+			JSONObject msgEle= new JSONObject();
+			for (int i = 0; i<msgArr.size(); i++){
+				String refCode = (String) ((JSONObject) msgArr.get(i)).get("refCode");
+				if (refCode!=null && !refCode.equals("")) {
+						msgEle.put("code", refCode);
+						warnMsg.add(msgEle);	
+					} else{
+						msgEle.put("code", (String) ((JSONObject) msgArr.get(i)).get("resultCode"));
+						warnMsg.add(msgEle);
+					}
+			}
 			
 			policy.remove("msg");
 			policy.put("warnMsg", warnMsg);
