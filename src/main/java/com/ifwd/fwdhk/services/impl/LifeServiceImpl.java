@@ -885,13 +885,13 @@ public class LifeServiceImpl implements LifeService {
 	    		}else{
 	    		switch ((String) jsonArray.get(1)) {
 				case "SAVIE REFERRAL AGENT EMAIL":
-					pdfName="SavieOnlineApplicationFormPremiumDiscountAgnetEmail";
+					pdfName="SavieOnlineApplicationFormPremiumDiscountAgentEmail";
 					break;
-				/*case "SAVIE REFERRAL POLICY NUMBER":
-					pdfName="SavieOnlineApplicationFormPremiumDiscountAgnetEmail";
-					break;*/
 				case "SAVIE REFERRAL POLICY NUMBER":
 					pdfName="SavieOnlineApplicationFormPremiumDiscountSavieReferral";
+					break;
+				case "FWD 1111 CAMPAIGN":
+					pdfName="SavieOnlineApplicationFormPremiumDiscountCampaign1111";
 					break;
 				default:
 					pdfName = "SavieOnlineApplicationFormDiscount";
