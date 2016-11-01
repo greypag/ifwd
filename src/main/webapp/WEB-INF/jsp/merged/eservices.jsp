@@ -869,50 +869,50 @@ var languageP = "${language}";
 							<div class="tab-pane active" id="ewallet-plans">
 								<div class="row ew_pol_list">
 									<div class="col-xs-12 ew-tab-title">
-										<h3 class="heading-title">保險計劃</h3>
+										<h3 class="heading-title"><fmt:message key="ewallet.planList.pol.title" bundle="${msg}" /></h3>
 									</div>
 									<div class="col-xs-12 ew_pol">
 										<div class="ew_pol_info">
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-												<span class="ew_pol_info_fieldName">計劃名稱</span>
+												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planNameText" bundle="${msg}" /></span>
 												<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
 											</p>
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-												<span class="ew_pol_info_fieldName">保單編號</span>
+												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planPolicyNumberText" bundle="${msg}" /></span>
 												<span class="ew_pol_info_fieldValue">2548451854</span>
 											</p>
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-												<span class="ew_pol_info_fieldName">本金*</span>
+												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
 												<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
 											</p>
 										</div>
 										<div class="col-xs-12 ew_pol_sep">
 										</div>
 										<div class="col-xs-12">
-											<p>提取方法</p>
+											<p><fmt:message key="ewallet.withdrawMethod.linkUp.title" bundle="${msg}" /></p>
 										</div>
 										<div class="col-xs-12 ew_pol_wd_linkup">
 											<div class="col-xs-12 col-sm-8 ew_pol_wd_linkup_status">
 												<img src="<%=request.getContextPath()%>/resources/images/eWallet/ewallet-tng-icon.png" alt="拍住賞" class="img-responsive ew_pol_wd_linkup_icon">
 												<div class="ew_pol_wd_linkup_detail">
-													<p class="ew_pol_info_fieldName">拍住賞<sup>1</sup>帳號:</p>
-													<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_empty">尚未連結</p>
+													<p class="ew_pol_info_fieldName"><fmt:message key="ewallet.withdrawMethod.linkUp.name" bundle="${msg}" /></p>
+													<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_empty"><fmt:message key="ewallet.withdrawMethod.status.emptyText" bundle="${msg}" /></p>
 													<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_connected">
 														<span class="ew_pol_wd_linkup_tngId">1651658698</span><br>
-														<a href="#" class="ew_pol_wd_linkup_unlink">解除連結</a>
+														<a href="#" class="ew_pol_wd_linkup_unlink"><fmt:message key="ewallet.withdrawMethod.status.connectedUnlinkPromptLinkText" bundle="${msg}" /></a>
 													</p>
-													<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_locked">帳戶被凍結</p>	
+													<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_locked"><fmt:message key="ewallet.withdrawMethod.status.lockedText" bundle="${msg}" /></p>	
 												</div>
 												
 											</div>
 											<div class="col-xs-12 col-sm-4 ew_pol_wd_linkup_action">
-												<a class="ew_pol_wd_linkupBtn" href="javascript:void(0);">請先配對拍住賞</a>
-												<a class="ew_pol_wd_withdrawBtn" href="javascript:void(0);">提取本金至拍住賞</a>
+												<a class="ew_pol_wd_linkupBtn" href="javascript:void(0);"><fmt:message key="ewallet.withdrawMethod.linkUpBtnText" bundle="${msg}" /></a>
+												<a class="ew_pol_wd_withdrawBtn" href="javascript:void(0);"><fmt:message key="ewallet.withdrawMethod.withdrawBtnText" bundle="${msg}" /></a>
 											</div>
 										</div>
 									</div>
 									<div class="col-xs-12 ew_pol_wd_form">
-										<a href="#" class="ew_pol_wd_formBtn">下載部份提取申請表格</a>
+										<a href="#" class="ew_pol_wd_formBtn"><fmt:message key="ewallet.downloadFormBtnText" bundle="${msg}" /></a>
 									</div>
 								</div>
 
@@ -921,9 +921,9 @@ var languageP = "${language}";
 							<div class="tab-pane" id="ewallet-logs">
 								<!-- log -->
 								<div class="row ew_pol_log">
-									<div class="col-xs-12 ew-tab-title">
-										<h3 class="heading-title">網上提取紀錄</h3>
-									</div>
+									<div class="col-xs-12 ew-tab-title"> 
+										<h3 class="heading-title"><fmt:message key="ewallet.log.heading.title" bundle="${msg}" /></h3>
+									</div> 
 									<div class="col-xs-12 ew_log_selectWrapper">
 										<div class="col-xs-12 col-sm-3">保單號碼</div>
 										<div class="col-xs-12 col-sm-3">
@@ -940,15 +940,15 @@ var languageP = "${language}";
 									<div class="col-xs-12 ew_pol">
 										<div class="ew_pol_info">
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-												<span class="ew_pol_info_fieldName">計劃名稱</span>
+												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planNameText" bundle="${msg}" /></span>
 												<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
 											</p>
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-												<span class="ew_pol_info_fieldName">保單編號</span>
+												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planPolicyNumberText" bundle="${msg}" /></span>
 												<span class="ew_pol_info_fieldValue">2548451854</span>
 											</p>
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-												<span class="ew_pol_info_fieldName">本金*</span>
+												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
 												<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
 											</p>
 										</div>
@@ -1019,25 +1019,25 @@ var languageP = "${language}";
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-				<h4 class="modal-title">配對拍住賞手機錢包</h4>
+				<h4 class="modal-title"><fmt:message key="ewallet.linkup.title" bundle="${msg}" /> </h4>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid bd-example-row">
 					<div class="row">
 						<div class="col-xs-12 ew_popup_sec">
-							<h4 class="ew_popup_sec_title">你所提取的保單</h4>
+							<h4 class="ew_popup_sec_title"><fmt:message key="eWallet.popup.sec.title" bundle="${msg}" /></h4>
 							<div class="col-xs-12 ew_popup_sec_pol">
 								<div class="ew_pol_info">
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName">計劃名稱</span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planNameText" bundle="${msg}" /></span>
 										<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName">保單編號</span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planPolicyNumberText" bundle="${msg}" /></span>
 										<span class="ew_pol_info_fieldValue">2548451854</span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName">本金*</span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
 										<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
 									</p>
 								</div>
@@ -1045,10 +1045,10 @@ var languageP = "${language}";
 						</div>
 						<div class="col-xs-12 ew_popup_sec">
 							<div class="ew_popup_sec_otpInput">
-								<h4 class="ew_popup_sec_title">核對</h4>
+								<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.check.title" bundle="${msg}" /></h4>
 								<div class="col-xs-12 ew_popup_sec_content">
 									<p class="ew_desc">
-										一次性密碼己發送到您的手提電話<span class="ew_mobile">9876 ****</span>.<br>請於60秒內輸入您的一次性密碼</p>
+										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile">9876 ****</span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
 									<div class="ew_pol_info">
 
 										<div class="ew_otp_wrapper">
@@ -1059,25 +1059,25 @@ var languageP = "${language}";
 										<input id="chk_otp" type="checkbox" name="chk">
 										<label for="chk_otp">
 											<span>
-												本人同意並授權富衛人壽(百慕達)有限公司(“富衛人壽”)將本人的個人資料提供予HKT Payment Limited作核對用途。HKT Payment Limited將不會保存任何個人資料。
+												<fmt:message key="ewallet.popup.checkbox.agreement" bundle="${msg}" />
 											</span>
 										</label>
 									</div>
 									<div class="col-xs-12">
-										<a href="#" class="ew_btn_confirm">確認</a>
+										<a href="#" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText" bundle="${msg}" /></a>
 									</div>
 									<div class="col-xs-12">
 										<p class="ew_desc_opt"></p>
 									</div>
 									<div class="col-xs-12 ew_desc_err">
 										<p>
-											一次性密碼錯誤,請重試。
+											<fmt:message key="wallet.popup.password.error.prompt" bundle="${msg}" />
 										</p>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12 ew_remark">
-								<p><sup>^</sup>本提取服務不包括保單利息</p>
+								<p><sup>^</sup><fmt:message key="ewallet.popup.remark" bundle="${msg}" /></p>
 							</div>
 						</div>
 						
@@ -1094,16 +1094,16 @@ var languageP = "${language}";
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-				<h4 class="modal-title">配對拍住賞手機錢包</h4>
+				<h4 class="modal-title"><fmt:message key="ewallet.linkup.title" bundle="${msg}" /></h4>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid bd-example-row">
 					<div class="row">
 						<div class="col-xs-12 ew_popup_sec">
 							<p class="ew_desc">
-								一次性密碼核實成功。
+								<fmt:message key="ewallet.popup.password.success.prompt" bundle="${msg}" />
 							</p>
-							<a href="#" class="ew_btn_confirm">確定</a>
+							<a href="#" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText1" bundle="${msg}" /></a>
 						</div>					
 					</div>
 				</div>
@@ -1118,33 +1118,33 @@ var languageP = "${language}";
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-				<h4 class="modal-title">提取保單本金至拍住賞</h4>
+				<h4 class="modal-title"><fmt:message key="ewallet.withdraw.title" bundle="${msg}" /></h4>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid bd-example-row">
 					<div class="row">
 						<div class="col-xs-12 ew_popup_sec">
-							<h4 class="ew_popup_sec_title">你所提取的保單</h4>
+							<h4 class="ew_popup_sec_title"><fmt:message key="eWallet.popup.sec.title" bundle="${msg}" /></h4>
 							<div class="col-xs-12 ew_popup_sec_pol">
 								<div class="ew_pol_info">
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName">計劃名稱</span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planNameText" bundle="${msg}" /></span>
 										<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName">保單編號</span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planPolicyNumberText" bundle="${msg}" /></span>
 										<span class="ew_pol_info_fieldValue">2548451854</span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName">本金*</span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
 										<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName">拍住賞帳號</span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.withdraw.name" bundle="${msg}" /></span>
 										<span class="ew_pol_info_fieldValue ew_tngId">2548451854</span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName">連結限期</span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.withdraw.linkdate" bundle="${msg}" /></span>
 										<span class="ew_pol_info_fieldValue">01/10/2017</span>
 									</p>
 								</div>
@@ -1152,11 +1152,11 @@ var languageP = "${language}";
 						</div>
 						<div class="col-xs-12 ew_popup_sec">
 							<div class="ew_popup_sec_amountOpt">
-								<h4 class="ew_popup_sec_title">請選擇提取金額</h4>
+								<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.amountOpt.title" bundle="${msg}" /></h4>
 								<div class="col-xs-12 ew_popup_sec_content">
 									<div class="col-xs-12">
 										<p class="ew_hint">
-											最低金額: $500 / 最高金額: $3,000
+											<fmt:message key="ewallet.popup.sec.amountOpt.min" bundle="${msg}" /> $500 / <fmt:message key="ewallet.popup.sec.amountOpt.max" bundle="${msg}" /> $3,000
 										</p>
 									</div>
 									<div class="col-xs-12">
@@ -1166,12 +1166,12 @@ var languageP = "${language}";
 											--><a href="#" class="ew_btn ew_btn_amount">$2,000</a><!--
 											--><a href="#" class="ew_btn ew_btn_amount">$3,000</a>
 										</div>
-										<div class="ew_txt_or ew_desc">或</div>
+										<div class="ew_txt_or ew_desc"><fmt:message key="ewallet.popup.sec.amountOpt.or" bundle="${msg}" /></div>
 										<div class="ew_amount_input">
 											<input type="text" placeholder="請輸入" id="ew_input_amount">
 										</div>
 										<div class="ew_btn_grp">
-											<a href="" class="ew_btn_withdraw">提取</a>
+											<a href="" class="ew_btn_withdraw"><fmt:message key="ewallet.popup.sec.withdraw.btn" bundle="${msg}" /></a>
 										</div>
 									</div>									
 									<div class="col-xs-12">
@@ -1179,30 +1179,30 @@ var languageP = "${language}";
 									</div>
 									<div class="col-xs-12 ew_desc_err">
 										<p>
-											一次性密碼錯誤,請重試。
+											<fmt:message key="ewallet.popup.password.error.prompt" bundle="${msg}" />
 										</p>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12 ew_remark">
-								<p><sup>^</sup>本提取服務不包括保單利息</p>
+								<p><sup>^</sup><fmt:message key="ewallet.popup.remark" bundle="${msg}" /></p>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-12 ew_withdrawAmount">
 							<p class="ew_desc">
-								部份提取金額: <span class="ew_amount">港幣$1,000<sup>*</sup></span>
+								<fmt:message key="ewallet.withdraw.amount.text" bundle="${msg}" /> <span class="ew_amount"><fmt:message key="ewallet.withdraw.HKD" bundle="${msg}" />$1,000<sup>*</sup></span>
 							</p>
 						</div>
 						<div class="col-xs-12 ew_popup_sec">
 							<div class="ew_popup_sec_otpInput">
-								<h4 class="ew_popup_sec_title">核對</h4>
+								<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.content.check" bundle="${msg}" /></h4>
 								<div class="col-xs-12 ew_popup_sec_content">
 									<p class="ew_desc">
-										一次性密碼己發送到您的手提電話<span class="ew_mobile">9876 ****</span>.<br>請於60秒內輸入您的一次性密碼</p>
+										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile">9876 ****</span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
 									<p>
-										請<a href="" class="ew_link_resendOTP">按此</a>重新發送一次密碼
+										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /><a href="" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /></a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
 									</p>
 									<div class="ew_pol_info">
 
@@ -1214,36 +1214,36 @@ var languageP = "${language}";
 										<input id="chk_amount" type="checkbox" name="chk_tnc">
 										<label for="chk_amount">
 											<span>
-												本人同意並授權富衛人壽(百慕達)有限公司(“富衛人壽”)將本人的個人資料提供予HKT Payment Limited作核對用途。HKT Payment Limited將不會保存任何個人資料。
+												<fmt:message key="ewallet.popup.checkbox.agreement" bundle="${msg}"/>
 											</span>
 										</label>
 									</div>
 									<div class="col-xs-12">
-										<a href="#" class="ew_btn_confirm">確認</a>
+										<a href="#" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText" /></a>
 									</div>
 									<div class="col-xs-12">
 										<p class="ew_desc_opt"></p>
 									</div>
 									<div class="col-xs-12 ew_desc_err">
 										<p>
-											一次性密碼錯誤,請重試。
+											<fmt:message key="ewallet.popup.password.error.prompt" bundle="${msg}"/>
 										</p>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12 ew_remark">
-								<p><sup>^</sup>本提取服務不包括保單利息</p>
+								<p><sup>^</sup><fmt:message key="ewallet.popup.remark" bundle="${msg}"/></p>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-12 ew_popup_sec">
 							<div class="ew_success">
-								<p class="ew_bigTxt">成功</p>
+								<p class="ew_bigTxt"><fmt:message key="ewallet.prompt.success" bundle="${msg}" /></p>
 								<p class="ew_desc">
-									一次性密碼核實成功。
+									<fmt:message key="ewallet.popup.password.success.prompt" bundle="${msg}" />
 								</p>
-								<a href="#" class="ew_btn_confirm">確定</a>
+								<a href="#" class="ew_btn_confirm"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
 							</div>
 						</div>					
 					</div>
