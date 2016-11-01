@@ -880,12 +880,18 @@ public class LifeServiceImpl implements LifeService {
 	    	JSONObject jsonObject=getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(), lifePersonalDetails.getHkid(),request);
 	    	JSONArray jsonArray=(JSONArray) jsonObject.get("referralPlan");
 	    	if(jsonArray.get(0).equals("SAVIE PREMIUM DISCOUNT")){
+	    		if(jsonArray.get(1)==null){
+	    			pdfName="SavieOnlineApplicationFormPremiumDiscount";
+	    		}else{
 	    		switch ((String) jsonArray.get(1)) {
 				case "SAVIE REFERRAL AGENT EMAIL":
-					pdfName="SavieOnlineApplicationFormPremiumDiscount";
-					break;
-				case "SAVIE REFERRAL POLICY NUMBER":
 					pdfName="SavieOnlineApplicationFormPremiumDiscountAgnetEmail";
+					break;
+				/*case "SAVIE REFERRAL POLICY NUMBER":
+					pdfName="SavieOnlineApplicationFormPremiumDiscountAgnetEmail";
+					break;*/
+				case "SAVIE REFERRAL POLICY NUMBER":
+					pdfName="SavieOnlineApplicationFormPremiumDiscountSavieReferral";
 					break;
 				default:
 					pdfName = "SavieOnlineApplicationFormDiscount";
@@ -893,6 +899,7 @@ public class LifeServiceImpl implements LifeService {
 					//SavieOnlineApplicationFormPremiumDiscountSavieReferral
 					//SavieOnlineApplicationFormPremiumDiscountCampaign1111
 				}
+	    		}
 	    	}else{
 	    		pdfName = "SavieOnlineApplicationFormDiscount";
 	    	}
