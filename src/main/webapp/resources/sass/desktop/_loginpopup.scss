@@ -1,0 +1,29 @@
+#errUserName, #errPass {
+  display: block;
+}
+
+.fwd-savie-wrapper .modal.fade.loginpopup,
+.modal.fade.loginpopup,
+.forgotUserNameForm,
+.forgotPasswordForm {
+  .modal-dialog.loginpopup__modal-dialog {
+    width: 800px;
+    .login-info-savie .upper-overlay {
+      min-height: 200px;
+    }
+    .login-input {
+      display: inline-block;
+    }
+    .loginpopupext .login-info-savie img {
+      /*position: absolute;
+      bottom: 0;*/
+    }
+  }
+}
+
+.loginpopup .loginpopupext .upper-overlay {
+  .heading-h4,
+  .heading-h5 {
+    line-height: 1.3;
+  }
+}

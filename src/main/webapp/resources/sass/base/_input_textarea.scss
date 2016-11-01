@@ -7,7 +7,7 @@
             font-style: normal;
         }
     }
-    @media screen and #{$desktop_mdlg} {
+    @media screen and #{$desktop} {
         .col-sm-12 {
             &.col-md-12.left,
             &.col-md-6.left {

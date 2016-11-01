@@ -40,21 +40,9 @@
   @import "mobile/faq"; // BEM Naming for faq page 20160513
 }
 
-@media screen and #{$desktop_lg} {
-  @import "desktop_lg/motor/quick-quote";
-}
-
-@media screen and #{$desktop_mdlg} {
-  @import "desktop_mdlg/footer";
-  @import "desktop_mdlg/loginpopup";
-}
-
-@media screen and #{$desktop_md} {
-  // @import "desktop_md/header";
-}
-
-@media screen and #{$desktop_lg} {
-  // @import "desktop_lg/header";
+@media screen and #{$desktop} {
+  @import "desktop/footer";
+  @import "desktop/loginpopup";
 }
 
 // # Other rules and diff. screen standards for overwrite above
