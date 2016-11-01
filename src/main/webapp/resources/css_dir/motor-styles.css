@@ -1064,6 +1064,409 @@ body.chin .bold {
   height: 145px;
 }
 
+/* line 2, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .btn-primary.disabled, .motor-signup-form .btn-primary[disabled], .motor-signup-form fieldset[disabled] .btn-primary, .motor-signup-form .btn-primary.disabled:hover, .motor-signup-form .btn-primary[disabled]:hover, .motor-signup-form fieldset[disabled] .btn-primary:hover, .motor-signup-form .btn-primary.disabled:focus, .motor-signup-form .btn-primary[disabled]:focus, .motor-signup-form fieldset[disabled] .btn-primary:focus, .motor-signup-form .btn-primary.disabled:active, .motor-signup-form .btn-primary[disabled]:active, .motor-signup-form fieldset[disabled] .btn-primary:active, .motor-signup-form .btn-primary.disabled.active, .motor-signup-form .btn-primary[disabled].active, .motor-signup-form fieldset[disabled]
+.btn-primary.active {
+  background: #f68a1d;
+  border-color: #f68a1d;
+}
+/* line 7, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .bootstrap-switch {
+  background: #f68a1d;
+}
+/* line 9, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .bootstrap-switch, .motor-signup-form .bootstrap-switch .bootstrap-switch-label {
+  border-radius: 40px !important;
+}
+/* line 12, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .bootstrap-switch .bootstrap-switch-label {
+  width: 30px !important;
+  height: 30px !important;
+  border: solid 2px #f68a1d;
+}
+/* line 18, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default, .motor-signup-form .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default {
+  background: transparent !important;
+}
+/* line 21, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary, .motor-signup-form .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary {
+  background: transparent !important;
+}
+/* line 24, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .save > a {
+  color: #061d2a;
+  text-decoration: underline;
+}
+/* line 28, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #tr-wizard.shop-tracking-status .image-order-status {
+  background-color: #f5f5f5;
+  border: none;
+  color: #9fb1b2;
+}
+/* line 33, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #tr-wizard.shop-tracking-status .act {
+  background-color: #f68a1d;
+  color: #fff;
+}
+/* line 36, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #tr-wizard.shop-tracking-status .act > span {
+  text-align: left;
+}
+/* line 40, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .shop-tracking-status .image-order-status.active .status {
+  left: -16px !important;
+  font-size: 16px !important;
+}
+/* line 44, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .center .landing_h2 {
+  color: #555 !important;
+}
+/* line 47, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .form-control {
+  height: 60px;
+}
+/* line 50, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .mdl-textfield {
+  width: 100%;
+  padding: 0;
+}
+/* line 54, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form input[type="number"]::-webkit-outer-spin-button, .motor-signup-form input[type="number"]::-webkit-inner-spin-button {
+  display: none !important;
+  visibility: hidden;
+}
+/* line 58, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .mdl-textfield__label {
+  left: 0;
+  top: 20px;
+  padding-left: 15px;
+  color: #ccc !important;
+}
+/* line 64, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .mdl-textfield.is-focused label {
+  top: 0;
+  color: #f68a1d !important;
+}
+/* line 68, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .mdl-textfield.is-invalid .mdl-textfield__input {
+  border: none;
+  box-shadow: none;
+}
+/* line 72, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .mdl-textfield.is-invalid .mdl-textfield__label:after {
+  background-color: #f68a1d !important;
+}
+/* line 75, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .form-control.selectize-control {
+  height: 60px;
+}
+/* line 78, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .mdl-textfield__label {
+  height: 60px;
+}
+/* line 80, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .mdl-textfield__label:after {
+  bottom: 0;
+  background-color: #f68a1d;
+}
+/* line 85, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .mdl-textfield__input {
+  text-indent: 8px;
+}
+/* line 88, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary, .motor-signup-form .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary {
+  background: #f68a1d;
+}
+/* line 91, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .selectize-control {
+  display: inline-block;
+  min-width: 250px;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+}
+/* line 97, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .selectize-control .selectize-input {
+  border-radius: 0 !important;
+  border: none;
+  box-shadow: none;
+  padding: 20px 15px;
+  min-height: 0;
+}
+/* line 103, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .selectize-control .selectize-input:after {
+  border-color: #f68a1d transparent transparent transparent !important;
+}
+/* line 107, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .selectize-control .selectize-input input[type="text"] {
+  width: 100% !important;
+}
+/* line 111, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .selectize-dropdown {
+  top: 24px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: solid 1px #ccc;
+  border-radius: 0;
+  border-top: 0;
+  z-index: 99;
+  background: #fff;
+}
+/* line 121, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .motor-tooltip {
+  position: absolute;
+  right: 15px;
+  font-size: 200%;
+  line-height: 2;
+}
+/* line 122, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .motor-tooltip + .tooltip {
+  background-color: #f2f2f2;
+  margin-top: -10px;
+}
+/* line 125, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .motor-tooltip + .tooltip.in {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+/* line 129, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .motor-tooltip + .tooltip .tooltip-inner {
+  background-color: #f2f2f2;
+  max-width: none;
+  padding: 0 5px;
+}
+/* line 134, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .motor-tooltip + .tooltip .tooltip-arrow {
+  border-top-color: #f2f2f2;
+  bottom: -14px;
+  border-width: 15px 15px 0;
+}
+/* line 145, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .occupation + .selectize-control > div {
+  background: #f5f5f5;
+}
+/* line 147, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .occupation + .selectize-control > div ::-webkit-input-placeholder {
+  font-size: 12px !important;
+}
+/* line 151, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .occupation:disabled + .selectize-control > div {
+  background: #f5f5f5;
+}
+/* line 153, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .occupation:disabled + .selectize-control > div ::-webkit-input-placeholder {
+  font-size: 16px !important;
+}
+/* line 157, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .occupation:disabled + .selectize-control > div ::-webkit-input-placeholder {
+  color: #061d2a !important;
+}
+/* line 160, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form :disabled {
+  cursor: default;
+  color: #061d2a;
+  background: #f5f5f5;
+}
+/* line 165, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .calendar.disabled:after {
+  right: 26px;
+}
+/* line 169, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form :disabled + .selectize-control .selectize-input {
+  opacity: 1;
+}
+/* line 173, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #district + .selectize-control > div {
+  background: #f5f5f5;
+}
+/* line 175, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #district + .selectize-control > div ::-webkit-input-placeholder {
+  font-size: 12px !important;
+}
+/* line 179, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #area + .selectize-control > div {
+  background: #f5f5f5;
+}
+/* line 181, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #area + .selectize-control > div ::-webkit-input-placeholder {
+  font-size: 12px !important;
+}
+/* line 185, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #policy-datepicker {
+  background: #fff;
+}
+/* line 189, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .no-claim .form-group {
+  margin-bottom: 0;
+}
+/* line 192, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .no-claim .form-control, .motor-signup-form .no-claim .calendar {
+  background: #fff;
+}
+/* line 195, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .no-claim #expiry-datepicker {
+  background: transparent !important;
+}
+/* line 198, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .no-claim .mdl-textfield {
+  height: 100px;
+}
+/* line 202, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .no-claim .help-block .list-unstyled {
+  margin: 0;
+}
+/* line 205, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .no-claim .help-block li {
+  line-height: 1;
+  margin: 0;
+}
+/* line 211, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .calendar {
+  background: #f2f2f2;
+}
+/* line 214, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .calendar .glyphicon {
+  font-size: 18px;
+  color: #f68a1d;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+/* line 221, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .calendar > input {
+  position: relative;
+  background: transparent;
+  cursor: pointer;
+}
+/* line 226, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .ped {
+  padding-top: 18px;
+}
+/* line 229, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .question .panel-heading {
+  background: #f5f5f5;
+}
+/* line 233, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .custom-radio .radio {
+  background: #fff;
+  color: #f68a1d;
+  padding: 10px 50px;
+  border: solid 1px #f68a1d;
+  border-radius: 5px;
+  margin: 10px 0;
+  display: inline-block;
+}
+/* line 241, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .custom-radio .radio label {
+  padding-left: 0;
+}
+/* line 244, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .custom-radio .radio input[type="radio"] {
+  display: none;
+}
+/* line 247, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .custom-radio .radio.active {
+  background: #f68a1d;
+  color: #fff;
+}
+/* line 252, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .custom-radio .radio label:before, .motor-signup-form .custom-radio .radio label:after {
+  display: none;
+}
+/* line 257, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .custom-checkbox .has-error .help-block-wrap:after {
+  content: '';
+}
+/* line 260, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .custom-checkbox .help-block-wrap > input[type=checkbox] {
+  display: none !important;
+}
+/* line 264, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .added-driver > .container:first-of-type .row > div {
+  padding-top: 30px;
+  border-top: solid 4px #f68a1d;
+  position: relative;
+}
+/* line 269, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .added-driver > .container:first-of-type .removeDriver {
+  position: absolute;
+  right: 0;
+  padding-right: 20px;
+}
+/* line 277, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #addDriver {
+  padding: 40px;
+  display: inline-block;
+}
+/* line 281, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form #bankName {
+  background: #fff;
+  text-indent: 6px;
+}
+/* line 285, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .save {
+  margin: 30px 0 50px;
+}
+/* line 289, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .plan-accordion .panel-title a:after {
+  content: none;
+}
+/* line 292, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .registerPanel {
+  background: #ccc;
+}
+/* line 294, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .registerPanel .form-group {
+  margin: 0;
+  margin-bottom: 0;
+}
+/* line 298, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .registerPanel .mdl-textfield {
+  height: 100px;
+  text-align: left;
+}
+/* line 303, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .form-control {
+  background-color: #fff !important;
+}
+/* line 306, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .panel-default > .panel-heading + .panel-collapse .panel-body {
+  border-top: none !important;
+  color: #575757;
+}
+/* line 310, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .panel-body {
+  padding: 0;
+  padding-top: 20px;
+}
+/* line 313, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .panel-body .panel-group {
+  margin: 0;
+}
+/* line 317, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .memberLogin .plan-accordion .panel-heading {
+  border-bottom: none;
+}
+/* line 321, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .payment-detail > .panel-heading, .motor-signup-form .memberLogin > .panel-heading {
+  background-color: #fff;
+}
+/* line 323, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .payment-detail > .panel-heading h2, .motor-signup-form .memberLogin > .panel-heading h2 {
+  margin-bottom: 0;
+}
+/* line 327, ../sass/common_screen/motor/_motor-signup-form.scss */
+.motor-signup-form .payment-detail > .panel-body, .motor-signup-form .memberLogin > .panel-body {
+  border: solid 0px #ccc;
+  border-top-width: 3px;
+  background-color: #f2f2f2;
+}
+
+/* line 335, ../sass/common_screen/motor/_motor-signup-form.scss */
+#saveModal .heading-h3 {
+  padding: 60px 0 40px;
+}
+
 @media screen and (min-width: 1200px) {
   /* line 2, ../sass/desktop_lg/motor/_quick-quote.scss */
   .quick-quote .ready-content h3 {
@@ -1231,6 +1634,43 @@ body.chin .bold {
   /* line 18, ../sass/mobile/motor/_quick-quote.scss */
   body.chin .quick-quote .addOn-content {
     height: 140px;
+  }
+
+  /* line 3, ../sass/mobile/motor/_motor-signup-form.scss */
+  .finalPremium .finalPremium-title, .finalPremium strong {
+    font-size: 16px !important;
+  }
+
+  /* line 7, ../sass/mobile/motor/_motor-signup-form.scss */
+  .summary, .payment-detail, .memberLogin {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  /* line 11, ../sass/mobile/motor/_motor-signup-form.scss */
+  .bankMortgage {
+    background: #f5f5f5;
+  }
+
+  /* line 14, ../sass/mobile/motor/_motor-signup-form.scss */
+  #testimonials {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  /* line 17, ../sass/mobile/motor/_motor-signup-form.scss */
+  #testimonials > .row {
+    background: #f5f5f5;
+  }
+
+  /* line 21, ../sass/mobile/motor/_motor-signup-form.scss */
+  .motor-form-wrap {
+    display: table;
+    width: 100%;
+  }
+
+  /* line 25, ../sass/mobile/motor/_motor-signup-form.scss */
+  .motor-signup-form {
+    display: table-footer-group;
   }
 }
 @media (max-width: 767px) {
@@ -1577,72 +2017,72 @@ body.chin .bold {
     font-size: 13px;
   }
 }
-/* line 36, ../sass/motor-styles.scss */
+/* line 38, ../sass/motor-styles.scss */
 h1, h2, h3, h4, h5, h6, h7 {
   font-family: 'CirculaPro-Bold', Arial, sans-serif !important;
   font-weight: 600;
 }
 
-/* line 40, ../sass/motor-styles.scss */
+/* line 42, ../sass/motor-styles.scss */
 h3 {
   font-size: 24px;
 }
 
-/* line 43, ../sass/motor-styles.scss */
+/* line 45, ../sass/motor-styles.scss */
 p {
   font-size: 16px;
 }
 
 /*color guild*/
-/* line 48, ../sass/motor-styles.scss */
+/* line 50, ../sass/motor-styles.scss */
 .blue-color {
   background: #12afbf;
 }
 
-/* line 51, ../sass/motor-styles.scss */
+/* line 53, ../sass/motor-styles.scss */
 .red-color {
   background: #f85100;
 }
 
-/* line 55, ../sass/motor-styles.scss */
+/* line 57, ../sass/motor-styles.scss */
 .orange-color {
   background: #f68a1d;
 }
-/* line 57, ../sass/motor-styles.scss */
+/* line 59, ../sass/motor-styles.scss */
 .orange-color, .orange-color h3 {
   color: #fff;
 }
 
-/* line 61, ../sass/motor-styles.scss */
+/* line 63, ../sass/motor-styles.scss */
 .yellow-color {
   background: #fbbf15;
 }
 
-/* line 64, ../sass/motor-styles.scss */
+/* line 66, ../sass/motor-styles.scss */
 .dark-green-color {
   background: #1f4146;
 }
 
-/* line 68, ../sass/motor-styles.scss */
+/* line 70, ../sass/motor-styles.scss */
 .light-green-color {
   background: #97d0ce;
   color: #061d2a;
 }
 
-/* line 72, ../sass/motor-styles.scss */
+/* line 74, ../sass/motor-styles.scss */
 .white-color {
   background: #fff;
 }
-/* line 74, ../sass/motor-styles.scss */
+/* line 76, ../sass/motor-styles.scss */
 .white-color, .white-color a {
   color: #061d2a;
 }
-/* line 77, ../sass/motor-styles.scss */
+/* line 79, ../sass/motor-styles.scss */
 .white-color h3, .white-color .price {
   color: #f68a1d;
 }
 
-/* line 81, ../sass/motor-styles.scss */
+/* line 83, ../sass/motor-styles.scss */
 .bdr-curve {
   padding: 5px 2px !important;
   border-radius: 5px !important;
@@ -1650,7 +2090,7 @@ p {
   max-width: 250px;
 }
 
-/* line 88, ../sass/motor-styles.scss */
+/* line 90, ../sass/motor-styles.scss */
 .center .motor-ttl {
   font-size: 20px !important;
   margin: 20px auto !important;
@@ -1660,7 +2100,7 @@ p {
   line-height: 1.3;
 }
 
-/* line 96, ../sass/motor-styles.scss */
+/* line 98, ../sass/motor-styles.scss */
 .underline {
   text-decoration: underline !important;
 }

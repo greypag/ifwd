@@ -14,11 +14,11 @@ var nextPage = "${nextPageFlow}";
 
 
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/motor-styles.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/bootstrap-switch.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/selectize.bootstrap3.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/js/motor/basic.min.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/js/motor/dropzone.min.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/dropzone.min.css" type="text/css">
 <style type="text/css" media="all">
     #submitDoc{
         margin: 30px 0 50px;
@@ -41,26 +41,27 @@ var nextPage = "${nextPageFlow}";
         margin: 0 auto;
         padding-bottom: 15px;
     }
-    .motor-confirmation #uploadDocSection .upload .drop-zone{
+    .motor-confirmation #uploadDocSection .upload .upload__dropzone{
         background: #fff;
         margin: 30px 0 0;
         padding: 20px 0;
         min-height: 0;
         border: none;
+        cursor: pointer;
     }
-    .motor-confirmation #uploadDocSection .upload .drop-zone + div{
+    .motor-confirmation #uploadDocSection .upload .upload__dropzone + div{
         background: #fff;
         padding-bottom: 30px;
     }
-    .motor-confirmation #uploadDocSection .upload .drop-zone + div p{
+    .motor-confirmation #uploadDocSection .upload .upload__dropzone + div p{
         line-height: 1.2; 
         padding: 0 30px;
     }
-    .motor-confirmation #uploadDocSection .upload .drop-zone h4{
+    .motor-confirmation #uploadDocSection .upload .upload__dropzone h4{
         color: #f68a1d;
         margin-bottom: 1em;
     }
-    .motor-confirmation div.dropzone div.dz-preview {
+    .motor-confirmation div.upload__dropzone div.dz-preview {
         width: 100%;
         text-align: center;
         margin: 0;
@@ -68,7 +69,7 @@ var nextPage = "${nextPageFlow}";
     .motor-confirmation div.dropzone div.dz-preview div.dz-image {
         display: inline-block;
     }
-    .motor-confirmation .dropzone .dz-preview .dz-error-message{
+    .motor-confirmation .upload__dropzone .dz-preview .dz-error-message{
         width: 120px;
         padding: 0.5em;
     }
@@ -85,7 +86,7 @@ var nextPage = "${nextPageFlow}";
         line-height: 1.2;
     }
     @media screen and (min-width: 768px){
-        .motor-confirmation #uploadDocSection .upload-id .drop-zone{
+        .motor-confirmation #uploadDocSection .upload-id .upload__dropzone{
             min-height: 175px !important;
         }
         .motor-confirmation #uploadDocSection .upload .title{
@@ -107,17 +108,20 @@ var nextPage = "${nextPageFlow}";
     }
 </style>
 <section id="" class="motor-confirmation motor-upload">
-    <div class="container container-fluid breadcrumbs motor">
-        <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="divider"><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Protect</a></li>
-            <li class="divider"><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">MotorCare</a></li>
-            <li class="divider"><i class="fa fa-angle-right"></i></li>
-            <li class="active-bc" id="et-active-bc-menu">Get quote</li>
-        </ol>
+    <!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
+        <c:set var="breadcrumbItems">
+            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.get.quote
+        </c:set>
+        <c:set var="breadcrumbActive">3</c:set>
+        
+        <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+            <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+            <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+        </jsp:include>
     </div>
+    <!-- Breadcrumb Component End-->
+
     <div class="">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
@@ -163,7 +167,7 @@ var nextPage = "${nextPageFlow}";
                                 <h4 class="title">
                                     HKID for all named drivers
                                 </h4>
-                                <div class="drop-zone dropzone" id="vehicleReg-dz">
+                                <div class="upload__dropzone" id="vehicleReg-dz">
                                     <div class="content">
                                         <h4 class="dz-message">
                                             Please select a file
@@ -184,7 +188,7 @@ var nextPage = "${nextPageFlow}";
                                 <h4 class="title">
                                     HKID for all named drivers
                                 </h4>
-                                <div class="drop-zone dropzone" id="hkid-dz">
+                                <div class="upload__dropzone" id="hkid-dz">
                                     <div class="content">
                                         <h4 class="dz-message">
                                             Please select a file
@@ -212,7 +216,7 @@ var nextPage = "${nextPageFlow}";
                                 <h4 class="title">
                                     HKID for all named drivers HKID for all named drivers HKID for all named drivers HKID for all named drivers HKID for all named driver
                                 </h4>
-                                <div class="drop-zone dropzone" id="license-dz">
+                                <div class="upload__dropzone" id="license-dz">
                                     <div class="content">
                                         <h4 class="dz-message">
                                             Please select a file
@@ -240,7 +244,7 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
 </section>
-<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/dropzone.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/vendor/dropzone.js"></script>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function(){
         var vehicleReg = $('#vehicleReg-dz').dropzone({

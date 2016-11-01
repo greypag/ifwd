@@ -14,25 +14,27 @@ var nextPage = "${nextPageFlow}";
 
 
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/motor-styles.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/bootstrap-switch.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/selectize.bootstrap3.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/js/motor/mobiscroll.custom-2.17.2.min.css" type="text/css">
 <style type="text/css" media="all">
 </style>
 <div class="motor-form-wrap">
     <section id="" class="motor-signup-form">
-        <div class="container container-fluid breadcrumbs motor">
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="divider"><i class="fa fa-angle-right"></i></li>
-                <li><a href="#">Protect</a></li>
-                <li class="divider"><i class="fa fa-angle-right"></i></li>
-                <li><a href="#">MotorCare</a></li>
-                <li class="divider"><i class="fa fa-angle-right"></i></li>
-                <li class="active-bc" id="et-active-bc-menu">Get quote</li>
-            </ol>
+        <!-- Breadcrumb Component Start-->
+        <div class="container container-fluid container--breadcrumb">
+            <c:set var="breadcrumbItems">
+                breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.get.quote
+            </c:set>
+            <c:set var="breadcrumbActive">3</c:set>
+            
+            <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+                <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+                <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+            </jsp:include>
         </div>
+        <!-- Breadcrumb Component End-->
+
         <div class="container ">
             <div class="row">
                 <div id="tr-steps" class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12  shop-tracking-status">
@@ -421,12 +423,9 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
 </div>
-<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/mobiscroll.custom-2.17.2.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/mobiscroll.i18n.en_fwd.js"></script>
-<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/mobiscroll.i18n.zh_fwd.js"></script>
 
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
