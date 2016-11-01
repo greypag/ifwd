@@ -925,7 +925,7 @@ var languageP = "${language}";
 										<h3 class="heading-title"><fmt:message key="ewallet.log.heading.title" bundle="${msg}" /></h3>
 									</div> 
 									<div class="col-xs-12 ew_log_selectWrapper">
-										<div class="col-xs-12 col-sm-3">保單號碼</div>
+										<div class="col-xs-12 col-sm-3"><fmt:message key="ewallet.planList.pol.info.planPolicyNumberText1" bundle="${msg}" /></div>
 										<div class="col-xs-12 col-sm-3">
 											<div class="ew_pol_selector">
 												<select>
@@ -951,19 +951,19 @@ var languageP = "${language}";
 												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
 												<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
 											</p>
-										</div>
+										</div> 
 									</div>
 									<div class="col-xs-12 ew_log_dt_selectWrapper">
 										<div class="ew_dt_from_txt">
-											查閱交易紀錄期
+											<fmt:message key="ewallet.planList.pol.info.period" bundle="${msg}"/>
 										</div>
 										<input id="dt_log_from" placeholder="Please Select..." />
 										<div class="ew_dt_to_txt">
-											至
+											<fmt:message key="ewallet.planList.pol.info.to" bundle="${msg}"/>
 										</div>
 										<input id="dt_log_to" placeholder="Please Select..." />
 										<div class="ew_btn_grp">
-											<a href="javascript:void(0);" class="ew_btn_ok">確定</a>
+											<a href="javascript:void(0);" class="ew_btn_ok"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
 										</div>
 									</div>
 								</div>
@@ -1025,7 +1025,7 @@ var languageP = "${language}";
 				<div class="container-fluid bd-example-row">
 					<div class="row">
 						<div class="col-xs-12 ew_popup_sec">
-							<h4 class="ew_popup_sec_title"><fmt:message key="eWallet.popup.sec.title" bundle="${msg}" /></h4>
+							<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.title" bundle="${msg}" /></h4>
 							<div class="col-xs-12 ew_popup_sec_pol">
 								<div class="ew_pol_info">
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
@@ -1071,7 +1071,7 @@ var languageP = "${language}";
 									</div>
 									<div class="col-xs-12 ew_desc_err">
 										<p>
-											<fmt:message key="wallet.popup.password.error.prompt" bundle="${msg}" />
+											<fmt:message key="ewallet.popup.password.error.prompt" bundle="${msg}" />
 										</p>
 									</div>
 								</div>
@@ -1124,7 +1124,7 @@ var languageP = "${language}";
 				<div class="container-fluid bd-example-row">
 					<div class="row">
 						<div class="col-xs-12 ew_popup_sec">
-							<h4 class="ew_popup_sec_title"><fmt:message key="eWallet.popup.sec.title" bundle="${msg}" /></h4>
+							<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.title" bundle="${msg}" /></h4>
 							<div class="col-xs-12 ew_popup_sec_pol">
 								<div class="ew_pol_info">
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
@@ -1202,7 +1202,7 @@ var languageP = "${language}";
 									<p class="ew_desc">
 										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile">9876 ****</span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
 									<p>
-										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /><a href="" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /></a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
+										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
 									</p>
 									<div class="ew_pol_info">
 
@@ -1219,7 +1219,7 @@ var languageP = "${language}";
 										</label>
 									</div>
 									<div class="col-xs-12">
-										<a href="#" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText" /></a>
+										<a href="#" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText" bundle="${msg}"/></a>
 									</div>
 									<div class="col-xs-12">
 										<p class="ew_desc_opt"></p>
