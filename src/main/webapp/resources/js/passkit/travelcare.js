@@ -198,7 +198,7 @@ $(function () {
         var $error = $('.verify-error[data-error-for="' + key + '"]');
         var hkid = $hkid.val().trim();
         if (hkid) {
-          if (/^[a-zA-Z]{1,2}\d{3,4}$/.exec(hkid) && /^[a-zA-Z0-9]{5}$/.exec(hkid)) {
+          if (/^[a-zA-Z]{1,2}\d{3,4}$/.exec(hkid) || /^[a-zA-Z0-9]{5}$/.exec(hkid)) {
             submitPolicyDetail(userType, hkid, $('#tbx-policy-no').val().trim());
           } else {
             $hkid.focus();
