@@ -280,10 +280,10 @@ public class OnlineWithdrawalController extends BaseController{
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 455, message = "Invalid Policy"),
-			@ApiResponse(code = 456, message = "Function has been temporarily suspended"),
-			@ApiResponse(code = 457, message = "Invalid customer mobile number for receive OTP via SMS"),
-			@ApiResponse(code = 458, message = "Exceed the number of re-send OTP")
+			@ApiResponse(code = 411, message = "Invalid Policy"),
+			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
+			@ApiResponse(code = 413, message = "Invalid customer mobile number for receive OTP via SMS"),
+			@ApiResponse(code = 414, message = "Exceed the number of re-send OTP")
 			})
 	@RequestMapping(value = "/sendTngOtpSms", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> sendTngOtpSms(
@@ -327,11 +327,11 @@ public class OnlineWithdrawalController extends BaseController{
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 455, message = "Invalid Policy"),
-			@ApiResponse(code = 456, message = "Function has been temporarily suspended"),
-			@ApiResponse(code = 457, message = "OTP not match"),
-			@ApiResponse(code = 458, message = "OTP expired"),
-			@ApiResponse(code = 459, message = "OTP is already authentic")
+			@ApiResponse(code = 411, message = "Invalid Policy"),
+			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
+			@ApiResponse(code = 413, message = "OTP not match"),
+			@ApiResponse(code = 414, message = "OTP expired"),
+			@ApiResponse(code = 415, message = "OTP is already authentic")
 			})
 	@RequestMapping(value = "/authTngOtp", method = POST)
 	public ResponseEntity<TngAuthOtpResponse> authTngOtp(
@@ -422,11 +422,11 @@ public class OnlineWithdrawalController extends BaseController{
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 455, message = "Invalid Policy"),
-			@ApiResponse(code = 456, message = "Function has been temporarily suspended"),
-			@ApiResponse(code = 457, message = "Invalid customer mobile number for receive OTP via SMS"),
-			@ApiResponse(code = 458, message = "Exceed the number of re-send OTP"),
-			@ApiResponse(code = 459, message = "Invalid Withdrawal")
+			@ApiResponse(code = 411, message = "Invalid Policy"),
+			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
+			@ApiResponse(code = 413, message = "Invalid customer mobile number for receive OTP via SMS"),
+			@ApiResponse(code = 414, message = "Exceed the number of re-send OTP"),
+			@ApiResponse(code = 415, message = "Invalid Withdrawal")
 			})
 	@RequestMapping(value = "/requestTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> requestTngPolicyWithdraw(
@@ -469,12 +469,12 @@ public class OnlineWithdrawalController extends BaseController{
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 455, message = "Invalid Policy"),
-			@ApiResponse(code = 456, message = "Function has been temporarily suspended"),
-			@ApiResponse(code = 457, message = "OTP not match"),
-			@ApiResponse(code = 458, message = "OTP expired"),
-			@ApiResponse(code = 459, message = "OTP is already authentic"),
-			@ApiResponse(code = 460, message = "Tap n Go side cannot perform withdraw")
+			@ApiResponse(code = 411, message = "Invalid Policy"),
+			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
+			@ApiResponse(code = 413, message = "OTP not match"),
+			@ApiResponse(code = 414, message = "OTP expired"),
+			@ApiResponse(code = 415, message = "OTP is already authentic"),
+			@ApiResponse(code = 416, message = "Tap n Go side cannot perform withdraw")
 			})
 	@RequestMapping(value = "/performTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngPolicyWithdrawPerformResponse> performTngPolicyWithdraw(
