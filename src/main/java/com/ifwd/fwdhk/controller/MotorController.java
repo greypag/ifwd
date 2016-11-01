@@ -36,10 +36,38 @@ public class MotorController extends BaseController{
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_PLAN_THIRD);
 	}
 
-	@RequestMapping(value = {"/{lang}/motor-insurance/comprehensive-quote"}, method = RequestMethod.POST)
-	public ModelAndView getPlanComp(Model model, HttpServletRequest request) {
-		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_PLAN_COMP);
+	@RequestMapping(value = {"/{lang}/motor-insurance/T6_Sign_Up_Page1"}, method = RequestMethod.GET)
+	public String T6_Sign_Up_Page1(Model model, HttpServletRequest request) {
+		return "/merged/motor/T6_Sign_Up_Page1";
 	}
+	
+	
+	@RequestMapping(value = {"/{lang}/motor-insurance/T7_Sign_Up_Page2"}, method = RequestMethod.GET)
+	public String T7_Sign_Up_Page2(Model model, HttpServletRequest request) {
+		return "/merged/motor/T7_Sign_Up_Page2";
+	}
+	@RequestMapping(value = {"/{lang}/motor-insurance/T8_Sign_Up_Page3"}, method = RequestMethod.GET)
+	public String T8_Sign_Up_Page3(Model model, HttpServletRequest request) {
+		return "/merged/motor/T8_Sign_Up_Page3";
+	}
+	@RequestMapping(value = {"/{lang}/motor-insurance/T9_Sign_Up_Page4"}, method = RequestMethod.GET)
+	public String T9_Sign_Up_Page4(Model model, HttpServletRequest request) {
+		return "/merged/motor/T9_Sign_Up_Page4";
+	}
+	@RequestMapping(value = {"/{lang}/motor-insurance/T10_Summary_Page"}, method = RequestMethod.GET)
+	public String T10_Summary_Page(Model model, HttpServletRequest request) {
+		return "/merged/motor/T10_Summary_Page";
+	}
+	@RequestMapping(value = {"/{lang}/motor-insurance/T11_Confirmation"}, method = RequestMethod.GET)
+	public String T11_Confirmation(Model model, HttpServletRequest request) {
+		return "/merged/motor/T11_Confirmation";
+	}
+	@RequestMapping(value = {"/{lang}/motor-insurance/T12_Upload_Document"}, method = RequestMethod.GET)
+	public String T12_Upload_Document(Model model, HttpServletRequest request) {
+		return "/merged/motor/T12_Upload_Document";
+	}
+	
+	
 	
 	public static String getUrl(String page) {
 		return UserRestURIConstants.SERVICE_URL + "/motor-insurance/" + page;

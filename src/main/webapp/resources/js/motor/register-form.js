@@ -30,6 +30,7 @@ $(document).ready(function(){
         create: false,
         preload: true,
         load: function(query, callback) {
+            $('.occupation').find('input[type="text"]').data('required-error', $('.occupation').data('required-error'));
             $.ajax({
                 url: '/api/iMotor/driverDetails', //change to get api
                 type: 'GET',
@@ -71,34 +72,16 @@ $(document).ready(function(){
         }
     });
     $('#area').selectize({
-        valueField: '',
-        labelField: '',
-        searchField: '',
-        create: false,
         preload: true,
         load: function(query, callback) {
             $('#area-selectized').data('required-error', $('#area').data('required-error'));
-            $.ajax({
-                url: '/api/iMotor/carDetails', //change to get api
-                type: 'GET',
-                dataType: 'json',
-                data: {
-                    model: query,
-                },
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-                        callback(res);
-                    }
-            });
         }
     });
     $('[name="bankMortgage"]').bootstrapSwitch({
         onText: '',
         offText: '',
-        labelWidth: '20',
-        handleWidth: '20',
+        //        labelWidth: '10',
+        //      handleWidth: '10',
         onSwitchChange: function(e, state){
             if(state)
                 $('.mortgageBank').addClass('hidden');
@@ -113,17 +96,18 @@ $(document).ready(function(){
         if(current < totalDriver){
             $('.added-driver').eq(current).removeClass('hidden');
             if(current > 0){
-            $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
+                $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
             }
             current += 1;
             if (current == totalDriver) {
                 $(this).addClass('hidden');
             }
         }
-        console.log(current);
+        // console.log(current);
     });
     $('.removeDriver').on('click', function(e){
         e.preventDefault();
+        $('#driverDetails').validator('destroy');
         $(this).parents('.added-driver').find('input').val('');
         $(this).parents('.added-driver').find('input:checkbox').removeAttr('checked');
         $(this).parents('.added-driver').find('option').removeAttr('selected');
@@ -134,4 +118,35 @@ $(document).ready(function(){
         }
         current -= 1;
     });
+    $('#sendDriverDetail').on('click', function(e){
+        e.preventDefault();
+      //  $('#motor_registerForm').validator('validate');
+        // if($('#expiry-datepicker').val() == ""){
+        //     $('#expiry-datepicker-group').addClass('has-error has-danger');
+        //     $('#expiry-datepicker-error').html($('#expiry-datepicker').data('required-error'));
+        // }
+    });
+    // $('#sendDriverDetail').on('click', function(e){
+    //     e.preventDefault();
+    //     $('#motor_registerForm').validator('validate');
+    // });
+
+    $('#closeUserName').on('click', function(e){
+    $('#forgotUserNamePopup').addClass('hidden');
+    });
+    $('#closeUserPass').on('click', function(e){
+    $('#forgotUserPassPopup').addClass('hidden');
+    $('.loginPanel').css({'height':'auto'});
+    });
+    $('#forgotUserName').on('click', function(e){
+         e.preventDefault();
+    $('#forgotUserNamePopup').removeClass('hidden');
+    });
+    $('#link-forgotPassword').on('click', function(e){
+         e.preventDefault();
+    $('#forgotUserPassPopup').removeClass('hidden');
+    $('.loginPanel').css({'height':'400'});
+    
+    });
+
 });
