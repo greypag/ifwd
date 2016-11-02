@@ -23,6 +23,10 @@ public class TngPolicyConstants {
 		TNG_POLICY_STATUS_CODE_MAP.put(BE_TNG_POLICY_STATUS_LOCKED,TNG_POLICY_STATUS_LOCKED);
     }
 	
+	public static String getTngPolicyStatusCode(String beCode){
+		return TNG_POLICY_STATUS_CODE_MAP.get(beCode);
+	}
+	
 	//policy warning code
 	public static final String TNG_POLICY_WARN_CODE_001="TPW001";
 	public static final String TNG_POLICY_WARN_CODE_002="TPW002";

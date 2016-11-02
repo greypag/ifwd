@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -47,8 +48,10 @@ import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngLinkupSaveRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngOtpSmsReqResponse;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyConstants;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyHistoryResponse;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfo;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoByPolicyResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyInfoResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyListRequest;
@@ -90,7 +93,7 @@ public class OnlineWithdrawalController extends BaseController{
 		
 		
 		JSONObject responseJsonObj = new JSONObject();		
-		ResponseEntity responseEntity =Responses.error(null);
+		ResponseEntity<TngPolicyInfoResponse> responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
 			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_POLICY_BY_CUST;
@@ -103,7 +106,14 @@ public class OnlineWithdrawalController extends BaseController{
 			// ******************* Makeup result *******************			
 	
 			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoResponse.class,responseJsonObj);
-			
+			TngPolicyInfoResponse policyinfoList=  responseEntity.getBody();
+			List<TngPolicyInfo> pis = policyinfoList.getPolicies();
+			if(pis!=null){
+			for(TngPolicyInfo pi:pis){
+				if(pi==null)continue;
+				String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
+				pi.setTngPolicyStatus(status);
+			}}
 			//policyInfoResp=mappingWithoutErrMsg(methodName, policyInfoResp.class, responseJsonObj);
 				
 			
@@ -281,7 +291,7 @@ public class OnlineWithdrawalController extends BaseController{
 		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
 		
 		JSONObject responseJsonObj = new JSONObject();		
-		ResponseEntity responseEntity =Responses.error(null);
+		ResponseEntity<TngPolicyInfoByPolicyResponse> responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
 			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_POLICY_BY_POLICY;
@@ -338,6 +348,12 @@ public class OnlineWithdrawalController extends BaseController{
 			// ******************* Makeup result *******************
 			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoByPolicyResponse.class,beanJsonObj);
 						
+			TngPolicyInfoByPolicyResponse policyinfoList=  responseEntity.getBody();
+			TngPolicyInfo pi = policyinfoList.getPolicy();
+			if(pi!=null){
+				String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
+				pi.setTngPolicyStatus(status);
+			}
 
 		} catch (Exception e) {
 			logger.info(methodName+" System error:",e);
