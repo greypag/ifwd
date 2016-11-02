@@ -417,6 +417,7 @@ public class OnlineWithdrawalController extends BaseController{
 		return responseEntity;
 	}
 
+	@ApiIgnore
 	@ApiOperation(
 			value = "Save linkup info to backend",
 			response = TngPolicySimple.class
