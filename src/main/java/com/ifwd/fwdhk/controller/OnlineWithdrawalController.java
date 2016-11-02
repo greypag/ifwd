@@ -467,13 +467,7 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@ApiOperation(
 			value = "Request Tap n Go Policy withdrawal",
-			response = TngOtpSmsReqResponse.class,
-			notes ="459 Invalid Withdrawal Code:"
-					+ "<br/>TWE000 Withdrawal validation fail"
-                    + "<br/>TWE001 Withdrawal amount minimum"
-                    + "<br/>TWE002 Annual withdrawal limit exceeded"
-                    + "<br/>TWE003 Daily withdrawal limit exceeded"
-                    + "<br/>TWE004 Daily withdrawal count limit exceeded"
+			response = TngOtpSmsReqResponse.class
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
@@ -482,7 +476,12 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
 			@ApiResponse(code = 413, message = "Invalid customer mobile number for receive OTP via SMS"),
 			@ApiResponse(code = 414, message = "Exceed the number of re-send OTP"),
-			@ApiResponse(code = 415, message = "Invalid Withdrawal")
+			@ApiResponse(code = 415, message = "Invalid Withdrawal"
+					+ "<br/>TWE000 Withdrawal validation fail"
+                    + "<br/>TWE001 Withdrawal amount minimum"
+                    + "<br/>TWE002 Annual withdrawal limit exceeded"
+                    + "<br/>TWE003 Daily withdrawal limit exceeded"
+                    + "<br/>TWE004 Daily withdrawal count limit exceeded")
 			})
 	@RequestMapping(value = "/requestTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> requestTngPolicyWithdraw(
