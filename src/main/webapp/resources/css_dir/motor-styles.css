@@ -2017,72 +2017,79 @@ body.chin .bold {
     font-size: 13px;
   }
 }
-/* line 36, ../sass/motor-styles.scss */
+@media screen and (max-width: 767px) {
+  /* Motor mobile sticky dropdown */
+  /* line 38, ../sass/motor-styles.scss */
+  .motor__wrap--sticky-dropdown {
+    margin-top: 70px;
+  }
+}
+/* line 43, ../sass/motor-styles.scss */
 h1, h2, h3, h4, h5, h6, h7 {
   font-family: 'CirculaPro-Bold', Arial, sans-serif !important;
   font-weight: 600;
 }
 
-/* line 40, ../sass/motor-styles.scss */
+/* line 47, ../sass/motor-styles.scss */
 h3 {
   font-size: 24px;
 }
 
-/* line 43, ../sass/motor-styles.scss */
+/* line 50, ../sass/motor-styles.scss */
 p {
   font-size: 16px;
 }
 
 /*color guild*/
-/* line 48, ../sass/motor-styles.scss */
+/* line 55, ../sass/motor-styles.scss */
 .blue-color {
   background: #12afbf;
 }
 
-/* line 51, ../sass/motor-styles.scss */
+/* line 58, ../sass/motor-styles.scss */
 .red-color {
   background: #f85100;
 }
 
-/* line 55, ../sass/motor-styles.scss */
+/* line 62, ../sass/motor-styles.scss */
 .orange-color {
   background: #f68a1d;
 }
-/* line 57, ../sass/motor-styles.scss */
+/* line 64, ../sass/motor-styles.scss */
 .orange-color, .orange-color h3 {
   color: #fff;
 }
 
-/* line 61, ../sass/motor-styles.scss */
+/* line 68, ../sass/motor-styles.scss */
 .yellow-color {
   background: #fbbf15;
 }
 
-/* line 64, ../sass/motor-styles.scss */
+/* line 71, ../sass/motor-styles.scss */
 .dark-green-color {
   background: #1f4146;
 }
 
-/* line 68, ../sass/motor-styles.scss */
+/* line 75, ../sass/motor-styles.scss */
 .light-green-color {
   background: #97d0ce;
   color: #061d2a;
 }
 
-/* line 72, ../sass/motor-styles.scss */
+/* line 79, ../sass/motor-styles.scss */
 .white-color {
   background: #fff;
 }
-/* line 74, ../sass/motor-styles.scss */
+/* line 81, ../sass/motor-styles.scss */
 .white-color, .white-color a {
   color: #061d2a;
 }
-/* line 77, ../sass/motor-styles.scss */
+/* line 84, ../sass/motor-styles.scss */
 .white-color h3, .white-color .price {
   color: #f68a1d;
 }
 
-/* line 81, ../sass/motor-styles.scss */
+/* line 88, ../sass/motor-styles.scss */
 .bdr-curve {
   padding: 5px 2px !important;
   border-radius: 5px !important;
@@ -2090,7 +2097,7 @@ p {
   max-width: 250px;
 }
 
-/* line 88, ../sass/motor-styles.scss */
+/* line 95, ../sass/motor-styles.scss */
 .center .motor-ttl {
   font-size: 20px !important;
   margin: 20px auto !important;
@@ -2100,7 +2107,7 @@ p {
   line-height: 1.3;
 }
 
-/* line 96, ../sass/motor-styles.scss */
+/* line 103, ../sass/motor-styles.scss */
 .underline {
   text-decoration: underline !important;
 }

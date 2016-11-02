@@ -33,6 +33,13 @@
 @import 'customize_screen/motor/breadcrumb';
 @import 'customize_screen/motor/motor_header';
 
+@media screen and (max-width: 767px){
+    /* Motor mobile sticky dropdown */
+    .motor__wrap--sticky-dropdown{
+        margin-top: 70px;
+    }
+}
+
 h1, h2, h3, h4, h5, h6, h7{
 font-family: 'CirculaPro-Bold', Arial, sans-serif !important;
 font-weight: 600;

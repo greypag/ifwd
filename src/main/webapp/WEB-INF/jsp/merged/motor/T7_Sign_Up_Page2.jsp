@@ -19,7 +19,7 @@ var nextPage = "${nextPageFlow}";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/selectize.bootstrap3.css" type="text/css">
 <style type="text/css" media="all">
 </style>
-<div class="motor-form-wrap">
+<div class="motor-form-wrap motor__wrap--sticky-dropdown">
     <section id="" class="motor-signup-form">
         <!-- Breadcrumb Component Start-->
         <div class="container container-fluid container--breadcrumb">

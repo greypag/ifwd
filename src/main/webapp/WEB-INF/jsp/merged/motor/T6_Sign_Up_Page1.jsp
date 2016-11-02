@@ -25,7 +25,7 @@ var nextPage = "${nextPageFlow}";
     border: solid 2px #ccc;
     }
 </style>
-<div class="motor-form-wrap">
+<div class="motor-form-wrap motor__wrap--sticky-dropdown">
     <section id="" class="motor-signup-form">
         <!-- Breadcrumb Component Start-->
         <div class="container container-fluid container--breadcrumb">
