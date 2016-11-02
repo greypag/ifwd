@@ -304,13 +304,31 @@ public class OnlineWithdrawalController extends BaseController{
 			JSONObject msgEle= new JSONObject();
 			for (int i = 0; i<msgArr.size(); i++){
 				String refCode = (String) ((JSONObject) msgArr.get(i)).get("refCode");
+				String mapCode = null;
 				if (refCode!=null && !refCode.equals("")) {
-						msgEle.put("code", refCode);
-						warnMsg.add(msgEle);	
-					} else{
-						msgEle.put("code", (String) ((JSONObject) msgArr.get(i)).get("resultCode"));
-						warnMsg.add(msgEle);
+					switch(refCode){
+					case "GPW001":
+						mapCode="TPW001";
+						break;
+					case "GPW002":
+						mapCode="TPW002";
+						break;
+					case "GPW003":
+						mapCode="TPW003";
+						break;
+					case "GPW004":
+						mapCode="TPW004";
+						break;
+					default:
+						mapCode=refCode;
+						break; 
 					}
+					msgEle.put("code", mapCode);
+					warnMsg.add(msgEle);	
+				} else{
+					msgEle.put("code", (String) ((JSONObject) msgArr.get(i)).get("resultCode"));
+					warnMsg.add(msgEle);
+				}
 			}
 			
 			policy.remove("msg");
