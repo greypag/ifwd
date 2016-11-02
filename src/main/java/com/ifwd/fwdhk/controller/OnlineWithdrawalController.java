@@ -168,7 +168,7 @@ public class OnlineWithdrawalController extends BaseController{
 						if(obj.containsKey("msg")){
 							obj.put("warnMsg", obj.get("msg"));
 							obj.remove("msg");
-							
+							msgObject=(JSONObject)obj.get("warnMsg");
 							if(msgObject.get("refCode")!=null){
 								  msgObject.put("code",new String((String) msgObject.get("refCode")));
 							  }else{
