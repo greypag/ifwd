@@ -1,24 +1,14 @@
-   @media screen and (min-width: 768px){
-   .quick-quote{
+@media screen and (min-width: 768px){
+    .quick-quote{
         .motor-select-plan .collapse{
             height: auto !important;
             display: block !important;
-        }  
-		 } 
-    }
-    @media screen and (max-width: 767px){
-	   .quick-quote{
-	   		.yourQuote .collapse-addon.orange-color{
-		 .title{
-		 			    color: $orange;
-		 }
-			background: #032c30;
-			color: $orange;
-			h3{
-						    color: $orange;
-			}
+        }
+    } 
+}
 
-		 }
+@media screen and (max-width: 767px){
+   .quick-quote{
         .motor-form-wrap{
             display: table;
             width: 100%;
@@ -45,19 +35,19 @@
             font-size: 20px;
             padding-left: 15px;
         }
-						 .addOn-content{
-		 height: auto !important;
-		 }
-		    }
-    }
-
-    @media screen and (min-width: 1200px){
-        .quick-quote{
-            .ready-content h3{
-                padding-top: 1em;
-            }
-            .addOn-content{
-                height: 145px;
-            }
+        .addOn-content{
+            height: auto !important;
         }
     }
+}
+
+@media screen and (min-width: 1200px){
+    .quick-quote{
+        .ready-content h3{
+            padding-top: 1em;
+        }
+        .addOn-content{
+            height: 145px;
+        }
+    }
+}

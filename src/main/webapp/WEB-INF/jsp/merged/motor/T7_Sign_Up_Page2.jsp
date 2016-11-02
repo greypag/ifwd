@@ -90,7 +90,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="fullName" maxlength="100" class="form-control gray-textbox mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$"  required data-required-error="Please enter your full name." data-error="Your full name is invalid.">
+                                                <input type="text" name="fullName" maxlength="100" class="form-control input--grey mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$"  required data-required-error="Please enter your full name." data-error="Your full name is invalid.">
                                                 <label class="mdl-textfield__label" for="fullName">Full Name</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -102,7 +102,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap calendar"> 
                                                 <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control gray-textbox mdl-textfield__input" required data-required-error="Please select your date of birth.">
+                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" required data-required-error="Please select your date of birth.">
                                                 <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -115,7 +115,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="driverID" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error="Your HKID no. is invalid." class="form-control gray-textbox mdl-textfield__input" id="driverID" data-required-error="Please enter your HKID no." required>
+                                                <input type="text" name="driverID" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error="Please enter your HKID no." required>
                                                 <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -126,7 +126,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="mobileNo" pattern="^\d{8}$" maxlength="8" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="mobileNo" data-error="Your mobile no. is invalid." data-required-error="Please enter your mobile no."  required>
+                                                <input type="text" name="mobileNo" pattern="^\d{8}$" maxlength="8" class="form-control input--grey check-emp login-input mdl-textfield__input" id="mobileNo" data-error="Your mobile no. is invalid." data-required-error="Please enter your mobile no."  required>
                                                 <label class="mdl-textfield__label" for="mobileNo">Mobile No.</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -138,7 +138,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="email" name="email" id="email" maxlength="50" class="form-control gray-textbox mdl-textfield__input" data-error="Your email address is invalid." data-required-error="Please enter your email address." required>
+                                                <input type="email" name="email" id="email" maxlength="50" class="form-control input--grey mdl-textfield__input" data-error="Your email address is invalid." data-required-error="Please enter your email address." required>
                                                 <label class="mdl-textfield__label" for="email">Email</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -158,7 +158,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="flat" maxlength="10" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only." class="form-control gray-textbox mdl-textfield__input" id="flat">
+                                                <input type="text" name="flat" maxlength="10" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only." class="form-control input--grey mdl-textfield__input" id="flat">
                                                 <label class="mdl-textfield__label">Flat</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -169,7 +169,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap"> 
-                                                <input type="text" name="floor" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control gray-textbox mdl-textfield__input" id="floor">
+                                                <input type="text" name="floor" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="floor">
                                                 <label class="mdl-textfield__label">Floor</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -180,7 +180,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap"> 
-                                                <input type="text" name="block" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control gray-textbox mdl-textfield__input" id="block" >
+                                                <input type="text" name="block" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="block" >
                                                 <label class="mdl-textfield__label">Block</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -192,7 +192,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="buliding" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control gray-textbox mdl-textfield__input" id="buliding" data-required-error="Either Estate or building must be input" required>
+                                                <input type="text" name="buliding" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="buliding" data-required-error="Either Estate or building must be input" required>
                                                 <label class="mdl-textfield__label">Building</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -203,7 +203,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="estate" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only." class="form-control gray-textbox mdl-textfield__input" id="estate" required>
+                                                <input type="text" name="estate" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only." class="form-control input--grey mdl-textfield__input" id="estate" required>
                                                 <label class="mdl-textfield__label">Estate</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -215,7 +215,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="streetno" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only."  class="form-control gray-textbox mdl-textfield__input" id="streetno" >
+                                                <input type="text" name="streetno" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only."  class="form-control input--grey mdl-textfield__input" id="streetno" >
                                                 <label class="mdl-textfield__label">Street No</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -226,7 +226,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="streetname" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only."  class="form-control gray-textbox mdl-textfield__input" id="streetname">
+                                                <input type="text" name="streetname" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only."  class="form-control input--grey mdl-textfield__input" id="streetname">
                                                 <label class="mdl-textfield__label">Street Name</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>

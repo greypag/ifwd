@@ -90,7 +90,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="fullName" value="Driver" maxlength="100" class="form-control gray-textbox mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." required>
+                                                <input type="text" name="fullName" value="Driver" maxlength="100" class="form-control input--grey mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." required>
                                                 <label class="mdl-textfield__label" for="fullName">Full Name</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -113,7 +113,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap calendar"> 
                                                 <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control gray-textbox mdl-textfield__input" data-required-error="Please select your date of birth." required>
+                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error="Please select your date of birth." required>
                                                 <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -124,7 +124,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="driverID" value="Z1234567" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error="Your HKID no. is invalid." class="form-control gray-textbox mdl-textfield__input" data-required-error="Please enter your HKID no."  id="driverID" required>
+                                                <input type="text" name="driverID" value="Z1234567" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" data-required-error="Please enter your HKID no."  id="driverID" required>
                                                 <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -175,7 +175,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap">
-                                                    <input type="text" name="d2name" maxlength="100" class="form-control gray-textbox mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+                                                    <input type="text" name="d2name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
                                                     <label class="mdl-textfield__label" >Full Name</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -197,7 +197,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap calendar"> 
-                                                    <input type="text" name="d2dob" class="driverDob-datepicker form-control gray-textbox mdl-textfield__input"  required>
+                                                    <input type="text" name="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
                                                     <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -208,7 +208,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap">
-                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control gray-textbox mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
                                                     <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -260,7 +260,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdlhttp://localhost:3014/t8_Sign_up_page3.html-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap">
-                                                    <input type="text" name="d3name" maxlength="100" class="form-control gray-textbox mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+                                                    <input type="text" name="d3name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
                                                     <label class="mdl-textfield__label" >Full Name</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -282,7 +282,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap calendar"> 
-                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control gray-textbox mdl-textfield__input"  required>
+                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
                                                     <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -293,7 +293,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap">
-                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control gray-textbox mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
                                                     <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -345,7 +345,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap">
-                                                    <input type="text" name="d4name" maxlength="100" class="form-control gray-textbox mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+                                                    <input type="text" name="d4name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
                                                     <label class="mdl-textfield__label" >Full Name</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -367,7 +367,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap calendar"> 
-                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control gray-textbox mdl-textfield__input"  required>
+                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
                                                     <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -378,7 +378,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap">
-                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control gray-textbox mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
                                                     <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -430,7 +430,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap">
-                                                    <input type="text" name="d5name" maxlength="100" class="form-control gray-textbox mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+                                                    <input type="text" name="d5name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
                                                     <label class="mdl-textfield__label" >Full Name</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -452,7 +452,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap calendar"> 
-                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control gray-textbox mdl-textfield__input"  required>
+                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
                                                     <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -463,7 +463,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="form-group">
                                             <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <div class="help-block-wrap">
-                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control gray-textbox mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
                                                     <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -517,7 +517,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="prev_ic" pattern="^[a-zA-Z\d]+$" data-error="Please enter Name of Previous Insurance Company in English." minlength="8" maxlength="8" class="form-control gray-textbox mdl-textfield__input" id="prev_ic" required data-required-error="Please enter Name of Previous Insurance Company.">
+                                                <input type="text" name="prev_ic" pattern="^[a-zA-Z\d]+$" data-error="Please enter Name of Previous Insurance Company in English." minlength="8" maxlength="8" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error="Please enter Name of Previous Insurance Company.">
                                                 <label class="mdl-textfield__label" >Name of Previous Insurance Company</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -528,7 +528,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="prev_regNo" pattern="^[a-zA-Z\d]+$" data-error="Please enter alphabetic or numberic characters only." minlength="6" maxlength="20" class="form-control gray-textbox mdl-textfield__input" id="prev_regNo" data-required-error="Please enter Registration No. of Previous Policy." required>
+                                                <input type="text" name="prev_regNo" pattern="^[a-zA-Z\d]+$" data-error="Please enter alphabetic or numberic characters only." minlength="6" maxlength="20" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error="Please enter Registration No. of Previous Policy." required>
                                                 <label class="mdl-textfield__label" >Registration No. of Prev Policy</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -551,7 +551,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <div class="help-block-wrap">
-                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d]+$" data-error="Please enter alphabetic or numberic characters only." minlength="3" maxlength="30" class="form-control gray-textbox mdl-textfield__input" data-required-error="Please enter Registration No. of Previous Policy." id="prev_policyNo" required>
+                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d]+$" data-error="Please enter alphabetic or numberic characters only." minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error="Please enter Registration No. of Previous Policy." id="prev_policyNo" required>
                                                 <label class="mdl-textfield__label" >Pervious Policy No.</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>

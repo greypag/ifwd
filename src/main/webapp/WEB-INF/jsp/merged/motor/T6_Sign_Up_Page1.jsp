@@ -99,7 +99,7 @@ var nextPage = "${nextPageFlow}";
                                                 <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
                                                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                                                 </a>
-                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control gray-textbox mdl-textfield__input" id="chassisNumber" required data-required-error="Please enter Chassis Number." data-error="Your Chassis Number is invalid.">
+                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error="Please enter Chassis Number." data-error="Your Chassis Number is invalid.">
                                                 <label class="mdl-textfield__label" for="chassisNumber">Chassis Number</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -113,7 +113,7 @@ var nextPage = "${nextPageFlow}";
                                                 <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
                                                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                                                 </a>
-                                                <input type="text" name="cubicCapacity" minlength="3" maxlength="5" class="form-control gray-textbox mdl-textfield__input" id="cubicCapacity" required data-required-error="Please enter your Car's CC value." data-error="Your Car's CC value is invalid.">
+                                                <input type="text" name="cubicCapacity" minlength="3" maxlength="5" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error="Please enter your Car's CC value." data-error="Your Car's CC value is invalid.">
                                                 <label class="mdl-textfield__label" for="cubicCapacity">Cubic Capacity</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -127,7 +127,7 @@ var nextPage = "${nextPageFlow}";
                                                 <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
                                                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                                                 </a>
-                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your Car Model number is invalid" minlength="4" maxlength="10" class="form-control gray-textbox mdl-textfield__input" id="registedModel" required data-required-error="Please enter your Car Model number in Registration Document" data-error="Your Car Model number is invalid">
+                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your Car Model number is invalid" minlength="4" maxlength="10" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error="Please enter your Car Model number in Registration Document" data-error="Your Car Model number is invalid">
                                                 <label class="mdl-textfield__label" for="registedModel">Model in Registration Document</label>
                                                 <div class="help-block with-errors"></div>
                                             </div>

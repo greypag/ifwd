@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-11-01 19:15:02 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-11-02 11:36:09 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -744,6 +744,11 @@ body .bold {
 body.chin,
 body.chin .bold {
   font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
+/* line 112, ../sass/base/_input_textarea.scss */
+.input--grey {
+  background-color: #f5f5f5;
 }
 
 /* line 2, ../sass/base/_button.scss */
