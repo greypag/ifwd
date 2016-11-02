@@ -75,7 +75,11 @@ $txt-hint-color: #999999;
 
 %ew_base_popup{
 	font-size: 16px;
-	.modal-header .close{font-size: 55px !important;}
+	.modal-header .close{
+		font-size: 55px !important;
+		position: absolute;    
+		right: 11px;
+	}
 	.modal-content{
 		padding: 0 !important;
 		.ew_popup_sec_title{
@@ -164,9 +168,18 @@ $txt-hint-color: #999999;
 
 // ============ placeholder End ============
 
-// ============ Common Begin ============
-// ============ Common End ============
-
+#e-wallet-tab-contents .ew_loading{
+	position: absolute;
+	display: none;
+	background: rgba(0,0,0,.5);
+	width: 100%;
+	height: 100%;
+	z-index: 19;
+}
+#e-wallet-tab-contents .ew_loading{
+	display: block;
+	
+}
 
 // ============ Policy List Begin ============
 .ew_pol_list .ew_pol{
@@ -247,7 +260,9 @@ $txt-hint-color: #999999;
 	@extend %ew_base_link;
 	text-decoration: underline;
 }
-
+.ew_pol_template{
+	display: none;
+}
 // ============ Policy List End ============
 
 
@@ -364,8 +379,15 @@ $txt-hint-color: #999999;
 			margin-top: 20px;
 			margin-bottom: 20px;
 		}
+	}	
+}
+
+.ew_popup_error{
+	@extend %ew_base_popup;
+	text-align: center;
+	.ew_btn_confirm{
+		@extend %ew_base_popup_btn;
 	}
-	
 }
 
 // ============ Popup End ============
