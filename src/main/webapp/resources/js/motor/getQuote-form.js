@@ -424,7 +424,13 @@ $(document).ready(function(){
                          "engineCapacity": cc,
                          "model": carModel,
                          "yearOfManufacture": carYearOfManufacture                        
-                    },                   
+                    }, 
+                    "driver" : [{   
+	    	        	"ncb": ncd,
+	    	        	"occupation": occupation,
+	    	        	"driveMoreThanTwo": driveMoreThanTwo,         
+	    	        	"validAgeGroup": validAgeGroup, 
+	    	        }],
                     "planCode": null,
                     "compPlan": null,
                     "personalAccident": false,

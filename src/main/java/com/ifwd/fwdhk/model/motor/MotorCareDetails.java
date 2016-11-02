@@ -3,6 +3,11 @@ package com.ifwd.fwdhk.model.motor;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fwd.model.motor.Applicant;
+import com.fwd.model.motor.CarDetail;
+import com.fwd.model.motor.Driver;
+import com.fwd.model.motor.MotorCareDeclaration;
+
 public class MotorCareDetails {
 	private long id;	
 	private QuoteDriver quoteDriver;

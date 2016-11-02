@@ -19,10 +19,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fwd.model.motor.CarDetail;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.OccupationBean;
-import com.ifwd.fwdhk.model.motor.CarDetail;
 import com.ifwd.fwdhk.model.motor.MotorCareDetails;
 import com.ifwd.fwdhk.services.MotorCareValidationService;
 

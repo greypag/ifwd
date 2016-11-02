@@ -36,6 +36,11 @@ public class MotorController extends BaseController{
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_PLAN_THIRD);
 	}
 
+	@RequestMapping(value = {"/{lang}/motor-insurance/comprehensive-quote"}, method = RequestMethod.POST)
+	public ModelAndView getPlanComp(Model model, HttpServletRequest request) {
+		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_PLAN_COMP);
+	}
+
 	@RequestMapping(value = {"/{lang}/motor-insurance/T6_Sign_Up_Page1"}, method = RequestMethod.GET)
 	public String T6_Sign_Up_Page1(Model model, HttpServletRequest request) {
 		return "/merged/motor/T6_Sign_Up_Page1";

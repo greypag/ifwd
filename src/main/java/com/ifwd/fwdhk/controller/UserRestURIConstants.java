@@ -586,6 +586,9 @@ public class UserRestURIConstants {
     public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}/{carModel}/supplement";
     public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET = SERVICE_URL + "/iMotor/carDetails/supplement";
 	public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
+	public static final String MOTOR_CARE_FILE_UPLOAD_POST = SERVICE_URL + "/iMotor/policy/fileUpload";
+	public static final String MOTOR_CARE_CODE_TABLE_GET = SERVICE_URL + "/iMotor/list/codeTable/{type}";
+	public static final String MOTOR_CARE_PAYMENT_POST = SERVICE_URL + "/iMotor/policy/payment";
 
 	
 	static String controller;
