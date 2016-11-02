@@ -789,6 +789,11 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
 								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt='<fmt:message key="provie.landing.features.2.title" bundle="${provieMsg}" />' class="img_responsive">
 								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.2.title" bundle="${provieMsg}" /></h3>
+								<div class="visible-xs">
+									<a class="pop-youtube" href="#vModal" data-toggle="modal" data-youtube-link="<fmt:message key="provie.landing.features.2.youtube" bundle="${provieMsg}" />">
+										<fmt:message key="provie.landing.features.playvideo" bundle="${provieMsg}" />
+									</a>
+								</div>
 								<div class="pv_feature_desc hidden-xs">
 									<fmt:message key="provie.landing.features.2.text" bundle="${provieMsg}" />
 									<div>
@@ -805,6 +810,11 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
 								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_03.png" alt='<fmt:message key="provie.landing.features.3.title" bundle="${provieMsg}" />' class="img_responsive">
 								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.3.title" bundle="${provieMsg}" /></h3>
+								<div class="visible-xs">
+									<a class="pop-youtube" href="#vModal" data-toggle="modal" data-youtube-link="<fmt:message key="provie.landing.features.3.youtube" bundle="${provieMsg}" />">
+										<fmt:message key="provie.landing.features.playvideo" bundle="${provieMsg}" />
+									</a>
+								</div>
 								<div class="pv_feature_desc hidden-xs">
 									<fmt:message key="provie.landing.features.3.text" bundle="${provieMsg}" />
 									<div>
