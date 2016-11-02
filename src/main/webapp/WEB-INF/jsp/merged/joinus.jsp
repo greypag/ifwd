@@ -4,24 +4,42 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="">
 
-<script src="<%=request.getContextPath()%>/resources/js/fwd.js">
-	
-</script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/joinus.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
+
+<script src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
 <script>
-	$(function() {
+	$('document').ready(function(){
 		$("[data-toggle='tooltip']").tooltip();
+		
+		var dateTo = new Date();
+		$('#txtDob').mobiscroll().calendar({
+			//dateOrder: 'ddMyy',
+			display: 'bubble',
+			showLabel: true,
+			mode: 'scroller',
+			controls: ['date'],
+			//layout: 'liquid',
+			//minWidth: 40,
+			//minDate: dateFrom,
+			maxDate: dateTo,
+			//dateFormat: 'dd-mm-yyyy',
+			lang: language == "en" ? "en_fwd" : "zh_fwd",
+			showOnFocus: true,
+			focusOnClose: false,
+			onClosed: function (valueText, inst) {
+				$('#txtDob').trigger('blur');
+			},
+		});
 	});
 </script>
+
 <script>
 	function activateUserAccountJoinUs() {
-		
-
 		var validateFormVal = activateUserAccount();
 		if (validateFormVal == true) {
 			$.ajax({
@@ -37,8 +55,6 @@
 								$('#joinus-err-msg').hide();
 								window.location.hash = '#success-message';
 								$('#success-message').html("User succesfully Register"); 
-// 								setTimeout(function() {document.joinus_form.action= "useraccount";								
-// 								}, 3000);
  								if(window.top.document.referrer.indexOf("savings-insurance/plan-details-rp")>0){
  									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp?thankyou=thankyou';
  								}else if(window.top.document.referrer.indexOf("savings-insurance/plan-details-sp")>0){
@@ -52,9 +68,6 @@
  								}else {
  									window.location.href = '<%=request.getContextPath()%>/${language}/account';
  								}
-// 								setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;								
-// 								}, 3000);
-								
 							} else if(data == 'discover'){
 								window.location.href = '<%=request.getContextPath()%>/${language}/fwdiscover';
 							} else {
@@ -62,43 +75,68 @@
 								$('#joinus-err-msg').show();
 								
 								window.location.hash = '#joinus-err-msg';
-                                if (data == 'This username already in use, please try again') {
-                                    $('#joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
-                                } else if (data == 'email address and mobile no. already registered') {
-                                    $('#joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
-                                } else {
-                                    $('#joinus-err-msg').html(data);
-                                }
-
+									if (data == 'This username already in use, please try again') {
+										$('#joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+									} else if (data == 'email address and mobile no. already registered') {
+										$('#joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+									} else {
+										$('#joinus-err-msg').html(data);
+									}
 							} 
 						},
 						error : function(xhr, status, error) {
-
 						}
 					});
 		}
 		return false;
 	}
 </script>
-</head>
+<script type="text/javascript">
+	$("#checkbox1").change(function() {
+		$("#errorDeclaration").html("");
+	});
+
+	function showBubble(){
+		if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+			$(".checkboxBubble").fadeIn();
+		}else{
+			$(".checkboxBubble").fadeOut();
+		}
+	}
+
+	$("#checkbox3").change(function() {
+		showBubble();
+	});
+
+	$("#checkbox4").change(function() {
+		showBubble();
+	});
+</script>
+
 <body class="homepage">
 
 	<!--   Main Content-->
 	<section id="contact-page">
-		<div class="container mob-pad" id="joinus_form">
+ 
+		<!-- Breadcrumb Component Start-->
+		<div class="container container-fluid container--breadcrumb">
+			<c:set var="breadcrumbItems">
+				breadcrumb.item.home,breadcrumb.item.joinus
+			</c:set>
+			<c:set var="breadcrumbActive">1</c:set>
+			<c:set var="breadcrumbBold">true</c:set>
+
+			<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+				<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+				<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+				<jsp:param name="breadcrumbBold" value="${breadcrumbBold}"/>
+			</jsp:include>
+		</div>
+		<!-- Breadcrumb Component End-->
+
+		<div class="container container-fluid container--regform" id="joinus_form">
 			<div class="row">
 				<form:form modelAttribute="userDetails" class="form-horizontal" name="joinus_form" role="form">
-					<ol class="breadcrumb pad-none">
-						<li><fmt:message key="header.menu.home" bundle="${msg}" /></li>
-						<li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="header.menu.activate.heading" bundle="${msg}" />
-						</li>
-					</ol>
-					<!-- desktop Title-->
-					<h2 class="page-title"><fmt:message key="header.menu.activate.heading" bundle="${msg}" /></h2>
-					<!-- Mobile Title-->
-					<!--<div class="center hidden-lg hidden-md">
-							<h2 class="page-title">FWD Account Activation</h2>
-							</div>-->
 					<div id="joinus-err-msg" class="alert alert-danger" role="alert"
 						style="display: none;">
 						<P id="error1">
@@ -108,115 +146,105 @@
 						<P id="error1">
 					</div>
 
-					<div
-						class="col-lg-7 col-md-7 col-sm-12 col-xs-12 border-right margin-left">
+					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 regform__left">
 						<div
 							style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 							id="ajax-loading">
 							<img
-							
 								style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
 								src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 						</div>
-						<table class="table activation-form vert-middle padding4 registration">
-							<tbody>
-								<tr>
-									<td colspan="3"><h3
-											class="black-bold"><fmt:message key="member.registration.details.header" bundle="${msg}" /></h3></td>
-								</tr>
-								<tr>
-									<td class="col-sm-3 col-lg-4 col-xs-4"><label for="txtFullName"
-										class="join-us-label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /><br>
-											<small><fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></small></label></td>
-									<td><input type="text"
-										class="form-control" id="txtFullName" name="fullName"
-										value="${userDetails.getFullName() }" placeholder="<fmt:message key="member.registration.details.label.fullName.placeholder" bundle="${msg}" />"
-										onblur="replaceAlpha(this);"
-	                                    onfocus="$('#errorEmptyName').html('');$(this).removeClass('invalid-field');"
-										onkeypress="    return alphaOnly(event);" maxlength="100">
-										<span id="errorEmptyName" class="text-red"></span></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td><label for="txtMobileNo"
-										class="join-us-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />  </label></td>
-									<td><input type="tel"
-										class="form-control" id="txtMobileNo"
-										value="${userDetails.getMobileNo() }" name="mobileNo"
-										onfocus="$('#errorEmptyMobJoinUs').html('');$(this).removeClass('invalid-field');"
-										placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />" onkeypress="return isNumeric(event)"
-										onblur="replaceNumeric(this);" maxlength="8"> <span
-										id="errorEmptyMobJoinUs" class="text-red"></span></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td><label for="txtEmailId"
-										class="join-us-label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /><br> <small><fmt:message key="member.registration.details.label.emailAddress.desc" bundle="${msg}" /></small>
-									</label></td>
-									<td><input type="email"
-										class="form-control" id="txtEmailId"
-										value="${userDetails.getEmailAddress() }" placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"
-                                        onfocus="$('#errorEmptyEmailIdJoinUs').html('');$(this).removeClass('invalid-field');"
-										name="EmailAddress" maxlength="50"> <span
-										id="errorEmptyEmailIdJoinUs" class="text-red"></span></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td><label for="txtUserName"
-										class="join-us-label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label></td>
-									<td>
-										
-											<input type="text" class="form-control "
-												id="txtUserName1" value="${userDetails.getUserName() }"
-                                                onfocus="$('#errorEmptyUNameJoinUs').html('');$(this).removeClass('invalid-field');"
-                                                onkeypress="return validationUsername(event);"
-												placeholder="<fmt:message key="member.registration.details.label.username.placeholder" bundle="${msg}" />" name="userName">
 
-										
-											
-										 <span id="errorEmptyUNameJoinUs" class="text-red"></span>
-									</td>
-									<td><a href="#"
-												class="tool-tip show-inline-md"
-												data-toggle="tooltip" data-placement="bottom"
-												title="<fmt:message key="member.registration.details.label.username.help" bundle="${msg}" />"><img src="<%=request.getContextPath()%>/resources/images/ic.png"
-												alt=""></a></td>
-								</tr>
+						<div class="registration">
+							<h3 class="black-bold"><fmt:message key="member.registration.details.header" bundle="${msg}" /></h3>
+							<div><fmt:message key="member.registration.details.fwdmember.desc" bundle="${msg}" /></div>
 
-
-								<tr>
-									<td><label class="join-us-label"><fmt:message key="member.registration.details.label.password" bundle="${msg}" />
-									</label></td>
-									<td>
-											<input type="password" class="form-control" autocomplete="off"
-                                                onfocus="$('#errorJoinUsPassword').html('');$(this).removeClass('invalid-field');"
-												id="txtPass1" placeholder="<fmt:message key="member.registration.details.label.password.placeholder" bundle="${msg}" />" name="password">
-
-										 <span id="errorJoinUsPassword" class="text-red"></span>
-									</td>
-									<td>
-										<a href="#"
-												class="tool-tip show-inline-md"
-												data-toggle="tooltip" data-placement="bottom"
-												title="<fmt:message key="member.registration.details.label.password.help" bundle="${msg}" />"><img
-												src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a>
-									</td>
-								</tr>
-
-								<tr>
-									<td><label for="txtConfPass"
-										class="join-us-label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /> </label></td>
-									<td><input type="password" autocomplete="off"
-										name="confirmPassword" class="form-control" id="txtConfPass"
-                                        onfocus="$('#errorEmptyConfPass').html('');$(this).removeClass('invalid-field');"
-										placeholder="<fmt:message key="member.registration.details.label.confirmPassword.placeholder" bundle="${msg}" />"> <span
-										id="errorEmptyConfPass" class="text-red"></span></td>
-								</tr>
-
-							</tbody>
-						</table>
+							<div class="col-xs-12">
+								<div class="col-sm-6 col-xs-12">
+									<label><input type="radio" id="is_fwdmember_yes" name="is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+								</div>
+								<div class="col-sm-6 col-xs-12">
+									<label><input type="radio" id="is_fwdmember_no" name="is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
+								</div>
+							</div>
+							
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
+								<input class="mdl-textfield__input registration__input" type="text" id="txtFullName" name="fullName" value="${userDetails.getFullName()}"
+									onblur="replaceAlpha(this);"
+									onfocus="$('#errorEmptyName').html('');$(this).removeClass('invalid-field');"
+									onkeypress="return alphaOnly(event);"
+									maxlength="100">
+								<label class="mdl-textfield__label registration__label" for="txtFullName"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /> <fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></label>
+								<span id="errorEmptyName" class="text-red"></span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
+								<input class="mdl-textfield__input registration__input" type="text" id="txtMobileNo" name="mobileNo" value="${userDetails.getMobileNo()}"
+									onblur="replaceNumeric(this);"
+									onfocus="$('#errorEmptyMobJoinUs').html('');$(this).removeClass('invalid-field');"
+									onkeypress="return isNumeric(event);"
+									maxlength="8">
+								<label class="mdl-textfield__label registration__label" for="txtMobileNo"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label>
+								<span id="errorEmptyMobJoinUs" class="text-red"></span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
+								<input class="mdl-textfield__input registration__input" type="text" id="txtEmailId" name="EmailAddress" value="${userDetails.getEmailAddress()}"
+									onfocus="$('#errorEmptyEmailIdJoinUs').html('');$(this).removeClass('invalid-field');"
+									maxlength="50">
+								<label class="mdl-textfield__label registration__label" for="txtEmailId"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
+								<span id="errorEmptyEmailIdJoinUs" class="text-red"></span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item existing_fwdmember">
+								<input class="mdl-textfield__input registration__input" type="text" id="txtPolicyNumber" name="PolicyNumber" value=""
+									onfocus="$('#errorEmptyPolicyNumberJoinUs').html('');$(this).removeClass('invalid-field');"
+									maxlength="50"><!--userDetails.getPolicyNumber()-->
+								<label class="mdl-textfield__label registration__label" for="txtPolicyNumber"><fmt:message key="member.registration.details.policy.number" bundle="${msg}" /></label>
+								<span id="errorEmptyPolicyNumberJoinUs" class="text-red"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="<fmt:message key='member.registration.details.policy.number.tooltip' bundle='${msg}'/>"></span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item existing_fwdmember">
+								<input class="mdl-textfield__input registration__input" type="text" id="txtDob" name="Dob"
+									onfocus="$('#errorEmptyDobJoinUs').html('');$(this).removeClass('invalid-field');"
+									autocomplete="off" readonly>
+								<label class="mdl-textfield__label registration__label" for="txtDob"><fmt:message key="member.registration.details.dob" bundle="${msg}" /></label>
+								<span id="errorEmptyDobJoinUs" class="text-red"></span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item existing_fwdmember">
+								<input class="mdl-textfield__input registration__input" type="text" id="txtHkid" name="Hkid" value=""
+									onfocus="$('#errorEmptyHkidJoinUs').html('');$(this).removeClass('invalid-field');"
+									maxlength="50"><!--userDetails.getHkid()-->
+								<label class="mdl-textfield__label registration__label" for="txtHkid"><fmt:message key="member.registration.details.hkid" bundle="${msg}" /></label>
+								<span id="errorEmptyHkidJoinUs" class="text-red"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="<fmt:message key='member.registration.details.hkid.tooltip' bundle='${msg}'/>"></span>
+							</div>
+							
+							<h3 class="black-bold"><fmt:message key="member.registration.details.header.login" bundle="${msg}" /></h3>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
+								<input class="mdl-textfield__input registration__input" type="text" id="txtUserName1" name="userName" value="${userDetails.getUserName() }"
+									onfocus="$('#errorEmptyUNameJoinUs').html('');$(this).removeClass('invalid-field');"
+									onkeypress="return validationUsername(event);">
+								<label class="mdl-textfield__label registration__label" for="txtUserName1"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label>
+								<span id="errorEmptyUNameJoinUs" class="text-red"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="<fmt:message key='member.registration.details.label.username.help' bundle='${msg}'/>"></span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
+								<input class="mdl-textfield__input registration__input" type="password" id="txtPass1" name="password"
+									onfocus="$('#errorJoinUsPassword').html('');$(this).removeClass('invalid-field');"
+									autocomplete="off">
+								<label class="mdl-textfield__label registration__label" for="txtPass1"><fmt:message key="member.registration.details.label.password" bundle="${msg}" /></label>
+								<span id="errorJoinUsPassword" class="text-red"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="<fmt:message key='member.registration.details.label.password.help' bundle='${msg}'/>"></span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
+								<input class="mdl-textfield__input registration__input" type="password" id="txtConfPass" name="confirmPassword"
+									onfocus="$('#errorEmptyConfPass').html('');$(this).removeClass('invalid-field');"
+									autocomplete="off">
+								<label class="mdl-textfield__label registration__label" for="txtConfPass"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /></label>
+								<span id="errorEmptyConfPass" class="text-red"></span>
+							</div>
+						</div>
 					</div>
-					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
+					
+					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs regform__right">
 						<div>
 							<img src="<%=request.getContextPath()%>/resources/images/user.jpg" alt="" />
 						</div>
@@ -225,20 +253,16 @@
 					</div>
 
 					<div class="clearfix"></div>
-					<h4 class="h4-2 padding3 declaration-head"><fmt:message key="member.registration.declarations.header" bundle="${msg}" /></h4>
-					<br>
-					<div class="declaration-content">
+					<h4 class="col-xs-12 h4-2 declaration-head"><fmt:message key="member.registration.declarations.header" bundle="${msg}" /></h4>
+					<div class="col-xs-12 declaration-content">
 						<div class="checkbox">
 							<input id="checkbox1" type="checkbox"> <label
 								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /> <a
 								href="<fmt:message key="member.PICS.link" bundle="${msg}" />"  target="_blank" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
 								<p><span id="errorDeclaration" class="text-red"></span>
 								<hr />
-								
-									
 								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
 							</label>
-							
 						</div>
 						<span id="chk2" style="display: none"> <label
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
@@ -255,38 +279,13 @@
 							</label>
 						</div>
 						<div class="checkboxBubble">
-                            <fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
-                        </div>
-
-                        <script type="text/javascript">
-                        $("#checkbox1").change(function() {
-                            $("#errorDeclaration").html("");
-                        });
-
-                        function showBubble(){
-                            if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
-                                $(".checkboxBubble").fadeIn();
-                            }else{
-                                $(".checkboxBubble").fadeOut();
-                            }
-                        }
-                        
-                        $("#checkbox3").change(function() {
-                            showBubble();
-                        });
-                        
-                        $("#checkbox4").change(function() {
-                            showBubble();
-                        });
-                        </script>
-					</div>
-					<div class="container btm-pad-10">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
-	
-	 <button class="bdr-curve btn btn-primary btn-lg btn-block act-btn" onclick="return activateUserAccountJoinUs();"> <fmt:message key="member.registration.activate" bundle="${msg}" />  </button>
-							</div>
+							<fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
 						</div>
+					</div>
+					<div class="col-xs-12 act">
+						<button class="btn btn-primary btn-lg act__btn" onclick="return activateUserAccountJoinUs();">
+							<fmt:message key="member.registration.activate" bundle="${msg}" />
+						</button>
 					</div>
 					<!--/.row-->
 
@@ -295,5 +294,4 @@
 		</div>
 		<!--/.container-->
 	</section>
-
 </body>

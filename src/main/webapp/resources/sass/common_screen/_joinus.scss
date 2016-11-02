@@ -1,0 +1,92 @@
+.container--regform{
+	padding: 0;
+
+	.row{
+		margin-right: auto;
+		
+		.regform__left{
+			.registration{
+				.registration__item{
+					width: 100%;
+					padding-top: 0;
+					
+					&.is-focused,
+					&.is-dirty{
+						.registration__label{
+							color: #ff8200;
+							top: -8px;
+						}
+					}
+					
+					.registration__input{
+						background-color: #f1f3f5;
+						height: 40px;
+						padding: 25px 15px 15px;
+						
+						&:hover,
+						&:focus{
+							border-bottom: 2px solid #Ff8200;
+						}
+					}
+					
+					.registration__label{
+						padding-top: 5px;
+						padding-left: 15px;
+						font-family: 'Calibri-Bold';
+						top: 6px;
+						
+						&:after{
+							background: none;
+						}
+					}
+					
+					.tooltip-icon{
+						position: absolute;
+						top: 6px;
+						right: 8px;
+						display: block;
+						font-size: 28px;
+						color: #f68b1f;
+					}
+					
+					.tooltip{
+						&.bottom{
+							width: 100%;
+							
+							.tooltip-arrow{
+								top: -5px;
+							}
+						}
+						&.right{
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+		.regform__right{}
+		
+		.declaration-content{
+			padding-left: 40px;
+			margin: auto;
+		}
+		
+		.act{
+			text-align: center;
+			margin-bottom: 30px;
+			
+			.act__btn{
+			
+				&:hover{
+					outline: none;
+					box-shadow: none;
+					background: #fff;
+					color: #f6871e;
+					border: 1px solid #f6871e;
+					opacity: 1;
+					font-size: 30px;
+				}
+			}
+		}
+	}
+}
