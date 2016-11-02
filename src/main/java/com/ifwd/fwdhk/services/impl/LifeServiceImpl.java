@@ -877,7 +877,33 @@ public class LifeServiceImpl implements LifeService {
 	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount()) && Integer.valueOf(saviePlanDetails.getInsuredAmountDiscount()) > 0){
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDue()) + " (Discounted 已扣減 " + 
 	    						NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDiscount()) + " )";
-	    	pdfName = "SavieOnlineApplicationFormDiscount";
+	    	JSONObject jsonObject=getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(), lifePersonalDetails.getHkid(),request);
+	    	JSONArray jsonArray=(JSONArray) jsonObject.get("referralPlan");
+	    	if(jsonArray.get(0).equals("SAVIE PREMIUM DISCOUNT")){
+	    		if(jsonArray.get(1)==null){
+	    			pdfName="SavieOnlineApplicationFormPremiumDiscount";
+	    		}else{
+	    		switch ((String) jsonArray.get(1)) {
+				case "SAVIE REFERRAL AGENT EMAIL":
+					attributeList.add(new PdfAttribute("PromoCode",lifePersonalDetails.getEmailAddress()));
+					pdfName="SavieOnlineApplicationFormPremiumDiscountAgentEmail";
+					break;
+				case "SAVIE REFERRAL POLICY NUMBER":
+					attributeList.add(new PdfAttribute("PromoCode",lifePolicy.getPolicyNo()));
+					pdfName="SavieOnlineApplicationFormPremiumDiscountSavieReferral";
+					break;
+				case "FWD 1111 CAMPAIGN":
+					pdfName="SavieOnlineApplicationFormPremiumDiscountCampaign1111";
+					break;
+				default:
+					pdfName = "SavieOnlineApplicationFormDiscount";
+					break;
+				}
+	    		}
+	    	}else{
+	    		pdfName = "SavieOnlineApplicationFormDiscount";
+	    	}
+	    	//pdfName = "SavieOnlineApplicationFormDiscount";
 	    }else{
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount());
 	    }
