@@ -1658,7 +1658,13 @@ function getTimeSlot(perTime, appointmentTypeId){
 function validatePromoCode(){
 	var amount = $('#R').val();
 	var paymentMode = 'SAVIE-SP';
-	var promoCode= $('#promoCode').val().trim();
+	var promoCode = $('#promoCode').val();
+	if(promoCode != null){
+		promoCode = promoCode.trim();
+	}else{
+		promoCode = '';
+	}
+	
 	$('#promoCodeErrorMsg').addClass('hidden');
 	$('#promoCodeSuccessMsg').addClass('hidden');
 	
