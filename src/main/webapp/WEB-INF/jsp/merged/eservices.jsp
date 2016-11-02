@@ -38,7 +38,7 @@ var languageP = "${language}";
 						<li class="mobile-dropdown dropdown-profile active"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-insurance-plan"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-promo-offers"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
-						<li class="mobile-dropdown dropdown-e-wallet"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-e-wallet"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
@@ -46,7 +46,7 @@ var languageP = "${language}";
 						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
-						<li class="left-side-tab-menu e-wallet" id="e-wallet-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="e-wallet"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu e-wallet" id="e-wallet-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="e-wallet"></span><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-9 right-side-content">
@@ -862,8 +862,8 @@ var languageP = "${language}";
 					<!-- e-wallet Begin-->
 					<div id="e-wallet-tab-contents" class="hidden content">
 						<ul class="nav nav-tabs nav-justified">
-							<li class="active"><a href="#ewallet-plans" data-toggle="tab"><fmt:message key="tab.member.top.pending" bundle="${msg}" /></a></li>
-							<li><a href="#ewallet-logs" data-toggle="tab"><fmt:message key="tab.member.top.active" bundle="${msg}" /></a></li>
+							<li class="active"><a href="#ewallet-plans" data-toggle="tab"><fmt:message key="ewallet.tab.withdrawal.policy.info" bundle="${msg}" /></a></li>
+							<li><a href="#ewallet-logs" data-toggle="tab"><fmt:message key="ewallet.tab.withdrawal.record" bundle="${msg}" /></a></li>
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active" id="ewallet-plans">
@@ -969,7 +969,14 @@ var languageP = "${language}";
 								</div>
 							</div>
 						</div>
-						<p id="note"><fmt:message key="label.remark.status.account.value" bundle="${msg}" /></p>
+						<p id="note">
+						<!-- <fmt:message key="ewallet.label.remark.last.update" bundle="${msg}" /> <br/> -->
+						<fmt:message key="ewallet.remark.remark" bundle="${msg}" />
+						<ol>
+						<li><fmt:message key="ewallet.remark.line1" bundle="${msg}" /></li>
+						<li><fmt:message key="ewallet.remark.line2" bundle="${msg}" /></li> 
+						</ol>
+						</p>
 					</div>
 					<!-- e-wallet End -->
 				</div>
@@ -1355,7 +1362,7 @@ var languageP = "${language}";
 
 				$('.mobile-dropdown').removeClass('active');
 				$('.dropdown-e-wallet').addClass('active');
-				var selText = '<fmt:message key="tab.promo.and.offers" bundle="${msg}" />'; //'Promo & Offers';
+				var selText = '<fmt:message key="tab.withdrawal" bundle="${msg}" />'; //'Promo & Offers';
 		  		$('.dropdown-menu li a').parents('.btn-group').find('.dropdown-toggle').html(selText+' <i class="fa fa-angle-down"></i>');
 		  	}
 		});
