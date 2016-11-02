@@ -237,6 +237,9 @@ public class OnlineWithdrawalController extends BaseController{
 				case "476":
 					resultCode="400";
 					break;
+				case "478":  //for /withdrawal/unlinkTngPolicy API
+					resultCode="500";
+					break;
 				case "2":
 					resultCode="200";
 					break;
