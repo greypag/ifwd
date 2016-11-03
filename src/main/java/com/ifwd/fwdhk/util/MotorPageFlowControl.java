@@ -16,7 +16,7 @@ public class MotorPageFlowControl {
 
 	public static ModelAndView pageFlow(String plan, Model model, HttpServletRequest request, String key) {
 
-		logger.debug("-----------------------------------page flow start--------------------------------------------");
+		logger.debug("--------	---------------------------page flow start--------------------------------------------");
 		
 		UserRestURIConstants.setController("Motor");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -94,20 +94,65 @@ public class MotorPageFlowControl {
 				break;
 			case UserRestURIConstants.URL_MOTOR_GET_QUOTE:
 				to = UserRestURIConstants.URL_MOTOR_PLAN_THIRD;
-				to = UserRestURIConstants.URL_MOTOR_PLAN_COMP;
+				to2 = UserRestURIConstants.URL_MOTOR_PLAN_COMP;
 				fileName = UserRestURIConstants.FILE_MOTOR_GET_QUOTE;
 				break;
 			case UserRestURIConstants.URL_MOTOR_PLAN_THIRD: 
-				to = UserRestURIConstants.URL_MOTOR_PLAN_THIRD;
+				to = UserRestURIConstants.URL_MOTOR_PLAN_COMP;
 				fileName = UserRestURIConstants.FILE_MOTOR_PLAN_THIRD;
 				break;
 			case UserRestURIConstants.URL_MOTOR_PLAN_COMP: 
-				to = UserRestURIConstants.URL_MOTOR_PLAN_COMP;
+				to = UserRestURIConstants.URL_MOTOR_QUICK_QUOTE;
 				fileName = UserRestURIConstants.FILE_MOTOR_PLAN_COMP;
 				break;
+			
 			case UserRestURIConstants.URL_MOTOR_QUICK_QUOTE: 
-				to = UserRestURIConstants.URL_MOTOR_QUICK_QUOTE;
+				to = UserRestURIConstants.URL_MOTOR_CAR_DETAILS;
 				fileName = UserRestURIConstants.FILE_MOTOR_QUICK_QUOTE;
+				break;		
+			/*case UserRestURIConstants.URL_MOTOR_RIDER_OPTIONS: 
+				to = UserRestURIConstants.URL_MOTOR_CAR_DETAILS;
+				fileName = UserRestURIConstants.FILE_MOTOR_RIDER_OPTIONS;
+				break;	*/			
+			case UserRestURIConstants.URL_MOTOR_CAR_DETAILS: 
+				to = UserRestURIConstants.URL_MOTOR_DRIVERS_DETAILS;
+				fileName = UserRestURIConstants.FILE_MOTOR_CAR_DETAILS;
+				break;
+			case UserRestURIConstants.URL_MOTOR_DRIVERS_DETAILS: 
+				to = UserRestURIConstants.URL_MOTOR_POLICY_DETAILS;
+				fileName = UserRestURIConstants.FILE_MOTOR_DRIVERS_DETAILS;
+				break;
+			case UserRestURIConstants.URL_MOTOR_POLICY_DETAILS: 
+				to = UserRestURIConstants.URL_MOTOR_DECLARATIONS;
+				fileName = UserRestURIConstants.FILE_MOTOR_POLICY_DETAILS;
+				break;
+			case UserRestURIConstants.URL_MOTOR_DECLARATIONS: 
+				to = UserRestURIConstants.URL_MOTOR_APPLICATION_SUMMARY;
+				fileName = UserRestURIConstants.FILE_MOTOR_DECLARATIONS;
+				break;
+			case UserRestURIConstants.URL_MOTOR_APPLICATION_SUMMARY: 
+				to = UserRestURIConstants.URL_MOTOR_CONFIRMATION;
+				fileName = UserRestURIConstants.FILE_MOTOR_APPLICATION_SUMMARY;
+				break;
+			case UserRestURIConstants.URL_MOTOR_CONFIRMATION: 
+				to = UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD;
+				fileName = UserRestURIConstants.FILE_MOTOR_CONFIRMATION;
+				break;
+			case UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD: 
+				to = UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION;
+				fileName = UserRestURIConstants.FILE_MOTOR_DOCUMENT_UPLOAD;
+				break;
+			case UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION: 
+				to = UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER;
+				fileName = UserRestURIConstants.FILE_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION;
+				break;
+			case UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER: 
+				to = UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION;
+				fileName = UserRestURIConstants.FILE_MOTOR_DOCUMENT_UPLOAD_LATER;
+				break;
+			case UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION: 
+				to = "";
+				fileName = UserRestURIConstants.FILE_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION;
 				break;
 			default:
 				to = UserRestURIConstants.URL_MOTOR_LANDING;
@@ -127,21 +172,55 @@ public class MotorPageFlowControl {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + filePath + fileName);
 	}
 	
-	public static String getPage(String url){	
-		if(url.endsWith(UserRestURIConstants.URL_MOTOR_LANDING)) {
+	public static String getPage(String url){
+		url=url+"/";
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_LANDING+"/")) {
 			return UserRestURIConstants.URL_MOTOR_LANDING;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_MOTOR_GET_QUOTE)) {
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_GET_QUOTE+"/")) {
 			return UserRestURIConstants.URL_MOTOR_GET_QUOTE;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_MOTOR_QUICK_QUOTE)) {
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_QUICK_QUOTE+"/")) {
 			return UserRestURIConstants.URL_MOTOR_QUICK_QUOTE;
 		}		
-		if(url.endsWith(UserRestURIConstants.URL_MOTOR_PLAN_THIRD)) {
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_PLAN_THIRD+"/")) {
 			return UserRestURIConstants.URL_MOTOR_PLAN_THIRD;
-		}
-		if(url.endsWith(UserRestURIConstants.URL_MOTOR_PLAN_COMP)) {
+		}		
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_PLAN_COMP+"/")) {
 			return UserRestURIConstants.URL_MOTOR_PLAN_COMP;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_QUICK_QUOTE+"/")) {
+			return UserRestURIConstants.URL_MOTOR_QUICK_QUOTE;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_CAR_DETAILS+"/")) {
+			return UserRestURIConstants.URL_MOTOR_CAR_DETAILS;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_DRIVERS_DETAILS+"/")) {
+			return UserRestURIConstants.URL_MOTOR_DRIVERS_DETAILS;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_POLICY_DETAILS+"/")) {
+			return UserRestURIConstants.URL_MOTOR_POLICY_DETAILS;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_DECLARATIONS+"/")) {
+			return UserRestURIConstants.URL_MOTOR_DECLARATIONS;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_APPLICATION_SUMMARY+"/")) {
+			return UserRestURIConstants.URL_MOTOR_APPLICATION_SUMMARY;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD+"/")) {
+			return UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_CONFIRMATION+"/")) {
+			return UserRestURIConstants.URL_MOTOR_CONFIRMATION;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION+"/")) {
+			return UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION+"/")) {
+			return UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER+"/")) {
+			return UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER;
 		}
 		
 		return "";

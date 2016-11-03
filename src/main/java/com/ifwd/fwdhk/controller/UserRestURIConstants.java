@@ -510,12 +510,37 @@ public class UserRestURIConstants {
 	public static final String URL_MOTOR_QUICK_QUOTE = "rider-options";
 	public static final String URL_MOTOR_PLAN_THIRD = "third-party-quote";
 	public static final String URL_MOTOR_PLAN_COMP = "comprehensive-quote";
+	
+	//public static final String URL_MOTOR_RIDER_OPTIONS = "rider-options";	
+	public static final String URL_MOTOR_CAR_DETAILS = "car-details";
+	public static final String URL_MOTOR_DRIVERS_DETAILS = "drivers-details";
+	public static final String URL_MOTOR_POLICY_DETAILS = "policy-details";
+	public static final String URL_MOTOR_DECLARATIONS = "declarations";
+	public static final String URL_MOTOR_APPLICATION_SUMMARY = "application-summary";
+	public static final String URL_MOTOR_CONFIRMATION = "confirmation";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD = "document-upload";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "document-upload-confirmation";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER = "document-upload-later";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "document-upload-later-confirmation";
 
 	public static final String FILE_MOTOR_LANDING = "landing";
 	public static final String FILE_MOTOR_GET_QUOTE = "get-quote";
 	public static final String FILE_MOTOR_QUICK_QUOTE = "quick-quote";
 	public static final String FILE_MOTOR_PLAN_THIRD = "plan-third";
 	public static final String FILE_MOTOR_PLAN_COMP = "plan-comp";
+	
+	public static final String FILE_MOTOR_RIDER_OPTIONS = "rider-options";	
+	public static final String FILE_MOTOR_CAR_DETAILS = "car-details";
+	public static final String FILE_MOTOR_DRIVERS_DETAILS = "drivers-details";
+	public static final String FILE_MOTOR_POLICY_DETAILS = "policy-details";
+	public static final String FILE_MOTOR_DECLARATIONS = "declarations";
+	public static final String FILE_MOTOR_APPLICATION_SUMMARY = "application-summary";
+	public static final String FILE_MOTOR_CONFIRMATION = "confirmation";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD = "document-upload";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "document-upload-confirmation";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER = "document-upload-later";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "document-upload-later-confirmation";
+	
 	
 	public static final String PAGE_PROPERTIES_MOTOR_LANDING = "motor.landing";
 	public static final String PAGE_PROPERTIES_MOTOR_GET_QUOTE = "motor.get-quote";
