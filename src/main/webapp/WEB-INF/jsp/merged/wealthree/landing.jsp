@@ -85,7 +85,7 @@ var home_url = "<%=request.getContextPath()%>";
                 	</div>
 
                     <div class="fwd-container-limit hidden-sm hidden-xs">
-                        <form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}"  method="post">
+                        <form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/wealthree-customer-service-centre"  method="post">
                             <div class="img-banner-text savie-landing">
                                 <div id="clearfix-height-rp">
                                     <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
