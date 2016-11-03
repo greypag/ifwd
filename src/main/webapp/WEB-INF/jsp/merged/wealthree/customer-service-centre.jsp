@@ -10,7 +10,7 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<fmt:setBundle basename="provie" var="provieMsg" />
+<fmt:setBundle basename="wealthree" var="wealthreeMsg" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -33,7 +33,7 @@ var planCode = '<%=request.getParameter("planCode")%>';
 		<c:set var="breadcrumbActive" value="0"/>
 
 		<c:set var="breadcrumbItems">
-			breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.provie,breadcrumb.item.appointment
+			breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.wealthree,breadcrumb.item.appointment
 		</c:set>
 		<c:set var="breadcrumbActive">3</c:set>
 
@@ -41,7 +41,6 @@ var planCode = '<%=request.getParameter("planCode")%>';
 			<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
 			<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
 		</jsp:include>
-        <li class="active-bc" id="et-active-bc-menu">Wealthree</li>
 	</div>
 	<!-- Breadcrumb Component End-->
 
@@ -100,12 +99,12 @@ function stickToHeader() {
          <div class="row" id="appointment-form-holder">
              
                <div class="col-xs-12 col-md-6" id="left-side-form">
-                   <h5><fmt:message key="provie.appoint.text1" bundle="${provieMsg}" /></h5>
-					<p class="confirm-call"><fmt:message key="provie.appoint.text2" bundle="${provieMsg}" /></p>
-					<p class="confirm-call"><fmt:message key="provie.appoint.text3" bundle="${provieMsg}" /></p>
+                   <h5><fmt:message key="wealthree.appoint.text1" bundle="${wealthreeMsg}" /></h5>
+					<p class="confirm-call"><fmt:message key="wealthree.appoint.text2" bundle="${wealthreeMsg}" /></p>
+					<p class="confirm-call"><fmt:message key="wealthree.appoint.text3" bundle="${wealthreeMsg}" /></p>
 					<div class="">
 						<div class="payment-select-wrapper">
-							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.cscentre" bundle="${provieMsg}" /></p>
+							<p class="bank-info-select-label"><fmt:message key="wealthree.appoint.dropdown.cscentre" bundle="${wealthreeMsg}" /></p>
 		                   <div class="selectDiv centreDiv gray-text-bg">
 		                      <select name="centre" id="centre" class="form-control gray-dropdown">
 		                        
@@ -117,13 +116,13 @@ function stickToHeader() {
 		           </div>
 		           <div class="centre-info visible-xs visible-sm" id="centre-info">
 		           		<img src="/resources/images/savie/qb.jpg" class="img-centre img-responsive">
-		           		<h4><fmt:message key="provie.appoint.address" bundle="${provieMsg}" /></h4>
+		           		<h4><fmt:message key="wealthree.appoint.address" bundle="${wealthreeMsg}" /></h4>
 		           		<p class="centre-address"></p>
-		           		<a target="_blank" class="viewmap-link" href="#"><fmt:message key="provie.appoint.viewmap" bundle="${provieMsg}" /></a>
+		           		<a target="_blank" class="viewmap-link" href="#"><fmt:message key="wealthree.appoint.viewmap" bundle="${wealthreeMsg}" /></a>
 		           	</div>
 		           <div class="">
 						<div class="payment-select-wrapper so-mdl-textfield">
-							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.date" bundle="${provieMsg}" /></p>  
+							<p class="bank-info-select-label"><fmt:message key="wealthree.appoint.dropdown.date" bundle="${wealthreeMsg}" /></p>  
 		                   <div class="selectDiv preferred-date gray-text-bg">
 		                      <input name="app-date" id="app-date" value="" class="form-control" />
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
@@ -133,7 +132,7 @@ function stickToHeader() {
 		            </div>
 		            <div class="">
 						<div class="payment-select-wrapper so-mdl-textfield">
-							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.time" bundle="${provieMsg}" /></p>
+							<p class="bank-info-select-label"><fmt:message key="wealthree.appoint.dropdown.time" bundle="${wealthreeMsg}" /></p>
 		                    <div class="selectDiv timeslot gray-text-bg">
 		                      <select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
 		                          <option value="11:30"></option>
@@ -146,25 +145,25 @@ function stickToHeader() {
 		           <div class="after-login">
 						<div class="form-group">
                             <div class="fld-wrapper">
-                                <p class="fld-label"><fmt:message key="provie.appoint.afterlogin.text" bundle="${provieMsg}" /></p>
+                                <p class="fld-label"><fmt:message key="wealthree.appoint.afterlogin.text" bundle="${wealthreeMsg}" /></p>
                                 <p class="fld-val"></p>
                             </div>
                         </div>
 		           </div>
 		           <div class="confirm-button-group text-center">
-						<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-confirm"><fmt:message key="provie.appoint.confirm" bundle="${provieMsg}" /></button>
+						<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-confirm"><fmt:message key="wealthree.appoint.confirm" bundle="${wealthreeMsg}" /></button>
 						<span class="error-msg generalErrMsg"></span>
 						<div class="login-error-wrapper">
 							<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
 						</div>
 					</div>
 		           <div class="before-login">
-		           <h5><fmt:message key="provie.appoint.login.title" bundle="${provieMsg}" /></h5>
+		           <h5><fmt:message key="wealthree.appoint.login.title" bundle="${wealthreeMsg}" /></h5>
 			           <div>
 							<div class="panel-group" id="accordion">
 								<div class="panel">
 									<div class="panel-heading">
-										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-login"><fmt:message key="provie.appoint.text4" bundle="${provieMsg}" /><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
+										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-login"><fmt:message key="wealthree.appoint.text4" bundle="${wealthreeMsg}" /><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
 									</div>
 									<div id="pan-login" class="panel-collapse collapse in">
 										<div class="panel-body">
@@ -174,28 +173,28 @@ function stickToHeader() {
 														<!--使用者名 -->
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentloginUsername">
-															<label class="mdl-textfield__label" for="appointmentloginUsername"><fmt:message key="provie.appoint.username" bundle="${provieMsg}" /></label>
+															<label class="mdl-textfield__label" for="appointmentloginUsername"><fmt:message key="wealthree.appoint.username" bundle="${wealthreeMsg}" /></label>
 															
 														</div>
 														<span class="error-msg userNameErrMsg"></span>
 													</div>
 													<!-- 忘記使用者名 -->
 													<div class="text-right">
-														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-username"><fmt:message key="provie.appoint.forget.username" bundle="${provieMsg}" />?</a>
+														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-username"><fmt:message key="wealthree.appoint.forget.username" bundle="${wealthreeMsg}" />?</a>
 													</div>
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="password" name="password" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="appointmentloginPassword">
-															<label class="mdl-textfield__label" for="appointmentloginPassword"><fmt:message key="provie.appoint.password" bundle="${provieMsg}" /></label>												
+															<label class="mdl-textfield__label" for="appointmentloginPassword"><fmt:message key="wealthree.appoint.password" bundle="${wealthreeMsg}" /></label>												
 														</div>
 														<span class="error-msg passwordErrMsg"></span>
 													</div>
 													<div class="text-right">
 														<!--忘記密碼 -->
-														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd"><fmt:message key="provie.appoint.forget.password" bundle="${provieMsg}" />?</a>
+														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd"><fmt:message key="wealthree.appoint.forget.password" bundle="${wealthreeMsg}" />?</a>
 													</div>
 													<div class="login-button-group text-center">
-														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-login"><fmt:message key="provie.appoint.register.cta.login" bundle="${provieMsg}" /></button>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-login"><fmt:message key="wealthree.appoint.register.cta.login" bundle="${wealthreeMsg}" /></button>
 														<span class="error-msg loginPanErrMsg"></span>
 													</div>
 												</form>
@@ -204,7 +203,7 @@ function stickToHeader() {
 												<form name="form-appointment-forgot-username" id="form-appointment-forgot-username" method="post">
 													<!-- 電話 inout -->
 													<div class="panel-heading">
-														<h4 class="panel-title"><fmt:message key="provie.appoint.forget.username" bundle="${provieMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
+														<h4 class="panel-title"><fmt:message key="wealthree.appoint.forget.username" bundle="${wealthreeMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
 													</div>
 													
 													<div class="hide alert alert-success your_username_box">
@@ -214,7 +213,7 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp-forgotusername login-input mdl-textfield__input" id="appointmentForgotUsernameMobileNo">
-															<label class="mdl-textfield__label" for="appointmentForgotUsernameMobileNo"><fmt:message key="provie.appoint.register.mobileno" bundle="${provieMsg}" /></label>
+															<label class="mdl-textfield__label" for="appointmentForgotUsernameMobileNo"><fmt:message key="wealthree.appoint.register.mobileno" bundle="${wealthreeMsg}" /></label>
 										                </div>
 										                <span class="error-msg mobileNoErrMsg"></span>
 
@@ -223,7 +222,7 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="email" name="emailAddress" class="form-control gray-textbox mdl-textfield__input check-emp-forgotusername login-input" id="appointmentForgotUsernameEmailAddress" >
-															<label class="mdl-textfield__label" for="appointmentForgotUsernameEmailAddress"><fmt:message key="provie.appoint.register.email" bundle="${provieMsg}" /></label>
+															<label class="mdl-textfield__label" for="appointmentForgotUsernameEmailAddress"><fmt:message key="wealthree.appoint.register.email" bundle="${wealthreeMsg}" /></label>
 									                     </div>
 									                     <span class="error-msg emailAddressErrMsg"></span>
 
@@ -231,7 +230,7 @@ function stickToHeader() {
 
 
 													<div class="login-button-group forgot-group text-center">
-														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-forgot-username"><fmt:message key="provie.appoint.register.cta.submit" bundle="${provieMsg}" /></button>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-forgot-username"><fmt:message key="wealthree.appoint.register.cta.submit" bundle="${wealthreeMsg}" /></button>
 														<span class="error-msg forgotUsernamePanErrMsg"></span>
 													</div>
 							                    </form>
@@ -241,13 +240,13 @@ function stickToHeader() {
 											<div class="sub-pan" id="sub-pan-forgot-pwd">
 												<form name="form-appointment-forgot-pwd" id="form-appointment-forgot-pwd" method="post">
 													<div class="panel-heading">
-														<h4 class="panel-title"><fmt:message key="provie.appoint.forget.password" bundle="${provieMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
+														<h4 class="panel-title"><fmt:message key="wealthree.appoint.forget.password" bundle="${wealthreeMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
 													</div>
 													<!-- 電話 input -->
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="tel" name="mobileNo" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="appointmentForgotPwdMobileNo">
-															<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd"><fmt:message key="provie.appoint.register.mobileno" bundle="${provieMsg}" /></label>
+															<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd"><fmt:message key="wealthree.appoint.register.mobileno" bundle="${wealthreeMsg}" /></label>
 														</div>
 														<span class="error-msg mobileNoErrMsg"></span>
 													</div>
@@ -256,7 +255,7 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="email" name="emailAddress" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="appointmentForgotPwdEmailAddress">
-															<label class="mdl-textfield__label" for="appointmentForgotPwdEmailAddress"><fmt:message key="provie.appoint.register.email" bundle="${provieMsg}" /></label>
+															<label class="mdl-textfield__label" for="appointmentForgotPwdEmailAddress"><fmt:message key="wealthree.appoint.register.email" bundle="${wealthreeMsg}" /></label>
 														</div>
 														<span class="error-msg emailAddressErrMsg"></span>
 													</div>
@@ -266,7 +265,7 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="text" name="userName" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="appointmentForgotPwdUsername">
-															<label class="mdl-textfield__label" for="userName"><fmt:message key="provie.appoint.username" bundle="${provieMsg}" /></label>
+															<label class="mdl-textfield__label" for="userName"><fmt:message key="wealthree.appoint.username" bundle="${wealthreeMsg}" /></label>
 														</div>
 														<span class="error-msg userNameErrMsg"></span>
 													</div>
@@ -276,7 +275,7 @@ function stickToHeader() {
 
 
 													<div class="login-button-group forgot-group text-center">
-														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-forgot-pwd"><fmt:message key="provie.appoint.register.cta.submit" bundle="${provieMsg}" /></button>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-forgot-pwd"><fmt:message key="wealthree.appoint.register.cta.submit" bundle="${wealthreeMsg}" /></button>
 														<span class="error-msg forgotPwdPanErrMsg"></span>
 
 													</div>
@@ -289,7 +288,7 @@ function stickToHeader() {
 								</div>
 								<div class="panel">
 									<div class="panel-heading">
-										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-register"><fmt:message key="provie.appoint.register.title" bundle="${provieMsg}" /><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
+										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-register"><fmt:message key="wealthree.appoint.register.title" bundle="${wealthreeMsg}" /><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
 									</div>
 									<div id="pan-register" class="panel-collapse collapse">
 										<div class="panel-body">
@@ -297,21 +296,21 @@ function stickToHeader() {
 												<div class="form-group">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="text" name="fullName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterFullName" data-keyblock-alphabet-space="true" autocomplete="off" maxlength="100">
-														<label class="mdl-textfield__label" for="appointmentRegisterFullName"><fmt:message key="provie.appoint.register.name" bundle="${provieMsg}" /> <span class="small-txt"><fmt:message key="provie.appoint.register.name.remarks" bundle="${provieMsg}" /></span></label>
+														<label class="mdl-textfield__label" for="appointmentRegisterFullName"><fmt:message key="wealthree.appoint.register.name" bundle="${wealthreeMsg}" /> <span class="small-txt"><fmt:message key="wealthree.appoint.register.name.remarks" bundle="${wealthreeMsg}" /></span></label>
 													</div>
 													<span class="error-msg FullNameErrMsg"></span>
 												</div>
 												<div class="form-group">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterMobileNo" data-keyblock-num="true">
-														<label class="mdl-textfield__label" for="appointmentRegisterMobileNo"><fmt:message key="provie.appoint.register.mobileno" bundle="${provieMsg}" /></label>
+														<label class="mdl-textfield__label" for="appointmentRegisterMobileNo"><fmt:message key="wealthree.appoint.register.mobileno" bundle="${wealthreeMsg}" /></label>
 													</div>
 													<span class="error-msg mobileNoErrMsg"></span>
 												</div>
 												<div class="form-group" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Insurance certificate will be sent to this email address">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="text" name="EmailAddress" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterEmailAddress">
-														<label class="mdl-textfield__label" for="appointmentRegisterEmailAddress"><fmt:message key="provie.appoint.register.email" bundle="${provieMsg}" /></label>
+														<label class="mdl-textfield__label" for="appointmentRegisterEmailAddress"><fmt:message key="wealthree.appoint.register.email" bundle="${wealthreeMsg}" /></label>
 													</div>
 													<span class="error-msg EmailAddressErrMsg"></span>
 												</div>
@@ -319,38 +318,38 @@ function stickToHeader() {
 													<!--使用者名 -->
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterUserName">
-														<label class="mdl-textfield__label" for="appointmentRegisterUserName"><fmt:message key="provie.appoint.username" bundle="${provieMsg}" /></label>
+														<label class="mdl-textfield__label" for="appointmentRegisterUserName"><fmt:message key="wealthree.appoint.username" bundle="${wealthreeMsg}" /></label>
 													</div>
 													<span class="error-msg userNameErrMsg"></span>
 												</div>
 												<div class="form-group">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="password" name="password" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="appointmentRegisterPassword">
-														<label class="mdl-textfield__label" for="appointmentRegisterPassword"><fmt:message key="provie.appoint.register.pw" bundle="${provieMsg}" /></label>											
+														<label class="mdl-textfield__label" for="appointmentRegisterPassword"><fmt:message key="wealthree.appoint.register.pw" bundle="${wealthreeMsg}" /></label>											
 													</div>
 													<span class="error-msg passwordErrMsg"></span>
 												</div>
 												<div class="form-group">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="password" name="confirmPassword" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="appointmentRegisterConfPass">
-														<label class="mdl-textfield__label" for="appointmentRegisterConfPass"><fmt:message key="provie.appoint.register.confirmpw" bundle="${provieMsg}" /></label>
+														<label class="mdl-textfield__label" for="appointmentRegisterConfPass"><fmt:message key="wealthree.appoint.register.confirmpw" bundle="${wealthreeMsg}" /></label>
 													</div>
 													<span class="error-msg confirmPasswordErrMsg"></span>
 												</div>
 												<div class="declaration">
-													<h4><fmt:message key="provie.appoint.register.declaration.title" bundle="${provieMsg}" /></h4>
+													<h4><fmt:message key="wealthree.appoint.register.declaration.title" bundle="${wealthreeMsg}" /></h4>
 													<div class="form-group">
-														<div class="checkbox"><input id="checkbox1" name="checkbox1" type="checkbox" class=""><label for="checkbox1"><fmt:message key="provie.appoint.register.declaration1.text1" bundle="${provieMsg}" /> <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/others/fwd-online-member-en.pdf?la=en" target="blank"><fmt:message key="provie.appoint.register.declaration1.text2" bundle="${provieMsg}" /></a> <fmt:message key="provie.appoint.register.declaration1.text3" bundle="${provieMsg}" /></label></div>
+														<div class="checkbox"><input id="checkbox1" name="checkbox1" type="checkbox" class=""><label for="checkbox1"><fmt:message key="wealthree.appoint.register.declaration1.text1" bundle="${wealthreeMsg}" /> <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/others/fwd-online-member-en.pdf?la=en" target="blank"><fmt:message key="wealthree.appoint.register.declaration1.text2" bundle="${wealthreeMsg}" /></a> <fmt:message key="wealthree.appoint.register.declaration1.text3" bundle="${wealthreeMsg}" /></label></div>
 														<span class="error-msg checkbox1ErrMsg"></span>
 													</div>
 													<hr>
-													<p><fmt:message key="provie.appoint.register.declaration2.text1" bundle="${provieMsg}" /></p>
-													<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3"><fmt:message key="provie.appoint.register.declaration2.text2" bundle="${provieMsg}" /></label></div> 
-													<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox"><label for="checkbox4"><fmt:message key="provie.appoint.register.declaration2.text3" bundle="${provieMsg}" /></label> </div>
-													<div class="checkboxBubble"><fmt:message key="provie.appoint.register.declaration2.text4" bundle="${provieMsg}" /></div>
+													<p><fmt:message key="wealthree.appoint.register.declaration2.text1" bundle="${wealthreeMsg}" /></p>
+													<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3"><fmt:message key="wealthree.appoint.register.declaration2.text2" bundle="${wealthreeMsg}" /></label></div> 
+													<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox"><label for="checkbox4"><fmt:message key="wealthree.appoint.register.declaration2.text3" bundle="${wealthreeMsg}" /></label> </div>
+													<div class="checkboxBubble"><fmt:message key="wealthree.appoint.register.declaration2.text4" bundle="${wealthreeMsg}" /></div>
 												</div>
 												<div class="login-button-group text-center">
-													<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-register"><fmt:message key="provie.appoint.register.cta.activate" bundle="${provieMsg}" /></button>
+													<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-register"><fmt:message key="wealthree.appoint.register.cta.activate" bundle="${wealthreeMsg}" /></button>
 													<span class="error-msg regPanErrMsg"></span>
 												</div>
 										</form>
@@ -364,9 +363,9 @@ function stickToHeader() {
                 <div class="col-xs-12 col-md-6" id="right-side-form">
                    <div class="centre-info visible-md visible-lg" id="centre-info">
                       <img class="img-centre img-responsive">
-                      <h4><fmt:message key="provie.appoint.address" bundle="${provieMsg}" /></h4>
+                      <h4><fmt:message key="wealthree.appoint.address" bundle="${wealthreeMsg}" /></h4>
                       <p class="centre-address"></p>
-                      <a target="_blank" class="viewmap-link" href="#"><fmt:message key="provie.appoint.viewmap" bundle="${provieMsg}" /></a>
+                      <a target="_blank" class="viewmap-link" href="#"><fmt:message key="wealthree.appoint.viewmap" bundle="${wealthreeMsg}" /></a>
                    </div>
                 </div>
                 <div class="col-xs-12">
@@ -395,13 +394,13 @@ function stickToHeader() {
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
 						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-						<h2><fmt:message key="provie.appoint.popup.errormsg.text1" bundle="${provieMsg}" /></h2>
+						<h2><fmt:message key="wealthree.appoint.popup.errormsg.text1" bundle="${wealthreeMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">
-						<p class="registered"><fmt:message key="provie.appoint.popup.errormsg.text2" bundle="${provieMsg}" /></p>
+						<p class="registered"><fmt:message key="wealthree.appoint.popup.errormsg.text2" bundle="${wealthreeMsg}" /></p>
 						
 						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-						<button type="button" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="provie.appoint.popup.errormsg.tryagain" bundle="${provieMsg}" /></button>
+						<button type="button" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="wealthree.appoint.popup.errormsg.tryagain" bundle="${wealthreeMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -478,11 +477,11 @@ function stickToHeader() {
 			<div class="modal-dialog teaserSurvey cs-modal-dialog" role="document">
 				<div class="modal-content teaserSurvey cs-modal-content">
 					<div class="modal-header teaserSurvey cs-modal-header">
-						<h2 class="cs-modal-h2"><fmt:message key="provie.appoint.moreThan2Triesmodalheader" bundle="${provieMsg}" /></h2>
+						<h2 class="cs-modal-h2"><fmt:message key="wealthree.appoint.moreThan2Triesmodalheader" bundle="${wealthreeMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey cs-modal-body">
-						<p class="registered cs-modal-p"><fmt:message key="provie.appoint.moreThan2Triesmodalbody" bundle="${provieMsg}" /></p>
-						<button type="button" class="btn btn-orange cs-modal-btn" id="moreThan2Tries-button"><fmt:message key="provie.appoint.moreThan2TriesmodalbtnTxt" bundle="${provieMsg}" /></button>
+						<p class="registered cs-modal-p"><fmt:message key="wealthree.appoint.moreThan2Triesmodalbody" bundle="${wealthreeMsg}" /></p>
+						<button type="button" class="btn btn-orange cs-modal-btn" id="moreThan2Tries-button"><fmt:message key="wealthree.appoint.moreThan2TriesmodalbtnTxt" bundle="${wealthreeMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -503,7 +502,7 @@ function stickToHeader() {
 		$('#moreThan2Tries-button').click(function(){
 			//alert(language);
 			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
-			window.location.href= context + "/" + language.toLowerCase() + "/savings-insurance/provie";
+			window.location.href= context + "/" + language.toLowerCase() + "/savings-insurance/wealthree";
 		});
 		
 		$('#pick-another-centre-btn').click(function(){
@@ -524,7 +523,7 @@ function stickToHeader() {
 		});
 	
 		$('#back-to-home-btn').click(function(){
-			window.location.href= context + "/" + language + "/savings-insurance/provie";
+			window.location.href= context + "/" + language + "/savings-insurance/wealthree";
 		});
 
 		return;
@@ -731,7 +730,7 @@ function stickToHeader() {
 		$('#moreThan2Tries-button').click(function(){
 			alert('clicked');
 			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
-			window.location.href= context + "/" + language + "/savings-insurance/provie";
+			window.location.href= context + "/" + language + "/savings-insurance/wealthree";
 		});
 		$('#perferredTimeIsNull-btn').click(function(){
 			$('#perferredTimeIsNull').modal('hide');

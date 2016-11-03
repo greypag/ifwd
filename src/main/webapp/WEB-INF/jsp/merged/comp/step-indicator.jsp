@@ -38,7 +38,7 @@
       template_divider += "<img src=\"" +contextPath+"/resources/images/savie-2016/header-browse-arrow.png\" class=\"browse-arrow\">";
       template_divider += "</li>";
 
-      String path_to_resources[]= new String[2];
+      String path_to_resources[]= new String[3];
       if(lang.equalsIgnoreCase("EN")){
          path_to_resources[0] = "messages_en_US";
          path_to_resources[1] = "provie_en_US";
@@ -106,23 +106,28 @@
 
       template_stepof += "<span class=\"stepIndicator__stepof\">%s out of %s</span>";
 
-      String path_to_resources[]= new String[2];
+      String path_to_resources[]= new String[3];
       if(lang.equalsIgnoreCase("EN")){
          path_to_resources[0] = "messages_en_US";
          path_to_resources[1] = "provie_en_US";
+         path_to_resources[2] = "wealthree_en_US";
       } else {
          path_to_resources[0] = "messages_zh_HK";
          path_to_resources[1] = "provie_zh_HK";
+         path_to_resources[2] = "wealthree_zh_HK";
       }
 
       ResourceBundle resource = ResourceBundle.getBundle(path_to_resources[0]);
       ResourceBundle resource_provie = ResourceBundle.getBundle(path_to_resources[1]);
+      ResourceBundle resource_wealthree = ResourceBundle.getBundle(path_to_resources[2]);
 
       String translated_str = "";
       if(resource.containsKey(stepList[stepActive])){         
          translated_str = resource.getString(stepList[stepActive]); 
       } else if(resource_provie.containsKey(stepList[stepActive])){       
          translated_str = resource_provie.getString(stepList[stepActive]);
+      } else if(resource_wealthree.containsKey(stepList[stepActive])){       
+         translated_str = resource_wealthree.getString(stepList[stepActive]);
       }
       
       output += String.format(template_arrow);

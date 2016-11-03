@@ -10,7 +10,7 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<fmt:setBundle basename="provie" var="provieMsg" />
+<fmt:setBundle basename="wealthree" var="wealthreeMsg" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -23,22 +23,22 @@ var language = "${language}";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css">
 
 <div id="make-an-appointment-page" class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps">			
-<!-- Breadcrumb Component Start-->
+	
+	<!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
+		<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
+		<c:set var="breadcrumbActive" value="0"/>
 
-	<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
-	<c:set var="breadcrumbActive" value="0"/>
+		<c:set var="breadcrumbItems">
+			breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.wealthree,breadcrumb.item.appointment
+		</c:set>
+		<c:set var="breadcrumbActive">3</c:set>
 
-	<c:set var="breadcrumbItems">
-		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.provie,breadcrumb.item.appointment
-	</c:set>
-	<c:set var="breadcrumbActive">3</c:set>
-
-	<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
-		<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
-		<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
-	</jsp:include>
-    <li class="active-bc" id="et-active-bc-menu">Wealthree</li>
-
+		<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+			<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+			<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+		</jsp:include>
+	</div>
 	<!-- Breadcrumb Component End-->
 
 	<!-- StepIndicator Component Start-->
@@ -95,41 +95,41 @@ function stickToHeader() {
 
 			<div id="appointment-confirmation-page">
 				<div class="row policy-number-panel">
-					<div class="col-xs-12 cstm-md-col-1"><p class="text-bold panel-title"><fmt:message key="provie.appoint.confirm.title" bundle="${provieMsg}" /></p></div>
+					<div class="col-xs-12 cstm-md-col-1"><p class="text-bold panel-title"><fmt:message key="wealthree.appoint.confirm.title" bundle="${wealthreeMsg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
-						<span class="text-bold policy-number-label"><fmt:message key="provie.appoint.refno" bundle="${provieMsg}" /></span>
+						<span class="text-bold policy-number-label"><fmt:message key="wealthree.appoint.refno" bundle="${wealthreeMsg}" /></span>
 						<span class="policy-number"></span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p><fmt:message key="provie.appoint.confirm.text1" bundle="${provieMsg}" /><br><br><fmt:message key="provie.appoint.confirm.text2" bundle="${provieMsg}" /></p>
+						<p><fmt:message key="wealthree.appoint.confirm.text1" bundle="${wealthreeMsg}" /><br><br><fmt:message key="wealthree.appoint.confirm.text2" bundle="${wealthreeMsg}" /></p>
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
-						<p class="text-bold policy-number-label"><fmt:message key="provie.appoint.refno" bundle="${provieMsg}" /></p>
+						<p class="text-bold policy-number-label"><fmt:message key="wealthree.appoint.refno" bundle="${wealthreeMsg}" /></p>
 						<p class="policy-number"></p>
 					</div>
 				</div>
 				<hr>
 				<div class="row appointment-details-panel">
-					<div class="col-xs-12"><p class="text-bold panel-title"><fmt:message key="provie.appoint.confirm.details.title" bundle="${provieMsg}" /></p></div>
+					<div class="col-xs-12"><p class="text-bold panel-title"><fmt:message key="wealthree.appoint.confirm.details.title" bundle="${wealthreeMsg}" /></p></div>
 					<div class="col-xs-12 cstm-md-col-1">
 						<div>
-							<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.date" bundle="${provieMsg}" /></p>
+							<p class="text-bold details-label"><fmt:message key="wealthree.appoint.confirm.details.date" bundle="${wealthreeMsg}" /></p>
 							<p class="appointment-date"></p>
 						</div>
 						<div>
-							<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.time" bundle="${provieMsg}" /></p>
+							<p class="text-bold details-label"><fmt:message key="wealthree.appoint.confirm.details.time" bundle="${wealthreeMsg}" /></p>
 							<p class="appointment-time">11:30</p>
 						</div>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.branch" bundle="${provieMsg}" /></p>
+						<p class="text-bold details-label"><fmt:message key="wealthree.appoint.confirm.details.branch" bundle="${wealthreeMsg}" /></p>
 						<p><span class="branch-name"></span></p>
 						<p class="branch-address"></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
-						<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.ophours" bundle="${provieMsg}" /></p>
+						<p class="text-bold details-label"><fmt:message key="wealthree.appoint.confirm.details.ophours" bundle="${wealthreeMsg}" /></p>
 						<p>
-							<fmt:message key="provie.appoint.confirm.details.ophours2" bundle="${provieMsg}" />
+							<fmt:message key="wealthree.appoint.confirm.details.ophours2" bundle="${wealthreeMsg}" />
 							<span class="phone-num">
 								<span aria-hidden="true" class="glyphicon glyphicon-earphone"></span> 3123 3123
 							</span>
@@ -138,19 +138,19 @@ function stickToHeader() {
 				</div>
 				<hr>
 				<div class="requirements-panel">
-					<p class="text-bold requirements-panel-title"><fmt:message key="provie.appoint.confirm.details.text1" bundle="${provieMsg}" /></p>
+					<p class="text-bold requirements-panel-title"><fmt:message key="wealthree.appoint.confirm.details.text1" bundle="${wealthreeMsg}" /></p>
 
 					<div class="row requirements-list">
 						<div class="col-xs-12 cstm-md-col-1">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid.png"></div>
 							<div class="requirement-text-wrapper">
-								<p><fmt:message key="provie.appoint.confirm.details.text2" bundle="${provieMsg}" /><br><span class="small"><fmt:message key="provie.appoint.confirm.details.text3" bundle="${provieMsg}" /></span></p>
+								<p><fmt:message key="wealthree.appoint.confirm.details.text2" bundle="${wealthreeMsg}" /><br><span class="small"><fmt:message key="wealthree.appoint.confirm.details.text3" bundle="${wealthreeMsg}" /></span></p>
 							</div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-2">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png"></div>
-							<div class="requirement-text-wrapper"><p><fmt:message key="provie.appoint.confirm.details.text4" bundle="${provieMsg}" /> <a href="/resources/address_proof.pdf"><fmt:message key="provie.appoint.confirm.details.text5" bundle="${provieMsg}" /></a> <fmt:message key="provie.appoint.confirm.details.text6" bundle="${provieMsg}" /></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="wealthree.appoint.confirm.details.text4" bundle="${wealthreeMsg}" /> <a href="/resources/address_proof.pdf"><fmt:message key="wealthree.appoint.confirm.details.text5" bundle="${wealthreeMsg}" /></a> <fmt:message key="wealthree.appoint.confirm.details.text6" bundle="${wealthreeMsg}" /></p></div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-3">
@@ -158,7 +158,7 @@ function stickToHeader() {
 								<img class="visible-xs visible-sm" src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png">
 								<img class="hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png">
 							</div>
-							<div class="requirement-text-wrapper"><p><fmt:message key="provie.appoint.confirm.details.text8" bundle="${provieMsg}" /></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="wealthree.appoint.confirm.details.text8" bundle="${wealthreeMsg}" /></p></div>
 						</div>
 					</div>
 					
@@ -167,11 +167,11 @@ function stickToHeader() {
 				<hr>
 				<a class="visible-md visible-lg print-doc-link" href="javascript:window.print()">
 					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png">&nbsp;&nbsp;&nbsp;
-					<span><fmt:message key="provie.appoint.confirm.link.print" bundle="${provieMsg}" /></span>
+					<span><fmt:message key="wealthree.appoint.confirm.link.print" bundle="${wealthreeMsg}" /></span>
 				</a>
 				<center>
 					<a href="https://i.fwd.com.hk/${language}">
-						<button class="text-bold btn btn-home savie-common-btn" type="button"><fmt:message key="provie.appoint.confirm.cta.back" bundle="${provieMsg}" /></button>
+						<button class="text-bold btn btn-home savie-common-btn" type="button"><fmt:message key="wealthree.appoint.confirm.cta.back" bundle="${wealthreeMsg}" /></button>
 					</a>
 				</center>
 			</div>
