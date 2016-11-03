@@ -93,7 +93,7 @@ $(document).ready(function(){
 						"preferredContactTime": $("#perferedDate").val(),
 						"from": "",
 						"reason": $("#reason").val(),
-						"motorCareDetails": quote
+						"quoteMotorCare": quote
 						}),
 				error: function(xhr, textStatus, errorThrown) {
 					e.preventDefault();
@@ -101,7 +101,7 @@ $(document).ready(function(){
 				success: function(data) {
 					e.preventDefault();
 					$('#contactform-pop').addClass('hidden');
-					$('#successMessage').removeClass('hidden');
+					//$('#successMessage').removeClass('hidden');
 					}
 				});
 			  }

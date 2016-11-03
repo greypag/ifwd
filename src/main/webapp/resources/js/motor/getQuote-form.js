@@ -53,6 +53,22 @@ $(document).ready(function(){
         if(!empty_text.length && !empty_select.length && !error)
         	$q1.next().removeClass('hidden');
     });
+    
+    $q1.find('input[name="carYearOfManufacture"]').keyup(function(e){
+        if($(this).val().length > 2){
+            $q1.next().removeClass('hidden');
+            occupation.open();
+        }
+    });
+    $q2.find('input[name="carEstimatedValue"]').keyup(function(e){
+        if($(this).val().length == 3){
+            $q2.next().removeClass('hidden');
+            $(".selectize-dropdown ").css({"width":"250px"});
+            setTimeout(function(){
+                occupation.open();
+            },2000);
+        }
+    });
     $q1.find('input[type="number"]').keyup(function(e){
     	
     	if($(this).val() > parseInt($(this).prop('max'))){
@@ -411,26 +427,18 @@ $(document).ready(function(){
             	else
             		var carEstimatedValue = num;
             	
-                quote = {   
-	        		"applicant": {
-	    	        	"ncb": ncd,
-	    	        	"occupation": occupation,
-	    	        	"driveMoreThanTwo": driveMoreThanTwo,         
-	    	        	"validAgeGroup": validAgeGroup
-	    	        },	
-                    "carDetail": {
-                    	 "estimatedValue": carEstimatedValue,
-                         "makeCode": carMakeCode,
-                         "engineCapacity": cc,
-                         "model": carModel,
-                         "yearOfManufacture": carYearOfManufacture                        
-                    }, 
-                    "driver" : [{   
-	    	        	"ncb": ncd,
-	    	        	"occupation": occupation,
-	    	        	"driveMoreThanTwo": driveMoreThanTwo,         
-	    	        	"validAgeGroup": validAgeGroup, 
-	    	        }],
+                quote = {
+                    "quoteDriver": {
+                        "carEstimatedValue": carEstimatedValue,
+                        "carMakeCode": carMakeCode,
+                        "carCC": cc,
+                        "carModel": carModel,
+                        "carYearOfManufacture": carYearOfManufacture,
+                        "driveMoreThanTwo": driveMoreThanTwo,
+                        "ncb": ncd,
+                        "occupation": occupation,
+                        "validAgeGroup": validAgeGroup
+                    },
                     "planCode": null,
                     "compPlan": null,
                     "personalAccident": false,
