@@ -92,8 +92,6 @@ public class MotorController extends BaseController{
 	}
 
 
-
-	
 	
 	
 	public static String getUrl(String page) {
