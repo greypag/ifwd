@@ -357,10 +357,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASY_HOME_SUMMARY = "easy.home.summary";
 	public static final String PAGE_PROPERTIES_EASY_HOME_CONFIRMATION = "easy.home.confirmation";
 	
-	/* API For provie online */		
-	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";		
-	public static final String GET_PROVIE_RIDER_ELIGIBILITY = SERVICE_URL + "/life/provie/rider/eligibility";		
-			
+	/* Wealthree Page Settings */
 	public static final String PAGE_WEALTHREE_LANDING = "landing";		
 	public static final String PAGE_WEALTHREE_SERVICE_CENTER = "customer-service-centre";		
 	public static final String PAGE_WEALTHREE_CONFIRMATION_APPOINTMENT_SP="confirmation-appointment";		
@@ -369,6 +366,10 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_WEALTHREE_SERVICE_CENTER = "wealthree.customer.service.centre";		
 	public static final String PAGE_PROPERTIES_WEALTHREE_CONFIRMATION_APPOINTMENT_SP="wealthree.confirmation.appointment.sp";		
 	
+	/* API For provie online */		
+	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";		
+	public static final String GET_PROVIE_RIDER_ELIGIBILITY = SERVICE_URL + "/life/provie/rider/eligibility";		
+			
 	/* Page Flow Control For provie online */		
 	public static final String URL_PROVIE_SINGLE_PREMIUM = "single-premium";		
 	public static final String URL_PROVIE_REGULAR_PREMIUM = "regular-premium";		
