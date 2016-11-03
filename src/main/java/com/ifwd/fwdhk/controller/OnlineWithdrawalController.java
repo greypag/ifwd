@@ -130,7 +130,7 @@ public class OnlineWithdrawalController extends BaseController{
 			Class<T> responseClass,
 			JSONObject responseJsonObj) throws JsonParseException, JsonMappingException, IOException {
 		//MessageCodeUtil messageUtil=new MessageCodeUtil();
-		if (responseJsonObj==null||responseJsonObj.get("errMsgs")!=null){
+		if (responseJsonObj==null||responseJsonObj.get("errMsgs")!=null&&!((String)((JSONArray)responseJsonObj.get("errMsgs")).get(0)).contains("TWE")){
 			return Responses.error(null);
 		}
 		logger.info(methodName+" response :" + responseJsonObj.toString());
@@ -161,7 +161,15 @@ public class OnlineWithdrawalController extends BaseController{
 								  item.remove("msg");
 								msgObject=(JSONObject)((JSONArray) item.get("warnMsg")).get(0);
 								  if(msgObject.get("refCode")!=null){
+									if(msgObject.get("refCode").equals("GPW001")){
+										msgObject.put("code","TPW001");
+									}else if(msgObject.get("refCode").equals("GPW002")){
+										msgObject.put("code","TPW002");
+									}else if(msgObject.get("refCode").equals("GPW003")){
+										msgObject.put("code","TPW003");
+									}else{
 									  msgObject.put("code",new String((String) msgObject.get("refCode")));
+									}
 								  }else{
 									  msgObject.put("code",new String((String) msgObject.get("resultCode")));
 								  }
@@ -180,7 +188,15 @@ public class OnlineWithdrawalController extends BaseController{
 							obj.remove("msg");
 							msgObject=(JSONObject)obj.get("warnMsg");
 							if(msgObject.get("refCode")!=null){
+								if(msgObject.get("refCode").equals("GPW001")){
+									msgObject.put("code","TPW001");
+								}else if(msgObject.get("refCode").equals("GPW002")){
+									msgObject.put("code","TPW002");
+								}else if(msgObject.get("refCode").equals("GPW003")){
+									msgObject.put("code","TPW003");
+								}else{
 								  msgObject.put("code",new String((String) msgObject.get("refCode")));
+								}
 							  }else{
 								  msgObject.put("code",new String((String) msgObject.get("resultCode")));
 							  }
@@ -499,6 +515,7 @@ public class OnlineWithdrawalController extends BaseController{
 		return responseEntity;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@ApiOperation(
 			value = "Request Tap n Go Policy withdrawal",
 			response = TngOtpSmsReqResponse.class
@@ -539,6 +556,33 @@ public class OnlineWithdrawalController extends BaseController{
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			// ******************* Makeup result *******************			
+
+			JSONObject msgObj=(JSONObject) ((JSONArray)responseJsonObj.get("msg")).get(0);
+
+			if (msgObj.get("resultCode").equals("471")){
+				String refCode=(String) msgObj.get("refCode");
+				JSONArray errMsgs=new JSONArray();
+				switch (refCode) {
+				case "RWE007":
+					errMsgs.add("TWE001");
+					break;
+				case "RWE008":
+					errMsgs.add("TWE002");
+					break;
+				case "RWE009":
+					errMsgs.add("TWE003");
+					break;
+				case "RWE010":
+					errMsgs.add("TWE004");
+					break;
+				default:
+					errMsgs.add("TWE000");
+					break;
+				}
+				responseJsonObj.put("errMsgs", errMsgs);
+			}
+			
+			
 			
 			responseEntity=getResponseEntityByJsonObj(methodName,TngOtpSmsReqResponse.class,responseJsonObj);
 				
