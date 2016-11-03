@@ -880,7 +880,7 @@ public class LifeServiceImpl implements LifeService {
 	    	JSONObject jsonObject=getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(), lifePersonalDetails.getHkid(),request);
 	    	JSONArray jsonArray=(JSONArray) jsonObject.get("referralPlan");
 	    	if(jsonArray.get(0).equals("SAVIE PREMIUM DISCOUNT")){
-	    		if(jsonArray.get(1)==null){
+	    		if(jsonArray.size()==1){
 	    			pdfName="SavieOnlineApplicationFormPremiumDiscount";
 	    		}else{
 	    		switch ((String) jsonArray.get(1)) {
