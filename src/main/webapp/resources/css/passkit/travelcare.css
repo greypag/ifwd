@@ -6,10 +6,41 @@ body {
   min-height: 600px;
 }
 
-@media screen and (max-width: 425px) {
-  .travelcare.main {
-    min-height: 500px;
-  }
+.loading-dialog {
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+}
+
+.loading-modal {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  border: 0px;
+  -webkit-box-shadow: 0 0px 0px;
+  box-shadow: 0 0px 0px;
+}
+
+modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform .3s ease-out;
+  -moz-transition: -moz-transform .3s ease-out;
+  -o-transition: -o-transform .3s ease-out;
+  transition: transform .3s ease-out;
+}
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  transition: opacity .15s linear;
 }
 
 .travelcare .hero {
@@ -23,12 +54,6 @@ body {
 .verify-content {
   width: 40%;
   margin: 0 auto;
-}
-
-@media screen and (max-width: 768px) {
-  .verify-content {
-    width: 80%;
-  }
 }
 
 .verify-title {
@@ -52,9 +77,9 @@ body {
 }
 
 .verify-option {
-  border-width: 1px 0px;
+  /*border-width: 1px 0px;
   border-color: #bbb;
-  border-style: solid;
+  border-style: solid;*/
   margin: 10px 0px;
   cursor: pointer;
 }
@@ -81,11 +106,17 @@ body {
 }
 
 .verify-option label {
-  margin: 0px;
+  margin: 0px auto;
   vertical-align: middle;
   cursor: pointer;
-  width: 100%;
+  width: 200px;
   padding: 10px 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.zh .verify-option label {
+  text-align: center;
 }
 
 .verify-option label>span {
@@ -99,6 +130,7 @@ body {
 .verify-option .radio-txt {
   position: relative;
   top: 0.05em;
+  font-size: 1.2em;
 }
 
 .verify-detail {
@@ -224,4 +256,16 @@ body {
   transform: scale(0.4);
   margin-left: 50px;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .verify-content {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .travelcare.main {
+    min-height: 500px;
+  }
 }

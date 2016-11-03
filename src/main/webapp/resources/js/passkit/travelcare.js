@@ -54,13 +54,15 @@ $(function () {
   });
 
   function clearError() {
-    $('.verify-error').text(null).hide();
+    $('.verify-error').text('').hide();
   }
 
   function loading(func) {
-    $('.loading-container, .loading').show();
+    //$('.loading-container, .loading').show();
+    $('#loading-overlay').modal('show');
     return func.apply(null, []).always(function () {
-      $('.loading-container, .loading').hide();
+      //$('.loading-container, .loading').hide();
+      $('#loading-overlay').modal('hide');
     });
   }
 
