@@ -304,4 +304,3 @@ if(request.getRequestURI().indexOf("/home-liability")>0 || request.getRequestURI
 <%
 }
 %>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/session.js"></script>
