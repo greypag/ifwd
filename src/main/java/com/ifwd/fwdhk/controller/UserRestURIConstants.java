@@ -523,7 +523,6 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_MOTOR_PLAN_THIRD = "motor.plan-third";
 	public static final String PAGE_PROPERTIES_MOTOR_PLAN_COMP = "motor.plan-comp";
 	
-	public static final String PAGE_PROPERTIES_MOTOR_QUOTE = "motor.quote";	
 	public static final String PAGE_PROPERTIES_MOTOR_RIDER_OPTIONS = "motor.rider-options";	
 	public static final String PAGE_PROPERTIES_MOTOR_CAR_DETAILS = "motor.car-details";
 	public static final String PAGE_PROPERTIES_MOTOR_DRIVERS_DETAILS = "motor.drivers-details";
