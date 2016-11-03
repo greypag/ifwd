@@ -36,7 +36,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -88,6 +87,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngPolicyInfoResponse> getPolicyInfoList(
 			@ApiParam(value = "Customer Id", required = true) @RequestBody TngPolicyListRequest tplReq,
 			HttpServletRequest request) {
+		super.IsAuthenticate(request);
 		String methodName="getPolicyInfoList";
 		logger.debug(methodName+" getCustomerId:"+tplReq.getCustomerId());
 		
@@ -302,6 +302,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngPolicyInfoByPolicyResponse> getPolicyInfo(
 			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicySimple simple,
 			HttpServletRequest request) {
+		super.IsAuthenticate(request);
 		String methodName="getPolicyInfo";
 		
 		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
@@ -394,6 +395,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngOtpSmsReqResponse> sendTngOtpSms(
 			@ApiParam(value = "Policy Id", required = true) @RequestBody TngPolicySimple simple,
 			HttpServletRequest request) {
+		super.IsAuthenticate(request);
 		
 		String methodName="sendTngOtpSms";
 		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
@@ -442,6 +444,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngAuthOtpResponse> authTngOtp(
 			@ApiParam(value = "Policy Id, OTP", required = true) @RequestBody TngAuthOtpRequest authOtpReq,
 			HttpServletRequest request) {
+		super.IsAuthenticate(request);
 		
 		String methodName="authTngOtp";
 		logger.debug(methodName+" getPolicyId:"+authOtpReq.getPolicyId());
@@ -483,6 +486,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngPolicySimple> saveTngLinkupInfo(
 			@ApiParam(value = "Policy ID, TNG Account ID, Token", required = true) @RequestBody TngLinkupSaveRequest saveRequest,
 			HttpServletRequest request) {
+		super.IsAuthenticate(request);
 		
 		String methodName="saveTngLinkupInfo";
 		logger.debug(methodName+" getPolicyId:"+saveRequest.getPolicyId());
@@ -538,6 +542,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngOtpSmsReqResponse> requestTngPolicyWithdraw(
 			@ApiParam(value = "Policy Id, Withdraw Amount", required = true) @RequestBody TngPolicyWithdrawRequest withdrawReq,
 			HttpServletRequest request) {
+		super.IsAuthenticate(request);
 
 		String methodName="requestTngPolicyWithdraw";
 		logger.debug(methodName+" getPolicyId:"+withdrawReq.getPolicyId());
@@ -613,6 +618,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngPolicyWithdrawPerformResponse> performTngPolicyWithdraw(
 			@ApiParam(value = "Policy Id, Withdraw Amount, OTP", required = true) @RequestBody TngPolicyWithdrawRequest withdrawReq,
 			HttpServletRequest request) {
+		super.IsAuthenticate(request);
 
 		String methodName="performTngPolicyWithdraw";
 		logger.debug(methodName+" getPolicyId:"+withdrawReq.getPolicyId());
@@ -658,7 +664,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngPolicySimple> unlinkTngPolicy(
 			@ApiParam(value = "Policy Id, Tap n Go Acount Id", required = true) @RequestBody TngUnlinkRequest unlinkReq,
 			HttpServletRequest request) {
-		
+		super.IsAuthenticate(request);
 
 		String methodName="unlinkTngPolicy";
 		logger.debug(methodName+" getPolicyId:"+unlinkReq.getPolicyId());
@@ -699,6 +705,7 @@ public class OnlineWithdrawalController extends BaseController{
 	public ResponseEntity<TngPolicyHistoryResponse> getTngPolicyHistory(
 			@ApiParam(value = "Policy Id, Start Date, End Date", required = true) @RequestBody TngPolicyHistoryRequest historyReq,
 			HttpServletRequest request) {
+		super.IsAuthenticate(request);
 
 		String methodName="getTngPolicyHistory";
 		logger.debug(methodName+" getPolicyId:"+historyReq.getPolicyId());
@@ -733,7 +740,6 @@ public class OnlineWithdrawalController extends BaseController{
 	@ApiIgnore
 	@RequestMapping(value = "/getVersion", method = GET)
 	public ResponseEntity<String> getVersion(
-			@RequestParam String more,
 			HttpServletRequest request)throws Exception {
 		super.IsAuthenticate(request);
 		String filepath=
@@ -745,7 +751,7 @@ public class OnlineWithdrawalController extends BaseController{
 		while ((line = br.readLine()) != null) {
 			sb.append(line).append("\n");
 		}
-		
+		String more = request.getParameter("more");
 		if("true".equals(more)){
 			RuntimeMXBean runtimeBean = ManagementFactory.getRuntimeMXBean();
 			long startTime = runtimeBean.getStartTime();
