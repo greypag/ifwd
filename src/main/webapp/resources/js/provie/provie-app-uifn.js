@@ -1446,7 +1446,8 @@ function renderRateTable(tbDesktop,tbMobHead,tbMobBody,plan,odd){
 	mob_head.find(".premiumYear").text(plan.premiumYear);
 	
 	if(plan.premiumYear == 100){
-		var age100 = UILANGUAGE == "EN" ? "At Age " + plan.premiumYear : "至" + plan.premiumYear+ "歲";
+		//var age100 = UILANGUAGE == "EN" ? "At Age " + plan.premiumYear : "至" + plan.premiumYear+ "歲";
+		var age100 = UILANGUAGE == "EN" ? "Age " + plan.premiumYear : "" + plan.premiumYear+ "歲";
 		dt.find(".premiumYear").text(age100);
 		mob_head.find(".premiumYear").text(age100);
 	}

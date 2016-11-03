@@ -318,7 +318,7 @@
 									<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />
 									(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 									<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.acctvalue.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span>
-									<br>
+									/<br>
 									<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
 																		(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 									<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.acctvalue2.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
@@ -329,7 +329,8 @@
 																		(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 									<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.deathbenefit.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span>
 								</th>
-								<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
+								<!--th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th-->
+								<th class="hidden-sm cell-extra-rider er-color-swap"><span class="cell-extra-rider-name"></span></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -387,7 +388,8 @@
 										(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 										</th>
 									<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
-									<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
+									<!--th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th-->
+									<th class="cell-extra-rider er-color-swap"><span class="cell-extra-rider-name"></span></th>
 								</tr>
 							</thead>
 							<tbody></tbody>
@@ -425,7 +427,7 @@
 											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />
 											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.acctvalue.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span>
-											<br>
+											/<br>
 											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
 																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.acctvalue2.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
@@ -436,7 +438,8 @@
 																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.deathbenefit.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span>
 										</th>
-										<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
+										<!--th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th-->
+										<th class="hidden-sm cell-extra-rider er-color-swap"><span class="cell-extra-rider-name"></span></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -460,7 +463,7 @@
 											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />
 											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.acctvalue.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span>
-											<br>
+											/<br>
 											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
 																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.acctvalue2.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
@@ -471,7 +474,8 @@
 																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.deathbenefit.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span>
 										</th>
-										<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
+										<!--th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th-->
+										<th class="hidden-sm cell-extra-rider er-color-swap"><span class="cell-extra-rider-name"></span></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -495,7 +499,7 @@
 											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />
 											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.acctvalue.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span>
-											<br>
+											/<br>
 											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
 																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.acctvalue2.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
@@ -506,7 +510,8 @@
 																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											<span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="provie.plandetails.summary.deathbenefit.tooltip" bundle="${provieMsg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span>
 										</th>
-										<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
+										<!--th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th-->
+										<th class="hidden-sm cell-extra-rider er-color-swap"><span class="cell-extra-rider-name"></span></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -551,7 +556,8 @@
 											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											</th>
 										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
-										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
+										<!--th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th-->
+										<th class="cell-extra-rider er-color-swap"><span class="cell-extra-rider-name"></span></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -595,7 +601,8 @@
 											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											</th>
 										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
-										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
+										<!--th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th-->
+										<th class="cell-extra-rider er-color-swap"><span class="cell-extra-rider-name"></span></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -639,7 +646,8 @@
 											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
 											</th>
 										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
-										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th>
+										<!--th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /> <span class="cell-extra-rider-perc"></span> <span class="cell-extra-rider-name"></span> (<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)</th-->
+										<th class="cell-extra-rider er-color-swap"><span class="cell-extra-rider-name"></span></th>
 									</tr>
 								</thead>
 								<tbody>
