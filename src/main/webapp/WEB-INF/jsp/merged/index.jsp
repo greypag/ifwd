@@ -419,7 +419,9 @@ var currentPath = "<%=request.getContextPath()%>";
 
 				} else if ( languageP == 'tc') {
 
-					$('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_" + languageP + ".png");
+					// tc also use en version image
+					// $('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_" + languageP + ".png");
+					$('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_en.png");
 
 				} else {
 
