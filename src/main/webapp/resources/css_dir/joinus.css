@@ -48,27 +48,28 @@
 }
 /* line 53, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip.bottom {
-  width: 100%;
+  width: 200px;
 }
 /* line 56, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip.bottom .tooltip-arrow {
   top: -5px;
+  left: 89%;
 }
-/* line 60, ../sass/common_screen/_joinus.scss */
+/* line 61, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip.right {
   width: 100%;
 }
-/* line 69, ../sass/common_screen/_joinus.scss */
+/* line 70, ../sass/common_screen/_joinus.scss */
 .container--regform .row .declaration-content {
   padding-left: 40px;
   margin: auto;
 }
-/* line 74, ../sass/common_screen/_joinus.scss */
+/* line 75, ../sass/common_screen/_joinus.scss */
 .container--regform .row .act {
   text-align: center;
   margin-bottom: 30px;
 }
-/* line 80, ../sass/common_screen/_joinus.scss */
+/* line 81, ../sass/common_screen/_joinus.scss */
 .container--regform .row .act .act__btn:hover {
   outline: none;
   box-shadow: none;

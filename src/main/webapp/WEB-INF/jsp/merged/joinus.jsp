@@ -11,11 +11,32 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/joinus.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
 
-<script src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
 <script>
 	$('document').ready(function(){
-		$("[data-toggle='tooltip']").tooltip();
+		//choose is current fwd member or not
+		$('.is_fwdmember').on('change',function(){
+			if($(this).val()=='yes'){
+				$('.existing_fwdmember').show();
+			}else{
+				$('.existing_fwdmember').hide();
+			}
+		});
 		
+		//tooltip init
+		$('.tooltip-icon').tooltip();
+		tooltipPlacement();
+		$(window).resize(function(){
+			tooltipPlacement();
+		});
+		$('.tooltip-icon').on('shown.bs.tooltip',function(){
+			var str_left = $('#'+$(this).data('id')+'+.tooltip.bottom').css('left');
+			if(str_left != null){
+				str_left = str_left.replace(/px/g, '');
+				$('#'+$(this).data('id')+'+.tooltip.bottom').css('left',(str_left-79));
+			}
+		});
+		
+		//date from mobiscroll 
 		var dateTo = new Date();
 		$('#txtDob').mobiscroll().calendar({
 			//dateOrder: 'ddMyy',
@@ -36,85 +57,388 @@
 			},
 		});
 	});
-</script>
-
-<script>
+	
+	//do fields validation and api call for validation
 	function activateUserAccountJoinUs() {
 		var validateFormVal = activateUserAccount();
 		if (validateFormVal == true) {
 			$.ajax({
-						type : 'POST',
-						url : '<%=request.getContextPath()%>/{language}/joinus',
-						data : $('#joinus_form form').serialize(),
-						async : false,
-						success : function(data) {
-							
-							if (data == 'success') {
-								
-								$('#success-message').show();
-								$('#joinus-err-msg').hide();
-								window.location.hash = '#success-message';
-								$('#success-message').html("User succesfully Register"); 
- 								if(window.top.document.referrer.indexOf("savings-insurance/plan-details-rp")>0){
- 									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp?thankyou=thankyou';
- 								}else if(window.top.document.referrer.indexOf("savings-insurance/plan-details-sp")>0){
- 									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?thankyou=thankyou';
- 								}else if(window.top.document.referrer.indexOf("term-life-insurance/select-plan")>0){
- 									perventRedirect=false;
- 									ga('send', 'event', 'Login', 'Click', 'Login success');
- 									window.location.href= "<%=request.getContextPath()%>/${language}/term-life-insurance/select-plan?goApp=yes";
- 								}else if("${quarry}" == "FNA"){
- 									window.location.href = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
- 								}else {
- 									window.location.href = '<%=request.getContextPath()%>/${language}/account';
- 								}
-							} else if(data == 'discover'){
-								window.location.href = '<%=request.getContextPath()%>/${language}/fwdiscover';
-							} else {
-								
-								$('#joinus-err-msg').show();
-								
-								window.location.hash = '#joinus-err-msg';
-									if (data == 'This username already in use, please try again') {
-										$('#joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
-									} else if (data == 'email address and mobile no. already registered') {
-										$('#joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
-									} else {
-										$('#joinus-err-msg').html(data);
-									}
-							} 
-						},
-						error : function(xhr, status, error) {
+				type : 'POST',
+				url : '<%=request.getContextPath()%>/{language}/joinus',
+				data : $('#joinus_form form').serialize(),
+				async : false,
+				success : function(data) {
+					if (data == 'success') {
+						$('#success-message').show();
+						$('#joinus-err-msg').hide();
+						window.location.hash = '#success-message';
+						$('#success-message').html("User succesfully Register"); 
+						if(window.top.document.referrer.indexOf("savings-insurance/plan-details-rp")>0){
+							window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp?thankyou=thankyou';
+						}else if(window.top.document.referrer.indexOf("savings-insurance/plan-details-sp")>0){
+							window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?thankyou=thankyou';
+						}else if(window.top.document.referrer.indexOf("term-life-insurance/select-plan")>0){
+							perventRedirect=false;
+							ga('send', 'event', 'Login', 'Click', 'Login success');
+							window.location.href= "<%=request.getContextPath()%>/${language}/term-life-insurance/select-plan?goApp=yes";
+						}else if("${quarry}" == "FNA"){
+							window.location.href = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+						}else {
+							window.location.href = '<%=request.getContextPath()%>/${language}/account';
 						}
-					});
+					} else if(data == 'discover'){
+						window.location.href = '<%=request.getContextPath()%>/${language}/fwdiscover';
+					} else {
+						$('#joinus-err-msg').show();
+						
+						window.location.hash = '#joinus-err-msg';
+						if (data == 'This username already in use, please try again') {
+							$('#joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+						} else if (data == 'email address and mobile no. already registered') {
+							$('#joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+						} else {
+							$('#joinus-err-msg').html(data);
+						}
+					} 
+				},
+				error : function(xhr, status, error) {
+				}
+			});
 		}
 		return false;
 	}
-</script>
-<script type="text/javascript">
+	
+	//declaration checkbox
 	$("#checkbox1").change(function() {
 		$("#errorDeclaration").html("");
 	});
+	$("#checkbox3, #checkbox4").change(function() {
+		showBubble();
+	});
 
-	function showBubble(){
-		if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
-			$(".checkboxBubble").fadeIn();
-		}else{
-			$(".checkboxBubble").fadeOut();
+//join us page validation (but not using)
+function validateJoinUsForm() {
+	var valid = true;
+
+	var fullName = $("#txtFullName").val();
+	var mobileNo = $("#txtMobileNo").val();
+	var emailId = $("#txtEmailId").val();
+	var userName = $("#txtUserName1").val();
+	var password = $("#txtPass1").val();
+	var confirmPassword = $("#txtConfPass").val();
+
+	document.getElementById("errorEmptyName").innerHTML = "";
+	document.getElementById("errorEmptyMob").innerHTML = "";
+	document.getElementById("errorEmptyEmailId").innerHTML= "";
+	document.getElementById("errorEmptyUName").innerHTML = "";
+	document.getElementById("errorJoinUsPassword").innerHTML = "";
+	document.getElementById("errorEmptyConfPass").innerHTML= "";
+	document.getElementById("chk1").innerHTML = "";
+	document.getElementById("chk2").innerHTML = "";
+
+	// FULL NAME VALIDATION
+	if (fullName.trim() == "") {
+		document.getElementById("errorEmptyName").innerHTML = getBundle(getBundleLanguage, "memeber.name.notNull.message"); // "Please enter your Name in English.";
+		$('#txtFullName').addClass('invalid-field');
+		valid = false;
+	} 
+	// Mobile Number Validation
+	if (mobileNo.trim() == "") {
+		document.getElementById("errorEmptyMob").innerHTML = getBundle(getBundleLanguage, "memeber.mobileNo.notNull.message"); // "Please enter your Mobile No.";
+		$('#txtMobileNo').addClass('invalid-field');
+		valid = false;
+	} else {
+		if (mobile_pattern.test(mobileNo) == false) {
+			document.getElementById("errorEmptyMob").innerHTML = getBundle(getBundleLanguage, "memeber.mobileNo.notValid.message"); // "Please enter an 8-digit Mobile No.";
+			$('#txtMobileNo').addClass('invalid-field');
+			valid = false;
 		}
 	}
 
-	$("#checkbox3").change(function() {
-		showBubble();
-	});
+	// Email Address Validation
+	if (emailId.trim() == "") {
+		document.getElementById("errorEmptyEmailId").innerHTML = getBundle(getBundleLanguage, "memeber.email.notNull.message"); // "Please enter your Email Address.";
+		$('#txtEmailId').addClass('invalid-field');
+		valid = false;
+	} else {
+		if (emailreg.test(emailId) == false) {
+			document.getElementById("errorEmptyEmailId").innerHTML = getBundle(getBundleLanguage, "memeber.email.notValid.message"); // "Please enter a valid Email Address.";
+			$('#txtEmailId').addClass('invalid-field');
+			valid = false;
+		}
+	}
+	var reg_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
+	
+	// UserName Validation
+	if (userName.trim() == "") {
+		document.getElementById("errorEmptyUName").innerHTML = getBundle(getBundleLanguage, "memeber.username.notNull.message"); // "Please enter your Username.";
+		$('#txtUserName1').addClass('invalid-field');
+		valid = false;
 
-	$("#checkbox4").change(function() {
-		showBubble();
-	});
+	} else {
+		if (reg_user.test(userName) == false) {
+			document.getElementById("errorEmptyUName").innerHTML= getBundle(getBundleLanguage, "memeber.username.notValidLength.message"); // "Username must be between 6 and 50 characters.";
+			$('#txtUserName1').addClass('invalid-field');
+			valid = false;
+		}
+		
+	}
+
+	// validation for Passsword
+	var passWordPttrn = "[a-zA-Z0-9]{8,}";
+	var specialChar = "\\W";
+	var rg = new RegExp(passWordPttrn);
+	var spChar = new RegExp(specialChar);
+	var message = "";
+	if (password.trim() == ""){
+		message  = getBundle(getBundleLanguage, "memeber.password.notNull.message"); // "Please enter your Password.";
+		$('#txtPass1').addClass('invalid-field');
+		valid = false;
+	} else if(!rg.test(password)) {  
+		message += getBundle(getBundleLanguage, "memeber.password.notValidLength.message"); // "Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
+		$('#txtPass1').addClass('invalid-field');
+		valid = false;
+	} else if(spChar.test(password)){
+		message += getBundle(getBundleLanguage, "memeber.password.notValid.message"); // "\n Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
+		$('#txtPass1').addClass('invalid-field');
+		valid = false;
+	}
+	document.getElementById("errorJoinUsPassword").innerHTML = message;
+
+
+	if (confirmPassword.trim() == "") {
+		document.getElementById("errorEmptyConfPass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notNull.message"); // "Please Confirm Password.";
+		$('#txtConfPass').addClass('invalid-field');
+		valid = false;
+	} else {
+		if (confirmPassword !== password) {
+			document.getElementById("errorEmptyConfPass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notMatch.message"); // "Passwords you entered do not match. Please enter the same Password in both fields.";
+			$('#txtConfPass').addClass('invalid-field');
+			valid = false;
+		}
+	}
+	if (document.getElementById("checkbox1").checked == false)
+	{
+		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "memeber.declaration.tnc.notChecked.message"); // "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
+
+		valid = false;
+	}
+	if (document.getElementById("checkbox2").checked == false)
+	{
+		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "memeber.declaration.pics.notChecked.message"); // "Please read and accept the Personal Information Collection Statement before submitting the application.";
+
+		valid = false;
+	}
+	return valid;
+}
+
+//Join Us Page
+//Full Name
+if($('#txtFullName').length){
+	$('#txtFullName').on('blur', function(){
+		if($(this).val() == ''){
+			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
+			$('#txtFullName').addClass('invalid-field');
+		}
+		else{
+			$('#errorEmptyName').text('');
+		}
+	})
+}
+//Mobile
+if($('#txtMobileNo').length){
+	$('#txtMobileNo').on('blur', function(){
+		var value = $(this).val();
+		if(isMobileNo(value) != true){
+			$('#errorEmptyMobJoinUs').text(isMobileNo(value));
+			$('#txtMobileNo').addClass('invalid-field');
+		}
+		else{
+			$('#errorEmptyMobJoinUs').text('');
+		}
+	})
+}
+//Email
+if($('#txtEmailId').length){
+	$('#txtEmailId').on('blur', function(){
+		var value = $(this).val();
+		if(isEmail(value) != true){
+			$('#errorEmptyEmailIdJoinUs').text(isEmail(value));
+			$('#txtEmailId').addClass('invalid-field');
+		}
+		else{
+			$('#errorEmptyEmailIdJoinUs').text('');
+		}
+	})
+}
+//Username
+if($('#txtUserName1').length){
+	$cur = $('#txtUserName1');
+	$cur.on('blur', function(){
+		value = $(this).val();
+		if(isValidUsername(value) !== true){
+			$('#errorEmptyUNameJoinUs').text(isValidUsername(value));
+			$('#txtUserName1').addClass('invalid-field');
+		}else
+			$('#errorEmptyUNameJoinUs').text('');
+	})
+}
+
+//Password
+if($('#txtPass1').length){
+	$cur = $('#txtPass1');
+	$cur.on('blur', function(){
+		value = $(this).val();
+		if(isValidPassword(value) !== true){
+			$('#errorJoinUsPassword').text(isValidPassword(value));
+			$('#txtPass1').addClass('invalid-field');
+		}else if(value == $("#txtUserName1").val().trim()){
+			$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
+			$('#txtPass1').addClass('invalid-field');
+		}else $('#errorJoinUsPassword').text('');
+	})
+}
+
+//Confirm Password
+if($('#txtConfPass').length && $('#txtPass1').length){
+	$cur = $('#txtConfPass');
+	
+	$cur.on('blur', function(){
+		var passwordToMatch = $('#txtPass1').val();
+		value = $(this).val();	
+		if(passMatch(passwordToMatch, value) !== true){
+			$('#errorEmptyConfPass').text(passMatch(passwordToMatch, value));
+			$('#txtConfPass').addClass('invalid-field');
+		} else $('#errorEmptyConfPass').text('');
+	})
+}
+
+function activateUserAccount(){
+	var check = true;
+	var name = $('#txtFullName').val();
+	var mobile = $('#txtMobileNo').val();
+	var email = $('#txtEmailId').val();
+	var userName = $('#txtUserName1').val();
+	var password = $('#txtPass1').val();
+	var checkPassword = $('#txtConfPass').val();
+	var declaration = $('#checkbox1').is(':checked');
+	
+	//first error element
+	var firstErrorElementId="";
+	
+	if(name == ''){
+		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
+		$("#txtFullName").addClass("invalid-field");
+		
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtFullName";
+		}
+		check = false;
+	} else {
+		if(name == password){
+			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
+			$("#txtFullName").addClass("invalid-field");
+			if(firstErrorElementId==""){
+				firstErrorElementId="txtFullName";
+			}
+			check = false;
+		}
+	}
+	
+	var mobileValidateResult = isMobileNo(mobile);
+	
+	if(mobileValidateResult != true){
+		$('#errorEmptyMobJoinUs').text(mobileValidateResult);
+		$("#txtMobileNo").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtMobileNo";
+		}
+		check = false;
+	}
+	
+	if(isEmail(email) !== true){
+		$('#errorEmptyEmailIdJoinUs').text(isEmail(email));
+		$("#txtEmailId").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtEmailId";
+		}
+		check = false;
+	}
+	
+	if(isValidUsername(userName) !== true){
+		$('#errorEmptyUNameJoinUs').text(isValidUsername(userName));
+		$("#txtUserName1").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtUserName1";
+		}
+		check = false;
+	};
+	
+	if(isValidPassword(password) !== true){
+		$('#errorJoinUsPassword').text(isValidPassword(password));
+		$("#txtPass1").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtPass1";
+		}
+		check = false;
+	};
+	
+	if(password != "" && userName == password){
+		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
+		$("#txtPass1").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtPass1";
+		}
+		check = false;
+	}
+	
+	if(passMatch(password, checkPassword) !== true){
+		$('#errorEmptyConfPass').text(passMatch(password, checkPassword));
+		$("#txtConfPass").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtConfPass";
+		}
+		check = false;
+	};
+	
+	if(!declaration){
+		$('#errorDeclaration').text(getBundle(getBundleLanguage, "membership.declaration.notChecked.message"));
+		if(firstErrorElementId==""){
+			firstErrorElementId="checkbox1";
+		}
+		check = false;
+	}
+	
+	if(firstErrorElementId!=""){
+		scrollToElement(firstErrorElementId);
+	}
+	
+	return check;
+}
+
+//functions 
+function tooltipPlacement(){
+	if($(document).width()<992){
+		$('.tooltip-icon').each(function(){
+			$(this).data('bs.tooltip').options.placement = 'bottom';
+		});
+	}else{
+		$('.tooltip-icon').each(function(){
+			$(this).data('bs.tooltip').options.placement = 'right';
+		});
+	}
+}
+
+function showBubble(){
+	if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+		$(".checkboxBubble").fadeIn();
+	}else{
+		$(".checkboxBubble").fadeOut();
+	}
+}
 </script>
 
 <body class="homepage">
-
 	<!--   Main Content-->
 	<section id="contact-page">
  
@@ -161,10 +485,10 @@
 
 							<div class="col-xs-12">
 								<div class="col-sm-6 col-xs-12">
-									<label><input type="radio" id="is_fwdmember_yes" name="is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+									<label><input type="radio" id="is_fwdmember_yes" class="is_fwdmember" name="is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
 								</div>
 								<div class="col-sm-6 col-xs-12">
-									<label><input type="radio" id="is_fwdmember_no" name="is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
+									<label><input type="radio" id="is_fwdmember_no" class="is_fwdmember" name="is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
 								</div>
 							</div>
 							
@@ -199,7 +523,7 @@
 									maxlength="50"><!--userDetails.getPolicyNumber()-->
 								<label class="mdl-textfield__label registration__label" for="txtPolicyNumber"><fmt:message key="member.registration.details.policy.number" bundle="${msg}" /></label>
 								<span id="errorEmptyPolicyNumberJoinUs" class="text-red"></span>
-								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="<fmt:message key='member.registration.details.policy.number.tooltip' bundle='${msg}'/>"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipPolicyNumber" id="tooltipPolicyNumber" title="<fmt:message key='member.registration.details.policy.number.tooltip' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item existing_fwdmember">
 								<input class="mdl-textfield__input registration__input" type="text" id="txtDob" name="Dob"
@@ -214,7 +538,7 @@
 									maxlength="50"><!--userDetails.getHkid()-->
 								<label class="mdl-textfield__label registration__label" for="txtHkid"><fmt:message key="member.registration.details.hkid" bundle="${msg}" /></label>
 								<span id="errorEmptyHkidJoinUs" class="text-red"></span>
-								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="<fmt:message key='member.registration.details.hkid.tooltip' bundle='${msg}'/>"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipHkid" id="tooltipHkid" title="<fmt:message key='member.registration.details.hkid.tooltip' bundle='${msg}'/>"></span>
 							</div>
 							
 							<h3 class="black-bold"><fmt:message key="member.registration.details.header.login" bundle="${msg}" /></h3>
@@ -224,7 +548,7 @@
 									onkeypress="return validationUsername(event);">
 								<label class="mdl-textfield__label registration__label" for="txtUserName1"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label>
 								<span id="errorEmptyUNameJoinUs" class="text-red"></span>
-								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="<fmt:message key='member.registration.details.label.username.help' bundle='${msg}'/>"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipUserName1" id="tooltipUserName1" title="<fmt:message key='member.registration.details.label.username.help' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
 								<input class="mdl-textfield__input registration__input" type="password" id="txtPass1" name="password"
@@ -232,7 +556,7 @@
 									autocomplete="off">
 								<label class="mdl-textfield__label registration__label" for="txtPass1"><fmt:message key="member.registration.details.label.password" bundle="${msg}" /></label>
 								<span id="errorJoinUsPassword" class="text-red"></span>
-								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" title="<fmt:message key='member.registration.details.label.password.help' bundle='${msg}'/>"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipPass1" id="tooltipPass1" title="<fmt:message key='member.registration.details.label.password.help' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
 								<input class="mdl-textfield__input registration__input" type="password" id="txtConfPass" name="confirmPassword"
@@ -256,9 +580,12 @@
 					<h4 class="col-xs-12 h4-2 declaration-head"><fmt:message key="member.registration.declarations.header" bundle="${msg}" /></h4>
 					<div class="col-xs-12 declaration-content">
 						<div class="checkbox">
-							<input id="checkbox1" type="checkbox"> <label
-								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /> <a
-								href="<fmt:message key="member.PICS.link" bundle="${msg}" />"  target="_blank" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
+							<input id="checkbox1" type="checkbox">
+							<label for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" />
+								<a href="<fmt:message key="member.PICS.link" bundle="${msg}" />"  target="_blank" class="sub-link">
+									<fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" />
+								</a>
+								<fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
 								<p><span id="errorDeclaration" class="text-red"></span>
 								<hr />
 								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
@@ -287,8 +614,6 @@
 							<fmt:message key="member.registration.activate" bundle="${msg}" />
 						</button>
 					</div>
-					<!--/.row-->
-
 				</form:form>
 			</div>
 		</div>
