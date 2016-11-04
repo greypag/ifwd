@@ -428,17 +428,25 @@ $(document).ready(function(){
             		var carEstimatedValue = num;
             	
                 quote = {
-                    "quoteDriver": {
-                        "carEstimatedValue": carEstimatedValue,
-                        "carMakeCode": carMakeCode,
-                        "carCC": cc,
-                        "carModel": carModel,
-                        "carYearOfManufacture": carYearOfManufacture,
-                        "driveMoreThanTwo": driveMoreThanTwo,
+	        		"applicant": {
                         "ncb": ncd,
                         "occupation": occupation,
+	    	        	"driveMoreThanTwo": driveMoreThanTwo,         
                         "validAgeGroup": validAgeGroup
                     },
+                    "carDetail": {
+                    	 "estimatedValue": carEstimatedValue,
+                         "makeCode": carMakeCode,
+                         "engineCapacity": cc,
+                         "model": carModel,
+                         "yearOfManufacture": carYearOfManufacture                        
+                    }, 
+                    "driver" : [{   
+	    	        	"ncb": ncd,
+	    	        	"occupation": occupation,
+	    	        	"driveMoreThanTwo": driveMoreThanTwo,         
+	    	        	"validAgeGroup": validAgeGroup, 
+	    	        }],
                     "planCode": null,
                     "compPlan": null,
                     "personalAccident": false,
