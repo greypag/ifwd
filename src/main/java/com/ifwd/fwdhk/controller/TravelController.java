@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
@@ -2008,13 +2007,8 @@ public class TravelController {
 //		if(JsonUtils.hasEmpty(parameters)) {
 //			return UserRestURIConstants.getSitePath(request) + "travel/travel";
 //		}
-		byte[] encryptedByte = referenceNo.getBytes();
 
-        Base64 base64 = new Base64(0, (byte[])null, false);
-        String encryptedBase64String = base64.encodeToString(encryptedByte);
-        System.out.println("encrypted:\n" + encryptedBase64String);
         
-		model.addAttribute("policyNoBase64",encryptedBase64String);
 		
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
