@@ -155,8 +155,6 @@
 			    			var qrcodehref="<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?referenceNo="+base64encode('${referenceNo}');
 			    			$(".passkit-link-wrapper").append("<img id='qrImg' />");
 			    			$(".passkit-btn").attr("href",qrcodehref);
-			    			<%--$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url=<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?policyNo=${policyNoBase64}");--%>
-			    			/* $("#qrImg").attr("src", "${pageContext.request.contextPath}/resources/images/qr_code_mock.png"); */
 			    			$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url="+qrcodehref);
 			    	});
 			    </script>
