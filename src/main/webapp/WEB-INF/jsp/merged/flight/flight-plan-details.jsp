@@ -2546,11 +2546,12 @@ function createFlightFnc(form){
 </script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/vendor/base.config.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/vendor/main.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/base.config.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/flightcare.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/run.js" charset="utf-8"></script>
 
 <script>
-    var flightCfg = initBSVConfig(baseConfigBSV).flightCare();
+    var flightCfg = initBSVConfig(bsvConfig).flightCare();
 
     $(document).ready(function() {
         $("#freeFlightForm").bootstrapValidator(flightCfg)
