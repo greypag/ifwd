@@ -32,25 +32,22 @@
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_container">
 
-				    <!-- 7-Eleven -->
-                    <div id="7eleven_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="7eleven">
+					<%-- 3HK --%>
+                    <div id="3HK_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="3HK">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-                            <img class="partner_image--711 partner_image" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png"/>
+                            <img class="partner_image--3hk partner_image" src="<%=request.getContextPath()%>/resources/images/partner_3hk.png"/>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-                            <div class="partner_title"><fmt:message key="partner.711.title" bundle="${msg}" /></div>
-                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
+                            <div class="partner_title"><fmt:message key="partner.3HK.title" bundle="${msg}" /></div>
                             <div class="partner_desc_list">
                                     <ul class="bullets">
                                         <li>
                                             <p class="h4-5">
-                                                <fmt:message key="partner.711.desc1.part1" bundle="${msg}" />
-                                                <a href="<fmt:message key="link.provisions.travel" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.desc1.part2" bundle="${msg}" /></a><fmt:message key="partner.711.desc1.part3" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.711.desc2.part1" bundle="${msg}" />
+                                                <fmt:message key="partner.3hk.desc1.part1" bundle="${msg}" />
+                                                <a href="<fmt:message key="partner.3hk.desc1.part2.url" bundle="${msg}" />" target="_blank">
+													<fmt:message key="partner.3hk.desc1.part2" bundle="${msg}" />
+												</a>
+												<fmt:message key="partner.3hk.desc1.part3" bundle="${msg}" />
                                             </p>
                                         </li>
                                     </ul>
@@ -60,7 +57,16 @@
 	                                    <ul class="bullets">
 	                                        <li>
 	                                            <p class="h4-5">
-	                                                <fmt:message key="partner.711.tnc.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="partner.711.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.tnc.part2" bundle="${msg}" /></a><fmt:message key="partner.711.tnc.part3" bundle="${msg}" />
+	                                                <fmt:message key="partner.3hk.tnc1.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.3hk.tnc2.part1" bundle="${msg}" />
+													<a href="<%=request.getContextPath()%>/<fmt:message key="partner.3hk.tnc2.part2.url" bundle="${msg}" />" target="_blank">
+														<fmt:message key="partner.3hk.tnc2.part2" bundle="${msg}" />
+													</a>
+													<fmt:message key="partner.3hk.tnc2.part3" bundle="${msg}" />
 	                                            </p>
 	                                        </li>
 	                                    </ul>
@@ -69,8 +75,286 @@
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-                	<hr class="partner_hr"/>
 
+					<%-- 7-Eleven --%>
+                	<hr class="partner_hr"/>
+                    <div id="7eleven_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="7eleven">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image--711 partner_image" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.711.title" bundle="${msg}" /></div>
+                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+										<li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.711.desc1.part1" bundle="${msg}" />
+                                                <a href="<fmt:message key="partner.711.desc1.part2.url" bundle="${msg}" />" target="_blank">
+													<fmt:message key="partner.711.desc1.part2" bundle="${msg}" />
+												</a>
+												<fmt:message key="partner.711.desc1.part3" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.711.tnc1.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.711.tnc2.part1" bundle="${msg}" />
+													<a href="<%=request.getContextPath()%>/<fmt:message key="partner.711.tnc2.part2.url" bundle="${msg}" />" target="_blank">
+														<fmt:message key="partner.711.tnc2.part2" bundle="${msg}" />
+													</a>
+													<fmt:message key="partner.711.tnc2.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
+
+					<%-- Agoda --%>
+					<hr class="partner_hr"/>
+                    <div id="agoda_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="agoda">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="<fmt:message key="image.alt_62" bundle="${msg}" />"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.agoda.title" bundle="${msg}" /></div>
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+										<li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.agoda.desc1.part1" bundle="${msg}" />
+                                                <a href="<fmt:message key="partner.agoda.desc1.part2.url" bundle="${msg}" />" target="_blank">
+													<fmt:message key="partner.agoda.desc1.part2" bundle="${msg}" />
+												</a>
+												<fmt:message key="partner.agoda.desc1.part3" bundle="${msg}" />
+												<a href="<fmt:message key="partner.agoda.desc1.part4.url" bundle="${msg}" />" target="_blank">
+													<fmt:message key="partner.agoda.desc1.part4" bundle="${msg}" />
+												</a>
+												<fmt:message key="partner.agoda.desc1.part5" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.agoda.tnc1.part1" bundle="${msg}" />
+													<a href="<%=request.getContextPath()%>/<fmt:message key="partner.agoda.tnc1.part2.url" bundle="${msg}" />" target="_blank">
+														<fmt:message key="partner.agoda.tnc1.part2" bundle="${msg}" />
+													</a>
+													<fmt:message key="partner.agoda.tnc1.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
+
+					<%-- Cathay Pacific --%>
+					<hr class="partner_hr"/>
+                    <div id="cathay_pacific_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="cathay_pacific">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image--cathay-pacific partner_image"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.cathay_pacific.title" bundle="${msg}" /></div>
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+										<li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.cathay_pacific.desc1.part1" bundle="${msg}" />
+                                                <a href="<fmt:message key="partner.cathay_pacific.desc1.part2.url" bundle="${msg}" />" target="_blank">
+													<fmt:message key="partner.cathay_pacific.desc1.part2" bundle="${msg}" />
+												</a>
+												<fmt:message key="partner.cathay_pacific.desc1.part3" bundle="${msg}" />
+                                            </p>
+                                        </li>
+										<li style="list-style: none;">
+                                            <ul class="desc_sublist">
+                                                <li><p class="h4-5"><fmt:message key="partner.cathay_pacific.desc1.point1" bundle="${msg}" /></p></li>
+												<li><p class="h4-5"><fmt:message key="partner.cathay_pacific.desc1.point2" bundle="${msg}" /></p></li>
+												<li><p class="h4-5"><fmt:message key="partner.cathay_pacific.desc1.point3" bundle="${msg}" /></p></li>
+                                            </ul>
+                                            <%--<p class="h4-5" style="font-size: 14px; margin-left: 21px; margin-top: 12px;"><fmt:message key="partner.the.club.desc1.notice1" bundle="${msg}" /></p> --%>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.cathay_pacific.tnc1.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.cathay_pacific.tnc2.part1" bundle="${msg}" />
+													<a href="<%=request.getContextPath()%>/<fmt:message key="partner.cathay_pacific.tnc2.part2.url" bundle="${msg}" />" target="_blank">
+														<fmt:message key="partner.cathay_pacific.tnc2.part2" bundle="${msg}" />
+													</a>
+													<fmt:message key="partner.cathay_pacific.tnc2.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
+
+					<%-- cFu Come --%>
+                	<hr class="partner_hr"/>
+                    <div id="cfucome_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="cfucome">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.cfu.title" bundle="${msg}" /></div>
+                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.cfu.desc1" bundle="${msg}" /></div> -->
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+										<li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.cfu.desc1.part1" bundle="${msg}" />
+                                                <a href="<%=request.getContextPath()%>" target="_blank">
+													<fmt:message key="partner.cfu.desc1.part2" bundle="${msg}" />
+												</a>
+												<fmt:message key="partner.cfu.desc1.part3" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_desc_list">
+	                                    <ul class="bullets">
+											<li style="list-style: none;">
+	                                            <ol class="desc_sublist" style="color:black;">
+													<li><p class="h4-5"><b><fmt:message key="partner.cfu.desc1.part1_1.title" bundle="${msg}" /></b><fmt:message key="partner.cfu.desc1.part1_1.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link1" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_1.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_1.part3" bundle="${msg}" /><br><br><fmt:message key="partner.cfu.desc1.remark.directed.out" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_1_offer_period" bundle="${msg}" /></p><br></li>
+													<li><p class="h4-5"><b><fmt:message key="partner.cfu.desc1.part1_2.title" bundle="${msg}" /></b><fmt:message key="partner.cfu.desc1.part1_2.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link2" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_2.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_2.part3" bundle="${msg}" /><br><br><fmt:message key="partner.cfu.desc1.remark.directed.out" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_2_offer_period" bundle="${msg}" /></p><br></li>
+	                                            </ol>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+								<div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+	                                        <li><p class="h4-5"><fmt:message key="partner.cfu.tnc1.part1" bundle="${msg}" /></p></li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                            <%-- <div class="partner_link"> --%>
+	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
+	                            <%-- </div> --%>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
+
+                	<%-- CSL --%>
+                	<hr class="partner_hr"/>
+                    <div id="csl_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="csl">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/CSL_logo.png" alt="<fmt:message key="image.alt_63" bundle="${msg}" />"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.csl.title" bundle="${msg}" /></div>
+                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+                                        <li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.csl.desc1.part1" bundle="${msg}" />
+                                                <b><fmt:message key="partner.csl.desc1.part1_1" bundle="${msg}" /></b>
+                                                <fmt:message key="partner.csl.desc1.part1_2" bundle="${msg}" />
+                                                <a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.csl.desc1.part2" bundle="${msg}" /></a>
+                                                <fmt:message key="partner.csl.desc1.part3" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.csl.tnc1.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.csl.tnc2.part1" bundle="${msg}" />
+	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="partner.csl.tnc2.part2.url" bundle="${msg}" />"><fmt:message key="partner.csl.tnc2.part2" bundle="${msg}" /></a>
+	                                                <fmt:message key="partner.csl.tnc2.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                            <%-- <div class="partner_link"> --%>
+	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
+	                            <%-- </div> --%>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
+
+					<%-- Sony --%>
+                	<hr class="partner_hr"/>
+                    <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image--sony partner_image" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.sony.title" bundle="${msg}" /></div>
+                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+                                        <li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.sony.desc1.part1" bundle="${msg}" />
+                                                <a href="<fmt:message key="link.provisions.travel" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.desc1.part2" bundle="${msg}" /></a><fmt:message key="partner.711.desc1.part3" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.sony.desc2.part1" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.sony.tnc.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="partner.sony.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.sony.tnc.part2" bundle="${msg}" /></a><fmt:message key="partner.sony.tnc.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
+
+					<%-- the Club --%>
+                	<hr class="partner_hr"/>
                     <div id="theclub_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="theclub">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="<fmt:message key="image.alt_61" bundle="${msg}" />"/>
@@ -114,143 +398,35 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    <hr class="partner_hr"/>
-                    <div id="agoda_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="agoda">
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="<fmt:message key="image.alt_62" bundle="${msg}" />"/>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-                            <div class="partner_title"><fmt:message key="partner.agoda.title" bundle="${msg}" /></div>
-                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
-                            <div class="partner_desc_list">
-                                    <ul class="bullets">
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.agoda.desc1.part1" bundle="${msg}" />
-                                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part2" bundle="${msg}" /></a>
-                                                <fmt:message key="partner.agoda.desc1.part3" bundle="${msg}" />
-                                                <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part4" bundle="${msg}" /></a>
-                                                <fmt:message key="partner.agoda.desc1.part5" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-	                            <div class="partner_tnc">
-	                                <div class="partner_tnc_list">
-	                                    <ul class="bullets">
-	                                        <li>
-	                                            <p class="h4-5">
-	                                                <fmt:message key="partner.agoda.tnc1.part1" bundle="${msg}" />
-	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.tnc1.part2" bundle="${msg}" /></a>
-	                                                <fmt:message key="partner.agoda.tnc1.part3" bundle="${msg}" />
-	                                            </p>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                            </div>
-<%-- 	                            <div class="partner_link"> --%>
-<%-- 	                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
-<%-- 	                            </div> --%>
-                    		</div>
-	                	<div class="clearfix"></div>
-                	</div>
 
-                	<!-- CSL -->
-                	<hr class="partner_hr"/>
-                    <div id="csl_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="csl">
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/CSL_logo.png" alt="<fmt:message key="image.alt_63" bundle="${msg}" />"/>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-                            <div class="partner_title"><fmt:message key="partner.csl.title" bundle="${msg}" /></div>
-                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
-                            <div class="partner_desc_list">
-                                    <ul class="bullets">
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.csl.desc1.part1" bundle="${msg}" />
-                                                <b><fmt:message key="partner.csl.desc1.part1_1" bundle="${msg}" /></b>
-                                                <fmt:message key="partner.csl.desc1.part1_2" bundle="${msg}" />
-                                                <a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.csl.desc1.part2" bundle="${msg}" /></a>
-                                                <fmt:message key="partner.csl.desc1.part3" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-	                            <div class="partner_tnc">
-	                                <div class="partner_tnc_list">
-	                                    <ul class="bullets">
-	                                        <li>
-	                                            <p class="h4-5">
-	                                                <fmt:message key="partner.csl.tnc1.part1" bundle="${msg}" />
-	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="link.csl_simcard" bundle="${msg}" />" target="_blank"><fmt:message key="partner.csl.tnc1.part2" bundle="${msg}" /></a>
-	                                                <fmt:message key="partner.csl.tnc1.part3" bundle="${msg}" />
-	                                            </p>
-	                                        </li>
-	                                        <li>
-	                                            <p class="h4-5">
-	                                                <fmt:message key="partner.csl.tnc1.part4" bundle="${msg}" />
-	                                            </p>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                            </div>
-	                            <%-- <div class="partner_link"> --%>
-	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
-	                            <%-- </div> --%>
-                    		</div>
-	                	<div class="clearfix"></div>
-                	</div>
-
-					<%-- cFu Come --%>
-                	<hr class="partner_hr"/>
-                    <div id="cfucome_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="cfucome">
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png"/>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-                            <div class="partner_title"><fmt:message key="partner.cfu.title" bundle="${msg}" /></div>
-                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.cfu.desc1" bundle="${msg}" /></div> -->
-                            <div class="partner_desc_list">
-                                    <ul class="bullets">
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.cfu.desc1.part1" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-	                            <div class="partner_tnc">
-	                                <div class="partner_desc_list">
-	                                    <ul class="bullets">
-											<li style="list-style: none;">
-	                                            <ol class="desc_sublist" style="color:black;">
-													<li><p class="h4-5"><b><fmt:message key="partner.cfu.desc1.part1_1.title" bundle="${msg}" /></b><fmt:message key="partner.cfu.desc1.part1_1.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link1" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_1.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_1.part3" bundle="${msg}" /><br><br><fmt:message key="partner.cfu.desc1.remark.directed.out" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_1_offer_period" bundle="${msg}" /></p><br></li>
-													<li><p class="h4-5"><b><fmt:message key="partner.cfu.desc1.part1_2.title" bundle="${msg}" /></b><fmt:message key="partner.cfu.desc1.part1_2.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link2" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_2.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_2.part3" bundle="${msg}" /><br><br><fmt:message key="partner.cfu.desc1.remark.directed.out" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_2_offer_period" bundle="${msg}" /></p><br></li>
-													<li><p class="h4-5"><b><fmt:message key="partner.cfu.desc1.part1_3.title" bundle="${msg}" /></b><fmt:message key="partner.cfu.desc1.part1_3.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link3" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_3.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_3.part3" bundle="${msg}" /><br><br><fmt:message key="partner.cfu.desc1.remark.directed.out" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_3_offer_period" bundle="${msg}" /></p></li>
-	                                            </ol>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                            </div>
-								<div class="partner_tnc">
-	                                <div class="partner_tnc_list">
-	                                    <ul class="bullets">
-	                                        <li><p class="h4-5"><fmt:message key="partner.cfu.desc2.part1" bundle="${msg}" /></p></li>
-	                                    </ul>
-	                                </div>
-	                            </div>
-	                            <%-- <div class="partner_link"> --%>
-	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
-	                            <%-- </div> --%>
-                    		</div>
-	                	<div class="clearfix"></div>
-                	</div>
 				</div>
 			</div>
 		</div>
 	</div>
 <script>
+// #3988 & 3976 update
+(function() {
+	var languageP = "${language}";
+	var currentPath = "<%=request.getContextPath()%>";
+
+	if ( languageP == 'en') {
+
+		$('.partner_image.partner_image--cathay-pacific').attr("src", currentPath + "/resources/images/partner_cx_" + languageP + ".png");
+
+	} else if ( languageP == 'tc') {
+
+		// $('.partner_image.partner_image--cathay-pacific').attr("src", currentPath + "/resources/images/partner_cx_" + languageP + ".png");
+		$('.partner_image.partner_image--cathay-pacific').attr("src", currentPath + "/resources/images/partner_cx_en.png");
+
+	} else {
+
+		$('.partner_image.partner_image--cathay-pacific').attr("src", currentPath + "/resources/images/partner_cx_en.png");
+		console.error('No defaulted language found');
+
+	}
+})();
+// End of #3988 & 3976 update
+
 $(window).on("hashchange", function () {
     window.scrollTo(window.scrollX, window.scrollY - 100);
 });

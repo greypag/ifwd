@@ -12491,10 +12491,6 @@ Be caution: <select> have customed made */
 .color-teal-blue{
 	color: #26484e !important;
 }
-/* added on 20160718 7-eleven logo*/
-.partner_image--711{
-	max-width: 240px;
-}
 /* added on 20160728 Screen Protector*/
 .faq_answer__step{
 	text-decoration: underline;
@@ -12725,5 +12721,51 @@ button[disabled].btn.btn-default--vc {
 		margin-top: 20px;
 		height: 35%;
 		width: 35%;
+	}
+}
+
+/* 3976 partnership content updated */
+@media screen and (min-width: 992px) {
+	.partner_image.partner_image--3hk {
+		max-width: 240px;
+		width: 40%;
+		height: 40%;
+	}
+	.partner_image.partner_image--cathay-pacific {
+		max-width: 240px;
+		width: 90%;
+		height: 90%;
+	}
+	.partner_image.partner_image--711 {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+	.partner_image.partner_image--sony {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+}
+@media screen and (max-width: 991px) {
+	.partner_image.partner_image--3hk {
+		max-width: 240px;
+		width: 30%;
+		height: 30%;
+	}
+	.partner_image.partner_image--cathay-pacific {
+		max-width: 240px;
+		width: 90%;
+		height: 90%;
+	}
+	.partner_image.partner_image--711 {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+	.partner_image.partner_image--sony {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
 	}
 }
