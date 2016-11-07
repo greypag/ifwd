@@ -2547,7 +2547,7 @@ function createFlightFnc(form){
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/base.config.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/flightcare.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/flightcare.config.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/run.js" charset="utf-8"></script>
 
 <script>
