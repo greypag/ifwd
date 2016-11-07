@@ -7,7 +7,7 @@
 		.regform__left{
 			.registration{
 				.registration__item{
-					width: 100%;
+					width: 85%;
 					padding-top: 0;
 					
 					&.is-focused,
@@ -20,8 +20,9 @@
 					
 					.registration__input{
 						background-color: #f1f3f5;
-						height: 40px;
+						height: 45px;
 						padding: 25px 15px 15px;
+						border-bottom: none;
 						
 						&:hover,
 						&:focus{
@@ -50,6 +51,9 @@
 					}
 					
 					.tooltip{
+					    background-color: transparent;
+					    color: #000;
+					    opacity: 1;
 						&.bottom{
 							width: 200px;
 							
@@ -60,6 +64,44 @@
 						}
 						&.right{
 							width: 100%;
+						}
+						.tooltip-inner{
+							width: inherit;
+						    max-width: none;
+						    background-color: #fbfbfb;
+						    margin-left: 5px;
+						    width: 285px;
+						    max-width: 285px;
+						    padding: 15px;
+						    color: #000;
+						    -webkit-box-shadow: 0px 0px 4px 0px #838b8f;
+						    -moz-box-shadow: 0px 0px 4px 0px #838b8f;
+						    box-shadow: 0px 0px 4px 0px #838b8f;
+						    font-weight: bold;
+    						font-size: 13px;
+						}
+						.tooltip-arrow{
+							transform: rotate(-45deg);
+							-webkit-transform: rotate(-45deg);
+							-moz-transform: rotate(-45deg);
+							width: 15px;
+							height: 15px;
+							border-left: 1px solid #e1e1e1;
+							background: #fbfbfb;
+							left: 1px !important;
+							border-top: 1px solid #e1e1e1;
+							border-right: 0;
+							border-bottom: 0;
+							border-width: 1px !important;
+						}
+					}
+				}
+				.radio-wrapper{
+					margin : 20px 0;
+					.radio-choice{
+						margin-left : -30px;
+						input{
+							margin-right : 15px;
 						}
 					}
 				}
@@ -88,6 +130,22 @@
 					font-size: 30px;
 				}
 			}
+		}
+	}
+}
+.dw-bubble{
+	&.mbsc-mobiscroll{
+		.dwl{
+			color: #333;
+		    font-size: 18px;
+		    text-transform: capitalize;
+		}
+		.dwb{
+			color: #f99502;
+		}
+		.dwwol{
+			border-top: 1px solid #f99502;
+    		border-bottom: 1px solid #f99502;
 		}
 	}
 }

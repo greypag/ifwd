@@ -116,6 +116,7 @@
 		showBubble();
 	});
 
+//--------------------------------------------------------------------------------------------------------------------
 //join us page validation (but not using)
 function validateJoinUsForm() {
 	var valid = true;
@@ -232,6 +233,7 @@ function validateJoinUsForm() {
 	return valid;
 }
 
+//--------------------------------------------------------------------------------------------------------------------
 //Join Us Page
 //Full Name
 if($('#txtFullName').length){
@@ -416,6 +418,7 @@ function activateUserAccount(){
 	return check;
 }
 
+//--------------------------------------------------------------------------------------------------------------------
 //functions 
 function tooltipPlacement(){
 	if($(document).width()<992){
@@ -483,11 +486,11 @@ function showBubble(){
 							<h3 class="black-bold"><fmt:message key="member.registration.details.header" bundle="${msg}" /></h3>
 							<div><fmt:message key="member.registration.details.fwdmember.desc" bundle="${msg}" /></div>
 
-							<div class="col-xs-12">
-								<div class="col-sm-6 col-xs-12">
+							<div class="col-xs-12 radio-wrapper">
+								<div class="col-sm-6 col-xs-12 radio-choice">
 									<label><input type="radio" id="is_fwdmember_yes" class="is_fwdmember" name="is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
 								</div>
-								<div class="col-sm-6 col-xs-12">
+								<div class="col-sm-6 col-xs-12 radio-choice">
 									<label><input type="radio" id="is_fwdmember_no" class="is_fwdmember" name="is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
 								</div>
 							</div>
