@@ -12,7 +12,7 @@
 
 	
 
-	<div class="container main landing travelcare">
+	<div class="closeMobileMenu commonBody"><div class="container main landing travelcare">
 		<div class="hero" style="background-image: url('<%=request.getContextPath()%>/resources/images/passkit/banner.jpg');"></div>
 		<div>
 			<!-- body start -->
@@ -92,37 +92,23 @@
 					<p><fmt:message key="verification.pass.system.busy.try.later.message" bundle="${msg}" /></p>
 				</div>
 			</div>
-
-			<div class="loading-container">
-			</div>
-			<div class="loading">
-				<div class="loading-inner">
-					<div class='loading-anim'>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(60deg) translate(0,-60px);transform:rotate(60deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(90deg) translate(0,-60px);transform:rotate(90deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(120deg) translate(0,-60px);transform:rotate(120deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(150deg) translate(0,-60px);transform:rotate(150deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(180deg) translate(0,-60px);transform:rotate(180deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(210deg) translate(0,-60px);transform:rotate(210deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(240deg) translate(0,-60px);transform:rotate(240deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(270deg) translate(0,-60px);transform:rotate(270deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(300deg) translate(0,-60px);transform:rotate(300deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
-						<div style='top:80px;left:93px;width:14px;height:40px;background:#ffffff;-webkit-transform:rotate(330deg) translate(0,-60px);transform:rotate(330deg) translate(0,-60px);border-radius:10px;position:absolute;'></div>
+			<div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog" aria-hidden="false" style="display: block;">
+				<div class="modal-dialog modal-lg loading-dialog">
+					<div class="modal-content plan-modal loading-modal">
+						<img src="<%=request.getContextPath()%>/resources/images/loading.gif" width="300">
+						
 					</div>
-					<div class="loading-text"><fmt:message key="verification.pass.wait" bundle="${msg}" /></div>
+
 				</div>
 			</div>
 
 			<!-- body end -->
 		</div>
 	</div>
-
-
+	
 	<script type="text/javascript">
     window.status = "Done";
-  </script>
+  </script></div>
 </body>
 
 </html>

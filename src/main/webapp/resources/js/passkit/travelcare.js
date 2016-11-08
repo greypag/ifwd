@@ -161,9 +161,6 @@ $(function () {
           */
         	//alert("44444444444444444>>" + data.url);
         	goPasskitUrl(data.url);
-        } else {
-            var $error = $('.verify-error[data-error-for="tbx-' + userType + '-hkid"]');
-            $error.showError($error.data('errorValidate'));
         }
       }).fail(function (err) {
         console.log(err);
