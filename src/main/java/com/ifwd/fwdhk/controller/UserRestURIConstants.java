@@ -597,6 +597,7 @@ public class UserRestURIConstants {
 	public final static String ONLINE_WITHDRAWAL_PERFORM_WITHDRAWAL =SERVICE_URL+ "/withdrawal/performTngWithdrawal";
 	public final static String ONLINE_WITHDRAWAL_TNG_TRANS_HISTORY =SERVICE_URL+ "/withdrawal/getTngTransactionHistory";
 	public final static String ONLINE_WITHDRAWAL_TNG_UNLINK_POLICY =SERVICE_URL+ "/withdrawal/unlinkTngPolicy";
+	public final static String ONLINE_WITHDRAWAL_SEARCH_PHW_POLICY =SERVICE_URL+ "/withdrawal/searchPhwPolicy";
 	
 	
 	static String controller;
