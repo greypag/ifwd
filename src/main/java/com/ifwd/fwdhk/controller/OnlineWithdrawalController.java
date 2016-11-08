@@ -63,7 +63,7 @@ import com.ifwd.fwdhk.util.HeaderUtil;
 
 @Controller
 @RequestMapping(value = "/api/withdrawal", produces = {APPLICATION_JSON_VALUE} )
-@Api(value = "/withdrawal", description = "Operations about Tap n Go Savie Online Withdrawal")
+@Api(value = "/withdrawal", description = "Operations about Tap & Go Savie Online Withdrawal")
 public class OnlineWithdrawalController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(OnlineWithdrawalController.class);
 	
@@ -74,7 +74,7 @@ public class OnlineWithdrawalController extends BaseController{
 			value = "Get Policy info List by Customer",
 			response = TngPolicyInfoResponse.class,
 			notes ="Warning Code:"
-					+ "<br/>TPW001 Warning Tap n Go expired"
+					+ "<br/>TPW001 Warning Tap & Go expired"
                     + "<br/>TPW002 Warning Annual withdrawal limit"
                     + "<br/>TPW003 Warning Daily withdrawal limit "
                     + "<br/>TPW004 Warning Daily withdrawal count limit"
@@ -107,6 +107,7 @@ public class OnlineWithdrawalController extends BaseController{
 	
 			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoResponse.class,responseJsonObj);
 			TngPolicyInfoResponse policyinfoList=  responseEntity.getBody();
+			if(policyinfoList!=null){
 			List<TngPolicyInfo> pis = policyinfoList.getPolicies();
 			if(pis!=null){
 			for(TngPolicyInfo pi:pis){
@@ -114,6 +115,7 @@ public class OnlineWithdrawalController extends BaseController{
 				String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
 				pi.setTngPolicyStatus(status);
 			}}
+			}
 			//policyInfoResp=mappingWithoutErrMsg(methodName, policyInfoResp.class, responseJsonObj);
 				
 			
@@ -258,13 +260,28 @@ public class OnlineWithdrawalController extends BaseController{
 					resultCode="415";
 					break;
 				case "472":
-					resultCode="500";
+					resultCode="416";
+					break;
+				case "475":
+					resultCode="416";
 					break;
 				case "476":
 					resultCode="400";
 					break;
-				case "478":  //for /withdrawal/unlinkTngPolicy API
-					resultCode="500";
+				case "477":  
+					resultCode="411";
+					break;
+				case "478":  
+					resultCode="411";
+					break;
+				case "491":  
+					resultCode="416";
+					break;
+				case "492":  
+					resultCode="417";
+					break;
+				case "493":  
+					resultCode="418";
 					break;
 				case "2":
 					resultCode="200";
@@ -289,7 +306,7 @@ public class OnlineWithdrawalController extends BaseController{
 			value = "Get Policy info By Policy",
 			response = TngPolicyInfoByPolicyResponse.class,
 			notes ="Warning Code:"
-					+ "<br/>TPW001 Warning Tap n Go expired"
+					+ "<br/>TPW001 Warning Tap & Go expired"
                     + "<br/>TPW002 Warning Annual withdrawal limit"
                     + "<br/>TPW003 Warning Daily withdrawal limit "
                     + "<br/>TPW004 Warning Daily withdrawal count limit"
@@ -366,10 +383,12 @@ public class OnlineWithdrawalController extends BaseController{
 			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoByPolicyResponse.class,beanJsonObj);
 						
 			TngPolicyInfoByPolicyResponse policyinfoList=  responseEntity.getBody();
+			if(policyinfoList!=null){
 			TngPolicyInfo pi = policyinfoList.getPolicy();
 			if(pi!=null){
 				String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
 				pi.setTngPolicyStatus(status);
+			}
 			}
 
 		} catch (Exception e) {
@@ -389,7 +408,9 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 411, message = "Invalid Policy"),
 			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
 			@ApiResponse(code = 413, message = "Invalid customer mobile number for receive OTP via SMS"),
-			@ApiResponse(code = 414, message = "Exceed the number of re-send OTP")
+			@ApiResponse(code = 414, message = "Exceed the number of re-send OTP"),
+			@ApiResponse(code = 416, message = "SMS gateway send message failed"),
+			@ApiResponse(code = 418, message = "Other Linkup / Withdrawal process is still running")
 			})
 	@RequestMapping(value = "/sendTngOtpSms", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> sendTngOtpSms(
@@ -521,7 +542,7 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@SuppressWarnings("unchecked")
 	@ApiOperation(
-			value = "Request Tap n Go Policy withdrawal",
+			value = "Request Tap & Go Policy withdrawal",
 			response = TngOtpSmsReqResponse.class
 			)
 	@ApiResponses(value = {
@@ -536,7 +557,9 @@ public class OnlineWithdrawalController extends BaseController{
                     + "<br/>TWE001 Withdrawal amount minimum"
                     + "<br/>TWE002 Annual withdrawal limit exceeded"
                     + "<br/>TWE003 Daily withdrawal limit exceeded"
-                    + "<br/>TWE004 Daily withdrawal count limit exceeded")
+                    + "<br/>TWE004 Daily withdrawal count limit exceeded"),
+            @ApiResponse(code = 416, message = "SMS gateway send message failed"),
+            @ApiResponse(code = 418, message = "Other Linkup / Withdrawal process is still running")
 			})
 	@RequestMapping(value = "/requestTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> requestTngPolicyWithdraw(
@@ -601,7 +624,7 @@ public class OnlineWithdrawalController extends BaseController{
 	}
 
 	@ApiOperation(
-			value = "Perform Tap n Go Policy withdrawal",
+			value = "Perform Tap & Go Policy withdrawal",
 			response = TngPolicyWithdrawPerformResponse.class
 			)
 	@ApiResponses(value = {
@@ -612,7 +635,9 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 413, message = "OTP not match"),
 			@ApiResponse(code = 414, message = "OTP expired"),
 			@ApiResponse(code = 415, message = "OTP is already authentic"),
-			@ApiResponse(code = 416, message = "Tap n Go side cannot perform withdraw")
+			@ApiResponse(code = 416, message = "Tap & Go side cannot perform withdraw"),
+			@ApiResponse(code = 417, message = "Cannot connect to Tap & Go"),
+			@ApiResponse(code = 418, message = "Other Linkup / Withdrawal process is still running")
 			})
 	@RequestMapping(value = "/performTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngPolicyWithdrawPerformResponse> performTngPolicyWithdraw(
@@ -653,16 +678,18 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@SuppressWarnings("unchecked")
 	@ApiOperation(
-			value = "Unlink Tap n Go from Policy",
+			value = "Unlink Tap & Go from Policy",
 			response = TngPolicySimple.class
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input")
+			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 411, message = "Delink fail in Tap & Go"),
+			@ApiResponse(code = 417, message = "Cannot connect to Tap & Go")
 			})
 	@RequestMapping(value = "/unlinkTngPolicy", method = POST)
 	public ResponseEntity<TngPolicySimple> unlinkTngPolicy(
-			@ApiParam(value = "Policy Id, Tap n Go Acount Id", required = true) @RequestBody TngUnlinkRequest unlinkReq,
+			@ApiParam(value = "Policy Id, Tap & Go Acount Id", required = true) @RequestBody TngUnlinkRequest unlinkReq,
 			HttpServletRequest request) {
 		super.IsAuthenticate(request);
 
@@ -694,7 +721,7 @@ public class OnlineWithdrawalController extends BaseController{
 	}
 	
 	@ApiOperation(
-			value = "Get Tap n Go Policy History",
+			value = "Get Tap & Go Policy History",
 			response = TngPolicyHistoryResponse.class
 			)
 	@ApiResponses(value = {
