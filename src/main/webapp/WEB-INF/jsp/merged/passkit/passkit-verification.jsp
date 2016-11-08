@@ -34,10 +34,6 @@
 						</label>
 						</div>
 						<div class="verify-detail" data-type="applicant">
-							<!-- <p>
-								請輸入您香港身份證號碼<br/>的頭5位字母或數字以作驗證
-								<br/>（您輸入的資料，必須與申請紀錄一致)
-							</p> -->
 							<p><fmt:message key="verification.identity.type.applicant.description" bundle="${msg}" /></p>
 							<input class="verify-textfield" type="text" id="tbx-applicant-hkid" placeholder="<fmt:message key="verification.identity.example" bundle="${msg}" />" maxlength="5" />
 							<div class="verify-error" data-error-for="tbx-applicant-hkid" data-error-validate="<fmt:message key="verification.identity.applicant.error.massage" bundle="${msg}" />" data-error-required="<fmt:message key="verification.identity.applicant.error.need.massage" bundle="${msg}" />"></div>
@@ -50,10 +46,6 @@
 						</label>
 						</div>
 						<div class="verify-detail" data-type="insuredperson">
-							<!-- <p>
-								請輸入您的香港身份證或護照號碼<br/>的頭5位字母或數字以作驗證
-								<br/>（您輸入的資料，必須與申請紀錄一致)
-							</p> -->
 							<p><fmt:message key="verification.identity.type.insured.person.description" bundle="${msg}" /></p>
 							<input class="verify-textfield" type="text" id="tbx-insuredperson-hkid" placeholder="<fmt:message key="verification.identity.example" bundle="${msg}" />" maxlength="5" />
 							<div class="verify-error" data-error-for="tbx-insuredperson-hkid" data-error-validate="<fmt:message key="verification.identity.insured.person.error.massage" bundle="${msg}" />" data-error-required="<fmt:message key="verification.identity.insured.person.error.need.massage" bundle="${msg}" />"></div>
@@ -95,10 +87,8 @@
 			<div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog" aria-hidden="false" style="display: block;">
 				<div class="modal-dialog modal-lg loading-dialog">
 					<div class="modal-content plan-modal loading-modal">
-						<img src="<%=request.getContextPath()%>/resources/images/loading.gif" width="300">
-						
+						<img src="<%=request.getContextPath()%>/resources/images/loading.gif" width="300">						
 					</div>
-
 				</div>
 			</div>
 
