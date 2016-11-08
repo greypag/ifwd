@@ -82,11 +82,13 @@ $(document).ready(function(){
         offText: '',
         //        labelWidth: '10',
         //      handleWidth: '10',
+		inverse: true,
         onSwitchChange: function(e, state){
             if(state)
-                $('.mortgageBank').addClass('hidden');
-            else
                 $('.mortgageBank').removeClass('hidden');
+            else
+				$('.mortgageBank').addClass('hidden');
+               
         }
     });
     var totalDriver = $('.added-driver').length;

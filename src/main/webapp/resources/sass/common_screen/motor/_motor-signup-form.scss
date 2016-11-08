@@ -5,16 +5,23 @@
         border-color: $orange;
     }
     .bootstrap-switch{
-        background: $orange;
+        background: #ccc;
         &, .bootstrap-switch-label{
             border-radius: 40px !important;
         }
         .bootstrap-switch-label{
             width: 30px !important;
             height: 30px !important;
-            border: solid 2px $orange;
+            border: solid 2px #ccc;
         }
     }
+    .bootstrap-switch.bootstrap-switch-wrapper.bootstrap-switch-animate.bootstrap-switch-on{
+    background: $orange;
+    }
+    .bootstrap-switch.bootstrap-switch-wrapper.bootstrap-switch-animate.bootstrap-switch-on .bootstrap-switch-label{
+    border: solid 2px $orange;
+    }
+
     .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default{
         background: transparent !important;
     }
@@ -176,6 +183,20 @@
             font-size: 12px !important;
         }
     }
+	#occupation+.selectize-control>div {
+        background: #f5f5f5;
+        ::-webkit-input-placeholder{
+            font-size: 12px !important;
+        }
+    }
+	
+	#d2occupation+.selectize-control>div {
+        background: #f5f5f5;
+        ::-webkit-input-placeholder{
+            font-size: 12px !important;
+        }
+    }
+	
     #area+.selectize-control>div {
         background: #f5f5f5;
         ::-webkit-input-placeholder{
@@ -334,5 +355,19 @@
 #saveModal{
     .heading-h3{
         padding: 60px 0 40px;
+    }
+}
+#motor_registerForm, #testimonials{
+	.form-control{
+		.selectize-dropdown{
+			top:48px !important;
+		}
+		.selectize-dropdown, .selectize-dropdown.form-control{
+			color:#f68a1d;
+			background-color: #f5f5f5 !important;
+		}
+		.selectize-dropdown .active{
+			color:#f68a1d !important;
+		}
     }
 }

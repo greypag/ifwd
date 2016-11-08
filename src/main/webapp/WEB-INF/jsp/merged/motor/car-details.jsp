@@ -86,8 +86,8 @@ var nextPage = "${nextPageFlow}";
                 <!--end mobile--> 
             </div>
         </div>
-        <form id="motor_registerForm" action="/api/iMotor/policy" method="post" data-toggle="validator" >
-            <form id="carDetails" name="" action="/api/iMotor/policy/carDetails" method="post" data-toggle="validator" >
+            <div id="motor_registerForm">
+            <form id="carDetails" name="" method="post" data-toggle="validator" >
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 col-sm-12">
@@ -95,116 +95,116 @@ var nextPage = "${nextPageFlow}";
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
-                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                                </a>
-                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error="Please enter Chassis Number." data-error="Your Chassis Number is invalid.">
-                                                <label class="mdl-textfield__label" for="chassisNumber">Chassis Number</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
-                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                                </a>
-                                                <input type="text" name="cubicCapacity" minlength="3" maxlength="5" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error="Please enter your Car's CC value." data-error="Your Car's CC value is invalid.">
-                                                <label class="mdl-textfield__label" for="cubicCapacity">Cubic Capacity</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
-                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                                </a>
-                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your Car Model number is invalid" minlength="4" maxlength="10" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error="Please enter your Car Model number in Registration Document" data-error="Your Car Model number is invalid">
-                                                <label class="mdl-textfield__label" for="registedModel">Model in Registration Document</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container bankMortgage">
-                    <div id="testimonials">
-                        <div class="center" > 
-                            <!--desktop-->
-                            <h1 class="landing_h2 hidden-sm hidden-xs">Bank mortgage</h1>
-                            <!--end-desktop--> 
-                            <!--Mobile-->
-                            <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Bank mortgage</h1>
-                            <!--end mobile--> 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
-                                        Is car under a bank mortgage?
-                                    </div>
-                                    <div class="col-sm-6 text-right">
-                                        <span class="orange">Yes&nbsp;</span>
-                                        <input type="checkbox" class="toggleCheck" name="bankMortgage" >
-                                        <span>&nbsp;No</span>
-                                    </div>
-                                </div>
-                                <div class="mortgageBank">
-                                    <div class="form-group">
-                                        <div class="help-block-wrap">
-                                            <select class="form-control" id="mortgageBank" data-required-error="Please enter Hire Purchase Owner/ Bank." required>
-                                                <option value="" disabled selected hidden>Hire Purchase Owner/Bank</option>
-                                            </select>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="help-block-wrap">
-                                            <input class="form-control" type="text" pattern="^[a-zA-Z\s]+$"  name="bankName" id="bankName" data-error="Please enter Hire Purchase Owner/ Bank in English only." placeholder="Bank"/>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div> 
-                        </div>
-                    </div> 
-                </div>
-            </form>
-            <div class="container">
-                <div class="row" >
-                    <div class="text-center col-sm-6 col-sm-offset-3">
-                        <div class="row" >
-                            <div class="text-center col-xs-6">
-                                <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
-                                <br/>
-                            </div>
-                            <div class="text-center col-xs-6">
-                                <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
-                                <br/>
-                            </div>
-                            <div class="clearfix"></div> 
-                            <div class="text-center save">
-                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class="">Save an Continue Later</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+	                                            <div class="help-block-wrap">
+	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
+	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+	                                                </a>
+	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error="Please enter Chassis Number." data-error="Your Chassis Number is invalid.">
+	                                                <label class="mdl-textfield__label" for="chassisNumber">Chassis Number</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
+	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+	                                                </a>
+	                                                <input type="text" name="cubicCapacity" minlength="3" maxlength="5" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error="Please enter your Car's CC value." data-error="Your Car's CC value is invalid.">
+	                                                <label class="mdl-textfield__label" for="cubicCapacity">Cubic Capacity</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-12">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
+	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+	                                                </a>
+	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your Car Model number is invalid" minlength="4" maxlength="10" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error="Please enter your Car Model number in Registration Document" data-error="Your Car Model number is invalid">
+	                                                <label class="mdl-textfield__label" for="registedModel">Model in Registration Document</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="container bankMortgage">
+	                    <div id="testimonials">
+	                        <div class="center" > 
+	                            <!--desktop-->
+	                            <h1 class="landing_h2 hidden-sm hidden-xs">Bank mortgage</h1>
+	                            <!--end-desktop--> 
+	                            <!--Mobile-->
+	                            <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Bank mortgage</h1>
+	                            <!--end mobile--> 
+	                        </div>
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <div class="form-group row">
+	                                    <div class="col-sm-6">
+	                                        Is car under a bank mortgage?
+	                                    </div>
+	                                    <div class="col-sm-6 text-right">
+	                                        <span class="switch-light sly">Yes&nbsp;</span>
+	                                        <input type="checkbox" class="toggleCheck" name="bankMortgage" checked>
+	                                        <span class="switch-light sln">&nbsp;No</span>
+	                                    </div>
+	                                </div>
+	                                <div class="mortgageBank">
+	                                    <div class="form-group">
+	                                        <div class="help-block-wrap">
+	                                            <select class="form-control" id="mortgageBank" data-required-error="Please enter Hire Purchase Owner/ Bank." required>
+	                                                <option value="" disabled selected hidden>Hire Purchase Owner/Bank</option>
+	                                            </select>
+	                                            <div class="help-block with-errors"></div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <div class="help-block-wrap">
+	                                            <input class="form-control" type="text" pattern="^[a-zA-Z\s]+$"  name="bankName" id="bankName" data-error="Please enter Hire Purchase Owner/ Bank in English only." placeholder="Bank"/>
+	                                            <div class="help-block with-errors"></div>
+	                                        </div>
+	                                    </div>
+	
+	                                </div>
+	                            </div> 
+	                        </div>
+	                    </div> 
+	                </div>
+	            <div class="container">
+	                <div class="row" >
+	                    <div class="text-center col-sm-6 col-sm-offset-3">
+	                        <div class="row" >
+	                            <div class="text-center col-xs-6">
+	                                <br />
+	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+	                                <br/>
+	                            </div>
+	                            <div class="text-center col-xs-6">
+	                                <br />
+	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+	                                <br/>
+	                            </div>
+	                            <div class="clearfix"></div> 
+	                            <div class="text-center save">
+	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class="">Save an Continue Later</a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </form>
+        </div>
     </section>
     <section class="yourQuote">
     <div class="container">
@@ -308,7 +308,50 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
+<script>
+var checkbox=true;
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+    $('input[name=bankMortgage]').bootstrapSwitch();
+    $('input[name=bankMortgage]').on('switchChange.bootstrapSwitch', function(event, state) {
+    	$(".switch-light").removeClass("orange");
+    	if(state==true)
+    		$(".sly").addClass("orange");
+    	else
+    		$(".sln").addClass("orange");
+    	checkbox = state;
+    });
+    
+	$('#carDetails').submit(function(event){
 
+	   var data = {"carDetail": {   	
+				   "bankMortgage": checkbox,	
+				   "bankMortgageName": $("#mortgageBank option:selected").text(),	
+				   "chassisNumber": $('input[name=chassisNumber]').val(),    	
+				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
+				   "modelDesc": $('input[name=registedModel]').val()    	
+					}, 	
+					"policyId": ""  	
+					};
+		console.dir(data);
+		
+		$.ajax({
+		  type: "POST",
+		  url: "/api/iMotor/policy/saving/carDetails",
+		  data: data,
+		  dataType: "json",
+		  success: function(data){
+			  
+			  
+		  },error: function(error) {
+			  console.dir(error);
+				return false;
+		  }
+		});
+		return false;
+	});
+});
+</script>
        
 
 

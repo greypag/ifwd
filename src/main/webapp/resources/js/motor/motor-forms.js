@@ -1,4 +1,238 @@
+var motor_mortgageBank, $motor_mortgageBank, 
+motor_district , $motor_district, 
+motor_occupation, $motor_occupation, 
+motor_d2occupation , $motor_d2occupation,
+motor_d3occupation , $motor_d3occupation,
+motor_d4occupation , $motor_d4occupation,
+motor_d5occupation , $motor_d5occupation;
+function system_error_message(code, policyID)
+{
+	switch(code)
+	{
+		case "-11111111":
+			return "System cannot find the policy";
+		case "-22222222":
+			return "Invalid Details";	
+		case "-33333333":
+			return "Invalid Car Band";	
+		case "-99999999":
+			return policyID;
+		default:
+			return "System error";
+				
+		
+	}
+}
 $(document).ready(function(){
+	
+	/*isobar*/
+	$mortgageBank = $('#mortgageBank').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#mortgageBank-selectized').data('required-error', $('#mortgageBank').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/bankMortgages',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+                        callback(res);                        
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+
+	$motor_district = $('#district').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#district-selectized').data('required-error', $('#district').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/districts',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	//console.dir(res);
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang!="EN")                    		
+                    		{delete res[i];total--;}
+                    	});
+                    	res.length = total;
+                              callback(res);                        
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	
+	$motor_occupation = $('#occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#occupation-selectized').data('required-error', $('#occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang!="EN")                    		
+                    		{delete res[i];total--;}
+                    	});
+                    	res.length = total;
+                              callback(res);                        
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d2occupation = $('#d2occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d2occupation-selectized').data('required-error', $('#d2occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang!="EN")                    		
+                    		{delete res[i];total--;}
+                    	});
+                    	res.length = total;
+                              callback(res);                        
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d3occupation = $('#d3occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d3occupation-selectized').data('required-error', $('#d3occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang!="EN")                    		
+                    		{delete res[i];total--;}
+                    	});
+                    	res.length = total;
+                              callback(res);                        
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d4occupation = $('#motor_d4occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#motor_d4occupation-selectized').data('required-error', $('#motor_d4occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang!="EN")                    		
+                    		{delete res[i];total--;}
+                    	});
+                    	res.length = total;
+                              callback(res);                        
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d5occupation = $('#d5occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d5occupation-selectized').data('required-error', $('#d5occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang!="EN")                    		
+                    		{delete res[i];total--;}
+                    	});
+                    	res.length = total;
+                              callback(res);                        
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	
     var $custom_checkbox = $('.custom-checkbox .checkbox').not('.disabled');
     var $custom_radio = $('.custom-radio .radio');
     /*custom checkbox*/

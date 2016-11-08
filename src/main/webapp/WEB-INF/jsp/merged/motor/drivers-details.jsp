@@ -70,7 +70,7 @@ var nextPage = "${nextPageFlow}";
                 </div>
             </div>
         </div>
-        <form id="motor_registerForm" action="/api/iMotor/policy" method="post" data-toggle="validator">
+        <div id="motor_registerForm">
             <div class="container">
                 <div class="center" > 
                     <!--desktop-->
@@ -81,251 +81,250 @@ var nextPage = "${nextPageFlow}";
                     <!--end mobile--> 
                 </div>
             </div>
-            <form id="driverDetails" action="/api/iMotor/policy/driverDetails" method="post" data-toggle="validator">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="fullName" maxlength="100" class="form-control input--grey mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$"  required data-required-error="Please enter your full name." data-error="Your full name is invalid.">
-                                                <label class="mdl-textfield__label" for="fullName">Full Name</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap calendar"> 
-                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" required data-required-error="Please select your date of birth.">
-                                                <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="driverID" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error="Please enter your HKID no." required>
-                                                <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="mobileNo" pattern="^\d{8}$" maxlength="8" class="form-control input--grey check-emp login-input mdl-textfield__input" id="mobileNo" data-error="Your mobile no. is invalid." data-required-error="Please enter your mobile no."  required>
-                                                <label class="mdl-textfield__label" for="mobileNo">Mobile No.</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="email" name="email" id="email" maxlength="50" class="form-control input--grey mdl-textfield__input" data-error="Your email address is invalid." data-required-error="Please enter your email address." required>
-                                                <label class="mdl-textfield__label" for="email">Email</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="center" > 
-                                    <!--desktop-->
-                                    <h1 class="landing_h2 hidden-sm hidden-xs">Address</h1>
-                                    <!--end-desktop--> 
-                                    <!--Mobile-->
-                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Address</h1>
-                                    <!--end mobile--> 
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="flat" maxlength="10" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only." class="form-control input--grey mdl-textfield__input" id="flat">
-                                                <label class="mdl-textfield__label">Flat</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap"> 
-                                                <input type="text" name="floor" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="floor">
-                                                <label class="mdl-textfield__label">Floor</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap"> 
-                                                <input type="text" name="block" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="block" >
-                                                <label class="mdl-textfield__label">Block</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="buliding" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="buliding" data-required-error="Either Estate or building must be input" required>
-                                                <label class="mdl-textfield__label">Building</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="estate" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only." class="form-control input--grey mdl-textfield__input" id="estate" required>
-                                                <label class="mdl-textfield__label">Estate</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="streetno" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only."  class="form-control input--grey mdl-textfield__input" id="streetno" >
-                                                <label class="mdl-textfield__label">Street No</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="streetname" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only."  class="form-control input--grey mdl-textfield__input" id="streetname">
-                                                <label class="mdl-textfield__label">Street Name</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="help-block-wrap">
-                                            <select class="form-control" id="district" data-required-error="Please select District." required>
-                                                <option value="" disabled selected hidden>District</option>
-                                            </select>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="help-block-wrap">
-                                            <select class="form-control" id="area" data-required-error="Please select Hong Kong, Kowloon or New Territories." required>
-                                                <option value="" disabled selected hidden>Area</option>
-                                                <option value="Hong Kong">Hong Kong</option>
-                                                <option value="Kowloon">Kowloon</option>
-                                                <option value="New Territories">New Territories</option>
-                                            </select>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <div class="container">
-                <div id="testimonials">
-                    <div class="center" > 
-                        <!--desktop-->
-                        <h1 class="landing_h2 hidden-sm hidden-xs">Policy Period</h1>
-                        <!--end-desktop--> 
-                        <!--Mobile-->
-                        <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Policy Period</h1>
-                        <!--end mobile--> 
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap calendar" > 
-                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                                <input type="text" name="policy-datepicker" id="policy-datepicker" class="form-control mdl-textfield__input"  required>
-                                                <label class="mdl-textfield__label" for="policy-datepicker">Policy Start Date</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="ped">
-                                        <span>Policy End Date</span>
-                                        &nbsp;
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        &nbsp;
-                                        <span class="policy-end-date"></span>
-                                    </div>                               
-                                </div>
-
-                            </div>  
-                        </div> 
-                    </div>
-                </div> 
-            </div>
-            <div class="container">
-                <div class="row" >
-                    <div class="text-center col-sm-6 col-sm-offset-3">
-                        <div class="row" >
-                            <div class="text-center col-xs-6">
-                                <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
-                                <br/>
-                            </div>
-                            <div class="text-center col-xs-6">
-                                <br />
-                                <input type="submit" id="sendDriverDetail" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
-                                <br/>
-                            </div>
-                            <div class="clearfix"></div> 
-                            <div class="text-center save">
-                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class="">Save an Continue Later</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+	            <form id="driverDetails"  method="post" data-toggle="validator">
+	                <div class="container">
+	                    <div class="row">
+	                        <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                            <div class="row">
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="fullName" maxlength="100" class="form-control input--grey mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$"  required data-required-error="Please enter your full name." data-error="Your full name is invalid.">
+	                                                <label class="mdl-textfield__label" for="fullName">Full Name</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap calendar"> 
+	                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+	                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" required data-required-error="Please select your date of birth.">
+	                                                <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                       </div>
+	                                    </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="driverID" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error="Please enter your HKID no." required>
+	                                                <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="mobileno" pattern="^\d{8}$" maxlength="8" class="form-control input--grey check-emp login-input mdl-textfield__input" id="mobileno" data-error="Your mobile no. is invalid." data-required-error="Please enter your mobile no."  required>
+	                                                <label class="mdl-textfield__label" for="mobileno">Mobile No.</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="email" name="email" id="email" maxlength="50" class="form-control input--grey mdl-textfield__input" data-error="Your email address is invalid." data-required-error="Please enter your email address." required>
+	                                                <label class="mdl-textfield__label" for="email">Email</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+	                                <div class="center" > 
+	                                    <!--desktop-->
+	                                    <h1 class="landing_h2 hidden-sm hidden-xs">Address</h1>
+	                                    <!--end-desktop--> 
+	                                    <!--Mobile-->
+	                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Address</h1>
+	                                    <!--end mobile--> 
+	                                </div>
+	                                <div class="col-sm-4">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="flat" maxlength="10" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only." class="form-control input--grey mdl-textfield__input" id="flat">
+	                                                <label class="mdl-textfield__label">Flat</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-4">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap"> 
+	                                                <input type="text" name="floor" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="floor">
+	                                                <label class="mdl-textfield__label">Floor</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-4">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap"> 
+	                                                <input type="text" name="block" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="block" >
+	                                                <label class="mdl-textfield__label">Block</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="buliding" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Accept English characters and Integer input only."  class="form-control input--grey mdl-textfield__input" id="buliding" data-required-error="Either Estate or building must be input" required>
+	                                                <label class="mdl-textfield__label">Building</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="estate" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only." class="form-control input--grey mdl-textfield__input" id="estate" required>
+	                                                <label class="mdl-textfield__label">Estate</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <!--
+	                                <div class="clearfix"></div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="streetno" maxlength="5" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only."  class="form-control input--grey mdl-textfield__input" id="streetno" >
+	                                                <label class="mdl-textfield__label">Street No</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="streetname" maxlength="50" pattern="^[a-zA-Z\d]+$" data-pattern-error="Please enter alphabetic or numberic characters only."  class="form-control input--grey mdl-textfield__input" id="streetname">
+	                                                <label class="mdl-textfield__label">Street Name</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                -->
+	                                <div class="clearfix"></div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="help-block-wrap">
+	                                            <select class="form-control" id="district" data-required-error="Please select District." required>
+	                                                <option value="" disabled selected hidden>District</option>
+	                                            </select>
+	                                            <div class="help-block with-errors"></div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="help-block-wrap">
+	                                            <select class="form-control" id="area" data-required-error="Please select Hong Kong, Kowloon or New Territories." required>
+	                                                <option value="" disabled selected hidden>Area</option>
+	                                                <option value="Hong Kong">Hong Kong</option>
+	                                                <option value="Kowloon">Kowloon</option>
+	                                                <option value="New Territories">New Territories</option>
+	                                            </select>
+	                                            <div class="help-block with-errors"></div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            <div class="container">
+	                <div id="testimonials">
+	                    <div class="center" > 
+	                        <!--desktop-->
+	                        <h1 class="landing_h2 hidden-sm hidden-xs">Policy Period</h1>
+	                        <!--end-desktop--> 
+	                        <!--Mobile-->
+	                        <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Policy Period</h1>
+	                        <!--end mobile--> 
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                            <div class="row">
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap calendar" > 
+	                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+	                                                <input type="text" name="policy-datepicker" id="policy-datepicker" class="form-control mdl-textfield__input"  required>
+	                                                <label class="mdl-textfield__label" for="policy-datepicker">Policy Start Date</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="ped">
+	                                        <span>Policy End Date</span>
+	                                        &nbsp;
+	                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+	                                        &nbsp;
+	                                        <span class="policy-end-date"></span>
+	                                    </div>                               
+	                                </div>
+	                            </div>  
+	                        </div> 
+	                    </div>
+	                </div> 
+	            </div>
+	            <div class="container">
+	                <div class="row" >
+	                    <div class="text-center col-sm-6 col-sm-offset-3">
+	                        <div class="row" >
+	                            <div class="text-center col-xs-6">
+	                                <br />
+	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+	                                <br/>
+	                            </div>
+	                            <div class="text-center col-xs-6">
+	                                <br />
+	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+	                                <br/>
+	                            </div>
+	                            <div class="clearfix"></div> 
+	                            <div class="text-center save">
+	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class="">Save an Continue Later</a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </form>
+        </div>
     </section>
     <section class="yourQuote">
     <div class="container">
@@ -430,5 +429,52 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
+<script>
+var checkbox=true;
+$(document).ready(function(){
+        
+	$('#driverDetails').submit(function(event){
 
+	   var data = { 		
+			   	"policyId": "26379363",		
+			   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
+			  	"applicant": {		
+			  	"contactNo": $('input[name=mobileno]').val(),		
+			  	"correspondenceAddress": {    		
+			    "block":  $('input[name=block]').val(),		
+			    "building":  $('input[name=buliding]').val(),		
+			    "district":  $("#district option:selected").text(),		
+			    "estate":  $('input[name=estate]').val(),		
+			    "flat":  $('input[name=flat]').val(),		
+			    "floor":  $('input[name=floor]').val(),		
+			    "hkKlNt": $("#area option:selected").text(),		
+			    "streetName": null,		
+			    "streetNo": null		
+			  },		
+			  "dateOfBirth": $('input[name=driverDob]').val(),  		
+			  "email": $('input[name=email]').val() ,		
+			  "hkid": $('input[name=driverID]').val(),		
+			  "name": $('input[name=fullName]').val() 		
+			  }		
+			};
+	   
+		console.dir(data);
+		
+		$.ajax({
+		  type: "POST",
+		  url: "/api/iMotor/policy/saving/driverDetails",
+		  data: data,
+		  dataType: "json",
+		  success: function(data){
+			  
+			  
+		  },error: function(error) {
+			  console.dir(error);
+				return false;
+		  }
+		});
+		return false;
+	});
+});
+</script>
 

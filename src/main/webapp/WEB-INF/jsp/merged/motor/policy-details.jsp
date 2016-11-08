@@ -71,521 +71,524 @@ var nextPage = "${nextPageFlow}";
                 </div>
             </div>
         </div>
-        <form id="motor_registerForm" action="/api/iMotor/policy" method="post" data-toggle="validator">
-            <div class="container">
-                <div class="center" > 
-                    <!--desktop-->
-                    <h1 class="landing_h2 hidden-sm hidden-xs">Named Driver 1</h1>
-                    <!--end-desktop--> 
-                    <!--Mobile-->
-                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Named Driver 1</h1>
-                    <!--end mobile--> 
-                </div>
-            </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="fullName" value="Driver" maxlength="100" class="form-control input--grey mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." required>
-                                                <label class="mdl-textfield__label" for="fullName">Full Name</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="help-block-wrap">
-                                                <select class="form-control occupation" name="occuption" data-required-error="Please select your occupation." required>
-                                                <option value="" disabled selected hidden>Occupation</option>
-                                            </select>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap calendar"> 
-                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error="Please select your date of birth." required>
-                                                <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="driverID" value="Z1234567" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" data-required-error="Please enter your HKID no."  id="driverID" required>
-                                                <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-xs-12">
-                                    <div class="custom-checkbox">
-                                        <div class="checkbox">
-                                            <div class="form-group">
-                                                <div class="help-block-wrap">
-                                                    <input type="checkbox" id="term" name="term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
-                                                    <label><small>
-                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
-                                                    </label>
-                                            <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="added-driver hidden" id="driver2">  
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Remove</small></a>
-                                <div class="center" > 
-                                    <!--desktop-->
-                                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver 2</h1>
-                                    <!--end-desktop--> 
-                                    <!--Mobile-->
-                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver 2</h1>
-                                    <!--end mobile--> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap">
-                                                    <input type="text" name="d2name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
-                                                    <label class="mdl-textfield__label" >Full Name</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="help-block-wrap">
-                                                <select class="form-control occupation" name="d2occuption" data-required-error="Please select your occupation." required>
-                                                    <option value="" disabled selected hidden>Occupation</option>
-                                                </select>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap calendar"> 
-                                                    <input type="text" name="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
-                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap">
-                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
-                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-xs-12">
-                                        <div class="custom-checkbox">
-                                            <div class="checkbox">
-                                                <div class="form-group">
-                                                    <div class="help-block-wrap">
-                                                    <input type="checkbox" id="d2term" name="d2term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
-                                                        <label><small>
-                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
-                                                        </label>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="added-driver hidden" id="driver3">  
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Remove</small></a>
-                                <div class="center" > 
-                                    <!--desktop-->
-                                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver 3</h1>
-                                    <!--end-desktop--> 
-                                    <!--Mobile-->
-                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver 3</h1>
-                                    <!--end mobile--> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdlhttp://localhost:3014/t8_Sign_up_page3.html-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap">
-                                                    <input type="text" name="d3name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
-                                                    <label class="mdl-textfield__label" >Full Name</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="help-block-wrap">
-                                                <select class="form-control occupation" name="d3occuption" data-required-error="Please select your occupation." required>
-                                                    <option value="" disabled selected hidden>Occupation</option>
-                                                </select>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap calendar"> 
-                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
-                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap">
-                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
-                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-xs-12">
-                                        <div class="custom-checkbox">
-                                            <div class="checkbox">
-                                                <div class="form-group">
-                                                    <div class="help-block-wrap">
-                                                    <input type="checkbox" id="d3term" name="d3term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
-                                                        <label><small>
-                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
-                                                        </label>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="added-driver hidden" id="driver4">  
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Remove</small></a>
-                                <div class="center" > 
-                                    <!--desktop-->
-                                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver 4</h1>
-                                    <!--end-desktop--> 
-                                    <!--Mobile-->
-                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver 4</h1>
-                                    <!--end mobile--> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap">
-                                                    <input type="text" name="d4name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
-                                                    <label class="mdl-textfield__label" >Full Name</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="help-block-wrap">
-                                                <select class="form-control occupation" name="d4occuption" data-required-error="Please select your occupation." required>
-                                                    <option value="" disabled selected hidden>Occupation</option>
-                                                </select>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap calendar"> 
-                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
-                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap">
-                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
-                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-xs-12">
-                                        <div class="custom-checkbox">
-                                            <div class="checkbox">
-                                                <div class="form-group">
-                                                    <div class="help-block-wrap">
-                                                    <input type="checkbox" id="d4term" name="d4term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
-                                                        <label><small>
-                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
-                                                        </label>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="added-driver hidden" id="driver5">  
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Remove</small></a>
-                                <div class="center" > 
-                                    <!--desktop-->
-                                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver 5</h1>
-                                    <!--end-desktop--> 
-                                    <!--Mobile-->
-                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver 5</h1>
-                                    <!--end mobile--> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap">
-                                                    <input type="text" name="d5name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
-                                                    <label class="mdl-textfield__label" >Full Name</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="help-block-wrap">
-                                                <select class="form-control occupation" name="d5occuption" data-required-error="Please select your occupation." required>
-                                                    <option value="" disabled selected hidden>Occupation</option>
-                                                </select>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap calendar"> 
-                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
-                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <div class="help-block-wrap">
-                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
-                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="col-xs-12">
-                                        <div class="custom-checkbox">
-                                            <div class="checkbox">
-                                                <div class="form-group">
-                                                    <div class="help-block-wrap">
-                                                    <input type="checkbox" id="d5term" name="d5term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
-                                                        <label><small>
-                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
-                                                        </label>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <br/>
-                                                <br/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 text-center">
-                            <a href="#" class="underline" id="addDriver"><i class="fa fa-plus underline" aria-hidden="true"></i>&nbsp;&nbsp;Add Driver</a>
-                        </div>
-                    </div>
-                </div>
-            <div class="container no-claim">
-                <div id="testimonials">
-                    <div class="center" > 
-                        <!--desktop-->
-                        <h1 class="landing_h2 hidden-sm hidden-xs">Policy Period</h1>
-                        <!--end-desktop--> 
-                        <!--Mobile-->
-                        <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Policy Period</h1>
-                        <!--end mobile--> 
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="prev_ic" pattern="^[a-zA-Z\d]+$" data-error="Please enter Name of Previous Insurance Company in English." minlength="8" maxlength="8" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error="Please enter Name of Previous Insurance Company.">
-                                                <label class="mdl-textfield__label" >Name of Previous Insurance Company</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="prev_regNo" pattern="^[a-zA-Z\d]+$" data-error="Please enter alphabetic or numberic characters only." minlength="6" maxlength="20" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error="Please enter Registration No. of Previous Policy." required>
-                                                <label class="mdl-textfield__label" >Registration No. of Prev Policy</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group" id="expiry-datepicker-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap calendar" > 
-                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                                <input type="text" name="expiry-datepicker" id="expiry-datepicker" class="form-control mdl-textfield__input" required data-required-error="Please select Previous Insurance Expiry Date." data-error="Previous Insurance Expiry Date must be within 365 days ">
-                                                <label class="mdl-textfield__label" >Previous Insurance Expiry Date</label>
-                                            </div>
-                                                <div class="help-block with-errors" id="expiry-datepicker-error"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <div class="help-block-wrap">
-                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d]+$" data-error="Please enter alphabetic or numberic characters only." minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error="Please enter Registration No. of Previous Policy." id="prev_policyNo" required>
-                                                <label class="mdl-textfield__label" >Pervious Policy No.</label>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>  
-                        </div> 
-                    </div>
-                </div> 
-            </div>
-            <div class="container">
-                <div class="row" >
-                    <div class="text-center col-sm-6 col-sm-offset-3">
-                        <div class="row" >
-                            <div class="text-center col-xs-6">
-                                <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
-                                <br/>
-                            </div>
-                            <div class="text-center col-xs-6">
-                                <br />
-                                <a href="#" id="sendDriverDetail" class="bdr-curve btn btn-primary nxt-btn">Next</a>
-                                <br/>
-                            </div>
-                            <div class="clearfix"></div> 
-                            <div class="text-center save">
-                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class="">Save an Continue Later</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+        <div id="motor_registerForm">
+	        <form id="policyDetails" action="/api/iMotor/policy" method="post" data-toggle="validator">
+	            <div class="container">
+	                <div class="center" > 
+	                    <!--desktop-->
+	                    <h1 class="landing_h2 hidden-sm hidden-xs">Named Driver 1</h1>
+	                    <!--end-desktop--> 
+	                    <!--Mobile-->
+	                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Named Driver 1</h1>
+	                    <!--end mobile--> 
+	                </div>
+	            </div>
+	                <div class="container">
+	                    <div class="row">
+	                        <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                            <div class="row">
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="fullName" value="Driver" maxlength="100" class="form-control input--grey mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." required>
+	                                                <label class="mdl-textfield__label" for="fullName">Full Name</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="help-block-wrap">
+	                                            <select class="form-control selectized" id="occupation" data-required-error="Please select your occupation." required>
+	                                                <option value="" disabled selected hidden>Occupation</option>
+	                                            </select>
+	                                            <div class="help-block with-errors"></div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap calendar"> 
+	                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+	                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error="Please select your date of birth." required>
+	                                                <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="driverID" value="Z1234567" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" data-required-error="Please enter your HKID no."  id="driverID" required>
+	                                                <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="clearfix"></div>
+	                                <div class="col-xs-12">
+	                                    <div class="custom-checkbox">
+	                                        <div class="checkbox">
+	                                            <div class="form-group">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="checkbox" id="term" name="term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                    <label><small>
+	                                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+	                                                    </label>
+	                                            <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="added-driver hidden" id="driver2">  
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Remove</small></a>
+	                                <div class="center" > 
+	                                    <!--desktop-->
+	                                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver 2</h1>
+	                                    <!--end-desktop--> 
+	                                    <!--Mobile-->
+	                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver 2</h1>
+	                                    <!--end mobile--> 
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <div class="row">
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="text" name="d2name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+	                                                    <label class="mdl-textfield__label" >Full Name</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="help-block-wrap">
+	                                                <!-- <select class="form-control occupation" name="d2occuption" data-required-error="Please select your occupation." required>-->
+	                                                <select class="form-control selectized" id="d2occupation" data-required-error="Please select your occupation." required>
+	                                                <option value="" disabled selected hidden>Occupation</option>
+	                                            </select>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap calendar"> 
+	                                                    <input type="text" name="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
+	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+	                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                    <div class="col-xs-12">
+	                                        <div class="custom-checkbox">
+	                                            <div class="checkbox">
+	                                                <div class="form-group">
+	                                                    <div class="help-block-wrap">
+	                                                    <input type="checkbox" id="d2term" name="d2term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                        <label><small>
+	                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+	                                                        </label>
+	                                                        <div class="help-block with-errors"></div>
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="added-driver hidden" id="driver3">  
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Remove</small></a>
+	                                <div class="center" > 
+	                                    <!--desktop-->
+	                                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver 3</h1>
+	                                    <!--end-desktop--> 
+	                                    <!--Mobile-->
+	                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver 3</h1>
+	                                    <!--end mobile--> 
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <div class="row">
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdlhttp://localhost:3014/t8_Sign_up_page3.html-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="text" name="d3name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+	                                                    <label class="mdl-textfield__label" >Full Name</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="help-block-wrap">
+	                                                <select class="form-control occupation" name="d3occuption" data-required-error="Please select your occupation." required>
+	                                                    <option value="" disabled selected hidden>Occupation</option>
+	                                                </select>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap calendar"> 
+	                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
+	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+	                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                    <div class="col-xs-12">
+	                                        <div class="custom-checkbox">
+	                                            <div class="checkbox">
+	                                                <div class="form-group">
+	                                                    <div class="help-block-wrap">
+	                                                    <input type="checkbox" id="d3term" name="d3term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                        <label><small>
+	                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+	                                                        </label>
+	                                                        <div class="help-block with-errors"></div>
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="added-driver hidden" id="driver4">  
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Remove</small></a>
+	                                <div class="center" > 
+	                                    <!--desktop-->
+	                                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver 4</h1>
+	                                    <!--end-desktop--> 
+	                                    <!--Mobile-->
+	                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver 4</h1>
+	                                    <!--end mobile--> 
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <div class="row">
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="text" name="d4name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+	                                                    <label class="mdl-textfield__label" >Full Name</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="help-block-wrap">
+	                                                <select class="form-control occupation" name="d4occuption" data-required-error="Please select your occupation." required>
+	                                                    <option value="" disabled selected hidden>Occupation</option>
+	                                                </select>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap calendar"> 
+	                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
+	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+	                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                    <div class="col-xs-12">
+	                                        <div class="custom-checkbox">
+	                                            <div class="checkbox">
+	                                                <div class="form-group">
+	                                                    <div class="help-block-wrap">
+	                                                    <input type="checkbox" id="d4term" name="d4term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                        <label><small>
+	                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+	                                                        </label>
+	                                                        <div class="help-block with-errors"></div>
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="added-driver hidden" id="driver5">  
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Remove</small></a>
+	                                <div class="center" > 
+	                                    <!--desktop-->
+	                                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver 5</h1>
+	                                    <!--end-desktop--> 
+	                                    <!--Mobile-->
+	                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver 5</h1>
+	                                    <!--end mobile--> 
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="container">
+	                        <div class="row">
+	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                                <div class="row">
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="text" name="d5name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+	                                                    <label class="mdl-textfield__label" >Full Name</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="help-block-wrap">
+	                                                <select class="form-control occupation" name="d5occuption" data-required-error="Please select your occupation." required>
+	                                                    <option value="" disabled selected hidden>Occupation</option>
+	                                                </select>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap calendar"> 
+	                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
+	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-sm-6">
+	                                        <div class="form-group">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                                <div class="help-block-wrap">
+	                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+	                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
+	                                                    <div class="help-block with-errors"></div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                    <div class="col-xs-12">
+	                                        <div class="custom-checkbox">
+	                                            <div class="checkbox">
+	                                                <div class="form-group">
+	                                                    <div class="help-block-wrap">
+	                                                    <input type="checkbox" id="d5term" name="d5term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                        <label><small>
+	                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+	                                                        </label>
+	                                                        <div class="help-block with-errors"></div>
+	                                                    </div>
+	                                                </div>
+	                                                <br/>
+	                                                <br/>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="container">
+	                    <div class="row">
+	                        <div class="col-xs-12 text-center">
+	                            <a href="#" class="underline" id="addDriver"><i class="fa fa-plus underline" aria-hidden="true"></i>&nbsp;&nbsp;Add Driver</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            <div class="container no-claim">
+	                <div id="testimonials">
+	                    <div class="center" > 
+	                        <!--desktop-->
+	                        <h1 class="landing_h2 hidden-sm hidden-xs">Policy Period</h1>
+	                        <!--end-desktop--> 
+	                        <!--Mobile-->
+	                        <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Policy Period</h1>
+	                        <!--end mobile--> 
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-md-8 col-md-offset-2 col-sm-12">
+	                            <div class="row">
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="prev_ic" pattern="^[a-zA-Z\d]+$" data-error="Please enter Name of Previous Insurance Company in English." minlength="8" maxlength="8" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error="Please enter Name of Previous Insurance Company.">
+	                                                <label class="mdl-textfield__label" >Name of Previous Insurance Company</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="prev_regNo" pattern="^[a-zA-Z\d]+$" data-error="Please enter alphabetic or numberic characters only." minlength="6" maxlength="20" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error="Please enter Registration No. of Previous Policy." required>
+	                                                <label class="mdl-textfield__label" >Registration No. of Prev Policy</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group" id="expiry-datepicker-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap calendar" > 
+	                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+	                                                <input type="text" name="expiry-datepicker" id="expiry-datepicker" class="form-control mdl-textfield__input" required data-required-error="Please select Previous Insurance Expiry Date." data-error="Previous Insurance Expiry Date must be within 365 days ">
+	                                                <label class="mdl-textfield__label" >Previous Insurance Expiry Date</label>
+	                                            </div>
+	                                                <div class="help-block with-errors" id="expiry-datepicker-error"></div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d]+$" data-error="Please enter alphabetic or numberic characters only." minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error="Please enter Registration No. of Previous Policy." id="prev_policyNo" required>
+	                                                <label class="mdl-textfield__label" >Pervious Policy No.</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>  
+	                        </div> 
+	                    </div>
+	                </div> 
+	            </div>
+	            <div class="container">
+	                <div class="row" >
+	                    <div class="text-center col-sm-6 col-sm-offset-3">
+	                        <div class="row" >
+	                            <div class="text-center col-xs-6">
+	                                <br />
+	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+	                                <br/>
+	                            </div>
+	                            <div class="text-center col-xs-6">
+	                                <br />
+	                                <a href="#" id="sendDriverDetail" class="bdr-curve btn btn-primary nxt-btn">Next</a>
+	                                <br/>
+	                            </div>
+	                            <div class="clearfix"></div> 
+	                            <div class="text-center save">
+	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class="">Save an Continue Later</a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </form>
+	   	</div>
     </section>
     <section class="yourQuote">
     <div class="container">
@@ -690,4 +693,53 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
+<script>
+var checkbox=true;
+$(document).ready(function(){
+    
+	$('#policyDetails').submit(function(event){
 
+	   var data = { 		
+			   "policyId": "26379363",		
+			   "driver": [		
+			   {		
+			     "dateOfBirth": $('input[name=driverDob]').val(),		
+			     "driveMoreThanTwo": true,		
+			     "hkid": $('input[name=driverID]').val(),		
+			     "name": $('input[name=fullName]').val(),		
+			     "occupation": $("#occupation option:selected").text(),	
+			     "validAgeGroup": true		
+			   }, 		
+			   {		
+			     "dateOfBirth": $('input[name=d2dob]').val(),		
+			     "driveMoreThanTwo": true,		
+			     "hkid": $('input[name=d2id]').val(),		
+			     "name": $('input[name=fullName]').val(),		
+			     "occupation": $("#d2occupation option:selected").text(),		
+			     "validAgeGroup": true		
+			   }		
+			   ], 		
+			     "nameOfPreviousInusrancer": $('input[name=prev_ic]').val(),		
+			     "regNoofPreviousPolicy": $('input[name=prev_regNo]').val(),		
+			     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
+			     "previousPolicyNo": $('input[name=prev_policyNo]').val()	
+			 };
+		console.dir(data);
+		
+		$.ajax({
+		  type: "POST",
+		  url: "/api/iMotor/policy/saving/policyDetails",
+		  data: data,
+		  dataType: "json",
+		  success: function(data){
+			  
+			  
+		  },error: function(error) {
+			  console.dir(error);
+				return false;
+		  }
+		});
+		return false;
+	});
+});
+</script>
