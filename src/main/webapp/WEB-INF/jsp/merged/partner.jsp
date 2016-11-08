@@ -247,6 +247,7 @@
 											<li style="list-style: none;">
 	                                            <ol class="desc_sublist" style="color:black;">
 													<li><p class="h4-5"><b><fmt:message key="partner.cfu.desc1.part1_1.title" bundle="${msg}" /></b><fmt:message key="partner.cfu.desc1.part1_1.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link1" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_1.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_1.part3" bundle="${msg}" /><br><br><fmt:message key="partner.cfu.desc1.remark.directed.out" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_1_offer_period" bundle="${msg}" /></p><br></li>
+													<li><p class="h4-5"><b><fmt:message key="partner.cfu.desc1.part1_3.title" bundle="${msg}" /></b><fmt:message key="partner.cfu.desc1.part1_3.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link3" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_3.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_3.part3" bundle="${msg}" /><br><br><fmt:message key="partner.cfu.desc3.remark.directed.out.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link3" bundle="${msg}" />"><fmt:message key="partner.cfu.desc3.remark.directed.out.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc3.remark.directed.out.part3" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_3_offer_period" bundle="${msg}" /></p><br></li>
 													<li><p class="h4-5"><b><fmt:message key="partner.cfu.desc1.part1_2.title" bundle="${msg}" /></b><fmt:message key="partner.cfu.desc1.part1_2.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link2" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_2.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_2.part3" bundle="${msg}" /><br><br><fmt:message key="partner.cfu.desc1.remark.directed.out" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_2_offer_period" bundle="${msg}" /></p><br></li>
 	                                            </ol>
 	                                        </li>
@@ -328,12 +329,7 @@
                                         <li>
                                             <p class="h4-5">
                                                 <fmt:message key="partner.sony.desc1.part1" bundle="${msg}" />
-                                                <a href="<fmt:message key="link.provisions.travel" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.desc1.part2" bundle="${msg}" /></a><fmt:message key="partner.711.desc1.part3" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.sony.desc2.part1" bundle="${msg}" />
+                                                <a href="<fmt:message key="link.partner.sony.link1" bundle="${msg}" />" target="_blank"><fmt:message key="partner.sony.desc1.part2" bundle="${msg}" /></a><fmt:message key="partner.sony.desc1.part3" bundle="${msg}" />
                                             </p>
                                         </li>
                                     </ul>
@@ -343,7 +339,17 @@
 	                                    <ul class="bullets">
 	                                        <li>
 	                                            <p class="h4-5">
-	                                                <fmt:message key="partner.sony.tnc.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="partner.sony.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.sony.tnc.part2" bundle="${msg}" /></a><fmt:message key="partner.sony.tnc.part3" bundle="${msg}" />
+	                                                <fmt:message key="partner.sony.tnc1.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.sony.tnc2.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.partner.sony.link2" bundle="${msg}" />" target="_blank"><fmt:message key="partner.sony.tnc2.part2" bundle="${msg}" /></a><fmt:message key="partner.sony.tnc2.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.sony.tnc3.part1" bundle="${msg}" />
 	                                            </p>
 	                                        </li>
 	                                    </ul>
