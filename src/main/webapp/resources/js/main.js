@@ -504,7 +504,7 @@ function show_1111_campaign(domain,lang){
 				"opacity" : "1"
 			});
 			$(this).click(function(){
-				window.location.href = "/1111.fwd.com.hk/" + lang;
+				window.location.href = "https://1111.fwd.com.hk/" + lang;
 			})
 		});
 		$(window).resize(function(){
