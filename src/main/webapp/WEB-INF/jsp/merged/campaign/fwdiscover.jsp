@@ -910,6 +910,20 @@
                     }
                 }
             }
+
+            <%-- 1111 Campaign Fix--%>
+            <%
+                long _1111_current = System.currentTimeMillis();
+                long _1111_starttime = cformat.parse("2016-11-11 00:00:00").getTime();
+                long _1111_endtime = cformat.parse("2016-11-12 00:00:00").getTime();
+                if(_1111_current < _1111_endtime && _1111_current >= _1111_starttime){
+            %> 
+                if( typeof resize_image_and_to_center == 'function' ){
+                    resize_image_and_to_center(".img_1111");
+                }
+            <%
+                }
+            %>
         });
         $( document ).ajaxComplete(function() {
             $('body').css("display","block");

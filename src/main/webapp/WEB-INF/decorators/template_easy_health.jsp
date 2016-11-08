@@ -301,6 +301,18 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		<%@ include file="include/merged/footer.jsp"%>
 	</div>
 
+	<%-- 1111 Campaign --%>
+	<%
+		long current = System.currentTimeMillis();
+    	long starttime = cformat.parse("2016-11-11 00:00:00").getTime();
+    	long endtime = cformat.parse("2016-11-12 00:00:00").getTime();
+    	if(current < endtime && current >= starttime){
+    %> 
+	<script>
+		show_1111_campaign("<%=request.getContextPath()%>","${language}");	//refer to main.js
+	</script>
+	<% } %>
+	<%-- End 1111 Campaign --%>
 
 	<%-- <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
