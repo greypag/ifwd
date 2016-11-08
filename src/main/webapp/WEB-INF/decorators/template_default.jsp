@@ -174,6 +174,19 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 	<div class="closeMobileMenu commonBody"><dec:body /></div>
 	<%@ include file="include/merged/footer.jsp"%>
 	
+	<%-- 1111 Campaign --%>
+	<%
+		long current = System.currentTimeMillis();
+    	long starttime = cformat.parse("2016-11-11 00:00:00").getTime();
+    	long endtime = cformat.parse("2016-11-12 00:00:00").getTime();
+    	if(current < endtime && current >= starttime){
+    %> 
+	<script>
+		show_1111_campaign("<%=request.getContextPath()%>","${language}");	//refer to main.js
+	</script>
+	<% } %>
+	<%-- End 1111 Campaign --%>
+	
 	<script type="text/javascript">
 		window.status = "Done";
 	</script>

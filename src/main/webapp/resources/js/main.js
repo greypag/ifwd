@@ -408,7 +408,6 @@ $('.faq_qna').click(function(e){
 	faq_url_click = false;
 });
 
-
 function faqChangeCare(element, care, remote){
 	$(".faq_menu_item").removeClass('active');
 	if(remote == false){
@@ -442,3 +441,81 @@ function showSubmitError(msg, bShow){
 		$('.submit__errormsg').html('');
 	}
 }
+
+/* added on 07-11-2016 for 1111 */
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+function resize_image_and_to_center(ele){
+	var window_width = $(window).width();
+	var window_height = $(window).height();
+	$(ele).css({
+		"max-width" : window_width,
+		"max-height" : window_height,
+	});
+	var img_height = $(ele).height();
+	var img_width = $(ele).width();
+	$(ele).css({
+		"margin-left" : -img_width/2,
+		"margin-top" : -img_height/2,
+	});
+}
+function show_1111_campaign(domain,lang){
+	var is_show_1111 = getCookie("is_show_1111");
+	if(is_show_1111 == ""){
+		var img_src_small = domain + "/resources/images/1111_campaign/small";
+		var img_src_large = domain + "/resources/images/1111_campaign/large";
+		var img_src = img_src_large;
+		var window_width = $(window).width();
+		var window_height = $(window).height();
+		if(window_width <= 768){
+			img_src = img_src_small
+		}
+		if(lang=="en"){
+			img_src += "_en.jpg"
+		}else{
+			img_src += "_tc.jpg"
+		}
+		var html = "<div class=\"wrapper_1111\"><div class=\"modal-backdrop fade in\"></div>";
+		var img = "<img class=\"img_1111\" src=\""+ img_src +"\" ></img>";
+		html = (html + img + "</div>");
+		$("body").prepend(html);
+		$(".wrapper_1111 .modal-backdrop").click(function(){$(".wrapper_1111").hide();});
+		resize_image_and_to_center(".img_1111");
+		/* center the image */
+		$(".img_1111").load(function(){
+			var img_height = $(".img_1111").height();
+			var img_width = $(".img_1111").width();
+			console.log(img_height);
+			$(this).css({
+				"margin-left" : -img_width/2,
+				"margin-top" : -img_height/2,
+				"opacity" : "1"
+			});
+			$(this).click(function(){
+				window.location.href = "/1111.fwd.com.hk/" + lang;
+			})
+		});
+		$(window).resize(function(){
+			resize_image_and_to_center(".img_1111");
+		});
+		
+		var d = new Date();
+	    d.setTime(d.getTime() + (3*60*60*1000));	//show again after 3hours
+	    //d.setTime(d.getTime() + (20*1000)); //20s for testing
+	    var expires = "expires="+ d.toUTCString();
+	    document.cookie = "is_show_1111=1;path=/;expires=" + expires;
+	}
+}
+/* added on 07-11-2016 for 1111 */

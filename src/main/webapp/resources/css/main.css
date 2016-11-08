@@ -12769,3 +12769,15 @@ button[disabled].btn.btn-default--vc {
 		height: 80%;
 	}
 }
+
+.img_1111{
+	position : fixed;
+	left : 50%;
+	top : 50%;
+	z-index : 1031;
+	opacity : 0;
+}
+.img_1111:hover{
+	cursor : pointer;
+}
+
