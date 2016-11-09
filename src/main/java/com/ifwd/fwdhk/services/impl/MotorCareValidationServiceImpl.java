@@ -89,13 +89,19 @@ public class MotorCareValidationServiceImpl implements
 				if(responseJsonObj.get("carDetail") != null && responseJsonObj.get("carDetail").toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();					
 					CarDetail carDetail = mapper.readValue(responseJsonObj.get("carDetail").toString(), CarDetail.class);
+					
+					// no need to check e car for full version
+					/*
 					if(carDetail.isElectricCar()){
 						return HttpStatus.valueOf(414);
 					}
+					*/
+					
 					String carGroup = carDetail.getCarGroup();
 					if(!("1".equals(carGroup) || "3".equals(carGroup) || "9".equals(carGroup))){
 						return HttpStatus.valueOf(417);
 					}
+					
 				}
 			}else{
 				logger.error("validationCarMakeMode carDetails Exception:"+responseJsonObj.get("errMsgs"));

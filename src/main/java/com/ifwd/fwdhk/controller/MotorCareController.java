@@ -58,6 +58,7 @@ import com.ifwd.fwdhk.model.motor.MotorCareDetails;
 import com.ifwd.fwdhk.model.motor.MotorSaveForLater;
 import com.ifwd.fwdhk.services.MotorCareValidationService;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
 @RequestMapping(value = "/api/iMotor", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE} )
@@ -70,6 +71,8 @@ public class MotorCareController extends BaseController{
 	private MotorCareValidationService motorCareValidationService;
 	@Autowired
 	private HeaderUtil headerUtil;
+	@Autowired
+	private SendEmailDao sendEmail;
 	
 	@ApiOperation(
 			value = "This API is used to get available list of motor brands",
@@ -249,10 +252,13 @@ public class MotorCareController extends BaseController{
 			logger.info("getPromoCodes Autherticate error: " + e.toString() );
 			return Responses.error(null);	
 		}
-							
+			
+		// ******************* Valid input *******************
+		
 		try {			
 			Map<String, String> apiResponse = new HashMap<>();
-			apiResponse.put("result", "OK");
+			boolean result = sendEmail.sendEmail(email, "MOTORSMART", new HashMap<String, String>(headerUtil.getHeader(request)));
+			apiResponse.put("result", result ? "OK" : "FAIL");
 			return Responses.ok(apiResponse);
 			
 		} catch (Exception e) {			
@@ -352,6 +358,7 @@ public class MotorCareController extends BaseController{
 	@RequestMapping(value = "/quote/saving", method = POST) 
 	public ResponseEntity<MotorCareDetails> saveQuote( 
 			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody MotorCareDetails quoteMotor,
+			@ApiParam(value = "Indicator for edit from Summary page") @RequestParam(value = "edit", required = false ) String edit,
 			HttpServletRequest request) {
 		
 		try {
@@ -385,8 +392,9 @@ public class MotorCareController extends BaseController{
 		MotorCareDetails apiResponse = new MotorCareDetails();	
 		
 		try {
-			// ******************* Form URL and Object *******************
-			String url = UserRestURIConstants.MOTOR_CARE_SAVE_QUOTE_POST;						
+			// ******************* Form URL and Object *******************			
+			String url = UserRestURIConstants.MOTOR_CARE_SAVE_QUOTE_POST + (!isEmpty(edit) ?  "?edit=" + edit : "");			
+			
 			String jsonString = new ObjectMapper().writeValueAsString(quoteMotor);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			logger.debug("saveQuote jsonInput:"+jsonInput.toString());
@@ -474,7 +482,6 @@ public class MotorCareController extends BaseController{
 		return Responses.ok(apiResponse);
 	}
 		
-	@SuppressWarnings("unused")
 	@ApiOperation(
 			value = "This API is used to perform MotorCare application (Step 1 - Car Details) and return id for further actions",
 			response = String.class			
@@ -489,49 +496,53 @@ public class MotorCareController extends BaseController{
 	public ResponseEntity<Map<String, String>> savePolicyCarDetails(
 			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
 			HttpServletRequest request) {
+		String methodName = "savePolicyCarDetails";
 		
 		try {
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
-			logger.info("savePolicyCarDetails Autherticate error: " + e.toString() );
+			logger.info(methodName + " Autherticate error: " + e.toString() );
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		
-		
+				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
 		JSONObject responseJsonObj = new JSONObject();		
 		
-		// Dummy for vendor testing, remove it when function is ready 
-		if (StringUtils.equals(body.getPolicyId(), "-99999999")) {
-			// Normal
-			apiResponse.put("policyID", "-99999999");
-		} else if (StringUtils.equals(body.getPolicyId(), "-11111111")) {			
-			// 404
-			return Responses.notFound(null);
-		} else if (StringUtils.equals(body.getPolicyId(), "-22222222")) {			
-			// 400
-			return Responses.badRequest(null);
-		} else if (StringUtils.equals(body.getPolicyId(), "-33333333")) {			
-			// 410
-			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(410));
-		} else {
-			// 500
-			return Responses.error(null);
-		}
-		
 		try {
-			// To-be-updated for FULL and delete this comment when completed the coding
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_SAVE_POLICY_POST,"{stepNo}", "1");
+			String jsonString = new ObjectMapper().writeValueAsString(body);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
 				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorCareDetails detail = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class); 
+					apiResponse.put("policyID", detail.getPolicyId());
+				} else {
+					logger.info(methodName + " motorCareDetails not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+			
 		} catch (Exception e) {
-			logger.info("savePolicyCarDetails System error:" + e.toString());
+			logger.info(methodName + " System error:" + e.toString());
 			return Responses.error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
-	
-	@SuppressWarnings("unused")
+		
 	@ApiOperation(
 			value = "This API is used to perform MotorCare application (Step 2 - Driver Details) and return id for further actions",
 			response = String.class			
@@ -546,45 +557,53 @@ public class MotorCareController extends BaseController{
 			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
 			HttpServletRequest request) {
 		
+		String methodName = "savePolicyDriverDetails";
 		try {
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
-			logger.info("savePolicyDriverDetails Autherticate error: " + e.toString() );
+			logger.info(methodName + " Autherticate error: " + e.toString() );
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		
-		
+				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
 		JSONObject responseJsonObj = new JSONObject();		
-		
-		// Dummy for vendor testing, remove it when function is ready 
-		if (StringUtils.equals(body.getPolicyId(), "-99999999")) {
-			// Normal
-			apiResponse.put("policyID", "-99999999");
-		} else if (StringUtils.equals(body.getPolicyId(), "-11111111")) {			
-			// 404
-			return Responses.notFound(null);
-		} else if (StringUtils.equals(body.getPolicyId(), "-22222222")) {			
-			// 400
-			return Responses.badRequest(null);
-		} else {
-			// 500
-			return Responses.error(null);
-		}
-		
+
 		try {
-			// To-be-updated for FULL and delete this comment when completed the coding
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_SAVE_POLICY_POST,"{stepNo}", "2");
+			String jsonString = new ObjectMapper().writeValueAsString(body);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
 				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorCareDetails detail = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class); 
+					apiResponse.put("policyID", detail.getPolicyId());
+				} else {
+					logger.info(methodName + " motorCareDetails not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+			
 		} catch (Exception e) {
-			logger.info("savePolicyDriverDetails System error:" + e.toString());
+			logger.info(methodName + " System error:" + e.toString());
 			return Responses.error(null);			
 		}
+		
 		return Responses.ok(apiResponse);
 	}
-	
-	@SuppressWarnings("unused")
+
 	@ApiOperation(
 			value = "This API is used to perform MotorCare application (Step 3 - Policy Details) and return id for further actions",
 			response = String.class			
@@ -598,46 +617,53 @@ public class MotorCareController extends BaseController{
 	public ResponseEntity<Map<String, String>> savePolicyDetails(
 			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
 			HttpServletRequest request) {
+		String methodName = "savePolicyDetails";
 		
 		try {
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
-			logger.info("savePolicyDetails Autherticate error: " + e.toString() );
+			logger.info(methodName + " Autherticate error: " + e.toString() );
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		
-		
+				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
 		JSONObject responseJsonObj = new JSONObject();		
-		
-		// Dummy for vendor testing, remove it when function is ready 
-		if (StringUtils.equals(body.getPolicyId(), "-99999999")) {
-			// Normal
-			apiResponse.put("policyID", "-99999999");
-		} else if (StringUtils.equals(body.getPolicyId(), "-11111111")) {			
-			// 404
-			return Responses.notFound(null);
-		} else if (StringUtils.equals(body.getPolicyId(), "-22222222")) {			
-			// 400
-			return Responses.badRequest(null);
-		} else {
-			// 500
-			return Responses.error(null);
-		}
-		
-		try {
-			// To-be-updated for FULL and delete this comment when completed the coding
 				
+		try {
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_SAVE_POLICY_POST,"{stepNo}", "3");
+			String jsonString = new ObjectMapper().writeValueAsString(body);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorCareDetails detail = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class); 
+					apiResponse.put("policyID", detail.getPolicyId());
+				} else {
+					logger.info(methodName + " motorCareDetails not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+			
 		} catch (Exception e) {
-			logger.info("savePolicyDetails System error:" + e.toString());
+			logger.info(methodName + " System error:" + e.toString());
 			return Responses.error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
-	
-	@SuppressWarnings("unused")
+		
 	@ApiOperation(
 			value = "This API is used to perform MotorCare application (Step 4 - Declarations) and return id for further actions",
 			response = String.class			
@@ -651,11 +677,12 @@ public class MotorCareController extends BaseController{
 	public ResponseEntity<Map<String, String>> savePolicyDeclarations(
 			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
 			HttpServletRequest request) {
+		String methodName = "savePolicyDeclarations";
 		
 		try {
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
-			logger.info("savePolicyDeclarations Autherticate error: " + e.toString() );
+			logger.info(methodName + " Autherticate error: " + e.toString() );
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
@@ -665,44 +692,54 @@ public class MotorCareController extends BaseController{
 		Map<String, String> apiResponse = new HashMap<>();	
 		JSONObject responseJsonObj = new JSONObject();		
 		
-		// Dummy for vendor testing, remove it when function is ready 
-		if (StringUtils.equals(body.getPolicyId(), "-99999999")) {
-			// Normal
-			apiResponse.put("policyID", "-99999999");
-		} else if (StringUtils.equals(body.getPolicyId(), "-11111111")) {			
-			// 404
-			return Responses.notFound(null);
-		} else if (StringUtils.equals(body.getPolicyId(), "-22222222")) {			
-			// 400
-			return Responses.badRequest(null);
-		} else {
-			// 500
-			return Responses.error(null);
-		}
-		
 		try {
-			// To-be-updated for FULL and delete this comment when completed the coding
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_SAVE_POLICY_POST,"{stepNo}", "4");
+			String jsonString = new ObjectMapper().writeValueAsString(body);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
 				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorCareDetails detail = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class); 
+					apiResponse.put("policyID", detail.getPolicyId());
+				} else {
+					logger.info(methodName + " motorCareDetails not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+			
 		} catch (Exception e) {
-			logger.info("savePolicyDeclarations System error:" + e.toString());
+			logger.info(methodName + " System error:" + e.toString());
 			return Responses.error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
-	
-	@SuppressWarnings("unused")
+		
 	@ApiOperation(
 			value = "This API is used to handle payment",
 			response = PayDollar.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
-			@ApiResponse(code = 404, message = "System cannot find the policy"),			
+			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),
+			@ApiResponse(code = 410, message = "System cannot process Referral Case"),
+			@ApiResponse(code = 411, message = "There is a payment is working in process"),	
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/payment"}, method = POST)
 	public ResponseEntity<PayDollar> processPayment(
 			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
+			@ApiParam(value = "paymentGatewayFlag") @RequestParam(value = "paymentGatewayFlag", required = false ) String paymentGatewayFlag,	
 			HttpServletRequest request) {
 		
 		try {
@@ -717,57 +754,128 @@ public class MotorCareController extends BaseController{
 		// ******************* Init *******************
 		PayDollar apiResponse = new PayDollar();
 		JSONObject responseJsonObj = new JSONObject();		
-		
-		/*
-		// Dummy for vendor testing, remove it when function is ready 
-		if (StringUtils.equals(body.getPolicyId(), "-99999999")) {
-			// Normal			
-		} else if (StringUtils.equals(body.getPolicyId(), "-11111111")) {			
-			// 404
-			return Responses.notFound(null);
-		} else if (StringUtils.equals(body.getPolicyId(), "-22222222")) {			
-			// 400
-			return Responses.badRequest(null);
-		} else {
-			// 500
-			return Responses.error(null);
-		}
-		*/
-		
+			
 		try {
 			// ******************* Form URL and Object *******************
-			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_POST;						
+			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_POST + (!isEmpty(paymentGatewayFlag) ?  "?paymentGatewayFlag=" + paymentGatewayFlag : "");						
 			String jsonString = new ObjectMapper().writeValueAsString(body);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			UserRestURIConstants urc = new UserRestURIConstants();
+			urc.updateLanguage(request);		
 			
-			String inPath = request.getRequestURL().toString();		// incoming Path
-			String failUrl = inPath + "?paymentGatewayFlag=true";
-//			model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-//			model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+			// incoming Path		
+			String toBasePath = getMotorBasePath(request) ;
+			// model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
+			// model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 			
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			
 			// ******************* Makeup result *******************
-			if (responseJsonObj.get("errMsgs") == null) {
+			if (responseJsonObj.get("errMsgs") == null) {								
 				if(responseJsonObj.get("payDollar") != null && responseJsonObj.get("payDollar").toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
 					apiResponse = mapper.readValue(responseJsonObj.get("payDollar").toString(), PayDollar.class);
-					apiResponse.setSuccessUrl(StringUtils.replace(inPath, request.getServletPath(), "/payment-result?refNum=" + apiResponse.getReferenceNo()));
+					
+					// Other payment in progress 
+					if ( StringUtils.equals(apiResponse.getErrorMsg(), "PIP") ) {
+						return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(411));
+					}
+					String successUrl = toBasePath + "payment-result" + "?refNum=" + apiResponse.getReferenceNo();
+					String failUrl = toBasePath + "application-summary" + "?paymentGatewayFlag=1&refNum=" + apiResponse.getReferenceNo();
+					
+					apiResponse.setSuccessUrl(successUrl);					
 					apiResponse.setFailUrl(failUrl);
 					apiResponse.setErrorUrl(failUrl);
+					logger.info("------------------------------------------------------- : 1 : " + request.getServletPath() );
+					logger.info("------------------------------------------------------- : 2 : " + request.getRequestURL() );
+					logger.info("------------------------------------------------------- : 3 : " + request.getContextPath() );
+					logger.info("------------------------------------------------------- : 4 : " + UserRestURIConstants.getLanaguage(request) );
 					
 				} else {
 					logger.info("processPayment record not found");
 					return Responses.notFound(null);
 				}				
 			} else {
+				
+				if ( StringUtils.equals((String)responseJsonObj.get("errMsgs"), "404")){
+					return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(404));
+				} else if ( StringUtils.equals((String)responseJsonObj.get("errMsgs"), "400")){
+					return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(400));
+				}
+				
 				logger.info("processPayment System error:" + responseJsonObj.get("errMsgs").toString());
 				return Responses.error(null);				
 			}	
 
 		} catch (Exception e) {
 			logger.info("processPayment System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to handle failed payment",
+			response = MotorCareDetails.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),	
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/policy/payment/summary"}, method = POST)
+	public ResponseEntity<MotorCareDetails> processFailedPayment(
+			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
+			@ApiParam(value = "paymentGatewayFlag") @RequestParam(value = "paymentGatewayFlag", required = true ) String paymentGatewayFlag,
+			HttpServletRequest request) {
+		String methodName = "processFailedPayment";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info( methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		// ******************* Valid input *******************
+				
+		// ******************* Init *******************
+		MotorCareDetails apiResponse = new MotorCareDetails();
+		JSONObject responseJsonObj = new JSONObject();		
+			
+		try {
+			// ******************* Form URL and Object *******************
+			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_FAILED_POST + "?paymentGatewayFlag=" + paymentGatewayFlag;
+			String jsonString = new ObjectMapper().writeValueAsString(body);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {				
+										
+				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					apiResponse = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class);
+					
+				} else {
+					logger.info( methodName + " record not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				if ( StringUtils.equals((String)responseJsonObj.get("errMsgs"), "404")){
+					return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(404));
+				} else if ( StringUtils.equals((String)responseJsonObj.get("errMsgs"), "400")){
+					return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(400));
+				}
+				
+				logger.info( methodName + " System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);				
+			}	
+
+		} catch (Exception e) {
+			logger.info( methodName + " System error:" + e.toString());
 			return Responses.error(null);			
 		}
 		return Responses.ok(apiResponse);
@@ -806,50 +914,16 @@ public class MotorCareController extends BaseController{
 	}
 	
 	@ApiOperation(
-			value = "This API is used to do Save for later of policy",
-			response = String.class			
-			)
-	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid info to perform Save for later"),
-			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
-			})
-	@RequestMapping(value = {"/saveForLater"}, method = POST)
-	public ResponseEntity<Map<String, String>> saveForLater(
-			@ApiParam(value = "Save for Later Info", required = true) @RequestBody MotorSaveForLater saveForLater,			
-			HttpServletRequest request) {
-		
-		try {
-			super.IsAuthenticate(request);
-		} catch (RuntimeException e) {
-			logger.info("saveForLater Autherticate error: " + e.toString() );
-			return Responses.error(null);	
-		}
-		
-		// ******************* Valid input *******************
-		// need to check login
-		
-		try {
-			Map<String, String> apiResponse = new HashMap<>();
-			return Responses.ok(apiResponse);
-			
-		} catch (Exception e) {
-			logger.info("saveForLater System error:" + e.toString());
-			return Responses.error(null);			
-		}
-	}
-	
-	@ApiOperation(
 			value = "This API is used to resume previous session for Save for later of policy",
 			response = MotorSaveForLater.class			
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 400, message = "Invalid info"),
-			@ApiResponse(code = 410, message = "System cannot find such info for your pervious session"),
+			@ApiResponse(code = 404, message = "System cannot find such info for your pervious session"),
 			@ApiResponse(code = 411, message = "System asked for login"),
 			@ApiResponse(code = 500, message = "System error")
 			})
-	@RequestMapping(value = {"/saveForLater/resume"}, method = POST)
+	@RequestMapping(value = {"/policy/save4Later/resume"}, method = POST)
 	public ResponseEntity<MotorSaveForLater> resumeSaveForLater(
 			@ApiParam(value = "Save for Later Info", required = true) @RequestBody MotorSaveForLater saveForLater,			
 			HttpServletRequest request) {
@@ -861,14 +935,330 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		
+		// ******************* Valid input *******************
+		// Check Login 411 
+		
+		// ******************* Init *******************
+		MotorSaveForLater apiResponse = new MotorSaveForLater();	
+		JSONObject responseJsonObj = new JSONObject();		
+		
 		try {
-			MotorSaveForLater apiResponse = new MotorSaveForLater();
-			return Responses.ok(apiResponse);
+			// ******************* Form URL and Object *******************
+			String url = UserRestURIConstants.MOTOR_CARE_SAVE_FOR_LATER_RESUME_POST;						
+			String jsonString = new ObjectMapper().writeValueAsString(saveForLater);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorSaveForLater") != null && responseJsonObj.get("motorSaveForLater").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					apiResponse = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class);
+				} else {
+					logger.info("resumeSaveForLater motorCareDetails not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info("resumeSaveForLater System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);				
+			}		
 			
 		} catch (Exception e) {
 			logger.info("resumeSaveForLater System error:" + e.toString());
 			return Responses.error(null);			
 		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to perform Save for Later (Step 1 - Car Details)",
+			response = String.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),
+			@ApiResponse(code = 410, message = "Invalid Car Band"),
+			@ApiResponse(code = 411, message = "System asked for login"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/policy/save4Later/carDetails"}, method = POST)
+	public ResponseEntity<Map<String, String>> save4LaterPolicyCarDetails(
+			@ApiParam(value = "MotorCareDetails", required = true) @RequestBody MotorCareDetails body,
+			HttpServletRequest request) {
+		String methodName = "save4LaterPolicyCarDetails";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info(methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		// ******************* Valid input *******************
+		if (isEmpty(getUserName(request))) {
+			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
+		}
+				
+		// ******************* Init *******************
+		Map<String, String> apiResponse = new HashMap<>();	
+		JSONObject responseJsonObj = new JSONObject();		
+		
+		try {
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_SAVE_FOR_LATER_POST,"{stepNo}", "1");
+
+			// Set UID and current URL
+			MotorSaveForLater save4LaterRequest = new MotorSaveForLater();
+			save4LaterRequest.setLang(UserRestURIConstants.getLanaguage(request));
+			save4LaterRequest.setUri("car-details");
+			save4LaterRequest.setUserName(getUserName(request));
+			save4LaterRequest.setMotorCareDetails(body);
+			
+			String jsonString = new ObjectMapper().writeValueAsString(save4LaterRequest);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorSaveForLater") != null && responseJsonObj.get("motorSaveForLater").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
+					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+				} else {
+					logger.info(methodName + " motorSaveForLater not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+			
+		} catch (Exception e) {
+			logger.info(methodName + " System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to perform Save for Later (Step 2 - Driver Details)",
+			response = String.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),			
+			@ApiResponse(code = 411, message = "System asked for login"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/policy/save4Later/driverDetails"}, method = POST)
+	public ResponseEntity<Map<String, String>> save4LaterPolicyDriverDetails(
+			@ApiParam(value = "MotorCareDetails", required = true) @RequestBody MotorCareDetails body,
+			HttpServletRequest request) {
+		String methodName = "save4LaterPolicyDriverDetails";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info(methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		// ******************* Valid input *******************
+		if (isEmpty(getUserName(request))) {
+			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
+		}
+				
+		// ******************* Init *******************
+		Map<String, String> apiResponse = new HashMap<>();	
+		JSONObject responseJsonObj = new JSONObject();		
+		
+		try {
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_SAVE_FOR_LATER_POST,"{stepNo}", "2");
+
+			// Set UID and current URL
+			MotorSaveForLater save4LaterRequest = new MotorSaveForLater();
+			save4LaterRequest.setLang(UserRestURIConstants.getLanaguage(request));
+			save4LaterRequest.setUri("car-details");
+			save4LaterRequest.setUserName(getUserName(request));
+			save4LaterRequest.setMotorCareDetails(body);
+			
+			String jsonString = new ObjectMapper().writeValueAsString(save4LaterRequest);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorSaveForLater") != null && responseJsonObj.get("motorSaveForLater").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
+					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+				} else {
+					logger.info(methodName + " motorSaveForLater not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+			
+		} catch (Exception e) {
+			logger.info(methodName + " System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to perform Save for Later (Step 3 - Policy Details)",
+			response = String.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),			
+			@ApiResponse(code = 411, message = "System asked for login"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/policy/save4Later/policyDetails"}, method = POST)
+	public ResponseEntity<Map<String, String>> save4LaterPolicyDetails(
+			@ApiParam(value = "MotorCareDetails", required = true) @RequestBody MotorCareDetails body,
+			HttpServletRequest request) {
+		String methodName = "save4LaterPolicyDetails";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info(methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		// ******************* Valid input *******************
+		if (isEmpty(getUserName(request))) {
+			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
+		}
+				
+		// ******************* Init *******************
+		Map<String, String> apiResponse = new HashMap<>();	
+		JSONObject responseJsonObj = new JSONObject();		
+		
+		try {
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_SAVE_FOR_LATER_POST,"{stepNo}", "3");
+
+			// Set UID and current URL
+			MotorSaveForLater save4LaterRequest = new MotorSaveForLater();
+			save4LaterRequest.setLang(UserRestURIConstants.getLanaguage(request));
+			save4LaterRequest.setUri("car-details");
+			save4LaterRequest.setUserName(getUserName(request));
+			save4LaterRequest.setMotorCareDetails(body);
+			
+			String jsonString = new ObjectMapper().writeValueAsString(save4LaterRequest);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorSaveForLater") != null && responseJsonObj.get("motorSaveForLater").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
+					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+				} else {
+					logger.info(methodName + " motorSaveForLater not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+			
+		} catch (Exception e) {
+			logger.info(methodName + " System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to perform Save for Later (Step 4 - Declarations)",
+			response = String.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),			
+			@ApiResponse(code = 411, message = "System asked for login"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/policy/save4Later/declarations"}, method = POST)
+	public ResponseEntity<Map<String, String>> save4LaterPolicyDeclarations(
+			@ApiParam(value = "MotorCareDetails", required = true) @RequestBody MotorCareDetails body,
+			HttpServletRequest request) {
+		String methodName = "save4LaterPolicyDeclarations";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info(methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		// ******************* Valid input *******************
+		if (isEmpty(getUserName(request))) {
+			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
+		}
+				
+		// ******************* Init *******************
+		Map<String, String> apiResponse = new HashMap<>();	
+		JSONObject responseJsonObj = new JSONObject();		
+		
+		try {
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_SAVE_FOR_LATER_POST,"{stepNo}", "4");
+
+			// Set UID and current URL
+			MotorSaveForLater save4LaterRequest = new MotorSaveForLater();
+			save4LaterRequest.setLang(UserRestURIConstants.getLanaguage(request));
+			save4LaterRequest.setUri("car-details");
+			save4LaterRequest.setUserName(getUserName(request));
+			save4LaterRequest.setMotorCareDetails(body);
+			
+			String jsonString = new ObjectMapper().writeValueAsString(save4LaterRequest);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorSaveForLater") != null && responseJsonObj.get("motorSaveForLater").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
+					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+				} else {
+					logger.info(methodName + " motorSaveForLater not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+			
+		} catch (Exception e) {
+			logger.info(methodName + " System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
 	}
 	
 	@ApiOperation(
@@ -880,19 +1270,60 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/fileUpload"}, method = POST)
-	public ResponseEntity<String> uploadFile4Policy(
-			@ApiParam(value = "Files for upload", required = true) @RequestBody MotorFileDetails motorFileDetails,			
-			HttpServletRequest request) {
+	public ResponseEntity<Map<String, String>> uploadFile4Policy(MultipartHttpServletRequest request) {
 		
 		try {
-			super.IsAuthenticate(request);
+			//super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("uploadFile4Policy Autherticate error: " + e.toString() );
 			return Responses.error(null);	
 		}
 		
 		try {
-			String apiResponse = new String();
+			// ******************* Init *******************
+			Map<String, String> apiResponse = new HashMap<>();
+			List<MotorFile> fileDetailList = new ArrayList<> (); 
+			MotorFileDetails motorFileDetails = new MotorFileDetails();
+			
+			Iterator<String> itr =  request.getFileNames();
+			String policyId = request.getParameter("policyId");
+			String docType = request.getParameter("docType");
+			
+			logger.info("policyId:" + policyId);
+			logger.info("docType:" + docType);			
+			
+			MultipartFile mpf = null;
+			while(itr.hasNext()){
+				 mpf = request.getFile(itr.next()); 
+				 MotorFile mf = new MotorFile();
+				 
+				 try {
+					 System.out.println(mpf.getOriginalFilename() +" uploaded! "+ mpf.getContentType());
+					 System.out.println(FilenameUtils.getExtension(mpf.getOriginalFilename()));
+					 System.out.println(Base64.getEncoder().encodeToString(mpf.getBytes()));
+					 mf.setFileBase64String(Base64.getEncoder().encodeToString(mpf.getBytes()));
+					 mf.setFileName(mpf.getOriginalFilename());
+					 mf.setFileDocExt(FilenameUtils.getExtension(mpf.getOriginalFilename()));
+					 mf.setFileType(docType);
+					 //mf.setPolicyID("26306531");
+					 mf.setPolicyID(policyId);
+					 fileDetailList.add(mf);
+					 
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			motorFileDetails.setMotorFileList(fileDetailList);
+			
+			// ******************* Consume Service *******************
+			String url = UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_POST;
+			String jsonString = new ObjectMapper().writeValueAsString(motorFileDetails);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			
+			apiResponse.put("result", "OK");
 			return Responses.ok(apiResponse);
 			
 		} catch (Exception e) {
@@ -1284,12 +1715,62 @@ public class MotorCareController extends BaseController{
 		return Responses.ok(apiResponse);
 	}
 	
+	@ApiOperation(
+			value = "This API is used to get available list of Occupations (version 2)",
+			response = CodeTable.class,
+			responseContainer = "List"
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 404, message = "System cannot find records"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = "/list/occupations/v2", method = GET)
+	public ResponseEntity<List<CodeTable>> getOccupationsV2(HttpServletRequest request) {
+		String methodName = "getOccupationsV2";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info(methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		
+		List<CodeTable> apiResponse = new ArrayList<>();
+		JSONObject responseJsonObj = new JSONObject();
+		try {
+			// ******************* Valid input *******************
+								
+			// ******************* Form URL *******************
+			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "occupation");
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();				
+					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
+				} else {
+					logger.info(methodName + " record not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}			
+			
+		} catch (Exception e) {
+			logger.info(methodName + " System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}	
 	
 	private String urlEncodeInputSpace (String input) throws UnsupportedEncodingException {
 		return replace(URLEncoder.encode(input, "UTF-8"), "+", "%20");
 	}
 	
-	private String GetUserName(HttpServletRequest request) {
+	private String getUserName(HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
 		// return null if the customer did not login yet
 		if (session == null) {
@@ -1301,5 +1782,14 @@ public class MotorCareController extends BaseController{
 				return null;
 			}
 		}			
+	}
+	
+	private boolean isUserLogin (HttpServletRequest request) {
+		return isEmpty(getUserName(request));
+	}
+	
+	private String getMotorBasePath(HttpServletRequest request) {
+		return replace(request.getRequestURL().toString(), request.getServletPath(), "") 
+		+ "/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/" ;
 	}
 }

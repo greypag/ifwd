@@ -601,20 +601,27 @@ public class UserRestURIConstants {
 	public static final String GET_SAVIE_REFERRAL_DISCOUNT = SERVICE_URL + "/premium/savie/referral/discount";
 	
 	/*API For (iMotor)*/
-	public static final String MOTOR_CARE_CARDETAILS_BY_MAKE_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}";
 	public static final String MOTOR_CARE_CARMAKE_LIST_GET = SERVICE_URL + "/iMotor/list/carMakes";
+	public static final String MOTOR_CARE_OCCUPATIONS_GET = SERVICE_URL + "/iMotor/list/occupations";
+	public static final String MOTOR_CARE_CODE_TABLE_GET = SERVICE_URL + "/iMotor/list/codeTable/{type}";
+	
+	public static final String MOTOR_CARE_CARDETAILS_BY_MAKE_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}";
+	public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}/{carModel}/supplement";
+	public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET = SERVICE_URL + "/iMotor/carDetails/supplement";
+	
+    public static final String MOTOR_CARE_CONTACT_ME_POST = SERVICE_URL + "/iMotor/contactMe";
+    public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
+    
 	public static final String MOTOR_CARE_GET_QUOTE_POST = SERVICE_URL + "/iMotor/quote";
 	public static final String MOTOR_CARE_SAVE_QUOTE_POST = SERVICE_URL + "/iMotor/quote/saving";
-	public static final String MOTOR_CARE_OCCUPATIONS_GET = SERVICE_URL + "/iMotor/list/occupations";
-    public static final String MOTOR_CARE_CONTACT_ME_POST = SERVICE_URL + "/iMotor/contactMe";
-    public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}/{carModel}/supplement";
-    public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET = SERVICE_URL + "/iMotor/carDetails/supplement";
-	public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
-	public static final String MOTOR_CARE_FILE_UPLOAD_POST = SERVICE_URL + "/iMotor/policy/fileUpload";
-	public static final String MOTOR_CARE_CODE_TABLE_GET = SERVICE_URL + "/iMotor/list/codeTable/{type}";
+	public static final String MOTOR_CARE_SAVE_POLICY_POST = SERVICE_URL + "/iMotor/policy/saving/{stepNo}";    	
+	public static final String MOTOR_CARE_FILE_UPLOAD_POST = SERVICE_URL + "/iMotor/policy/fileUpload";	
 	public static final String MOTOR_CARE_PAYMENT_POST = SERVICE_URL + "/iMotor/policy/payment";
-
-	
+	public static final String MOTOR_CARE_PAYMENT_FAILED_POST = SERVICE_URL + "/iMotor/policy/payment/summary";
+	public static final String MOTOR_CARE_PAYMENT_RESULT_GET = SERVICE_URL + "/iMotor/policy/payment/result";
+	public static final String MOTOR_CARE_SAVE_FOR_LATER_POST = SERVICE_URL + "/iMotor/policy/save4Later/{stepNo}";
+	public static final String MOTOR_CARE_SAVE_FOR_LATER_RESUME_POST = SERVICE_URL + "/iMotor/policy/save4Later/resume";
+		
 	static String controller;
 
 	public static boolean isContentEditable() {
@@ -851,4 +858,5 @@ public class UserRestURIConstants {
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);			
 		}
     }
+    
 }
