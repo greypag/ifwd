@@ -1,13 +1,18 @@
 .container--regform{
 	padding: 0;
-
+	@media screen and (max-width: 992px){
+		width: 100%;
+	}
 	.row{
 		margin-right: auto;
-		
+		margin-right: 30px;
 		.regform__left{
 			.registration{
+				@media screen and (min-width: 992px){
+					margin-right: 30px;
+				}
 				.registration__item{
-					width: 85%;
+					width: 100%;
 					padding-top: 0;
 					
 					&.is-focused,
@@ -59,7 +64,7 @@
 							
 							.tooltip-arrow{
 								top: -5px;
-								left: 89%;
+								left : 89%;
 							}
 						}
 						&.right{
@@ -68,10 +73,9 @@
 						.tooltip-inner{
 							width: inherit;
 						    max-width: none;
+						    max-width: 235px;
 						    background-color: #fbfbfb;
 						    margin-left: 5px;
-						    width: 285px;
-						    max-width: 285px;
 						    padding: 15px;
 						    color: #000;
 						    -webkit-box-shadow: 0px 0px 4px 0px #838b8f;
@@ -88,20 +92,10 @@
 							height: 15px;
 							border-left: 1px solid #e1e1e1;
 							background: #fbfbfb;
-							left: 1px !important;
 							border-top: 1px solid #e1e1e1;
 							border-right: 0;
 							border-bottom: 0;
 							border-width: 1px !important;
-						}
-					}
-				}
-				.radio-wrapper{
-					margin : 20px 0;
-					.radio-choice{
-						margin-left : -30px;
-						input{
-							margin-right : 15px;
 						}
 					}
 				}
@@ -148,4 +142,21 @@
     		border-bottom: 1px solid #f99502;
 		}
 	}
+}
+.radio-wrapper{
+	margin : 20px 0;
+	padding-left : 0;
+	.radio-choice{
+	padding-left : 0;
+	    width: initial;
+		input{
+			margin-right : 15px;
+		}
+	}
+}
+.padding-15{
+	padding-left : 15px;
+}
+.joinus_form_non_member{
+	display:none;
 }
