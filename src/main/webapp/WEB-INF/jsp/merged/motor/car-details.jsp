@@ -76,13 +76,14 @@ var nextPage = "${nextPageFlow}";
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" id="motor_Form_Title">
             <div class="center" > 
                 <!--desktop-->
                 <h1 class="landing_h2 hidden-sm hidden-xs">Car Details</h1>
                 <!--end-desktop--> 
                 <!--Mobile-->
                 <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Car Details</h1>
+                <h1 class="landing_h3 hidden-lg hidden-md feature-ttl">Car Details</h1>
                 <!--end mobile--> 
             </div>
         </div>
@@ -186,12 +187,12 @@ var nextPage = "${nextPageFlow}";
 	                    <div class="text-center col-sm-6 col-sm-offset-3">
 	                        <div class="row" >
 	                            <div class="text-center col-xs-6">
-	                                <br />
+	                                <br /> <br />
 	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
 	                                <br/>
 	                            </div>
 	                            <div class="text-center col-xs-6">
-	                                <br />
+	                                <br /> <br />
 	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
 	                                <br/>
 	                            </div>
@@ -331,15 +332,21 @@ $(document).ready(function(){
 				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
 				   "modelDesc": $('input[name=registedModel]').val()    	
 					}, 	
-					"policyId": ""  	
+					"policyId": "26379363"  	
 					};
 		console.dir(data);
 		
 		$.ajax({
+          beforeSend: function(){
+          	$('#loading-overlay').modal("show");
+          },
 		  type: "POST",
-		  url: "/api/iMotor/policy/saving/carDetails",
-		  data: data,
+		  data: JSON.stringify(data),
 		  dataType: "json",
+          contentType : "application/json",
+          cache: false,
+          async: false,
+          url: "/api/iMotor/policy/saving/carDetails",
 		  success: function(data){
 			  
 			  

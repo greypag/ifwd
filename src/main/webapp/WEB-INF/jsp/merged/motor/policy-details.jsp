@@ -71,15 +71,24 @@ var nextPage = "${nextPageFlow}";
                 </div>
             </div>
         </div>
+    	<div class="container" id="motor_Form_Title">
+            <div class="center" > 
+                <!--desktop-->
+                <h1 class="landing_h2 hidden-sm hidden-xs">Policy Details</h1>
+                <!--end-desktop--> 
+                <!--Mobile-->
+                <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Policy Details</h1>
+                <!--end mobile--> 
+        </div>
         <div id="motor_registerForm">
-	        <form id="policyDetails" action="/api/iMotor/policy" method="post" data-toggle="validator">
+	        <form id="policyDetails" name="" method="post" data-toggle="validator" >
 	            <div class="container">
 	                <div class="center" > 
 	                    <!--desktop-->
 	                    <h1 class="landing_h2 hidden-sm hidden-xs">Named Driver 1</h1>
 	                    <!--end-desktop--> 
 	                    <!--Mobile-->
-	                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Named Driver 1</h1>
+	                    <h1 class="landing_h3 hidden-lg hidden-md feature-ttl">Named Driver 1</h1>
 	                    <!--end mobile--> 
 	                </div>
 	            </div>
@@ -176,7 +185,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d2name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+	                                                    <input type="text" name="d2name" maxlength="100" class="form-control input--grey mdl-textfield__input" pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
 	                                                    <label class="mdl-textfield__label" >Full Name</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -187,7 +196,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
 	                                                <!-- <select class="form-control occupation" name="d2occuption" data-required-error="Please select your occupation." required>-->
-	                                                <select class="form-control selectized" id="d2occupation" data-required-error="Please select your occupation." required>
+	                                                <select class="form-control selectized" id="d2occupation" data-required-error="Please select your occupation." >
 	                                                <option value="" disabled selected hidden>Occupation</option>
 	                                            </select>
 	                                                <div class="help-block with-errors"></div>
@@ -199,7 +208,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
-	                                                    <input type="text" name="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
+	                                                    <input type="text" name="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" >
 	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -210,7 +219,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+	                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error="Please enter your HKID no." >
 	                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -223,7 +232,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
 	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d2term" name="d2term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                    <input type="checkbox" id="d2term" name="d2term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." >
 	                                                        <label><small>
 	                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
 	                                                        </label>
@@ -262,7 +271,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdlhttp://localhost:3014/t8_Sign_up_page3.html-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d3name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+	                                                    <input type="text" name="d3name" maxlength="100" class="form-control input--grey mdl-textfield__input" pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
 	                                                    <label class="mdl-textfield__label" >Full Name</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -272,7 +281,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                                <select class="form-control occupation" name="d3occuption" data-required-error="Please select your occupation." required>
+	                                                <select class="form-control occupation" name="d3occuption" data-required-error="Please select your occupation." >
 	                                                    <option value="" disabled selected hidden>Occupation</option>
 	                                                </select>
 	                                                <div class="help-block with-errors"></div>
@@ -284,7 +293,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
-	                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
+	                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
 	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -295,7 +304,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+	                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error="Please enter your HKID no." >
 	                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -308,7 +317,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
 	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d3term" name="d3term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                    <input type="checkbox" id="d3term" name="d3term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." >
 	                                                        <label><small>
 	                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
 	                                                        </label>
@@ -347,7 +356,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d4name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+	                                                    <input type="text" name="d4name" maxlength="100" class="form-control input--grey mdl-textfield__input" pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
 	                                                    <label class="mdl-textfield__label" >Full Name</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -357,7 +366,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                                <select class="form-control occupation" name="d4occuption" data-required-error="Please select your occupation." required>
+	                                                <select class="form-control occupation" name="d4occuption" data-required-error="Please select your occupation." >
 	                                                    <option value="" disabled selected hidden>Occupation</option>
 	                                                </select>
 	                                                <div class="help-block with-errors"></div>
@@ -369,7 +378,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
-	                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
+	                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
 	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -380,7 +389,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+	                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error="Please enter your HKID no." >
 	                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -393,7 +402,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
 	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d4term" name="d4term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                    <input type="checkbox" id="d4term" name="d4term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." >
 	                                                        <label><small>
 	                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
 	                                                        </label>
@@ -432,7 +441,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d5name" maxlength="100" class="form-control input--grey mdl-textfield__input" required pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
+	                                                    <input type="text" name="d5name" maxlength="100" class="form-control input--grey mdl-textfield__input" pattern="^[a-zA-Z\s]+$" data-required-error="Please enter your full name." data-error="Please enter your full name in English." >
 	                                                    <label class="mdl-textfield__label" >Full Name</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -442,7 +451,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                                <select class="form-control occupation" name="d5occuption" data-required-error="Please select your occupation." required>
+	                                                <select class="form-control occupation" name="d5occuption" data-required-error="Please select your occupation." >
 	                                                    <option value="" disabled selected hidden>Occupation</option>
 	                                                </select>
 	                                                <div class="help-block with-errors"></div>
@@ -454,7 +463,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
-	                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  required>
+	                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
 	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -465,7 +474,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" required data-required-error="Please enter your HKID no." >
+	                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your HKID no. is invalid." class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error="Please enter your HKID no." >
 	                                                    <label class="mdl-textfield__label" for="driverID">HKID e.g. Z1234567 Without ()</label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -478,7 +487,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
 	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d5term" name="d5term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." required>
+	                                                    <input type="checkbox" id="d5term" name="d5term" value="agree" data-required-error="Named driver must have more than 2 years of driving experience." >
 	                                                        <label><small>
 	                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
 	                                                        </label>
@@ -576,7 +585,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="text-center col-xs-6">
 	                                <br />
-	                                <a href="#" id="sendDriverDetail" class="bdr-curve btn btn-primary nxt-btn">Next</a>
+	                                 <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
 	                                <br/>
 	                            </div>
 	                            <div class="clearfix"></div> 
@@ -694,29 +703,63 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script>
-var checkbox=true;
 $(document).ready(function(){
-    
-	$('#policyDetails').submit(function(event){
 
+	var term = $('#term');
+	var d2term = $('#d2term');
+	var d3term = $('#d3term');
+	var d4term = $('#d4term');
+	var d5term = $('#d5term');
+	
+	$('#policyDetails').submit(function(event){
+		
+       var driverMoreThanTwo = false;
+	   if($('input[name=d3name]').val()!="")
+	   {
+		   driverMoreThanTwo = true;
+	   }
 	   var data = { 		
 			   "policyId": "26379363",		
 			   "driver": [		
 			   {		
 			     "dateOfBirth": $('input[name=driverDob]').val(),		
-			     "driveMoreThanTwo": true,		
+			     "driveMoreThanTwo": driverMoreThanTwo,		
 			     "hkid": $('input[name=driverID]').val(),		
 			     "name": $('input[name=fullName]').val(),		
 			     "occupation": $("#occupation option:selected").text(),	
-			     "validAgeGroup": true		
+			     "validAgeGroup": $('input[name=term]').val()		
 			   }, 		
 			   {		
 			     "dateOfBirth": $('input[name=d2dob]').val(),		
-			     "driveMoreThanTwo": true,		
+			     "driveMoreThanTwo": driverMoreThanTwo,		
 			     "hkid": $('input[name=d2id]').val(),		
-			     "name": $('input[name=fullName]').val(),		
+			     "name": $('input[name=d2name]').val(),		
 			     "occupation": $("#d2occupation option:selected").text(),		
-			     "validAgeGroup": true		
+			     "validAgeGroup":  $('input[name=d2term]').val()			
+			   }, 		
+			   {		
+				 "dateOfBirth": $('input[name=d3dob]').val(),		
+				 "driveMoreThanTwo": driverMoreThanTwo,		
+				 "hkid": $('input[name=d3id]').val(),		
+				 "name": $('input[name=d3name]').val(),		
+				 "occupation": $("#d3occupation option:selected").text(),		
+				 "validAgeGroup": $('input[name=d3term]').val()		
+			   }, 		
+			   {		
+				 "dateOfBirth": $('input[name=d4dob]').val(),		
+				 "driveMoreThanTwo": driverMoreThanTwo,		
+				 "hkid": $('input[name=d4id]').val(),		
+				 "name": $('input[name=d4name]').val(),		
+				 "occupation": $("#d4occupation option:selected").text(),		
+				 "validAgeGroup":  $('input[name=d4term]').val()			
+			   }, 		
+			   {		
+				 "dateOfBirth": $('input[name=d5dob]').val(),		
+				 "driveMoreThanTwo": driverMoreThanTwo,		
+				 "hkid": $('input[name=d5id]').val(),		
+				 "name": $('input[name=d5name]').val(),		
+				 "occupation": $("#d5occupation option:selected").text(),		
+				 "validAgeGroup": $('input[name=d5term]').val()		
 			   }		
 			   ], 		
 			     "nameOfPreviousInusrancer": $('input[name=prev_ic]').val(),		
@@ -727,12 +770,17 @@ $(document).ready(function(){
 		console.dir(data);
 		
 		$.ajax({
+		 beforeSend: function(){
+          	$('#loading-overlay').modal("show");
+          },
 		  type: "POST",
-		  url: "/api/iMotor/policy/saving/policyDetails",
-		  data: data,
+		  data: JSON.stringify(data),
 		  dataType: "json",
+          contentType : "application/json",
+          cache: false,
+          async: false,
+		  url: "/api/iMotor/policy/saving/policyDetails",
 		  success: function(data){
-			  
 			  
 		  },error: function(error) {
 			  console.dir(error);

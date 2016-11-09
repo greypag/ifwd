@@ -49,8 +49,14 @@
         font-size: 16px !important;
     }
     .center .landing_h2{
-        color: #555 !important;
+        /*color: #555 !important;*/
     }
+	.center .landing_h3 {
+		font-size: 30px !important;
+		margin-top: 55px !important;
+		margin-bottom: 25px !important;
+		color: #555 !important;
+	}
     .form-control{
         height: 60px;
     }
@@ -370,4 +376,34 @@
 			color:#f68a1d !important;
 		}
     }
+}
+#motor_Form_Title
+{
+	.center .landing_h2{
+        /*color: #555 !important;*/
+    }
+	.center .landing_h3 {
+		font-size: 30px !important;
+		margin-top: 55px !important;
+		margin-bottom: 25px !important;
+		color: #555 !important;
+	}
+}
+@media (max-width: 768px)
+{
+	.motor-signup-form{
+		.tooltip{
+			left:0px !important;
+			width:100%;
+			display:block !important;
+			.tooltip-arrow{
+				left:93%
+			}
+			.tooltip-inner{
+				img{
+					width:100%;
+				}
+			}
+		}
+	}
 }

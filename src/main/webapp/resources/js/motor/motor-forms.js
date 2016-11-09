@@ -91,7 +91,7 @@ $(document).ready(function(){
         load: function(query, callback) {
             $('#occupation-selectized').data('required-error', $('#occupation').data('required-error'));
             $.ajax({
-                url: context + '/api/iMotor/list/occupations',
+                url: context + '/api/iMotor/list/occupations/v2',
                 type: 'GET',
                 dataType: 'json',
                 error: function() {
@@ -121,7 +121,7 @@ $(document).ready(function(){
         load: function(query, callback) {
             $('#d2occupation-selectized').data('required-error', $('#d2occupation').data('required-error'));
             $.ajax({
-                url: context + '/api/iMotor/list/occupations',
+                url: context + '/api/iMotor/list/occupations/v2',
                 type: 'GET',
                 dataType: 'json',
                 error: function() {
@@ -151,7 +151,7 @@ $(document).ready(function(){
         load: function(query, callback) {
             $('#d3occupation-selectized').data('required-error', $('#d3occupation').data('required-error'));
             $.ajax({
-                url: context + '/api/iMotor/list/occupations',
+                url: context + '/api/iMotor/list/occupations/v2',
                 type: 'GET',
                 dataType: 'json',
                 error: function() {
@@ -181,7 +181,7 @@ $(document).ready(function(){
         load: function(query, callback) {
             $('#motor_d4occupation-selectized').data('required-error', $('#motor_d4occupation').data('required-error'));
             $.ajax({
-                url: context + '/api/iMotor/list/occupations',
+                url: context + '/api/iMotor/list/occupations/v2',
                 type: 'GET',
                 dataType: 'json',
                 error: function() {
@@ -211,7 +211,7 @@ $(document).ready(function(){
         load: function(query, callback) {
             $('#d5occupation-selectized').data('required-error', $('#d5occupation').data('required-error'));
             $.ajax({
-                url: context + '/api/iMotor/list/occupations',
+                url: context + '/api/iMotor/list/occupations/v2',
                 type: 'GET',
                 dataType: 'json',
                 error: function() {
@@ -241,14 +241,21 @@ $(document).ready(function(){
         if($this.is(':checked')){
             $this.prop('checked', false);
             $this.val('false');
-            $(this).validator('validate');
+            if($('.custom-checkbox').find(':input[required]:checked').length < $('.custom-checkbox:visible').length){
+            $(this).parents('form').validator('validate');
+			}
         }
         else{
             $this.prop('checked', true);
             $this.val('true');
-            $(this).validator('validate');
-         //   if(!$('.has-error').length)
-         //       $('[type="submit"]').removeClass('disabled');
+            /*$(this).validator('validate');
+			if(!$('.has-error').length){
+                if($('input:required').value() != '')
+                $('[type="submit"]').removeClass('disabled');
+            }*/
+			if($('.custom-checkbox').find(':input[required]:checked').length == $('.custom-checkbox:visible').length){
+            $(this).parents('form').validator('validate');
+			}
         }
     });
     $custom_radio.on('click', function() {
@@ -257,6 +264,8 @@ $(document).ready(function(){
         }
         else{
             $this.prop('checked', true);
+			if($('.has-error').length)
+                $(this).parents('form').validator('validate');
             $this.parent().addClass('active').siblings().removeClass('active');
         }
     });

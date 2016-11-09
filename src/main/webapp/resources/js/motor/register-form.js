@@ -97,6 +97,8 @@ $(document).ready(function(){
         e.preventDefault();
         if(current < totalDriver){
             $('.added-driver').eq(current).removeClass('hidden');
+			$('.added-driver').eq(current).find('input').prop('required',true);
+			$('.added-driver').eq(current).find('select').prop('required',true);
             if(current > 0){
                 $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
             }
@@ -109,7 +111,8 @@ $(document).ready(function(){
     });
     $('.removeDriver').on('click', function(e){
         e.preventDefault();
-        $('#driverDetails').validator('destroy');
+        $(this).parents('.added-driver').find('input').prop('required',false);
+		$(this).parents('.added-driver').find('input').prop('select',false);
         $(this).parents('.added-driver').find('input').val('');
         $(this).parents('.added-driver').find('input:checkbox').removeAttr('checked');
         $(this).parents('.added-driver').find('option').removeAttr('selected');
@@ -122,6 +125,7 @@ $(document).ready(function(){
     });
     $('#sendDriverDetail').on('click', function(e){
         e.preventDefault();
+		$('#policyDetails').validator('validate');
       //  $('#motor_registerForm').validator('validate');
         // if($('#expiry-datepicker').val() == ""){
         //     $('#expiry-datepicker-group').addClass('has-error has-danger');
@@ -133,6 +137,16 @@ $(document).ready(function(){
     //     $('#motor_registerForm').validator('validate');
     // });
 
+	$('#declarations').validator().on('submit', function (e) {
+  if (e.isDefaultPrevented()) {
+    // handle the invalid form...
+  alert('1');
+  } else {
+    // everything looks good!
+  alert('2');
+  }
+})
+	
     $('#closeUserName').on('click', function(e){
     $('#forgotUserNamePopup').addClass('hidden');
     });

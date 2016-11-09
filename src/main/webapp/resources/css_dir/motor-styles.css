@@ -787,6 +787,11 @@ body.chin .bold {
   left: -16px !important;
   font-size: 16px !important; }
 .motor-signup-form .center .landing_h2 {
+  /*color: #555 !important;*/ }
+.motor-signup-form .center .landing_h3 {
+  font-size: 30px !important;
+  margin-top: 55px !important;
+  margin-bottom: 25px !important;
   color: #555 !important; }
 .motor-signup-form .form-control {
   height: 60px; }
@@ -1008,6 +1013,23 @@ body.chin .bold {
 #motor_registerForm .form-control .selectize-dropdown .active, #testimonials .form-control .selectize-dropdown .active {
   color: #f68a1d !important; }
 
+#motor_Form_Title .center .landing_h2 {
+  /*color: #555 !important;*/ }
+#motor_Form_Title .center .landing_h3 {
+  font-size: 30px !important;
+  margin-top: 55px !important;
+  margin-bottom: 25px !important;
+  color: #555 !important; }
+
+@media (max-width: 768px) {
+  .motor-signup-form .tooltip {
+    left: 0px !important;
+    width: 100%;
+    display: block !important; }
+    .motor-signup-form .tooltip .tooltip-arrow {
+      left: 93%; }
+    .motor-signup-form .tooltip .tooltip-inner img {
+      width: 100%; } }
 @media screen and (min-width: 992px) {
   #landing-carousel .carousel-control.left {
     background: #909393 !important;

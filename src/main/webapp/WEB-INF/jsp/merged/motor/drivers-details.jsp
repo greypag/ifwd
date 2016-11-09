@@ -70,17 +70,18 @@ var nextPage = "${nextPageFlow}";
                 </div>
             </div>
         </div>
-        <div id="motor_registerForm">
-            <div class="container">
-                <div class="center" > 
-                    <!--desktop-->
-                    <h1 class="landing_h2 hidden-sm hidden-xs">Driver Details</h1>
-                    <!--end-desktop--> 
-                    <!--Mobile-->
-                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver Details</h1>
-                    <!--end mobile--> 
-                </div>
+		<div class="container" id="motor_Form_Title">
+            <div class="center" > 
+                <!--desktop-->
+                <h1 class="landing_h2 hidden-sm hidden-xs">Driver Details</h1>
+                <!--end-desktop--> 
+                <!--Mobile-->
+                <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Driver Details</h1>
+           		<h1 class="landing_h3 hidden-lg hidden-md feature-ttl">Driver Details</h1>
+                <!--end mobile--> 
             </div>
+        </div>
+            <div id="motor_registerForm">
 	            <form id="driverDetails"  method="post" data-toggle="validator">
 	                <div class="container">
 	                    <div class="row">
@@ -461,10 +462,16 @@ $(document).ready(function(){
 		console.dir(data);
 		
 		$.ajax({
+		  beforeSend: function(){
+          	$('#loading-overlay').modal("show");
+          },
 		  type: "POST",
-		  url: "/api/iMotor/policy/saving/driverDetails",
-		  data: data,
+		  data: JSON.stringify(data),
 		  dataType: "json",
+          contentType : "application/json",
+          cache: false,
+          async: false,
+		  url: "/api/iMotor/policy/saving/driverDetails",
 		  success: function(data){
 			  
 			  

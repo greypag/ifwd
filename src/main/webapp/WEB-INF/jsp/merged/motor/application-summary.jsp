@@ -1088,5 +1088,23 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
-
+<script>
+$(document).ready(function(){
+	$.ajax({
+	  type: "GET",
+	  dataType: "json",
+      contentType : "application/json",
+      cache: false,
+      async: false,
+	  url: "/api/session",
+	  success: function(data){
+		  console.dir(data);
+	  },error: function(error) {
+		  console.dir(error);
+			return false;
+	  }
+	});
+	
+});
+</script>
 
