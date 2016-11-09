@@ -885,14 +885,15 @@ public class LifeServiceImpl implements LifeService {
 	    		}else{
 	    		switch ((String) jsonArray.get(1)) {
 				case "SAVIE REFERRAL AGENT EMAIL":
-					attributeList.add(new PdfAttribute("PromoCode",lifePersonalDetails.getEmailAddress()));
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountAgentEmail";
 					break;
 				case "SAVIE REFERRAL POLICY NUMBER":
-					attributeList.add(new PdfAttribute("PromoCode",lifePolicy.getPolicyNo()));
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountSavieReferral";
 					break;
 				case "FWD 1111 CAMPAIGN":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountCampaign1111";
 					break;
 				default:
