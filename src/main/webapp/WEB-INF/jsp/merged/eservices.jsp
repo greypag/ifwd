@@ -9,7 +9,8 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
-var customerId = "15174796";
+var customerId = "15174796"; // TNG connected
+// var customerId = "24382597"; //TNG not connected
 </script>
 <%!
 	boolean isSaleActiveClass = false;
@@ -862,6 +863,7 @@ var customerId = "15174796";
 					</div>
 					<!-- e-wallet Begin-->
 					<div id="e-wallet-tab-contents" class="hidden content">
+						<!-- <div class="ew_loading"></div> -->
 						<ul class="nav nav-tabs nav-justified">
 							<li class="active"><a href="#ewallet-plans" data-toggle="tab"><fmt:message key="ewallet.tab.withdrawal.policy.info" bundle="${msg}" /></a></li>
 							<li><a href="#ewallet-logs" data-toggle="tab"><fmt:message key="ewallet.tab.withdrawal.record" bundle="${msg}" /></a></li>
@@ -917,8 +919,8 @@ var customerId = "15174796";
 										
 									</div>
 									<div class="col-xs-12 col-sm-4 ew_pol_wd_linkup_action">
-										<a class="ew_pol_wd_linkupBtn" href="javascript:void(0);"><fmt:message key="ewallet.withdrawMethod.linkUpBtnText" bundle="${msg}" /></a>
-										<a class="ew_pol_wd_withdrawBtn" href="javascript:void(0);"><fmt:message key="ewallet.withdrawMethod.withdrawBtnText" bundle="${msg}" /></a>
+										<a class="ew_pol_wd_linkupBtn" href="javascript:void(0);"><i class="ew_spin"></i><fmt:message key="ewallet.withdrawMethod.linkUpBtnText" bundle="${msg}" /></a>
+										<a class="ew_pol_wd_withdrawBtn" href="javascript:void(0);"><i class="ew_spin"></i><fmt:message key="ewallet.withdrawMethod.withdrawBtnText" bundle="${msg}" /></a>
 									</div>
 								</div>
 							</div>
@@ -942,11 +944,11 @@ var customerId = "15174796";
 										<div class="ew_pol_info">
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
 												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planNameText" bundle="${msg}" /></span>
-												<span class="ew_pol_info_fieldValue"></span>
+												<span class="ew_pol_info_fieldValue ew_pol_name"></span>
 											</p>
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
 												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planPolicyNumberText" bundle="${msg}" /></span>
-												<span class="ew_pol_info_fieldValue"></span>
+												<span class="ew_pol_info_fieldValue ew_pol_id"></span>
 											</p>
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
 												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
@@ -966,6 +968,15 @@ var customerId = "15174796";
 										<div class="ew_btn_grp">
 											<a href="javascript:void(0);" class="ew_btn_ok"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
 										</div>
+									</div>
+									<div class="col-xs-12">
+										<table style="width:100%">
+										  <tr>
+										    <th>拍住賞帳號</th>
+										    <th>交易日期</th> 
+										    <th>提取金額</th>
+										  </tr>
+										</table>
 									</div>
 								</div>
 							</div>
@@ -1057,8 +1068,9 @@ var customerId = "15174796";
 								<div class="col-xs-12 ew_popup_sec_content">
 									<p class="ew_desc">
 										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile"></span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
-										<p class="ew_resendOtp">
-										請 <a href="" class="ew_link_resendOTP">按此 </a>重新發送一次密碼
+										<p class="ew_sentOtp">已發送</p>
+										<p class="ew_resendOtp">							
+										請 <a href="javascript:void(0);" class="ew_link_resendOTP">按此 </a>重新發送一次密碼
 									</p>
 									<div class="ew_pol_info">
 
@@ -1080,10 +1092,9 @@ var customerId = "15174796";
 									<div class="col-xs-12">
 										<p class="ew_desc_opt"></p>
 									</div>
-									<div class="col-xs-12 ew_desc_err">
-										<p>
-											<fmt:message key="ewallet.popup.password.error.prompt" bundle="${msg}" />
-										</p>
+									<div class="col-xs-12">
+										<ul class="ew_desc_err">
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -1114,7 +1125,7 @@ var customerId = "15174796";
 							<p class="ew_desc">
 								<fmt:message key="ewallet.popup.password.success.prompt" bundle="${msg}" />
 							</p>
-							<a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText1" bundle="${msg}" /></a>
+							<a href="javascript:void(0);" data-dismiss="modal" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText1" bundle="${msg}" /></a>
 						</div>					
 					</div>
 				</div>
@@ -1131,9 +1142,12 @@ var customerId = "15174796";
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 				<h4 class="modal-title"><fmt:message key="ewallet.withdraw.title" bundle="${msg}" /></h4>
 			</div>
+			<div class="ew_loading">
+				<img src="<%=request.getContextPath()%>/resources/images/eWallet/ajax-loader.gif" alt="loading"/>
+			</div>
 			<div class="modal-body">
 				<div class="container-fluid bd-example-row">
-					<div class="row">
+					<div class="row ew_step_1">
 						<div class="col-xs-12 ew_popup_sec">
 							<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.title" bundle="${msg}" /></h4>
 							<div class="col-xs-12 ew_popup_sec_pol">
@@ -1172,26 +1186,25 @@ var customerId = "15174796";
 									</div>
 									<div class="col-xs-12">
 										<div class="ew_btn_grp">
-											<a href="javascript:void(0);" class="ew_btn ew_btn_amount">$500</a><!--
-											--><a href="javascript:void(0);" class="ew_btn ew_btn_amount">$1,000</a><!--
-											--><a href="javascript:void(0);" class="ew_btn ew_btn_amount">$2,000</a><!--
-											--><a href="javascript:void(0);" class="ew_btn ew_btn_amount">$3,000</a>
+											<a href="javascript:void(0);" class="ew_btn ew_btn_amount" data-amount="500">$500</a><!--
+											--><a href="javascript:void(0);" class="ew_btn ew_btn_amount" data-amount="1000">$1,000</a><!--
+											--><a href="javascript:void(0);" class="ew_btn ew_btn_amount" data-amount="2000">$2,000</a><!--
+											--><a href="javascript:void(0);" class="ew_btn ew_btn_amount" data-amount="3000">$3,000</a>
 										</div>
 										<div class="ew_txt_or ew_desc"><fmt:message key="ewallet.popup.sec.amountOpt.or" bundle="${msg}" /></div>
 										<div class="ew_amount_input">
 											<input type="text" placeholder="請輸入" id="ew_input_amount">
 										</div>
 										<div class="ew_btn_grp">
-											<a href="" class="ew_btn_withdraw"><fmt:message key="ewallet.popup.sec.withdraw.btn" bundle="${msg}" /></a>
+											<a href="javascript:void(0);" class="ew_btn_withdraw"><fmt:message key="ewallet.popup.sec.withdraw.btn" bundle="${msg}" /></a>
 										</div>
 									</div>									
 									<div class="col-xs-12">
 										<p class="ew_desc_opt"></p>
 									</div>
-									<div class="col-xs-12 ew_desc_err">
-										<p>
-											<fmt:message key="ewallet.popup.password.error.prompt" bundle="${msg}" />
-										</p>
+									<div class="col-xs-12">
+										<ul class="ew_desc_err">
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -1200,7 +1213,7 @@ var customerId = "15174796";
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row ew_step_2">
 						<div class="col-xs-12 ew_withdrawAmount">
 							<p class="ew_desc">
 								<fmt:message key="ewallet.withdraw.amount.text" bundle="${msg}" /> <span class="ew_amount"><fmt:message key="ewallet.withdraw.HKD" bundle="${msg}" />$1,000<sup>*</sup></span>
@@ -1212,8 +1225,9 @@ var customerId = "15174796";
 								<div class="col-xs-12 ew_popup_sec_content">
 									<p class="ew_desc">
 										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile">9876 ****</span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
-									<p>
-										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
+									<p class="ew_sentOtp">已發送</p>
+									<p class="ew_resendOtp">
+										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="javascript:void(0);" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
 									</p>
 									<div class="ew_pol_info">
 
@@ -1247,14 +1261,14 @@ var customerId = "15174796";
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row ew_step_3">
 						<div class="col-xs-12 ew_popup_sec">
 							<div class="ew_success">
 								<p class="ew_bigTxt"><fmt:message key="ewallet.prompt.success" bundle="${msg}" /></p>
 								<p class="ew_desc">
 									<fmt:message key="ewallet.popup.password.success.prompt" bundle="${msg}" />
 								</p>
-								<a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
+								<a href="javascript:void(0);" class="ew_btn_confirm" data-dismiss="modal"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
 							</div>
 						</div>					
 					</div>
@@ -1278,7 +1292,7 @@ var customerId = "15174796";
 						<div class="col-xs-12 ew_popup_sec">
 							<p class="ew_desc">
 							</p>
-							<!-- <a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText1" bundle="${msg}" /></a> -->
+							<a href="javascript:void(0);" class="ew_btn_confirm" data-dismiss="modal"><fmt:message key="ewallet.popup.checkbox.confirmBtnText1" bundle="${msg}" /></a>
 						</div>					
 					</div>
 				</div>

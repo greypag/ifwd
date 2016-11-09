@@ -45,8 +45,10 @@ $txt-hint-color: #999999;
 %ew_base_errMsg{
 	color: #970707;
 	font-size: 0.75em;
+	list-style: none;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
+	padding-left: 0 !important;
 }
 %ew_base_tngId{
 	color: #fc610b;
@@ -96,6 +98,10 @@ $txt-hint-color: #999999;
 		}
 		.ew_desc{
 			font-size: 0.667em;
+		}
+		.ew_sentOtp,
+		.ew_resendOtp{
+			padding: 1em 0;
 		}
 	}
 	.modal-title{
@@ -168,15 +174,23 @@ $txt-hint-color: #999999;
 
 // ============ placeholder End ============
 
-#e-wallet-tab-contents .ew_loading{
+.ew_loading{
 	position: absolute;
 	display: none;
 	background: rgba(0,0,0,.5);
 	width: 100%;
 	height: 100%;
 	z-index: 19;
+	img{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+	}
 }
-#e-wallet-tab-contents .ew_loading{
+.isLoading .ew_loading{
 	display: block;
 	
 }
@@ -229,6 +243,25 @@ $txt-hint-color: #999999;
 	&.isLocked{
 		.ew_pol_wd_linkup_locked{
 			display: block;
+		}
+	}
+	.ew_pol_wd_linkupBtn, .ew_pol_wd_withdrawBtn{
+		.ew_spin{
+			font-family: FontAwesome !important;
+			font-style: normal;
+			display: none;
+			padding: 0 0.5em;
+			animation: spin_loading 2s infinite;
+			
+			&:before{
+				content: "\f021";
+			}
+		}
+		&.isLoading {
+			cursor:progress;
+			.ew_spin{
+				display: inline-block;
+			}
 		}
 	}
 }
@@ -379,7 +412,10 @@ $txt-hint-color: #999999;
 			margin-top: 20px;
 			margin-bottom: 20px;
 		}
-	}	
+	}
+	.ew_step_2, .ew_step_3{
+		display: none;
+	}
 }
 
 .ew_popup_error{
@@ -564,4 +600,9 @@ $txt-hint-color: #999999;
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+@keyframes spin_loading {
+	0%   { transform: rotate(0deg); }
+	100% { transform: rotate(359deg); }
 }

@@ -35,8 +35,10 @@
 .ew_popup_linkup .ew_popup_sec_otpInput .ew_desc_err, .ew_popup_withdraw .ew_desc_err {
   color: #970707;
   font-size: 0.75em;
+  list-style: none;
   margin-top: 0.5em;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.5em;
+  padding-left: 0 !important; }
 
 .ew_pol_list .ew_pol_wd_linkup_tngId, .ew_popup_withdraw .ew_tngId {
   color: #fc610b; }
@@ -75,6 +77,12 @@
       @extedn %ew_base_link; }
     .ew_popup_linkup .modal-content .ew_desc, .ew_popup_linkupSuccess .modal-content .ew_desc, .ew_popup_withdraw .modal-content .ew_desc, .ew_popup_error .modal-content .ew_desc {
       font-size: 0.667em; }
+    .ew_popup_linkup .modal-content .ew_sentOtp, .ew_popup_linkupSuccess .modal-content .ew_sentOtp, .ew_popup_withdraw .modal-content .ew_sentOtp, .ew_popup_error .modal-content .ew_sentOtp,
+    .ew_popup_linkup .modal-content .ew_resendOtp,
+    .ew_popup_linkupSuccess .modal-content .ew_resendOtp,
+    .ew_popup_withdraw .modal-content .ew_resendOtp,
+    .ew_popup_error .modal-content .ew_resendOtp {
+      padding: 1em 0; }
   .ew_popup_linkup .modal-title, .ew_popup_linkupSuccess .modal-title, .ew_popup_withdraw .modal-title, .ew_popup_error .modal-title {
     background-color: #fc610b;
     color: #fff !important;
@@ -117,15 +125,22 @@
   .ew_popup_linkup .ew_popup_sec_otpInput .ew_agreeBox input[type=checkbox]:checked + label:after, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_agreeBox input[type=checkbox]:checked + label:after {
     background-position: left bottom; }
 
-#e-wallet-tab-contents .ew_loading {
+.ew_loading {
   position: absolute;
   display: none;
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   z-index: 19; }
+  .ew_loading img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto; }
 
-#e-wallet-tab-contents .ew_loading {
+.isLoading .ew_loading {
   display: block; }
 
 .ew_pol_list .ew_pol {
@@ -157,6 +172,18 @@
     display: inline-block; }
   .ew_pol_list .ew_pol_wd_linkup.isLocked .ew_pol_wd_linkup_locked {
     display: block; }
+  .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn .ew_spin, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn .ew_spin {
+    font-family: FontAwesome !important;
+    font-style: normal;
+    display: none;
+    padding: 0 0.5em;
+    animation: spin_loading 2s infinite; }
+    .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn .ew_spin:before, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn .ew_spin:before {
+      content: "\f021"; }
+  .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn.isLoading, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn.isLoading {
+    cursor: progress; }
+    .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn.isLoading .ew_spin, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn.isLoading .ew_spin {
+      display: inline-block; }
 
 .ew_pol_list .ew_pol_wd_linkup_icon,
 .ew_pol_list .ew_pol_wd_linkup_detail {
@@ -224,6 +251,8 @@
   .ew_popup_withdraw .ew_success .ew_desc {
     margin-top: 20px;
     margin-bottom: 20px; }
+.ew_popup_withdraw .ew_step_2, .ew_popup_withdraw .ew_step_3 {
+  display: none; }
 
 .ew_popup_error {
   text-align: center; }
@@ -328,5 +357,11 @@
   position: absolute;
   bottom: 0;
   left: 0; }
+
+@keyframes spin_loading {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(359deg); } }
 
 /*# sourceMappingURL=ewallet.style.css.map */
