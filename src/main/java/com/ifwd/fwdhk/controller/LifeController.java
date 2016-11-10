@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
@@ -759,6 +761,30 @@ public class LifeController extends BaseController{
 			else{
 				model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
 				model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
+			}
+			//
+			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+			LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
+			model.addAttribute("ifCampaign1111", false);
+			if ("SP".equals(saviePlanDetails.getPaymentType())) {
+				JSONObject jsonObject = new JSONObject();
+				try {
+					//jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),userDetails.getHkid(),request);
+			    	jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(), lifePersonalDetails.getHkid(),request);
+			    	JSONArray jsonArray=(JSONArray) jsonObject.get("referralPlan");
+			    	if(jsonArray.get(0).equals("SAVIE PREMIUM DISCOUNT")){
+			    		if(jsonArray.size()>1){
+			    			if (((String) jsonArray.get(1)).equals("FWD 1111 CAMPAIGN")){
+			    				model.addAttribute("ifCampaign1111", true);
+			    			}
+			    		}
+			    	}
+				}
+				catch (Exception e) {
+					logger.info(e.getMessage(),e);
+					request.getSession().setAttribute("errorMsg", e.getMessage());
+				}
+
 			}
 			
 			//

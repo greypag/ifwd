@@ -196,6 +196,19 @@ $( "body" ).click(function( event ) {
 
 		<%@ include file="/WEB-INF/jsp/merged/comp/notification.jsp"%>
 	<%-- End Module Scripts--%>
+	
+	<%-- 1111 Campaign --%>
+	<%
+		long current = System.currentTimeMillis();
+    	long starttime = cformat.parse("2016-11-11 00:00:00").getTime();
+    	long endtime = cformat.parse("2016-11-12 00:00:00").getTime();
+    	if(current < endtime && current >= starttime){
+    %> 
+	<script>
+		show_1111_campaign("<%=request.getContextPath()%>","${language}");	//refer to main.js
+	</script>
+	<% } %>
+	<%-- End 1111 Campaign --%>
 
 	<%-- Third Party Scripts--%>
 		<%@ include file="include/shared/facebook_share.jsp"%>

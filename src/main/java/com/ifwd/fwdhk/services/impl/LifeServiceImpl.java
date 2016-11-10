@@ -880,19 +880,20 @@ public class LifeServiceImpl implements LifeService {
 	    	JSONObject jsonObject=getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(), lifePersonalDetails.getHkid(),request);
 	    	JSONArray jsonArray=(JSONArray) jsonObject.get("referralPlan");
 	    	if(jsonArray.get(0).equals("SAVIE PREMIUM DISCOUNT")){
-	    		if(jsonArray.get(1)==null){
+	    		if(jsonArray.size()==1){
 	    			pdfName="SavieOnlineApplicationFormPremiumDiscount";
 	    		}else{
 	    		switch ((String) jsonArray.get(1)) {
 				case "SAVIE REFERRAL AGENT EMAIL":
-					attributeList.add(new PdfAttribute("PromoCode",lifePersonalDetails.getEmailAddress()));
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountAgentEmail";
 					break;
 				case "SAVIE REFERRAL POLICY NUMBER":
-					attributeList.add(new PdfAttribute("PromoCode",lifePolicy.getPolicyNo()));
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountSavieReferral";
 					break;
 				case "FWD 1111 CAMPAIGN":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountCampaign1111";
 					break;
 				default:
