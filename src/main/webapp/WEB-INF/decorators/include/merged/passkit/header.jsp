@@ -12,13 +12,13 @@
 									//System.out.println("session.getAttribute(language).toString() " + session.getAttribute("language").toString());
 									if ("en".equals(session.getAttribute("language").toString())) {
 									%>
-										<li><a class="inactive" href="" target="_top" onclick="" data-lang="en">EN</a></li>
-										<li><a class="active" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%><%=request.getQueryString()!=null?"?"+request.getQueryString():""%>" target="_top" onclick="perventRedirect=false;" data-lang="tc">中</a></li>
+										<li><a class="active" href="" target="_top" onclick="" data-lang="en">EN</a></li>
+										<li><a class="inactive" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%><%=request.getQueryString()!=null?"?"+request.getQueryString():""%>" target="_top" onclick="perventRedirect=false;" data-lang="tc">中</a></li>
 									<%
 									} else {
 									%>
-										<li><a class="active" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%><%=request.getQueryString()!=null?"?"+request.getQueryString():""%>" target="_top" onclick="perventRedirect=false;" data-lang="en">EN</a></li>
-										<li><a class="inactive" href="" target="_top" onclick="" data-lang="tc">中</a></li>
+										<li><a class="inactive" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%><%=request.getQueryString()!=null?"?"+request.getQueryString():""%>" target="_top" onclick="perventRedirect=false;" data-lang="en">EN</a></li>
+										<li><a class="active" href="" target="_top" onclick="" data-lang="tc">中</a></li>
 									<%
 									}
 									
