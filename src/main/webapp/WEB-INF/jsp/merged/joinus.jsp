@@ -475,6 +475,14 @@ function bootstrapvalidate(){
 		'userName': {
 			container: form_1 + ' #errorEmptyUNameJoinUs',
 			validators: {
+				callback : {
+					 message : getBundle(getBundleLanguage, "user.username.notValid.message"),
+					 callback: function (value, validator) {
+						 return {
+							 valid : isNaN(value)
+						 }
+					 }
+				},
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "user.username.empty.message")
 				},
@@ -691,6 +699,14 @@ function bootstrapvalidate(){
 			'userName': {
 				container: form_2 + ' #errorEmptyUNameJoinUs',
 				validators: {
+					callback : {
+						 message : getBundle(getBundleLanguage, "user.username.notValid.message"),
+						 callback: function (value, validator) {
+							 return {
+								 valid : isNaN(value)
+							 }
+						 }
+					},
 					notEmpty: {
 						message: getBundle(getBundleLanguage, "user.username.empty.message")
 					},
