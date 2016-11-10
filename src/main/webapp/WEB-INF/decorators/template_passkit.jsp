@@ -101,17 +101,8 @@
 
 	<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/images/passkit/favicon.ico" />
 </head>
-<%
-	if ("en".equals(session.getAttribute("language").toString())) {
-%>
-<body>
-<%
-} else {
-%>
-<body class="zh">
-<%
-}									
-%>
+
+<body <c:out  value="${language == 'tc' ? 'class=\"zh\"' : ''}"  escapeXml="boolean"/>>
 
 
 	<%@ include file="include/merged/passkit/header.jsp"%>
