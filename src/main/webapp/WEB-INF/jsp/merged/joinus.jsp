@@ -8,7 +8,6 @@
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/joinus.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
@@ -16,6 +15,9 @@
 <script>
 	$('document').ready(function(){
 		bootstrapvalidate();
+		global_show_bubble("form[name='joinus_form_member'] .js_bubble","form[name='joinus_form_member'] .checkboxBubble");
+		global_show_bubble("form[name='joinus_form_non_member'] .js_bubble","form[name='joinus_form_non_member'] .checkboxBubble");
+		
 		//choose is current fwd member or not
 		$('.is_fwdmember').on('change',function(){
 			if($(this).val()=='yes'){
@@ -121,9 +123,6 @@
 	//declaration checkbox
 	$("#checkbox1").change(function() {
 		$("#errorDeclaration").html("");
-	});
-	$("#checkbox3, #checkbox4").change(function() {
-		showBubble();
 	});
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -431,13 +430,14 @@ if($('#txtConfPass').length && $('#txtPass1').length){
 }*/
 
 function bootstrapvalidate(){
-	$("form[name='joinus_form_member']").bootstrapValidator({
+	var form_1 = "form[name='joinus_form_member']";
+	$(form_1).bootstrapValidator({
 	excluded: [
 		':disabled', ':hidden', ':not(:visible)'
 	],
 	fields: {
 		'fullName': {
-			container: '#errorEmptyName',
+			container: form_1 + ' #errorEmptyName',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "membership.fullName.empty.message")
@@ -449,7 +449,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'mobileNo': {
-			container: '#errorEmptyMobJoinUs',
+			container: form_1 + ' #errorEmptyMobJoinUs',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message")
@@ -461,7 +461,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'EmailAddress': {
-			container: '#errorEmptyEmailIdJoinUs',
+			container: form_1 + ' #errorEmptyEmailIdJoinUs',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "applicant.email.notNull.message")
@@ -473,7 +473,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'userName': {
-			container: '#errorEmptyUNameJoinUs',
+			container: form_1 + ' #errorEmptyUNameJoinUs',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "user.username.empty.message")
@@ -483,14 +483,14 @@ function bootstrapvalidate(){
 					message: getBundle(getBundleLanguage, "user.username.notValid.message")
 				},
 				stringLength: {
-					message: getBundle(getBundleLanguage, "user.username.length.message"),
 					max: 50,
-					min: 6
+					min: 6,
+					message: getBundle(getBundleLanguage, "user.username.length.message")
 				 }
 			}
 		},
 		'password': {
-			container: '#errorJoinUsPassword',
+			container: form_1 + ' #errorJoinUsPassword',
 			validators: {
 				different: {
 					field: 'userName',
@@ -539,7 +539,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'confirmPassword': {
-			container: '#errorEmptyConfPass',
+			container: form_1 + ' #errorEmptyConfPass',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "user.confirmPassword.empty.message")
@@ -552,7 +552,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'checkbox1': {
-			container: '#errorDeclaration',
+			container: form_1 + ' #errorDeclaration',
 			validators: {
 				choice: {
 					min: 1,
@@ -562,7 +562,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'Dob': {
-			container: '#errorEmptyDobJoinUs',
+			container: form_1 + ' #errorEmptyDobJoinUs',
 			validators: {
 				notEmpty: {
 					message: '<fmt:message key="error.dob.empty" bundle="${msg}" />'
@@ -570,7 +570,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'Hkid': {
-			container: '#errorEmptyHkidJoinUs',
+			container: form_1 + ' #errorEmptyHkidJoinUs',
 			//trigger: 'blur',
 			validators: {
 				callback: {
@@ -601,10 +601,14 @@ function bootstrapvalidate(){
 			}
 		},
 		'PolicyNumber': {
-			container: '#errorEmptyPolicyNumberJoinUs',
+			container: form_1 + ' #errorEmptyPolicyNumberJoinUs',
 			validators: {
 				notEmpty: {
 					message: '<fmt:message key="error.dob.empty" bundle="${msg}" />'
+				},
+				stringLength: {
+					max: 14,
+					message: getBundle(getBundleLanguage, "user.username.length.message")
 				},
 				regexp:{
 					regexp: /^[a-zA-Z0-9]*$/,
@@ -642,14 +646,14 @@ function bootstrapvalidate(){
             .filter('[data-bv-validator="' + data.validator + '"]').show();
     });
 
-	
-	$("form[name='joinus_form_non_member']").bootstrapValidator({
+	var form_2 = "form[name='joinus_form_non_member']";
+	$(form_2).bootstrapValidator({
 		excluded: [
 			':disabled', ':hidden', ':not(:visible)'
 		],
 		fields: {
-			'fullName_2': {
-				container: '#errorEmptyName_2',
+			'fullName': {
+				container: form_2 + ' #errorEmptyName',
 				validators: {
 					notEmpty: {
 						message: getBundle(getBundleLanguage, "membership.fullName.empty.message")
@@ -660,8 +664,8 @@ function bootstrapvalidate(){
 					}
 				}
 			},
-			'mobileNo_2': {
-				container: '#errorEmptyMobJoinUs_2',
+			'mobileNo': {
+				container: form_2 + ' #errorEmptyMobJoinUs',
 				validators: {
 					notEmpty: {
 						message: getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message")
@@ -672,8 +676,8 @@ function bootstrapvalidate(){
 					}
 				}
 			},
-			'EmailAddress_2': {
-				container: '#errorEmptyEmailIdJoinUs_2',
+			'EmailAddress': {
+				container: form_2 + ' #errorEmptyEmailIdJoinUs',
 				validators: {
 					notEmpty: {
 						message: getBundle(getBundleLanguage, "applicant.email.notNull.message")
@@ -684,8 +688,8 @@ function bootstrapvalidate(){
 					}
 				}
 			},
-			'userName_2': {
-				container: '#errorEmptyUNameJoinUs_2',
+			'userName': {
+				container: form_2 + ' #errorEmptyUNameJoinUs',
 				validators: {
 					notEmpty: {
 						message: getBundle(getBundleLanguage, "user.username.empty.message")
@@ -695,14 +699,14 @@ function bootstrapvalidate(){
 						message: getBundle(getBundleLanguage, "user.username.notValid.message")
 					},
 					stringLength: {
-						message: getBundle(getBundleLanguage, "user.username.length.message"),
 						max: 50,
-						min: 6
+						min: 6,
+						message: getBundle(getBundleLanguage, "user.username.length.message")
 					 }
 				}
 			},
-			'password_2': {
-				container: '#errorJoinUsPassword_2',
+			'password': {
+				container: form_2 + ' #errorJoinUsPassword',
 				validators: {
 					different: {
 						field: 'userName',
@@ -750,8 +754,8 @@ function bootstrapvalidate(){
 					}
 				}
 			},
-			'confirmPassword_2': {
-				container: '#errorEmptyConfPass_2',
+			'confirmPassword': {
+				container: form_2 + ' #errorEmptyConfPass',
 				validators: {
 					notEmpty: {
 						message: getBundle(getBundleLanguage, "user.confirmPassword.empty.message")
@@ -763,8 +767,8 @@ function bootstrapvalidate(){
 					
 				}
 			},
-			'checkbox1_2': {
-				container: '#errorDeclaration_2',
+			'checkbox1': {
+				container: form_2 + ' #errorDeclaration',
 				validators: {
 					choice: {
 						min: 1,
@@ -815,14 +819,6 @@ function tooltipPlacement(){
 		$('.tooltip-icon').each(function(){
 			$(this).data('bs.tooltip').options.placement = 'right';
 		});
-	}
-}
-
-function showBubble(){
-	if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
-		$(".checkboxBubble").fadeIn();
-	}else{
-		$(".checkboxBubble").fadeOut();
 	}
 }
 </script>
@@ -883,11 +879,11 @@ function showBubble(){
 
 						<div class="registration">				
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtFullName" name="fullName" value="${userDetails.getFullName()}"
+								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
 									onkeypress="return alphaOnly(event);"
 									maxlength="100">
-								<label class="mdl-textfield__label registration__label" for="txtFullName"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /> <fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></label>
+								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /> <fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></label>
 								<span id="errorEmptyName" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
@@ -906,7 +902,7 @@ function showBubble(){
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item existing_fwdmember">
 								<input class="mdl-textfield__input registration__input" type="text" id="txtPolicyNumber" name="PolicyNumber" value=""
-									maxlength="50"><!--userDetails.getPolicyNumber()-->
+									><!--userDetails.getPolicyNumber()-->
 								<label class="mdl-textfield__label registration__label" for="txtPolicyNumber"><fmt:message key="member.registration.details.policy.number" bundle="${msg}" /></label>
 								<span id="errorEmptyPolicyNumberJoinUs" class="text-red"></span>
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipPolicyNumber" id="tooltipPolicyNumber" title="<fmt:message key='member.registration.details.policy.number.tooltip' bundle='${msg}'/>"></span>
@@ -976,12 +972,12 @@ function showBubble(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3" name="checkbox3" type="checkbox"> <label
+							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble"> <label
 								for="checkbox3"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4" name="checkbox4" type="checkbox"> <label
+							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble"> <label
 								for="checkbox4"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
@@ -1020,47 +1016,46 @@ function showBubble(){
 
 						<div class="registration">					
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtFullName" name="fullName_2" value="${userDetails.getFullName()}"
+								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
-									onkeypress="return alphaOnly(event);"
-									maxlength="100">
-								<label class="mdl-textfield__label registration__label" for="txtFullName"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /> <fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></label>
-								<span id="errorEmptyName_2" class="text-red"></span>
+									onkeypress="return alphaOnly(event);">
+								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /> <fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></label>
+								<span id="errorEmptyName" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtMobileNo" name="mobileNo_2" value="${userDetails.getMobileNo()}"
+								<input class="mdl-textfield__input registration__input" type="text" name="mobileNo" value="${userDetails.getMobileNo()}"
 									onblur="replaceNumeric(this);"
 									onkeypress="return isNumeric(event);"
 									maxlength="8">
-								<label class="mdl-textfield__label registration__label" for="txtMobileNo"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label>
-								<span id="errorEmptyMobJoinUs_2" class="text-red"></span>
+								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label>
+								<span id="errorEmptyMobJoinUs" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtEmailId" name="EmailAddress_2" value="${userDetails.getEmailAddress()}"
+								<input class="mdl-textfield__input registration__input" type="text" name="EmailAddress" value="${userDetails.getEmailAddress()}"
 									maxlength="50">
-								<label class="mdl-textfield__label registration__label" for="txtEmailId"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
-								<span id="errorEmptyEmailIdJoinUs_2" class="text-red"></span>
+								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
+								<span id="errorEmptyEmailIdJoinUs" class="text-red"></span>
 							</div>
 							<h3 class="black-bold"><fmt:message key="member.registration.details.header.login" bundle="${msg}" /></h3>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtUserName1" name="userName_2" value="${userDetails.getUserName() }"
+								<input class="mdl-textfield__input registration__input" type="text" name="userName" value="${userDetails.getUserName() }"
 									onkeypress="return validationUsername(event);">
-								<label class="mdl-textfield__label registration__label" for="txtUserName1"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label>
-								<span id="errorEmptyUNameJoinUs_2" class="text-red"></span>
+								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label>
+								<span id="errorEmptyUNameJoinUs" class="text-red"></span>
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipUserName1" id="tooltipUserName1" title="<fmt:message key='member.registration.details.label.username.help' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="password" id="txtPass1" name="password_2"
+								<input class="mdl-textfield__input registration__input" type="password"  name="password"
 									autocomplete="off">
 								<label class="mdl-textfield__label registration__label" for="txtPass1"><fmt:message key="member.registration.details.label.password" bundle="${msg}" /></label>
-								<span id="errorJoinUsPassword_2" class="text-red"></span>
+								<span id="errorJoinUsPassword" class="text-red"></span>
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipPass1" id="tooltipPass1" title="<fmt:message key='member.registration.details.label.password.help' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="password" id="txtConfPass" name="confirmPassword_2"
+								<input class="mdl-textfield__input registration__input" type="password" name="confirmPassword"
 									autocomplete="off">
-								<label class="mdl-textfield__label registration__label" for="txtConfPass"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /></label>
-								<span id="errorEmptyConfPass_2" class="text-red"></span>
+								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /></label>
+								<span id="errorEmptyConfPass" class="text-red"></span>
 							</div>
 						</div>
 					</div>
@@ -1077,7 +1072,7 @@ function showBubble(){
 					<h4 class="col-xs-12 h4-2 declaration-head"><fmt:message key="member.registration.declarations.header" bundle="${msg}" /></h4>
 					<div class="col-xs-12 declaration-content">
 						<div class="checkbox">
-							<input id="checkbox1_2" type="checkbox" name="checkbox1_2">
+							<input id="checkbox1_2" type="checkbox" name="checkbox1">
 							<label for="checkbox1_2"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" />
 								<a href="<fmt:message key="member.PICS.link" bundle="${msg}" />"  target="_blank" class="sub-link">
 									<fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" />
@@ -1092,12 +1087,12 @@ function showBubble(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3_2" name="checkbox3_2" type="checkbox"> <label
+							<input id="checkbox3_2" name="checkbox3_2" type="checkbox" class="js_bubble"> <label
 								for="checkbox3_2"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4_2" name="checkbox4_2" type="checkbox"> <label
+							<input id="checkbox4_2" name="checkbox4_2" type="checkbox" class="js_bubble"> <label
 								for="checkbox4_2"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
