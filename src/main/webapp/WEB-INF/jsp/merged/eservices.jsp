@@ -906,7 +906,7 @@ var customerId = "15174796"; // TNG connected
 								</div>
 								<div class="col-xs-12 ew_pol_wd_linkup">
 									<div class="col-xs-12 col-sm-8 ew_pol_wd_linkup_status">
-										<img src="<%=request.getContextPath()%>/resources/images/eWallet/ewallet-tng-icon.png" alt="拍住賞" class="img-responsive ew_pol_wd_linkup_icon">
+										<img src="<%=request.getContextPath()%>/resources/images/eWallet/ewallet-tng-icon.png" alt="<fmt:message key='ewallet.tapngo' bundle='${msg}'/>" class="img-responsive ew_pol_wd_linkup_icon">
 										<div class="ew_pol_wd_linkup_detail">
 											<p class="ew_pol_info_fieldName"><fmt:message key="ewallet.withdrawMethod.linkUp.name" bundle="${msg}" /></p>
 											<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_empty"><fmt:message key="ewallet.withdrawMethod.status.emptyText" bundle="${msg}" /></p>
@@ -972,9 +972,9 @@ var customerId = "15174796"; // TNG connected
 									<div class="col-xs-12 ew_logTable_wrapper">
 										<table class="ew_log_table">
 										  <tr>
-										    <th>拍住賞帳號</th>
-										    <th>交易日期</th> 
-										    <th>提取金額</th>
+										    <th><fmt:message key="ewallet.withdraw.name" bundle="${msg}"/></th>
+										    <th><fmt:message key="ewallet.withdraw.linkdate" bundle="${msg}"/></th> 
+										    <th><fmt:message key="ewallet.withdraw.amount.text" bundle="${msg}"/></th>
 										  </tr>
 										</table>
 									</div>
@@ -1071,9 +1071,9 @@ var customerId = "15174796"; // TNG connected
 								<div class="col-xs-12 ew_popup_sec_content">
 									<p class="ew_desc">
 										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile"></span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
-										<p class="ew_sentOtp">已發送</p>
+										<p class="ew_sentOtp"><fmt:message key="ewallet.sent" bundle="${msg}" /></p>
 										<p class="ew_resendOtp">							
-										請 <a href="javascript:void(0);" class="ew_link_resendOTP">按此 </a>重新發送一次密碼
+										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="javascript:void(0);" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
 									</p>
 									<div class="ew_pol_info">
 
@@ -1196,7 +1196,7 @@ var customerId = "15174796"; // TNG connected
 										</div>
 										<div class="ew_txt_or ew_desc"><fmt:message key="ewallet.popup.sec.amountOpt.or" bundle="${msg}" /></div>
 										<div class="ew_amount_input">
-											<input type="text" placeholder="請輸入" id="ew_input_amount">
+											<input type="text" placeholder="<fmt:message key='ewallet.placeholder.input' bundle='${msg}'/>" id="ew_input_amount">
 										</div>
 										<div class="ew_btn_grp">
 											<a href="javascript:void(0);" class="ew_btn_withdraw"><fmt:message key="ewallet.popup.sec.withdraw.btn" bundle="${msg}" /></a>
@@ -1228,7 +1228,7 @@ var customerId = "15174796"; // TNG connected
 								<div class="col-xs-12 ew_popup_sec_content">
 									<p class="ew_desc">
 										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile">9876 ****</span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
-									<p class="ew_sentOtp">已發送</p>
+									<p class="ew_sentOtp"><fmt:message key="ewallet.sent" bundle="${msg}" /></p>
 									<p class="ew_resendOtp">
 										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="javascript:void(0);" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
 									</p>
