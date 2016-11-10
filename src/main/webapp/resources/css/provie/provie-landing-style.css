@@ -25,6 +25,9 @@ a:hover, a:focus {
 }
 
 /* line 34, ../sass/provie-landing-style.scss */
+a.pop-youtube:hover, a.pop-youtube:focus {
+  color: #ffc450; }
+
 .pv_productInfo, .pv_plan, .pv_sec_calculator, .pv_sec_features, .pv_sec_extra, .pv_sec_action, .pv_compareTable, .pv_experience, .pv_fna, .pv_share {
   padding: 26px 0;
   text-align: center;

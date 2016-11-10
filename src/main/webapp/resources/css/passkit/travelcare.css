@@ -1,0 +1,271 @@
+body {
+  font-size: 18px;
+}
+
+.travelcare.main {
+  min-height: 600px;
+}
+
+.loading-dialog {
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+}
+
+.loading-modal {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  border: 0px;
+  -webkit-box-shadow: 0 0px 0px;
+  box-shadow: 0 0px 0px;
+}
+
+modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform .3s ease-out;
+  -moz-transition: -moz-transform .3s ease-out;
+  -o-transition: -o-transform .3s ease-out;
+  transition: transform .3s ease-out;
+}
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+}
+
+.travelcare .hero {
+  background-position-y: 5%;
+}
+
+.center {
+  text-align: center;
+}
+
+.verify-content {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.verify-title {
+  color: #ff9125;
+  font-size: 1.667em;
+  margin: 1em 0 0;
+}
+
+.tabbed-page {
+  display: none;
+  padding-bottom: 50px;
+}
+
+.tabbed-page.current {
+  display: block;
+}
+
+.verify-content {
+  margin: 0 auto;
+  float: none;
+}
+
+.verify-option {
+  /*border-width: 1px 0px;
+  border-color: #bbb;
+  border-style: solid;*/
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.verify-option.active {
+  border-color: #ff9125;
+  color: #ff9125;
+}
+
+.verify-option .radio {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  margin: 0 0.5em 0 0;
+  box-shadow: 0px 0px 0px 2px #999;
+  background-color: #fff;
+}
+
+.verify-option.active .radio,
+.verify-option label:hover .radio {
+  background-color: #ff9125;
+}
+
+.verify-option label {
+  margin: 0px auto;
+  vertical-align: middle;
+  cursor: pointer;
+  width: 200px;
+  padding: 10px 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.zh .verify-option label {
+  text-align: center;
+}
+
+.verify-option label>span {
+  vertical-align: middle;
+}
+
+.verify-option input {
+  display: none;
+}
+
+.verify-option .radio-txt {
+  position: relative;
+  top: 0.05em;
+  font-size: 1.2em;
+}
+
+.verify-detail {
+  color: #ff9125;
+  max-height: 0px;
+  overflow-y: hidden;
+  transition-property: max-height;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}
+
+.verify-detail.expanded {
+  max-height: 250px;
+  margin-bottom: 20px;
+  transition: max-height 0.5s ease-in;
+}
+
+.verify-textfield {
+  border: 1px solid #ff9125;
+  padding: 0.5em;
+  text-align: center;
+  width: 100%;
+}
+
+.verify-textfield::-webkit-input-placeholder {
+  color: #ff9125;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.verify-textfield::-moz-placeholder {
+  color: #ff9125;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.verify-textfield:-ms-input-placeholder {
+  color: #ff9125;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.verify-textfield:-moz-placeholder {
+  color: #ff9125;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.verify-action {
+  display: none;
+  margin: 30px 0 20px;
+}
+
+.verify-button {
+  color: white;
+  font-weight: bold;
+  background-color: #ff9125;
+  padding: 0.4em 2em 0.2em;
+  border: 0px;
+  border-radius: .2em;
+}
+
+.verify-error {
+  display: none;
+  color: red;
+  margin: .3em;
+}
+
+.verify-remark {
+  color: #666;
+  font-size: .9em;
+  margin: 0 auto;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  margin: 1em auto;
+}
+
+.qr-code img {
+  width: 100%;
+}
+
+.loading-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: black;
+  opacity: .5;
+  display: none;
+}
+
+.loading {
+  background-color: #ff9125;
+  width: 180px;
+  height: 180px;
+  margin-top: -90px;
+  margin-left: -90px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+}
+
+.loading .loading-inner {
+  position: relative;
+  height: 100%;
+}
+
+.loading .loading-text {
+  position: absolute;
+  display: block;
+  color: #fff;
+  bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.loading-anim {
+  transform: scale(0.4);
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .verify-content {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .travelcare.main {
+    min-height: 500px;
+  }
+}

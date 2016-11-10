@@ -59,6 +59,7 @@ import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.life.ProductRecommendation;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
 import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
@@ -4163,5 +4164,26 @@ public class LifeServiceImpl implements LifeService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
 	}
+	
+	public JSONObject validatePolicyByPolicyNo(String policyNo,HttpServletRequest request) throws ECOMMAPIException{
+		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_BY_POLICY_NO + "?referenceNo=" + policyNo;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+
+	public JSONObject validatePolicyHoldersByPolicyNo(PassPolicyNoBean passPolicy,HttpServletRequest request) throws ECOMMAPIException{
+		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
+		JSONObject params = new JSONObject();
+		params.put("referenceNo", passPolicy.getReferenceNo());
+		params.put("hkId", passPolicy.getHkId());
+		params.put("role", passPolicy.getRole());
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, params);
+		return responseJsonObj;
+	}
+	
 	
 }

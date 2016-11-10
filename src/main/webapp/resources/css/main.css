@@ -12698,6 +12698,25 @@ button[disabled].btn.btn-default--vc {
 		width: 59%;
 	}
 }
+
+/* line 2, ../sass/page/travel/page-travel-confirmation.scss */
+.passkit-link-wrapper #qrImg {
+  margin-left: 50px;
+}
+/* line 5, ../sass/page/travel/page-travel-confirmation.scss */
+.passkit-link-wrapper .passkit-btn {
+  border-radius: 4px;
+  background-color: #fdb714;
+  border-color: #fdb714;
+  border-bottom: solid 3px #cfa238;
+}
+/* line 10, ../sass/page/travel/page-travel-confirmation.scss */
+.passkit-link-wrapper .passkit-btn:hover {
+  background-color: transparent;
+  color: #fdb714;
+  border: 1px #fdb714 solid;
+}
+
 @media screen and (max-width: 991px) {
 	#business-partners-container img.hk3_logo {
 		height: 12%;
@@ -12780,4 +12799,3 @@ button[disabled].btn.btn-default--vc {
 .img_1111:hover{
 	cursor : pointer;
 }
-
