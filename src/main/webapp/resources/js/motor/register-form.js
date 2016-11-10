@@ -1,4 +1,10 @@
 $(document).ready(function(){
+	
+	 $('#sendDriverDetail').on('click', function(e){
+        e.preventDefault();
+        $('#motor_registerForm').validator('validate');
+    });
+	
     $('#mortgageBank').selectize({
         valueField: '',
         labelField: '',
@@ -80,8 +86,6 @@ $(document).ready(function(){
     $('[name="bankMortgage"]').bootstrapSwitch({
         onText: '',
         offText: '',
-        //        labelWidth: '10',
-        //      handleWidth: '10',
 		inverse: true,
         onSwitchChange: function(e, state){
             if(state)
@@ -112,12 +116,13 @@ $(document).ready(function(){
     $('.removeDriver').on('click', function(e){
         e.preventDefault();
         $(this).parents('.added-driver').find('input').prop('required',false);
-		$(this).parents('.added-driver').find('input').prop('select',false);
+		$(this).parents('.added-driver').find('select').prop('required',false);
         $(this).parents('.added-driver').find('input').val('');
         $(this).parents('.added-driver').find('input:checkbox').removeAttr('checked');
         $(this).parents('.added-driver').find('option').removeAttr('selected');
         $(this).parents('.added-driver').addClass('hidden');
         $(this).parents('.added-driver').prev().find('.removeDriver').removeClass('hidden');
+		$('#motor_registerForm').validator('validate');
         if(current == totalDriver){
             $('#addDriver').removeClass('hidden');
         }
@@ -125,28 +130,8 @@ $(document).ready(function(){
     });
     $('#sendDriverDetail').on('click', function(e){
         e.preventDefault();
-		$('#policyDetails').validator('validate');
-      //  $('#motor_registerForm').validator('validate');
-        // if($('#expiry-datepicker').val() == ""){
-        //     $('#expiry-datepicker-group').addClass('has-error has-danger');
-        //     $('#expiry-datepicker-error').html($('#expiry-datepicker').data('required-error'));
-        // }
     });
-    // $('#sendDriverDetail').on('click', function(e){
-    //     e.preventDefault();
-    //     $('#motor_registerForm').validator('validate');
-    // });
-
-	$('#declarations').validator().on('submit', function (e) {
-  if (e.isDefaultPrevented()) {
-    // handle the invalid form...
-  alert('1');
-  } else {
-    // everything looks good!
-  alert('2');
-  }
-})
-	
+    	
     $('#closeUserName').on('click', function(e){
     $('#forgotUserNamePopup').addClass('hidden');
     });

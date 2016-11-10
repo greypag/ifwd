@@ -81,7 +81,7 @@ var nextPage = "${nextPageFlow}";
                 </div>
             </div>
             <div id="motor_registerForm">
-	        <form class="form-inline" method="post" data-toggle="validator">
+	        <form class="form-inline" id="declaration" method="post" data-toggle="validator">
 	            <div class="container">
 	                <div class="row">
 	                    <div class="col-xs-12 qusetion1">
@@ -99,14 +99,14 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-4 text-center custom-radio">
 		                                    <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                        <div class="radio active text-center">
-	                                            <input type="radio" name="answer1" id="a1yes" value="yes">
+	                                        <div class="radio text-center">
+	                                            <input type="radio" name="answer1" id="a1yes" value="yes" required>
 	                                            <label class="" for="yes">
 	                                                <span class="">Yes</span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer1" id="a1no" value="no">
+	                                            <input type="radio" name="answer1" id="a1no" value="no" required>
 	                                            <label class="" for="no">
 	                                                <span class="">No</span>
 	                                            </label>
@@ -134,14 +134,14 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-4 text-center custom-radio">
 		                                    <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                        <div class="radio active text-center">
-	                                            <input type="radio" name="answer2" id="a2yes" value="yes">
+	                                        <div class="radio text-center">
+	                                            <input type="radio" name="answer2" id="a2yes" value="yes" required>
 	                                            <label class="" for="yes">
 	                                                <span class="">Yes</span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer2" id="a2no" value="no">
+	                                            <input type="radio" name="answer2" id="a2no" value="no" required>
 	                                            <label class="" for="no">
 	                                                <span class="">No</span>
 	                                            </label>
@@ -169,14 +169,14 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-4 text-center custom-radio">
 	                                    <div class="form-group">
                                             <div class="help-block-wrap">
-	                                        <div class="radio active text-center">
-	                                            <input type="radio" name="answer3" id="a3yes" value="yes">
+	                                        <div class="radio text-center">
+	                                            <input type="radio" name="answer3" id="a3yes" value="yes" required>
 	                                            <label class="" for="yes">
 	                                                <span class="">Yes</span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer3" id="a3no" value="no">
+	                                            <input type="radio" name="answer3" id="a3no" value="no" required>
 	                                            <label class="" for="no">
 	                                                <span class="">No</span>
 	                                            </label>
@@ -521,9 +521,17 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script>
 $(document).ready(function(){
-	$("#contactpopup").modal('show');
-	$('.form-inline').submit(function(event){
-
+	
+	$('#declaration').submit(function(event){
+	   var isThird;
+	   if (getUrlParameter('plan')=='third') {
+	 	  isThird = true;
+	   } else {
+	 	  isThird = false;
+	   }
+	   
+	   alert($('input[name=answer1]').val());
+	   
 	   var data = { 		
 			   "policyId": "26379363",		
 			   "motorCareDeclaration":[  		
@@ -558,6 +566,19 @@ $(document).ready(function(){
           async: false,
 		  url: "/api/iMotor/policy/saving/declarations",
 		  success: function(data){
+			  
+		  	 var $form = $("<form id='quote-form' />");
+             if (isThird) {
+                 $form.attr("action", "third-party-quote");
+             } else {
+                 $form.attr("action", "comprehensive-quote");
+             }
+             $form.attr("method", "post");
+             var $quote = $("<input type='hidden' name='data' />");
+             $quote.attr("value", JSON.stringify(quote));
+             $form.append($quote);
+             $("body").append($form);
+             $('#quote-form').submit();  
 			  
 		  },error: function(error) {
 			  console.dir(error);

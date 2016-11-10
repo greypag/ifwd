@@ -323,8 +323,30 @@ $(document).ready(function(){
     	checkbox = state;
     });
     
-	$('#carDetails').submit(function(event){
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
 
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+    
+	$('#carDetails').submit(function(event){
+	
+	   var isThird;
+       if (getUrlParameter('plan')=='third') {
+    	  isThird = true;
+       } else {
+    	  isThird = false;
+       }
+     
 	   var data = {"carDetail": {   	
 				   "bankMortgage": checkbox,	
 				   "bankMortgageName": $("#mortgageBank option:selected").text(),	
@@ -334,8 +356,7 @@ $(document).ready(function(){
 					}, 	
 					"policyId": "26379363"  	
 					};
-		console.dir(data);
-		
+	  
 		$.ajax({
           beforeSend: function(){
           	$('#loading-overlay').modal("show");
@@ -346,10 +367,22 @@ $(document).ready(function(){
           contentType : "application/json",
           cache: false,
           async: false,
-          url: "/api/iMotor/policy/saving/carDetails",
+          url:context + "/api/iMotor/policy/saving/carDetails",
 		  success: function(data){
-			  
-			  
+			 return false;
+			  var $form = $("<form id='quote-form' />");
+              if (isThird) {
+                  $form.attr("action", "third-party-quote");
+              } else {
+                  $form.attr("action", "comprehensive-quote");
+              }
+              $form.attr("method", "post");
+              var $quote = $("<input type='hidden' name='data' />");
+              $quote.attr("value", JSON.stringify(quote));
+              $form.append($quote);
+              $("body").append($form);
+              $('#quote-form').submit(); 
+              
 		  },error: function(error) {
 			  console.dir(error);
 				return false;

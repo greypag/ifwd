@@ -241,114 +241,88 @@ $(document).ready(function(){
         if($this.is(':checked')){
             $this.prop('checked', false);
             $this.val('false');
-            if($('.custom-checkbox').find(':input[required]:checked').length < $('.custom-checkbox:visible').length){
-            $(this).parents('form').validator('validate');
-			}
+            if($('.custom-checkbox').find(':input[required]:checked').length < $('.custom-checkbox').length){
+                $(this).parents('form').validator('validate');
+            }
         }
         else{
             $this.prop('checked', true);
             $this.val('true');
-            /*$(this).validator('validate');
-			if(!$('.has-error').length){
-                if($('input:required').value() != '')
-                $('[type="submit"]').removeClass('disabled');
-            }*/
+            
 			if($('.custom-checkbox').find(':input[required]:checked').length == $('.custom-checkbox:visible').length){
             $(this).parents('form').validator('validate');
 			}
+			if(!$('.has-error').length){
+            }
         }
     });
     $custom_radio.on('click', function() {
         var $this = $(this).find('[type="radio"]');
-        if($this.is(':checked')){
+        $this.prop('checked', true);
+        $this.parent().addClass('active').siblings().removeClass('active');
+        if($('[value="yes"]:checked').length == 3){
+			$("#reasonMsg").text("choice 3");
+            $("#contactpopup").modal('show');
         }
-        else{
-            $this.prop('checked', true);
 			if($('.has-error').length)
                 $(this).parents('form').validator('validate');
-            $this.parent().addClass('active').siblings().removeClass('active');
-        }
+        
     });
+	
+	var jsonData, contactJson;
+    $.getJSON( "./api/iMotor/QuoteMotorCare.json", function( data ) { //get json
+	
     var jsonData;
-    /*
-    $.getJSON( "/fwdhk/api/iMotor/QuoteMotorCare", function( data ) { //get json
-        //var items = [];
-        //$.each( data, function( key, val ) {
-        //   items.push( "<li id='" + key + "'>" + val + "</li>" );
-        // });
-        // console.log(data);
-        jsonData = data;
-        
-        if($('.yourQuote').length){
-        	$('#yourQuotePrice').html(jsonData.grossPremium);
-        	$('#yourQuotefromPrice').html(jsonData.compInsuranceAmount);
-        	$('#addOn1Amount').html(jsonData.addOnPaAmt);
-        	$('#addOn2Amount').html(jsonData.addOnTppdAmt);
-        	$('#yourQuotesubTotal').html(jsonData.subTotalAmount);
-        	$('#yourQuoteDiscount').html(jsonData.discountAmount);
-        }
-        
+	 });
+    $.getJSON( "./api/iMotor/ContactMe.json", function( data ) { //get json
+        contactJson = data;
     });
-    $('#saveForm').click(function( event ) {
-        event.preventDefault();
-        var
-        personalAccident = $('[name="addon1"]').val(),
-        thirdPartyPropertyDemage = $('[name="addon2"]').val();
-        jsonData.personalAccident = personalAccident;
-        jsonData.thirdPartyPropertyDemage = thirdPartyPropertyDemage;
-        console.log(jsonData);
-        $.ajax({
-            type: "POST",
-            url: "/fwdhk/api/iMotor/QuoteMotorCare.json",  //post to api
-            data: jsonData,
-            success: function(){
-                console.log('success');   
-            },
-            dataType: "json",
-            contentType : "application/json"
-        });
-    });
-    */
-    
-    if($('#contactform-pop').length){
-    	$('#contactpopup').on('hidden.bs.modal', function () {
-			$('#contactform-pop').removeClass('hidden');
-			$('#successMessage').addClass('hidden');
-    	});
-    	
-    	$('#submitEnquiry').on('click', function( e ) { 
-		e.preventDefault();
-			  $('#contactform-pop').validator('validate');
-			  if(!$('#contactform-pop .has-error').length){
+    if($('#saveForm').length){
+		$('#saveForm').click(function( event ) {
+			event.preventDefault();
+			var
+			personalAccident = $('[name="addon1"]').val(),
+			thirdPartyPropertyDemage = $('[name="addon2"]').val();
+			jsonData.personalAccident = personalAccident;
+			jsonData.thirdPartyPropertyDemage = thirdPartyPropertyDemage;
+			console.log(jsonData);
 			$.ajax({
-				url: context + '/api/iMotor/contactMe',
-				contentType: "application/json",
-				type: 'POST',
-				dataType: "json",
-				async: false,
-				cache: false,
-				data: JSON.stringify({
-						"refNum": $("#quote-num").val(),
-						"fullName": $("#fullName").val(), 
-						"contactNum": $("#contactNo").val(),
-				//		"contactNum": $('[name="contactNo"]').val(),
-						"email": $("#contactEmail").val(),
-						"preferredContactTime": $("#perferedDate").val(),
-						"from": "",
-						"reason": $("#reason").val(),
-						"motorCareDetails": quote
-						}),
-				error: function(xhr, textStatus, errorThrown) {
-					e.preventDefault();
+				type: "POST",
+				url: "./api/iMotor/QuoteMotorCare.json",  //post to api
+				data: jsonData,
+				success: function(){
+					console.log('success');   
 				},
-				success: function(data) {
-					e.preventDefault();
-					$('#contactform-pop').addClass('hidden');
-					//$('#successMessage').removeClass('hidden');
-					}
-				});
-			  }
-	  });
-    	
+				dataType: "json",
+				contentType : "application/json"
+			});
+		});
+    }
+    
+     if($('#contactform-pop').length){
+        $('#contactform-pop').submit(function( event ) {
+            event.preventDefault();
+            var
+            fullName = $(this).find('[name="fullName"]').val(),
+            contactNum = $(this).find('[name="contactNum"]').val(),
+            preferredContactTime = $(this).find('[name="preferredContactTime"]').val(),
+            email = $(this).find('[name="email"]').val();
+            contactJson.quoteMotorCare = jsonData;
+            contactJson.contactNum = contactNum;
+            contactJson.fullName = contactNum;
+            contactJson.preferredContactTime = contactNum;
+            contactJson.email = email;
+            console.log(contactJson);
+            $.ajax({
+                type: "POST",
+                url: "./api/iMotor/QuoteMotorCare.json",  //post to api
+                data: jsonData,
+                success: function(){
+                    console.log('success');   
+                },
+                dataType: "json",
+                contentType : "application/json"
+            });
+        });
     }
 });

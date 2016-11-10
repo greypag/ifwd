@@ -435,7 +435,12 @@ var checkbox=true;
 $(document).ready(function(){
         
 	$('#driverDetails').submit(function(event){
-
+	   var isThird;
+	   if (getUrlParameter('plan')=='third') {
+	  	  isThird = true;
+	   } else {
+	   	  isThird = false;
+	   }		
 	   var data = { 		
 			   	"policyId": "26379363",		
 			   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
@@ -474,7 +479,19 @@ $(document).ready(function(){
 		  url: "/api/iMotor/policy/saving/driverDetails",
 		  success: function(data){
 			  
-			  
+			  var $form = $("<form id='quote-form' />");
+              if (isThird) {
+                  $form.attr("action", "third-party-quote");
+              } else {
+                  $form.attr("action", "comprehensive-quote");
+              }
+              $form.attr("method", "post");
+              var $quote = $("<input type='hidden' name='data' />");
+              $quote.attr("value", JSON.stringify(quote));
+              $form.append($quote);
+              $("body").append($form);
+              $('#quote-form').submit(); 
+              
 		  },error: function(error) {
 			  console.dir(error);
 				return false;

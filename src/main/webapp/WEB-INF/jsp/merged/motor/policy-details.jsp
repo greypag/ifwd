@@ -712,7 +712,14 @@ $(document).ready(function(){
 	var d5term = $('#d5term');
 	
 	$('#policyDetails').submit(function(event){
-		
+	   
+	   var isThird;
+       if (getUrlParameter('plan')=='third') {
+    	  isThird = true;
+       } else {
+    	  isThird = false;
+       }
+       
        var driverMoreThanTwo = false;
 	   if($('input[name=d3name]').val()!="")
 	   {
@@ -781,6 +788,19 @@ $(document).ready(function(){
           async: false,
 		  url: "/api/iMotor/policy/saving/policyDetails",
 		  success: function(data){
+			  
+		 	 var $form = $("<form id='quote-form' />");
+             if (isThird) {
+                 $form.attr("action", "third-party-quote");
+             } else {
+                 $form.attr("action", "comprehensive-quote");
+             }
+             $form.attr("method", "post");
+             var $quote = $("<input type='hidden' name='data' />");
+             $quote.attr("value", JSON.stringify(quote));
+             $form.append($quote);
+             $("body").append($form);
+             $('#quote-form').submit();  
 			  
 		  },error: function(error) {
 			  console.dir(error);
