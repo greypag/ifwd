@@ -2,7 +2,7 @@
 .ew_pol_list .ew_pol_wd_linkup_status,
 .ew_pol_list .ew_pol_wd_linkup_action,
 .ew_pol_list .ew_pol_wd_form, .ew_popup_linkup .ew_remark, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content,
-.ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content [class*=col], .ew_popup_withdraw .ew_desc_err, .ew_popup_withdraw .ew_remark, .ew_pol_log .ew_log_selectWrapper, .ew_pol_log .ew_log_selectWrapper [class*=col], .ew_pol_log .ew_pol_info, .ew_pol_log .ew_log_dt_selectWrapper, #e-wallet-tab-contents .ew-tab-title {
+.ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content [class*=col], .ew_popup_withdraw .ew_desc_err, .ew_popup_withdraw .ew_remark, .ew_pol_log .ew_log_selectWrapper, .ew_pol_log .ew_log_selectWrapper [class*=col], .ew_pol_log .ew_pol_info, .ew_pol_log .ew_log_dt_selectWrapper, .ew_pol_log .ew_logTable_wrapper, #e-wallet-tab-contents .ew-tab-title {
   padding-left: 0;
   padding-right: 0; }
 
@@ -125,23 +125,29 @@
   .ew_popup_linkup .ew_popup_sec_otpInput .ew_agreeBox input[type=checkbox]:checked + label:after, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_agreeBox input[type=checkbox]:checked + label:after {
     background-position: left bottom; }
 
-.ew_loading {
+.ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn .ew_spin, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn .ew_spin, .ew_pol_log .ew_btn_ok .ew_spin {
+  display: none;
+  padding: 0 0.5em; }
+.ew_pol_list .ew_pol_wd_linkup .isLoading.ew_pol_wd_linkupBtn .ew_spin, .ew_pol_list .ew_pol_wd_linkup .isLoading.ew_pol_wd_withdrawBtn .ew_spin, .ew_pol_log .isLoading.ew_btn_ok .ew_spin {
+  display: inline-block; }
+
+.ew_popup_withdraw .ew_popup_loading {
   position: absolute;
   display: none;
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   z-index: 19; }
-  .ew_loading img {
+  .ew_popup_withdraw .ew_popup_loading p {
+    color: #ffffff;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    margin: auto; }
-
-.isLoading .ew_loading {
-  display: block; }
+    margin: auto;
+    width: 54px;
+    height: 54px; }
 
 .ew_pol_list .ew_pol {
   padding: 0;
@@ -172,18 +178,6 @@
     display: inline-block; }
   .ew_pol_list .ew_pol_wd_linkup.isLocked .ew_pol_wd_linkup_locked {
     display: block; }
-  .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn .ew_spin, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn .ew_spin {
-    font-family: FontAwesome !important;
-    font-style: normal;
-    display: none;
-    padding: 0 0.5em;
-    animation: spin_loading 2s infinite; }
-    .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn .ew_spin:before, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn .ew_spin:before {
-      content: "\f021"; }
-  .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn.isLoading, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn.isLoading {
-    cursor: progress; }
-    .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkupBtn.isLoading .ew_spin, .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_withdrawBtn.isLoading .ew_spin {
-      display: inline-block; }
 
 .ew_pol_list .ew_pol_wd_linkup_icon,
 .ew_pol_list .ew_pol_wd_linkup_detail {
@@ -253,6 +247,8 @@
     margin-bottom: 20px; }
 .ew_popup_withdraw .ew_step_2, .ew_popup_withdraw .ew_step_3 {
   display: none; }
+.ew_popup_withdraw #ew_input_amount.ew_err_input {
+  border: red solid 1px; }
 
 .ew_popup_error {
   text-align: center; }
@@ -266,11 +262,29 @@
   position: relative; }
   .ew_pol_log .ew_pol_selector select {
     font-size: 1em; }
-.ew_pol_log .ew_log_dt_selectWrapper .ew_dt_from_txt,
-.ew_pol_log .ew_log_dt_selectWrapper .ew_dt_to_txt {
-  display: inline-block; }
-.ew_pol_log .ew_log_dt_selectWrapper .ew_btn_grp {
-  display: inline-block; }
+.ew_pol_log .ew_log_dt_selectWrapper {
+  display: none; }
+  .ew_pol_log .ew_log_dt_selectWrapper .ew_dt_from_txt,
+  .ew_pol_log .ew_log_dt_selectWrapper .ew_dt_to_txt {
+    display: inline-block; }
+  .ew_pol_log .ew_log_dt_selectWrapper .ew_btn_grp {
+    display: inline-block; }
+.ew_pol_log .ew_logTable_wrapper {
+  display: none; }
+  .ew_pol_log .ew_logTable_wrapper .ew_log_table {
+    width: 100%; }
+    .ew_pol_log .ew_logTable_wrapper .ew_log_table th, .ew_pol_log .ew_logTable_wrapper .ew_log_table td {
+      padding: 1em; }
+    .ew_pol_log .ew_logTable_wrapper .ew_log_table th {
+      background-color: #e5e5e5; }
+    .ew_pol_log .ew_logTable_wrapper .ew_log_table td {
+      background-color: #efefef; }
+    .ew_pol_log .ew_logTable_wrapper .ew_log_table .ew_dateMobile {
+      color: #a7a7a7;
+      display: none;
+      font-size: 0.8em; }
+.ew_pol_log .ew_loading {
+  display: none; }
 
 #dt_log_from, #dt_log_to {
   font-size: 1em; }
@@ -319,7 +333,12 @@
     line-height: 50px; }
   .ew_pol_log .ew_btn_grp {
     padding-top: 10px;
-    text-align: center; } }
+    text-align: center; }
+
+  .ew_pol_log .ew_logTable_wrapper .ew_log_table th:nth-child(2), .ew_pol_log .ew_logTable_wrapper .ew_log_table td:nth-child(2) {
+    display: none; }
+  .ew_pol_log .ew_logTable_wrapper .ew_log_table .ew_dateMobile {
+    display: block; } }
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li:last-child {
   border-right: none; }
 

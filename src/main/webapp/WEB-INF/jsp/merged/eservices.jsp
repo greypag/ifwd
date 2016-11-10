@@ -919,8 +919,8 @@ var customerId = "15174796"; // TNG connected
 										
 									</div>
 									<div class="col-xs-12 col-sm-4 ew_pol_wd_linkup_action">
-										<a class="ew_pol_wd_linkupBtn" href="javascript:void(0);"><i class="ew_spin"></i><fmt:message key="ewallet.withdrawMethod.linkUpBtnText" bundle="${msg}" /></a>
-										<a class="ew_pol_wd_withdrawBtn" href="javascript:void(0);"><i class="ew_spin"></i><fmt:message key="ewallet.withdrawMethod.withdrawBtnText" bundle="${msg}" /></a>
+										<a class="ew_pol_wd_linkupBtn" href="javascript:void(0);"><i class="fa fa-refresh fa-spin ew_spin"></i><fmt:message key="ewallet.withdrawMethod.linkUpBtnText" bundle="${msg}" /></a>
+										<a class="ew_pol_wd_withdrawBtn" href="javascript:void(0);"><i class="fa fa-refresh fa-spin ew_spin"></i><fmt:message key="ewallet.withdrawMethod.withdrawBtnText" bundle="${msg}" /></a>
 									</div>
 								</div>
 							</div>
@@ -966,11 +966,11 @@ var customerId = "15174796"; // TNG connected
 										</div>
 										<input id="dt_log_to" placeholder="Please Select..." />
 										<div class="ew_btn_grp">
-											<a href="javascript:void(0);" class="ew_btn_ok"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
+											<a href="javascript:void(0);" class="ew_btn_ok"><i class="fa fa-refresh fa-spin ew_spin"></i><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
 										</div>
 									</div>
-									<div class="col-xs-12">
-										<table style="width:100%">
+									<div class="col-xs-12 ew_logTable_wrapper">
+										<table class="ew_log_table">
 										  <tr>
 										    <th>拍住賞帳號</th>
 										    <th>交易日期</th> 
@@ -978,17 +978,20 @@ var customerId = "15174796"; // TNG connected
 										  </tr>
 										</table>
 									</div>
+									<div class="col-xs-12 text-center ew_loading">
+										<i class="fa fa-refresh fa-spin ew_spin"></i>
+									</div>
 								</div>
 							</div>
 						</div>
-						<p id="note">
+						<div id="note">
 						<!-- <fmt:message key="ewallet.label.remark.last.update" bundle="${msg}" /> <br/> -->
 						<fmt:message key="ewallet.remark.remark" bundle="${msg}" />
 						<ol>
 						<li><fmt:message key="ewallet.remark.line1" bundle="${msg}" /></li>
 						<li><fmt:message key="ewallet.remark.line2" bundle="${msg}" /></li> 
 						</ol>
-						</p>
+						</div>
 					</div>
 					<!-- e-wallet End -->
 				</div>
@@ -1033,7 +1036,7 @@ var customerId = "15174796"; // TNG connected
 </div>
 <!-- e-Wallet popup Begin-->
 <!-- linkup	 -->
-<div class="modal fade ew_popup_linkup" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade ew_popup_linkup" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -1135,15 +1138,15 @@ var customerId = "15174796"; // TNG connected
 </div>
 
 <!-- withdraw -->
-<div class="modal fade ew_popup_withdraw" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade ew_popup_withdraw" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
+			<div class="ew_popup_loading">
+				<p><i class="fa fa-refresh fa-spin fa-3x fa-fw ew_spin"></i></p>
+			</div>
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 				<h4 class="modal-title"><fmt:message key="ewallet.withdraw.title" bundle="${msg}" /></h4>
-			</div>
-			<div class="ew_loading">
-				<img src="<%=request.getContextPath()%>/resources/images/eWallet/ajax-loader.gif" alt="loading"/>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid bd-example-row">
@@ -1202,10 +1205,10 @@ var customerId = "15174796"; // TNG connected
 									<div class="col-xs-12">
 										<p class="ew_desc_opt"></p>
 									</div>
-									<div class="col-xs-12">
+									<!-- <div class="col-xs-12">
 										<ul class="ew_desc_err">
 										</ul>
-									</div>
+									</div> -->
 								</div>
 							</div>
 							<div class="col-xs-12 ew_remark">
@@ -1251,7 +1254,6 @@ var customerId = "15174796"; // TNG connected
 									</div>
 									<div class="col-xs-12 ew_desc_err">
 										<p>
-											<fmt:message key="ewallet.popup.password.error.prompt" bundle="${msg}"/>
 										</p>
 									</div>
 								</div>

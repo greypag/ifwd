@@ -2,33 +2,42 @@
 // 	"use strict";
 var linkupHelper;
 var withdrawHelper;
+
 var eWalletCtr = {
-	langMapping: {
-		tc: "zh",
-		en: "en"
-	},
 	init: function() {
+		//init Policy 
 		policyHelper.setTemplate();
+		policyHelper.init();
+		//init Linkup 
 		linkupHelper = new LinkupClass();
 		linkupHelper.init();
+		//init Withdraw
 		withdrawHelper = new WithdrawClass();
 		withdrawHelper.init();
-		policyHelper.init();
+		//init Log
 		logViewer.init();
 
+		this.tryDisplayLinkupSuccess();
+	},
+	tryDisplayLinkupSuccess: function (){
 		var isGoing2Ewallet = this.getQueryStringByName("sec") === "ew";
 		if (isGoing2Ewallet) {
 			$("#e-wallet-tab-link").trigger("click");
 		}
 
 		var linkupStatus = this.getQueryStringByName("ew_linkup_result");
-		if (linkupStatus === "") {
-			if (linkupStatus === "success") {
-				$(".ew_popup_linkupSuccess").modal();
-			} else {
-				eWalletCtr.showGenericMsg("linkup fail", "Error");
-			}
+
+		if(linkupStatus == null) return;
+		if (linkupStatus === "success") {
+			$(".ew_popup_linkupSuccess").modal();
+		} else {
+			eWalletCtr.showGenericMsg("linkup fail", "Error");
 		}
+	},
+	//Common Function Begin
+	langMapping: {
+		tc: "zh",
+		en: "en"
 	},
 	fillPolicyInfo: function(policyDom, info) {
 		//policy name
@@ -38,12 +47,6 @@ var eWalletCtr = {
 		policyDom.find(".ew_pol_id").html(info.policyId);
 		//policy balance
 		policyDom.find(".ew_pol_blance").html(eWalletCtr.toPriceStr(info.policyPrincipal));
-	},
-	showApiLoading: function() {
-
-	},
-	hideApiLoading: function() {
-
 	},
 	showGenericMsg: function(title, msg) {
 		var dom = $(".ew_popup_error");
@@ -68,12 +71,13 @@ var eWalletCtr = {
 		if (!results[2]) return '';
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
+	//Common Function End
 };
 
 // ====== Policy List Process Begin ====== 
 var policyHelper = {
 	htmlTemplate: null,
-	isShowingPopup: false,
+	isPopupShowing: false,
 	setTemplate: function() {
 		var template = $(".ew_pol_template").clone();
 		this.htmlTemplate = template;
@@ -89,6 +93,8 @@ var policyHelper = {
 	getCustomerPolicy: function() {
 		var that = this;
 
+		this.showLoading();
+
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyListByCustomer,
 			method: "post",
@@ -99,14 +105,15 @@ var policyHelper = {
 				that.composePolicyList(response.policies);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert(xhr);
+				eWalletCtr.showGenericMsg("Error", "can't get policy...");
+			},
+			doneFn: function (){
+				that.hideLoading();
 			}
 		});
 	},
 	composePolicyList: function(policyAry) {
 		var that = this;
-
-		logViewer.clearPolicyOption();
 
 		for (var pi = 0; pi < policyAry.length; pi++) {
 			var info = policyAry[pi];
@@ -124,9 +131,9 @@ var policyHelper = {
 
 					(function(pid) {
 						policyDom.find(".ew_pol_wd_linkupBtn").on("click", function() {
-							if(that.isShowingPopup) return;
+							if(that.isPopupShowing) return;
 
-							that.isShowingPopup = true;
+							that.isPopupShowing = true;
 							$(this).addClass("isLoading");
 							linkupHelper.startLinkup(pid);
 						});
@@ -143,9 +150,9 @@ var policyHelper = {
 						});
 
 						policyDom.find(".ew_pol_wd_withdrawBtn").on("click", function() {
-							if(that.isShowingPopup) return;
+							if(that.isPopupShowing) return;
 
-							that.isShowingPopup = true;
+							that.isPopupShowing = true;
 							$(this).addClass("isLoading");
 							withdrawHelper.startWithdraw(pid);
 						});
@@ -162,30 +169,53 @@ var policyHelper = {
 			logViewer.addPolicyNum(info.policyId);
 		}
 
+		logViewer.clearPolicyOption();
 		logViewer.optDom.trigger("change");
 		logViewer.fetechPolicyInfo();
 
-		$('#loading-overlay').modal('hide');
+		
 	},
 	unlinkTng: function(pid, tid) {
-		//call API 
-		//if success reload
-		//else show error msg
+		var that = this;
 
-		this.reloadPolicy();
+		that.showLoading();
+
+		apiReqHelper.makeRequest({
+			link: apiLink.unlinkTngPolicy,
+			method: "post",
+			data: {
+				policyId: pid,
+				tngAccountId: tid
+			},
+			successFn: function(response) {
+				eWalletCtr.showGenericMsg("Success", "unlink policy ("+pid+")");
+				that.reloadPolicy();
+			},
+			failFn: function(xhr, textStatus, errorThrown) {
+				alert(xhr);
+			},
+			doneFn: function (){
+				that.hideLoading();
+			}
+		});
 	},
 	clearAllPolicy: function() {
 		//need to unbind all click event ???
 		$(".ew_pol_list .ew_pol").remove();
 	},
 	reloadPolicy: function() {
-		$('#loading-overlay').modal();
 		this.clearAllPolicy();
 		this.getCustomerPolicy();
 	},
 	popupClosed: function (){
 		$(".ew_pol_wd_linkupBtn, .ew_pol_wd_withdrawBtn").removeClass("isLoading");
 		this.isShowingPopup = false;
+	},
+	showLoading: function (){
+		$('#loading-overlay').modal();
+	},
+	hideLoading: function (){
+		$('#loading-overlay').modal('hide');
 	}
 };
 // ====== Policy List Process End ====== 
@@ -195,9 +225,9 @@ var policyHelper = {
 
 // ====== Linkup Process Being ====== 
 function LinkupClass() {
+	// Borrowing Methods inheritance
 	BaseErrMsgHelper.apply(this);
 	BaseOtpHelper.apply(this);
-
 
 	this.popupDom = $(".ew_popup_linkup");
 	this.policyId = null;
@@ -209,6 +239,7 @@ function LinkupClass() {
 			that.reset();
 			$(document).trigger('ew_popupClose', this);
 		});
+
 		this.popupDom.find(".ew_btn_confirm").on("click", function() {
 			that.clearErrMsg();
 
@@ -228,11 +259,13 @@ function LinkupClass() {
 			}
 
 		});
+
 		this.bindResendOtpEvent();
 	};
 
 	this.startLinkup = function(pid) {
 		var that = this;
+
 		this.policyId = pid;
 
 		//send TngOtpSMS API
@@ -304,9 +337,8 @@ function LinkupClass() {
 
 	this.reset = function() {
 		this.policyId = null;
-		this.popupDom.find(".ew_otp_wrapper input").val("");
 		this.clearErrMsg();
-
+		this.resetOtpInput();
 		this.stopResendCountdown();
 	};
 
@@ -345,19 +377,7 @@ function WithdrawClass(){
 	this.init = function() {
 		var that = this;
 
-		//only allow enter number 
-		$("#ew_input_amount").on("keypress", function (key){
-			var key = window.event ? event.keyCode : event.which;
-
-		    if (event.keyCode === 8 || event.keyCode === 46
-		     || event.keyCode === 37 || event.keyCode === 39) {
-		        return true;
-		    }
-		    else if ( key < 48 || key > 57 ) {
-		        return false;
-		    }
-		    else return true;
-		});
+		this.restrictAmountInput();
 
 		this.popupDom.on("hidden.bs.modal", function() {
 			that.reset();
@@ -370,9 +390,15 @@ function WithdrawClass(){
 		});
 
 		this.popupDom.find(".ew_btn_withdraw").on("click", function (){
-			that.amountWithdraw = parseInt($("#ew_input_amount").val(), 10);
+			var inputDom = $("#ew_input_amount");
+			if(inputDom.val().length < 3){
+				inputDom.addClass("ew_err_input");
+				return;
+			}
+			that.amountWithdraw = parseInt(inputDom.val(), 10);
 			that.requestWithdraw();
 		});
+
 		this.popupDom.find(".ew_btn_confirm").on("click", function (){
 			that.clearErrMsg();
 
@@ -390,14 +416,35 @@ function WithdrawClass(){
 			if(!haveOtp){
 				that.appendErrMsg(msgCtr.linkup_invalidOtpInput);
 			}
-			
 		});
 		this.bindResendOtpEvent();
+	};
+
+	this.restrictAmountInput = function (){
+		//only allow enter number 
+		$("#ew_input_amount").on("keypress", function (key){
+			var key = window.event ? event.keyCode : event.which;
+
+			if (event.keyCode === 8 || event.keyCode === 46 || 
+				event.keyCode === 37 || event.keyCode === 39) {
+				return true;
+			}
+			else if ( key < 48 || key > 57 ) {
+				return false;
+			}
+			else return true;
+		});
 	};
 
 	this.reset =  function() {
 		this.policyId = null;
 		this.amountWithdraw = 0;
+
+		$("#ew_input_amount").removeClass("ew_err_input");
+
+		this.switchSection(1);
+
+		this.resetOtpInput();
 
 		this.stopResendCountdown();
 	};
@@ -406,6 +453,7 @@ function WithdrawClass(){
 		var that = this;
 		this.policyId = pid;
 
+		that.showLoading();
 		//send TngOtpSMS API
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyInfo,
@@ -418,6 +466,9 @@ function WithdrawClass(){
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
 				alert(xhr);
+			},
+			doneFn: function (){
+				that.hideLoading();
 			}
 		});
 	};
@@ -431,6 +482,8 @@ function WithdrawClass(){
 
 	this.requestWithdraw = function() {
 		var that = this;
+
+		that.showLoading();
 
 		apiReqHelper.makeRequest({
 			link: apiLink.requestWithdraw,
@@ -446,6 +499,9 @@ function WithdrawClass(){
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
 				alert(xhr);
+			},
+			doneFn: function (){
+				that.hideLoading();
 			}
 		});
 	};
@@ -456,6 +512,8 @@ function WithdrawClass(){
 
 	this.performWithdraw = function() {
 		var that = this;
+
+		that.showLoading();
 
 		apiReqHelper.makeRequest({
 			link: apiLink.performWithdraw,
@@ -470,6 +528,9 @@ function WithdrawClass(){
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
 				alert(xhr);
+			},
+			doneFn: function (){
+				that.hideLoading();
 			}
 		});
 	};
@@ -480,11 +541,11 @@ function WithdrawClass(){
 	};
 
 	this.showLoading = function (){
-		console.log("open loading");
+		this.popupDom.find(".ew_popup_loading").show();
 	};
 
 	this.hideLoading = function (){
-		console.log("close loading");
+		this.popupDom.find(".ew_popup_loading").hide();
 	};
 }
 	// ====== Withdraw Process End ====== 
@@ -511,14 +572,18 @@ function BaseOtpHelper() {
 	};
 	this.getOtpInput = function() {
 		return this.popupDom.find(".ew_otp_input").val();
-	}
+	};
+	this.resetOtpInput = function (){
+		this.popupDom.find(".ew_otp_input").val("");
+		this.popupDom.find("input[type=checkbox]").prop('checked', false);
+	};
 	this.bindResendOtpEvent = function(){
 		var that = this;
 		this.popupDom.find(".ew_link_resendOTP").on("click", function() {
 			that.resendOtp();
 		});
-	}
-};
+	};
+}
 
 function BaseErrMsgHelper() {
 	this.appendErrMsg = function(msg) {
@@ -530,7 +595,7 @@ function BaseErrMsgHelper() {
 	this.clearErrMsg = function() {
 		this.popupDom.find(".ew_desc_err").html("");
 	};
-};
+}
 
 var logViewer = {
 	policyId: null,
@@ -543,12 +608,13 @@ var logViewer = {
 			link: apiLink.withdrawLog,
 			method: "post",
 			data: {
-				policyId: this.policyId,
-				startDate: $('#dt_log_from').val(),
-				endDate: $('#dt_log_to').val()
+				// policyId: this.policyId,
+				policyId: "11097339",
+				startDate: this.toApiDateFormat($('#dt_log_from').val()),
+				endDate: this.toApiDateFormat($('#dt_log_to').val())
 			},
 			successFn: function(response) {
-				console.log(response);
+				that.composeLogTable(response);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
 				alert("Fail fetechLogs");
@@ -556,25 +622,41 @@ var logViewer = {
 		});
 	},
 	composeLogTable: function (data){
+		this.clearLogTable();
+
 		var logs = data.transaction;
 		for(var li = 0; li < logs.length; li++){
 			var logData = logs[li];
-			var logRow = $("<tr/>").addClass("ew_log");
-			var tngId = $("<td/>").html(logData.txnId);
-			var withdrawAmount = $("<td/>").html(logData.txnAmount);
-			var date = $("<td/>").html(logData.txnDate);
+			var logDt = logData.txnDate.split(" ")[0];
 
-			logRow.append([tngId, withdrawAmount, date]);
+			var logRow = $("<tr/>").addClass("ew_log");
+
+			var tngId = $("<td/>").html(logData.txnId);
+			
+			var dateMobile = $("<span/>").addClass("ew_dateMobile").html(logDt);
+			tngId.append(dateMobile);
+			
+			var withdrawAmount = $("<td/>").html(eWalletCtr.toPriceStr(logData.txnAmount));
+			
+			var date = $("<td/>").html(logDt);
+
+			logRow.append([tngId, date, withdrawAmount]);
 
 			this.htmlDom.find("table").append(logRow);
 		}
 
+		this.hideLogLoading();
+		this.htmlDom.find(".ew_logTable_wrapper").show();
 	},
 	clearLogTable: function (){
 		this.htmlDom.find("table .ew_log").remove();
 	},
 	fetechPolicyInfo: function (){
 		var that = this;
+
+		this.hideOptionNLog();
+		this.htmlDom.find(".ew_loading").show();
+
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyInfo,
 			method: "post",
@@ -583,6 +665,8 @@ var logViewer = {
 			},
 			successFn: function(response) {
 				eWalletCtr.fillPolicyInfo(that.htmlDom.find(".ew_pol_info"), response.policy);
+				that.htmlDom.find(".ew_log_dt_selectWrapper").show();
+				that.htmlDom.find(".ew_loading").hide();
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
 				alert("Fail getPolicyInfo");
@@ -593,7 +677,9 @@ var logViewer = {
 		var that = this;
 
 		this.initDatePicker();
+
 		this.htmlDom.find(".ew_btn_ok").on("click", function (){
+			that.showLogLoading();
 			that.fetechLogs();
 		});
 		this.optDom.on("change", function (){
@@ -653,6 +739,20 @@ var logViewer = {
 	clearPolicyOption: function (){
 		this.optDom.html("");
 		this.policyId = null;
+	},
+	hideOptionNLog: function (){
+		this.htmlDom.find(".ew_logTable_wrapper, .ew_log_dt_selectWrapper").hide();
+	},
+	showLogLoading: function (){
+		this.htmlDom.find(".ew_btn_ok").addClass("isLoading");
+	},
+	hideLogLoading: function (){
+		this.htmlDom.find(".ew_btn_ok").removeClass("isLoading");
+	},
+	toApiDateFormat(str){
+		//yyyy-mm-dd
+		var strAry = str.split("/");
+		return strAry[2] + "-" + strAry[1] + "-" + strAry[0];
 	}
 };
 
@@ -691,6 +791,12 @@ var apiReqHelper = {
 					eWalletCtr.showGenericMsg("Error", "network problem.");
 				}
 			},
+			complete: function (){
+				that.isWorking = false;
+				if (!!conf.doneFn) {
+					conf.doneFn();
+				}
+			},
 			async: true
 		});
 	}
@@ -706,9 +812,9 @@ var apiLink = {
 	sendTngOtpSms: context + "/api/withdrawal/sendTngOtpSms",
 	getPolicyInfo: context + "/api/withdrawal/getPolicyInfo",
 	authTngOtp: context + "/api/withdrawal/authTngOtp",
-	unlinkTngPolicy: context + "",
-	requestWithdraw: context + "",
-	performWithdraw: context + "",
+	unlinkTngPolicy: context + "/api/withdrawal/unlinkTngPolicy",
+	requestWithdraw: context + "/api/withdrawal/requestTngPolicyWithdraw",
+	performWithdraw: context + "/api/withdrawal/performTngPolicyWithdraw",
 	withdrawLog: context + "/api/withdrawal/getTngPolicyHistory",
 
 };
@@ -720,4 +826,4 @@ var msgCtr = {
 	otpFailMsg: "發送一次性密碼失敗",
 	linkup_invalidOtpInput: "請輸入有效的一次性密碼",
 	linkup_notCheckTnc: "請同意條款及細則"
-}
+};
