@@ -101,7 +101,18 @@
 
 	<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/images/passkit/favicon.ico" />
 </head>
+<%
+	if ("en".equals(session.getAttribute("language").toString())) {
+%>
 <body>
+<%
+} else {
+%>
+<body class="zh">
+<%
+}									
+%>
+
 
 	<%@ include file="include/merged/passkit/header.jsp"%>
 	<div class="closeMobileMenu commonBody"><dec:body /></div>

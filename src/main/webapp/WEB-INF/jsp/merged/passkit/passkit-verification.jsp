@@ -6,9 +6,7 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="dec"%>
 
-<!DOCTYPE HTML>
-<html>
-<body>
+
 
 	
 
@@ -99,6 +97,3 @@
 	<script type="text/javascript">
     window.status = "Done";
   </script></div>
-</body>
-
-</html>
