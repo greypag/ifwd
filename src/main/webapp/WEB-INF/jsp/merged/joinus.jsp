@@ -571,11 +571,46 @@ function generate_common_validate_fields(form){
 	};
 }
 
+function generate_validate(form,fields){
+	$(form).bootstrapValidator({
+		excluded: [
+			':disabled', ':hidden', ':not(:visible)'
+		],
+		fields: fields
+		}).on('success.form.bv', function (e) {
+			//e.preventDefault();
+		
+		}).on('error.form.bv', function (e) {
+		
+		}).on('error.field.bv', function(e, data) {
+		    if (data.bv.getSubmitButton()) {
+		        data.bv.disableSubmitButtons(false);
+		    }
+		})
+		.on('success.field.bv', function(e, data) {
+		    if (data.bv.getSubmitButton()) {
+		        data.bv.disableSubmitButtons(false);
+		    }
+		}).on('error.validator.bv', function(e, data) {
+	        // $(e.target)    --> The field element
+	        // data.bv        --> The BootstrapValidator instance
+	        // data.field     --> The field name
+	        // data.element   --> The field element
+	        // data.validator --> The current validator name
+
+	        data.element
+	            .data('bv.messages')
+	            // Hide all the messages
+	            .find('.help-block[data-bv-for="' + data.field + '"]').hide()
+	            // Show only message associated with current validator
+	            .filter('[data-bv-validator="' + data.validator + '"]').show();
+	    });
+}
 function bootstrapvalidate(){
 	var form_1 = "form[name='joinus_form_member']";
-	var fields = generate_common_validate_fields(form_1);
+	var fields_1 = generate_common_validate_fields(form_1);
 	
-	fields['Dob'] = {
+	fields_1['Dob'] = {
 						container: form_1 + ' #errorEmptyDobJoinUs',
 						validators: {
 							notEmpty: {
@@ -583,9 +618,8 @@ function bootstrapvalidate(){
 							}
 						}
 					};
-	fields['Hkid'] = {
+	fields_1['Hkid'] = {
 						container: form_1 + ' #errorEmptyHkidJoinUs',
-						 trigger: 'change keyup',
 						validators: {
 							callback: {
 								message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
@@ -614,7 +648,7 @@ function bootstrapvalidate(){
 							}
 						}
 					};
-	fields['PolicyNumber'] = {
+	fields_1['PolicyNumber'] = {
 								container: form_1 + ' #errorEmptyPolicyNumberJoinUs',
 								validators: {
 									notEmpty: {
@@ -631,74 +665,11 @@ function bootstrapvalidate(){
 								}
 							}; 
 	
-
-	$(form_1).bootstrapValidator({
-	excluded: [
-		':disabled', ':hidden', ':not(:visible)'
-	],
-	fields: fields
-	}).on('success.form.bv', function (e) {
-		//e.preventDefault();
+	generate_validate(form_1,fields_1);
 	
-	}).on('error.form.bv', function (e) {
-	
-	}).on('error.field.bv', function(e, data) {
-	    if (data.bv.getSubmitButton()) {
-	        data.bv.disableSubmitButtons(false);
-	    }
-	})
-	.on('success.field.bv', function(e, data) {
-	    if (data.bv.getSubmitButton()) {
-	        data.bv.disableSubmitButtons(false);
-	    }
-	}).on('error.validator.bv', function(e, data) {
-        // $(e.target)    --> The field element
-        // data.bv        --> The BootstrapValidator instance
-        // data.field     --> The field name
-        // data.element   --> The field element
-        // data.validator --> The current validator name
-
-        data.element
-            .data('bv.messages')
-            // Hide all the messages
-            .find('.help-block[data-bv-for="' + data.field + '"]').hide()
-            // Show only message associated with current validator
-            .filter('[data-bv-validator="' + data.validator + '"]').show();
-    });
-
 	var form_2 = "form[name='joinus_form_non_member']";
-	$(form_2).bootstrapValidator({
-		excluded: [
-			':disabled', ':hidden', ':not(:visible)'
-		],
-		fields: generate_common_validate_fields(form_2)
-		}).on('success.form.bv', function (e) {
-			e.preventDefault();
-		
-		}).on('error.form.bv', function (e) {
-		
-		}).on('error.field.bv', function(e, data) {
-		    if (data.bv.getSubmitButton()) {
-		        data.bv.disableSubmitButtons(false);
-		    }
-		}).on('success.field.bv', function(e, data) {
-		    if (data.bv.getSubmitButton()) {
-		        data.bv.disableSubmitButtons(false);
-		    }
-		}).on('error.validator.bv', function(e, data) {
-            // $(e.target)    --> The field element
-            // data.bv        --> The BootstrapValidator instance
-            // data.field     --> The field name
-            // data.element   --> The field element
-            // data.validator --> The current validator name
-
-            data.element
-                .data('bv.messages')
-                // Hide all the messages
-                .find('.help-block[data-bv-for="' + data.field + '"]').hide()
-                // Show only message associated with current validator
-                .filter('[data-bv-validator="' + data.validator + '"]').show();
-        });
+	var fields_2 = generate_common_validate_fields(form_2);
+	generate_validate(form_2,fields_2);
 	
 }
 
@@ -972,7 +943,7 @@ function tooltipPlacement(){
 									<fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" />
 								</a>
 								<fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
-								<p><span id="errorDeclaration_2" class="text-red"></span>
+								<p><span id="errorDeclaration" class="text-red"></span>
 								<hr />
 								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
 							</label>
