@@ -207,8 +207,18 @@ public class LifeController extends BaseController{
 			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 			try {
 				GetPolicyApplicationResponse apiResponse = savieOnlineService.getPolicyApplicationSaveforLater(request);
+				
 				PolicyApplication policyApplication = apiResponse.getPolicyApplication();
-				saviePlanDetails.setPromoCode(policyApplication.getReferralCode());
+				if (policyApplication != null) {
+					saviePlanDetails.setPromoCode(policyApplication.getReferralCode());
+					model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+					
+				}
+				if (saviePlanDetails != null) {
+					request.getSession().setAttribute("promoCode", saviePlanDetails.getPromoCode());
+				}
+				
+				
 				
 			} catch (ECOMMAPIException e) {
 				// TODO Auto-generated catch block
@@ -219,8 +229,8 @@ public class LifeController extends BaseController{
 			}else{
 				model.addAttribute("promoCode", "");
 			}*/
-			model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
-			request.getSession().setAttribute("promoCode", saviePlanDetails.getPromoCode());
+			
+			
 			model.addAttribute("type", type);
 			request.getSession().setAttribute("savieType", "SP");
 			model.addAttribute("sliderMin", "30000");
