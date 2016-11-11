@@ -369,23 +369,21 @@ $(document).ready(function(){
           async: false,
           url:context + "/api/iMotor/policy/saving/carDetails",
 		  success: function(data){
-			 return false;
+			  
+              
+		  },error: function(error) {
 			  var $form = $("<form id='quote-form' />");
               if (isThird) {
                   $form.attr("action", "third-party-quote");
               } else {
-                  $form.attr("action", "comprehensive-quote");
+                  $form.attr("action", "drivers-details");
               }
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              $quote.attr("value", JSON.stringify(quote));
+              $quote.attr("value", JSON.stringify(data));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit(); 
-              
-		  },error: function(error) {
-			  console.dir(error);
-				return false;
 		  }
 		});
 		return false;

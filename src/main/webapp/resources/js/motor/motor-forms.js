@@ -1,3 +1,32 @@
+var chin = $('body').hasClass('chin'),
+enErr = {
+417: 'Your vehicle type is not eligible for an instant quote.',
+414: 'Your vehicle type is not eligible for an instant quote.',
+410: 'Your vehicle is aged over 13 years.',
+406: 'Your occupation is not eligible for an instant quote.',
+415: 'Your No Claim Discount is not eligible for an instant quote.',
+408: 'Your age is not between 25 and 70 years old.',
+409: 'Your driving experience is not eligible for an instant quote.',
+400: 'Quotation information is invalid.',
+500: 'System service is currently unavailable.',
+412: 'The estimated value of your car exceeds the maximum value allowed.',
+413: 'The estimated value of your car is below the minimum value allowed.',
+416: 'Your vehicle is not eligible for an instant quote.'
+},
+cnErr ={
+		417: '您的汽車類型未能合乎即時報價的要求。',   
+		414: '您的汽車類型未能合乎即時報價的要求。',      
+		410: '您的汽車車齡超過13年。',                          
+		406: '您的職業未能合乎即時報價的要求。',        
+		415: '您的無索償折扣未能合乎即時報價的要求。', 
+		408: '您的年齡並非界乎25至70歲。',                 
+		409: '您的駕駛年資未能合乎即時報價的要求。',
+		400: '報價資料不正確。',
+		500: '系統現時未能提供服務。',
+		412: '您輸入的座駕估計市值超出最高上限。',
+		413: '您輸入的座駕估計市值低於最低下限。',
+		416: '您的汽車未能符合即時報價的要求。'
+};
 var motor_mortgageBank, $motor_mortgageBank, 
 motor_district , $motor_district, 
 motor_occupation, $motor_occupation, 
@@ -5,6 +34,7 @@ motor_d2occupation , $motor_d2occupation,
 motor_d3occupation , $motor_d3occupation,
 motor_d4occupation , $motor_d4occupation,
 motor_d5occupation , $motor_d5occupation;
+
 function system_error_message(code, policyID)
 {
 	switch(code)

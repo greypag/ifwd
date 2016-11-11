@@ -177,50 +177,56 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Make</span>
+                                    <span>Car Make</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span>Audi</span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Model Registration Document</span>
+                                    <span>Car Model</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>A1 Sportback 30A1 Sportback 30</span>
+                                    <span>A8</span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>CC</span>
+                                    <span>C.C.</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>1,395 c.c</span>
+                                    <span>1,395</span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Year</span>
+                                    <span>Estimated value</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>2000</span>
+                                    <span>200,000</span>
+                                </div>
+                                <div class="col-xs-6 text-left even">
+                                    <span>No Claim Discount</span>
+                                </div>
+                                <div class="col-xs-6 text-right even">
+                                    <span>40%</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Chasis No.</span> 
+                                    <span>Car Model.</span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>1231231231</span>
+                                    <span>A8</span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Estimated Value</span>
+                                    <span>Made year</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>HK $XXX</span>
+                                    <span>2015</span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Bank Mortgage</span>
+                                    <span>Occupation</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>HSBC</span>
+                                    <span>Advertising</span>
                                 </div>
                             </div>
                         </div>
@@ -243,50 +249,42 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Make</span>
+                                    <span>Chasis No.</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>Audi</span>
+                                    <span>1234123412341234</span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span> Model Registration Document</span>
+                                    <span>Model Registration Document</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span> A1 Sportback 30A1 Sportback 30</span>
+                                    <span>A8</span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>CC</span>
+                                    <span>Other Bank Mortgage</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>1,395 c.c</span>
-                                </div>
-                                <div class="col-xs-6 text-left even">
-                                    <span>Year</span>
-                                </div>
-                                <div class="col-xs-6 text-right even">
-                                    <span>2000</span>
+                                    <span>BOC</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Chasis No.</span> 
+                                    <span>Cubic Capacity</span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>1231231231</span>
+                                    <span>1,395 c.c.</span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Estimated Value</span>
+                                    <span>Bank Mortgage.</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>HK $XXX</span>
+                                    <span>others</span>
                                 </div>
-                                <div class="col-xs-6 text-left odd">
-                                    <span>Bank Mortgage</span>
+                                <div class="col-xs-6 text-left odd hidden-xs">
                                 </div>
-                                <div class="col-xs-6 text-right odd">
-                                    <span>HSBC</span>
+                                <div class="col-xs-6 text-right odd hidden-xs">
                                 </div>
                             </div>
                         </div>
@@ -321,22 +319,16 @@ var nextPage = "${nextPageFlow}";
                                     <span>12-12-2014</span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Occuption</span>
-                                </div>
-                                <div class="col-xs-6 text-right odd">
-                                    <span>Designer</span>
-                                </div>
-                                <div class="col-xs-6 text-left even">
                                     <span>HKID</span>
                                 </div>
-                                <div class="col-xs-6 text-right even">
-                                    <span>GG1223311</span>
-                                </div>
-                                <div class="col-xs-6 text-left odd">
-                                    <span>Address</span>
-                                </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>Flat A</span>
+                                    <span>G23466</span>
+                                </div>
+                                <div class="col-xs-6 text-left even">
+                                    <span>Correspondence Address</span>
+                                </div>
+                                <div class="col-xs-6 text-right even" style="height:120px;text-align: justify;">
+                                    <span>Flat A, Floor 8 Block 2, Kan Fat Building, 3 King's Rd Building, 3 King's Ed, Wan Chai, HK</span>
                                 </div>
                             </div>
                         </div>
@@ -365,10 +357,6 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span>12-12-2017</span>
-                                </div>
-                                <div class="col-xs-6 text-left odd hidden-xs">
-                                </div>
-                                <div class="col-xs-6 text-right odd hidden-xs">
                                 </div>
                             </div>
                         </div>

@@ -434,6 +434,21 @@ var nextPage = "${nextPageFlow}";
 var checkbox=true;
 $(document).ready(function(){
         
+	 var getUrlParameter = function getUrlParameter(sParam) {
+	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+	            sURLVariables = sPageURL.split('&'),
+	            sParameterName,
+	            i;
+
+	        for (i = 0; i < sURLVariables.length; i++) {
+	            sParameterName = sURLVariables[i].split('=');
+
+	            if (sParameterName[0] === sParam) {
+	                return sParameterName[1] === undefined ? true : sParameterName[1];
+	            }
+	        }
+	    };
+	
 	$('#driverDetails').submit(function(event){
 	   var isThird;
 	   if (getUrlParameter('plan')=='third') {
@@ -483,18 +498,30 @@ $(document).ready(function(){
               if (isThird) {
                   $form.attr("action", "third-party-quote");
               } else {
-                  $form.attr("action", "comprehensive-quote");
+                  $form.attr("action", "policy-details");
               }
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              $quote.attr("value", JSON.stringify(quote));
+              $quote.attr("value", JSON.stringify(data));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit(); 
               
 		  },error: function(error) {
-			  console.dir(error);
-				return false;
+			  /*console.dir(error);
+				return false;*/
+			  var $form = $("<form id='quote-form' />");
+              if (isThird) {
+                  $form.attr("action", "third-party-quote");
+              } else {
+                  $form.attr("action", "policy-details");
+              }
+              $form.attr("method", "post");
+              var $quote = $("<input type='hidden' name='data' />");
+              $quote.attr("value", JSON.stringify(data));
+              $form.append($quote);
+              $("body").append($form);
+              $('#quote-form').submit();
 		  }
 		});
 		return false;
