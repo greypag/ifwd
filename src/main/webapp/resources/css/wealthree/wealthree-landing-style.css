@@ -1,0 +1,283 @@
+.savie-regular-landing.rp-only .page-banner .img-banner-text.savie-landing, .savie-regular-landing.sp-only .page-banner .img-banner-text.savie-landing {
+  padding: 15px 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0 !important; }
+
+.savie-regular-landing .page-banner .img-banner-text .start-btn {
+  border: 1px solid #fdb714; }
+
+.wh_productInfo {
+  background-color: #fff;
+  padding: 26px 0; }
+  .wh_productInfo .wh_p_desc {
+    max-width: 500px;
+    margin: 0 auto 20px; }
+  .wh_productInfo .wh_p_btns-gp a {
+    padding: 15px; }
+    .wh_productInfo .wh_p_btns-gp a:hover {
+      color: #9fb1b2; }
+
+.wh_productChart .chart-wrapper {
+  max-width: 700px;
+  margin: auto;
+  position: relative; }
+.wh_productChart .checkbox {
+  text-align: center; }
+  .wh_productChart .checkbox label::before {
+    content: none;
+    box-shadow: none; }
+  .wh_productChart .checkbox i {
+    margin-right: 10px;
+    font-style: normal; }
+  .wh_productChart .checkbox span {
+    position: relative;
+    display: inline-block;
+    vertical-align: top; }
+    .wh_productChart .checkbox span:after {
+      background-color: #f8882d; }
+  .wh_productChart .checkbox .off i:first-child {
+    color: #f8882d; }
+  .wh_productChart .checkbox .off i:last-child {
+    color: #bcbcbc; }
+  .wh_productChart .checkbox .on i:first-child {
+    color: #bcbcbc; }
+  .wh_productChart .checkbox .on i:last-child {
+    color: #f8882d; }
+.wh_productChart .checkbox-slider--b input:checked + span:before {
+  background: #fff; }
+.wh_productChart .checkbox-slider--b input + span:before {
+  background: #fff;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8); }
+
+/* WHAT THE HELL????? */
+#txt_amount::-webkit-input-placeholder {
+  font-size: 30px !important;
+  color: #fdc760 !important;
+  opacity: 1 !important;
+  font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important; }
+
+#txt_amount:-moz-placeholder {
+  font-size: 30px !important;
+  color: #fdc760 !important;
+  opacity: 1 !important;
+  /* For Firefox 18- */
+  font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important; }
+
+#txt_amount::-moz-placeholder {
+  font-size: 30px !important;
+  color: #fdc760 !important;
+  opacity: 1 !important;
+  /* For Firefox 19+ */
+  font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important; }
+
+#txt_amount:-ms-input-placeholder {
+  font-size: 30px !important;
+  color: #fdc760 !important;
+  opacity: 1 !important;
+  font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important; }
+
+.wp_productCalculator {
+  background-color: #f8f8f8; }
+  .wp_productCalculator h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: center; }
+  .wp_productCalculator p {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px; }
+  .wp_productCalculator span {
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    margin: 10px 0; }
+  .wp_productCalculator img {
+    margin: auto;
+    max-width: 100%;
+    display: block; }
+  .wp_productCalculator .box-input {
+    background-color: #fbb631;
+    border-radius: 4px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 20px; }
+    .wp_productCalculator .box-input .form-wrapper {
+      margin-bottom: 20px; }
+    .wp_productCalculator .box-input .txt-amount-wrapper {
+      border-bottom: 1px solid #fff;
+      min-height: 25px;
+      display: inline-block;
+      vertical-align: bottom; }
+      .wp_productCalculator .box-input .txt-amount-wrapper input {
+        background-color: transparent;
+        border: none;
+        text-align: center;
+        max-width: 175px;
+        font-size: 30px;
+        color: #fee2a1; }
+        .wp_productCalculator .box-input .txt-amount-wrapper input:focus {
+          outline: none; }
+    .wp_productCalculator .box-input:before {
+      background: url(../../images/wealthree/m_s2_arrow_grey.png) no-repeat;
+      content: "";
+      width: 60px;
+      height: 20px;
+      position: absolute;
+      bottom: -35px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      margin: auto; }
+    .wp_productCalculator .box-input:after {
+      background: url(../../images/wealthree/m_s2_arrow_yellow.png) no-repeat;
+      content: "";
+      width: 60px;
+      height: 20px;
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      margin: auto; }
+    .wp_productCalculator .box-input .sel-currency-wrapper {
+      min-height: 25px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: bottom;
+      border-bottom: 1px solid #fff;
+      position: relative; }
+      .wp_productCalculator .box-input .sel-currency-wrapper i {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff; }
+      .wp_productCalculator .box-input .sel-currency-wrapper select {
+        width: 120%;
+        border: 0;
+        background-color: transparent;
+        color: #fee2a1; }
+        .wp_productCalculator .box-input .sel-currency-wrapper select option {
+          color: #666; }
+        .wp_productCalculator .box-input .sel-currency-wrapper select:focus {
+          outline: none; }
+    .wp_productCalculator .box-input .btn-calculate {
+      display: inline-block;
+      padding: 10px 60px;
+      background-color: #fff;
+      color: #fdb714; }
+  .wp_productCalculator .box-result {
+    padding: 20px;
+    background-color: #29b4bd;
+    border-radius: 4px; }
+    .wp_productCalculator .box-result .ttl_pay_amount, .wp_productCalculator .box-result .yrs3_return {
+      font-size: 18px; }
+  .wp_productCalculator .tbl-result-wrapper {
+    margin-bottom: 20px; }
+    .wp_productCalculator .tbl-result-wrapper h4 {
+      background-color: #fa8818;
+      color: #fff;
+      font-size: 14px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      margin-bottom: 0; }
+    .wp_productCalculator .tbl-result-wrapper .tbl-wrapper {
+      background-color: #fff;
+      padding-top: 10px; }
+      .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-year, .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data {
+        float: left;
+        /* margin-bottom:10px; */ }
+      .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-year {
+        width: 30%; }
+        .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-year .col-year-inner {
+          border-right: 1px solid #fa8818; }
+        .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-year table {
+          width: 100%; }
+      .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data {
+        width: 70%;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch; }
+        .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data .col-data-scroller {
+          width: 140%; }
+        .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data table {
+          width: 100%; }
+          .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data table th {
+            width: 33.33%; }
+      .wp_productCalculator .tbl-result-wrapper .tbl-wrapper th, .wp_productCalculator .tbl-result-wrapper .tbl-wrapper td {
+        text-align: center;
+        padding: 5px; }
+
+.btm-btn {
+  margin-bottom: 20px; }
+  .btm-btn .btn-savenow {
+    max-width: 230px;
+    font-size: 24px;
+    background: #fdb714;
+    color: #fff;
+    border-radius: 4px;
+    padding: 12.5px 0;
+    width: 100%; }
+
+.pv_compareTable .sel_wrapper {
+  width: 50%;
+  overflow: hidden;
+  margin: auto;
+  position: relative; }
+  .pv_compareTable .sel_wrapper i {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    color: #fff; }
+.pv_compareTable #sel_savie_provie {
+  width: 120%;
+  background-color: transparent;
+  border: none;
+  text-align: center; }
+  .pv_compareTable #sel_savie_provie option {
+    color: #f8882d; }
+  .pv_compareTable #sel_savie_provie:focus {
+    outline: none; }
+
+@media screen and (min-width: 768px) {
+  .wh_productChart .checkbox {
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+  .wp_productCalculator .col-sm-6 {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .wp_productCalculator .box-input {
+    max-width: 300px;
+    min-height: 260px;
+    float: right; }
+    .wp_productCalculator .box-input:before {
+      background: url(../../images/wealthree/s2_arrow_grey.png) no-repeat;
+      width: 20px;
+      height: 60px;
+      top: 0;
+      bottom: 0;
+      left: inherit;
+      right: -35px; }
+    .wp_productCalculator .box-input:after {
+      background: url(../../images/wealthree/s2_arrow_yellow.png) no-repeat;
+      width: 20px;
+      height: 60px;
+      top: 0;
+      bottom: 0;
+      left: inherit;
+      right: -15px; }
+  .wp_productCalculator .box-result {
+    max-width: 300px;
+    min-height: 260px; }
+  .wp_productCalculator .tbl-result-wrapper {
+    max-width: 620px;
+    margin: 0 auto 20px; }
+    .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data {
+      overflow-x: hidden; }
+      .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data .col-data-scroller {
+        width: 100%; } }
+
+/*# sourceMappingURL=wealthree-landing-style.css.map */

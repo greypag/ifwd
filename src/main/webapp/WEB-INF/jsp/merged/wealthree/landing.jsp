@@ -49,6 +49,7 @@ var home_url = "<%=request.getContextPath()%>";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/jquery-ui.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/dropdowns-enhancement.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/titatoggle-dist-min.css">
 
 
 
@@ -77,8 +78,8 @@ var home_url = "<%=request.getContextPath()%>";
 		<div class="savie-regular-container savie-regular-landing rp-only">
 		     <div class="whole-banner">
                 <div class="page-banner">
-                	<img src="<%=request.getContextPath()%>/<fmt:message key="provie.online.hero.image.mobile" bundle="${msg}" />" class="img-responsive hidden-sm hidden-md hidden-lg">
-					<img src="<%=request.getContextPath()%>/<fmt:message key="provie.online.hero.image" bundle="${msg}" />" class="img-responsive hidden-xs">
+                	<img src="<%=request.getContextPath()%>/<fmt:message key="wealthree.online.hero.image.mobile" bundle="${msg}" />" class="img-responsive hidden-sm hidden-md hidden-lg">
+					<img src="<%=request.getContextPath()%>/<fmt:message key="wealthree.online.hero.image" bundle="${msg}" />" class="img-responsive hidden-xs">
                 	<div class="pv_overlay_text_wrap">
             			<h2 class="pv_title">&nbsp;<%-- <fmt:message key="wealthree.landing.breadcrumb" bundle="${wealthreeMsg}" /> --%></h2>
             			<p class="pv_desc">&nbsp;<%-- <fmt:message key="wealthree.landing.title1" bundle="${wealthreeMsg}" /> --%></p>
@@ -90,32 +91,6 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div id="clearfix-height-rp">
                                     <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
                                 </div>
-                                <div class="savie-product text-bold">
-									<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" />
-									<fmt:message key="wealthree.landing.link.productbrochure.text1" bundle="${wealthreeMsg}" />
-									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.link.productbrochure.link.oneoff" bundle="${wealthreeMsg}" />'>
-										<fmt:message key="wealthree.landing.link.productbrochure.text2" bundle="${wealthreeMsg}" />
-									</a>
-									<fmt:message key="wealthree.landing.link.productbrochure.text3" bundle="${wealthreeMsg}" />
-									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.link.productbrochure.link.monthly" bundle="${wealthreeMsg}" />'>
-										<fmt:message key="wealthree.landing.link.productbrochure.text4" bundle="${wealthreeMsg}" />
-									</a>
-									<fmt:message key="wealthree.landing.link.productbrochure.text5" bundle="${wealthreeMsg}" />
-								</div>
-
-								<div class="savie-product text-bold">
-									<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" />
-									<fmt:message key="wealthree.landing.link.policyprovision.text1" bundle="${wealthreeMsg}" />
-									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.link.policyprovision.link.hkd" bundle="${wealthreeMsg}" />'>
-										<fmt:message key="wealthree.landing.link.policyprovision.text2" bundle="${wealthreeMsg}" />
-									</a>
-									<fmt:message key="wealthree.landing.link.policyprovision.text3" bundle="${wealthreeMsg}" />
-									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.link.policyprovision.link.usd" bundle="${wealthreeMsg}" />'>
-										<fmt:message key="wealthree.landing.link.policyprovision.text4" bundle="${wealthreeMsg}" />
-									</a>
-									<fmt:message key="wealthree.landing.link.policyprovision.text5" bundle="${wealthreeMsg}" />
-								</div>
-
                             </div>
                         </form>
                     </div>
@@ -158,516 +133,166 @@ var home_url = "<%=request.getContextPath()%>";
 					</form>
 				</div>
 			</div>
-            <div class="pv_productInfo">
-            	<div class="container">
+			<div class="wh_productInfo">
+				<div class="container">
             		<div class="row">
             			<div class="col-xs-12">
-	            			<div class="pv_desc">
-	            				<!-- 主動出擊，實現儲蓄大計！<fmt:message key="wealthree.title" bundle="${wealthreeMsg}" /> 真息揀理財壽險計劃於<span class="pv_highlight">首 5 年享有年度保證派息率</span>，確保戶口持續增值；更可零收費隨時提取戶口金額，另設三選一額外保障，靈活儲蓄，就由今天開始！ -->
+	            			<p class="wh_p_desc">
 	            				<fmt:message key="wealthree.landing.fixrate.table.text0" bundle="${wealthreeMsg}" />
+	            			</p>
+	            			<div class="wh_p_btns-gp text-center">
+	            				<a id="dlProductBrochure" class="" href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/cars-boats/Motor-Smart-Insurance-Brochure_1_041016.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;產品小冊子</a>
+	            				<a id="dlProductBrochure" class="" href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/cars-boats/Motor-Smart-Insurance-Brochure_1_041016.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;產品小冊子</a>
 	            			</div>
-            			</div>
-            			<div class="col-xs-12 text-center">
-            				<a href="#pv_sec_features" class="pv_link"><fmt:message key="wealthree.landing.fixrate.table.title" bundle="${wealthreeMsg}" /></a>
-            			</div>
-            			<div class="col-xs-12">
-							<table class="pv_product_table">
-								<tr>
-									<td class="pv_table_head"><fmt:message key="wealthree.landing.fixrate.table.text1" bundle="${wealthreeMsg}" /></td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.year.text1" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.year.text2" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.year.text3" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.year.text4" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.year.text5" bundle="${wealthreeMsg}" />
-									</td>
-								</tr>
-								<tr>
-									<td class="pv_table_head">
-										<fmt:message key="wealthree.landing.fixrate.table.text2" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp1" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp1" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp2" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp2" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp3" bundle="${wealthreeMsg}" />
-									</td>
-								</tr>
-								<tr>
-									<td class="pv_table_head"><fmt:message key="wealthree.landing.fixrate.table.text3" bundle="${wealthreeMsg}" /></td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp2" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp2" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp2" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp2" bundle="${wealthreeMsg}" />
-									</td>
-									<td>
-										<fmt:message key="wealthree.landing.fixrate.table.textp3" bundle="${wealthreeMsg}" />
-									</td>
-								</tr>
-							</table>
-            			</div>
-            		</div>
-            	</div>
-            </div>
-
-            <div class="pv_offers">
-            	<div class="container">
-            		<div class="row">
-		            	<div class="col-xs-12">
-		            		<h2 class="pv_offer_title">
-		            			<fmt:message key="wealthree.landing.discount.title" bundle="${wealthreeMsg}" />
-		            		</h2>
-		            	</div>
-		            	<div class="col-xs-12">
-		            		<ul>
-		            			<li class="pv_currency_btns"><a class="pv_currency_btn" data-childId="pv_offer_cat_1" href="javascript:void(0);"><fmt:message key="wealthree.landing.discount.btn.text1" bundle="${wealthreeMsg}" /></a></li>
-		            			<li class="pv_currency_btns usd"><a class="pv_currency_btn" data-childId="pv_offer_cat_2" href="javascript:void(0);"><fmt:message key="wealthree.landing.discount.btn.text2" bundle="${wealthreeMsg}" /></a></li>
-		            		</ul>
-		            	</div>
-	            	</div>
-	            	<div id="pv_offer_cat_1" class="row pv_offer_cat">
-	            		<div class="col-xs-12 col-md-4 pv_offer">
-	            			<div class="inner">
-	            				<div class="pv_offer_tag">
-	            					<fmt:message key="wealthree.landing.discount.btn.text1" bundle="${wealthreeMsg}" />
-	            				</div>
-		            			<p class="pv_offer_req">
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.hkd1.value.text1" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            				<span class="pv_req_or">
-		            					<fmt:message key="wealthree.landing.discount.or.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.hkd1.value.text2" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            			</p>
-		            			<div class="pv_offer_rslt">
-		            				<p>
-		            					<span class="pv_rslt_type">
-		            						<fmt:message key="wealthree.landing.discount.paymentmode.text3" bundle="${wealthreeMsg}" />
-		            					</span>
-		            					<span class="pv_rslt_amount">
-			            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-			            					<span class="value">
-			            						<fmt:message key="wealthree.landing.discount.hkd1.value.text3" bundle="${wealthreeMsg}" />
-			            					</span>
-		            					</span>
-		            				</p>
-		            			</div>
-		            		</div>
-	            		</div>
-	            		<div class="col-xs-12 col-md-4 pv_offer">
-	            			<div class="inner">
-	            				<div class="pv_offer_tag">
-	            					<fmt:message key="wealthree.landing.discount.btn.text1" bundle="${wealthreeMsg}" />
-	            				</div>
-		            			<p class="pv_offer_req">
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.hkd2.value.text1" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            				<span class="pv_req_or">
-		            					<fmt:message key="wealthree.landing.discount.or.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.hkd2.value.text2" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            			</p>
-		            			<div class="pv_offer_rslt">
-		            				<p>
-		            					<span class="pv_rslt_type">
-		            						<fmt:message key="wealthree.landing.discount.paymentmode.text3" bundle="${wealthreeMsg}" />
-		            					</span>
-		            					<span class="pv_rslt_amount">
-			            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-			            					<span class="value">
-			            						<fmt:message key="wealthree.landing.discount.hkd2.value.text3" bundle="${wealthreeMsg}" />
-			            					</span>
-		            					</span>
-		            				</p>
-		            			</div>
-		            		</div>
-	            		</div>
-	            		<div class="col-xs-12 col-md-4 pv_offer">
-	            			<div class="inner">
-	            				<div class="pv_offer_tag">
-	            					<fmt:message key="wealthree.landing.discount.btn.text1" bundle="${wealthreeMsg}" />
-	            				</div>
-		            			<p class="pv_offer_req">
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.hkd3.value.text1" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            				<span class="pv_req_or">
-		            					<fmt:message key="wealthree.landing.discount.or.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.hkd3.value.text2" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            			</p>
-		            			<div class="pv_offer_rslt">
-		            				<p>
-		            					<span class="pv_rslt_type">
-		            						<fmt:message key="wealthree.landing.discount.paymentmode.text3" bundle="${wealthreeMsg}" />
-		            					</span>
-		            					<span class="pv_rslt_amount">
-			            					<fmt:message key="wealthree.landing.discount.hkd1.value.prefix" bundle="${wealthreeMsg}" />
-			            					<span class="value">
-			            						<fmt:message key="wealthree.landing.discount.hkd3.value.text3" bundle="${wealthreeMsg}" />
-			            					</span>
-		            					</span>
-		            				</p>
-		            			</div>
-		            		</div>
 	            		</div>
 	            	</div>
-	            	<div id="pv_offer_cat_2" class="row pv_offer_cat usd">
-	            		<div class="col-xs-12 col-md-4 pv_offer">
-	            			<div class="inner">
-	            				<div class="pv_offer_tag">
-	            					<fmt:message key="wealthree.landing.discount.btn.text2" bundle="${wealthreeMsg}" />
-	            				</div>
-		            			<p class="pv_offer_req">
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.usd1.value.text1" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            				<span class="pv_req_or">
-		            					<fmt:message key="wealthree.landing.discount.or.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.usd1.value.text2" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            			</p>
-		            			<div class="pv_offer_rslt">
-		            				<p>
-		            					<span class="pv_rslt_type">
-		            						<fmt:message key="wealthree.landing.discount.paymentmode.text3" bundle="${wealthreeMsg}" />
-		            					</span>
-		            					<span class="pv_rslt_amount">
-			            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-			            					<span class="value">
-			            						<fmt:message key="wealthree.landing.discount.usd1.value.text3" bundle="${wealthreeMsg}" />
-			            					</span>
-		            					</span>
-		            				</p>
-		            			</div>
-		            		</div>
-	            		</div>
+	            </div>
+			</div>
+			<div class="wh_productChart">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="chart-wrapper">
+								<div class="checkbox checkbox-slider--b checkbox-slider-md">
+									<label class="off">
+										<i><fmt:message key="wealthree.landing.currency.hkd" bundle="${wealthreeMsg}" /></i><input type="checkbox" name="cb1" data-txton="港元" data-txtoff="人民幣"><span></span> <i><fmt:message key="wealthree.landing.currency.rmb" bundle="${wealthreeMsg}" /></i>
+									</label>
+								</div>
+								<div class="chart-hkd show">
+									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/s1_chart_hkd.jpg" alt="" class="img-responsive hidden-xs">
 
-	            		<div class="col-xs-12 col-md-4 pv_offer">
-	            			<div class="inner">
-	            				<div class="pv_offer_tag">
-	            					<fmt:message key="wealthree.landing.discount.btn.text2" bundle="${wealthreeMsg}" />
-	            				</div>
-		            			<p class="pv_offer_req">
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.usd2.value.text1" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            				<span class="pv_req_or">
-		            					<fmt:message key="wealthree.landing.discount.or.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.usd2.value.text2" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            			</p>
-		            			<div class="pv_offer_rslt">
-		            				<p>
-		            					<span class="pv_rslt_type">
-		            						<fmt:message key="wealthree.landing.discount.paymentmode.text3" bundle="${wealthreeMsg}" />
-		            					</span>
-		            					<span class="pv_rslt_amount">
-			            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-			            					<span class="value">
-			            						<fmt:message key="wealthree.landing.discount.usd2.value.text3" bundle="${wealthreeMsg}" />
-			            					</span>
-		            					</span>
-		            				</p>
-		            			</div>
-		            		</div>
-	            		</div>
+									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s1_chart_hkd_01.jpg" alt="" class="img-responsive visible-xs">
 
-	            		<div class="col-xs-12 col-md-4 pv_offer">
-	            			<div class="inner">
-	            				<div class="pv_offer_tag">
-	            					<fmt:message key="wealthree.landing.discount.btn.text2" bundle="${wealthreeMsg}" />
-	            				</div>
-		            			<p class="pv_offer_req">
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.usd3.value.text1" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            				<span class="pv_req_or">
-		            					<fmt:message key="wealthree.landing.discount.or.text1" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_type">
-		            					<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
-		            				</span>
-		            				<span class="pv_req_amount">
-		            					<span class="pv_offer_gteq">></span>
-		            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-		            					<span class="value">
-		            						<fmt:message key="wealthree.landing.discount.usd3.value.text2" bundle="${wealthreeMsg}" />
-		            					</span>
-		            				</span>
-		            			</p>
-		            			<div class="pv_offer_rslt">
-		            				<p>
-		            					<span class="pv_rslt_type">
-		            						<fmt:message key="wealthree.landing.discount.paymentmode.text3" bundle="${wealthreeMsg}" />
-		            					</span>
-		            					<span class="pv_rslt_amount">
-			            					<fmt:message key="wealthree.landing.discount.usd1.value.prefix" bundle="${wealthreeMsg}" />
-			            					<span class="value">
-			            						<fmt:message key="wealthree.landing.discount.usd3.value.text3" bundle="${wealthreeMsg}" />
-			            					</span>
-		            					</span>
-		            				</p>
-		            			</div>
-		            		</div>
-	            		</div>
+									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s1_chart_hkd_02.jpg" alt="" class="img-responsive visible-xs">
 
+									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s1_chart_hkd_03.jpg" alt="" class="img-responsive visible-xs">
+									
+								</div>
+								<div class="chart-rmb hide">
+									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/s1_chart_rmb.jpg" alt="" class="img-responsive hidden-xs">
 
-	            	</div>
+									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s1_chart_rmb_01.jpg" alt="" class="img-responsive visible-xs">
 
-	            	<div class="row pv_offer_remarks">
-	            		<p class="pv-landing-text0">
-								<fmt:message key="wealthree.landing.offer.text0" bundle="${wealthreeMsg}" />
-	            		</p>
-	            		<p>
-	            			<fmt:message key="wealthree.landing.offer.text1" bundle="${wealthreeMsg}" />
-	            			<br>
-	            			<fmt:message key="wealthree.landing.offer.text2" bundle="${wealthreeMsg}" />
-	            		</p>
-						<ul>
-							<li class="pv_offer_remark"><fmt:message key="wealthree.landing.offer.text3" bundle="${wealthreeMsg}" /></li>
-							<li class="pv_offer_remark"><fmt:message key="wealthree.landing.offer.text4" bundle="${wealthreeMsg}" /></li>
-							<li class="pv_offer_remark"><fmt:message key="wealthree.landing.offer.text5" bundle="${wealthreeMsg}" /></li>
-							<li class="pv_offer_remark"><fmt:message key="wealthree.landing.offer.text6" bundle="${wealthreeMsg}" /></li>
-						</ul>
-	            	</div>
+									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s1_chart_rmb_02.jpg" alt="" class="img-responsive visible-xs">
 
-	            	<div class="row">
-	            		<a href="<%=request.getContextPath()%>/resources/pdf/provie/Provie Premium discount TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="wealthree.landing.discount.pdf.link1" bundle="${wealthreeMsg}" /></a>
-	            	</div>
+									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s1_chart_rmb_03.jpg" alt="" class="img-responsive visible-xs">
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-            </div>
+			</div>
+			<div class="wp_productCalculator">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<h3>您好，我們知道您想展開儲蓄大計！</h3>
+							<p>請告訴我們您的想法及希望如何達成目標。</p>
 
-            <!--div class="pv_sec_calculator">
-            	<div class="container">
-            		<div class="row">
-            			<div class="col-xs-12">
-            				<h2 class="pv_title"><fmt:message key="wealthree.landing.calculation.title1" bundle="${wealthreeMsg}" /></h2>
-			            	<p class="pv_sub_heading"><fmt:message key="wealthree.landing.calculation.title2" bundle="${wealthreeMsg}" /></p>
+							<div class="row">
+								<div class="col-xs-12 col-sm-6">
+									<div class="box-input">
+										<img src="<%=request.getContextPath()%>/resources/images/wealthree/s2_icon_01.png" alt="">
+										<span>首年內繳付保費</span>
 
-							<%-- is display tc ?? --%>
-
-							<c:if test="${language == 'tc'}">
-
-							      <div class="pv_statement">
-									<fmt:message key="wealthree.landing.calculation.text1" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.sex" bundle="${wealthreeMsg}" />'><fmt:message key="wealthree.landing.calculation.dropdown.sex" bundle="${wealthreeMsg}" /></button>
-									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="genderM" name="gender" value="M"><label for="genderM"><fmt:message key="wealthree.landing.calculation.dropdown.sexM" bundle="${wealthreeMsg}" /></label></li>
-									      <li><input type="radio" id="genderF" name="gender" value="F"><label for="genderF"><fmt:message key="wealthree.landing.calculation.dropdown.sexF" bundle="${wealthreeMsg}" /></label></li>
-									    </ul>
-									</div>
-									<fmt:message key="wealthree.landing.calculation.text3" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <input type="text" name="age" class="input_age" placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.age" bundle="${wealthreeMsg}" />'>
-									</div>
-									<fmt:message key="wealthree.landing.calculation.text4" bundle="${wealthreeMsg}" />
-
-									<fmt:message key="wealthree.landing.calculation.text5" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.method" bundle="${wealthreeMsg}" />'><fmt:message key="wealthree.landing.calculation.dropdown.method" bundle="${wealthreeMsg}" /></button>
-									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="method1" name="method" value="PROVIE-SP"><label for="method1"><fmt:message key="wealthree.landing.calculation.dropdown.method2" bundle="${wealthreeMsg}" /></label></li>
-									      <li><input type="radio" id="method2" name="method" value="PROVIE-RP"><label for="method2"><fmt:message key="wealthree.landing.calculation.dropdown.method1" bundle="${wealthreeMsg}" /></label></li>
-									    </ul>
-									</div>
-									<fmt:message key="wealthree.landing.calculation.text8" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <input type="text" name="amount" class="input_amount" placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.amount" bundle="${wealthreeMsg}" />'>
-									</div>
-
-									<div class="btn-group">
-									  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.currency" bundle="${wealthreeMsg}" />'><fmt:message key="wealthree.landing.calculation.dropdown.currency" bundle="${wealthreeMsg}" /></button>
-									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="currency1" name="currency" value="HKD"><label for="currency1"><fmt:message key="wealthree.landing.calculation.hkd" bundle="${wealthreeMsg}" /></label></li>
-									      <li><input type="radio" id="currency2" name="currency" value="USD"><label for="currency2"><fmt:message key="wealthree.landing.calculation.usd" bundle="${wealthreeMsg}" /></label></li>
-									    </ul>
-									</div>
-									<span class="txtMonth">
-										<fmt:message key="wealthree.landing.calculation.text9" bundle="${wealthreeMsg}" />
-										<div class="btn-group">
-										  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.years" bundle="${wealthreeMsg}" />'><fmt:message key="wealthree.landing.calculation.dropdown.years" bundle="${wealthreeMsg}" /></button>
-										    <ul class="dropdown-menu yearList">
-										    </ul>
+										<div class="text-center form-wrapper">
+											<div class="txt-amount-wrapper">
+												<input type="text" id="txt_amount" name="txt_amount" placeholder="$100,000">
+											</div>
+											<div class="sel-currency-wrapper">
+												<select id="sel_currency">
+													<option value="hkd"><fmt:message key="wealthree.landing.currency.hkd" bundle="${wealthreeMsg}" /></option>
+													<option value="rmb"><fmt:message key="wealthree.landing.currency.rmb" bundle="${wealthreeMsg}" /></option>
+												</select>
+												<i class="fa fa-sort-desc" aria-hidden="true"></i>
+											</div>
 										</div>
-										<fmt:message key="wealthree.landing.calculation.text10" bundle="${wealthreeMsg}" />
-									</span>
-									<fmt:message key="wealthree.landing.calculation.text10.1" bundle="${wealthreeMsg}" />
+										<div class="text-center">
+											<a href="javascript:void(0);" class="btn-calculate">計算保費</a>
+										</div>
+									</div>
 								</div>
-							</c:if>
-							<c:if test="${language == 'en'}">
-							      <div class="pv_statement">
-									<fmt:message key="wealthree.landing.calculation.text1" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <input type="text" name="age" class="input_age" placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.age" bundle="${wealthreeMsg}" />'>
-									</div>
-									<fmt:message key="wealthree.landing.calculation.text3" bundle="${wealthreeMsg}" />
-									<fmt:message key="wealthree.landing.calculation.text4" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.sex" bundle="${wealthreeMsg}" />'><fmt:message key="wealthree.landing.calculation.dropdown.sex" bundle="${wealthreeMsg}" /></button>
-									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="genderM" name="gender" value="M"><label for="genderM"><fmt:message key="wealthree.landing.calculation.dropdown.sexM" bundle="${wealthreeMsg}" /></label></li>
-									      <li><input type="radio" id="genderF" name="gender" value="F"><label for="genderF"><fmt:message key="wealthree.landing.calculation.dropdown.sexF" bundle="${wealthreeMsg}" /></label></li>
-									    </ul>
-									</div>
+								<div class="col-xs-12 col-sm-6">
+									<div class="box-result">
+										<img src="<%=request.getContextPath()%>/resources/images/wealthree/s2_icon_02.png" alt="">
+										<span>總繳付保費</span>
+										<span class="ttl_pay_amount">
+											
+										</span>
+										<img src="<%=request.getContextPath()%>/resources/images/wealthree/s2_arrow_down.png" alt="">
+										<span>第三年期滿後保證回報</span>
 
+										<span class="yrs3_return">
+											
+										</span>
 
-									<fmt:message key="wealthree.landing.calculation.text5" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.currency" bundle="${wealthreeMsg}" />'><fmt:message key="wealthree.landing.calculation.dropdown.currency" bundle="${wealthreeMsg}" /></button>
-									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="currency1" name="currency" value="HKD"><label for="currency1"><fmt:message key="wealthree.landing.calculation.hkd" bundle="${wealthreeMsg}" /></label></li>
-									      <li><input type="radio" id="currency2" name="currency" value="USD"><label for="currency2"><fmt:message key="wealthree.landing.calculation.usd" bundle="${wealthreeMsg}" /></label></li>
-									    </ul>
 									</div>
-									<div class="btn-group">
-									  <input type="text" name="amount" class="input_amount" placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.amount" bundle="${wealthreeMsg}" />'>
-									</div>
-									<fmt:message key="wealthree.landing.calculation.text6" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.method" bundle="${wealthreeMsg}" />'><fmt:message key="wealthree.landing.calculation.dropdown.method" bundle="${wealthreeMsg}" /></button>
-									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="method1" name="method" value="PROVIE-SP"><label for="method1"><fmt:message key="wealthree.landing.calculation.dropdown.method2" bundle="${wealthreeMsg}" /></label></li>
-									      <li><input type="radio" id="method2" name="method" value="PROVIE-RP"><label for="method2"><fmt:message key="wealthree.landing.calculation.dropdown.method1" bundle="${wealthreeMsg}" /></label></li>
-									    </ul>
-									</div>
-									<span class="txtMonth">
-									<fmt:message key="wealthree.landing.calculation.text7" bundle="${wealthreeMsg}" />
-									<fmt:message key="wealthree.landing.calculation.text9" bundle="${wealthreeMsg}" />
-									<div class="btn-group">
-									  <button data-toggle="dropdown" class="dropdown-toggle" data-placeholder='<fmt:message key="wealthree.landing.calculation.dropdown.years" bundle="${wealthreeMsg}" />'><fmt:message key="wealthree.landing.calculation.dropdown.years" bundle="${wealthreeMsg}" /></button>
-									    <ul class="dropdown-menu yearList">
-									    </ul>
-									</div>
-									<fmt:message key="wealthree.landing.calculation.text10" bundle="${wealthreeMsg}" />
-									</span>
-									<fmt:message key="wealthree.landing.calculation.text10.1" bundle="${wealthreeMsg}" />
 								</div>
-							</c:if>
 
+								<div class="clearfix"></div>
 
-							<ul class="error_list errorMsg pad-0"></ul>
+								<div class="col-xs-12">
+									<div class="tbl-result-wrapper">
+										<h4 class="text-center">更享有戶口價值之120% 作為身故權益</h4>
+										<div class="tbl-wrapper clearfix">
+											<div class="col-year">
+												<div class="col-year-inner">
+													<table>
+														<tr>
+															<th>保單年期</th>
+														</tr>
+														<tr>
+															<td>1</td>
+														</tr>
+														<tr>
+															<td>2</td>
+														</tr>
+														<tr>
+															<td>3</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											<div class="col-data">
+												<div class="col-data-scroller">
+													<table>
+														<tr>
+															<th>繳付保費</th>
+															<th>保證身故權益</th>
+															<th>保單價值</th>
+														</tr>
+														<tr>
+															<td class="y1-c1">1</td>
+															<td class="y1-c2">1</td>
+															<td class="y1-c3">1</td>
+														</tr>
+														<tr>
+															<td class="y2-c1">2</td>
+															<td class="y2-c2">2</td>
+															<td class="y2-c3">2</td>
+														</tr>
+														<tr>
+															<td class="y3-c1">3</td>
+															<td class="y3-c2">3</td>
+															<td class="y3-c3">3</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 
-							<a href="javascript:void(0);" class="pv_btn btnSubmit"><fmt:message key="wealthree.landing.calculation.cta.calculate" bundle="${wealthreeMsg}" /></a>
-            			</div>
-
-            		</div>
-            	</div>
-            </div-->
+								<div class="col-xs-12">
+									<div class="text-center btm-btn">
+										<button class="btn-savenow">開始儲蓄</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<div class="pv_plan">
 				<div class="container">
@@ -770,178 +395,130 @@ var home_url = "<%=request.getContextPath()%>";
             			</div>
 						<div class="pv_feature_wrap">
 
-							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='<fmt:message key="wealthree.landing.features.1.title" bundle="${wealthreeMsg}" />' class="img_responsive">
+							<div class="col-xs-12 col-sm-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/wealthree/s3_icon_01.png" alt='<fmt:message key="wealthree.landing.features.1.title" bundle="${wealthreeMsg}" />' class="img_responsive">
 								<h3 class="pv_feature_title"><fmt:message key="wealthree.landing.features.1.title" bundle="${wealthreeMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="wealthree.landing.features.1.text1" bundle="${wealthreeMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="wealthree.landing.features.1.remarks" bundle="${wealthreeMsg}" /></span></p>
+								<p class="pv_feature_desc"><fmt:message key="wealthree.landing.features.1.text1" bundle="${wealthreeMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="wealthree.landing.features.1.remarks" bundle="${wealthreeMsg}" /></span></p>
 							</div>
 
-							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt='<fmt:message key="wealthree.landing.features.2.title" bundle="${wealthreeMsg}" />' class="img_responsive">
+							<div class="col-xs-12 col-sm-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/wealthree/s3_icon_02.png" alt='<fmt:message key="wealthree.landing.features.2.title" bundle="${wealthreeMsg}" />' class="img_responsive">
 								<h3 class="pv_feature_title"><fmt:message key="wealthree.landing.features.2.title" bundle="${wealthreeMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="wealthree.landing.features.2.text" bundle="${wealthreeMsg}" /></p>
+								<p class="pv_feature_desc"><fmt:message key="wealthree.landing.features.2.text" bundle="${wealthreeMsg}" /></p>
 							</div>
-
-							<div class="clearfix hidden-lg"></div>
-
-							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_03.png" alt='<fmt:message key="wealthree.landing.features.3.title" bundle="${wealthreeMsg}" />' class="img_responsive">
+							<div class="col-xs-12 col-sm-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/wealthree/s3_icon_03.png" alt='<fmt:message key="wealthree.landing.features.3.title" bundle="${wealthreeMsg}" />' class="img_responsive">
 								<h3 class="pv_feature_title"><fmt:message key="wealthree.landing.features.3.title" bundle="${wealthreeMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="wealthree.landing.features.3.text" bundle="${wealthreeMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="wealthree.landing.features.3.remarks" bundle="${wealthreeMsg}" /></span></p>
-							</div>
-
-							<div class="clearfix visible-lg"></div>
-
-							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_04.png" alt='<fmt:message key="wealthree.landing.features.4.title" bundle="${wealthreeMsg}" />' class="img_responsive">
-								<h3 class="pv_feature_title"><fmt:message key="wealthree.landing.features.4.title" bundle="${wealthreeMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="wealthree.landing.features.4.text" bundle="${wealthreeMsg}" /></p>
-							</div>
-
-							<div class="clearfix hidden-lg"></div>
-
-							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_05.png" alt='<fmt:message key="wealthree.landing.features.5.title" bundle="${wealthreeMsg}" />' class="img_responsive">
-								<h3 class="pv_feature_title"><fmt:message key="wealthree.landing.features.5.title" bundle="${wealthreeMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="wealthree.landing.features.5.text" bundle="${wealthreeMsg}" /></p>
-							</div>
-
-							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_06.png" alt='<fmt:message key="wealthree.landing.features.6.title" bundle="${wealthreeMsg}" />' class="img_responsive">
-								<h3 class="pv_feature_title"><fmt:message key="wealthree.landing.features.6.title" bundle="${wealthreeMsg}" /></h3>
-								<p class="pv_feature_desc hidden-xs"><fmt:message key="wealthree.landing.features.6.text" bundle="${wealthreeMsg}" /></p>
+								<p class="pv_feature_desc"><fmt:message key="wealthree.landing.features.3.text" bundle="${wealthreeMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="wealthree.landing.features.3.remarks" bundle="${wealthreeMsg}" /></span></p>
 							</div>
 						</div>
             		</div>
             	</div>
             </div>
-
-            <div class="pv_sec_extra text-center">
-            	<div class="container">
-            		<div class="row">
-            			<div class="col-xs-12">
-            				<h2 class="pv_title header"><fmt:message key="wealthree.landing.riders.title" bundle="${wealthreeMsg}" /></h2>
-			            </div>
-
-						<div class="pv_extra_wrap">
-							<div class="pv_extra_box">
-								<div class="col-xs-12 visible-lg">
-									<div class="col-xs-12 col-md-4 ">
-	                                	<div class="flip-container pv_extra_card_holder">
-											<div class="flipper pv_extra_card card1">
-												<div class="front">
-													<h5 class="text-center pv_title"><fmt:message key="wealthree.landing.riders.1.title" bundle="${wealthreeMsg}" /></h5>
-			                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_a.png" class="img-responsive pv_extra_icon" alt='<fmt:message key="wealthree.landing.riders.1.title" bundle="${wealthreeMsg}" />'>
-												</div>
-												<div class="back">
-													<p class="pv_extra_desc"><fmt:message key="wealthree.landing.riders.1.text" bundle="${wealthreeMsg}" /></p>
-													<p class="price"></p>
-													<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.riders.1.pdf.link" bundle="${wealthreeMsg}" />' target="_blank"><fmt:message key="wealthree.landing.riders.1.pdf.text" bundle="${wealthreeMsg}" /></a>
-												</div>
-											</div>
-										</div>
-	                                </div>
-
-	                                <div class="col-xs-12 col-md-4 ">
-	                                	<div class="flip-container pv_extra_card_holder">
-											<div class="flipper pv_extra_card card2">
-												<div class="front">
-		                                        <h5 class="text-center pv_title"><fmt:message key="wealthree.landing.riders.2.title" bundle="${wealthreeMsg}" /></h5>
-		                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_b.png" class="img-responsive pv_extra_icon" alt='<fmt:message key="wealthree.landing.riders.2.title" bundle="${wealthreeMsg}" />'>
-		                                    </div>
-		                                    <div class="back">
-		                                        <p class="pv_extra_desc"><fmt:message key="wealthree.landing.riders.2.text" bundle="${wealthreeMsg}" /></p>
-												<p class="price"></p>
-												<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.riders.2.pdf.link" bundle="${wealthreeMsg}" />' target="_blank"><fmt:message key="wealthree.landing.riders.2.pdf.text" bundle="${wealthreeMsg}" /></a>
-		                                    </div>
-											</div>
-										</div>
-	                                </div>
-
-	                                <div class="col-xs-12 col-md-4 ">
-	                                	<div class="flip-container pv_extra_card_holder">
-											<div class="flipper pv_extra_card card3">
-												<div class="front">
-			                                        <h5 class="text-center pv_title"><fmt:message key="wealthree.landing.riders.3.title" bundle="${wealthreeMsg}" /></h5>
-			                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_c.png" class="img-responsive pv_extra_icon" alt='<fmt:message key="wealthree.landing.riders.3.title" bundle="${wealthreeMsg}" />'>
-			                                    </div>
-			                                    <div class="back">
-			                                        <p class="pv_extra_desc"><fmt:message key="wealthree.landing.riders.3.text" bundle="${wealthreeMsg}" /></p>
-			                                        <p class="price"></p>
-													<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.riders.3.pdf.link" bundle="${wealthreeMsg}" />' target="_blank"><fmt:message key="wealthree.landing.riders.3.pdf.text" bundle="${wealthreeMsg}" /></a>
-			                                    </div>
-											</div>
-										</div>
-	                                </div>
-
-
-								</div>
-
-								<div class="col-xs-12 pv_extra_mobile hidden-lg nopadding">
-									<div class="col-xs-12 pv_extra_point">
-										<div class="col-xs-3 nopadding pv_extra_point_icon">
-											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_a.png" class="img-responsive pv_extra_icon center" alt='<fmt:message key="wealthree.landing.riders.1.title" bundle="${wealthreeMsg}" />'>
-										</div>
-										<div class="col-xs-9 pv_extra_point_desc">
-											<h5 class="text-center pv_title text-left"><fmt:message key="wealthree.landing.riders.1.title" bundle="${wealthreeMsg}" /></h5>
-											<p class="pv_extra_desc text-left"><fmt:message key="wealthree.landing.riders.1.text" bundle="${wealthreeMsg}" /></p>
-											<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.riders.1.pdf.link" bundle="${wealthreeMsg}" />' target="_blank"><fmt:message key="wealthree.landing.riders.1.pdf.text" bundle="${wealthreeMsg}" /></a>
-										</div>
-									</div>
-
-									<div class="col-xs-12 pv_extra_point">
-										<div class="col-xs-3 nopadding pv_extra_point_icon">
-											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_b.png" class="img-responsive pv_extra_icon center" alt='<fmt:message key="wealthree.landing.riders.2.title" bundle="${wealthreeMsg}" />'>
-										</div>
-										<div class="col-xs-9 pv_extra_point_desc">
-											<h5 class="text-center pv_title text-left"><fmt:message key="wealthree.landing.riders.2.title" bundle="${wealthreeMsg}" /></h5>
-											<p class="pv_extra_desc text-left"><fmt:message key="wealthree.landing.riders.2.text" bundle="${wealthreeMsg}" /></p>
-											<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.riders.2.pdf.link" bundle="${wealthreeMsg}" />' target="_blank"><fmt:message key="wealthree.landing.riders.2.pdf.text" bundle="${wealthreeMsg}" /></a>
-										</div>
-									</div>
-
-									<div class="col-xs-12 pv_extra_point">
-										<div class="col-xs-3 nopadding pv_extra_point_icon">
-											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_c.png" class="img-responsive pv_extra_icon center" alt='<fmt:message key="wealthree.landing.riders.3.title" bundle="${wealthreeMsg}" />'>
-										</div>
-										<div class="col-xs-9 pv_extra_point_desc">
-											<h5 class="text-center pv_title text-left"><fmt:message key="wealthree.landing.riders.3.title" bundle="${wealthreeMsg}" /></h5>
-											<p class="pv_extra_desc text-left"><fmt:message key="wealthree.landing.riders.3.text" bundle="${wealthreeMsg}" /></p>
-											<a class="pv_link" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="wealthree.landing.riders.3.pdf.link" bundle="${wealthreeMsg}" />' target="_blank"><fmt:message key="wealthree.landing.riders.3.pdf.text" bundle="${wealthreeMsg}" /></a>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<div class="col-xs-12 pv_extra_remark">
-								<ul>
-									<li class="pv_remark"><sup>1</sup><fmt:message key="wealthree.landing.riders.remarks1" bundle="${wealthreeMsg}" /></li>
-									<li class="pv_remark"><sup>2</sup><fmt:message key="wealthree.landing.riders.remarks2" bundle="${wealthreeMsg}" /></li>
-									<li class="pv_remark"><sup>3</sup><fmt:message key="wealthree.landing.riders.remarks3" bundle="${wealthreeMsg}" /></li>
-									<li class="pv_remark"><sup>4</sup><fmt:message key="wealthree.landing.riders.remarks4" bundle="${wealthreeMsg}" /></li>
-									<li class="pv_remark"><sup>5</sup><fmt:message key="wealthree.landing.riders.remarks5" bundle="${wealthreeMsg}" /></li>
-								</ul>
-							</div>
-						</div>
-            		</div>
+            <div class="hide" id="tableData">
+            	<div class="savie">
+            		<span class="age">
+            			<fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="benefitterm">
+            			<fmt:message key="wealthree.landing.table.benefitterm.savie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="currency">
+            			<fmt:message key="wealthree.landing.table.currency.savie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="interestrate">
+            			<fmt:message key="wealthree.landing.table.interestrate.savie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="deathbenefit">
+            			<fmt:message key="wealthree.landing.table.deathbenefit.savie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="rider"></span>
+            		<span class="rider-detail">
+						<span class="sub_title">
+							<fmt:message key="wealthree.landing.table.rider1.savie.title" bundle="${wealthreeMsg}" />
+						</span>
+						<fmt:message key="wealthree.landing.table.rider1.savie.text1" bundle="${wealthreeMsg}" />
+						<span class="remark"><fmt:message key="wealthree.landing.table.rider1.savie.text2" bundle="${wealthreeMsg}" /></span>
+            		</span>
+            		<span class="withdrawal"><fmt:message key="wealthree.landing.table.withdrawal.savie.title" bundle="${wealthreeMsg}" /></span>
+            		<span class="withdrawal-min"><fmt:message key="wealthree.landing.table.withdrawal.min.savie" bundle="${wealthreeMsg}" /></span>
+            		<span class="withdrawal-max"><fmt:message key="wealthree.landing.table.withdrawal.max.savie" bundle="${wealthreeMsg}" /></span>
+            		<span class="maxamount-monthly">
+						<fmt:message key="wealthree.landing.table.maxamount.savie.monthly" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="maxamount-oneoff">
+						<fmt:message key="wealthree.landing.table.maxamount.savie.oneoff" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="maxamount-monthly">
+						<fmt:message key="wealthree.landing.table.minamount.savie.monthly" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="maxamount-oneoff">
+						<fmt:message key="wealthree.landing.table.minamount.savie.oneoff" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="minacctvalue">
+						<fmt:message key="wealthree.landing.table.minacctvalue.savie" bundle="${wealthreeMsg}" />
+					</span>
+            	</div>
+            	<div class="provie">
+            		<span class="age">
+            			<fmt:message key="wealthree.landing.table.age.wealthree" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="benefitterm">
+            			<fmt:message key="wealthree.landing.table.benefitterm.wealthree" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="currency">
+            			<fmt:message key="wealthree.landing.table.currency.wealthree" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="interestrate">
+            			<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.remarks" bundle="${wealthreeMsg}" /></span><br>
+										<fmt:message key="wealthree.landing.table.interestrate.wealthree1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2" bundle="${wealthreeMsg}" /><br>
+										<fmt:message key="wealthree.landing.table.interestrate.wealthree3" bundle="${wealthreeMsg}" /><br><br>
+										<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.wealthree.usd" bundle="${wealthreeMsg}" /></span><br>
+										<fmt:message key="wealthree.landing.table.interestrate.wealthree1.usd" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2.usd" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="deathbenefit">
+            			<fmt:message key="wealthree.landing.table.deathbenefit.wealthree" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="rider">
+            			<fmt:message key="wealthree.landing.table.title2.rider" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="rider-detail">
+						<span class="sub_title">
+												<fmt:message key="wealthree.landing.table.title.rider1" bundle="${wealthreeMsg}" />
+											</span>
+											<fmt:message key="wealthree.landing.table.rider1.text" bundle="${wealthreeMsg}" />
+											<span class="remark"><fmt:message key="wealthree.landing.table.rider1.remarks" bundle="${wealthreeMsg}" /></span>
+											<span class="sub_title">
+												<fmt:message key="wealthree.landing.table.title.rider2" bundle="${wealthreeMsg}" />
+											</span>
+											<fmt:message key="wealthree.landing.table.rider2.text" bundle="${wealthreeMsg}" />
+											<span class="remark"><fmt:message key="wealthree.landing.table.rider2.remarks" bundle="${wealthreeMsg}" /></span>
+											<span class="sub_title">
+												<fmt:message key="wealthree.landing.table.title.rider3" bundle="${wealthreeMsg}" />
+											</span>
+											<fmt:message key="wealthree.landing.table.rider3.text" bundle="${wealthreeMsg}" />
+											<span class="remark"><fmt:message key="wealthree.landing.table.rider3.remarks" bundle="${wealthreeMsg}" /></span>
+            		</span>
+            		<span class="withdrawal"><fmt:message key="wealthree.landing.table.withdrawal.wealthree.title" bundle="${wealthreeMsg}" /></span>
+            		<span class="withdrawal-min"><fmt:message key="wealthree.landing.table.withdrawal.min.wealthree" bundle="${wealthreeMsg}" /></span>
+            		<span class="withdrawal-max"><fmt:message key="wealthree.landing.table.withdrawal.max.wealthree" bundle="${wealthreeMsg}" /></span>
+            		<span class="maxamount-monthly">
+						<fmt:message key="wealthree.landing.table.maxamount.wealthree.monthly" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="maxamount-oneoff">
+						<fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="minamount-monthly">
+						<fmt:message key="wealthree.landing.table.minamount.wealthree.monthly" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="minamount-oneoff">
+						<fmt:message key="wealthree.landing.table.minamount.wealthree.oneoff" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="minacctvalue">
+						<fmt:message key="wealthree.landing.table.minacctvalue.wealthree" bundle="${wealthreeMsg}" />
+					</span>
             	</div>
             </div>
-
-			<div class="pv_sec_action">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12 text-center">
-							<h2 class="pv_title">
-								<fmt:message key="wealthree.landing.banner.saving.title" bundle="${wealthreeMsg}" />
-							</h2>
-
-							<a href="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" class="pv_btn"><fmt:message key="wealthree.landing.banner.saving.btn" bundle="${wealthreeMsg}" /></a>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
 			<div class="pv_compareTable">
 				<div class="container">
 					<div class="row">
@@ -950,22 +527,33 @@ var home_url = "<%=request.getContextPath()%>";
 								<tr>
 									<th colspan="2"><span class="inner">&nbsp;</span></th>
 									<th colspan="2"><span class="inner highlight"><fmt:message key="wealthree.landing.table.title.wealthree" bundle="${wealthreeMsg}" /></span></th>
-									<th colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.savie" bundle="${wealthreeMsg}" /></span></th>
+									<th colspan="2"><!-- <span class="inner">
+										<fmt:message key="wealthree.landing.table.title.savie" bundle="${wealthreeMsg}" /></span> -->
+										<div class="inner">
+											<div class="sel_wrapper">
+												<i class="fa fa-sort-desc" aria-hidden="true"></i>
+												<select id="sel_savie_provie">
+													<option value="savie" selected><fmt:message key="wealthree.landing.table.title.savie" bundle="${wealthreeMsg}" /></span></option>
+													<option value="provie"><fmt:message key="wealthree.landing.table.title.provie" bundle="${wealthreeMsg}" /></span></option>
+												</select>
+											</div>
+										</div>
+									</th>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.age" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.age.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-age"><fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefitterm" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.benefitterm.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.benefitterm.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-benefitterm"><fmt:message key="wealthree.landing.table.benefitterm.savie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.currency" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.currency.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.currency.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-currency"><fmt:message key="wealthree.landing.table.currency.savie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.interestrate" bundle="${wealthreeMsg}" /></span></td>
@@ -975,17 +563,17 @@ var home_url = "<%=request.getContextPath()%>";
 										<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.wealthree.usd" bundle="${wealthreeMsg}" /></span><br>
 										<fmt:message key="wealthree.landing.table.interestrate.wealthree1.usd" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2.usd" bundle="${wealthreeMsg}" /></span>
 									</td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.interestrate.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-interestrate"><fmt:message key="wealthree.landing.table.interestrate.savie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.deathbenefit" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.deathbenefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.deathbenefit.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-deathbenefit"><fmt:message key="wealthree.landing.table.deathbenefit.savie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"></td>
 									<td colspan="2" class="sep highlight"><span class="inner"><fmt:message key="wealthree.landing.table.title2.rider" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"></td>
+									<td colspan="2"><span class="inner sw-rider"></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.riders" bundle="${wealthreeMsg}" /></span></td>
@@ -1009,7 +597,7 @@ var home_url = "<%=request.getContextPath()%>";
 										</span>
 									</td>
 									<td colspan="2">
-										<span class="inner">
+										<span class="inner sw-rider-detail">
 											<span class="sub_title">
 												<fmt:message key="wealthree.landing.table.rider1.savie.title" bundle="${wealthreeMsg}" />
 											</span>
@@ -1021,17 +609,17 @@ var home_url = "<%=request.getContextPath()%>";
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.title" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.wealthree.title" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.savie.title" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-withdrawal"><fmt:message key="wealthree.landing.table.withdrawal.savie.title" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.title" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-withdrawal-min"><fmt:message key="wealthree.landing.table.withdrawal.min.savie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.title" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-withdrawal-max"><fmt:message key="wealthree.landing.table.withdrawal.max.savie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"></td>
@@ -1044,20 +632,20 @@ var home_url = "<%=request.getContextPath()%>";
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.maxamount" bundle="${wealthreeMsg}" /></span></td>
 									<td class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span></td>
 									<td class="hideborderLeft highlight"><span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span></td>
-									<td><span class="inner"><fmt:message key="wealthree.landing.table.maxamount.savie.monthly" bundle="${wealthreeMsg}" /></span></td>
-									<td class="hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.maxamount.savie.oneoff" bundle="${wealthreeMsg}" /></span></td>
+									<td><span class="inner sw-maxamount-monthly"><fmt:message key="wealthree.landing.table.maxamount.savie.monthly" bundle="${wealthreeMsg}" /></span></td>
+									<td class="hideborderLeft"><span class="inner sw-maxamount-oneoff"><fmt:message key="wealthree.landing.table.maxamount.savie.oneoff" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minamount" bundle="${wealthreeMsg}" /></span></td>
 									<td class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span></td>
 									<td class="hideborderLeft highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span></td>
-									<td><span class="inner"><fmt:message key="wealthree.landing.table.minamount.savie.monthly" bundle="${wealthreeMsg}" /></span></td>
-									<td class="hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.savie.oneoff" bundle="${wealthreeMsg}" /></span></td>
+									<td><span class="inner sw-minamount-monthly"><fmt:message key="wealthree.landing.table.minamount.savie.monthly" bundle="${wealthreeMsg}" /></span></td>
+									<td class="hideborderLeft"><span class="inner sw-minamount-oneoff"><fmt:message key="wealthree.landing.table.minamount.savie.oneoff" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minacctvalue" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minacctvalue.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.minacctvalue.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-minacctvalue"><fmt:message key="wealthree.landing.table.minacctvalue.savie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="6">
@@ -1237,23 +825,23 @@ var home_url = "<%=request.getContextPath()%>";
 													</tr>
 													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.age" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner sw-age"><fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefitterm" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.benefitterm.savie" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner sw-benefitterm"><fmt:message key="wealthree.landing.table.benefitterm.savie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.currency" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.currency.savie" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner sw-currency"><fmt:message key="wealthree.landing.table.currency.savie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.interestrate" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.interestrate.savie" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner sw-interestrate"><fmt:message key="wealthree.landing.table.interestrate.savie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.deathbenefit" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.deathbenefit.savie" bundle="${wealthreeMsg}" /></td>
+														<td colspan="2"><span class="inner sw-deathbenefit"><fmt:message key="wealthree.landing.table.deathbenefit.savie" bundle="${wealthreeMsg}" /></td>
 													</tr>
 													<tr>
 														<td colspan="2"></td>
@@ -1321,172 +909,148 @@ var home_url = "<%=request.getContextPath()%>";
 												</table>
 											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<%--
-			<div class="pv_experience">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12 text_center">
-							<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s6_star.png" alt="顧客親身體驗" class="img_responsive center">
-						</div>
-						<div class="col-xs-12">
-							<h2 class="pv_title">顧客親身體驗</h2>
-						</div>
-						<div class="col-xs-12 visible-md visible-lg pv_experience_wrap">
-							<div class="col-md-4 pv_experience_card">
-								<div class="row inner">
-									<div class="col-xs-12">
-										<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s6_score_01.png" alt="5.0" class="img_responsive center">
-									</div>
-									<div class="col-xs-12">
-										<p class="name">陳小姐</p>
-										<p class="title">高級文員</p>
-									</div>
-									<div class="col-xs-12">
-										<p class="comment">一直希望能有基本的儲蓄習慣，自選保供款靈活，提取戶口價值又不需要繳付任何費用，更可根據自身需要選擇保障計劃，真正由我話事！</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 pv_experience_card">
-								<div class="row inner">
-									<div class="col-xs-12">
-										<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s6_score_02.png" alt="5.0" class="img_responsive center">
-									</div>
-									<div class="col-xs-12">
-										<p class="name">陳小姐</p>
-										<p class="title">高級文員</p>
-									</div>
-									<div class="col-xs-12">
-										<p class="comment">一直希望能有基本的儲蓄習慣，自選保供款靈活，提取戶口價值又不需要繳付任何費用，更可根據自身需要選擇保障計劃，真正由我話事！</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 pv_experience_card">
-								<div class="row inner">
-									<div class="col-xs-12">
-										<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s6_score_03.png" alt="5.0" class="img_responsive center">
-									</div>
-									<div class="col-xs-12">
-										<p class="name">陳小姐</p>
-										<p class="title">高級文員</p>
-									</div>
-									<div class="col-xs-12">
-										<p class="comment">一直希望能有基本的儲蓄習慣，自選保供款靈活，提取戶口價值又不需要繳付任何費用，更可根據自身需要選擇保障計劃，真正由我話事！</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-12 pv_experience_wrap hidden-md hidden-lg">
-							<!--  -->
-							<div id="expCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-								<!-- Indicators -->
-								<ol class="carousel-indicators">
-									<li data-target="#expCarousel" data-slide-to="0" class="active"></li>
-									<li data-target="#expCarousel" data-slide-to="1"></li>
-									<li data-target="#expCarousel" data-slide-to="2"></li>
-								</ol>
-								<div class="pv_experience_card">
-									<!-- Wrapper for slides -->
-									<div class="carousel-inner" role="listbox">
-										<div class="item active inner">
-											<div>
-												<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s6_score_01.png" alt="5.0" class="img_responsive center">
-											</div>
-											<div>
-												<p class="name">陳小姐</p>
-												<p class="title">高級文員</p>
-											</div>
-											<div>
-												<p class="comment">一直希望能有基本的儲蓄習慣，自選保供款靈活，提取戶口價值又不需要繳付任何費用，更可根據自身需要選擇保障計劃，真正由我話事！</p>
-											</div>
-										</div>
 										<div class="item inner">
 											<div>
-												<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s6_score_02.png" alt="5.0" class="img_responsive center">
-											</div>
-											<div>
-												<p class="name">陳小姐</p>
-												<p class="title">高級文員</p>
-											</div>
-											<div>
-												<p class="comment">一直希望能有基本的儲蓄習慣，自選保供款靈活，提取戶口價值又不需要繳付任何費用，更可根據自身需要選擇保障計劃，真正由我話事！</p>
-											</div>
-										</div>
-										<div class="item inner">
-											<div>
-												<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s6_score_03.png" alt="5.0" class="img_responsive center">
-											</div>
-											<div>
-												<p class="name">陳小姐</p>
-												<p class="title">高級文員</p>
-											</div>
-											<div>
-												<p class="comment">一直希望能有基本的儲蓄習慣，自選保供款靈活，提取戶口價值又不需要繳付任何費用，更可根據自身需要選擇保障計劃，真正由我話事！</p>
+												<table>
+													<tr>
+														<th colspan="4"><span class="inner"><fmt:message key="wealthree.landing.table.title.provie" bundle="${wealthreeMsg}" /></span></th>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.age" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.age.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefitterm" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.benefitterm.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.currency" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.currency.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.interestrate" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" class="highlight"><span class="inner"><span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.remarks" bundle="${wealthreeMsg}" /></span><br>
+															<fmt:message key="wealthree.landing.table.interestrate.wealthree1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2" bundle="${wealthreeMsg}" /><br>
+															<fmt:message key="wealthree.landing.table.interestrate.wealthree3" bundle="${wealthreeMsg}" /><br>
+															<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.wealthree.usd" bundle="${wealthreeMsg}" /></span><br>
+															<fmt:message key="wealthree.landing.table.interestrate.wealthree1.usd" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2.usd" bundle="${wealthreeMsg}" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.deathbenefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.deathbenefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"></td>
+														<td colspan="2" class="sep highlight"><span class="inner"><fmt:message key="wealthree.landing.table.title2.rider" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.riders" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" class="highlight">
+															<span class="inner">
+																<span class="sub_title">
+																	<fmt:message key="wealthree.landing.table.title.rider1" bundle="${wealthreeMsg}" />
+																</span>
+																<fmt:message key="wealthree.landing.table.rider1.text" bundle="${wealthreeMsg}" />
+																<span class="remark"><fmt:message key="wealthree.landing.table.rider1.remarks" bundle="${wealthreeMsg}" /></span>
+																<span class="sub_title">
+																	<fmt:message key="wealthree.landing.table.title.rider2" bundle="${wealthreeMsg}" />
+																</span>
+																<fmt:message key="wealthree.landing.table.rider2.text" bundle="${wealthreeMsg}" />
+																<span class="remark"><fmt:message key="wealthree.landing.table.rider2.remarks" bundle="${wealthreeMsg}" /></span>
+																<span class="sub_title">
+																	<fmt:message key="wealthree.landing.table.title.rider3" bundle="${wealthreeMsg}" />
+																</span>
+																<fmt:message key="wealthree.landing.table.rider3.text" bundle="${wealthreeMsg}" />
+																<span class="remark"><fmt:message key="wealthree.landing.table.rider3.remarks" bundle="${wealthreeMsg}" /></span>
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.title" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.wealthree.title" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.title" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.title" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"></td>
+														<td class="sep"><span class="inner"><fmt:message key="wealthree.landing.table.monthly.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td class="sep hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.oneoff.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+
+													 <tr>
+														<td colspan="2">
+															<span class="inner"><fmt:message key="wealthree.landing.table.title.maxamount" bundle="${wealthreeMsg}" /></span>
+														</td>
+														<td class="highlight">
+															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span>
+														</td>
+														<td class="hideborderLeft highlight">
+															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span>
+														</td>
+														<!-- <td class="hideborderLeft highlight">
+															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span>
+														</td> -->
+													</tr>
+
+
+
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minamount" bundle="${wealthreeMsg}" /></span></td>
+														<td class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span></td>
+														<td class="hideborderLeft highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minacctvalue" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minacctvalue.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="6">
+															<span class="inner pv_remark">
+																<sup>*</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks1" bundle="${wealthreeMsg}" /><br>
+																<sup>**</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks2" bundle="${wealthreeMsg}" />
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="6">
+															<span class="inner pv_remark">
+																<fmt:message key="wealthree.landing.table.remarks1.text1" bundle="${wealthreeMsg}" />
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="6">
+															<span class="inner pv_remark">
+																<fmt:message key="wealthree.landing.table.remarks2.text1" bundle="${wealthreeMsg}" />
+																<br>
+																<fmt:message key="wealthree.landing.table.remarks3.text1" bundle="${wealthreeMsg}" />
+															</span>
+														</td>
+													</tr>
+												</table>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<a href="#" class="pv_btn">開始儲蓄</a>
-					</div>
-				</div>
-			</div>
-			--%>
-			<div class="pv_fna">
-				<div class="container">
-					<div class="row">
+
 						<div class="col-xs-12">
-							<h2 class="pv_title"><fmt:message key="wealthree.landing.fna.title" bundle="${wealthreeMsg}" /></h2>
-							<p class="pv_desc"><fmt:message key="wealthree.landing.fna.text1" bundle="${wealthreeMsg}" /></p>
-						</div>
-						<div class="pv_fna_loginPanel">
-							<div class="col-xs-12">
-								<div class="col-md-4 col-md-offset-2 pv_fna_input">
-
-									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input tabindex="1" type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" tabindex="1" id="fnaUser">
-										<label class="mdl-textfield__label" for="fnaUser"><fmt:message key="wealthree.landing.fna.username" bundle="${wealthreeMsg}" /></label>
-
-									</div>
-
-									<!-- <input tabindex="1" type="text" class="form-control" id="fnaUser" placeholder='<fmt:message key="wealthree.landing.fna.username" bundle="${wealthreeMsg}" />'> -->
-									<div class="col-xs-12 text-right link"><a href="javascript:void(0);" class="btnForgotUser"><fmt:message key="wealthree.landing.fna.forgetusr" bundle="${wealthreeMsg}" /></a></div>
-								</div>
-								<div class="col-md-4 pv_fna_input">
-
-									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input tabindex="2" type="password" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="fnaPwd">
-										<label class="mdl-textfield__label" for="fnaPwd"><fmt:message key="wealthree.landing.fna.pw" bundle="${wealthreeMsg}" /></label>
-
-									</div>
-									<!-- <input tabindex="2" type="password" class="form-control" id="fnaPwd" placeholder='<fmt:message key="wealthree.landing.fna.pw" bundle="${wealthreeMsg}" />'> -->
-									<div class="col-xs-12 text-right link"><a href="javascript:void(0);" class="btnForgotPwd"><fmt:message key="wealthree.landing.fna.forgetpw" bundle="${wealthreeMsg}" /></a></div>
-								</div>
-							</div>
-							<div class="col-xs-12 center errorMsg">
-
-							</div>
-							<div class="col-xs-12">
-								<p class="pv_desc">
-									<fmt:message key="wealthree.landing.fna.disclaimer" bundle="${wealthreeMsg}" />
-								</p>
-							</div>
-							<div class="col-xs-12 pv_fna_reg">
-								<p class="pv_desc"><b><fmt:message key="wealthree.landing.fna.newmb" bundle="${wealthreeMsg}" /></b><a href="${pageContext.request.contextPath}/${language}/joinus" class="link"><fmt:message key="wealthree.landing.fna.register" bundle="${wealthreeMsg}" /></a></p>
+							<div class="text-center btm-btn">
+								<br>
+								<button class="btn-savenow">開始儲蓄</button>
 							</div>
 						</div>
-						<a href="javascript:void(0);" class="pv_btn btnStart"><fmt:message key="wealthree.landing.fna.cta.start" bundle="${wealthreeMsg}" /></a>
 					</div>
 				</div>
 			</div>
-
 			<div class="blog">
 		        <div class="hidden-md hidden-lg">
 		            <div class="mini-banner-holder"><img src="http://blog.fwd.com.hk/wp-content/uploads/2016/07/shutterstock_65480164.jpg" class="img-responsive">
@@ -1564,6 +1128,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 <script src="<%=request.getContextPath()%>/resources/js/vendor/nouislider.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-landing-uifn.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wealthree/wealthree-landing-uifn.js"></script>
 <script>
 	var pvSetting = {
 		errMsg: {
@@ -1601,3 +1166,4 @@ var home_url = "<%=request.getContextPath()%>";
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-payment-discount.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-landing-style.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/wealthree/wealthree-landing-style.css">
