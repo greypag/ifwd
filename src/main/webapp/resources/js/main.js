@@ -479,7 +479,7 @@ function show_1111_campaign(domain,lang){
 		var img_src = img_src_large;
 		var window_width = $(window).width();
 		var window_height = $(window).height();
-		if(window_width <= 800){
+		if(window_width <= 768){
 			img_src = img_src_small
 		}
 		if(lang=="en"){
