@@ -209,13 +209,15 @@ public class LifeController extends BaseController{
 				GetPolicyApplicationResponse apiResponse = savieOnlineService.getPolicyApplicationSaveforLater(request);
 				
 				PolicyApplication policyApplication = apiResponse.getPolicyApplication();
-				if (policyApplication != null) {
-					saviePlanDetails.setPromoCode(policyApplication.getReferralCode());
-					model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
-					
-				}
+				
 				if (saviePlanDetails != null) {
-					request.getSession().setAttribute("promoCode", saviePlanDetails.getPromoCode());
+					if (policyApplication != null) {
+						saviePlanDetails.setPromoCode(policyApplication.getReferralCode());
+						model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+						request.getSession().setAttribute("promoCode", saviePlanDetails.getPromoCode());
+						
+					}
+					
 				}
 				
 				
