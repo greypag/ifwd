@@ -62,7 +62,11 @@
 			showOnFocus: true,
 			focusOnClose: false,
 			onClosed: function (valueText, inst) {
+				$("#txtDob").trigger('input');
 				$('#txtDob').trigger('blur');
+				if(valueText != "" && valueText != null){
+					$("#txtDob").parent().addClass("is-dirty");
+				}
 			},
 		});
 	});
@@ -429,15 +433,10 @@ if($('#txtConfPass').length && $('#txtPass1').length){
 	return check;
 }*/
 
-function bootstrapvalidate(){
-	var form_1 = "form[name='joinus_form_member']";
-	$(form_1).bootstrapValidator({
-	excluded: [
-		':disabled', ':hidden', ':not(:visible)'
-	],
-	fields: {
+function generate_common_validate_fields(form){
+	return {
 		'fullName': {
-			container: form_1 + ' #errorEmptyName',
+			container: form + ' #errorEmptyName',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "membership.fullName.empty.message")
@@ -449,7 +448,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'mobileNo': {
-			container: form_1 + ' #errorEmptyMobJoinUs',
+			container: form + ' #errorEmptyMobJoinUs',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message")
@@ -461,7 +460,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'EmailAddress': {
-			container: form_1 + ' #errorEmptyEmailIdJoinUs',
+			container: form + ' #errorEmptyEmailIdJoinUs',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "applicant.email.notNull.message")
@@ -473,7 +472,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'userName': {
-			container: form_1 + ' #errorEmptyUNameJoinUs',
+			container: form + ' #errorEmptyUNameJoinUs',
 			validators: {
 				callback : {
 					 message : getBundle(getBundleLanguage, "user.username.notValid.message"),
@@ -498,7 +497,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'password': {
-			container: form_1 + ' #errorJoinUsPassword',
+			container: form + ' #errorJoinUsPassword',
 			validators: {
 				different: {
 					field: 'userName',
@@ -547,7 +546,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'confirmPassword': {
-			container: form_1 + ' #errorEmptyConfPass',
+			container: form + ' #errorEmptyConfPass',
 			validators: {
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "user.confirmPassword.empty.message")
@@ -560,7 +559,7 @@ function bootstrapvalidate(){
 			}
 		},
 		'checkbox1': {
-			container: form_1 + ' #errorDeclaration',
+			container: form + ' #errorDeclaration',
 			validators: {
 				choice: {
 					min: 1,
@@ -568,65 +567,78 @@ function bootstrapvalidate(){
 					message: getBundle(getBundleLanguage, "membership.declaration.notChecked.message")
 				}
 			}
-		},
-		'Dob': {
-			container: form_1 + ' #errorEmptyDobJoinUs',
-			validators: {
-				notEmpty: {
-					message: '<fmt:message key="error.dob.empty" bundle="${msg}" />'
-				}
-			}
-		},
-		'Hkid': {
-			container: form_1 + ' #errorEmptyHkidJoinUs',
-			//trigger: 'blur',
-			validators: {
-				callback: {
-					message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
-					callback: function (value, validator) {
-						if(IsHKID(value)){
-							if(typeof getSavieReferralDiscount != 'function'){
-								return true;
-							}else{
-								if(getSavieReferralDiscount()=="0"){
-									return false;
-								}else{
-									return true;
-								}
+		}
+	};
+}
+
+function bootstrapvalidate(){
+	var form_1 = "form[name='joinus_form_member']";
+	var fields = generate_common_validate_fields(form_1);
+	
+	fields['Dob'] = {
+						container: form_1 + ' #errorEmptyDobJoinUs',
+						validators: {
+							notEmpty: {
+								message: '<fmt:message key="error.dob.empty" bundle="${msg}" />'
 							}
-						}else{
-							return false;
 						}
-					}
-				},
-				notEmpty: {
-					message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
-				},
-				regexp: {
-					regexp: /^[a-zA-Z0-9\-]*$/,
-					message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
-				}
-			}
-		},
-		'PolicyNumber': {
-			container: form_1 + ' #errorEmptyPolicyNumberJoinUs',
-			validators: {
-				notEmpty: {
-					message: '<fmt:message key="error.dob.empty" bundle="${msg}" />'
-				},
-				stringLength: {
-					max: 14,
-					message: getBundle(getBundleLanguage, "user.username.length.message")
-				},
-				regexp:{
-					regexp: /^[a-zA-Z0-9]*$/,
-					message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
-				}
-			}
-		},
-	}
+					};
+	fields['Hkid'] = {
+						container: form_1 + ' #errorEmptyHkidJoinUs',
+						 trigger: 'change keyup',
+						validators: {
+							callback: {
+								message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
+								callback: function (value, validator) {
+									if(IsHKID(value)){
+										if(typeof getSavieReferralDiscount != 'function'){
+											return true;
+										}else{
+											if(getSavieReferralDiscount()=="0"){
+												return false;
+											}else{
+												return true;
+											}
+										}
+									}else{
+										return false;
+									}
+								}
+							},
+							notEmpty: {
+								message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
+							},
+							regexp: {
+								regexp: /^[a-zA-Z0-9\-]*$/,
+								message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
+							}
+						}
+					};
+	fields['PolicyNumber'] = {
+								container: form_1 + ' #errorEmptyPolicyNumberJoinUs',
+								validators: {
+									notEmpty: {
+										message: '<fmt:message key="error.dob.empty" bundle="${msg}" />'
+									},
+									stringLength: {
+										max: 14,
+										message: getBundle(getBundleLanguage, "user.username.length.message")
+									},
+									regexp:{
+										regexp: /^[a-zA-Z0-9]*$/,
+										message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
+									}
+								}
+							}; 
+	
+
+	$(form_1).bootstrapValidator({
+	excluded: [
+		':disabled', ':hidden', ':not(:visible)'
+	],
+	fields: fields
 	}).on('success.form.bv', function (e) {
-		e.preventDefault();
+		//e.preventDefault();
 	
 	}).on('error.form.bv', function (e) {
 	
@@ -659,141 +671,7 @@ function bootstrapvalidate(){
 		excluded: [
 			':disabled', ':hidden', ':not(:visible)'
 		],
-		fields: {
-			'fullName': {
-				container: form_2 + ' #errorEmptyName',
-				validators: {
-					notEmpty: {
-						message: getBundle(getBundleLanguage, "membership.fullName.empty.message")
-					},
-					different: {
-						  field: 'password',
-						  message: getBundle(getBundleLanguage, "membership.fullName.equal.password.message")
-					}
-				}
-			},
-			'mobileNo': {
-				container: form_2 + ' #errorEmptyMobJoinUs',
-				validators: {
-					notEmpty: {
-						message: getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message")
-					},
-					regexp: {
-						regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/,
-						message: getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message")
-					}
-				}
-			},
-			'EmailAddress': {
-				container: form_2 + ' #errorEmptyEmailIdJoinUs',
-				validators: {
-					notEmpty: {
-						message: getBundle(getBundleLanguage, "applicant.email.notNull.message")
-					},
-					regexp: {
-						regexp: /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/,
-						message: getBundle(getBundleLanguage, "applicant.email.notValid.message")
-					}
-				}
-			},
-			'userName': {
-				container: form_2 + ' #errorEmptyUNameJoinUs',
-				validators: {
-					callback : {
-						 message : getBundle(getBundleLanguage, "user.username.notValid.message"),
-						 callback: function (value, validator) {
-							 return {
-								 valid : isNaN(value)
-							 }
-						 }
-					},
-					notEmpty: {
-						message: getBundle(getBundleLanguage, "user.username.empty.message")
-					},
-					regexp: {
-						regexp: /^(([a-zA-Z0-9]+)|(([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-\_]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)))$/,
-						message: getBundle(getBundleLanguage, "user.username.notValid.message")
-					},
-					stringLength: {
-						max: 50,
-						min: 6,
-						message: getBundle(getBundleLanguage, "user.username.length.message")
-					 }
-				}
-			},
-			'password': {
-				container: form_2 + ' #errorJoinUsPassword',
-				validators: {
-					different: {
-						field: 'userName',
-						message: getBundle(getBundleLanguage, "user.password.same.message")
-					},
-					callback:{
-						message: getBundle(getBundleLanguage, "user.password.validate.message"),
-						callback: function(value, password, $field){
-							var passwordPattern = "[a-zA-Z0-9]{8,}";
-							var passwordPattern2 = "[A-Z]";
-							var passwordPattern3 = "[a-z]";
-							var passwordPattern4 = "[0-9]";
-							var specialChar = "\\W";
-							if (value.search(/[a-zA-Z0-9]{8,}/) < 0) {
-								return {
-									valid: false,
-								};
-							}
-							if (value.search(/[A-Z]/) < 0) {
-								return {
-									valid: false,
-								};
-							}
-							if (value.search(/[a-z]/) < 0) {
-								return {
-									valid: false,
-								};
-							}
-							if (value.search(/[0-9]/) < 0) {
-								return {
-									valid: false,
-								};
-							}
-							if (value.search(/\W/) > 0) {
-								return {
-									valid: false,
-								};
-							}
-							return true;
-						}               
-
-					},
-					notEmpty: {
-						message: getBundle(getBundleLanguage, "user.password.notNull.message")
-					}
-				}
-			},
-			'confirmPassword': {
-				container: form_2 + ' #errorEmptyConfPass',
-				validators: {
-					notEmpty: {
-						message: getBundle(getBundleLanguage, "user.confirmPassword.empty.message")
-					},
-					identical:{
-						field: 'password',
-						message: getBundle(getBundleLanguage, "user.confirmPassword.validate.message")
-					}
-					
-				}
-			},
-			'checkbox1': {
-				container: form_2 + ' #errorDeclaration',
-				validators: {
-					choice: {
-						min: 1,
-						max: 1,
-						message: getBundle(getBundleLanguage, "membership.declaration.notChecked.message")
-					}
-				}
-			}
-		}
+		fields: generate_common_validate_fields(form_2)
 		}).on('success.form.bv', function (e) {
 			e.preventDefault();
 		
@@ -924,8 +802,8 @@ function tooltipPlacement(){
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipPolicyNumber" id="tooltipPolicyNumber" title="<fmt:message key='member.registration.details.policy.number.tooltip' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item existing_fwdmember">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtDob" name="Dob"
-									autocomplete="off" readonly>
+								<input class="mdl-textfield__input registration__input" type="text" id="txtDob" name="Dob" value=""
+									>
 								<label class="mdl-textfield__label registration__label" for="txtDob"><fmt:message key="member.registration.details.dob" bundle="${msg}" /></label>
 								<span id="errorEmptyDobJoinUs" class="text-red"></span>
 							</div>
