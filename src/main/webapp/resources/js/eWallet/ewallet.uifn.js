@@ -5,10 +5,10 @@ var withdrawHelper;
 
 var eWalletCtr = {
 	init: function() {
-		//init Policy 
+		//init Policy
 		policyHelper.setTemplate();
 		policyHelper.init();
-		//init Linkup 
+		//init Linkup
 		linkupHelper = new LinkupClass();
 		linkupHelper.init();
 		//init Withdraw
@@ -31,7 +31,7 @@ var eWalletCtr = {
 		if (linkupStatus === "success") {
 			$(".ew_popup_linkupSuccess").modal();
 		} else {
-			eWalletCtr.showGenericMsg("linkup fail", "Error");
+			eWalletCtr.showGenericMsg("", msgCtr.linkup.tngLinkupFail);
 		}
 	},
 	//Common Function Begin
@@ -46,11 +46,17 @@ var eWalletCtr = {
 		//policy Id
 		policyDom.find(".ew_pol_id").html(info.policyId);
 		//policy balance
-		policyDom.find(".ew_pol_blance").html(eWalletCtr.toPriceStr(info.policyPrincipal));
+		policyDom.find(".ew_pol_blance").html(eWalletCtr.toPriceStr(info.policyValue));
 	},
 	showGenericMsg: function(title, msg) {
 		var dom = $(".ew_popup_error");
-		dom.find(".modal-title").html(title);
+
+		if(title == "" || !title){
+			dom.find(".modal-title").hide();
+		}else{
+			dom.find(".modal-title").html(title).show();
+		}
+
 		dom.find(".ew_popup_sec .ew_desc").html(msg);
 		dom.modal();
 	},
@@ -74,13 +80,12 @@ var eWalletCtr = {
 	//Common Function End
 };
 
-// ====== Policy List Process Begin ====== 
+// ====== Policy List Process Begin ======
 var policyHelper = {
 	htmlTemplate: null,
 	isPopupShowing: false,
 	setTemplate: function() {
-		var template = $(".ew_pol_template").clone();
-		this.htmlTemplate = template;
+		this.htmlTemplate = $(".ew_pol_template").clone();
 		this.htmlTemplate.removeClass("ew_pol_template");
 	},
 	init: function (){
@@ -105,7 +110,7 @@ var policyHelper = {
 				that.composePolicyList(response.policies);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				eWalletCtr.showGenericMsg("Error", "can't get policy...");
+				eWalletCtr.showGenericMsg("", msgCtr.policyList.policyListApiFail);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -114,6 +119,9 @@ var policyHelper = {
 	},
 	composePolicyList: function(policyAry) {
 		var that = this;
+
+		logViewer.clearPolicyOption();
+
 
 		for (var pi = 0; pi < policyAry.length; pi++) {
 			var info = policyAry[pi];
@@ -167,13 +175,11 @@ var policyHelper = {
 			$(".ew_pol_list .ew-tab-title").after(policyDom);
 
 			logViewer.addPolicyNum(info.policyId);
+			console.log("loop", info.policyId);
 		}
 
-		logViewer.clearPolicyOption();
+		// get first policy info in log view
 		logViewer.optDom.trigger("change");
-		logViewer.fetechPolicyInfo();
-
-		
 	},
 	unlinkTng: function(pid, tid) {
 		var that = this;
@@ -192,7 +198,7 @@ var policyHelper = {
 				that.reloadPolicy();
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert(xhr);
+				eWalletCtr.showGenericMsg("", msgCtr.policyList.unlinkApiFail);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -209,7 +215,7 @@ var policyHelper = {
 	},
 	popupClosed: function (){
 		$(".ew_pol_wd_linkupBtn, .ew_pol_wd_withdrawBtn").removeClass("isLoading");
-		this.isShowingPopup = false;
+		this.isPopupShowing = false;
 	},
 	showLoading: function (){
 		$('#loading-overlay').modal();
@@ -218,12 +224,12 @@ var policyHelper = {
 		$('#loading-overlay').modal('hide');
 	}
 };
-// ====== Policy List Process End ====== 
+// ====== Policy List Process End ======
 
 
 
 
-// ====== Linkup Process Being ====== 
+// ====== Linkup Process Being ======
 function LinkupClass() {
 	// Borrowing Methods inheritance
 	BaseErrMsgHelper.apply(this);
@@ -235,6 +241,7 @@ function LinkupClass() {
 	this.init = function() {
 		var that = this;
 
+		// popup close event callback
 		this.popupDom.on("hidden.bs.modal", function() {
 			that.reset();
 			$(document).trigger('ew_popupClose', this);
@@ -252,10 +259,10 @@ function LinkupClass() {
 			}
 
 			if (!isCheckTnc) {
-				that.appendErrMsg(msgCtr.linkup_notCheckTnc);
+				that.appendErrMsg(msgCtr.linkup.notCheckTnc);
 			}
 			if (!haveOtp) {
-				that.appendErrMsg(msgCtr.linkup_invalidOtpInput);
+				that.appendErrMsg(msgCtr.linkup.invalidOtpInput);
 			}
 
 		});
@@ -279,8 +286,10 @@ function LinkupClass() {
 				that.requestShowPanel();
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				that.requestShowPanel();
-				// alert(xhr);
+				// hide policyList btn loading
+				$(document).trigger('ew_popupClose', this);
+
+				eWalletCtr.showGenericMsg("", msgCtr.policyList.otpApiFail);
 			}
 		});
 		//else show error popup
@@ -299,7 +308,7 @@ function LinkupClass() {
 				that.showPanel(response);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert("Fail getPolicyInfo");
+				eWalletCtr.showGenericMsg("", msgCtr.policyList.policyInfoApiFail);
 			}
 		});
 	};
@@ -309,6 +318,7 @@ function LinkupClass() {
 		this.popupDom.find(".ew_mobile").html(data.mobile);
 
 		this.popupDom.modal();
+		this.startResendCountdown();
 	};
 
 	this.hidePanel = function() {
@@ -330,7 +340,7 @@ function LinkupClass() {
 				alert("pass data to TNG");
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert("Fail authTngOtp");
+				eWalletCtr.showGenericMsg("", msgCtr.policyList.requestApiFail);
 			}
 		});
 	};
@@ -357,15 +367,15 @@ function LinkupClass() {
 				console.log(response);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert("Resend OTP Fail");
+				eWalletCtr.showGenericMsg("", msgCtr.policyList.otpApiFail);
 			}
 		});
 	};
 
 }
-// ====== Linkup Process End ====== 
+// ====== Linkup Process End ======
 
-// ====== Withdraw Process Being ====== 
+// ====== Withdraw Process Being ======
 function WithdrawClass(){
 	BaseErrMsgHelper.apply(this);
 	BaseOtpHelper.apply(this);
@@ -411,21 +421,22 @@ function WithdrawClass(){
 			}
 
 			if(!isCheckTnc){
-				that.appendErrMsg(msgCtr.linkup_notCheckTnc);
+				that.appendErrMsg(msgCtr.linkup.notCheckTnc);
 			}
 			if(!haveOtp){
-				that.appendErrMsg(msgCtr.linkup_invalidOtpInput);
+				that.appendErrMsg(msgCtr.linkup.invalidOtpInput);
 			}
 		});
+
 		this.bindResendOtpEvent();
 	};
 
 	this.restrictAmountInput = function (){
-		//only allow enter number 
+		//only allow enter number
 		$("#ew_input_amount").on("keypress", function (key){
 			var key = window.event ? event.keyCode : event.which;
 
-			if (event.keyCode === 8 || event.keyCode === 46 || 
+			if (event.keyCode === 8 || event.keyCode === 46 ||
 				event.keyCode === 37 || event.keyCode === 39) {
 				return true;
 			}
@@ -440,7 +451,7 @@ function WithdrawClass(){
 		this.policyId = null;
 		this.amountWithdraw = 0;
 
-		$("#ew_input_amount").removeClass("ew_err_input");
+		$("#ew_input_amount").removeClass("ew_err_input").val("");
 
 		this.switchSection(1);
 
@@ -465,7 +476,8 @@ function WithdrawClass(){
 				that.showPanel(response);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert(xhr);
+				$(document).trigger('ew_popupClose', this); // hide policyList loading
+				eWalletCtr.showGenericMsg("", msgCtr.withdraw.policyInfoApiFail);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -476,6 +488,8 @@ function WithdrawClass(){
 	this.showPanel = function(data) {
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
 		this.popupDom.find(".ew_mobile").html(data.mobile);
+		this.popupDom.find(".ew_tngId").html(data.tngAccountId);
+		this.popupDom.find(".ew_tngExp").html(data.tngExpiryDate);
 
 		this.popupDom.modal();
 	};
@@ -498,7 +512,7 @@ function WithdrawClass(){
 				that.switchSection(2);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert(xhr);
+				eWalletCtr.showGenericMsg("", msgCtr.withdraw.requestApiFail);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -519,15 +533,15 @@ function WithdrawClass(){
 			link: apiLink.performWithdraw,
 			method: "post",
 			data: {
-				otp: this.getOtpInput(),
-				policyId: this.policyId,
+				otp           : this.getOtpInput(),
+				policyId      : this.policyId,
 				withdrawAmount: this.amountWithdraw
 			},
 			successFn: function(response) {
 				that.switchSection(3);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert(xhr);
+				eWalletCtr.showGenericMsg("", msgCtr.withdraw.performApiFail);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -548,7 +562,7 @@ function WithdrawClass(){
 		this.popupDom.find(".ew_popup_loading").hide();
 	};
 }
-	// ====== Withdraw Process End ====== 
+// ====== Withdraw Process End ======
 
 function BaseOtpHelper() {
 	this.resendLockTimeout = null;
@@ -568,6 +582,7 @@ function BaseOtpHelper() {
 		}, this.resendTimeoutMs);
 	};
 	this.stopResendCountdown = function() {
+		this.popupDom.find(".ew_resendOtp").hide();
 		clearTimeout(this.resendLockTimeout);
 	};
 	this.getOtpInput = function() {
@@ -609,15 +624,15 @@ var logViewer = {
 			method: "post",
 			data: {
 				// policyId: this.policyId,
-				policyId: "11097339",
+				policyId : "11097339",// only this policyId has logs
 				startDate: this.toApiDateFormat($('#dt_log_from').val()),
-				endDate: this.toApiDateFormat($('#dt_log_to').val())
+				endDate  : this.toApiDateFormat($('#dt_log_to').val())
 			},
 			successFn: function(response) {
 				that.composeLogTable(response);
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert("Fail fetechLogs");
+				eWalletCtr.showGenericMsg("", msgCtr.log.logApiFail);
 			}
 		});
 	},
@@ -632,12 +647,12 @@ var logViewer = {
 			var logRow = $("<tr/>").addClass("ew_log");
 
 			var tngId = $("<td/>").html(logData.txnId);
-			
+
 			var dateMobile = $("<span/>").addClass("ew_dateMobile").html(logDt);
 			tngId.append(dateMobile);
-			
+
 			var withdrawAmount = $("<td/>").html(eWalletCtr.toPriceStr(logData.txnAmount));
-			
+
 			var date = $("<td/>").html(logDt);
 
 			logRow.append([tngId, date, withdrawAmount]);
@@ -657,6 +672,7 @@ var logViewer = {
 		this.hideOptionNLog();
 		this.htmlDom.find(".ew_loading").show();
 
+		console.log("fetechPolicyInfo");
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyInfo,
 			method: "post",
@@ -669,7 +685,7 @@ var logViewer = {
 				that.htmlDom.find(".ew_loading").hide();
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
-				alert("Fail getPolicyInfo");
+				eWalletCtr.showGenericMsg("", msgCtr.log.policyInfoApiFail);
 			}
 		});
 	},
@@ -689,41 +705,41 @@ var logViewer = {
 	},
 	initDatePicker: function() {
 		// Initial end date
-        var endDate = new Date();
-	    var startDate = new Date(endDate.getFullYear(), endDate.getMonth() - 1, endDate.getDate());
-	    var $startBox = $('#dt_log_from');
-	    var $endBox = $('#dt_log_to');
+		var endDate   = new Date();
+		var startDate = new Date(endDate.getFullYear(), endDate.getMonth() - 1, endDate.getDate());
+		var $startBox = $('#dt_log_from');
+		var $endBox   = $('#dt_log_to');
 
-        // Init start calendar
-	    var $startCal = $('#dt_log_from').mobiscroll().calendar({
-            maxDate: new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate() - 1),
-            defaultValue: startDate,
-            onSelect: updateMinMaxDate,
-            dateFormat: "dd/mm/yyyy"
-        });
-	    // Init end calendar
-        var $endCal = $('#dt_log_to').mobiscroll().calendar({
-        	minDate: startDate,
-            maxDate: endDate,
-            defaultValue: endDate,
-            onSelect: updateMinMaxDate,
-            dateFormat: "dd/mm/yyyy"
-        });
-        
-        $startCal.mobiscroll("setVal", startDate);
-        $endCal.mobiscroll("setVal", endDate);
-        
-        $startBox.trigger("change");
-        $endBox.trigger("change");
-        
- 		
- 		function updateMinMaxDate(dateText, inst){
- 			var curEndDate = $endCal.mobiscroll("getVal");
- 			var curStartDate = $startCal.mobiscroll("getVal");
- 			
- 			$startCal.mobiscroll("setDate", curStartDate);
- 			$endCal.mobiscroll("setDate", curEndDate);
- 			
+		// Init start calendar
+		var $startCal = $startBox.mobiscroll().calendar({
+			maxDate     : new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate() - 1),
+			defaultValue: startDate,
+			onSelect    : updateMinMaxDate,
+			dateFormat  : "dd/mm/yyyy"
+		});
+		// Init end calendar
+		var $endCal = $endBox.mobiscroll().calendar({
+			minDate     : startDate,
+			maxDate     : endDate,
+			defaultValue: endDate,
+			onSelect    : updateMinMaxDate,
+			dateFormat  : "dd/mm/yyyy"
+		});
+
+		$startCal.mobiscroll("setVal", startDate);
+		$endCal.mobiscroll("setVal", endDate);
+
+		$startBox.trigger("change");
+		$endBox.trigger("change");
+
+
+		function updateMinMaxDate(dateText, inst){
+			var curEndDate   = $endCal.mobiscroll("getVal");
+			var curStartDate = $startCal.mobiscroll("getVal");
+
+			$startCal.mobiscroll("setDate", curStartDate);
+			$endCal.mobiscroll("setDate", curEndDate);
+
 			$startCal = $('#dt_log_from').mobiscroll('option', {
 				maxDate: new Date(curEndDate.setDate(curEndDate.getDate()-1))
 			});
@@ -731,7 +747,7 @@ var logViewer = {
 			$endCal = $('#dt_log_to').mobiscroll('option', {
 				minDate: new Date(curStartDate.setDate(curStartDate.getDate() + 1))
 			});
- 		}
+		}
 	},
 	addPolicyNum: function (policyId){
 		this.optDom.append($("<option/>").val(policyId).html(policyId));
@@ -788,7 +804,7 @@ var apiReqHelper = {
 				if (!!conf.failFn) {
 					conf.failFn(xhr, textStatus, errorThrown);
 				} else {
-					eWalletCtr.showGenericMsg("Error", "network problem.");
+					eWalletCtr.showGenericMsg(msgCtr.common.errorTitle, msgCtr.common.errorMsg);
 				}
 			},
 			complete: function (){
@@ -809,13 +825,13 @@ $("document").ready(function() {
 
 var apiLink = {
 	getPolicyListByCustomer: context + "/api/withdrawal/getPolicyInfoList",
-	sendTngOtpSms: context + "/api/withdrawal/sendTngOtpSms",
-	getPolicyInfo: context + "/api/withdrawal/getPolicyInfo",
-	authTngOtp: context + "/api/withdrawal/authTngOtp",
-	unlinkTngPolicy: context + "/api/withdrawal/unlinkTngPolicy",
-	requestWithdraw: context + "/api/withdrawal/requestTngPolicyWithdraw",
-	performWithdraw: context + "/api/withdrawal/performTngPolicyWithdraw",
-	withdrawLog: context + "/api/withdrawal/getTngPolicyHistory",
+	sendTngOtpSms          : context + "/api/withdrawal/sendTngOtpSms",
+	getPolicyInfo          : context + "/api/withdrawal/getPolicyInfo",
+	authTngOtp             : context + "/api/withdrawal/authTngOtp",
+	unlinkTngPolicy        : context + "/api/withdrawal/unlinkTngPolicy",
+	requestWithdraw        : context + "/api/withdrawal/requestTngPolicyWithdraw",
+	performWithdraw        : context + "/api/withdrawal/performTngPolicyWithdraw",
+	withdrawLog            : context + "/api/withdrawal/getTngPolicyHistory",
 
 };
 
@@ -823,7 +839,30 @@ var apiLink = {
 
 
 var msgCtr = {
-	otpFailMsg: "發送一次性密碼失敗",
-	linkup_invalidOtpInput: "請輸入有效的一次性密碼",
-	linkup_notCheckTnc: "請同意條款及細則"
+	common:{
+		errorTitle: "錯誤",
+		errorMsg  : "網絡發生異常"
+	},
+	policyList:{
+		otpApiFail       : "未能成功送出一次性密碼",
+		policyListApiFail: "未能成功取得保單資料",
+		requestApiFail   : "未能完成配對拍住賞",
+		unlinkApiFail    : "未能完成解除拍住賞",
+		policyInfoApiFail: "未能成功取得保單資料"
+	},
+	withdraw:{
+		requestApiFail   : "未能完成提取要求",
+		performApiFail   : "未能完成提取款項",
+		policyInfoApiFail: "未能成功取得保單資料",
+		otpApiFail       : "未能成功送出一次性密碼"
+	},
+	log: {
+		logApiFail       : "未能取得提取紀錄",
+		policyInfoApiFail: "未能成功取得保單資料"
+	},
+	linkup:{
+		invalidOtpInput: "請輸入有效的一次性密碼",
+		notCheckTnc    : "請同意條款及細則",
+		tngLinkupFail  : "配對拍住賞失敗"
+	}
 };

@@ -1157,23 +1157,23 @@ var customerId = "15174796"; // TNG connected
 								<div class="ew_pol_info">
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
 										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planNameText" bundle="${msg}" /></span>
-										<span class="ew_pol_info_fieldValue">Savie 自助息理財XX(一筆)</span>
+										<span class="ew_pol_info_fieldValue ew_pol_name"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
 										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planPolicyNumberText" bundle="${msg}" /></span>
-										<span class="ew_pol_info_fieldValue">2548451854</span>
+										<span class="ew_pol_info_fieldValue ew_pol_id"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
 										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
-										<span class="ew_pol_info_fieldValue ew_pol_blance">$80,000</span>
+										<span class="ew_pol_info_fieldValue ew_pol_blance"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
 										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.withdraw.name" bundle="${msg}" /></span>
-										<span class="ew_pol_info_fieldValue ew_tngId">2548451854</span>
+										<span class="ew_pol_info_fieldValue ew_tngId"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
 										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.withdraw.linkdate" bundle="${msg}" /></span>
-										<span class="ew_pol_info_fieldValue">01/10/2017</span>
+										<span class="ew_pol_info_fieldValue ew_tngExp"></span>
 									</p>
 								</div>
 							</div>

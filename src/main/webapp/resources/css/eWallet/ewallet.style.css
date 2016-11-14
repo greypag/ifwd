@@ -82,6 +82,7 @@
     .ew_popup_linkupSuccess .modal-content .ew_resendOtp,
     .ew_popup_withdraw .modal-content .ew_resendOtp,
     .ew_popup_error .modal-content .ew_resendOtp {
+      display: none;
       padding: 1em 0; }
   .ew_popup_linkup .modal-title, .ew_popup_linkupSuccess .modal-title, .ew_popup_withdraw .modal-title, .ew_popup_error .modal-title {
     background-color: #fc610b;
