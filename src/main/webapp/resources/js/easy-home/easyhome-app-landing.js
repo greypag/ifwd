@@ -77,7 +77,7 @@ $.fn.autoAlignHeight = function(conf) {
 
 		function alignChildHeight(sel, child) {
 		    //reset all child height
-			$(sel).find(child).css("height", "auto");
+			//$(sel).find(child).css("height", "auto");
 			
 			setTimeout(function (){
 				var max = 0;
