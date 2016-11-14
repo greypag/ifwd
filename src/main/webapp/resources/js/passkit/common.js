@@ -386,6 +386,11 @@ var form = function() {
 }();
 
 $('document').ready(function(){
+//Reload page after 20 minutes
+		setTimeout(function(){
+			window.location.reload(1);
+		}, 20*60*1000);
+
 	console.log($(location).attr('pathname'));
 	//if(($(location).attr('pathname')) == '/C:/Users/Peter%20Mekkelholt/Desktop/Screenprotector_html/web/en/t4_claim.html'){
 	if($('#div_upload_purchase')!=null && $('#div_upload_repair')!=null && $('#div_upload_maintenance')!=null){
