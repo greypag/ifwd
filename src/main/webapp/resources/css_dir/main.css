@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-10-25 17:35:24 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-11-11 16:32:00 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -1928,6 +1928,22 @@ a.link-forgotPassword:hover {
   color: #9fb1b2;
 }
 
+/* line 387, ../sass/common_screen/_loginpopup.scss */
+.dw-bubble.mbsc-mobiscroll .dwl {
+  color: #333;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+/* line 392, ../sass/common_screen/_loginpopup.scss */
+.dw-bubble.mbsc-mobiscroll .dwb {
+  color: #f99502;
+}
+/* line 395, ../sass/common_screen/_loginpopup.scss */
+.dw-bubble.mbsc-mobiscroll .dwwol {
+  border-top: 1px solid #f99502;
+  border-bottom: 1px solid #f99502;
+}
+
 /* line 1, ../sass/common_screen/_overlay.scss */
 .overlay__wrapper {
   margin-top: 150px;
@@ -2820,9 +2836,9 @@ body.chin .partner-headline-wrapper .headline-title {
   }
   /* line 34, ../sass/desktop/_landing.scss */
   #business-partners-container img.club_logo {
-    margin-top: 53px;
-    height: 55%;
-    width: 55%;
+    margin-top: 50px;
+    height: 59%;
+    width: 59%;
   }
 
   /* line 1, ../sass/desktop/_loginpopup.scss */

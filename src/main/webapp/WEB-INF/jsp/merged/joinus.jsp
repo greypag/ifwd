@@ -652,15 +652,15 @@ function bootstrapvalidate(){
 								container: form_1 + ' #errorEmptyPolicyNumberJoinUs',
 								validators: {
 									notEmpty: {
-										message: '<fmt:message key="error.dob.empty" bundle="${msg}" />'
+										message: '<fmt:message key="error.policyno.empty" bundle="${msg}" />'
 									},
 									stringLength: {
 										max: 14,
-										message: getBundle(getBundleLanguage, "user.username.length.message")
+										message: getBundle(getBundleLanguage, "error.policyno.length.message")
 									},
 									regexp:{
 										regexp: /^[a-zA-Z0-9]*$/,
-										message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
+										message: '<fmt:message key="error.policyno.special.chars" bundle="${msg}" />'
 									}
 								}
 							}; 

@@ -23,3 +23,19 @@
         }
     }
 }
+.dw-bubble{
+	&.mbsc-mobiscroll{
+		.dwl{
+			color: #333;
+		    font-size: 18px;
+		    text-transform: capitalize;
+		}
+		.dwb{
+			color: #f99502;
+		}
+		.dwwol{
+			border-top: 1px solid #f99502;
+    		border-bottom: 1px solid #f99502;
+		}
+	}
+}
