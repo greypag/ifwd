@@ -16,6 +16,8 @@ public class TngAuthOtpResponse {
 	private String payload;
 	@JsonProperty("extras")
 	private String extras;
+	@JsonProperty("transactionType")
+	private String transactionType;
 	@JsonProperty("sign")
 	private String sign;
 	@JsonProperty("otp")
@@ -58,6 +60,12 @@ public class TngAuthOtpResponse {
 	}
 	public void setExtras(String extras) {
 		this.extras = extras;
+	}
+	public String getTransactionType() {
+		return transactionType;
+	}
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
 	}
 	public String getSign() {
 		return sign;

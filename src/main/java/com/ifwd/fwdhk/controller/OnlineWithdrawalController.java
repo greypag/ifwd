@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -91,6 +92,7 @@ public class OnlineWithdrawalController extends BaseController{
 		String methodName="getPolicyInfoList";
 		logger.debug(methodName+" getCustomerId:"+tplReq.getCustomerId());
 		
+		if(tplReq.getCustomerId()==null){return Responses.badRequest(null);}
 		
 		JSONObject responseJsonObj = new JSONObject();		
 		ResponseEntity<TngPolicyInfoResponse> responseEntity =Responses.error(null);
@@ -163,18 +165,11 @@ public class OnlineWithdrawalController extends BaseController{
 								  item.remove("msg");
 								msgObject=(JSONObject)((JSONArray) item.get("warnMsg")).get(0);
 								  if(msgObject.get("refCode")!=null){
-									if(msgObject.get("refCode").equals("GPW001")){
-										msgObject.put("code","TPW001");
-									}else if(msgObject.get("refCode").equals("GPW002")){
-										msgObject.put("code","TPW002");
-									}else if(msgObject.get("refCode").equals("GPW003")){
-										msgObject.put("code","TPW003");
-									}else{
-									  msgObject.put("code",new String((String) msgObject.get("refCode")));
-									}
-								  }else{
-									  msgObject.put("code",new String((String) msgObject.get("resultCode")));
+									String refCode = (String) msgObject.get("refCode");
+									String mapCode = TngPolicyConstants.getTngPolicyWarnCode(refCode);
+									msgObject.put("code",mapCode);
 								  }
+								  
 								  msgObject.remove("resultCode");
 								  msgObject.remove("message_en");
 								  msgObject.remove("refCode");
@@ -190,17 +185,9 @@ public class OnlineWithdrawalController extends BaseController{
 							obj.remove("msg");
 							msgObject=(JSONObject)obj.get("warnMsg");
 							if(msgObject.get("refCode")!=null){
-								if(msgObject.get("refCode").equals("GPW001")){
-									msgObject.put("code","TPW001");
-								}else if(msgObject.get("refCode").equals("GPW002")){
-									msgObject.put("code","TPW002");
-								}else if(msgObject.get("refCode").equals("GPW003")){
-									msgObject.put("code","TPW003");
-								}else{
-								  msgObject.put("code",new String((String) msgObject.get("refCode")));
-								}
-							  }else{
-								  msgObject.put("code",new String((String) msgObject.get("resultCode")));
+								String refCode = (String) msgObject.get("refCode");
+								String mapCode = TngPolicyConstants.getTngPolicyWarnCode(refCode);
+								msgObject.put("code",mapCode);
 							  }
 							  msgObject.remove("resultCode");
 							  msgObject.remove("message_en");
@@ -224,8 +211,9 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			try {
 				logger.info(methodName+" System error:" + responseJsonObj.get("msg").toString());
-				String resultCode=new String((String) errMsg.get("resultCode"));
-				switch (resultCode) {
+				String resultCodeTmp=new String((String) errMsg.get("resultCode"));
+				String resultCode ="500";
+				switch (resultCodeTmp) {
 				case "461":
 					resultCode="412";
 					break;
@@ -291,9 +279,8 @@ public class OnlineWithdrawalController extends BaseController{
 					break;
 				}
 				return new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt(resultCode)));
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (Exception e) {
+				logger.error(methodName+" System error:",e);
 				return Responses.error(null);
 			}
 		}
@@ -307,9 +294,9 @@ public class OnlineWithdrawalController extends BaseController{
 			response = TngPolicyInfoByPolicyResponse.class,
 			notes ="Warning Code:"
 					+ "<br/>TPW001 Warning Tap & Go expired"
-                    + "<br/>TPW002 Warning Annual withdrawal limit"
-                    + "<br/>TPW003 Warning Daily withdrawal limit "
-                    + "<br/>TPW004 Warning Daily withdrawal count limit"
+					+ "<br/>TPW002 Warning Annual withdrawal limit"
+					+ "<br/>TPW003 Warning Daily withdrawal limit "
+					+ "<br/>TPW004 Warning Daily withdrawal count limit"
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
@@ -323,6 +310,8 @@ public class OnlineWithdrawalController extends BaseController{
 		String methodName="getPolicyInfo";
 		
 		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
+		
+		if(simple.getPolicyId()==null){return Responses.badRequest(null);}
 		
 		JSONObject responseJsonObj = new JSONObject();		
 		ResponseEntity<TngPolicyInfoByPolicyResponse> responseEntity =Responses.error(null);
@@ -348,30 +337,12 @@ public class OnlineWithdrawalController extends BaseController{
 			JSONObject msgEle= new JSONObject();
 			for (int i = 0; i<msgArr.size(); i++){
 				String refCode = (String) ((JSONObject) msgArr.get(i)).get("refCode");
-				String mapCode = null;
 				if (refCode!=null && !refCode.equals("")) {
-					switch(refCode){
-					case "GPW001":
-						mapCode="TPW001";
-						break;
-					case "GPW002":
-						mapCode="TPW002";
-						break;
-					case "GPW003":
-						mapCode="TPW003";
-						break;
-					case "GPW004":
-						mapCode="TPW004";
-						break;
-					default:
-						mapCode=refCode;
-						break; 
+					String mapCode = TngPolicyConstants.getTngPolicyWarnCode(refCode);
+					if(mapCode!=null){
+						msgEle.put("code", mapCode);
+						warnMsg.add(msgEle);
 					}
-					msgEle.put("code", mapCode);
-					warnMsg.add(msgEle);	
-				} else{
-					msgEle.put("code", (String) ((JSONObject) msgArr.get(i)).get("resultCode"));
-					warnMsg.add(msgEle);
 				}
 			}
 			
@@ -479,6 +450,17 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			String jsonString = new ObjectMapper().writeValueAsString(authOtpReq);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			
+			HttpSession session = request.getSession(false);
+			String language = (String)session.getAttribute("language");
+			if(jsonInput.get("lang")==null){
+				if("en".equalsIgnoreCase(language)){
+					jsonInput.put("lang", "en");
+				}else{
+					jsonInput.put("lang", "zh");
+				}
+			}
+			
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);

@@ -48,4 +48,8 @@ public class TngPolicyConstants {
 		TNG_POLICY_WARN_CODE_MAP.put(BE_TNG_POLICY_WARN_CODE_004,TNG_POLICY_WARN_CODE_004);
     }
 	
+	public static String getTngPolicyWarnCode(String beCode){
+		return TNG_POLICY_WARN_CODE_MAP.get(beCode);
+	}
+	
 }
