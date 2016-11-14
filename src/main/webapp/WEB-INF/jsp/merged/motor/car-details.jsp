@@ -171,9 +171,17 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group">
-	                                        <div class="help-block-wrap">
+	                                        <!-- <div class="help-block-wrap">
 	                                            <input class="form-control" type="text" pattern="^[a-zA-Z\s]+$"  name="bankName" id="bankName" data-error="Please enter Hire Purchase Owner/ Bank in English only." placeholder="Bank"/>
 	                                            <div class="help-block with-errors"></div>
+	                                            
+	                                        </div>-->
+	                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="help-block-wrap">
+	                                                <input type="text" name="bankName" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="bankName" required data-required-error="Please enter Hire Purchase Owner/ Bank in English only." data-error="Your Bank is invalid.">
+	                                                <label class="mdl-textfield__label" for="bankName">Bank</label>
+	                                                <div class="help-block with-errors"></div>
+	                                            </div>
 	                                        </div>
 	                                    </div>
 	
@@ -211,7 +219,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
-                <h3><span class="small title">Your quote</span><span class="price">HK$4,680.00</span></h3>
+                <h3><span class="small title">Your quote</span><span class="price"></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                 <div class="row">
@@ -309,8 +317,11 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
-<script>
+<script type="text/javascript">
 var checkbox=true;
+//var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"driver":[{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false}');
+var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true}');
+
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
     $('input[name=bankMortgage]').bootstrapSwitch();
@@ -337,6 +348,22 @@ $(document).ready(function(){
             }
         }
     };
+    
+    $.ajax({
+		  type: "POST",
+		  data: JSON.stringify(quote),
+		  dataType: "json",
+	      contentType : "application/json",
+	      cache: false,
+	      async: false,
+	      url:context + "/api/iMotor/quote",
+		  success: function(data){
+			  console.dir(data);
+			  $('.price').html(formatCurrency(data.amountDueAmount));
+		  },error: function(error) {
+			
+		  }
+		});
     
 	$('#carDetails').submit(function(event){
 	
@@ -380,7 +407,9 @@ $(document).ready(function(){
               }
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              $quote.attr("value", JSON.stringify(data));
+              var newdata = {};
+              newdata['FullCarDetails'] = data;
+              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit(); 

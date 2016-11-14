@@ -202,7 +202,7 @@ $(document).ready(function(){
         onChange: function(value){
         }
     });
-	$motor_d4occupation = $('#motor_d4occupation').selectize({
+	$motor_d4occupation = $('#d4occuption').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',
@@ -263,10 +263,12 @@ $(document).ready(function(){
         }
     });
 	
+	
     var $custom_checkbox = $('.custom-checkbox .checkbox').not('.disabled');
     var $custom_radio = $('.custom-radio .radio');
     /*custom checkbox*/
     $custom_checkbox.on('click', function() {
+	
         var $this = $(this).find('[type="checkbox"]');
         if($this.is(':checked')){
             $this.prop('checked', false);

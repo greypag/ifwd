@@ -899,6 +899,18 @@ body.chin .bold {
   background: #f5f5f5; }
   .motor-signup-form #d2occupation + .selectize-control > div ::-webkit-input-placeholder {
     font-size: 12px !important; }
+.motor-signup-form #d3occupation + .selectize-control > div {
+  background: #f5f5f5; }
+  .motor-signup-form #d3occupation + .selectize-control > div ::-webkit-input-placeholder {
+    font-size: 12px !important; }
+.motor-signup-form #d4occupation + .selectize-control > div {
+  background: #f5f5f5; }
+  .motor-signup-form #d4occupation + .selectize-control > div ::-webkit-input-placeholder {
+    font-size: 12px !important; }
+.motor-signup-form #d5occupation + .selectize-control > div {
+  background: #f5f5f5; }
+  .motor-signup-form #d5occupation + .selectize-control > div ::-webkit-input-placeholder {
+    font-size: 12px !important; }
 .motor-signup-form #area + .selectize-control > div {
   background: #f5f5f5; }
   .motor-signup-form #area + .selectize-control > div ::-webkit-input-placeholder {

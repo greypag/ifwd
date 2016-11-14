@@ -180,31 +180,25 @@ var nextPage = "${nextPageFlow}";
                                     <span>Car Make</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>Audi</span>
-                                </div>
-                                <div class="col-xs-6 text-left even">
-                                    <span>Car Model</span>
-                                </div>
-                                <div class="col-xs-6 text-right even">
-                                    <span>A8</span>
+                                    <span class="carmake"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>C.C.</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>1,395</span>
+                                    <span class="carcc"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Estimated value</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>200,000</span>
+                                    <span class="carvalue"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>No Claim Discount</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>40%</span>
+                                    <span class="cardiscount"></span>
                                 </div>
                             </div>
                         </div>
@@ -214,19 +208,19 @@ var nextPage = "${nextPageFlow}";
                                     <span>Car Model.</span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>A8</span>
+                                    <span class="carmodel"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Made year</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>2015</span>
+                                    <span class="carmade"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>Occupation</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>Advertising</span>
+                                    <span class="useroccupation"></span>
                                 </div>
                             </div>
                         </div>
@@ -252,19 +246,19 @@ var nextPage = "${nextPageFlow}";
                                     <span>Chasis No.</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>1234123412341234</span>
+                                    <span class="carchasis"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Model Registration Document</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>A8</span>
+                                    <span class="carmodeldocument"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>Other Bank Mortgage</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>BOC</span>
+                                    <span class="carotherbankmortgage"></span>
                                 </div>
                             </div>
                         </div>
@@ -274,13 +268,13 @@ var nextPage = "${nextPageFlow}";
                                     <span>Cubic Capacity</span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>1,395 c.c.</span>
+                                    <span class="carcubic"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Bank Mortgage.</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>others</span>
+                                    <span  class="carbankmortgage"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd hidden-xs">
                                 </div>
@@ -310,25 +304,25 @@ var nextPage = "${nextPageFlow}";
                                     <span>Full Name</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>Audi</span>
+                                    <span class="fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Date of Birth</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>12-12-2014</span>
+                                    <span class="birth" ></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>HKID</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>G23466</span>
+                                    <span class="hkid"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Correspondence Address</span>
                                 </div>
                                 <div class="col-xs-6 text-right even" style="height:120px;text-align: justify;">
-                                    <span>Flat A, Floor 8 Block 2, Kan Fat Building, 3 King's Rd Building, 3 King's Ed, Wan Chai, HK</span>
+                                    <span class="address"></span>
                                 </div>
                             </div>
                         </div>
@@ -338,25 +332,25 @@ var nextPage = "${nextPageFlow}";
                                     <span>Contact No.</span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>1231231231</span>
+                                    <span class="contactno"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Email</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>TTT@XXX.com</span>
+                                    <span class="email"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>Policy Start Date</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>12-12-2016</span>
+                                    <span class="policystart"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Policy End Date</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>12-12-2017</span>
+                                    <span class="policyend"></span>
                                 </div>
                             </div>
                         </div>
@@ -387,25 +381,25 @@ var nextPage = "${nextPageFlow}";
                                     <span>Full name</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>Fu Chan</span>
+                                    <span class="driver1fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>Occupation</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>IT</span>
+                                    <span  class="driver1occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Date of Birth</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>12-12-2000</span>
+                                    <span class="driver1birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>HKID</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>GG1111222</span>
+                                    <span class="driver1hkid"></span>
                                 </div>
                             </div>
                         </div>
@@ -420,25 +414,25 @@ var nextPage = "${nextPageFlow}";
                                     <span>Full name</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>Fu Chan</span>
+                                    <span class="driver2fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>Occupation</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>IT</span>
+                                    <span class="driver2occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Date of Birth</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>12-12-2000</span>
+                                    <span class="driver2birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>HKID</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>GG1111222</span>
+                                    <span class="driver2hkid"></span>
                                 </div>
                             </div>
                         </div>
@@ -453,25 +447,25 @@ var nextPage = "${nextPageFlow}";
                                     <span>Full name</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>Fu Chan</span>
+                                    <span class="driver3fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>Occupation</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>IT</span>
+                                    <span class="driver3occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Date of Birth</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>12-12-2000</span>
+                                    <span class="driver3birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>HKID</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>GG1111222</span>
+                                    <span class="driver3hkid"></span>
                                 </div>
                             </div>
                         </div>
@@ -486,25 +480,58 @@ var nextPage = "${nextPageFlow}";
                                     <span>Full name</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>Fu Chan</span>
+                                    <span class="driver4fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>Occupation</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>IT</span>
+                                    <span class="driver4occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Date of Birth</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>12-12-2000</span>
+                                    <span class="driver4birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
                                     <span>HKID</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>GG1111222</span>
+                                    <span class="driver4hkid"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 driver-detail" id="driver5">
+                            <div class="row detail-row">
+                                <div class="col-xs-6 text-left odd">
+                                    <span class="title">Diver 5</span>
+                                </div>
+                                <div class="col-xs-6 text-right odd">
+                                </div>
+                                <div class="col-xs-6 text-left even">
+                                    <span>Full name</span>
+                                </div>
+                                <div class="col-xs-6 text-right even">
+                                    <span class="driver5fullname"></span>
+                                </div>
+                                <div class="col-xs-6 text-left odd">
+                                    <span>Occupation</span>
+                                </div>
+                                <div class="col-xs-6 text-right odd">
+                                    <span class="driver5occupation"></span>
+                                </div>
+                                <div class="col-xs-6 text-left even">
+                                    <span>Date of Birth</span>
+                                </div>
+                                <div class="col-xs-6 text-right even">
+                                    <span class="driver5birth"></span>
+                                </div>
+                                <div class="col-xs-6 text-left odd">
+                                    <span>HKID</span>
+                                </div>
+                                <div class="col-xs-6 text-right odd">
+                                    <span class="driver5hkid"></span>
                                 </div>
                             </div>
                         </div>
@@ -1077,8 +1104,9 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script>
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 $(document).ready(function(){
-	$.ajax({
+	/*$.ajax({
 	  type: "GET",
 	  dataType: "json",
       contentType : "application/json",
@@ -1091,7 +1119,99 @@ $(document).ready(function(){
 		  console.dir(error);
 			return false;
 	  }
-	});
+	});*/
+	//quote
+	$(".carmake").html(quote.carDetail.makeCode);
+	$(".carmodel").html(quote.carDetail.model);
+	$(".carcc").html(quote.carDetail.engineCapacity);
+	$(".carmade").html(quote.carDetail.yearOfManufacture);
+	$(".carvalue").html(quote.carDetail.estimatedValue);
+	$(".useroccupation").html(quote.applicant.occupation);
+	$(".cardiscount").html(quote.applicant.ncb+"%");
+	
+	//car details
+	$(".carchasis").html(quote.FullCarDetails.carDetail.chassisNumber);
+	$(".carcubic").html(quote.FullCarDetails.carDetail.engineCapacity);
+	$(".carmodeldocument").html(quote.FullCarDetails.carDetail.modelDesc);
+	$(".carbankmortgage").html(quote.FullCarDetails.carDetail.bankMortgageName);
+	$(".carotherbankmortgage").html(quote.FullCarDetails.carDetail.bankMortgageName);
+	
+	//applicant detail
+	$(".fullname").html(quote.FullDriversDetails.applicant.name);
+	$(".contactno").html(quote.FullDriversDetails.applicant.contactNo);
+	$(".birth").html(quote.FullDriversDetails.applicant.dateOfBirth);
+	$(".email").html(quote.FullDriversDetails.applicant.email);
+	$(".hkid").html(quote.FullDriversDetails.applicant.hkid);
+	$(".policystart").html(quote.FullDriversDetails.policyStartDate);
+	var address = quote.FullDriversDetails.applicant.correspondenceAddress.flat + ", " +
+				  quote.FullDriversDetails.applicant.correspondenceAddress.floor + ", " +
+				  quote.FullDriversDetails.applicant.correspondenceAddress.block + ", " +
+				  quote.FullDriversDetails.applicant.correspondenceAddress.building + ", " +
+				  quote.FullDriversDetails.applicant.correspondenceAddress.streetName + ", " +
+				  quote.FullDriversDetails.applicant.correspondenceAddress.streetNo + ", " +
+				  quote.FullDriversDetails.applicant.correspondenceAddress.district + ", " +
+				  quote.FullDriversDetails.applicant.correspondenceAddress.estate + " " +
+				  quote.FullDriversDetails.applicant.correspondenceAddress.hkKlNt;
+	$(".address").html(address);
+	$(".policyend").html(quote.FullDriversDetails.applicant.modelDesc);
+	
+	//drivers
+	$(".driver1fullname").html(quote.FulPolicyDetails.driver[0].name);
+	$(".driver1occupation").html(quote.FulPolicyDetails.driver[0].occupation);
+	$(".driver1birth").html(quote.FulPolicyDetails.driver[0].dateOfBirth);
+	$(".driver1hkid").html(quote.FulPolicyDetails.driver[0].hkid);
+	
+	if(quote.FulPolicyDetails.driver[1].name=="")
+		$("#driver2").hide();
+	else{	
+		$(".driver2fullname").html(quote.FulPolicyDetails.driver[1].name);
+		$(".driver2occupation").html(quote.FulPolicyDetails.driver[1].occupation);
+		$(".driver2birth").html(quote.FulPolicyDetails.driver[1].dateOfBirth);
+		$(".driver2hkid").html(quote.FulPolicyDetails.driver[1].hkid);
+	}
+	
+	if(quote.FulPolicyDetails.driver[2].name=="")
+		$("#driver3").hide();
+	else{	
+		$(".driver3fullname").html(quote.FulPolicyDetails.driver[2].name);
+		$(".driver3occupation").html(quote.FulPolicyDetails.driver[2].occupation);
+		$(".driver3birth").html(quote.FulPolicyDetails.driver[2].dateOfBirth);
+		$(".driver3hkid").html(quote.FulPolicyDetails.driver[2].hkid);
+	}
+	
+	if(quote.FulPolicyDetails.driver[3].name=="")
+		$("#driver4").hide();
+	else{	
+		$(".driver4fullname").html(quote.FulPolicyDetails.driver[3].name);
+		$(".driver4occupation").html(quote.FulPolicyDetails.driver[3].occupation);
+		$(".driver4birth").html(quote.FulPolicyDetails.driver[3].dateOfBirth);
+		$(".driver4hkid").html(quote.FulPolicyDetails.driver[3].hkid);
+	}
+	
+	if(quote.FulPolicyDetails.driver[4].name=="")
+		$("#driver5").hide();
+	else{	
+		$(".driver5fullname").html(quote.FulPolicyDetails.driver[4].name);
+		$(".driver5occupation").html(quote.FulPolicyDetails.driver[4].occupation);
+		$(".driver5birth").html(quote.FulPolicyDetails.driver[4].dateOfBirth);
+		$(".driver5hkid").html(quote.FulPolicyDetails.driver[4].hkid);
+	}	
+	
+	$.ajax({
+		  type: "POST",
+		  data: JSON.stringify(quote),
+		  dataType: "json",
+	      contentType : "application/json",
+	      cache: false,
+	      async: false,
+	      url:context + "/api/iMotor/quote",
+		  success: function(data){
+			  console.dir(data);
+			  $('.price').html(formatCurrency(data.amountDueAmount));
+		  },error: function(error) {
+			
+		  }
+		});    
 	
 });
 </script>

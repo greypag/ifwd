@@ -110,7 +110,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="col-sm-6">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <select class="form-control selectized" id="occupation" data-required-error="Please select your occupation." required>
+	                                            <select class="form-control selectized" name="occupation" id="occupation" data-required-error="Please select your occupation." required>
 	                                                <option value="" disabled selected hidden>Occupation</option>
 	                                            </select>
 	                                            <div class="help-block with-errors"></div>
@@ -196,7 +196,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
 	                                                <!-- <select class="form-control occupation" name="d2occuption" data-required-error="Please select your occupation." required>-->
-	                                                <select class="form-control selectized" id="d2occupation" data-required-error="Please select your occupation." >
+	                                                <select class="form-control selectized" name="d2occupation" id="d2occupation" data-required-error="Please select your occupation." >
 	                                                <option value="" disabled selected hidden>Occupation</option>
 	                                            </select>
 	                                                <div class="help-block with-errors"></div>
@@ -208,6 +208,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
+	                                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 	                                                    <input type="text" name="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" >
 	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
 	                                                    <div class="help-block with-errors"></div>
@@ -281,9 +282,9 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                                <select class="form-control occupation" name="d3occuption" data-required-error="Please select your occupation." >
-	                                                    <option value="" disabled selected hidden>Occupation</option>
-	                                                </select>
+	                                                 <select class="form-control selectized" name="d3occupation" id="d3occupation" data-required-error="Please select your occupation." >
+	                                                <option value="" disabled selected hidden>Occupation</option>
+	                                            </select>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -292,7 +293,8 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	                                                <div class="help-block-wrap calendar"> 
+	                                                <div class="help-block-wrap calendar">
+	                                                	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
 	                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
 	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
 	                                                    <div class="help-block with-errors"></div>
@@ -366,9 +368,9 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                                <select class="form-control occupation" name="d4occuption" data-required-error="Please select your occupation." >
-	                                                    <option value="" disabled selected hidden>Occupation</option>
-	                                                </select>
+	                                                <select class="form-control selectized" name="d4occupation" id="d4occupation" data-required-error="Please select your occupation." >
+	                                                <option value="" disabled selected hidden>Occupation</option>
+	                                            </select>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -377,7 +379,8 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	                                                <div class="help-block-wrap calendar"> 
+	                                                <div class="help-block-wrap calendar">
+	                                               		<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
 	                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
 	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
 	                                                    <div class="help-block with-errors"></div>
@@ -451,9 +454,9 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                                <select class="form-control occupation" name="d5occuption" data-required-error="Please select your occupation." >
-	                                                    <option value="" disabled selected hidden>Occupation</option>
-	                                                </select>
+	                                                <select class="form-control selectized" name="d5occupation" id="d5occupation" data-required-error="Please select your occupation." >
+	                                                <option value="" disabled selected hidden>Occupation</option>
+	                                            </select>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -462,7 +465,8 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	                                                <div class="help-block-wrap calendar"> 
+	                                                <div class="help-block-wrap calendar">
+	                                                	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
 	                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
 	                                                    <label class="mdl-textfield__label" for="driverDob">Date of Birth</label>
 	                                                    <div class="help-block with-errors"></div>
@@ -702,7 +706,8 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
-<script>
+<script type="text/javascript">
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 $(document).ready(function(){
 
 	var term = $('#term');
@@ -727,6 +732,22 @@ $(document).ready(function(){
 	        }
 	    };
 	
+    $.ajax({
+		  type: "POST",
+		  data: JSON.stringify(quote),
+		  dataType: "json",
+	      contentType : "application/json",
+	      cache: false,
+	      async: false,
+	      url:context + "/api/iMotor/quote",
+		  success: function(data){
+			  console.dir(data);
+			  $('.price').html(formatCurrency(data.amountDueAmount));
+		  },error: function(error) {
+			
+		  }
+		});    
+	    
 	$('#policyDetails').submit(function(event){
 	   
 	   var isThird;
@@ -813,26 +834,29 @@ $(document).ready(function(){
              }
              $form.attr("method", "post");
              var $quote = $("<input type='hidden' name='data' />");
-             $quote.attr("value", JSON.stringify(quote));
+             var newdata = {};
+             newdata['FulPolicyDetails'] = data;
+             $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
              $form.append($quote);
              $("body").append($form);
              $('#quote-form').submit();  
 			  
 		  },error: function(error) {
-			  /*console.dir(error);
-				return false;*/
-			  var $form = $("<form id='quote-form' />");
-              if (isThird) {
-                  $form.attr("action", "third-party-quote");
-              } else {
-                  $form.attr("action", "declarations");
-              }
-              $form.attr("method", "post");
-              var $quote = $("<input type='hidden' name='data' />");
-              $quote.attr("value", JSON.stringify(data));
-              $form.append($quote);
-              $("body").append($form);
-              $('#quote-form').submit();
+			 	
+	             var $form = $("<form id='quote-form' />");
+	              if (isThird) {
+	                  $form.attr("action", "third-party-quote");
+	              } else {
+	                  $form.attr("action", "application-summary");
+	              }
+	              $form.attr("method", "post");
+	              var $quote = $("<input type='hidden' name='data' />");
+	              var newdata = {};
+	              newdata['FulPolicyDetails'] = data;
+	              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+	              $form.append($quote);
+	              $("body").append($form);
+	              $('#quote-form').submit(); 
 		  }
 		});
 		return false;

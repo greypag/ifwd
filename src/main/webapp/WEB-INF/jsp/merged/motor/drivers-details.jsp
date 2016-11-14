@@ -430,8 +430,9 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
-<script>
+<script type="text/javascript">
 var checkbox=true;
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 $(document).ready(function(){
         
 	 var getUrlParameter = function getUrlParameter(sParam) {
@@ -449,6 +450,22 @@ $(document).ready(function(){
 	        }
 	    };
 	
+    $.ajax({
+		  type: "POST",
+		  data: JSON.stringify(quote),
+		  dataType: "json",
+	      contentType : "application/json",
+	      cache: false,
+	      async: false,
+	      url:context + "/api/iMotor/quote",
+		  success: function(data){
+			  console.dir(data);
+			  $('.price').html(formatCurrency(data.amountDueAmount));
+		  },error: function(error) {
+			
+		  }
+		});    
+	    
 	$('#driverDetails').submit(function(event){
 	   var isThird;
 	   if (getUrlParameter('plan')=='third') {
@@ -478,9 +495,7 @@ $(document).ready(function(){
 			  "name": $('input[name=fullName]').val() 		
 			  }		
 			};
-	   
-		console.dir(data);
-		
+	   	   
 		$.ajax({
 		  beforeSend: function(){
           	$('#loading-overlay').modal("show");
@@ -502,15 +517,16 @@ $(document).ready(function(){
               }
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              $quote.attr("value", JSON.stringify(data));
+              var newdata = {};
+              newdata['FullDriversDetails'] = data;
+              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit(); 
               
 		  },error: function(error) {
-			  /*console.dir(error);
-				return false;*/
-			  var $form = $("<form id='quote-form' />");
+			  
+              var $form = $("<form id='quote-form' />");
               if (isThird) {
                   $form.attr("action", "third-party-quote");
               } else {
@@ -518,10 +534,12 @@ $(document).ready(function(){
               }
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              $quote.attr("value", JSON.stringify(data));
+              var newdata = {};
+              newdata['FullDriversDetails'] = data;
+              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
               $form.append($quote);
               $("body").append($form);
-              $('#quote-form').submit();
+              $('#quote-form').submit(); 
 		  }
 		});
 		return false;
