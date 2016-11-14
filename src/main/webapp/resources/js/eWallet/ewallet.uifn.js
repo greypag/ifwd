@@ -837,32 +837,31 @@ var apiLink = {
 
 // })();
 
-
 var msgCtr = {
-	common:{
-		errorTitle: "錯誤",
-		errorMsg  : "網絡發生異常"
+	common:{ //getBundle(getBundleLanguage,"");
+		errorTitle: getBundle(getBundleLanguage,"ewallet.msgctr.common.error.title") ,
+		errorMsg  : getBundle(getBundleLanguage,"ewallet.msgctr.common.error.msg")
 	},
 	policyList:{
-		otpApiFail       : "未能成功送出一次性密碼",
-		policyListApiFail: "未能成功取得保單資料",
-		requestApiFail   : "未能完成配對拍住賞",
-		unlinkApiFail    : "未能完成解除拍住賞",
-		policyInfoApiFail: "未能成功取得保單資料"
+		otpApiFail       : getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.otpapifail"),
+		policyListApiFail: getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.policylistapifail"),
+		requestApiFail   : getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.requestapifail"),
+		unlinkApiFail    : getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.unlinkapifail"),
+		policyInfoApiFail: getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.policyinfoapifail")
 	},
 	withdraw:{
-		requestApiFail   : "未能完成提取要求",
-		performApiFail   : "未能完成提取款項",
-		policyInfoApiFail: "未能成功取得保單資料",
-		otpApiFail       : "未能成功送出一次性密碼"
+		requestApiFail   : getBundle(getBundleLanguage,"ewallet.msgctr.withdraw.error.requestapifail"),
+		performApiFail   : getBundle(getBundleLanguage,"ewallet.msgctr.withdraw.error.performapifail"),
+		policyInfoApiFail: getBundle(getBundleLanguage,"ewallet.msgctr.withdraw.error.policyinfoapifail"),
+		otpApiFail       : getBundle(getBundleLanguage,"ewallet.msgctr.withdraw.error.otpapifail")
 	},
 	log: {
-		logApiFail       : "未能取得提取紀錄",
-		policyInfoApiFail: "未能成功取得保單資料"
+		logApiFail       : getBundle(getBundleLanguage,"ewallet.msgctr.log.error.logapifail"),
+		policyInfoApiFail: getBundle(getBundleLanguage,"ewallet.msgctr.log.error.policyinfoapifail")
 	},
 	linkup:{
-		invalidOtpInput: "請輸入有效的一次性密碼",
-		notCheckTnc    : "請同意條款及細則",
-		tngLinkupFail  : "配對拍住賞失敗"
+		invalidOtpInput: getBundle(getBundleLanguage,"ewallet.msgctr.linkup.error.invalidotpinput"),
+		notCheckTnc    : getBundle(getBundleLanguage,"ewallet.msgctr.linkup.error.notchecktnc"),
+		tngLinkupFail  : getBundle(getBundleLanguage,"ewallet.msgctr.linkup.error.tnglinkupfail")
 	}
 };
