@@ -68,7 +68,7 @@
 	<script src="<%=request.getContextPath()%>/resources/js/passkit/dropzone.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/passkit/common.js"></script>
 
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 <%-- 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-theme.min.css"/>
  --%>	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker3.min.css"/>
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-datetimepicker.css"/>
@@ -101,7 +101,9 @@
 
 	<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/images/passkit/favicon.ico" />
 </head>
-<body>
+
+<body <c:out  value="${language == 'tc' ? 'class=\"zh\"' : ''}"  escapeXml="boolean"/>>
+
 
 	<%@ include file="include/merged/passkit/header.jsp"%>
 	<div class="closeMobileMenu commonBody"><dec:body /></div>
