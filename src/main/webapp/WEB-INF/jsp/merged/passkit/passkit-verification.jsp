@@ -50,9 +50,11 @@
 						</div>
 						<div class="verify-action">
 							<input type="submit" value="<fmt:message key="verification.identity.submit" bundle="${msg}" />" class="verify-button" id="tbx-verify-submit" />
+							<div class="verify-error" data-error-for="tbx-verify-submit" data-error-required="<fmt:message key="verification.identity.select.need.massage" bundle="${msg}" />"></div>
 							<p class="verify-remark">
 							<fmt:message key="verification.identity.details.description" bundle="${msg}" />
 							</p>
+							
 						</div>
 					</div>
 				</div>
