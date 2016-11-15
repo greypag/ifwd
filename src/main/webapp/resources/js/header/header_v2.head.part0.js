@@ -6,7 +6,15 @@ $(window).bind("pageshow", function(event) {
         $("#button_confirm").show();
     }
 });
-
+function switchLoginWdiget(loginStatus){
+	console.log(loginStatus);
+	if(loginStatus.loginResult=="success"){
+		$(".not-logged-in").remove();
+		$(".logged-in-view").removeClass("hidden");
+		$("#loginpopup").modal("hide");
+		$("#myDropdown__userName").append(loginStatus.fullName);
+	}
+}
 function submitLoginForm(formID) {
     $('.login-ajax-loading').css({
         "left": "0px",
@@ -24,6 +32,8 @@ function submitLoginForm(formID) {
                 async: false,
                 success: function(data) {
                     if (data.loginResult == 'success') {
+                    	console.log(data);
+                    	switchLoginWdiget(data);                    	
                         //$('.login-ajax-loading').hide();
                         //var Backlen = history.length;
                         //history.go(-Backlen);
@@ -53,7 +63,7 @@ function submitLoginForm(formID) {
                                 'Click',
                                 'Login success');
                             //location.reload();
-                            window.location.href = window.location.href;
+                            //window.location.href = window.location.href;
                         }
                     } else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
                         try {
