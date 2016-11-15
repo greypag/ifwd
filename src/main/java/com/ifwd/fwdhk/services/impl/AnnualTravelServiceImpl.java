@@ -210,6 +210,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					return "exception error";
 				}
 			} catch (Exception e) {
+				logger.error(e.getMessage());
 				e.printStackTrace();
 				model.addAttribute("errMsgs", "System Error");
 				return "System Error";
@@ -318,6 +319,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 			model.addAttribute("errMsgs", "System Error");
 			return "System Error";
 		}
@@ -353,6 +355,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				} catch (Exception e) {
 					session.setAttribute("creditCardNo", "");
 					e.printStackTrace();
+					logger.error(e.getMessage());
 				}
 				session.setAttribute("expiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
 				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
@@ -676,6 +679,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				try {
 					parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
 				} catch (Exception e) {
+					logger.error(e.getMessage());
 					e.printStackTrace();
 				}
 			}
