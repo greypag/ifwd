@@ -195,8 +195,17 @@ function refreshPage(){
 	var cleanURL = window.location.href.replace(/\?r=\d*/,''); //remove random parameter;
 	window.location.href = cleanURL.split('#')[0] + '?r=' + new Date().getTime();
 }
-
+function switchLoginWdiget(loginStatus){
+	console.log(loginStatus);
+	if(loginStatus.loginResult=="success"){
+		$(".not-logged-in").remove();
+		$(".logged-in-view").removeClass("hidden");
+		$("#loginpopup").modal("hide");
+		$("#myDropdown__userName").append(loginStatus.fullName);
+	}
+}
 function submitLoginForm(formID) {
+	console.log("submitLoginForm");
 	$('.login-ajax-loading').css({
 		"left":"0px",
 		"right":"0px"
@@ -213,6 +222,8 @@ function submitLoginForm(formID) {
 				async : false,
 				success : function(data) {
 					if (data.loginResult == 'success') {
+                    	console.log(data);
+                    	switchLoginWdiget(data);
 						//$('.login-ajax-loading').hide();
 						//var Backlen = history.length;
 						//history.go(-Backlen);
@@ -302,7 +313,7 @@ function submitLoginForm(formID) {
 														'Click',
 														'Login success');
 												//location.reload();
-											    window.location.href = window.location.href;
+											    //window.location.href = window.location.href;
 											}
 										} else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
 											try {
@@ -586,7 +597,7 @@ function getStarted(){
 										|| session.getAttribute("username") == null) {
 							%>
 
-							<li class="dropdown login-btn margin-left1" id="myDropdown">
+							<li class="dropdown login-btn margin-left1 not-logged-in" id="myDropdown">
 								<a id="fwd-login-desk" href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message
 										key="header.menu.login" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i> </a> <!--  </a> -->
@@ -661,6 +672,26 @@ function getStarted(){
 									</form>
 								</div>
 							</li>
+							
+							<li class="dropdown logout-btn margin-left1 hidden logged-in-view" id="myDropdown">
+								<a id="myDropdown__userName" href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message
+										key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;
+									<i class="fa fa-caret-right"></i> </a>
+								<div class="dropdown-menu drop-width">
+									<ul>
+										<li><a
+											href="<%=request.getContextPath()%>/${language}/account"
+											class="color1"> <fmt:message key="header.menu.member"
+													bundle="${msg}" /></a></li>
+										<li><a href="<%=request.getContextPath()%>/userLogout"
+											class="color1"> <fmt:message key="header.menu.logout"
+													bundle="${msg}" />
+
+
+										</a></li>
+									</ul>
+								</div>
+							</li>							
 							<%
 								} else if (!"true".equals(session.getAttribute("authenticate")
 										.toString())) {
