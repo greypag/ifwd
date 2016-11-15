@@ -470,7 +470,7 @@ public class SavieServiceImpl implements SavieService {
 				logger.info(br+"");
 			}catch(Exception e){
 				logger.info("SavieServiceImpl createSalesIllustrationPdf occurs an exception!");
-				logger.info(e.getMessage());
+				logger.error(e.getMessage());
 				e.printStackTrace();
 			}
 			resultJsonObject.accumulate("pdfName", name);
@@ -1380,6 +1380,7 @@ public class SavieServiceImpl implements SavieService {
 			logger.info(jsonOptionItemDescs.toString());
 			response.getWriter().print(jsonOptionItemDescs.toString());
 		}catch(Exception e) {  
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -1408,6 +1409,7 @@ public class SavieServiceImpl implements SavieService {
 			logger.info(responseJsonObj.toString());
 			response.getWriter().print(responseJsonObj.toString());
 		}catch(Exception e) {  
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -1436,6 +1438,7 @@ public class SavieServiceImpl implements SavieService {
 			logger.info(responseJsonObj.toString());
 			response.getWriter().print(responseJsonObj.toString());
 		}catch(Exception e) {  
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -1477,6 +1480,7 @@ public class SavieServiceImpl implements SavieService {
 			logger.info(responseJsonObj.toString());
 			response.getWriter().print(responseJsonObj.toString());
 		}catch(Exception e) {  
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}
