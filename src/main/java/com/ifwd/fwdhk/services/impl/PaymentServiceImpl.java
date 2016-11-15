@@ -183,10 +183,13 @@ public class PaymentServiceImpl implements PaymentService {
 						}
 					});
 			} catch (ClientProtocolException e) {
+				logger.error(e.getMessage());
 				e.printStackTrace();
 			} catch (IOException e) {
+				logger.error(e.getMessage());
 				e.printStackTrace();
 			} catch (URISyntaxException e1) {
+				logger.error(e1.getMessage());
 				e1.printStackTrace();
 			}
 
@@ -243,6 +246,7 @@ public class PaymentServiceImpl implements PaymentService {
            //return restTemplate.postForObject(url, vars, PaymentStatusQueryResponse.class, null);//getForObject("{merchantApi}?merchantId={merchantId}&loginId={loginId}&password={password}&actionType=Query&orderRef={orderRef}&payRef={payRef}", PaymentStatusQueryResponse.class, vars);
 
         } catch (Exception e) {
+        	   logger.error(e.getMessage());
                e.printStackTrace();
                throw new PaymentQueryException();
         }

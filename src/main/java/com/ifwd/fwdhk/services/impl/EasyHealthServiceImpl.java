@@ -310,7 +310,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			request.getSession().setAttribute("cardHolderName", request.getParameter("cardHolderName"));
 			logger.info("payment put session success");
 		}catch(Exception e){
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}

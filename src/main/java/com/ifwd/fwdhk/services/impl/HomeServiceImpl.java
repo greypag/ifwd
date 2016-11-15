@@ -224,6 +224,7 @@ public class HomeServiceImpl implements HomeService {
 					String cardNo = request.getParameter("cardNo");
 					session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr(cardNo));
 				} catch (Exception e) {
+					logger.error(e.getMessage());
 					e.printStackTrace();
 				}
 				session.setAttribute("HomeCareCardexpiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
@@ -259,6 +260,7 @@ public class HomeServiceImpl implements HomeService {
 				try {
 					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
 				} catch (Exception e) {
+					logger.error(e.getMessage());
 					e.printStackTrace();
 				}
 			}else {
