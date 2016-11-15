@@ -46,6 +46,7 @@ public class CampaignServiceImpl implements CampaignService {
 				return -1;
 			}
 		} catch (Exception e) {
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			return -1;
 		}
@@ -80,6 +81,7 @@ public class CampaignServiceImpl implements CampaignService {
 				return responseJsonObj.get("result").toString(); // failed or duplicated
 			}
 		} catch (Exception e) {
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			return "error";
 		}

@@ -275,7 +275,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl createEliteTermPolicy occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return apiReturn;
@@ -364,13 +364,13 @@ public class EliteTermServiceImpl implements EliteTermService {
 	        request.getSession().removeAttribute("hkidFileToUploadType");
 		}catch(ECOMMAPIException e){
 			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			apiReturn.setErrMsg(e.getMessage());
 			return apiReturn;
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			apiReturn.setErrMsg("system error");
 			return apiReturn;
@@ -378,6 +378,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			try {
 				is.close();
 			} catch (IOException e) {
+				logger.error(e.getMessage());
 				e.printStackTrace();
 			}  
 		}
@@ -395,7 +396,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().removeAttribute("sendEmailOrNot");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl getEliteTermPremium occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			apiReturn.setErrMsg("api error");
 		}
@@ -417,7 +418,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			apiReturn = connector.finalizeEliteTermPolicy(parameters, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl finalizeEliteTermPolicy occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return apiReturn;
@@ -431,7 +432,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			apiReturn = connector.getUploadedDocument(header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl getUploadedDocument occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return apiReturn;
@@ -455,7 +456,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			apiReturn = connector.contactCs(parameters, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl contactCs occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return apiReturn;
@@ -473,7 +474,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			apiReturn = connector.setEliteTermPolicyAgentEmail(parameters, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl setEliteTermPolicyAgentEmail occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return apiReturn;
@@ -517,11 +518,11 @@ public class EliteTermServiceImpl implements EliteTermService {
 			br = connector.uploadSignature(parameters, header);
 		} catch (ECOMMAPIException e) {
 			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		} catch (Exception e) {
 			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return br;
@@ -635,7 +636,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().removeAttribute("cardHolderName");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl sendEliteTermMail occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return br;
@@ -660,7 +661,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl putEtPlanOptionSession occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -674,7 +675,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			logger.info("payment put session success");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl putEtPaymentSession occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -715,7 +716,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			br = connector.sendEmail(parameters,header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl getPromoteCode occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return br;
@@ -1008,6 +1009,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				}
 				
 			} catch (Exception e) {
+				logger.error(e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -1076,7 +1078,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			session.removeAttribute("etPageKey");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl removeEtSession occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -1087,7 +1089,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().setAttribute("etPageKey", request.getParameter("etPageKey"));
 			logger.info("etPageKey:"+request.getParameter("etPageKey"));
 		}catch(Exception e){
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 	}
