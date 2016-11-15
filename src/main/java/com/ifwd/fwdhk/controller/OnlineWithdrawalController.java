@@ -44,6 +44,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifwd.fwdhk.controller.core.Responses;
+import com.ifwd.fwdhk.message.BaseResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngAuthOtpResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngLinkupSaveRequest;
@@ -108,15 +109,17 @@ public class OnlineWithdrawalController extends BaseController{
 			// ******************* Makeup result *******************			
 	
 			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoResponse.class,responseJsonObj);
-			TngPolicyInfoResponse policyinfoList=  responseEntity.getBody();
-			if(policyinfoList!=null){
-			List<TngPolicyInfo> pis = policyinfoList.getPolicies();
-			if(pis!=null){
-			for(TngPolicyInfo pi:pis){
-				if(pi==null)continue;
-				String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
-				pi.setTngPolicyStatus(status);
-			}}
+			if(HttpStatus.OK.equals(responseEntity.getStatusCode())){
+				TngPolicyInfoResponse policyinfoList=  responseEntity.getBody();
+				if(policyinfoList!=null){
+					List<TngPolicyInfo> pis = policyinfoList.getPolicies();
+					if(pis!=null){
+						for(TngPolicyInfo pi:pis){
+							if(pi==null)continue;
+							String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
+							pi.setTngPolicyStatus(status);
+						}}
+				}
 			}
 			//policyInfoResp=mappingWithoutErrMsg(methodName, policyInfoResp.class, responseJsonObj);
 				
@@ -146,7 +149,7 @@ public class OnlineWithdrawalController extends BaseController{
 		errMsg=(JSONObject) responseJsonObj.get("msg");
 		}
 		//if(responseJsonObj.get("msg") == null){
-		if(errMsg!=null&&errMsg.get("resultCode").equals("0")){
+		if(errMsg!=null&& (errMsg.get("resultCode").equals("0") || errMsg.get("resultCode").equals("10") || errMsg.get("resultCode").equals("11"))){
 			//remove msg of response and replace msg of responseobj as warnMsg 
 				responseJsonObj.remove("msg");
 				Set keySet=responseJsonObj.entrySet();
@@ -214,70 +217,54 @@ public class OnlineWithdrawalController extends BaseController{
 				String resultCodeTmp=new String((String) errMsg.get("resultCode"));
 				String resultCode ="500";
 				switch (resultCodeTmp) {
-				case "461":
+				case "900":
+					resultCode="400";
+					break;
+				case "901":
+					resultCode="400";
+					break;
+				case "902":
+					resultCode="411";
+					break;
+				case "903":
+					resultCode="415";
+					break;
+				case "904":
+					resultCode="413";
+					break;
+				case "905":
 					resultCode="412";
 					break;
-				case "462":
-					resultCode="400";
+				case "906":
+					resultCode="416";
 					break;
-				case "463":
-					resultCode="411";
-					break;
-				case "464":
-					resultCode="400";
-					break;
-				case "465":
-					resultCode="413";
-					break;
-				case "466":
-					resultCode="414";
-					break;
-				case "467":
-					resultCode="413";
-					break;
-				case "468":
-					resultCode="414";
-					break;
-				case "469":
-					resultCode="415";
-					break;
-				case "470":
+				case "907":
 					resultCode="500";
 					break;
-				case "471":
-					resultCode="415";
-					break;
-				case "472":
-					resultCode="416";
-					break;
-				case "475":
-					resultCode="416";
-					break;
-				case "476":
-					resultCode="400";
-					break;
-				case "477":  
-					resultCode="411";
-					break;
-				case "478":  
-					resultCode="411";
-					break;
-				case "491":  
-					resultCode="416";
-					break;
-				case "492":  
+				case "908":
 					resultCode="417";
 					break;
-				case "493":  
-					resultCode="418";
+				case "999":
+					resultCode="500";
 					break;
-				case "2":
-					resultCode="200";
-					break;
-					
 				default:
 					break;
 				}
+				String refCode = (String) errMsg.get("refCode");
+				if(refCode!=null){
+					BaseResponse resp = new BaseResponse();
+					String resultRefCode="";
+					if(refCode.startsWith("RWE")){
+						resultRefCode = TngPolicyConstants.getTngWithdrawalValidationErrorCode(refCode);
+					}else if(refCode.startsWith("RWC")){
+						resultRefCode = TngPolicyConstants.TNG_WITHDRWAL_VALIDATION_ERROR_CODE_000;
+					}else{
+						resultRefCode=refCode;
+					}
+					resp.setErrMsg(resultRefCode);
+					return new ResponseEntity<T>((T)resp, HttpStatus.valueOf(Integer.parseInt(resultCode)));
+				}
+				
 				return new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt(resultCode)));
 			} catch (Exception e) {
 				logger.error(methodName+" System error:",e);
@@ -332,6 +319,7 @@ public class OnlineWithdrawalController extends BaseController{
 			beanJsonObj.put("customerId", (String) responseJsonObj.get("customerId"));
 			
 			JSONObject policy=(JSONObject) responseJsonObj.get("policy");
+			if(policy!=null){
 			JSONArray msgArr=(JSONArray) policy.get("msg");
 			JSONArray warnMsg=new JSONArray();
 			JSONObject msgEle= new JSONObject();
@@ -349,17 +337,20 @@ public class OnlineWithdrawalController extends BaseController{
 			policy.remove("msg");
 			policy.put("warnMsg", warnMsg);
 			beanJsonObj.put("policy", policy);
+			}
 			
 			// ******************* Makeup result *******************
 			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoByPolicyResponse.class,beanJsonObj);
 						
-			TngPolicyInfoByPolicyResponse policyinfoList=  responseEntity.getBody();
-			if(policyinfoList!=null){
-			TngPolicyInfo pi = policyinfoList.getPolicy();
-			if(pi!=null){
-				String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
-				pi.setTngPolicyStatus(status);
-			}
+			if(HttpStatus.OK.equals(responseEntity.getStatusCode())){
+				TngPolicyInfoByPolicyResponse policyinfoList=  responseEntity.getBody();
+				if(policyinfoList!=null){
+					TngPolicyInfo pi = policyinfoList.getPolicy();
+					if(pi!=null){
+						String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
+						pi.setTngPolicyStatus(status);
+					}
+				}
 			}
 
 		} catch (Exception e) {
@@ -378,10 +369,8 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 411, message = "Invalid Policy"),
 			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
-			@ApiResponse(code = 413, message = "Invalid customer mobile number for receive OTP via SMS"),
-			@ApiResponse(code = 414, message = "Exceed the number of re-send OTP"),
-			@ApiResponse(code = 416, message = "SMS gateway send message failed"),
-			@ApiResponse(code = 418, message = "Other Linkup / Withdrawal process is still running")
+			@ApiResponse(code = 413, message = "OTP related error messages"),
+			@ApiResponse(code = 416, message = "SMS gateway send message failed")
 			})
 	@RequestMapping(value = "/sendTngOtpSms", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> sendTngOtpSms(
@@ -428,9 +417,7 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 411, message = "Invalid Policy"),
 			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
-			@ApiResponse(code = 413, message = "OTP not match"),
-			@ApiResponse(code = 414, message = "OTP expired"),
-			@ApiResponse(code = 415, message = "OTP is already authentic")
+			@ApiResponse(code = 413, message = "OTP related error messages")
 			})
 	@RequestMapping(value = "/authTngOtp", method = POST)
 	public ResponseEntity<TngAuthOtpResponse> authTngOtp(
@@ -532,16 +519,14 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 411, message = "Invalid Policy"),
 			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
-			@ApiResponse(code = 413, message = "Invalid customer mobile number for receive OTP via SMS"),
-			@ApiResponse(code = 414, message = "Exceed the number of re-send OTP"),
+			@ApiResponse(code = 413, message = "OTP related error messages"),
 			@ApiResponse(code = 415, message = "Invalid Withdrawal"
 					+ "<br/>TWE000 Withdrawal validation fail"
                     + "<br/>TWE001 Withdrawal amount minimum"
                     + "<br/>TWE002 Annual withdrawal limit exceeded"
                     + "<br/>TWE003 Daily withdrawal limit exceeded"
                     + "<br/>TWE004 Daily withdrawal count limit exceeded"),
-            @ApiResponse(code = 416, message = "SMS gateway send message failed"),
-            @ApiResponse(code = 418, message = "Other Linkup / Withdrawal process is still running")
+            @ApiResponse(code = 416, message = "SMS gateway send message failed")
 			})
 	@RequestMapping(value = "/requestTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngOtpSmsReqResponse> requestTngPolicyWithdraw(
@@ -568,31 +553,6 @@ public class OnlineWithdrawalController extends BaseController{
 			// ******************* Makeup result *******************			
 
 			JSONObject msgObj=(JSONObject) ((JSONArray)responseJsonObj.get("msg")).get(0);
-
-			if (msgObj.get("resultCode").equals("471")){
-				String refCode=(String) msgObj.get("refCode");
-				JSONArray errMsgs=new JSONArray();
-				switch (refCode) {
-				case "RWE007":
-					errMsgs.add("TWE001");
-					break;
-				case "RWE008":
-					errMsgs.add("TWE002");
-					break;
-				case "RWE009":
-					errMsgs.add("TWE003");
-					break;
-				case "RWE010":
-					errMsgs.add("TWE004");
-					break;
-				default:
-					errMsgs.add("TWE000");
-					break;
-				}
-				responseJsonObj.put("errMsgs", errMsgs);
-			}
-			
-			
 			
 			responseEntity=getResponseEntityByJsonObj(methodName,TngOtpSmsReqResponse.class,responseJsonObj);
 				
@@ -614,12 +574,8 @@ public class OnlineWithdrawalController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 411, message = "Invalid Policy"),
 			@ApiResponse(code = 412, message = "Function has been temporarily suspended"),
-			@ApiResponse(code = 413, message = "OTP not match"),
-			@ApiResponse(code = 414, message = "OTP expired"),
-			@ApiResponse(code = 415, message = "OTP is already authentic"),
-			@ApiResponse(code = 416, message = "Tap & Go side cannot perform withdraw"),
-			@ApiResponse(code = 417, message = "Cannot connect to Tap & Go"),
-			@ApiResponse(code = 418, message = "Other Linkup / Withdrawal process is still running")
+			@ApiResponse(code = 413, message = "OTP related error messages"),
+			@ApiResponse(code = 417, message = "Tap & Go Related error messages")
 			})
 	@RequestMapping(value = "/performTngPolicyWithdraw", method = POST)
 	public ResponseEntity<TngPolicyWithdrawPerformResponse> performTngPolicyWithdraw(
@@ -666,8 +622,7 @@ public class OnlineWithdrawalController extends BaseController{
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input"),
-			@ApiResponse(code = 411, message = "Delink fail in Tap & Go"),
-			@ApiResponse(code = 417, message = "Cannot connect to Tap & Go")
+			@ApiResponse(code = 417, message = "Tap & Go Related error messages")
 			})
 	@RequestMapping(value = "/unlinkTngPolicy", method = POST)
 	public ResponseEntity<TngPolicySimple> unlinkTngPolicy(
