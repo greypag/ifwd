@@ -433,7 +433,7 @@ public class LifeServiceImpl implements LifeService {
 			
 			int issueAge = Integer.valueOf(planDetailData.getIssueAge());
 			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject( planDetailData );  
-			System.out.println(json);
+			logger.info(json.toString());
 			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
 				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getType().substring(1));
 				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
