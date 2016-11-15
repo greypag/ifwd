@@ -56,9 +56,4 @@ Regards,
 			</value>
 		</property>
 	</bean>	
-	
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  	   
-	</bean>	
-
-
 </beans>
