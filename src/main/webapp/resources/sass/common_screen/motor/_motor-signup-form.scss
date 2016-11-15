@@ -410,6 +410,48 @@
 		color: #555 !important;
 	}
 }
+.sub-pan
+{
+	display:none
+} 
+.mobileNoErrMsg{
+	text-align: left;
+}
+#form-motor-login, #form-motor-forgot-username, #form-motor-forgot-pwd{
+	width: 85%; 
+	margin: 0 auto;
+	
+}
+#form-motor-forgot-username, #form-motor-forgot-pwd{
+	.panel-heading{
+		padding:10px 0px !important;
+		h4{
+			text-align:left;
+			a{
+			float:right;
+			}
+		}
+	}
+}
+.motor-signup-form .memberLogin .registerPanel{
+
+	padding-bottom:0px !important;
+}
+.motor-signup-form .memberLogin .loginPanel #collapseOne
+{
+/*height:350px;*/
+}
+#form-motor-register{
+	padding-left: 30px;
+    padding-right: 30px;
+	padding-bottom:30px;
+	.declaration{
+		width: 80%;
+		/* margin: 0 auto; */
+		padding-left: 30px;
+		text-align: left;
+	}
+}
 @media (max-width: 768px)
 {
 	.motor-signup-form{
@@ -427,4 +469,26 @@
 			}
 		}
 	}
+}
+@media screen and (max-width: 991px)
+{
+	.summary, .payment-detail, .memberLogin{
+		margin-left: 0px !important; 
+		margin-right: 0px !important;
+	}
+	.motor-signup-form {
+		display: initial !important;
+		/* margin: 0 auto;
+		width: 100%; */
+	}
+}
+@media (max-width: 768px)
+{
+	#sub-pan-forgot-username{
+		height:290px !important
+	}
+	#sub-pan-forgot-pwd{
+		height:320px !important
+	}
+
 }

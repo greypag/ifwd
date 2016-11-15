@@ -182,16 +182,16 @@ var nextPage = "${nextPageFlow}";
                                 <div class="col-xs-6 text-right odd">
                                     <span class="carmake"></span>
                                 </div>
-                                <div class="col-xs-6 text-left odd">
+                                <div class="col-xs-6 text-left even">
                                     <span>C.C.</span>
                                 </div>
-                                <div class="col-xs-6 text-right odd">
+                                <div class="col-xs-6 text-right even">
                                     <span class="carcc"></span>
                                 </div>
-                                <div class="col-xs-6 text-left even">
+                                <div class="col-xs-6 text-left odd">
                                     <span>Estimated value</span>
                                 </div>
-                                <div class="col-xs-6 text-right even">
+                                <div class="col-xs-6 text-right odd">
                                     <span class="carvalue"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
@@ -554,32 +554,32 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Name of Prev Incur</span>
+                                    <span>Name of Previous Insurance Company</span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>FWD</span>
+                                    <spa class="nameofprevinsurance"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
                                     <span>Registration No. of Document</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>ffffffffff</span>
+                                    <span class="regofdocument"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Prev. insur Expiry Date</span> 
+                                    <span>Previous insurance Expiry Date</span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <span>12-31-2312</span>
+                                    <span class="previnsuranceexpirydate"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Prevous Policy No.</span>
+                                    <span>Previous Policy No.</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
-                                    <span>xxxxxXXX</span>
+                                    <span class="previouspolicyno"></span>
                                 </div>
                             </div>
                         </div>
@@ -752,330 +752,235 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
     </div>
-    <div class="container">
+
+    <!-- testing -->
+    <div class="container before-login">
         <div class="center" >
-            <div class="panel panel-default memberLogin">
-                <div class="panel-heading">
-                    <h2 class="panel-title">Member Login (optional)</h2>
-                </div>
-                <div class="panel-body">
-                    <div class="plan-accordion">
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
-                            <div class="panel panel-default loginPanel">
-                                <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" href="#collapseOne" aria-controls="collapseOne" aria-expanded="true">
-                                            Login <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseOne" class="panel-collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="panel-body">
-                                        <form name="loginform" id="loginformPopup" method="post">
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-                                                    <div class="form-container row">
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <!--ä½¿ç¨èå -->
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label text-left">
-                                                                    <input type="text" name="userName"
-                                                                    class="form-control check-emp login-input mdl-textfield__input" id="headerUserName" onkeypress="return validationUsername(event);">
-                                                                    <!-- å¿è¨ä½¿ç¨èå -->
-                                                                    <a href="javascript:;" id="forgotUserName" class="heading-h5">Forgot username?</a>
-                                                                    <label class="mdl-textfield__label" for="headerUserName">Username</label>
-                                                                    <span id="errUserName" class="empHide color-red heading-h5"></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label text-left">
-                                                                    <input type="password" name="password"
-                                                                    class="form-control check-emp-forgotusername login-input mdl-textfield__input" autocomplete="off" id="headerPassword">
-                                                                    <label class="mdl-textfield__label" for="headerPassword">Password</label>
-                                                                    <!--å¿è¨å¯ç¢¼ -->
-                                                                    <a href="javascript:;" id="link-forgotPassword" class="heading-h5">Forgot password?</a>
-                                                                    <span id="errPass" class="empHide color-red heading-h5"></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12">
-                                                            <div class="login-button-group">
-                                                                <input id="fna-check" type="hidden" name="fna" value="false">
-                                                                <input id="forcefna" type="hidden" name="forcefna" value="false">
-                                                                <input id="nav-bar-check" type="hidden" name="isNavBar" value="true">
-                                                                <button type="button" onclick="submitLoginForm('loginformPopup');"
-                                                                    class="cta-confirm cta-font cta-orange cta-padding-40">
-                                                                    Log In
-                                                                </button>
-                                                                <div class="login-error-wrapper">
-                                                                    <div id="login-err-msg" class="color-red heading-h5"
-                                                                        role="alert"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div id="forgotUserPassPopup" class="hidden" >
-                                    <span id="closeUserPass" class="closeForm">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </span>
-                                    <div class="panel-body">
-                                        <form name="" id="forgetPassform" method="post" >
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-10 col-sm-offset-1" >
-                                                    <div class="form-container row">
-                                                        <div class="col-xs-12">
-                                                            <h3>
-                                                                Forgot password
-                                                            </h3>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="text" name="contactNum" pattern="^\d{8}$" maxlength="8" class="form-control check-emp login-input mdl-textfield__input" id="mobileNo" required>
-                                                                        <label class="mdl-textfield__label" for="headerUserName">Mobile No.</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="email" name="email"
-                                                                        class="form-control mdl-textfield__input" required>
-                                                                        <label class="mdl-textfield__label" for="email">Email</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="text" name="fullName" maxlength="100" class="form-control mdl-textfield__input" required>
-                                                                        <label class="mdl-textfield__label" >Full Name</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12">
-                                                            <button type="button" onclick="" class="cta-confirm cta-font cta-orange cta-padding-40">
-                                                                Submit 
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div id="forgotUserNamePopup" class="hidden" >
-                                    <span id="closeUserName" class="closeForm">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </span>
-                                    <div class="panel-body">
-                                        <form name="" id="forgetuserform" method="post" >
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-10 col-sm-offset-1" >
-                                                    <div class="form-container row">
-                                                        <div class="col-xs-12">
-                                                            <h3>
-                                                                Forgot username
-                                                            </h3>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="text" name="contactNum" pattern="^\d{8}$" maxlength="8" class="form-control check-emp login-input mdl-textfield__input" id="mobileNo" required>
-                                                                        <label class="mdl-textfield__label" for="headerUserName">Mobile No.</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="email" name="email"
-                                                                        class="form-control mdl-textfield__input" required>
-                                                                        <label class="mdl-textfield__label" for="email">Email</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12">
-                                                            <button type="button" onclick="" class="cta-confirm cta-font cta-orange cta-padding-40">
-                                                                Submit 
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default registerPanel">
-                                <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-controls="collapseTwo">
-                                            Register <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                                                <form id="userDetails" data-toggle="validator" name="joinus_form" role="form" class="form-horizontal" action="/tc/joinus" method="post">
-                                                    <div class="row form-container">
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="text" name="fullName" maxlength="100" class="form-control mdl-textfield__input" required>
-                                                                        <label class="mdl-textfield__label" >Full Name</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="text" name="contactNum" pattern="^\d{8}$" maxlength="8" class="form-control check-emp login-input mdl-textfield__input" id="mobileNo" required>
-                                                                        <label class="mdl-textfield__label" for="headerUserName">Mobile No.</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="email" name="email"
-                                                                        class="form-control mdl-textfield__input" required>
-                                                                        <label class="mdl-textfield__label" for="email">Email</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="text" name="userName" maxlength="100" class="form-control mdl-textfield__input" required>
-                                                                        <label class="mdl-textfield__label" >User Name</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="password" name="pwd" maxlength="100" class="form-control mdl-textfield__input" required>
-                                                                        <label class="mdl-textfield__label" >Password</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-6">
-                                                            <div class="form-group">
-                                                                <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                                    <div class="help-block-wrap">
-                                                                        <input type="password" name="confirmPwd" maxlength="100" class="form-control mdl-textfield__input" required>
-                                                                        <label class="mdl-textfield__label" >Confirm Password</label>
-                                                                        <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                        <div class="col-xs-12 text-left">
-                                                            <div class="custom-checkbox">
-                                                                <div class="checkbox">
-                                                                    <div class="form-group">
-                                                                        <div class="help-block-wrap">
-                                                                            <input type="checkbox" id="registerAgree1" name="registerAgree1" value="" required>
-                                                                            <label><small>
-                                                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
-                                                                            </label>
-                                                                            <div class="help-block with-errors"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="custom-checkbox">
-                                                                <div class="checkbox">
-                                                                    <div class="form-group">
-                                                                        <div class="help-block-wrap">
-                                                                            <input type="checkbox" id="registerAgree2" name="registerAgree2" value="" required>
-                                                                            <label><small>
-                                                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
-                                                                            </label>
-                                                                            <div class="help-block with-errors"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="custom-checkbox">
-                                                                <div class="checkbox">
-                                                                    <div class="form-group">
-                                                                        <div class="help-block-wrap">
-                                                                            <input type="checkbox" id="registerAgree3" name="registerAgree3" value="" required>
-                                                                            <label><small>
-                                                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
-                                                                            </label>
-                                                                            <div class="help-block with-errors"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <br/>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12">
-                                                            <p>
-                                                                <button type="button" onclick="" class="cta-confirm cta-font cta-orange cta-padding-40">
-                                                                    Register 
-                                                                </button>
-                                                            </p>
-                                                            <br/> 
-                                                            <br/> 
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+			<div class="panel panel-default memberLogin" id="accordion">
+					<div class="panel-heading">
+                   	 	<h2 class="panel-title">Member Login (optional)</h2>
+                	</div>
+					<div class="panel-body" style="background-color:#f2f2f2">
+						<div class="plan-accordion"">
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+							<div class="panel panel-default loginPanel">
+							<div class="panel-heading" role="tab" id="headingOne">
+	                            <h4 class="panel-title">
+	                                <a role="button" data-toggle="collapse" href="#collapseOne" aria-controls="collapseOne" aria-expanded="true">
+	                                    Login <i class="fa fa-caret-down" aria-hidden="true"></i>
+	                                </a>
+	                            </h4>
+                        	</div>
+                        	 <div id="collapseOne" class="panel-collapse in" role="tabpanel" aria-labelledby="headingOne">
+							<div class="sub-pan show" id="sub-pan-login" >
+								<form name="form-motor-login" id="form-motor-login" method="post" style="">
+									<div class="col-xs-12 col-sm-6">
+										<div class="form-group">
+											<!--使用者名 -->
+											<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input type="text" name="userName" class="form-control check-emp login-input mdl-textfield__input" id="motorloginUsername">
+												<label class="mdl-textfield__label" for="motorloginUsername">Username</label>
+												
+											</div>
+											
+											<!-- 忘記使用者名 -->
+											<div class="text-left">
+												<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-username">Forgot username?</a>
+											</div>
+											<span class="error-msg userNameErrMsg"></span>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6">
+										<div class="form-group">
+											<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input type="password" name="password" class="form-control check-emp-forgotusername login-input mdl-textfield__input" autocomplete="off" id="motorloginPassword">
+												<label class="mdl-textfield__label" for="motorloginPassword">Password</label>												
+											</div>
+											
+											<div class="text-left">
+											<!--忘記密碼 -->
+											<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd">Forgot password?</a>
+											</div>
+											<span class="error-msg passwordErrMsg"></span>
+										</div>
+									</div>
+									
+									<div class="login-button-group text-center">
+										<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-login">Log in</button>
+										<div class="login-error-wrapper">
+											<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="sub-pan" id="sub-pan-forgot-username" style="height:205px;">
+								<form name="form-motor-forgot-username" id="form-motor-forgot-username" method="post">
+									<!-- 電話 inout -->
+									<div class="col-xs-12">
+										<div class="panel-heading">
+											<h4 class="panel-title">Forgot Username<a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
+										</div>
+										<div class="alert alert-success your_username_box hide">
+											<span id="your_username"></span>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp-forgotusername login-input mdl-textfield__input" id="motorForgotUsernameMobileNo">
+											<label class="mdl-textfield__label" for="motorForgotUsernameMobileNo">Mobile no.</label>
+						                </div>
+						                <span class="error-msg mobileNoErrMsg"></span>
+
+									</div>
+									</div>
+									<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input type="email" name="emailAddress" class="form-control gray-textbox mdl-textfield__input check-emp-forgotusername login-input" id="motorForgotUsernameEmailAddress" >
+											<label class="mdl-textfield__label" for="motorForgotUsernameEmailAddress">Email address</label>
+					                     </div>
+					                     <span class="error-msg emailAddressErrMsg"></span>
+									</div>
+									</div>
+									<div class="col-xs-12">
+										<div class="form-group">
+											<div class="login-button-group forgot-group text-center">
+												<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-forgot-username">Submit</button>
+											</div>
+										</div>
+									</div>	
+			                    </form>
+
+							</div>
+							<div class="sub-pan" id="sub-pan-forgot-pwd" style="height:300px;">
+								<form name="form-motor-forgot-pwd" id="form-motor-forgot-pwd" method="post">
+									<div class="col-xs-12">
+										<div class="panel-heading">
+											<h4 class="panel-title">Forgot Password<a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
+										</div>
+										</div>
+									<!-- 電話 input -->
+									<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input type="tel" name="mobileNo" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="motorForgotPwdMobileNo">
+											<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd">Mobile no.</label>
+										</div>
+										<span class="error-msg mobileNoErrMsg"></span>
+									</div>
+									</div>
+									<!-- 電郵 input-->
+									<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input type="email" name="emailAddress" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="motorForgotPwdEmailAddress">
+											<label class="mdl-textfield__label" for="motorForgotPwdEmailAddress">Email address</label>
+										</div>
+										<span class="error-msg emailAddressErrMsg"></span>
+									</div>
+									</div>
+									<!-- 使用者input -->
+									<div class="col-xs-12 col-sm-6">
+									<div class="form-group">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input type="text" name="userName" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="motorForgotPwdUsername">
+											<label class="mdl-textfield__label" for="userName">Username</label>
+										</div>
+										<span class="error-msg userNameErrMsg"></span>
+									</div>
+									</div>
+									<div class="col-xs-12">
+									<div class="login-button-group forgot-group text-center">
+										<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-forgot-pwd">Submit</button>
+									</div>
+									</div>
+								</form>
+							</div>
+							</div>
+						</div>
+				<div class="panel panel-default registerPanel">
+					<div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-controls="collapseTwo">
+                                Register <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </a>
+                        </h4>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+					 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+						<form name="form-motor-register" id="form-motor-register" method="post">
+								<div class="form-group">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input type="text" name="fullName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterFullName" data-keyblock-alphabet-space="true" autocomplete="off" maxlength="100">
+										<label class="mdl-textfield__label" for="motorRegisterFullName">Full name <span class="small-txt">(as appears on HKID Card/Passport)</span></label>
+									</div>
+									<span class="error-msg FullNameErrMsg"></span>
+								</div>
+								<div class="form-group">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterMobileNo" data-keyblock-num="true">
+										<label class="mdl-textfield__label" for="motorRegisterMobileNo">Mobile no.</label>
+									</div>
+									<span class="error-msg mobileNoErrMsg"></span>
+								</div>
+								<div class="form-group" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Insurance certificate will be sent to this email address">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input type="text" name="EmailAddress" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterEmailAddress">
+										<label class="mdl-textfield__label" for="motorRegisterEmailAddress">Email address</label>
+									</div>
+									<span class="error-msg EmailAddressErrMsg"></span>
+								</div>
+								<div class="form-group">
+									<!--使用者名 -->
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterUserName">
+										<label class="mdl-textfield__label" for="motorRegisterUserName">Username</label>
+									</div>
+									<span class="error-msg userNameErrMsg"></span>
+								</div>
+								<div class="form-group">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input type="password" name="password" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="motorRegisterPassword">
+										<label class="mdl-textfield__label" for="motorRegisterPassword">Password</label>											
+									</div>
+									<span class="error-msg passwordErrMsg"></span>
+								</div>
+								<div class="form-group">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input type="password" name="confirmPassword" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="motorRegisterConfPass">
+										<label class="mdl-textfield__label" for="motorRegisterConfPass">Confirm password</label>
+									</div>
+									<span class="error-msg confirmPasswordErrMsg"></span>
+								</div>
+								<div class="declaration">
+									<h4>Declaration :</h4>
+									<div class="form-group">
+										<div class="checkbox"><input id="checkbox1" name="checkbox1" type="checkbox" class=""><label for="checkbox1">I have read and understood <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/others/fwd-online-member-en.pdf?la=en" target="blank">Personal Information Collection Statement</a> and agree to be bound by the same.</label></div>
+										<span class="error-msg checkbox1ErrMsg"></span>
+									</div>
+									<hr>
+									<p>If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below:</p>
+									<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3">Please do not send direct marketing information to me.</label></div> 
+									<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox"><label for="checkbox4">Please do not provide my personal data to other persons or companies for their use in direct marketing.</label> </div>
+								</div>
+								<div class="login-button-group text-center">
+									<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-register">Activate</button>
+									<div class="login-error-wrapper">
+										<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
+									</div>
+								</div>
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+					</div>
+				</div>
+				</div>
+				</div>
+			</div>
+    <!-- testing -->
     <div class="container">
         <div class="col-xs-12">
             <div class="row" >
@@ -1098,28 +1003,15 @@ var nextPage = "${nextPageFlow}";
     </div>
 </section>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
-<script>
-var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+<script type="text/javascript">
+var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyId":"26379363","driver":[{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"Driver","occupation":"Account / Accountant","validAgeGroup":"true"},{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"Occupation","validAgeGroup":"agree"},{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"}],"nameOfPreviousInusrancer":"ddsadsad","regNoofPreviousPolicy":"ddsadsa","expDateOfPreviousInsurance":"14-11-2016","previousPolicyNo":"dasdsadsadas"},"FullDriversDetails":{"policyId":"26379363","policyStartDate":"14-11-2016","applicant":{"contactNo":"32321322","correspondenceAddress":{"block":"cc","building":"ddas","district":"Account / Accountant","estate":"dsa","flat":"aa","floor":"bb","hkKlNt":"Kowloon","streetName":null,"streetNo":null},"dateOfBirth":"14-11-1991","email":"da@aa.coma","hkid":"z1231232","name":"ddsa"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"3321321","engineCapacity":"ddsa","modelDesc":"ddsdsa"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true}');
 $(document).ready(function(){
-	/*$.ajax({
-	  type: "GET",
-	  dataType: "json",
-      contentType : "application/json",
-      cache: false,
-      async: false,
-	  url: "/api/session",
-	  success: function(data){
-		  console.dir(data);
-	  },error: function(error) {
-		  console.dir(error);
-			return false;
-	  }
-	});*/
 	//quote
 	$(".carmake").html(quote.carDetail.makeCode);
 	$(".carmodel").html(quote.carDetail.model);
@@ -1197,6 +1089,12 @@ $(document).ready(function(){
 		$(".driver5hkid").html(quote.FulPolicyDetails.driver[4].hkid);
 	}	
 	
+	//no claim discount
+	$(".nameofprevinsurance").html(quote.FulPolicyDetails.nameOfPreviousInusrancer);
+	$(".regofdocument").html(quote.FulPolicyDetails.regNoofPreviousPolicy);
+	$(".previnsuranceexpirydate").html(quote.FulPolicyDetails.expDateOfPreviousInsurance);
+	$(".previouspolicyno").html(quote.FulPolicyDetails.previousPolicyNo);
+	
 	$.ajax({
 		  type: "POST",
 		  data: JSON.stringify(quote),
@@ -1212,7 +1110,36 @@ $(document).ready(function(){
 			
 		  }
 		});    
+	//Check UserLogin
 	
+	$.ajax({
+		url:fwdApi.url.session,
+		type:"get",
+		contentType: "application/json",
+		cache:false,
+		async:false,
+	    error:function (xhr, textStatus, errorThrown){
+
+	        if(xhr.status == 404){		        
+	        	$(".before-login").show();
+	        } else {
+	        	$(".before-login").show();
+	        }
+	    },
+	    success:function(response){
+	    	if(response){
+	    		
+	    		if(response.userName == '*DIRECTGI'){
+	    			$(".before-login").show();
+	    			return false;	
+	    		}else
+	    			$(".before-login").hide();
+
+	    		
+	    	}
+	    	
+	    }
+	});
 });
 </script>
 

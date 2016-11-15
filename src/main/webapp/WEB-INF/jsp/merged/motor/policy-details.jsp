@@ -589,7 +589,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="text-center col-xs-6">
 	                                <br />
-	                                 <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+	                                 <input type="submit" id="sendDriverDetail" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
 	                                <br/>
 	                            </div>
 	                            <div class="clearfix"></div> 
@@ -701,6 +701,7 @@ var nextPage = "${nextPageFlow}";
 </div>
 
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>

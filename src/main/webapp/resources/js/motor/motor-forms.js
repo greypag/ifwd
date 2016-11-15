@@ -268,25 +268,27 @@ $(document).ready(function(){
     var $custom_radio = $('.custom-radio .radio');
     /*custom checkbox*/
     $custom_checkbox.on('click', function() {
-	
-        var $this = $(this).find('[type="checkbox"]');
-        if($this.is(':checked')){
-            $this.prop('checked', false);
-            $this.val('false');
-            if($('.custom-checkbox').find(':input[required]:checked').length < $('.custom-checkbox').length){
-                $(this).parents('form').validator('validate');
-            }
-        }
-        else{
-            $this.prop('checked', true);
-            $this.val('true');
-            
-			if($('.custom-checkbox').find(':input[required]:checked').length == $('.custom-checkbox:visible').length){
-            $(this).parents('form').validator('validate');
+		
+			var $this = $(this).find('[type="checkbox"]');
+			if($this.is(':checked')){
+				$this.prop('checked', false);
+				$this.val('false');
+				if($('.custom-checkbox').find(':input[required]:checked').length < $('.custom-checkbox').length){
+					if(window.location.search.indexOf('policy-details')!= -1)
+						$(this).parents('form').validator('validate');
+				}
 			}
-			if(!$('.has-error').length){
-            }
-        }
+			else{
+				$this.prop('checked', true);
+				$this.val('true');
+				
+				if($('.custom-checkbox').find(':input[required]:checked').length == $('.custom-checkbox:visible').length){
+					if(window.location.search.indexOf('policy-details')!= -1)
+						$(this).parents('form').validator('validate');
+				}
+				if(!$('.has-error').length){
+				}
+			}
     });
     $custom_radio.on('click', function() {
         var $this = $(this).find('[type="radio"]');
