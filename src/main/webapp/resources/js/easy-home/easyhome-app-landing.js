@@ -56,7 +56,7 @@ $.fn.autoAlignHeight = function(conf) {
 		reAlignHeight();
 
 		$(window).on("resize", reAlignHeight);
-		$(window).on("orientationchange", reAlignHeight);
+		//$(window).on("orientationchange", reAlignHeight);
 
 		// window.onorientationchange = reAlignHeight;
 		// window.onresize = reAlignHeight;
@@ -77,7 +77,7 @@ $.fn.autoAlignHeight = function(conf) {
 
 		function alignChildHeight(sel, child) {
 		    //reset all child height
-			//$(sel).find(child).css("height", "auto");
+			$(sel).find(child).css("height", "auto");
 			
 			setTimeout(function (){
 				var max = 0;
