@@ -298,6 +298,11 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				//request.getSession().setAttribute("isVulnerable", false);
 			}
 			else{
+				String[] errMsgs=lifePolicy.getErrMsgs();
+				for(int l=0;l<errMsgs.length;l++)
+				{
+					logger.error(errMsgs[l].toString());
+				}
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
 			}
 		//}
