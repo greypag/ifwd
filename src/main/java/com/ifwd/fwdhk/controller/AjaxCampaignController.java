@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,8 @@ public class AjaxCampaignController extends BaseController {
 			
 			ajaxReturn(response, map);
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -183,7 +185,8 @@ public class AjaxCampaignController extends BaseController {
 			}			
 			ajaxReturn(response, map);
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -198,7 +201,8 @@ public class AjaxCampaignController extends BaseController {
 			Map<String, String> counts = campaignService.getAllAvailablePromoCodeCountByCampaign(request);
 			ajaxReturn(response, counts);
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -214,7 +218,8 @@ public class AjaxCampaignController extends BaseController {
 			HttpSession session = request.getSession();
 			session.setAttribute("chooseCampaign", choose);
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}

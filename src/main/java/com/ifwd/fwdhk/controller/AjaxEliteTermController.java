@@ -187,6 +187,7 @@ public class AjaxEliteTermController extends BaseController{
 				request.getSession().setAttribute("uploadLaterFlage", uploadLaterFlage);
 				ajaxReturn(response, eliteTermService.sendImage(request,passportFlage));
 			} catch (Exception e) {
+				logger.error(ExceptionUtils.getStackTrace(e));
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
@@ -202,6 +203,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response, eliteTermService.getEliteTermPremium(etPlanDetail, request));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -218,6 +220,7 @@ public class AjaxEliteTermController extends BaseController{
             errorResponse.setErrMsg(e.getMessage());
             ajaxReturn(response, errorResponse);
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -231,6 +234,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response,eliteTermService.uploadSignature(request,image,policyNo));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -245,6 +249,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response, eliteTermService.finalizeEliteTermPolicy(request,eliteTermPolicy.getPolicyNo()));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -258,6 +263,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response, eliteTermService.sendEliteTermMail(request));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -271,6 +277,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response, eliteTermService.getUploadedDocument(request));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -284,6 +291,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response, eliteTermService.contactCs(request));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -297,6 +305,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response, eliteTermService.setEliteTermPolicyAgentEmail(request));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -312,6 +321,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response,"success");
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -325,6 +335,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response,"success");
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -338,6 +349,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response, eliteTermService.getPromoteCode(request));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -352,6 +364,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response,"success");
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -366,6 +379,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response,"success");
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -380,6 +394,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response,"success");
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -394,6 +409,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response,"success");
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -408,6 +424,7 @@ public class AjaxEliteTermController extends BaseController{
 			ajaxReturn(response,"success");
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
