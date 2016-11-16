@@ -1,7 +1,10 @@
 package com.ifwd.fwdhk.model.tngsavie;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TngLinkupPayload {
 
 	@JsonProperty("transactionType")

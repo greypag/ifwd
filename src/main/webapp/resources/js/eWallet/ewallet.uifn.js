@@ -338,6 +338,16 @@ function LinkupClass() {
 			successFn: function(response) {
 				//pass all response result to TNG
 				alert("pass data to TNG");
+				var data =response.payload;
+				$('#appId').val(data.appId);
+				$('#merTradeNo').val(data.merTradeNo);
+				$('#payload').val(data.payload);
+				$('#paymentType').val(data.paymentType);
+				$('#extras').val(data.extra);
+				$('#transactionType').val(data.transactionType);
+				$('#sign').val(data.sign);
+				$("#linkupform").attr("action",response.geteWayUrl);
+				$("#linkupform").submit();
 			},
 			failFn: function(xhr, textStatus, errorThrown) {
 				eWalletCtr.showGenericMsg("", msgCtr.policyList.requestApiFail);

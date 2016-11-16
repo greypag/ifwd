@@ -9,8 +9,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
-var customerId = "15174796"; // TNG connected
-// var customerId = "24382597"; //TNG not connected
+var customerId ="<%=session.getAttribute("customerId")%>";
 </script>
 <%!
 	boolean isSaleActiveClass = false;
@@ -1301,6 +1300,18 @@ var customerId = "15174796"; // TNG connected
 			</div>
 		</div>
 	</div>
+</div>
+
+<div>
+<form id="linkupform" method="post">
+<input type="hidden" name="appId" id="appId" value=""/>
+<input type="hidden" name="merTradeNo" id="merTradeNo" value="" />
+<input type="hidden" name="paymentType" id="paymentType" value=""/>
+<input type="hidden" name="payload" id="payload" value=""/>
+<input type="hidden" name="extras" id="extras" value=""/>
+<input type="hidden" name="transactionType" id="transactionType" value=""/>
+<input type="hidden" name="sign" id="sign" value=""/>
+</form>
 </div>
 
 <!-- e-Wallet popup End-->
