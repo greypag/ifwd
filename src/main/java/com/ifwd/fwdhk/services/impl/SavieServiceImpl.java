@@ -308,10 +308,17 @@ public class SavieServiceImpl implements SavieService {
 				else{
 					resultJsonObject.accumulate("result", "fail");
 					resultJsonObject.accumulate("errMsgs", "Data exception");
+					logger.error("getPlanDetails Data exception");
 					throw new ECOMMAPIException("Data exception!");
 				}
 			}
 			else{
+				String[] errMsgs=apiResponse.getErrMsgs();
+				for(int i=0;i<errMsgs.length;i++)
+				{
+					logger.error(errMsgs[i].toString());
+				}
+				
 				resultJsonObject.accumulate("result", "fail");
 				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
 			}
