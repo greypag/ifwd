@@ -8,13 +8,17 @@
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.js"></script>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/joinus.css" type="text/css">
+<!--script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.js"></script-->
+<!-- bootstrap for formValidation -->
+<script src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/joinus.css" type="text/css">
 
 <script>
 	$('document').ready(function(){
-		bootstrapvalidate();
+		bootstrapvalidate_joinus();
 		global_show_bubble("form[name='joinus_form_member'] .js_bubble","form[name='joinus_form_member'] .checkboxBubble");
 		global_show_bubble("form[name='joinus_form_non_member'] .js_bubble","form[name='joinus_form_non_member'] .checkboxBubble");
 		
@@ -75,9 +79,12 @@
 	function activateUserAccountJoinUs(form) {
 		var name = form.name;
 		var form_selector = "form[name='"+ name +"']";
-		$(form_selector).bootstrapValidator('validate');
-		console.log($(form_selector).data('bootstrapValidator').isValid());
-		if ($(form_selector).data('bootstrapValidator').isValid()) {
+		// $(form_selector).bootstrapValidator('validate');
+		// console.log($(form_selector).data('bootstrapValidator').isValid());
+		// if ($(form_selector).data('bootstrapValidator').isValid()) {
+		$(form_selector).formValidation('validate');
+		console.log($(form_selector).data('formValidation').isValid());
+		if ($(form_selector).data('formValidation').isValid()) {
 			$.ajax({
 				type : 'POST',
 				url : '<%=request.getContextPath()%>/{language}/joinus',
@@ -442,8 +449,8 @@ function generate_common_validate_fields(form){
 					message: getBundle(getBundleLanguage, "membership.fullName.empty.message")
 				},
 				different: {
-					  field: 'password',
-					  message: getBundle(getBundleLanguage, "membership.fullName.equal.password.message")
+					field: 'password',
+					message: getBundle(getBundleLanguage, "membership.fullName.equal.password.message")
 				}
 			}
 		},
@@ -542,7 +549,7 @@ function generate_common_validate_fields(form){
 				},
 				notEmpty: {
 					message: getBundle(getBundleLanguage, "user.password.notNull.message")
-				}
+				}	
 			}
 		},
 		'confirmPassword': {
@@ -552,10 +559,10 @@ function generate_common_validate_fields(form){
 					message: getBundle(getBundleLanguage, "user.confirmPassword.empty.message")
 				},
 				identical:{
+					enabled: false,
 					field: 'password',
 					message: getBundle(getBundleLanguage, "user.confirmPassword.validate.message")
 				}
-				
 			}
 		},
 		'checkbox1': {
@@ -572,7 +579,8 @@ function generate_common_validate_fields(form){
 }
 
 function generate_validate(form,fields){
-	$(form).bootstrapValidator({
+	// $(form).bootstrapValidator({
+	$(form).formValidation({
 		excluded: [
 			':disabled', ':hidden', ':not(:visible)'
 		],
@@ -604,9 +612,31 @@ function generate_validate(form,fields){
 	            .find('.help-block[data-bv-for="' + data.field + '"]').hide()
 	            // Show only message associated with current validator
 	            .filter('[data-bv-validator="' + data.validator + '"]').show();
-	    });
+	    })
+		.on('input keyup', '[name="confirmPassword"]', function() {
+			if ($(this).val().length > 0) {
+				$(form)
+					.formValidation('enableFieldValidators', 'confirmPassword', true, 'identical')
+					.formValidation('revalidateField', 'confirmPassword');
+			}else{
+				$(form)
+					.formValidation('enableFieldValidators', 'confirmPassword', false, 'identical')
+					.formValidation('revalidateField', 'confirmPassword');
+			}
+		})
+		.on('input keyup', '[name="Hkid"]', function() {
+			if ($(this).val().length > 0) {
+				$(form)
+					.formValidation('enableFieldValidators', 'Hkid', true, 'callback')
+					.formValidation('revalidateField', 'Hkid');
+			}else{
+				$(form)
+					.formValidation('enableFieldValidators', 'Hkid', false, 'callback')
+					.formValidation('revalidateField', 'Hkid');
+			}
+		});
 }
-function bootstrapvalidate(){
+function bootstrapvalidate_joinus(){
 	var form_1 = "form[name='joinus_form_member']";
 	var fields_1 = generate_common_validate_fields(form_1);
 	
@@ -622,6 +652,7 @@ function bootstrapvalidate(){
 						container: form_1 + ' #errorEmptyHkidJoinUs',
 						validators: {
 							callback: {
+								enabled: false,
 								message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 								callback: function (value, validator) {
 									if(IsHKID(value)){

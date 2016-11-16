@@ -6,10 +6,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.js"></script>
+<!--script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.js"></script-->
+<!-- bootstrap for formValidation -->
+<script src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
 
 <%
@@ -294,11 +299,11 @@
 			<script>
         function getForgotUserName(form) {
         	var current_form = "form[name='"+ form.name +"']";
-    		$(current_form).bootstrapValidator('validate');
+    		$(current_form).formValidation('validate');
         	$(current_form + ' #forgotusername-err-msg').hide();
         	$(current_form + ' #success-message').hide();
 
-            if ($(current_form).data('bootstrapValidator').isValid()) {
+            if ($(current_form).data('formValidation').isValid()) {
                 $(current_form + ' #forgotusername-err-msg').hide();
                 $('.login-ajax-loading').show();
                 $.ajax({
@@ -680,11 +685,13 @@
 
 			function forgotUserPassword(form) {
 				var current_form = "form[name='"+ form.name +"']";
-				$(current_form).bootstrapValidator('validate');
+				// $(current_form).bootstrapValidator('validate');
+				$(current_form).formValidation('validate');
 				$(current_form + ' #forgotpassword-err-msg').hide();
 				$(current_form + ' #success-message-password').hide();
 
-				if ($(current_form).data('bootstrapValidator').isValid()) {
+				// if ($(current_form).data('bootstrapValidator').isValid()) {
+				if ($(current_form).data('formValidation').isValid()) {
 					$(current_form + ' #forgotpassword-err-msg').hide();
 					$('.login-ajax-loading').show();
 					$.ajax({
@@ -776,6 +783,7 @@ function generate_common_validate_fields_member(form){
 			container: form + ' #errorEmptyHkid',
 			validators: {
 				callback: {
+					enabled: false,
 					message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 					callback: function (value, validator) {
 						if(IsHKID(value)){
@@ -833,7 +841,8 @@ function generate_common_validate_fields_non_member(form){
 	};
 }
 function generate_validate(form,fields){
-	$(form).bootstrapValidator({
+	// $(form).bootstrapValidator({
+	$(form).formValidation({
 		excluded: [
 			':disabled', ':hidden', ':not(:visible)'
 		],
@@ -865,7 +874,18 @@ function generate_validate(form,fields){
 	            .find('.help-block[data-bv-for="' + data.field + '"]').hide()
 	            // Show only message associated with current validator
 	            .filter('[data-bv-validator="' + data.validator + '"]').show();
-	    });
+	    })
+		.on('input keyup', '[name="Hkid"]', function() {
+			if ($(this).val().length > 0) {
+				$(form)
+					.formValidation('enableFieldValidators', 'Hkid', true, 'callback')
+					.formValidation('revalidateField', 'Hkid');
+			}else{
+				$(form)
+					.formValidation('enableFieldValidators', 'Hkid', false, 'callback')
+					.formValidation('revalidateField', 'Hkid');
+			}
+		});
 }
 function bootstrapvalidate(){
 //forgotUserNameForm_member
