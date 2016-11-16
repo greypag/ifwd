@@ -7,13 +7,19 @@ $(window).bind("pageshow", function(event) {
     }
 });
 function switchLoginWdiget(loginStatus){
-	console.log(loginStatus);
-	if(loginStatus.loginResult=="success"){
-		$(".not-logged-in").remove();
-		$(".logged-in-view").removeClass("hidden");
-		$("#loginpopup").modal("hide");
-		$("#myDropdown__userName").append(loginStatus.fullName);
-	}
+	//console.log(loginStatus);
+	$(".js-not-logged-in").remove();
+	$(".js-logged-in").removeClass("hidden");
+	$("#loginpopup").modal("hide");
+	$(".js-myDropdown__userName").append(loginStatus.fullName);
+	/*$.ajax({
+		type : "GET",
+		url : "<%=request.getContextPath()%>/api/member/session",
+		async : false,
+		success : function(data) {
+			console.log(data);
+		}
+	});*/
 }
 function submitLoginForm(formID) {
     $('.login-ajax-loading').css({
@@ -32,7 +38,7 @@ function submitLoginForm(formID) {
                 async: false,
                 success: function(data) {
                     if (data.loginResult == 'success') {
-                    	console.log(data);
+                    	//console.log(data);
                     	switchLoginWdiget(data);                    	
                         //$('.login-ajax-loading').hide();
                         //var Backlen = history.length;
