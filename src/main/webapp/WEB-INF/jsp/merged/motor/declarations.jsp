@@ -60,7 +60,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="icon">3</div>
                                     </div>
                                     <div class="image-order-status image-order-status-completed active act img-circle fourth">
-                                        <span class="status">Declarations</span>
+                                        <span class="status"><fmt:message key="motor.declarations.page.heading" bundle="${motorMsg}" /></span>
                                         <div class="icon">4</div>
                                     </div>
                                 </div>
@@ -73,10 +73,10 @@ var nextPage = "${nextPageFlow}";
             <div class="container">
                 <div class="center" > 
                     <!--desktop-->
-                    <h1 class="landing_h2 hidden-sm hidden-xs">Declarations</h1>
+                    <h1 class="landing_h2 hidden-sm hidden-xs"><fmt:message key="motor.declarations.questions.heading" bundle="${motorMsg}" /></h1>
                     <!--end-desktop--> 
                     <!--Mobile-->
-                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Declarations</h1>
+                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="motor.declarations.questions.heading" bundle="${motorMsg}" /></h1>
                     <!--end mobile--> 
                 </div>
             </div>
@@ -87,14 +87,20 @@ var nextPage = "${nextPageFlow}";
 	                    <div class="col-xs-12 qusetion1">
 	                        <div class="panel panel-default question">
 	                            <div class="panel-heading">
-	                                <h3 class="panel-title">Question 1</h3>
+	                                <h3 class="panel-title"><fmt:message key="motor.declarations.questions.1.heading" bundle="${motorMsg}" /></h3>
 	                            </div>
 	                            <div class="panel-body">
 	                                <div class="row">
 	                                    <div class="col-sm-8">
 	                                        <p>
-	                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
+	                                            <fmt:message key="motor.declarations.questions.1.copy" bundle="${motorMsg}" />	                                            
 	                                        </p>
+	                                        <ul>
+                                                <li><fmt:message key="motor.declarations.questions.1.li.part1" bundle="${motorMsg}" /></li>
+                                                <li><fmt:message key="motor.declarations.questions.1.li.part2" bundle="${motorMsg}" /></li>
+                                                <li><fmt:message key="motor.declarations.questions.1.li.part3" bundle="${motorMsg}" /></li>
+                                                <li><fmt:message key="motor.declarations.questions.1.li.part4" bundle="${motorMsg}" /></li>
+                                            </ul>
 	                                    </div>
 	                                    <div class="col-sm-4 text-center custom-radio">
 		                                    <div class="form-group">
@@ -102,13 +108,13 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="radio text-center">
 	                                            <input type="radio" name="answer1" id="a1yes" value="yes" required>
 	                                            <label class="" for="yes">
-	                                                <span class="">Yes</span>
+	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
 	                                            <input type="radio" name="answer1" id="a1no" value="no" required>
 	                                            <label class="" for="no">
-	                                                <span class="">No</span>
+	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="help-block with-errors"></div>
@@ -122,13 +128,13 @@ var nextPage = "${nextPageFlow}";
 	                    <div class="col-xs-12 qusetion2">
 	                        <div class="panel panel-default question">
 	                            <div class="panel-heading">
-	                                <h3 class="panel-title">Question 2</h3>
+	                                <h3 class="panel-title"><fmt:message key="motor.declarations.questions.2.heading" bundle="${motorMsg}" /></h3>
 	                            </div>
 	                            <div class="panel-body">
 	                                <div class="row">
 	                                    <div class="col-sm-8">
 	                                        <p>
-	                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
+	                                            <fmt:message key="motor.declarations.questions.2.copy" bundle="${motorMsg}" />
 	                                        </p>
 	                                    </div>
 	                                    <div class="col-sm-4 text-center custom-radio">
@@ -137,13 +143,13 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="radio text-center">
 	                                            <input type="radio" name="answer2" id="a2yes" value="yes" required>
 	                                            <label class="" for="yes">
-	                                                <span class="">Yes</span>
+	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
 	                                            <input type="radio" name="answer2" id="a2no" value="no" required>
 	                                            <label class="" for="no">
-	                                                <span class="">No</span>
+	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="help-block with-errors"></div>
@@ -157,13 +163,13 @@ var nextPage = "${nextPageFlow}";
 	                    <div class="col-xs-12 qusetion3">
 	                        <div class="panel panel-default question">
 	                            <div class="panel-heading">
-	                                <h3 class="panel-title">Question 3</h3>
+	                                <h3 class="panel-title"><fmt:message key="motor.declarations.questions.3.heading" bundle="${motorMsg}" /></h3>
 	                            </div>
 	                            <div class="panel-body">
 	                                <div class="row">
 	                                    <div class="col-sm-8">
 	                                        <p>
-	                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
+	                                            <fmt:message key="motor.declarations.questions.3.copy" bundle="${motorMsg}" /> 
 	                                        </p>
 	                                    </div>
 	                                    <div class="col-sm-4 text-center custom-radio">
@@ -172,13 +178,13 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="radio text-center">
 	                                            <input type="radio" name="answer3" id="a3yes" value="yes" required>
 	                                            <label class="" for="yes">
-	                                                <span class="">Yes</span>
+	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
 	                                            <input type="radio" name="answer3" id="a3no" value="no" required>
 	                                            <label class="" for="no">
-	                                                <span class="">No</span>
+	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="help-block with-errors"></div>
@@ -190,15 +196,12 @@ var nextPage = "${nextPageFlow}";
 	                        </div>
 	                    </div>
 	                    <div class="clearfix"></div>
+	                    <!--
 	                    <form action="/api/iMotor/policy/declarations" method="post">
 	                        <div class="col-xs-12">
 	                            <div class="center" > 
-	                                <!--desktop-->
 	                                <h1 class="landing_h2 hidden-sm hidden-xs">Privacy Statement</h1>
-	                                <!--end-desktop--> 
-	                                <!--Mobile-->
 	                                <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Privacy Statement</h1>
-	                                <!--end mobile--> 
 	                            </div>
 	                        </div>
 	                        <div class="clearfix"></div>
@@ -250,6 +253,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	
 	                        </form>
+	                        -->
 	                    </div>
 	                    <div class="col-xs-12">
 	                        <div class="row" >
@@ -257,7 +261,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="row" >
 	                                    <div class="text-center col-xs-6">
 	                                        <br />
-	                                        <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+	                                        <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /> </a>
 	                                        <br/>
 	                                    </div>
 	                                    <div class="text-center col-xs-6">
@@ -267,7 +271,7 @@ var nextPage = "${nextPageFlow}";
 	                                    </div>
 	                                    <div class="clearfix"></div> 
 	                            <div class="text-center save">
-	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class="">Save an Continue Later</a>
+	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
 	                            </div>
 	                                </div>
 	                            </div>
@@ -275,7 +279,6 @@ var nextPage = "${nextPageFlow}";
 	
 	                    </div>
 	                </div>
-	            </div>
 	        </form>
         </div>
     </section>
@@ -433,7 +436,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <div class="help-block-wrap">
                                             <input type="text" name="fullName"
-                                            class="form-control gray-textbox mdl-textfield__input" id="fullName" maxlength="100" pattern="^[a-zA-Z\s]+$" data-pattern-error="<fmt:message key="motor.error.msg.name.format" bundle="${motorMsg}" />" data-required-error="<fmt:message key="motor.error.msg.name.empty" bundle="${motorMsg}" />" required >
+                                            class="form-control gray-textbox mdl-textfield__input" id="fullName" maxlength="100" pattern="^[a-zA-Z\s]+$" data-pattern-error='selectize.min.js' data-required-error='<fmt:message key="motor.error.msg.name.empty" bundle="${motorMsg}" />' required >
                                             <label class="mdl-textfield__label" for="fullName"><fmt:message key="motor.quickquote.contactme.form.fullname" bundle="${motorMsg}" /></label>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -444,7 +447,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <div class="help-block-wrap">
-                                            <input type="email" name="email" id="contactEmail" class="form-control gray-textbox mdl-textfield__input" data-error="<fmt:message key="motor.error.msg.email.format" bundle="${motorMsg}" />" data-required-error="<fmt:message key="motor.error.msg.email.empty" bundle="${motorMsg}" />" required>
+                                            <input type="email" name="email" id="contactEmail" class="form-control gray-textbox mdl-textfield__input" data-error='<fmt:message key="motor.error.msg.email.format" bundle="${motorMsg}" />' data-required-error='<fmt:message key="motor.error.msg.email.empty" bundle="${motorMsg}" />' required>
                                             <label class="mdl-textfield__label" for="email"><fmt:message key="motor.quickquote.contactme.form.email" bundle="${motorMsg}" /></label>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -455,7 +458,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <div class="help-block-wrap">
-                                            <input type="text" id="contactNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" name="contactNo" pattern="^[2|3|5|6|8|9]{1}\d{7}$" maxlength="8" data-pattern-error="<fmt:message key="motor.error.msg.mobile.format" bundle="${motorMsg}" />" data-required-error="<fmt:message key="motor.error.msg.mobile.empty" bundle="${motorMsg}" />" required>
+                                            <input type="text" id="contactNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" name="contactNo" pattern="^[2|3|5|6|8|9]{1}\d{7}$" maxlength="8" data-pattern-error='<fmt:message key="motor.error.msg.mobile.format" bundle="${motorMsg}" />' data-required-error='<fmt:message key="motor.error.msg.mobile.empty" bundle="${motorMsg}" />' required>
                                             <label class="mdl-textfield__label" for="headerUserName"><fmt:message key="motor.quickquote.contactme.form.mobile" bundle="${motorMsg}" /></label>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -483,7 +486,7 @@ var nextPage = "${nextPageFlow}";
                             <div class="checkbox">
                                 <div class="form-group">
                                     <div class="help-block-wrap">
-                                        <input type="checkbox" id="agreement" name="agreement" value="" data-required-error="<fmt:message key="motor.error.msg.declaration.empty" bundle="${motorMsg}" />" required>
+                                        <input type="checkbox" id="agreement" name="agreement" value="" data-required-error='<fmt:message key="motor.error.msg.declaration.empty" bundle="${motorMsg}" />' required>
                                         <label>
                                         <small>
                                                 <fmt:message key="motor.quickquote.contactme.form.agreement.part1" bundle="${motorMsg}" /><a href='<fmt:message key="motor.quickquote.contactme.form.agreement.pics.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.quickquote.contactme.form.agreement.pics.copy" bundle="${motorMsg}" /></a><fmt:message key="motor.quickquote.contactme.form.agreement.part2" bundle="${motorMsg}" />

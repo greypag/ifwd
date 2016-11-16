@@ -1,4 +1,5 @@
 var APIServer = "";
+
 var fwdApi = {
 		url:{
 			session						: APIServer + context + "/api/member/session",
@@ -18,12 +19,12 @@ $(document).ready(function(){
 	
 	
 	
-	 $('#sendDriverDetail').on('click', function(e){
+	/* $('#sendDriverDetail').on('click', function(e){
         e.preventDefault();
         $('#motor_registerForm').validator('validate');
-    });
+    });*/
 	
-    $('#mortgageBank').selectize({
+     var $mortgageBankSelect = $('#mortgageBank').selectize({
         valueField: '',
         labelField: '',
         searchField: '',
@@ -101,18 +102,36 @@ $(document).ready(function(){
             $('#area-selectized').data('required-error', $('#area').data('required-error'));
         }
     });
+	
+	
+	
     $('[name="bankMortgage"]').bootstrapSwitch({
         onText: '',
         offText: '',
-		inverse: true,
+        inverse: true,
         onSwitchChange: function(e, state){
-            if(state)
+		
+			$(".switch-light").removeClass("orange");
+            if(state){
+
+				$(".sly").addClass("orange");
                 $('.mortgageBank').removeClass('hidden');
-            else
-				$('.mortgageBank').addClass('hidden');
-               
+                $('#mortgageBank, #mortgageBank-selectized, #bankName').prop('required',true);
+				$('#motor_registerForm').validator('update');
+            }
+            else{
+				$mortgageBankSelect[0].selectize.clear(); 
+				$('#bankName').val("");
+				$('#motor_registerForm input[type="submit"]').removeClass('disabled');
+				$(".sln").addClass("orange");
+                $('.mortgageBank').addClass('hidden');
+                $('#mortgageBank, #mortgageBank-selectized, #bankName').prop('required',false);
+                $('#motor_registerForm').validator('update'); 
+            }
+                $('#motor_registerForm').validator('validate');
         }
-    });
+    }); 
+	
     var totalDriver = $('.added-driver').length;
     var current = 0;
     $('#addDriver').on('click', function(e){
@@ -400,7 +419,7 @@ $(document).ready(function(){
 	});
 
 	form.find(".btn-submit").on("click",function(){
-		alert("API");
+
 		form.data('bootstrapValidator').validate();
 		if(form.data('bootstrapValidator').isValid()){
 			var postData = {
@@ -419,20 +438,21 @@ $(document).ready(function(){
 				cache:false,
 				async:false,
 				error:function(xhr, textStatus, errorThrown){
-
+					//console.dir(xhr);
 					var resp = $.parseJSON(xhr.responseText);
 
 					$(".forgotPwdPanErrMsg").append($("<small/>").text(resp.message));	
 					$("#loading-overlay").modal("hide");
 			    },
 			    success:function(response){
-					console.dir(response);
+					//console.dir(response);
 			    	if(response){		    		
 			    		$(".forgotPwdPanErrMsg").append($("<small/>").text("Please check your email"));	
 			    		$("#loading-overlay").modal("hide");
 			    	}
 			    },
 			    complete:function(){
+
 			    	$("#loading-overlay").modal("hide");
 			    }
 			});
@@ -539,6 +559,7 @@ $(document).ready(function(){
 	function bsvFormRegister(form){
 
 	form.find(".btn-submit").on("click",function(){
+		
 		form.data('bootstrapValidator').validate();
 		if(form.data('bootstrapValidator').isValid()){
 			var postData = {
@@ -576,6 +597,7 @@ $(document).ready(function(){
 					$("#loading-overlay").modal("hide");
 			    },
 			    success:function(response){
+					console.dir(response);
 			    	if(response){
 			    		isLogged = true;
 			    		$(".after-login").find(".fld-val").text(response.fullName);

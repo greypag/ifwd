@@ -57,7 +57,7 @@ var nextPage = "${nextPageFlow}";
                                         <div class="order-status-timeline-completion dots-inactive"></div>
                                     </div>
                                     <div class="image-order-status image-order-status-new active img-circle act first">
-                                        <span class="status">Car Details</span>
+                                        <span class="status"><fmt:message key="motor.cardetails.page.heading" bundle="${motorMsg}" /></span>
                                         <div class="icon">1</div>
                                     </div>
                                     <div class="image-order-status image-order-status-intransit  img-circle second">
@@ -79,11 +79,11 @@ var nextPage = "${nextPageFlow}";
         <div class="container" id="motor_Form_Title">
             <div class="center" > 
                 <!--desktop-->
-                <h1 class="landing_h2 hidden-sm hidden-xs">Car Details</h1>
+                <h1 class="landing_h2 hidden-sm hidden-xs"><fmt:message key="motor.cardetails.car.title" bundle="${motorMsg}" /></h1>
                 <!--end-desktop--> 
                 <!--Mobile-->
-                <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Car Details</h1>
-                <h1 class="landing_h3 hidden-lg hidden-md feature-ttl">Car Details</h1>
+                <h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="motor.cardetails.car.title" bundle="${motorMsg}" /></h1>
+                <h1 class="landing_h3 hidden-lg hidden-md feature-ttl"><fmt:message key="motor.cardetails.car.title" bundle="${motorMsg}" /></h1>
                 <!--end mobile--> 
             </div>
         </div>
@@ -100,8 +100,8 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error="Please enter Chassis Number." data-error="Your Chassis Number is invalid.">
-	                                                <label class="mdl-textfield__label" for="chassisNumber">Chassis Number</label>
+	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
+	                                                <label class="mdl-textfield__label" for="chassisNumber"><fmt:message key="motor.cardetails.car.chassisno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -114,8 +114,8 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="cubicCapacity" minlength="3" maxlength="5" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error="Please enter your Car's CC value." data-error="Your Car's CC value is invalid.">
-	                                                <label class="mdl-textfield__label" for="cubicCapacity">Cubic Capacity</label>
+	                                                <input type="text" name="cubicCapacity" minlength="3" maxlength="5" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error='<fmt:message key="motor.error.msg.cc.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.cc.format" bundle="${motorMsg}" />'>
+	                                                <label class="mdl-textfield__label" for="cubicCapacity"><fmt:message key="motor.cardetails.car.cubiccap" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -128,8 +128,8 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d]+$" data-pattern-error="Your Car Model number is invalid" minlength="4" maxlength="10" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error="Please enter your Car Model number in Registration Document" data-error="Your Car Model number is invalid">
-	                                                <label class="mdl-textfield__label" for="registedModel">Model in Registration Document</label>
+	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d]+$" data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="10" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
+	                                                <label class="mdl-textfield__label" for="registedModel"><fmt:message key="motor.cardetails.car.model" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -143,40 +143,39 @@ var nextPage = "${nextPageFlow}";
 	                    <div id="testimonials">
 	                        <div class="center" > 
 	                            <!--desktop-->
-	                            <h1 class="landing_h2 hidden-sm hidden-xs">Bank mortgage</h1>
+	                            <h1 class="landing_h2 hidden-sm hidden-xs"><fmt:message key="motor.cardetails.mortgage.title" bundle="${motorMsg}" /></h1>
 	                            <!--end-desktop--> 
 	                            <!--Mobile-->
-	                            <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Bank mortgage</h1>
+	                            <h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="motor.cardetails.mortgage.title" bundle="${motorMsg}" /></h1>
 	                            <!--end mobile--> 
 	                        </div>
 	                        <div class="row">
 	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
 	                                <div class="form-group row">
 	                                    <div class="col-sm-6">
-	                                        Is car under a bank mortgage?
+	                                        <fmt:message key="motor.cardetails.mortgage.question" bundle="${motorMsg}" />
 	                                    </div>
 	                                    <div class="col-sm-6 text-right">
-	                                        <span class="switch-light sly">Yes&nbsp;</span>
+	                                        <span class="switch-light sly"><fmt:message key="motor.button.yes" bundle="${motorMsg}" />&nbsp;</span>
 	                                        <input type="checkbox" class="toggleCheck" name="bankMortgage" checked>
-	                                        <span class="switch-light sln">&nbsp;No</span>
+	                                        <span class="switch-light sln">&nbsp;<fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                    </div>
 	                                </div>
 	                                <div class="mortgageBank">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <select class="form-control" id="mortgageBank" data-required-error="Please enter Hire Purchase Owner/ Bank." required>
-	                                                <option value="" disabled selected hidden>Hire Purchase Owner/Bank</option>
+	                                            <select class="form-control" id="mortgageBank" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.empty" bundle="${motorMsg}" />' required>
+	                                                <option value="" disabled selected hidden><fmt:message key="motor.cardetails.mortgage.hire" bundle="${motorMsg}" /></option>
 	                                            </select>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group">
 	                                        <!-- <div class="help-block-wrap">
-	                                            <input class="form-control" type="text" pattern="^[a-zA-Z\s]+$"  name="bankName" id="bankName" data-error="Please enter Hire Purchase Owner/ Bank in English only." placeholder="Bank"/>
+	                                            <input class="form-control" type="text" pattern="^[a-zA-Z\s]+$"  name="bankName" id="bankName" data-error='<fmt:message key="motor.error.msg.mortgagebank.format" bundle="${motorMsg}" />' placeholder="Bank"/>
 	                                            <div class="help-block with-errors"></div>
-	                                            
 	                                        </div>-->
-	                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
 	                                                <input type="text" name="bankName" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="bankName" required data-required-error="Please enter Hire Purchase Owner/ Bank in English only." data-error="Your Bank is invalid.">
 	                                                <label class="mdl-textfield__label" for="bankName">Bank</label>
@@ -196,7 +195,7 @@ var nextPage = "${nextPageFlow}";
 	                        <div class="row" >
 	                            <div class="text-center col-xs-6">
 	                                <br /> <br />
-	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /> </a>
 	                                <br/>
 	                            </div>
 	                            <div class="text-center col-xs-6">
@@ -206,7 +205,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="clearfix"></div> 
 	                            <div class="text-center save">
-	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class="">Save an Continue Later</a>
+	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -219,7 +218,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
-                <h3><span class="small title">Your quote</span><span class="price"></span></h3>
+                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                 <div class="row">
@@ -227,13 +226,13 @@ var nextPage = "${nextPageFlow}";
                         <span class="ci"> Comprehensive Insurance </span>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <small class="from">from</small><span class="price">HK$4,230.00</span>
+                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />4,230.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-12">
                         <br/>
                     </div>
                     <div class="col-xs-12">
-                    <strong>Add On:</strong> 
+                    <strong><fmt:message key="motor.label.addon" bundle="${motorMsg}" />:</strong> 
                     </div>
                     <div class="col-xs-6">
                         <span>Personal Accident</span>
@@ -245,13 +244,13 @@ var nextPage = "${nextPageFlow}";
                         <br/>
                     </div>
                     <div class="col-xs-6">
-                        <span>Subtitle</span>
+                        <span><fmt:message key="motor.label.subtotal" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-6 text-right">
                         <span>3400.00</span>
                     </div>
                     <div class="col-xs-6">
-                        <span>Discounts</span>
+                        <span><fmt:message key="motor.label.discounts" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-6 text-right">
                         <span>300.00</span>
@@ -260,10 +259,10 @@ var nextPage = "${nextPageFlow}";
                         <hr/>
                     </div>
                     <div class="col-xs-6">
-                        <strong>Amount due:</strong>
+                        <strong><fmt:message key="motor.label.amountdue" bundle="${motorMsg}" />:</strong>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <strong>HKD$300.00</strong>
+                        <strong><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />300.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></strong>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -319,21 +318,33 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
+
 var checkbox=true;
-//var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"driver":[{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false}');
+    //var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"driver":[{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false}');
 var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true}');
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
-    $('input[name=bankMortgage]').bootstrapSwitch();
+    /*$('input[name=bankMortgage]').bootstrapSwitch();
     $('input[name=bankMortgage]').on('switchChange.bootstrapSwitch', function(event, state) {
+    	
     	$(".switch-light").removeClass("orange");
     	if(state==true)
+    	{	
     		$(".sly").addClass("orange");
+    		$("#mortgageBank").attr("required", "true");
+    		$("#bankName").attr("required", "true");
+    		$('#carDetails').validator('update'); 
+    	}
     	else
+    	{	
     		$(".sln").addClass("orange");
+    		$("#mortgageBank").removeAttr("required");
+    		$("#bankName").removeAttr("required");
+    		$('#carDetails').validator('update'); 
+    	}
     	checkbox = state;
-    });
+    });*/
     
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -350,7 +361,7 @@ $(document).ready(function(){
         }
     };
     
-    $.ajax({
+     $.ajax({
 		  type: "POST",
 		  data: JSON.stringify(quote),
 		  dataType: "json",
@@ -375,7 +386,7 @@ $(document).ready(function(){
     	  isThird = false;
        }
      
-	   var data = {"carDetail": {   	
+	   var submitData = {"carDetail": {   	
 				   "bankMortgage": checkbox,	
 				   "bankMortgageName": $("#mortgageBank option:selected").text(),	
 				   "chassisNumber": $('input[name=chassisNumber]').val(),    	
@@ -390,16 +401,32 @@ $(document).ready(function(){
           	$('#loading-overlay').modal("show");
           },
 		  type: "POST",
-		  data: JSON.stringify(data),
+		  data: JSON.stringify(submitData),
 		  dataType: "json",
           contentType : "application/json",
           cache: false,
           async: false,
           url:context + "/api/iMotor/policy/saving/carDetails",
 		  success: function(data){
-			  
-              
+			  var $form = $("<form id='quote-form' />");
+              if (isThird) {
+                  $form.attr("action", "third-party-quote");
+              } else {
+                  $form.attr("action", "drivers-details");
+              }
+              $form.attr("method", "post");
+              var $quote = $("<input type='hidden' name='data' />");
+              var newdata = {};
+              newdata['FullCarDetails'] = submitData;
+              var pid = {
+            		  "policyID":data.policyId
+              };
+              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+              $form.append($quote);
+              $("body").append($form);
+              $('#quote-form').submit();             
 		  },error: function(error) {
+			  alert("Error");
 			  var $form = $("<form id='quote-form' />");
               if (isThird) {
                   $form.attr("action", "third-party-quote");
@@ -410,7 +437,10 @@ $(document).ready(function(){
               var $quote = $("<input type='hidden' name='data' />");
               var newdata = {};
               newdata['FullCarDetails'] = data;
-              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+              var pid = {
+            		  "policyID":data.policyId
+              };
+              $quote.attr("value", JSON.stringify($.extend( $.extend( newdata, pid ), quote )));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit(); 

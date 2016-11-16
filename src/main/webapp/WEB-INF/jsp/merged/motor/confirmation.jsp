@@ -81,10 +81,10 @@ var nextPage = "${nextPageFlow}";
     <div class="">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h1 class="landing_h1 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Confirmation Page</h1>
+            <h1 class="landing_h1 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.confirmation.page.heading" bundle="${motorMsg}" /></h1>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h1 class="landing_h1 hidden-lg hidden-md motor-ttl">Confirmation Page</h1>
+            <h1 class="landing_h1 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.confirmation.page.heading" bundle="${motorMsg}" /></h1>
             <!--end mobile--> 
         </div>
     </div>
@@ -93,17 +93,12 @@ var nextPage = "${nextPageFlow}";
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
-
+                        <fmt:message key="motor.confirmation.page.copy.part1" bundle="${motorMsg}" /><strong><fmt:message key="motor.confirmation.page.copy.part2" bundle="${motorMsg}" /></strong><fmt:message key="motor.confirmation.page.copy.part3" bundle="${motorMsg}" />
                         <br/>
-                    </p>
-                    <p>  
-                        Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. 
-                        <br/>
-                        <br/>
+                        <fmt:message key="motor.confirmation.covernote.copy.part1" bundle="${motorMsg}" /><a href='mailto:<fmt:message key="motor.confirmation.covernote.email" bundle="${motorMsg}" />'><fmt:message key="motor.confirmation.covernote.email" bundle="${motorMsg}" /></a><fmt:message key="motor.confirmation.covernote.copy.part2" bundle="${motorMsg}" />
                     </p>
                     <p>
-                        Your Reference No.
+                        <fmt:message key="motor.confirmation.referenceno.copy" bundle="${motorMsg}" />
                         <h3 id="motorRef" class="heading-h3 color-orange ref-number">
                             RQ862541 
                         </h3>
@@ -116,15 +111,15 @@ var nextPage = "${nextPageFlow}";
     <div class="container no-border" id="testimonials" >
         <div class="center" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Upload Document</h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.confirmation.uploaddoc.title" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl">Upload Document</h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.confirmation.uploaddoc.title" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
             <div class="row">
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                        <fmt:message key="motor.confirmation.uploaddoc.copy" bundle="${motorMsg}" />
                         <br />
                         <br />
                     </p>
@@ -141,7 +136,7 @@ var nextPage = "${nextPageFlow}";
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
-                            HKID for all named drivers
+                            <fmt:message key="motor.confirmation.uploaddoc.1.copy" bundle="${motorMsg}" />
                         </h4>
                     </div>
                     <div class="col-sm-4 upload">
@@ -151,7 +146,7 @@ var nextPage = "${nextPageFlow}";
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
-                            HKID for all named drivers
+                            <fmt:message key="motor.confirmation.uploaddoc.2.copy" bundle="${motorMsg}" />
                         </h4>
                     </div>
                     <div class="col-sm-4 upload">
@@ -161,16 +156,22 @@ var nextPage = "${nextPageFlow}";
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
-                            HKID for all named drivers
+                            <fmt:message key="motor.confirmation.uploaddoc.3.copy" bundle="${motorMsg}" />
                         </h4>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                        <small>
+                            <fmt:message key="motor.confirmation.uploaddoc.reminder.copy" bundle="${motorMsg}" />
+                        </small>
+                    </div>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <div class="content text-center">
                     <br />
-                    <a class="bdr-curve btn btn-primary" href="#">Upload Now</a>
+                    <a class="bdr-curve btn btn-primary" href="#"><fmt:message key="motor.button.uploadnow" bundle="${motorMsg}" /></a>
                     <br />
                     <br />
                 </div>
@@ -180,27 +181,27 @@ var nextPage = "${nextPageFlow}";
     <div class="container" >
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Want to get more discount?</h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.confirmation.discount.title" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl">Want to get more discount?</h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.confirmation.discount.title" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row text-center">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="content">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                        <fmt:message key="motor.confirmation.discount.copy" bundle="${motorMsg}" />
                         <br />
                         <br />
                     </p>
                     <p>
-                        <h3>Orginal Renewal <strike>$10000</strike></h3>
-                        <h2 class="orange">Save $400</h2>
+                        <h3><fmt:message key="motor.confirmation.discount.original.copy" bundle="${motorMsg}" /> <strike><fmt:message key="motor.confirmation.discount.original.amount" bundle="${motorMsg}" /></strike></h3>
+                        <h2 class="orange"><fmt:message key="motor.confirmation.discount.save.copy" bundle="${motorMsg}" />400</h2>
                     </p>
                     <p>
                         <br />
-                        <a class="" href="#">Download Now!</a>
+                        <a class="" href="#"><fmt:message key="motor.confirmation.discount.downloadnow" bundle="${motorMsg}" /></a>
                         <br />
                         <img src="https://dummyimage.com/100x50/000/fff.png" alt="" />
                         &nbsp;
@@ -211,9 +212,7 @@ var nextPage = "${nextPageFlow}";
                         <br/>
 
                         <small>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                            <fmt:message key="motor.confirmation.discount.remark.copy.part1" bundle="${motorMsg}" /><a href='<fmt:message key="motor.confirmation.discount.remark.tnc.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.confirmation.discount.remark.tnc.copy" bundle="${motorMsg}" /></a><fmt:message key="motor.confirmation.discount.remark.copy.part2" bundle="${motorMsg}" />
                         </small>
                     </p>
                 </div>
@@ -223,9 +222,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row bottom">
             <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <h3>
-                    Share this great product with friends
-                </h3>
+                <h3><fmt:message key="motor.confirmation.share.title" bundle="${motorMsg}" /></h3>
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                         <input type="text" name="shareUrl" id="" value="https://i.fwd......." class="form-control" disabled/>

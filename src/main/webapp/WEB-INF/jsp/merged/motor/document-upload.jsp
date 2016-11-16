@@ -125,10 +125,10 @@ var nextPage = "${nextPageFlow}";
     <div class="">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h1 class="landing_h1 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Confirmation Page</h1>
+            <h1 class="landing_h1 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.docupload.page.heading" bundle="${motorMsg}" /></h1>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h1 class="landing_h1 hidden-lg hidden-md motor-ttl">Confirmation Page</h1>
+            <h1 class="landing_h1 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.docupload.page.heading" bundle="${motorMsg}" /></h1>
             <!--end mobile--> 
         </div>
     </div>
@@ -137,8 +137,7 @@ var nextPage = "${nextPageFlow}";
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
-
+                        <fmt:message key="motor.docupload.page.copy" bundle="${motorMsg}" />
                         <br/>
                     </p>
                 </div>
@@ -149,10 +148,10 @@ var nextPage = "${nextPageFlow}";
     <div class="container no-border" id="uploadDocSection">
         <div class="center" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Upload Document</h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.docupload.upload.title" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl">Upload Document</h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.docupload.upload.title" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row">
@@ -165,16 +164,22 @@ var nextPage = "${nextPageFlow}";
                                     <img src="../resources/images/motor/dummy.png" alt="" />
                                 </div>
                                 <h4 class="title">
-                                    HKID for all named drivers
+                                    <fmt:message key="motor.docupload.upload.1.copy" bundle="${motorMsg}" />
                                 </h4>
                                 <div class="upload__dropzone" id="vehicleReg-dz">
                                     <div class="content">
                                         <h4 class="dz-message">
-                                            Please select a file
+                                            <fmt:message key="motor.docupload.upload.select.copy" bundle="${motorMsg}" />
                                         </h4>
                                     </div>
                                 </div>
-
+                                <div>
+                                    <div class="content">
+                                        <p>
+                                            <fmt:message key="motor.docupload.upload.max.copy" bundle="${motorMsg}" />
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                                 <label class="error-msg" id="vehicleReg-dz-error-message" data-required-error="Please upload Vehicle Registration Document." data-max-error="You cannot upload more than 4 copy."></label>
@@ -186,23 +191,22 @@ var nextPage = "${nextPageFlow}";
                                     <img src="../resources/images/motor/dummy.png" alt="" />
                                 </div>
                                 <h4 class="title">
-                                    HKID for all named drivers
+                                    <fmt:message key="motor.docupload.upload.2.copy" bundle="${motorMsg}" />
                                 </h4>
                                 <div class="upload__dropzone" id="hkid-dz">
                                     <div class="content">
                                         <h4 class="dz-message">
-                                            Please select a file
+                                            <fmt:message key="motor.docupload.upload.select.copy" bundle="${motorMsg}" />
                                         </h4>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="content">
                                         <p>
-                                            You can upload up to 4 documents
+                                            <fmt:message key="motor.docupload.upload.max.copy" bundle="${motorMsg}" />
                                         </p>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                                 <label class="error-msg" id="hkid-dz-error-message" data-required-error="Please upload HKID Card of Insured ." data-max-error="You cannot upload more than 4 copy."></label>
@@ -214,19 +218,19 @@ var nextPage = "${nextPageFlow}";
                                     <img src="../resources/images/motor/dummy.png" alt="" />
                                 </div>
                                 <h4 class="title">
-                                    HKID for all named drivers HKID for all named drivers HKID for all named drivers HKID for all named drivers HKID for all named driver
+                                    <fmt:message key="motor.docupload.upload.3.copy" bundle="${motorMsg}" />
                                 </h4>
                                 <div class="upload__dropzone" id="license-dz">
                                     <div class="content">
                                         <h4 class="dz-message">
-                                            Please select a file
+                                            <fmt:message key="motor.docupload.upload.select.copy" bundle="${motorMsg}" />
                                         </h4>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="content">
                                         <p>
-                                            You can upload up to 4 documents
+                                            <fmt:message key="motor.docupload.upload.max.copy" bundle="${motorMsg}" />
                                         </p>
                                     </div>
                                 </div>
@@ -238,7 +242,7 @@ var nextPage = "${nextPageFlow}";
             </div>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <div class="content text-center">
-                    <a id="submitDoc" class="bdr-curve btn btn-primary nxt-btn" >Submit</a>
+                    <a id="submitDoc" class="bdr-curve btn btn-primary nxt-btn" ><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></a>
                 </div>
             </div>
         </div>

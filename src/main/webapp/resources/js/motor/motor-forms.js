@@ -53,6 +53,9 @@ function system_error_message(code, policyID)
 		
 	}
 }
+var motorlanguage=UILANGUAGE;
+if(motorlanguage == "TC")
+	motorlanguage = "ZH";
 $(document).ready(function(){
 	
 	/*isobar*/
@@ -72,7 +75,14 @@ $(document).ready(function(){
                         callback();
                     },
                     success: function(res) {
-                    	console.dir(res);
+						/*console.dir(res);
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang!=motorlanguage)                    		
+                    		{delete res[i];total--;}
+                    	});
+                    	res.length = total;
+						console.dir(res);*/
                         callback(res);                        
                     }
             });
@@ -97,14 +107,15 @@ $(document).ready(function(){
                         callback();
                     },
                     success: function(res) {
-                    	//console.dir(res);
+                    	console.dir(res);
+						var newres= new Array();
                     	var total = res.length;
                     	$.each(res, function(i, item) {
-                    		if(item.lang!="EN")                    		
-                    		{delete res[i];total--;}
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
                     	});
-                    	res.length = total;
-                              callback(res);                        
+						console.dir(newres);
+                              callback(newres);                        
                     }
             });
         },
@@ -128,14 +139,15 @@ $(document).ready(function(){
                         callback();
                     },
                     success: function(res) {
-                    	console.dir(res);
+						console.dir(res);
+						var newres= new Array();
                     	var total = res.length;
                     	$.each(res, function(i, item) {
-                    		if(item.lang!="EN")                    		
-                    		{delete res[i];total--;}
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
                     	});
-                    	res.length = total;
-                              callback(res);                        
+						console.dir(newres);
+                              callback(newres);                        
                     }
             });
         },
@@ -159,13 +171,14 @@ $(document).ready(function(){
                     },
                     success: function(res) {
                     	console.dir(res);
+						var newres= new Array();
                     	var total = res.length;
                     	$.each(res, function(i, item) {
-                    		if(item.lang!="EN")                    		
-                    		{delete res[i];total--;}
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
                     	});
-                    	res.length = total;
-                              callback(res);                        
+						console.dir(newres);
+                              callback(newres);                           
                     }
             });
         },
@@ -189,13 +202,14 @@ $(document).ready(function(){
                     },
                     success: function(res) {
                     	console.dir(res);
+						var newres= new Array();
                     	var total = res.length;
                     	$.each(res, function(i, item) {
-                    		if(item.lang!="EN")                    		
-                    		{delete res[i];total--;}
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
                     	});
-                    	res.length = total;
-                              callback(res);                        
+						console.dir(newres);
+                              callback(newres);                             
                     }
             });
         },
@@ -219,13 +233,14 @@ $(document).ready(function(){
                     },
                     success: function(res) {
                     	console.dir(res);
+						var newres= new Array();
                     	var total = res.length;
                     	$.each(res, function(i, item) {
-                    		if(item.lang!="EN")                    		
-                    		{delete res[i];total--;}
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
                     	});
-                    	res.length = total;
-                              callback(res);                        
+						console.dir(newres);
+                              callback(newres);                           
                     }
             });
         },
@@ -249,13 +264,14 @@ $(document).ready(function(){
                     },
                     success: function(res) {
                     	console.dir(res);
+						var newres= new Array();
                     	var total = res.length;
                     	$.each(res, function(i, item) {
-                    		if(item.lang!="EN")                    		
-                    		{delete res[i];total--;}
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
                     	});
-                    	res.length = total;
-                              callback(res);                        
+						console.dir(newres);
+                              callback(newres);                           
                     }
             });
         },

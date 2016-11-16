@@ -661,7 +661,17 @@ var nextPage = "${nextPageFlow}";
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="row">
-                                <form action="" method="post" class="no-claim" data-toggle="validator">
+                                <form id="motorPayment" name="" method="post" class="no-claim" data-toggle="validator" >
+                                	<input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
+				                    <input type="hidden" name="amount" value="${dueAmount.trim()}">
+				                    <input type="hidden" name="remark" value="${referralCode.trim()}">
+				                    <input type="hidden" name="orderRef" value="${createPolicy.transactionNo }">
+				                    <input type="hidden" name="currCode" value="${createPolicy.currCode }">
+				                    <input type="hidden" name="successUrl" value="${path}">
+				                    <input type="hidden" name="failUrl" value="${failurePath }">
+				                    <input type="hidden" name="errorUrl" value="${failurePath }">
+				                    <input type="hidden" name="payType" value="${createPolicy.paymentType}">
+				                    <input type="hidden" id="referenceNo" name="referenceNo" value="${createPolicy.referenceNo}">
                                     <div class="col-xs-12">
                                         <div class="row detail-row">
                                             <div class="col-xs-4 col-sm-2 text-left">
@@ -894,6 +904,7 @@ var nextPage = "${nextPageFlow}";
 									<div class="login-button-group forgot-group text-center">
 										<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-forgot-pwd">Submit</button>
 									</div>
+									<span class="error-msg forgotPwdPanErrMsg"></span>
 									</div>
 								</form>
 							</div>
@@ -919,8 +930,11 @@ var nextPage = "${nextPageFlow}";
 								</div>
 								<div class="form-group">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterMobileNo" data-keyblock-num="true">
+										<!-- <input type="tel" name="mobileNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterMobileNo" data-keyblock-num="true">
 										<label class="mdl-textfield__label" for="motorRegisterMobileNo">Mobile no.</label>
+										-->
+										<input type="tel" name="mobileNo" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="motorForgotPwdMobileNo" data-keyblock-num="true">
+									    <label class="mdl-textfield__label" for="mobileNo-forgotpassowrd">Mobile no.</label>
 									</div>
 									<span class="error-msg mobileNoErrMsg"></span>
 								</div>
@@ -1010,7 +1024,9 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
-var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyId":"26379363","driver":[{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"Driver","occupation":"Account / Accountant","validAgeGroup":"true"},{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"Occupation","validAgeGroup":"agree"},{"dateOfBirth":"14-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"}],"nameOfPreviousInusrancer":"ddsadsad","regNoofPreviousPolicy":"ddsadsa","expDateOfPreviousInsurance":"14-11-2016","previousPolicyNo":"dasdsadsadas"},"FullDriversDetails":{"policyId":"26379363","policyStartDate":"14-11-2016","applicant":{"contactNo":"32321322","correspondenceAddress":{"block":"cc","building":"ddas","district":"Account / Accountant","estate":"dsa","flat":"aa","floor":"bb","hkKlNt":"Kowloon","streetName":null,"streetNo":null},"dateOfBirth":"14-11-1991","email":"da@aa.coma","hkid":"z1231232","name":"ddsa"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"3321321","engineCapacity":"ddsa","modelDesc":"ddsdsa"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true}');
+var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyID":"26379363","driver":[{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"Driver","occupation":"Account / Accountant","validAgeGroup":"true"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"Occupation","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"}],"nameOfPreviousInusrancer":"AXAadddd","regNoofPreviousPolicy":"ddsadsa","expDateOfPreviousInsurance":"16-11-2016","previousPolicyNo":"32132132"},"FullDriversDetails":{"policyID":"26379363","policyStartDate":"16-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"5","building":"ChaTaiManBuilding","district":"Account / Accountant","estate":"ChanManEstate","flat":"A","floor":"28","hkKlNt":"Hong Kong","streetName":null,"streetNo":null},"dateOfBirth":"16-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"Chan Tai Man Building"}},"FullCarDetails":{"policyID":"26379363"},"policyID":"26379363","applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true}');
+
+var ApiPayment= new Array();
 $(document).ready(function(){
 	//quote
 	$(".carmake").html(quote.carDetail.makeCode);
@@ -1095,6 +1111,39 @@ $(document).ready(function(){
 	$(".previnsuranceexpirydate").html(quote.FulPolicyDetails.expDateOfPreviousInsurance);
 	$(".previouspolicyno").html(quote.FulPolicyDetails.previousPolicyNo);
 	
+	
+	var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+	//check payment
+    $.ajax({
+		  type: "POST",
+		  data: JSON.stringify(quote),
+		  dataType: "json",
+	      contentType : "application/json",
+	      cache: false,
+	      async: false,
+	      url:context + "/api/iMotor/policy/payment",
+		  success: function(data){
+			  //var quote ={"A":"dsdas"};
+			  ApiPayment = data;//$.extend( data, quote )
+			  //console.dir(ApiPayment);
+		  },error: function(error) {
+			
+		  }
+		});
+    
 	$.ajax({
 		  type: "POST",
 		  data: JSON.stringify(quote),
@@ -1140,6 +1189,137 @@ $(document).ready(function(){
 	    	
 	    }
 	});
+	
+	function payment(form, gatewayUrlId, paymentFormId){
+		var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
+        clicked = false;
+		if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
+			var geteWayUrl = $(gatewayUrlId).val();
+			 clicked = true;
+			$("#PaymentingDiv").show();
+			setTimeout(function(){
+        		$("#"+form).attr('action', geteWayUrl);
+                $("#"+form).submit();
+            }, 3000);
+		}else if(selectedPaymentType=="tg" && payValid(selectedPaymentType)==true && clicked === false){
+    		var method = "<%=request.getContextPath()%>/ajax/calculateTapNGoPaymentInfo";
+    		$.ajax({
+                type : "POST",
+                url : method,
+                async : false,
+                success : function(data) {
+                	clicked = false;
+                	if(data.errMsg){
+                		console.log(data);
+                    	$("#PaymentingDiv").hide();
+                        enablePayment=true;
+                        $('#paymentErrorPopup').modal('show');
+                        return false;
+                   	}else{
+                   		$('#appId').val(data.appId);
+						$('#merTradeNo').val(data.merTradeNo);
+						$('#payload').val(data.payload);
+						$('#paymentType').val(data.paymentType);
+						$('#sign').val(data.sign);
+						setTimeout(function(){
+							$("#"+form).attr('action', data.geteWayUrl);
+							$("#"+form).submit();
+							3000}
+						);
+                   	}
+                }
+            });
+    		return true;
+	    }else{
+	    	$("#PaymentingDiv").hide();
+	        enablePayment=true;
+	    	return false;
+	    }
+	}
+
+	
+	$('#motorPayment').submit(function(event){
+
+		   var isThird;
+	       if (getUrlParameter('plan')=='third') {
+	    	  isThird = true;
+	       } else {
+	    	  isThird = false;
+	       }
+	    
+		    var data =  {
+		    				
+		    			};
+	       
+		    	
+		    	data = $.extend( ApiPayment, data )
+	       $.ajax({
+               type : "POST",
+               url : method,
+               data : $(paymentFormId).serialize(),
+               async : false,
+               success : function(data) {
+               	clicked = false;
+                   if (data == 'success') {
+                   	payment(form, gatewayUrlId, paymentFormId);
+                   } else {
+                   	   /*console.log(data);
+                   	   $("#PaymentingDiv").hide();
+                       enablePayment=true;
+                       $('#paymentErrorPopup').modal('show');
+                       return false;*/
+                   }
+               }
+           });
+			
+			$.ajax({
+			 beforeSend: function(){
+	          	$('#loading-overlay').modal("show");
+	          },
+			  type: "POST",
+			  data: JSON.stringify(data),
+			  dataType: "json",
+	          contentType : "application/json",
+	          cache: false,
+	          async: false,
+			  url: "/api/iMotor/policy/payment",
+			  success: function(data){
+				  
+			 	 var $form = $("<form id='quote-form' />");
+	             if (isThird) {
+	                 $form.attr("action", "third-party-quote");
+	             } else {
+	                 $form.attr("action", "confirmation");
+	             }
+	             $form.attr("method", "post");
+	             var $quote = $("<input type='hidden' name='data' />");
+	             var newdata = {};
+	             newdata['FullSummaryDetails'] = data;
+	             $quote.attr("value", JSON.stringify(newdata));
+	             $form.append($quote);
+	             $("body").append($form);
+	             $('#quote-form').submit();  
+				  
+			  },error: function(error) {
+
+				  var $form = $("<form id='quote-form' />");
+	              if (isThird) {
+	                  $form.attr("action", "third-party-quote");
+	              } else {
+	                  $form.attr("action", "application-summary");
+	              }
+	              $form.attr("method", "post");
+	              var $quote = $("<input type='hidden' name='data' />");
+	              var newdata = {};
+		          newdata['FulPolicyDetails'] = data;
+		          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+	              $form.append($quote);
+	              $("body").append($form);
+	              $('#quote-form').submit();
+			  }
+			});
+			return false;
+		});
 });
 </script>
 
