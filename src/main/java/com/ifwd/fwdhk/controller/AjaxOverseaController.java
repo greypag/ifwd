@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class AjaxOverseaController extends BaseController{
 			overseaService.prepareOverseaQuote(request, response, httpSession);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -49,6 +51,7 @@ public class AjaxOverseaController extends BaseController{
 			str = overseaService.applyPromotionCode(request, response, httpSession);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 		return str;
@@ -60,6 +63,7 @@ public class AjaxOverseaController extends BaseController{
 			overseaService.prepareOverseaDetails(model, request, response, httpSession);
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -73,6 +77,7 @@ public class AjaxOverseaController extends BaseController{
 			return overseaService.prepareOverseaSummary(planDetailsForm, result, model, request);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 			return "fail";
 		}
@@ -85,6 +90,7 @@ public class AjaxOverseaController extends BaseController{
 			return overseaService.processOverseaPayment(request, response);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 			return "fail";
 		}

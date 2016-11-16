@@ -164,7 +164,7 @@ public class MotorCareValidationServiceImpl implements
 					return HttpStatus.valueOf(416);
 				}
 			} catch (NumberFormatException e) {
-				logger.error(e.getMessage());
+				logger.error("validateMotorCareIfwd method has error:"+e.getMessage());
 				return HttpStatus.valueOf(410);
 			}
 		}

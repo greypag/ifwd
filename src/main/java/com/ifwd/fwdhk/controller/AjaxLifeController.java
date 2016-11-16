@@ -3,13 +3,9 @@ package com.ifwd.fwdhk.controller;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import net.sf.json.JSONNull;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
@@ -41,7 +37,6 @@ import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.ErrorMessageUtils;
@@ -85,9 +80,11 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		} 
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -186,8 +183,10 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		} catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -206,6 +205,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -261,6 +261,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -279,6 +280,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -297,6 +299,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -315,6 +318,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -335,6 +339,7 @@ public class AjaxLifeController extends BaseController{
 		} 
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -351,6 +356,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -368,6 +374,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -384,6 +391,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -400,6 +408,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -417,6 +426,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -433,6 +443,7 @@ public class AjaxLifeController extends BaseController{
 			OptionItemDescList = savieOnlineService.getBranchCode(value, request);
 		}
 		catch (ECOMMAPIException e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(OptionItemDescList.toString());
 		ajaxReturn(response, OptionItemDescList);
@@ -451,9 +462,11 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -472,9 +485,11 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -493,9 +508,11 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -514,9 +531,11 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -535,6 +554,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -553,9 +573,11 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -574,6 +596,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -649,6 +672,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -723,6 +747,7 @@ public class AjaxLifeController extends BaseController{
 				ajaxReturn(response, savieOnlineService.sendImage(request, passportFlage,plan));
 			} catch (Exception e) {
 				logger.info(e.getMessage());
+				logger.error(ExceptionUtils.getStackTrace(e));
 				e.printStackTrace();
 			}
 	}
@@ -736,6 +761,7 @@ public class AjaxLifeController extends BaseController{
 			ajaxReturn(response,savieOnlineService.uploadSignature(request,image));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -750,6 +776,7 @@ public class AjaxLifeController extends BaseController{
 			savieOnlineService.getTimeSlot(model, request, response);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -775,6 +802,7 @@ public class AjaxLifeController extends BaseController{
 			}
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -790,6 +818,7 @@ public class AjaxLifeController extends BaseController{
 		} 
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -808,6 +837,7 @@ public class AjaxLifeController extends BaseController{
 		} 
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -825,6 +855,7 @@ public class AjaxLifeController extends BaseController{
 		} 
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -842,6 +873,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -870,6 +902,7 @@ public class AjaxLifeController extends BaseController{
 		} 
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -887,8 +920,10 @@ public class AjaxLifeController extends BaseController{
 			savieOnlineService.partnerRegister(partnerRegisterDetails, request);
 		} catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		} catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 
 		logger.info(jsonObject.toString());
@@ -907,6 +942,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (Exception e) {
 			jsonObject.put("valid", false);
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -923,6 +959,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
@@ -941,6 +978,7 @@ public class AjaxLifeController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
+			logger.error(ExceptionUtils.getStackTrace(e));
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);

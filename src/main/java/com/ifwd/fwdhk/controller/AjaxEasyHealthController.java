@@ -1,9 +1,5 @@
 package com.ifwd.fwdhk.controller;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,36 +10,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.connector.response.BaseResponse;
-import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
-import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.exception.ValidateExceptions;
-import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
-import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
-import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
-import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.life.LifePaymentBean;
-import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
-import com.ifwd.fwdhk.model.life.SavieFnaBean;
-import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.EasyHealthService;
-import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.CommonUtils;
-import com.ifwd.fwdhk.util.ErrorMessageUtils;
-import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
-import com.ifwd.fwdhk.util.NumberFormatUtils;
 @Controller
 public class AjaxEasyHealthController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxEasyHealthController.class);
@@ -68,6 +42,8 @@ public class AjaxEasyHealthController extends BaseController{
 			jsonObject = easyHealthService.getPremium(planDetail, request);
 		}
 		catch (ECOMMAPIException e) {
+			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());
@@ -84,6 +60,8 @@ public class AjaxEasyHealthController extends BaseController{
 			ajaxReturn(response,"success");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -99,6 +77,8 @@ public class AjaxEasyHealthController extends BaseController{
 			logger.info("putPremium success");
 		}
 		catch (Exception e) {
+			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());
