@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -47,6 +48,7 @@ public class CampaignServiceImpl implements CampaignService {
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 			return -1;
 		}
@@ -82,6 +84,7 @@ public class CampaignServiceImpl implements CampaignService {
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 			return "error";
 		}

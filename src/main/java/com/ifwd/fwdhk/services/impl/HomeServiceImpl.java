@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -225,6 +226,7 @@ public class HomeServiceImpl implements HomeService {
 					session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr(cardNo));
 				} catch (Exception e) {
 					logger.error(e.getMessage());
+					logger.error(ExceptionUtils.getStackTrace(e));
 					e.printStackTrace();
 				}
 				session.setAttribute("HomeCareCardexpiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
@@ -261,6 +263,7 @@ public class HomeServiceImpl implements HomeService {
 					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
 				} catch (Exception e) {
 					logger.error(e.getMessage());
+					logger.error(ExceptionUtils.getStackTrace(e));
 					e.printStackTrace();
 				}
 			}else {
