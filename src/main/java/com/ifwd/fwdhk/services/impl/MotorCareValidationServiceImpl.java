@@ -102,7 +102,8 @@ public class MotorCareValidationServiceImpl implements
 				return HttpStatus.INTERNAL_SERVER_ERROR;	
 			}
 		} catch (Exception e) {
-			logger.error("validationCarMakeMode Exception", e);
+			logger.error("validationCarMakeMode Exception", e.getMessage());
+			e.printStackTrace();
 			return HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 		return HttpStatus.OK; 

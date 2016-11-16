@@ -668,6 +668,7 @@ public class LifeServiceImpl implements LifeService {
 				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 			} catch (Exception e) {
 				logger.error(e.getMessage());
+				e.printStackTrace();
 			}
 			logger.info("file name:"+name);
 			
@@ -680,6 +681,7 @@ public class LifeServiceImpl implements LifeService {
 				PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, salesIllustrationJpgName);
 			} catch (Exception e) {
 				logger.error(e.getMessage());
+				e.printStackTrace();
 			}
 			String userName = (String)request.getSession().getAttribute("username");
 			request.getSession().setAttribute("salesIllustrationJpgName", name.split("\\.")[0]+"-"+userName);
@@ -975,6 +977,7 @@ public class LifeServiceImpl implements LifeService {
 			  name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			e.printStackTrace();
 		}
 		request.getSession().setAttribute("applicationFormPdf", name);
 		logger.info("applicationFormPdf create successfully");
@@ -985,6 +988,7 @@ public class LifeServiceImpl implements LifeService {
 			PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, applicationFormJpgName);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			e.printStackTrace();
 		}
 		String userName = (String)request.getSession().getAttribute("username");
 		request.getSession().setAttribute("applicationFormJpgName", name.split("\\.")[0]+"-"+userName);
@@ -1360,8 +1364,8 @@ public class LifeServiceImpl implements LifeService {
 							productName = products.get(b).get("name").toString();
 							productCode = products.get(b).get("product_code").toString();
 						} catch (Exception e) {
-							e.printStackTrace();
 							logger.info(e.getMessage());
+							e.printStackTrace();
 						}
 						attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced"+i, productName));
 						if(selectProductCode!=null&&selectProductCode.equals(productCode)){
@@ -1540,6 +1544,7 @@ public class LifeServiceImpl implements LifeService {
 			name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			e.printStackTrace();
 		}
 		
 		request.getSession().setAttribute("fnaPdfName", name);
@@ -1551,6 +1556,7 @@ public class LifeServiceImpl implements LifeService {
 			PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, fnaFormJpgName);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			e.printStackTrace();
 		}
 		String userName = (String)request.getSession().getAttribute("username");
 		request.getSession().setAttribute("fnaFormJpgName", name.split("\\.")[0]+"-"+userName);

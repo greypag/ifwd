@@ -1133,6 +1133,7 @@ public class SavieServiceImpl implements SavieService {
 		} catch (Exception e) {
 			logger.error("SavieServiceImpl checkImages occurs an exception!");
 			logger.error(e.getMessage());
+			e.printStackTrace();
 			return false;
 		} 
 	}
