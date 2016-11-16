@@ -212,7 +212,7 @@ public class LifeServiceImpl implements LifeService {
 				else{
 					resultJsonObject.accumulate("result", "fail");
 					resultJsonObject.accumulate("errMsgs", "Data exception");
-					logger.info("getSavieOnlinePlandetails Data exception!");
+					logger.error("getSavieOnlinePlandetails Data exception!");
 					throw new ECOMMAPIException("Data exception!");
 				}
 			}
@@ -686,6 +686,7 @@ public class LifeServiceImpl implements LifeService {
 			logger.info("salesIllustrationPdf to Jpg successfully");
 		}
 		else{
+			logger.error("createSalesIllustrationPdf api data error");
 			throw new Exception("errorMsg: api data error");
 		}
 	}
@@ -1793,7 +1794,7 @@ public class LifeServiceImpl implements LifeService {
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		if(responseJsonObj==null){
-			logger.error("contactCs api error");
+			logger.error("contactCs api error:responseJsonObj=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(responseJsonObj.get("errMsgs")!=null && responseJsonObj.get("errMsgs")!="") {
@@ -1850,7 +1851,7 @@ public class LifeServiceImpl implements LifeService {
 			final Map<String,String> header1 = headerUtil.getHeader1(request);
 			apiReturn = connector.sendTemplateEmail(parameters, header1);
 			if(apiReturn==null){
-				logger.error("api error: contactCs aipReturn=null");
+				logger.error("contactCs api error: aipReturn=null");
 				throw new ECOMMAPIException("api error");
 			}
 			else if(apiReturn.hasError()) {
@@ -2090,8 +2091,8 @@ public class LifeServiceImpl implements LifeService {
 							params.put("agentEmail", saviePlanDetails.getPromoCode());
 							apiReturn = connector.setEliteTermPolicyAgentEmail(params, header);
 						}catch(Exception e){
-							logger.info("EliteTermServiceImpl setEliteTermPolicyAgentEmail occurs an exception!");
-							logger.info(e.getMessage());
+							logger.error("EliteTermServiceImpl setEliteTermPolicyAgentEmail occurs an exception!");
+							logger.error(e.getMessage());
 							e.printStackTrace();
 						}
 				}
@@ -2162,7 +2163,7 @@ public class LifeServiceImpl implements LifeService {
 		logger.info("***********responseJsonObj****************:"+responseJsonObj);
 		
 		if(responseJsonObj==null){
-			logger.error("getBranchCode data error");
+			logger.error("getBranchCode data error: responseJsonObj=null");
 			throw new ECOMMAPIException("data error");
 		}
 		else{
@@ -2247,7 +2248,7 @@ public class LifeServiceImpl implements LifeService {
 					|| lifePersonalDetails.getResidentialAddressDistrict().length()==0				
 					|| lifePersonalDetails.getCorrespondenceAddress1().length()==0
 					|| lifePersonalDetails.getCorrespondenceAddressDistrict().length()==0)) {
-			logger.error("Not enough data for save_for_later (personal details)");
+			logger.error("lifePersonalDetailsSaveforLater Not enough data for save_for_later (personal details)");
 			throw new ECOMMAPIException("Not enough data for save_for_later (personal details)");
 		}		
 		
@@ -3215,14 +3216,14 @@ public class LifeServiceImpl implements LifeService {
 	        request.getSession().removeAttribute("passportFileToUploadType");
 	        request.getSession().removeAttribute("hkidFileToUploadType");
 		}catch(ECOMMAPIException e){
-			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("EliteTermServiceImpl sendImage occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			apiReturn.setErrMsg(e.getMessage());
 			return apiReturn;
 		}catch(Exception e){
-			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("EliteTermServiceImpl sendImage occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			apiReturn.setErrMsg("system error");
 			return apiReturn;
@@ -3272,12 +3273,12 @@ public class LifeServiceImpl implements LifeService {
 			parameters.put("policyNo", lifePolicy.getPolicyNo());
 			br = connector.uploadSignature(parameters, header);
 		} catch (ECOMMAPIException e) {
-			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		} catch (Exception e) {
-			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return br;
@@ -3346,7 +3347,7 @@ public class LifeServiceImpl implements LifeService {
 			
 			responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 			if(responseJsonObj.get("timeSlots") == null || responseJsonObj.get("timeSlots") == ""){
-				logger.info(responseJsonObj.toString());
+				logger.error(responseJsonObj.toString());
 			}
 		}
 		else{
@@ -3432,7 +3433,7 @@ public class LifeServiceImpl implements LifeService {
 				response.getWriter().print(makeJsonObj.toString());
 			}catch(Exception e) {  
 				e.printStackTrace();
-				logger.info(e.toString());
+				logger.error(e.toString());
 				response.getWriter().print("application error!");
 			}
 		}else {
@@ -3885,10 +3886,10 @@ public class LifeServiceImpl implements LifeService {
 		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf";
 	    File file = new File(pdfPath);
 	    if(!file.exists()){
-	    	logger.info("file not exist");
+	    	logger.error("file not exist"+pdfPath);
 	    }
 	    else if(!file.isDirectory()){
-	    	logger.info("file error");
+	    	logger.error("file error"+pdfPath);
 	    }
 	    else{
 	    	String[] tempList = file.list();
@@ -3932,7 +3933,7 @@ public class LifeServiceImpl implements LifeService {
 			throw new ECOMMAPIException("api error");
 		}
 		if(responseJsonObj.get("errMsgs") != null){
-			logger.info(responseJsonObj.get("errMsgs").toString());
+			logger.error(responseJsonObj.get("errMsgs").toString());
 			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 		}
 	}
@@ -4212,8 +4213,8 @@ public class LifeServiceImpl implements LifeService {
 				connector.sendEmail(parametersEmail,headerEmail);
 			}	
 		} catch (Exception e) {
-			logger.info("SavieOnlineServiceImpl sendEmailToNewPartner occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("SavieOnlineServiceImpl sendEmailToNewPartner occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}				
 	}
