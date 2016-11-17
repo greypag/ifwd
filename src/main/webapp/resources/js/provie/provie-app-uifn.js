@@ -343,7 +343,7 @@ $(document).ready(function(){
 				    },
 				    success:function(response){
 				    	if(response){
-				    		$("#preferred-time").empty();
+				    		$("#preferred-time option").remove();
 				    		console.log("response",response);
 				    		if(response.length > 0){
 				    			for(var i in response){
@@ -517,6 +517,11 @@ $(document).ready(function(){
 				$(".centre-address").text(d.address);
 				$(".viewmap-link").attr("href",d.map);
 				
+				$("#preferred-time option").remove();
+				$("#preferred-time").val("");
+    			
+				changeAppointmentDate('#app-date',[]);
+				// $('#app-date').mobiscroll('setVal',"",true);
 				
 				$.ajax({
 					beforeSend:function(){
@@ -547,7 +552,9 @@ $(document).ready(function(){
 				    		if(response.length > 0){
 				    			var dates = [];
 				    			var firstDate = response[0].date;
-				    			$("#preferred-time").empty();
+
+				    			$("#preferred-time option").remove();
+
 					    		for(var i in response){
 					    			var d = response[i];
 					    			var from = d.date.split("-");
@@ -565,6 +572,7 @@ $(document).ready(function(){
 					    				$("#preferred-time").append(option);
 					    			}
 					    		}
+					    		$("#preferred-time").val($("#preferred-time option:first").val());
 					    		//dates.push(new Date(2016,8,1));
 					    		changeAppointmentDate('#app-date',dates);
 					    		$('#app-date').mobiscroll('setVal',dates[0],true);
@@ -1416,10 +1424,13 @@ function onClosed(valueText,inst){
 function changeAppointmentDate(elm,dates){
 	var inst = $(elm).mobiscroll('getInst');
 	inst.clear();
-	inst.option({
-		valid:dates,
-		minDate:dates[0]
-	});
+	var obj = {
+		valid:dates
+	}
+	if(dates.length > 0){
+		obj.minDate = dates[0]
+	}
+	inst.option(obj);
 
 }
 
