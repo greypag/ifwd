@@ -764,7 +764,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" /> -->
 
                                                         <input
-                                                        type="text" name="personalName" id="txtInsuFullName${inx}"
+                                                        type="text" name="personalName${inx}" id="txtInsuFullName${inx}"
                                                         class="form-control full-control textUpper"
                                                         <c:choose>
 														    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI'}">
@@ -781,7 +781,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" /> -->
 
                                                         <input
-                                                        type="text" name="personalName" id="txtInsuFullName${inx}"
+                                                        type="text" name="personalName${inx}" id="txtInsuFullName${inx}"
                                                         class="form-control full-control textUpper" placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" maxlength="100" />
                                                     </c:if>
                                                     <span id="errtxtPersonalFullName${inx}" class="text-red"> </span>
@@ -797,7 +797,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
-                                                    id="txtInsuHkid${inx}" name="personalHKID"
+                                                    id="txtInsuHkid${inx}" name="personalHKID${inx}"
                                                     class="form-control textUpper full-control placeholder=""<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
                                                     <c:if test="${inx == 1}">readonly="readonly"</c:if>/>
                                                     <span id="errtxtInsuHkid${inx}"
@@ -813,7 +813,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select"><select
-                                                    name="personalAgeRange" class="form-control soflow select-label"
+                                                    name="personalAgeRange${inx}" class="form-control soflow select-label"
                                                     id="selectAgeRange${inx}">
                                                     <c:choose>
                                                         <c:when test="${inx == 1}">
@@ -859,7 +859,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                                <select name="personalBeneficiary" class="form-control soflow select-label" id="personalselectBenificiary${inx}" onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')">
+                                                <select name="personalBeneficiary${inx}" class="form-control soflow select-label" id="personalselectBenificiary${inx}" onChange="activeDiv('personalbenificiaryId${inx}','personalselectBenificiary${inx}', 'personalBenefitiaryId${inx}', 'personalBenefitiaryHKId${inx}')">
 	                                                <option value="SE"><fmt:message
 														key="flight.details.insured.beneficiary.default"
 														bundle="${msg}" /></option>
@@ -2544,23 +2544,17 @@ function createFlightFnc(form){
     return flag;
 }
 </script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js" charset="utf-8"></script>
+<!--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validatorConfig/base.config.js" charset="utf-8"></script>-->
+<%@include file="/WEB-INF/jsp/merged/flight/base.config.jsp" %>
+<link href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/base.config.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/flightcare.config.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/bootstrapvalidator/run.js" charset="utf-8"></script>
 
 <script>
-    var flightCfg = initBSVConfig(bsvConfig).flightCare();
-
+    //var flightCfg = initBSVConfig(bsvConfig).flightCare();
+	console.log(validatorCfgSkeleton);
     $(document).ready(function() {
-        $("#freeFlightForm").bootstrapValidator(flightCfg)
-            .on('error.validator.bv', function(e, data) {
-                data.element.data('bv.messages')
-                .find('.help-block[data-bv-for="' + data.field + '"]')
-                .hide()
-                .filter('[data-bv-validator="' + data.validator + '"]')
-                .show();
-        	});
+        $("#freeFlightForm").formValidation(validatorCfgSkeleton);
     });
 </script>
