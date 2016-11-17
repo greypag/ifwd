@@ -135,7 +135,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="driverID" value="Z1234567" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
+	                                                <input type="text" name="driverID" value="Z1234567" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
 	                                                <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -197,7 +197,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="help-block-wrap">
 	                                                <!-- <select class="form-control occupation" name="d2occuption" data-required-error="Please select your occupation." required>-->
-	                                                <select class="form-control selectized" name="d2occupation" id="d2occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' >
+	                                                <select class="form-control selectized " name="d2occupation" id="d2occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' >
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
 	                                            </select>
 	                                                <div class="help-block with-errors"></div>
@@ -221,7 +221,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -307,7 +307,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -393,7 +393,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -479,7 +479,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -533,7 +533,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_ic" pattern="^[a-zA-Z\d]+$" data-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' minlength="8" maxlength="8" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="prev_ic" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' minlength="3" maxlength="3" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -544,7 +544,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_regNo" pattern="^[a-zA-Z\d]+$" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' minlength="6" maxlength="20" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="prev_regNo" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' minlength="6" maxlength="20" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.regno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -567,7 +567,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d]+$" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' id="prev_policyNo" required>
+	                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' id="prev_policyNo" required>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.policyno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -709,6 +709,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
+//var quote = jQuery.parseJSON('{"FullDriversDetails":{"policyId":"26379363","policyStartDate":"17-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"會計","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"17-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"ChCHANCHANCHAN"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODEL Z"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26379363"}');
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 $(document).ready(function(){
 
@@ -757,7 +758,7 @@ $(document).ready(function(){
        } else {
     	  isThird = false;
        }
-       
+   	
        var driverMoreThanTwo = false;
 	   if($('input[name=d3name]').val()!="")
 	   {
@@ -812,54 +813,54 @@ $(document).ready(function(){
 			     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
 			     "previousPolicyNo": $('input[name=prev_policyNo]').val()	
 			 };
-		console.dir(data);
-		
+		console.dir(submitData);
+
 		$.ajax({
-		 beforeSend: function(){
-          	$('#loading-overlay').modal("show");
-          },
-		  type: "POST",
-		  data: JSON.stringify(submitData),
-		  dataType: "json",
-          contentType : "application/json",
-          cache: false,
-          async: false,
-		  url: "/api/iMotor/policy/saving/policyDetails",
-		  success: function(data){
-			  
-			  var $form = $("<form id='quote-form' />");
-              if (isThird) {
-                  $form.attr("action", "third-party-quote");
-              } else {
-                  $form.attr("action", "application-summary");
-              }
-              $form.attr("method", "post");
-              var $quote = $("<input type='hidden' name='data' />");
-              var newdata = {};
-	          newdata['FulPolicyDetails'] = submitData;
-	          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
-              $form.append($quote);
-              $("body").append($form);
-              $('#quote-form').submit();
-			  
-		  },error: function(error) {
-				alert("Error");
-			  var $form = $("<form id='quote-form' />");
-              if (isThird) {
-                  $form.attr("action", "third-party-quote");
-              } else {
-                  $form.attr("action", "application-summary");
-              }
-              $form.attr("method", "post");
-              var $quote = $("<input type='hidden' name='data' />");
-              var newdata = {};
-	          newdata['FulPolicyDetails'] = data;
-	          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
-              $form.append($quote);
-              $("body").append($form);
-              $('#quote-form').submit();
-		  }
-		});
+			  beforeSend: function(){
+	          	$('#loading-overlay').modal("show");
+	          },
+			  type: "POST",
+			  data: JSON.stringify(submitData),
+			  dataType: "json",
+	          contentType : "application/json",
+	          cache: false,
+	          async: false,
+			  url: "/api/iMotor/policy/saving/policyDetails",
+			  success: function(data){
+				  alert("A");
+				  var $form = $("<form id='quote-form' />");
+	              if (isThird) {
+	                  $form.attr("action", "third-party-quote");
+	              } else {
+	                  $form.attr("action", "application-summary");
+	              }
+	              $form.attr("method", "post");
+	              var $quote = $("<input type='hidden' name='data' />");
+	              var newdata = {};
+		          newdata['FulPolicyDetails'] = submitData;
+		          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+	              $form.append($quote);
+	              $("body").append($form);
+	              $('#quote-form').submit();
+				  
+			  },error: function(error) {
+					alert("Error");
+				  var $form = $("<form id='quote-form' />");
+	              if (isThird) {
+	                  $form.attr("action", "third-party-quote");
+	              } else {
+	                  $form.attr("action", "application-summary");
+	              }
+	              $form.attr("method", "post");
+	              var $quote = $("<input type='hidden' name='data' />");
+	              var newdata = {};
+		          newdata['FulPolicyDetails'] = submitData;
+		          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+	              $form.append($quote);
+	              $("body").append($form);
+	              $('#quote-form').submit();
+			  }
+			});
 		return false;
 	});
 });

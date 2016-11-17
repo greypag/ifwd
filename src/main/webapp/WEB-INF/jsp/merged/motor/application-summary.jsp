@@ -4,6 +4,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <fmt:setBundle basename="motor" var="motorMsg" />
+<fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -156,10 +157,10 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h1 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Application Summary</h1>
+            <h1 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.summary.page.heading" bundle="${motorMsg}" /></h1>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h1 class="landing_h2 hidden-lg hidden-md motor-ttl">Application Summary</h1>
+            <h1 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.summary.page.heading" bundle="${motorMsg}" />y</h1>
             <!--end mobile--> 
         </div>
     </div>
@@ -167,9 +168,9 @@ var nextPage = "${nextPageFlow}";
         <div class="center" >
             <div class="panel panel-default summary">
                 <div class="panel-heading">
-                    <h2 class="panel-title">Get Quote</h2>
+                    <h2 class="panel-title"><fmt:message key="motor.summary.getquote.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T2_Get_Quote_Page.html">Edit</a>
+                        <a href="T2_Get_Quote_Page.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -177,25 +178,25 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Car Make</span>
+                                    <span><fmt:message key="motor.summary.getquote.carmake" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="carmake"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>C.C.</span>
+                                    <span><fmt:message key="motor.summary.getquote.ccvalue" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="carcc"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Estimated value</span>
+                                    <span><fmt:message key="motor.summary.getquote.estimatevalue" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="carvalue"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>No Claim Discount</span>
+                                    <span><fmt:message key="motor.summary.getquote.claimdiscount" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="cardiscount"></span>
@@ -205,19 +206,19 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Car Model.</span> 
+                                    <span><fmt:message key="motor.summary.getquote.model" bundle="${motorMsg}" /></span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="carmodel"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Made year</span>
+                                    <span><fmt:message key="motor.summary.getquote.madeyear" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="carmade"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Occupation</span>
+                                    <span><fmt:message key="motor.summary.getquote.occupation" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="useroccupation"></span>
@@ -233,9 +234,9 @@ var nextPage = "${nextPageFlow}";
         <div class="center" >
             <div class="panel panel-default summary">
                 <div class="panel-heading">
-                    <h2 class="panel-title">Car Details</h2>
+                    <h2 class="panel-title"><fmt:message key="motor.summary.cardetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T6_Sign_Up_Page1.html">Edit</a>
+                        <a href="T6_Sign_Up_Page1.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -243,19 +244,19 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Chasis No.</span>
+                                    <span><fmt:message key="motor.summary.cardetail.chassisno" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="carchasis"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Model Registration Document</span>
+                                    <span><fmt:message key="motor.summary.cardetails.regdoc" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="carmodeldocument"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Other Bank Mortgage</span>
+                                    <span><fmt:message key="motor.summary.cardetails.other" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="carotherbankmortgage"></span>
@@ -265,13 +266,13 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Cubic Capacity</span> 
+                                    <span><fmt:message key="motor.summary.cardetails.ccvalue" bundle="${motorMsg}" /></span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="carcubic"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Bank Mortgage.</span>
+                                    <span><fmt:message key="motor.summary.cardetails.mortgage" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span  class="carbankmortgage"></span>
@@ -291,9 +292,9 @@ var nextPage = "${nextPageFlow}";
         <div class="center" >
             <div class="panel panel-default summary">
                 <div class="panel-heading">
-                    <h2 class="panel-title">Applicant Detail</h2>
+                    <h2 class="panel-title"><fmt:message key="motor.summary.applicantdetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T7_Sign_Up_Page2.html">Edit</a>
+                        <a href="T7_Sign_Up_Page2.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -301,25 +302,25 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Full Name</span>
+                                    <span><fmt:message key="motor.summary.applicantdetail.fullname" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Date of Birth</span>
+                                    <span><fmt:message key="motor.summary.applicantdetail.dob" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="birth" ></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>HKID</span>
+                                    <span><fmt:message key="motor.summary.applicantdetail.hkid" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="hkid"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Correspondence Address</span>
+                                    <span><fmt:message key="motor.summary.applicantdetail.address" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even" style="height:120px;text-align: justify;">
                                     <span class="address"></span>
@@ -329,25 +330,25 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Contact No.</span> 
+                                    <span><fmt:message key="motor.summary.applicantdetail.mobile" bundle="${motorMsg}" /></span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="contactno"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Email</span>
+                                    <span><fmt:message key="motor.summary.applicantdetail.email" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="email"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Policy Start Date</span>
+                                    <span><fmt:message key="motor.summary.applicantdetail.policystart" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="policystart"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Policy End Date</span>
+                                    <span><fmt:message key="motor.summary.applicantdetail.policyend" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="policyend"></span>
@@ -363,9 +364,9 @@ var nextPage = "${nextPageFlow}";
         <div class="center" >
             <div class="panel panel-default summary">
                 <div class="panel-heading">
-                    <h2 class="panel-title">Driver Details</h2>
+                    <h2 class="panel-title"><fmt:message key="motor.summary.driverdetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T8_Sign_Up_Page3.html">Edit</a>
+                        <a href="T8_Sign_Up_Page3.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -373,30 +374,30 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6 driver-detail" id="driver1">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span class="title">Diver 1</span>
+                                    <span class="title"><fmt:message key="motor.summary.driverdetail.subtitle1" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Full name</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.name" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver1fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Occupation</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.occpuation" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span  class="driver1occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Date of Birth</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.dob" bundle="${motorMsg}" />h</span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver1birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>HKID</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.hkid" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver1hkid"></span>
@@ -406,30 +407,30 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6 driver-detail" id="driver2">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span class="title">Diver 2</span>
+                                    <span class="title"><fmt:message key="motor.summary.driverdetail.subtitle2" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Full name</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.name" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver2fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Occupation</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.occpuation" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver2occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Date of Birth</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.dob" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver2birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>HKID</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.hkid" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver2hkid"></span>
@@ -439,30 +440,30 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6 driver-detail" id="driver3">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span class="title">Diver 3</span>
+                                    <span class="title"><fmt:message key="motor.summary.driverdetail.subtitle3" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Full name</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.name" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver3fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Occupation</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.occpuation" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver3occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Date of Birth</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.dob" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver3birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>HKID</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.hkid" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver3hkid"></span>
@@ -472,30 +473,30 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6 driver-detail" id="driver4">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span class="title">Diver 4</span>
+                                    <span class="title"><fmt:message key="motor.summary.driverdetail.subtitle4" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Full name</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.name" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver4fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Occupation</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.occpuation" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver4occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Date of Birth</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.dob" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver4birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>HKID</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.hkid" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver4hkid"></span>
@@ -510,25 +511,25 @@ var nextPage = "${nextPageFlow}";
                                 <div class="col-xs-6 text-right odd">
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Full name</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.name" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver5fullname"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Occupation</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.occpuation" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver5occupation"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Date of Birth</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.dob" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="driver5birth"></span>
                                 </div>
                                 <div class="col-xs-6 text-left odd">
-                                    <span>HKID</span>
+                                    <span><fmt:message key="motor.summary.driverdetail.hkid" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="driver5hkid"></span>
@@ -544,9 +545,9 @@ var nextPage = "${nextPageFlow}";
         <div class="center" >
             <div class="panel panel-default summary">
                 <div class="panel-heading">
-                    <h2 class="panel-title">No Claim Discount</h2>
+                    <h2 class="panel-title"><fmt:message key="motor.summary.noclaimdis.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T8_Sign_Up_Page3.html">Edit</a>
+                        <a href="T8_Sign_Up_Page3.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -554,13 +555,13 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Name of Previous Insurance Company</span>
+                                    <span><fmt:message key="motor.summary.noclaimdis.prevname" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right odd">
-                                    <spa class="nameofprevinsurance"></span>
+                                    <span class="nameofprevinsurance"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Registration No. of Document</span>
+                                    <span><fmt:message key="motor.summary.noclaimdis.regpreno" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="regofdocument"></span>
@@ -570,13 +571,13 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-sm-6">
                             <div class="row detail-row">
                                 <div class="col-xs-6 text-left odd">
-                                    <span>Previous insurance Expiry Date</span> 
+                                    <span><fmt:message key="motor.summary.noclaimdis.regpreexpiry" bundle="${motorMsg}" /></span> 
                                 </div>
                                 <div class="col-xs-6 text-right odd">
                                     <span class="previnsuranceexpirydate"></span>
                                 </div>
                                 <div class="col-xs-6 text-left even">
-                                    <span>Previous Policy No.</span>
+                                    <span><fmt:message key="motor.summary.noclaimdis.regprepolicyno" bundle="${motorMsg}" /></span>
                                 </div>
                                 <div class="col-xs-6 text-right even">
                                     <span class="previouspolicyno"></span>
@@ -595,10 +596,10 @@ var nextPage = "${nextPageFlow}";
                     <div class="col-xs-12">
                         <div class="row">
                             <div class="col-xs-6">
-                                <h3 class="finalPremium-title">FINAL PREMIUM</h3>
+                                <h3 class="finalPremium-title"><fmt:message key="motor.summary.final.premium" bundle="${motorMsg}" /></h3>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <h3 class="finalPremium-title">HK$ <span class="price">4,230.00</span></h3>
+                                <h3 class="finalPremium-title"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><span class="price">4,230.00</span><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></h3>
                             </div>
                         </div>
                     </div>
@@ -612,7 +613,7 @@ var nextPage = "${nextPageFlow}";
                                 <br>
                             </div>
                             <div class="col-xs-12">
-                                <strong>Plan Type</strong> 
+                                <strong><fmt:message key="motor.summary.plan.type" bundle="${motorMsg}" /></strong> 
                             </div>
                             <div class="col-xs-6">
                                 <span>Comprehensive Insurance</span>
@@ -624,13 +625,13 @@ var nextPage = "${nextPageFlow}";
                                 <br>
                             </div>
                             <div class="col-xs-6">
-                                <span>Subtitle</span>
+                                <span><fmt:message key="motor.summary.plan.subtitle" bundle="${motorMsg}" /></span>
                             </div>
                             <div class="col-xs-6 text-right">
                                 <span>3400.00</span>
                             </div>
                             <div class="col-xs-6">
-                                <span>Discounts</span>
+                                <span><fmt:message key="motor.summary.plan.discounts" bundle="${motorMsg}" /></span>
                             </div>
                             <div class="col-xs-6 text-right">
                                 <span>300.00</span>
@@ -639,10 +640,10 @@ var nextPage = "${nextPageFlow}";
                                 <hr>
                             </div>
                             <div class="col-xs-6 orange">
-                                <strong>Amount due:</strong>
+                                <strong><fmt:message key="motor.summary.plan.amountdue" bundle="${motorMsg}" />:</strong>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <h2 class="finalPremium-title orange">HKD$<span>4,300.00</span></h2>
+                                <h2 class="finalPremium-title orange"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><span>4,300.00</span><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></h2>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -655,27 +656,51 @@ var nextPage = "${nextPageFlow}";
         <div class="center" >
             <div class="panel panel-default payment-detail">
                 <div class="panel-heading">
-                    <h2 class="panel-title">Payment Detail</h2>
+                    <h2 class="panel-title"><fmt:message key="motor.summary.payment.detail" bundle="${motorMsg}" /></h2>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="row">
-                                <form id="motorPayment" name="" method="post" class="no-claim" data-toggle="validator" >
-                                	<input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
-				                    <input type="hidden" name="amount" value="${dueAmount.trim()}">
-				                    <input type="hidden" name="remark" value="${referralCode.trim()}">
-				                    <input type="hidden" name="orderRef" value="${createPolicy.transactionNo }">
-				                    <input type="hidden" name="currCode" value="${createPolicy.currCode }">
-				                    <input type="hidden" name="successUrl" value="${path}">
-				                    <input type="hidden" name="failUrl" value="${failurePath }">
-				                    <input type="hidden" name="errorUrl" value="${failurePath }">
-				                    <input type="hidden" name="payType" value="${createPolicy.paymentType}">
-				                    <input type="hidden" id="referenceNo" name="referenceNo" value="${createPolicy.referenceNo}">
+                                <form action="" method="post" class="no-claim" data-toggle="validator">
+                                	<input type="hidden" name="merchantId" value="">
+				                    <input type="hidden" name="amount" value="">
+				                    <input type="hidden" name="remark" value="">
+				                    <input type="hidden" name="orderRef" value="">
+				                    <input type="hidden" name="currCode" value="">
+				                    <input type="hidden" name="successUrl" value="">
+				                    <input type="hidden" name="failUrl" value="">
+				                    <input type="hidden" name="errorUrl" value="">
+				                    <input type="hidden" name="payType" value="">
+				                    <input type="hidden" id="referenceNo" name="referenceNo" value="">
+				                    <%
+				                        String payLang = (String) session.getAttribute("language");
+				                        //payLang = payLang.substring(0, 1);
+				
+				                        payLang = "C";
+				
+				                        //if (payLang.equals("t"))
+				
+				                    %>
+				                    <input type="hidden" name="lang" value="C"> <input
+				                        type="hidden" name="secureHash"
+				                        value=""> <input
+				                        type="hidden" id="emailAddress" name="emailAddress"
+				                        value=""> <input
+				                        type="hidden" id="gateway" name="gateway"
+				                        value="">
+				                        
+									<input type="hidden" id="appId" name="appId" value=""/>
+									<input type="hidden" id="merTradeNo" name="merTradeNo" value=""/>
+									<input type="hidden" id="payload" name="payload" value=""/>
+									<input type="hidden" id="paymentType" name="paymentType" value=""/>
+									<input type="hidden" id="sign" name="sign" value=""/>
+									<input type="radio"  id="visaMaster" class="paymentType__btn" name="paymentGroup" value="cc" checked style="display:none">
+									
                                     <div class="col-xs-12">
                                         <div class="row detail-row">
                                             <div class="col-xs-4 col-sm-2 text-left">
-                                                <span>We accept</span>
+                                                <span><fmt:message key="motor.summary.payment.methodtitle" bundle="${motorMsg}" /></span>
                                             </div>
                                             <div class="col-xs-8 col-sm-10 text-left">
                                                 <span>
@@ -687,8 +712,13 @@ var nextPage = "${nextPageFlow}";
                                                 <div class="form-group">
                                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                         <div class="help-block-wrap">
-                                                            <input type="text" name="cardName" maxlength="100" class="form-control mdl-textfield__input" id="fullName" required>
-                                                            <label class="mdl-textfield__label" >Name on credit card</label>
+                                                        	<input id="holdername" name="cardHolder" type="text"
+					                                            class="form-control mdl-textfield__input"
+					                                            onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
+					                                            onkeypress="return alphaOnly(event);">
+					                                            <span id="errname" class="error-msg" style="height:0px"></span>
+                                                            <!-- <input type="text" name="cardName" maxlength="100" class="form-control mdl-textfield__input" id="fullName" required>-->
+                                                            <label class="mdl-textfield__label" ><fmt:message key="motor.summary.payment.creditname" bundle="${motorMsg}" /></label>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -698,33 +728,73 @@ var nextPage = "${nextPageFlow}";
                                                 <div class="form-group">
                                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                         <div class="help-block-wrap">
-                                                            <input type="text" name="cardNo" maxlength="100" class="form-control mdl-textfield__input" id="fullName" required>
-                                                            <label class="mdl-textfield__label" >Credit card number</label>
+                                                        	<input id="cardNo1" type="tel" class="form-control mdl-textfield__input cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());"/>
+															<span id="errcardno" class="error-msg" style="height:0px"></span>
+                                							<input id="cardnumber" name="cardNo" type="hidden" class="input-block-level" maxlength="16" data-min="16"/>
+                                                            <!-- <input type="text" name="cardNo" maxlength="100" class="form-control mdl-textfield__input" id="fullName" required>-->
+                                                            <label class="mdl-textfield__label" ><fmt:message key="motor.summary.payment.creditno" bundle="${motorMsg}" /></label>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-xs-6 col-sm-3 text-left">
-                                                <label>Expiry date</label>
-                                                <select class="form-control" name="month">
-                                                    <option value="" disabled selected hidden>Month</option>
-                                                    <option value="1" >January</option>
+                                                <label><fmt:message key="motor.summary.payment.expirydate" bundle="${motorMsg}" /></label>
+                                                <select class="form-control" name="month" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
+                                                    <option value="" disabled selected hidden><fmt:message key="motor.summary.payment.month" bundle="${motorMsg}" /></option>
+                                                    <option value="1">01</option>
+			                                        <option value="2">02</option>
+			                                        <option value="3">03</option>
+			                                        <option value="4">04</option>
+			                                        <option value="5">05</option>
+			                                        <option value="6">06</option>
+			                                        <option value="7">07</option>
+			                                        <option value="8">08</option>
+			                                        <option value="9">09</option>
+			                                        <option value="10">10</option>
+			                                        <option value="11">11</option>
+			                                        <option value="12">12</option>
                                                 </select>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-3 text-left">
+                                                <span id="errmonth"
+                                    class="error-msg" style="height:0px"></span>
+                                                </div>
+                                            <div class="col-xs-6 col-sm-3 text-left" style="margin-top: 5px;">
                                                 <label></label>
-                                                <select class="form-control">
-                                                    <option value="" disabled selected hidden>Year</option>
+                                                <select class="form-control" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
+                                                    <option value="" disabled selected hidden><fmt:message key="motor.summary.payment.year" bundle="${motorMsg}" /></option>
+                                                	<option value="2015">2015</option> 
+                                        <option value="2016">2016</option> 
+                                       <option value="2017">2017</option>                                       
+                                       <option value="2018">2018</option>                                         
+                                       <option value="2019">2019</option> 
+                                      <option value="2020">2020</option> 
+                                    <option value="2021">2021</option> 
+                                       <option value="2022">2022</option> 
+                                      <option value="2023">2023</option> 
+                                        <option value="2024">2024</option> 
+                                      <option value="2025">2025</option> 
+                                                	<!--<c:forEach begin="0" end="10" varStatus="loop">
+				                                        <c:set var="currentYear" value="${year + loop.index}" />
+				                                        <option value="${currentYear}">${currentYear}</option>
+				                                    </c:forEach>-->
                                                 </select>
+                                                <span id="erryear"
+                                    class="error-msg" style="height:0px"></span>
                                             </div>
                                             <div class="col-xs-6 col-sm-3 text-left">
                                                 <label></label>
                                                 <div class="form-group">
                                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <div class="help-block-wrap">
-                                                            <input type="text" name="securityCode" maxlength="100" class="form-control mdl-textfield__input" id="fullName" required>
-                                                            <label class="mdl-textfield__label" >Security Code</label>
+                                                        <div class="help-block-wrap" style="margin-top:5px;">
+                                                            <!--<input type="text" name="securityCode" maxlength="100" class="form-control mdl-textfield__input" id="fullName" required>-->
+                                                            <input id="seccode" type="password" name="securityCode"
+							                                            class="form-control mdl-textfield__input" autocomplete="off" maxlength="3"
+							                                            title=""
+							                                            onblur="replaceNumeric(this);"
+							                                            onkeypress="return isNumeric(event);" >
+							                                <span id="errcode"
+							                                    class="error-msg" style="height:0px"></span>
+                                                            <label class="mdl-textfield__label" ><fmt:message key="motor.summary.payment.securecode" bundle="${motorMsg}" /></label>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -742,9 +812,9 @@ var nextPage = "${nextPageFlow}";
                                             <div class="checkbox">
                                                 <div class="form-group">
                                                     <div class="help-block-wrap">
-                                                        <input type="checkbox" id="" name="" value="" required>
+                                                        <input id="checkbox3" type="checkbox"> 
                                                         <label class="text-left"><small>
-                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+                                                                <fmt:message key="motor.summary.payment.tnc" bundle="${motorMsg}" /></small>
                                                         </label>
                                                         <div class="help-block with-errors text-left"></div>
                                                     </div>
@@ -768,16 +838,18 @@ var nextPage = "${nextPageFlow}";
         <div class="center" >
 			<div class="panel panel-default memberLogin" id="accordion">
 					<div class="panel-heading">
-                   	 	<h2 class="panel-title">Member Login (optional)</h2>
+                   	 	<h2 class="panel-title"><!-- Logging -->
+    <add key="LogFilePath" value="D:\Webdisk\BUPA_82\Website\logs\LogFile.txt" />
+	<add key="DefaultLogFilePath" value="D:\LogFile.txt" /></h2>
                 	</div>
 					<div class="panel-body" style="background-color:#f2f2f2">
-						<div class="plan-accordion"">
+						<div class="plan-accordion">
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 							<div class="panel panel-default loginPanel">
 							<div class="panel-heading" role="tab" id="headingOne">
 	                            <h4 class="panel-title">
 	                                <a role="button" data-toggle="collapse" href="#collapseOne" aria-controls="collapseOne" aria-expanded="true">
-	                                    Login <i class="fa fa-caret-down" aria-hidden="true"></i>
+	                                    <fmt:message key="motor.summary.member.loginsubtitle" bundle="${motorMsg}" /> <i class="fa fa-caret-down" aria-hidden="true"></i>
 	                                </a>
 	                            </h4>
                         	</div>
@@ -789,13 +861,13 @@ var nextPage = "${nextPageFlow}";
 											<!--使用者名 -->
 											<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input type="text" name="userName" class="form-control check-emp login-input mdl-textfield__input" id="motorloginUsername">
-												<label class="mdl-textfield__label" for="motorloginUsername">Username</label>
+												<label class="mdl-textfield__label" for="motorloginUsername"><fmt:message key="motor.summary.member.username" bundle="${motorMsg}" /></label>
 												
 											</div>
 											
 											<!-- 忘記使用者名 -->
 											<div class="text-left">
-												<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-username">Forgot username?</a>
+												<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-username"><fmt:message key="motor.summary.member.username.forget" bundle="${motorMsg}" /></a>
 											</div>
 											<span class="error-msg userNameErrMsg"></span>
 										</div>
@@ -804,19 +876,19 @@ var nextPage = "${nextPageFlow}";
 										<div class="form-group">
 											<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input type="password" name="password" class="form-control check-emp-forgotusername login-input mdl-textfield__input" autocomplete="off" id="motorloginPassword">
-												<label class="mdl-textfield__label" for="motorloginPassword">Password</label>												
+												<label class="mdl-textfield__label" for="motorloginPassword"><fmt:message key="motor.summary.member.password" bundle="${motorMsg}" /></label>												
 											</div>
 											
 											<div class="text-left">
 											<!--忘記密碼 -->
-											<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd">Forgot password?</a>
+											<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd"><fmt:message key="motor.summary.member.password.forget" bundle="${motorMsg}" /></a>
 											</div>
 											<span class="error-msg passwordErrMsg"></span>
 										</div>
 									</div>
 									
 									<div class="login-button-group text-center">
-										<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-login">Log in</button>
+										<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-login"><fmt:message key="motor.summary.member.logincta" bundle="${motorMsg}" /></button>
 										<div class="login-error-wrapper">
 											<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
 										</div>
@@ -838,7 +910,7 @@ var nextPage = "${nextPageFlow}";
 									<div class="form-group">
 										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp-forgotusername login-input mdl-textfield__input" id="motorForgotUsernameMobileNo">
-											<label class="mdl-textfield__label" for="motorForgotUsernameMobileNo">Mobile no.</label>
+											<label class="mdl-textfield__label" for="motorForgotUsernameMobileNo"><fmt:message key="motor.summary.member.forgot.mobile" bundle="${motorMsg}" /></label>
 						                </div>
 						                <span class="error-msg mobileNoErrMsg"></span>
 
@@ -848,7 +920,7 @@ var nextPage = "${nextPageFlow}";
 									<div class="form-group">
 										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input type="email" name="emailAddress" class="form-control gray-textbox mdl-textfield__input check-emp-forgotusername login-input" id="motorForgotUsernameEmailAddress" >
-											<label class="mdl-textfield__label" for="motorForgotUsernameEmailAddress">Email address</label>
+											<label class="mdl-textfield__label" for="motorForgotUsernameEmailAddress"><fmt:message key="motor.summary.member.forgot.email" bundle="${motorMsg}" /></label>
 					                     </div>
 					                     <span class="error-msg emailAddressErrMsg"></span>
 									</div>
@@ -856,7 +928,7 @@ var nextPage = "${nextPageFlow}";
 									<div class="col-xs-12">
 										<div class="form-group">
 											<div class="login-button-group forgot-group text-center">
-												<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-forgot-username">Submit</button>
+												<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-forgot-username"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>
 											</div>
 										</div>
 									</div>	
@@ -867,7 +939,7 @@ var nextPage = "${nextPageFlow}";
 								<form name="form-motor-forgot-pwd" id="form-motor-forgot-pwd" method="post">
 									<div class="col-xs-12">
 										<div class="panel-heading">
-											<h4 class="panel-title">Forgot Password<a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
+											<h4 class="panel-title"><fmt:message key="motor.summary.member.forgotpasword.title" bundle="${motorMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
 										</div>
 										</div>
 									<!-- 電話 input -->
@@ -875,7 +947,7 @@ var nextPage = "${nextPageFlow}";
 									<div class="form-group">
 										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input type="tel" name="mobileNo" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="motorForgotPwdMobileNo">
-											<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd">Mobile no.</label>
+											<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd"><fmt:message key="motor.summary.member.forgot.mobile" bundle="${motorMsg}" /></label>
 										</div>
 										<span class="error-msg mobileNoErrMsg"></span>
 									</div>
@@ -885,7 +957,7 @@ var nextPage = "${nextPageFlow}";
 									<div class="form-group">
 										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input type="email" name="emailAddress" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="motorForgotPwdEmailAddress">
-											<label class="mdl-textfield__label" for="motorForgotPwdEmailAddress">Email address</label>
+											<label class="mdl-textfield__label" for="motorForgotPwdEmailAddress"><fmt:message key="motor.summary.member.forgot.email" bundle="${motorMsg}" /></label>
 										</div>
 										<span class="error-msg emailAddressErrMsg"></span>
 									</div>
@@ -895,16 +967,15 @@ var nextPage = "${nextPageFlow}";
 									<div class="form-group">
 										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input type="text" name="userName" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="motorForgotPwdUsername">
-											<label class="mdl-textfield__label" for="userName">Username</label>
+											<label class="mdl-textfield__label" for="userName"><fmt:message key="motor.summary.member.forgot.username" bundle="${motorMsg}" /></label>
 										</div>
 										<span class="error-msg userNameErrMsg"></span>
 									</div>
 									</div>
 									<div class="col-xs-12">
 									<div class="login-button-group forgot-group text-center">
-										<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-forgot-pwd">Submit</button>
+										<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-forgot-pwd"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>
 									</div>
-									<span class="error-msg forgotPwdPanErrMsg"></span>
 									</div>
 								</form>
 							</div>
@@ -914,7 +985,7 @@ var nextPage = "${nextPageFlow}";
 					<div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
                             <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-controls="collapseTwo">
-                                Register <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                <fmt:message key="motor.summary.member.regsubtitle" bundle="${motorMsg}" /> <i class="fa fa-caret-down" aria-hidden="true"></i>
                             </a>
                         </h4>
                     </div>
@@ -924,7 +995,7 @@ var nextPage = "${nextPageFlow}";
 								<div class="form-group">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input type="text" name="fullName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterFullName" data-keyblock-alphabet-space="true" autocomplete="off" maxlength="100">
-										<label class="mdl-textfield__label" for="motorRegisterFullName">Full name <span class="small-txt">(as appears on HKID Card/Passport)</span></label>
+										<label class="mdl-textfield__label" for="motorRegisterFullName"><fmt:message key="motor.summary.member.fullname" bundle="${motorMsg}" /> <span class="small-txt"><fmt:message key="motor.summary.member.fullname.remark" bundle="${motorMsg}" /></span></label>
 									</div>
 									<span class="error-msg FullNameErrMsg"></span>
 								</div>
@@ -934,14 +1005,14 @@ var nextPage = "${nextPageFlow}";
 										<label class="mdl-textfield__label" for="motorRegisterMobileNo">Mobile no.</label>
 										-->
 										<input type="tel" name="mobileNo" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="motorForgotPwdMobileNo" data-keyblock-num="true">
-									    <label class="mdl-textfield__label" for="mobileNo-forgotpassowrd">Mobile no.</label>
+									    <label class="mdl-textfield__label" for="mobileNo-forgotpassowrd"><fmt:message key="motor.summary.member.mobile" bundle="${motorMsg}" /></label>
 									</div>
 									<span class="error-msg mobileNoErrMsg"></span>
 								</div>
 								<div class="form-group" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Insurance certificate will be sent to this email address">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input type="text" name="EmailAddress" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterEmailAddress">
-										<label class="mdl-textfield__label" for="motorRegisterEmailAddress">Email address</label>
+										<label class="mdl-textfield__label" for="motorRegisterEmailAddress"><fmt:message key="motor.summary.member.email" bundle="${motorMsg}" /></label>
 									</div>
 									<span class="error-msg EmailAddressErrMsg"></span>
 								</div>
@@ -949,37 +1020,37 @@ var nextPage = "${nextPageFlow}";
 									<!--使用者名 -->
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="motorRegisterUserName">
-										<label class="mdl-textfield__label" for="motorRegisterUserName">Username</label>
+										<label class="mdl-textfield__label" for="motorRegisterUserName"><fmt:message key="motor.summary.member.username" bundle="${motorMsg}" /></label>
 									</div>
 									<span class="error-msg userNameErrMsg"></span>
 								</div>
 								<div class="form-group">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input type="password" name="password" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="motorRegisterPassword">
-										<label class="mdl-textfield__label" for="motorRegisterPassword">Password</label>											
+										<label class="mdl-textfield__label" for="motorRegisterPassword"><fmt:message key="motor.summary.member.password" bundle="${motorMsg}" /></label>											
 									</div>
 									<span class="error-msg passwordErrMsg"></span>
 								</div>
 								<div class="form-group">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input type="password" name="confirmPassword" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="motorRegisterConfPass">
-										<label class="mdl-textfield__label" for="motorRegisterConfPass">Confirm password</label>
+										<label class="mdl-textfield__label" for="motorRegisterConfPass"><fmt:message key="motor.summary.member.confirmpw" bundle="${motorMsg}" /></label>
 									</div>
 									<span class="error-msg confirmPasswordErrMsg"></span>
 								</div>
 								<div class="declaration">
-									<h4>Declaration :</h4>
+									<h4><fmt:message key="motor.summary.member.declaration.title" bundle="${motorMsg}" /> :</h4>
 									<div class="form-group">
-										<div class="checkbox"><input id="checkbox1" name="checkbox1" type="checkbox" class=""><label for="checkbox1">I have read and understood <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/others/fwd-online-member-en.pdf?la=en" target="blank">Personal Information Collection Statement</a> and agree to be bound by the same.</label></div>
+										<div class="checkbox"><input id="checkbox1" name="checkbox1" type="checkbox" class=""><label for="checkbox1"><fmt:message key="motor.summary.member.tnc1.1" bundle="${motorMsg}" /><a href="<fmt:message key="motor.summary.member.tnc1.link" bundle="${motorMsg}" />" target="blank"><fmt:message key="motor.summary.member.tnc1.2" bundle="${motorMsg}" /></a><fmt:message key="motor.summary.member.tnc1.3" bundle="${motorMsg}" /></label></div>
 										<span class="error-msg checkbox1ErrMsg"></span>
 									</div>
 									<hr>
-									<p>If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below:</p>
-									<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3">Please do not send direct marketing information to me.</label></div> 
-									<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox"><label for="checkbox4">Please do not provide my personal data to other persons or companies for their use in direct marketing.</label> </div>
+									<p><fmt:message key="motor.summary.member.tnc.dm" bundle="${motorMsg}" /></p>
+									<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3"><fmt:message key="motor.summary.member.tnc2" bundle="${motorMsg}" /></label></div> 
+									<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox"><label for="checkbox4"><fmt:message key="motor.summary.member.tnc3" bundle="${motorMsg}" /></label> </div>
 								</div>
 								<div class="login-button-group text-center">
-									<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-register">Activate</button>
+									<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-motor-register"><fmt:message key="motor.summary.member.regcta" bundle="${motorMsg}" /></button>
 									<div class="login-error-wrapper">
 										<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
 									</div>
@@ -1002,12 +1073,14 @@ var nextPage = "${nextPageFlow}";
                     <div class="row" >
                         <div class="text-center col-xs-6">
                             <br />
-                            <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+                            <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /> </a>
                             <br/>
                         </div>
                         <div class="text-center col-xs-6">
                             <br />
-                            <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                            <!-- <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />-->
+                            <button id="button_confirm" 
+                                        class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;">Confirmation</button>          
                             <br/>
                         </div>
                     </div>
@@ -1023,12 +1096,17 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
-<script type="text/javascript">
-var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyID":"26379363","driver":[{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"Driver","occupation":"Account / Accountant","validAgeGroup":"true"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"Occupation","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"}],"nameOfPreviousInusrancer":"AXAadddd","regNoofPreviousPolicy":"ddsadsa","expDateOfPreviousInsurance":"16-11-2016","previousPolicyNo":"32132132"},"FullDriversDetails":{"policyID":"26379363","policyStartDate":"16-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"5","building":"ChaTaiManBuilding","district":"Account / Accountant","estate":"ChanManEstate","flat":"A","floor":"28","hkKlNt":"Hong Kong","streetName":null,"streetNo":null},"dateOfBirth":"16-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"Chan Tai Man Building"}},"FullCarDetails":{"policyID":"26379363"},"policyID":"26379363","applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true}');
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
 
+<script type="text/javascript">
+//var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyID":"26379363","driver":[{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"Driver","occupation":"Account / Accountant","validAgeGroup":"true"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"Occupation","validAgeGroup":"agree"},{"dateOfBirth":"16-11-1991","driveMoreThanTwo":false,"hkid":"","name":"","occupation":"","validAgeGroup":"agree"}],"nameOfPreviousInusrancer":"AXAadddd","regNoofPreviousPolicy":"ddsadsa","expDateOfPreviousInsurance":"16-11-2016","previousPolicyNo":"32132132"},"FullDriversDetails":{"policyID":"26379363","policyStartDate":"16-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"5","building":"ChaTaiManBuilding","district":"Account / Accountant","estate":"ChanManEstate","flat":"A","floor":"28","hkKlNt":"Hong Kong","streetName":null,"streetNo":null},"dateOfBirth":"16-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"Chan Tai Man Building"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODELZ"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true}');
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 var ApiPayment= new Array();
+var enablePayment=true;
+var clicked = false;
 $(document).ready(function(){
 	//quote
+	console.dir(quote);
 	$(".carmake").html(quote.carDetail.makeCode);
 	$(".carmodel").html(quote.carDetail.model);
 	$(".carcc").html(quote.carDetail.engineCapacity);
@@ -1136,8 +1214,30 @@ $(document).ready(function(){
 	      async: false,
 	      url:context + "/api/iMotor/policy/payment",
 		  success: function(data){
+			  console.dir(data);
+			  $('input[name="merchantId"]').attr("value",data.merchantId);
+			  $('input[name="amount"]').attr("value",data.amount);
+			  $('input[name="remark"]').attr("value",data.remark);
+			  $('input[name="orderRef"]').attr("value",data.orderRef);
+			  $('input[name="currCode"]').attr("value",data.currCode);
+			  $('input[name="successUrl"]').attr("value",data.successUrl);
+			  $('input[name="failUrl"]').attr("value",data.failUrl);
+			  $('input[name="errorUrl"]').attr("value",data.errorUrl);
+			  $('input[name="payType"]').attr("value",data.payType);
+			  $('input[name="referenceNo"]').attr("value",data.referenceNo);
+			  $('input[name="lang"]').attr("value",data.lang);
+			  $('input[name="secureHash"]').attr("value",data.secureHash);
+			  $('input[name="emailAddress"]').attr("value",data.emailAddress);
+			  $('input[name="gateway"]').attr("value",data.gateway);
+			  $('input[name="merchantId"]').attr("value",data.merchantId);
+			  $('input[name="appId"]').attr("value",data.appId);
+			  $('input[name="merTradeNo"]').attr("value",data.merTradeNo);
+			  $('input[name="payload"]').attr("value",data.payload);
+			  $('input[name="paymentType"]').attr("value",data.paymentType);
+			  $('input[name="sign"]').attr("value",data.sign);
+			  $('input[name="errorMsg"]').attr("value",data.errorMsg);
 			  //var quote ={"A":"dsdas"};
-			  ApiPayment = data;//$.extend( data, quote )
+			  //ApiPayment = data;//$.extend( data, quote )
 			  //console.dir(ApiPayment);
 		  },error: function(error) {
 			
@@ -1182,14 +1282,46 @@ $(document).ready(function(){
 	    			$(".before-login").show();
 	    			return false;	
 	    		}else
-	    			$(".before-login").hide();
-
-	    		
+	    			$(".before-login").hide();	
 	    	}
-	    	
 	    }
 	});
 	
+	
+	function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
+
+    	var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
+    	clicked = false;
+    	console.log(enablePayment);
+
+		if(payValid(selectedPaymentType) && enablePayment){
+			console.log("enablePayment");
+    		enablePayment=false;
+	
+    		var gatewayUrlId = '#' + gatewayUrlId;
+            var paymentFormId = '#' + paymentFormId;
+    		var method = "<%=request.getContextPath()%>/processTravePayment";
+    		$.ajax({
+                type : "POST",
+                url : method,
+                data : $(paymentFormId).serialize(),
+                async : false,
+                success : function(data) {
+                	alert("A");
+                	clicked = false;
+                    if (data == 'success') {
+                    	payment(form, gatewayUrlId, paymentFormId);
+                    } else {
+                    	console.log(data);
+                    	$("#PaymentingDiv").hide();
+                        enablePayment=true;
+                        $('#paymentErrorPopup').modal('show');
+                        return false;
+                    }
+                }
+            });
+		}
+    }
 	function payment(form, gatewayUrlId, paymentFormId){
 		var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
         clicked = false;
@@ -1236,8 +1368,10 @@ $(document).ready(function(){
 	    	return false;
 	    }
 	}
-
-	
+	$( "#button_confirm" ).on( "click", function(e) {
+    	confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');
+   	});
+	/*
 	$('#motorPayment').submit(function(event){
 
 		   var isThird;
@@ -1263,11 +1397,11 @@ $(document).ready(function(){
                    if (data == 'success') {
                    	payment(form, gatewayUrlId, paymentFormId);
                    } else {
-                   	   /*console.log(data);
-                   	   $("#PaymentingDiv").hide();
-                       enablePayment=true;
-                       $('#paymentErrorPopup').modal('show');
-                       return false;*/
+                   	   //console.log(data);
+                   	   //$("#PaymentingDiv").hide();
+                      // enablePayment=true;
+                      // $('#paymentErrorPopup').modal('show');
+                       //return false;
                    }
                }
            });
@@ -1319,7 +1453,6 @@ $(document).ready(function(){
 			  }
 			});
 			return false;
-		});
+		});*/
 });
 </script>
-

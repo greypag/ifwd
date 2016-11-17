@@ -182,7 +182,7 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                             </div>
                         </div>
-                                <label class="error-msg" id="vehicleReg-dz-error-message" data-required-error="Please upload Vehicle Registration Document." data-max-error="You cannot upload more than 4 copy."></label>
+                        <label class="error-msg" id="vehicleReg-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.vehicle.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
@@ -209,7 +209,7 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                             </div>
                         </div>
-                                <label class="error-msg" id="hkid-dz-error-message" data-required-error="Please upload HKID Card of Insured ." data-max-error="You cannot upload more than 4 copy."></label>
+                        <label class="error-msg" id="hkid-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.idcard.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
@@ -236,7 +236,7 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                             </div>
                         </div>
-                                <label class="error-msg" id="license-dz-error-message" data-required-error="Please upload Driving License of Insured ." data-max-error="You cannot upload more than 4 copy."></label>
+                        <label class="error-msg" id="license-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.drive.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
                     </div>
                 </div>
             </div>

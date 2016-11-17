@@ -128,7 +128,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d]+$" data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="10" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="10" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="registedModel"><fmt:message key="motor.cardetails.car.model" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -321,7 +321,7 @@ var nextPage = "${nextPageFlow}";
 
 var checkbox=true;
     //var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"driver":[{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false}');
-var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true}');
+var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId": "26379363"}');
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
@@ -418,10 +418,13 @@ $(document).ready(function(){
               var $quote = $("<input type='hidden' name='data' />");
               var newdata = {};
               newdata['FullCarDetails'] = submitData;
-              var pid = {
-            		  "policyID":data.policyId
-              };
+              /*var pid = {"policyID":data.policyId};
+              $.extend( quote, pid );
+              JSON.stringify($.extend( newdata, quote ))
+              console.dir(newdata);*/
               $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+              console.dir(newdata);
+              console.dir($.extend( newdata, quote ))
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit();             

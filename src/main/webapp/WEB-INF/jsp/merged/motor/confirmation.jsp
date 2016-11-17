@@ -245,20 +245,20 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Read more from our blog</h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.confirmation.tips.heading" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl">Read more from our blog</h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.confirmation.tips.heading" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row read-more-blog">
             <div class="col-sm-6 col-md-3">
                 <div class="hovereffect">
-                    <img class="img-responsive" src="http://placehold.it/767x540" alt="">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/1st_blog_image.jpg" alt="">
                     <div class="overlay ">
-                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <h2><fmt:message key="motor.confirmation.tips.1.title" bundle="${motorMsg}" /></h2>
                         <div class="hidden-xs">
-                            <a class="info" href="#">Read More</a>
+                        <a class="info" href='<fmt:message key="motor.confirmation.tips.1.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                         </div>
                     </div>
                 </div>
@@ -267,7 +267,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="row text-center">
                     <div class="col-xs-4 col-xs-offset-4">
                         <br />
-                        <a class="info visible-xs btn btn-primary bdr-curve" href="#">Read More</a>
+                        <a class="info visible-xs btn btn-primary bdr-curve" href='<fmt:message key="motor.confirmation.tips.1.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
 
@@ -275,28 +275,28 @@ var nextPage = "${nextPageFlow}";
             </div>
             <div class="col-sm-6 hidden-xs col-md-3">
                 <div class="hovereffect">
-                    <img class="img-responsive" src="http://placehold.it/767x540" alt="">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/2nd_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2>product 1</h2>
-                        <a class="info" href="#">Read More</a>
+                        <h2><fmt:message key="motor.confirmation.tips.2.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.confirmation.tips.2.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
             <div class="hidden-sm hidden-xs col-md-3">
                 <div class="hovereffect">
-                    <img class="img-responsive" src="http://placehold.it/767x540" alt="">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/3rd_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2>product 1</h2>
-                        <a class="info" href="#">Read More</a>
+                        <h2><fmt:message key="motor.confirmation.tips.3.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.confirmation.tips.3.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
             <div class="hidden-sm hidden-xs col-md-3">
                 <div class="hovereffect">
-                    <img class="img-responsive" src="http://placehold.it/767x540" alt="">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/4th_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2>product 1</h2>
-                        <a class="info" href="#">Read More</a>
+                        <h2><fmt:message key="motor.confirmation.tips.4.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.confirmation.tips.4.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>

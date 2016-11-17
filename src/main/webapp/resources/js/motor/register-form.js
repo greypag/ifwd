@@ -9,7 +9,13 @@ var fwdApi = {
 			retrieveUserName			: APIServer + context + "/api/member/retrieveUserName",
 		}
 };
-
+var motor_mortgageBank, $motor_mortgageBank, 
+motor_district , $motor_district, 
+motor_occupation, $motor_occupation, 
+motor_d2occupation , $motor_d2occupation,
+motor_d3occupation , $motor_d3occupation,
+motor_d4occupation , $motor_d4occupation,
+motor_d5occupation , $motor_d5occupation;
 $(document).ready(function(){
 	
 	bsvFormLogin($("#form-motor-login"));
@@ -48,30 +54,163 @@ $(document).ready(function(){
             });
         }
     });
-    $('.occupation').selectize({
-        valueField: '',
-        labelField: '',
-        searchField: '',
+	
+	$motor_occupation = $('#occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
         create: false,
         preload: true,
         load: function(query, callback) {
-            $('.occupation').find('input[type="text"]').data('required-error', $('.occupation').data('required-error'));
+            $('#occupation-selectized').data('required-error', $('#occupation').data('required-error'));
             $.ajax({
-                url: '/api/iMotor/driverDetails', //change to get api
+                url: context + '/api/iMotor/list/occupations/v2',
                 type: 'GET',
                 dataType: 'json',
-                data: {
-                    model: query,
-                },
                 error: function() {
                         callback();
                     },
                     success: function(res) {
-                        callback(res);
+						console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);                        
                     }
             });
+        },
+        onChange: function(value){
         }
     });
+	$motor_d2occupation = $('#d2occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d2occupation-selectized').data('required-error', $('#d2occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);                           
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d3occupation = $('#d3occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d3occupation-selectized').data('required-error', $('#d3occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);                             
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d4occupation = $('#d4occuption').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d4occupation-selectized').data('required-error', $('#d4occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);                           
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d5occupation = $('#d5occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d5occupation-selectized').data('required-error', $('#d5occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);                           
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+
     $('#district').selectize({
         valueField: '',
         labelField: '',
@@ -126,6 +265,7 @@ $(document).ready(function(){
 				$(".sln").addClass("orange");
                 $('.mortgageBank').addClass('hidden');
                 $('#mortgageBank, #mortgageBank-selectized, #bankName').prop('required',false);
+				
                 $('#motor_registerForm').validator('update'); 
             }
                 $('#motor_registerForm').validator('validate');
@@ -136,12 +276,14 @@ $(document).ready(function(){
     var current = 0;
     $('#addDriver').on('click', function(e){
         e.preventDefault();
-		$('#motor_registerForm #sendDriverDetail').addClass('disabled');
+
+		$('#motor_registerForm [type="submit"]').addClass('disabled');
         if(current < totalDriver){
             $('.added-driver').eq(current).removeClass('hidden');
-			$('.added-driver').eq(current).find('input').prop('required',true);
 			$('.added-driver').eq(current).find('select').prop('required',true);
-			$('#motor_registerForm').validator('update'); 
+			$('.added-driver').eq(current).find('input').prop('required',true);
+			$('.added-driver').eq(current).find('.selectize-input > input').prop('required',false);
+
             if(current > 0){
                 $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
             }
@@ -149,7 +291,10 @@ $(document).ready(function(){
             if (current == totalDriver) {
                 $(this).addClass('hidden');
             }
+			$('#policyDetails').validator('update'); 
+		//	$('#policyDetails').validator('validate');
         }
+
         // console.log(current);
     });
     $('.removeDriver').on('click', function(e){
@@ -159,9 +304,20 @@ $(document).ready(function(){
         $(this).parents('.added-driver').find('input').val('');
         $(this).parents('.added-driver').find('input:checkbox').removeAttr('checked');
         $(this).parents('.added-driver').find('option').removeAttr('selected');
+		//$occSelect[0].selectize.clear();
+if(current == 1)
+$motor_d2occupation[0].selectize.clear();
+if(current == 2)
+$motor_d3occupation[0].selectize.clear();
+if(current == 3)
+$motor_d4occupation[0].selectize.clear();
+if(current == 4)
+$motor_d5occupation[0].selectize.clear();
+		
         $(this).parents('.added-driver').addClass('hidden');
         $(this).parents('.added-driver').prev().find('.removeDriver').removeClass('hidden');
-		$('#motor_registerForm').validator('validate');
+		$('#policyDetails').validator('update'); 
+		$('#policyDetails').validator('validate');
         if(current == totalDriver){
             $('#addDriver').removeClass('hidden');
         }
