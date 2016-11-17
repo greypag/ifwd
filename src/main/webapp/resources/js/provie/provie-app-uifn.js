@@ -572,6 +572,7 @@ $(document).ready(function(){
 					    		
 				    		}else{
 				    			$("#preferedTimeIsNull").modal("show");
+								changeAppointmentDate_dateEmpty('#app-date');
 				    		}
 				    		$("#loading-overlay").modal("hide");
 				    	}
@@ -1418,9 +1419,25 @@ function changeAppointmentDate(elm,dates){
 	inst.clear();
 	inst.option({
 		valid:dates,
-		minDate:dates[0]
+		minDate:dates[0],
+		readonly:false,
+		onBeforeClose: function (valueText, btn, inst) {}
 	});
+}
 
+function changeAppointmentDate_dateEmpty(elm){
+	var inst = $(elm).mobiscroll('getInst');
+	inst.clear();
+	inst.option({
+		readonly:true,
+		valid:[new Date()],
+		minDate:new Date(),
+		onBeforeClose: function (valueText, btn, inst) {
+			if(btn == 'set'){
+				return false;
+			}
+		}
+	});
 }
 
 function showBubble(){
