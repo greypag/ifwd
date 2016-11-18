@@ -6279,7 +6279,8 @@ p .payment-policy-wrapper{
 
 /* line 2, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content,
-#fatca-page #fatca-content-02 {
+#fatca-page #fatca-content-02,
+#fatca-page #fatca-content-03 {
   max-width: 340px;
   margin: 0 auto;
   padding-top: 5px;
@@ -6287,48 +6288,56 @@ p .payment-policy-wrapper{
 @media (min-width: 992px) {
   /* line 2, ../sass/partials/savie/_fatca.scss */
   #fatca-page #fatca-content,
-  #fatca-page #fatca-content-02 {
+  #fatca-page #fatca-content-02,
+  #fatca-page #fatca-content-03 {
     max-width: 625px;
     /*padding-top: 65px;*/
   }
 }
 /* line 10, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content h3,
-#fatca-page #fatca-content-02 h3 {
+#fatca-page #fatca-content-02 h3,
+fatca-page #fatca-content-03 h3 {
   font-size: 24px;
   color: #ff8200;
 }
 /* line 14, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #agreement,
-#fatca-page #fatca-content-02 #agreement-02 {
+#fatca-page #fatca-content-02 #agreement-02,
+#fatca-page #fatca-content-03 #agreement-03 {
   font-size: 18px;
   line-height: 20px;
 }
 /* line 17, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #agreement a,
-#fatca-page #fatca-content-02 #agreement-02 a {
+#fatca-page #fatca-content-02 #agreement-02 a,
+#fatca-page #fatca-content-03 #agreement-03 a {
   color: #ff8200;
 }
 /* line 20, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #agreement a:hover,
-#fatca-page #fatca-content-02 #agreement-02 a:hover {
+#fatca-page #fatca-content-02 #agreement-02 a:hover,
+#fatca-page #fatca-content-03 #agreement-03 a:hover {
   text-decoration: underline;
 }
 /* line 23, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #buttons-holder,
-#fatca-page #fatca-content-02 #buttons-holder-02 {
+#fatca-page #fatca-content-02 #buttons-holder-02,
+#fatca-page #fatca-content-03 #buttons-holder-03 {
   margin-top: 25px;
 }
 @media (min-width: 992px) {
   /* line 23, ../sass/partials/savie/_fatca.scss */
   #fatca-page #fatca-content #buttons-holder,
-  #fatca-page #fatca-content-02 #buttons-holder-02 {
+  #fatca-page #fatca-content-02 #buttons-holder-02,
+  #fatca-page #fatca-content-02 #buttons-holder-03 {
     margin-top: 15px;
   }
 }
 /* line 28, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #buttons-holder .btn,
-#fatca-page #fatca-content-02 #buttons-holder-02 .btn {
+#fatca-page #fatca-content-02 #buttons-holder-02 .btn,
+#fatca-page #fatca-content-03 #buttons-holder-03 .btn {
   width: 40%;
   padding: 3px 37px;
   font-size: 24px;
@@ -6336,37 +6345,43 @@ p .payment-policy-wrapper{
 @media (min-width: 992px) {
   /* line 28, ../sass/partials/savie/_fatca.scss */
   #fatca-page #fatca-content #buttons-holder .btn,
-  #fatca-page #fatca-content-02 #buttons-holder-02 .btn {
+  #fatca-page #fatca-content-02 #buttons-holder-02 .btn,
+  #fatca-page #fatca-content-03 #buttons-holder-03 .btn {
     width: 22%;
   }
 }
 /* line 35, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #buttons-holder .btn#yes-btn,
-#fatca-page #fatca-content-02 #buttons-holder-02 .btn#yes-btn-02 {
+#fatca-page #fatca-content-02 #buttons-holder-02 .btn#yes-btn-02,
+#fatca-page #fatca-content-03 #buttons-holder-03 .btn#yes-btn-03 {
   margin-right: 3px;
 }
 @media (min-width: 992px) {
   /* line 35, ../sass/partials/savie/_fatca.scss */
   #fatca-page #fatca-content #buttons-holder .btn#yes-btn,
-  #fatca-page #fatca-content-02 #buttons-holder-02 .btn#yes-btn-02 {
+  #fatca-page #fatca-content-02 #buttons-holder-02 .btn#yes-btn-02,
+  #fatca-page #fatca-content-03 #buttons-holder-03 .btn#yes-btn-03 {
     margin-right: 7px;
   }
 }
 /* line 41, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #buttons-holder .btn#no-btn,
-#fatca-page #fatca-content-02 #buttons-holder-02 .btn#no-btn-02 {
+#fatca-page #fatca-content-02 #buttons-holder-02 .btn#no-btn-02,
+#fatca-page #fatca-content-03 #buttons-holder-03 .btn#no-btn-03 {
   margin-left: 3px;
 }
 @media (min-width: 992px) {
   /* line 41, ../sass/partials/savie/_fatca.scss */
   #fatca-page #fatca-content #buttons-holder .btn#no-btn,
-  #fatca-page #fatca-content-02 #buttons-holder-02 .btn#no-btn-02 {
+  #fatca-page #fatca-content-02 #buttons-holder-02 .btn#no-btn-02,
+  #fatca-page #fatca-content-03 #buttons-holder-03 .btn#no-btn-03 {
     margin-left: 7px;
   }
 }
 /* line 51, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #condition-holder,
-#fatca-page #fatca-content-02 #condition-holder-02 {
+#fatca-page #fatca-content-02 #condition-holder-02,
+#fatca-page #fatca-content-03 #condition-holder-03 {
   width: 140px;
   font-size: 12px;
   margin-right: 28px;
@@ -6378,14 +6393,16 @@ p .payment-policy-wrapper{
 @media (min-width: 992px) {
   /* line 51, ../sass/partials/savie/_fatca.scss */
   #fatca-page #fatca-content #condition-holder,
-  #fatca-page #fatca-content-02 #condition-holder-02 {
+  #fatca-page #fatca-content-02 #condition-holder-02,
+  #fatca-page #fatca-content-03 #condition-holder-03 {
     margin-right: 162px;
     /*padding-bottom: 60px;*/
   }
 }
 /* line 63, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #condition-holder span,
-#fatca-page #fatca-content-02 #condition-holder-02 span {
+#fatca-page #fatca-content-02 #condition-holder-02 span,
+#fatca-page #fatca-content-03 #condition-holder-03 span {
   color: #ff8200;
 }
 
