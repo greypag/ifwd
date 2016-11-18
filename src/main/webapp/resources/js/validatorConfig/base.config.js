@@ -1,20 +1,7 @@
-<%@page import="com.ifwd.fwdhk.model.PlanDetailsForm"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.ifwd.fwdhk.model.FlightQuoteDetails"%>
-<%@page import="com.ifwd.fwdhk.model.PlanDetails"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
-<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
-<fmt:setBundle basename="messages" var="msg" />
-
 var validatorCfgSkeleton = {	
     "row": {
-        "valid": 'has-success',
-        "invalid": 'has-error'
+        "valid": "has-success",
+        "invalid": "has-error"
     },
     "fields": {
     }
@@ -22,7 +9,7 @@ var validatorCfgSkeleton = {
 
 var applicantCfg = {
     fullName: {
-        "container": '#fullnameinvalid',
+        "container": "#fullnameinvalid",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "error.contact.person.name.empty")
@@ -30,7 +17,7 @@ var applicantCfg = {
         }
     },
     hkid: {
-        "container": '#errAppHkid',
+        "container": "#errAppHkid",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "applicant.hkId.notNull.message")
@@ -38,7 +25,7 @@ var applicantCfg = {
         }
     },
     applicantDob: {
-        "container": '#dobInvalid',
+        "container": "#dobInvalid",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "applicant.dob.notNull.message")
@@ -46,7 +33,7 @@ var applicantCfg = {
         }
     },
     mobileNo: {
-        "container": '#mobileNoInvalid',
+        "container": "#mobileNoInvalid",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message")
@@ -58,7 +45,7 @@ var applicantCfg = {
         }
     },
     emailAddress: {
-        "container": '#emailid',
+        "container": "#emailid",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "applicant.email.notNull.message")
@@ -69,89 +56,96 @@ var applicantCfg = {
         }
     }		
 };
-
 var insuredPersonCfg = {
-	<c:forEach var="inx" begin="1" end="${planDetailsForm.totalPersonalTraveller}">
-    "personalName[${inx}]": {
-        "container": '#errtxtPersonalFullName[${inx}]',
+    "personalName": {
+        "container": "#errtxtPersonalFullName",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "insured.name.notNull.message")
-            },
-            "onSucces": function(e, data) {
-                if (!data.fv.isValidField('fullName')) {
-                    // Revalidate it
-                    data.fv.revalidateField('fullName');
-                }
             }
         }
     },
-    "personalHKID[${inx}]": {
-        "container": '#errtxtInsuHkid1[${inx}]',
+    "personalHKID": {
+        "container": "#errtxtInsuHkid",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "insured.hkId.notNull.message")
             }
         }
     },
-    "personalAgeRange[${inx}]": {
-        "container": '#errselectAgeRange[${inx}]',
+    "personalAgeRange": {
+        "container": "#errselectAgeRange",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "insured.hkId.notNull.message")
             }
         }
     },
-    "personalBeneficiary[${inx}]": {
-        "container": '#errpersonalselectBenificiary[${inx}]',
+    "personalBeneficiary": {
+        "container": "#errpersonalselectBenificiary",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "insured.hkId.notNull.message")
             }
         }
     }
-    </c:forEach>
 };
+function generate_insuredPersonCfgGrp(insuredPersonCount, insuredPersonCfg){
+	var insuredPersonCfgGrp;
+	for (i = 1; i <= insuredPersonCount; i++) {
+		var abc =i;
+		var KeyMap = {
+			personalName : "personalName"+i,
+			personalHKID : "personalHKID"+i,
+			personalAgeRange : "personalAgeRange"+i,
+			personalBeneficiary : "personalBeneficiary"+i
+		};
+		var valueMap = {
+			"#errtxtPersonalFullName" : "#errtxtPersonalFullName"+i,
+			"#errtxtInsuHkid" : "#errtxtInsuHkid"+i,
+			"#errselectAgeRange" : "#errselectAgeRange"+i,
+			"#errpersonalselectBenificiary" : "#errpersonalselectBenificiary"+i			
+		};
+		var newKeyMap = _.reduce(insuredPersonCfg, function(result, value, key) {
+			key = KeyMap[key] || key;
+			/*_.update(value, "container", function(){
+				return value.container+i;
+			});*/
+				var a = value;
+				_.reduce(a, function(result, value, key){
+					if(key=="container"){
+						console.log(key);
+						containerValue = valueMap[value] || value;
+						console.log(containerValue);
+						_.set(a, "container", containerValue);
+					}
+				}, {});
+				//console.log(result);
+		    result[key] = value;
+		    return result;
+		}, {});
+		
+		insuredPersonCfgGrp = _.merge(insuredPersonCfgGrp, newKeyMap);
+	}
+	//console.log(insuredPersonCfgGrp);
+	return insuredPersonCfgGrp;
+}
+
 
 var declarationCfg  = {
 		"checkbox1": {
-        "container": '#chk1',
+        "container": "#chk1",
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "insured.name.notNull.message")
             },
             "onSucces": function(e, data) {
-                if (!data.fv.isValidField('fullName')) {
+                if (!data.fv.isValidField("fullName")) {
                     // Revalidate it
-                    data.fv.revalidateField('fullName');
+                    data.fv.revalidateField("fullName");
                 }
             }
         }
-    },
-    personalHKID: {
-        "container": '#errtxtInsuHkid1',
-        "validators": {
-            "notEmpty": {
-                "message": getBundle(getBundleLanguage, "insured.hkId.notNull.message")
-            }
-        }
-    },
-    personalAgeRange: {
-        "container": '#errselectAgeRange1',
-        "validators": {
-            "notEmpty": {
-                "message": getBundle(getBundleLanguage, "insured.hkId.notNull.message")
-            }
-        }
-    },
-    personalBeneficiary: {
-        "container": '#errpersonalselectBenificiary1',
-        "validators": {
-            "notEmpty": {
-                "message": getBundle(getBundleLanguage, "insured.hkId.notNull.message")
-            }
-        }
-    }    
+    }  
 };
-
-validatorCfgSkeleton.fields = $.extend(validatorCfgSkeleton.fields, applicantCfg, insuredPersonCfg);
+validatorCfgSkeleton.fields = $.extend(validatorCfgSkeleton.fields, applicantCfg, generate_insuredPersonCfgGrp(totalTraveller, insuredPersonCfg));

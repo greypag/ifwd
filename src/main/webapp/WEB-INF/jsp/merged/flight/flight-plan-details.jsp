@@ -316,10 +316,6 @@ function activateUserAccountJoinUs() {
 </script>
 <% } %>
 
-
-
-
-
 <!--/#main-Content-->
 <section>
     <div id="cn" class="container">
@@ -2543,17 +2539,20 @@ function createFlightFnc(form){
     }
     return flag;
 }
+
+var totalTraveller = ${planDetailsForm.totalPersonalTraveller};
 </script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js" charset="utf-8"></script>
-<!--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validatorConfig/base.config.js" charset="utf-8"></script>-->
-<%@include file="/WEB-INF/jsp/merged/flight/base.config.jsp" %>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validatorConfig/base.config.js" charset="utf-8"></script>
 <link href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" rel="stylesheet" type="text/css" />
 
 
 <script>
-    //var flightCfg = initBSVConfig(bsvConfig).flightCare();
-	console.log(validatorCfgSkeleton);
+	console.log(totalTraveller);
+	console.log(generate_insuredPersonCfgGrp(totalTraveller, insuredPersonCfg));
+	//console.log(validatorCfgSkeleton);
     $(document).ready(function() {
         $("#freeFlightForm").formValidation(validatorCfgSkeleton);
     });
