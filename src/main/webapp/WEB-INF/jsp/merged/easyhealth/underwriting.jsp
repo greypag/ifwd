@@ -181,6 +181,26 @@ var home_url = "<%=request.getContextPath()%>";
 									<span class="error-msg" id="ehUnderWriting3ErrMsg"></span>
 								</div>
 							</div>
+							
+							<div class="row form-group question-row">
+                                <div class="col-xs-12">
+                                    <h4><fmt:message key="underwriting.question.q4" bundle="${msg}" /></h4>
+                                </div>
+                                <div class="col-xs-11">
+                                    <p><label for="ehUnderWriting4"><fmt:message key="underwriting.question.q4.copy" bundle="${msg}" /></label></p>
+                                </div>
+                                <div class="col-xs-1">
+                                	<div class="form-group">
+	                                	<div class="checkbox">
+											<input type="checkbox" name="ehUnderWriting4" id="ehUnderWriting4" value="">
+											<label for="ehUnderWriting4">&nbsp;</label>
+										</div>
+									</div>
+                                </div>
+                                <div class="col-xs-12 col-md-12">
+                                    <span class="error-msg" id="ehUnderWriting4ErrMsg"></span>
+                                </div>
+                            </div>
 
 							<div class="tnc-row form-group">
 								<div class="checkbox">

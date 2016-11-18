@@ -48,6 +48,20 @@ $(document).ready(function(){
 						}
 					}
 				},
+				ehUnderWriting4:{
+					container:'#ehUnderWriting4ErrMsg',
+					validators:{
+						notEmpty:{
+							message:' '
+						},
+						callback:{
+							message:' ',
+							callback:function(){
+								return validateUnderWriting("ehUnderWriting2")
+							}
+						}
+					}
+				},
 				cbTNC:{
 					container:'#ehUnderWriting4ErrMsg',
 					validators:{
@@ -103,6 +117,7 @@ $(document).ready(function(){
 		var allNo = $('input[name="ehUnderWriting1"]').prop('checked')
 			 		&& $('input[name="ehUnderWriting2"]').prop('checked')
 			 		&& $('input[name="ehUnderWriting3"]').prop('checked')
+			 		&& $('input[name="ehUnderWriting4"]').prop('checked');
 
 		if(radio){
 			 if($('input[name="'+ radio+'"]:checked').val() == "Yes"){

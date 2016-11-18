@@ -162,6 +162,21 @@ var home_url = "<%=request.getContextPath()%>";
 							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
 						</label>
 					</div>
+					
+					<div class="et-broken-line et-padding"></div>
+					<p class="et-bfr-start-txt bottom">
+						<fmt:message key="eliteTerms.selectPlan.Do.you.have.an.3" bundle="${msg}" />
+					</p>
+					<div class="clearfix">
+						<input type="radio" id="et-before-yes-03" name="et-before-03" value="et-before-yes">
+						<label class="et-before-we-start-yes pull-left elterm-btn-default" for="et-before-yes-03">
+							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></span>
+						</label>
+						<input type="radio" id="et-before-no-03" name="et-before-03" value="et-before-no">
+						<label class="et-before-we-start-no no pull-right elterm-btn-default" for="et-before-no-03" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ET2M');">
+							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
+						</label>
+					</div>
 
 				</div>
 
@@ -4155,16 +4170,21 @@ var home_url = "<%=request.getContextPath()%>";
 */
 		var et_before_01_is_yes = false;
 		var et_before_02_is_yes = false;
+		var et_before_03_is_yes = false;
 		$('#et-before-yes').on('click', function(){
 			et_before_01_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes,et_before_03_is_yes);
 		});
 		$('#et-before-yes-02').on('click', function(){
 			et_before_02_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes,et_before_03_is_yes);
 		});
-		function isDisplayNext(yes_01, yes_02){
-			if(yes_01==true && yes_02==true){
+		$('#et-before-yes-03').on('click', function(){
+			et_before_03_is_yes = true;
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes,et_before_03_is_yes);
+		});
+		function isDisplayNext(yes_01, yes_02,yes_03){
+			if(yes_01==true && yes_02==true && yes_03==true){
 				$('#et-btn-before-start').removeClass('hidden');
 			}else{
 				$('#et-btn-before-start').addClass('hidden');
