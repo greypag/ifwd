@@ -112,7 +112,25 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 	a.onload = function() { kVoid(); }
 }
 </script>
+<script>
+	var context = "${pageContext.request.contextPath}";
+	var language = "${language}";
+	var affiliate = "${affiliate}";
+	var home_url = "<%=request.getContextPath()%>";
+	<%--For Savie online 2016 JS --%>
+	var getpath = "<%=request.getContextPath()%>";
+	<%--For Savie online 2016 JS END--%>
 
+	/*
+	 * Global Site Variables
+	 */
+	var Site = {
+		'context':'${pageContext.request.contextPath}',
+		'language': '${language}',
+		'affiliate': '${affiliate}',
+	};
+
+</script>
 
 <dec:head />
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />

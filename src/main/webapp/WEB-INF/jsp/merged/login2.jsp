@@ -123,8 +123,8 @@
 						</h4>
 
 						<div class="form-group" form_type="forgotUserNameForm">
-							<label><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no" checked><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
-							<label><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no" checked><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
 						</div>
 
 						<!--電話 text-------->
@@ -224,8 +224,8 @@
 						</h4>
 
 						<div class="form-group" form_type="forgotUserNameForm">
-							<label><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
-							<label><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
 						</div>
 
 						<!-- Policy Number -->
@@ -363,8 +363,8 @@
 						</h4>
 
 						<div class="form-group" form_type="forgotPasswordForm">
-							<label><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no" checked><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
-							<label><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no" checked><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
 						</div>
 
 						<!-- 電話 inout -->
@@ -513,8 +513,8 @@
 						</h4>
 
 						<div class="form-group" form_type="forgotPasswordForm">
-							<label><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
-							<label><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
 						</div>
 
 						<!-- Dob input-->
@@ -770,7 +770,7 @@ function generate_common_validate_fields_member(form){
 		'Hkid': {
 			container: form + ' #errorEmptyHkid',
 			validators: {
-				callback: {
+				/*callback: {
 					enabled: false,
 					message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 					callback: function (value, validator) {
@@ -789,13 +789,13 @@ function generate_common_validate_fields_member(form){
 						}
 					}
 				},
-				notEmpty: {
-					message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
-				},
 				regexp: {
 					regexp: /^[a-zA-Z0-9\-]*$/,
 					message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
-				}
+				},*/
+				notEmpty: {
+					message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
+				},
 			}
 		}
 	};
@@ -873,7 +873,21 @@ function generate_validate(form,fields){
 					.formValidation('enableFieldValidators', 'Hkid', false, 'callback')
 					.formValidation('revalidateField', 'Hkid');
 			}
-		});
+		})
+        .on('err.validator.fv', function(e, data) {
+            // $(e.target)    --> The field element
+            // data.fv        --> The FormValidation instance
+            // data.field     --> The field name
+            // data.element   --> The field element
+            // data.validator --> The current validator name
+
+            data.element
+                .data('fv.messages')
+                // Hide all the messages
+                .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+                // Show only message associated with current validator
+                .filter('[data-fv-validator="' + data.validator + '"]').show();
+        });
 }
 function bootstrapvalidate(){
 //forgotUserNameForm_member
@@ -911,9 +925,6 @@ function bootstrapvalidate(){
 					}
 				}
 			},
-			notEmpty: {
-				message: getBundle(getBundleLanguage, "user.username.empty.message")
-			},
 			regexp: {
 				regexp: /^(([a-zA-Z0-9]+)|(([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-\_]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)))$/,
 				message: getBundle(getBundleLanguage, "user.username.notValid.message")
@@ -922,6 +933,9 @@ function bootstrapvalidate(){
 				max: 50,
 				min: 6,
 				message: getBundle(getBundleLanguage, "user.username.length.message")
+			},
+			notEmpty: {
+				message: getBundle(getBundleLanguage, "user.username.empty.message")
 			}
 		}
 	};
@@ -946,9 +960,6 @@ function bootstrapvalidate(){
 					}
 				}
 			},
-			notEmpty: {
-				message: getBundle(getBundleLanguage, "user.username.empty.message")
-			},
 			regexp: {
 				regexp: /^(([a-zA-Z0-9]+)|(([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-\_]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)))$/,
 				message: getBundle(getBundleLanguage, "user.username.notValid.message")
@@ -957,6 +968,9 @@ function bootstrapvalidate(){
 				max: 50,
 				min: 6,
 				message: getBundle(getBundleLanguage, "user.username.length.message")
+			},
+			notEmpty: {
+				message: getBundle(getBundleLanguage, "user.username.empty.message")
 			}
 		}
 	};
@@ -984,8 +998,14 @@ function bootstrapvalidate(){
 
        $(document).ready(function(){
     	   bootstrapvalidate();
+           $( "#fwd-login-desk" ).on( "click", function() {
+               $('#loginpopup #forcefna').val("false");
+           });     	   
+    	   $( "#fwd-login-mob" ).on( "click", function() {
+    		   $('#loginpopup #forcefna').val("false");
+    	   });    	   
 	   	   $('#loginpopup').on('hidden.bs.modal', function () {
-		   		console.log("fna-cnacel");
+		   		//console.log("fna-cnacel");
 		   		$('#loginpopup #fna-check').val("false");
 	   	   })
            $('html').keyup(function(e){
@@ -1061,9 +1081,10 @@ function bootstrapvalidate(){
 
            //--
            $('.login-btn').click(function(){
+        	   console.log("asdasd");
+
+        	   $(".js_form_in_login").hide();
                $('#loginform-pop').show();
-               $('#forgotUserNameForm').hide();
-               $('#forgotPasswordForm').hide();
 
 
                $("#mobileNo").removeClass("invalid-field");

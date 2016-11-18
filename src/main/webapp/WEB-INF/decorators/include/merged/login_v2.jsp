@@ -33,7 +33,7 @@
                     || session.getAttribute("username") == null) {
         %>
 
-        <li class="top-menu__navbar__item top-menu__navbar__item--login-btn dropdown margin-left1 " id="myDropdown">
+        <li class="top-menu__navbar__item top-menu__navbar__item--login-btn dropdown margin-left1 login-btn" id="myDropdown">
             <a href="#" data-toggle="modal" data-target="#loginpopup">
                 <fmt:message key="header.menu.login" bundle="${msg}" />
                 <i class="fa fa-caret-right"></i>

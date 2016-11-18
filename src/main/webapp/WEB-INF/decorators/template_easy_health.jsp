@@ -238,7 +238,25 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		<noscript>
 			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Savie_Survey&val=0.0&orderId=0&promoCode=Regis_Savie_Survey ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
 		</noscript>
+<script>
+	var context = "${pageContext.request.contextPath}";
+	var language = "${language}";
+	var affiliate = "${affiliate}";
+	var home_url = "<%=request.getContextPath()%>";
+	<%--For Savie online 2016 JS --%>
+	var getpath = "<%=request.getContextPath()%>";
+	<%--For Savie online 2016 JS END--%>
 
+	/*
+	 * Global Site Variables
+	 */
+	var Site = {
+		'context':'${pageContext.request.contextPath}',
+		'language': '${language}',
+		'affiliate': '${affiliate}',
+	};
+
+</script>
 <dec:head />
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 </head>

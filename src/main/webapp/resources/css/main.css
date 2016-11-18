@@ -10926,6 +10926,10 @@ body.chin .dot-font{
     margin-top: 10px;
     clear: both;
 }
+#loginpopup .login-form .form-group .login_is_fwdmember_label{
+	display:block;
+	margin-bottom: 10px;
+}
 #loginpopup .login-input {
     border: 1px solid #ebebeb;
     color:#9ba5a7 !important;
