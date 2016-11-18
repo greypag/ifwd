@@ -13,8 +13,8 @@ public class TngLinkupPayload {
 	private String payload;
 	@JsonProperty("appId")
 	private String appId;
-	@JsonProperty("extra")
-	private String extra;
+	@JsonProperty("extras")
+	private String extras;
 	@JsonProperty("sign")
 	private String sign;
 	@JsonProperty("merTradeNo")
@@ -40,11 +40,11 @@ public class TngLinkupPayload {
 	public void setAppId(String appId) {
 		this.appId = appId;
 	}
-	public String getExtra() {
-		return extra;
+	public String getExtras() {
+		return extras;
 	}
-	public void setExtra(String extra) {
-		this.extra = extra;
+	public void setExtras(String extras) {
+		this.extras = extras;
 	}
 	public String getSign() {
 		return sign;

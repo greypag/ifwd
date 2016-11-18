@@ -343,7 +343,7 @@ function LinkupClass() {
 				$('#merTradeNo').val(data.merTradeNo);
 				$('#payload').val(data.payload);
 				$('#paymentType').val(data.paymentType);
-				$('#extras').val(data.extra);
+				$('#extras').val(data.extras);
 				$('#transactionType').val(data.transactionType);
 				$('#sign').val(data.sign);
 				$("#linkupform").attr("action",response.geteWayUrl);
