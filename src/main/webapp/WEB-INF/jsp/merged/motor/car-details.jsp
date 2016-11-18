@@ -321,30 +321,10 @@ var nextPage = "${nextPageFlow}";
 
 var checkbox=true;
     //var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"driver":[{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false}');
-var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId": "26379363"}');
+var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId": "26336399"}');
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
-    /*$('input[name=bankMortgage]').bootstrapSwitch();
-    $('input[name=bankMortgage]').on('switchChange.bootstrapSwitch', function(event, state) {
-    	
-    	$(".switch-light").removeClass("orange");
-    	if(state==true)
-    	{	
-    		$(".sly").addClass("orange");
-    		$("#mortgageBank").attr("required", "true");
-    		$("#bankName").attr("required", "true");
-    		$('#carDetails').validator('update'); 
-    	}
-    	else
-    	{	
-    		$(".sln").addClass("orange");
-    		$("#mortgageBank").removeAttr("required");
-    		$("#bankName").removeAttr("required");
-    		$('#carDetails').validator('update'); 
-    	}
-    	checkbox = state;
-    });*/
     
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -418,10 +398,6 @@ $(document).ready(function(){
               var $quote = $("<input type='hidden' name='data' />");
               var newdata = {};
               newdata['FullCarDetails'] = submitData;
-              /*var pid = {"policyID":data.policyId};
-              $.extend( quote, pid );
-              JSON.stringify($.extend( newdata, quote ))
-              console.dir(newdata);*/
               $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
               console.dir(newdata);
               console.dir($.extend( newdata, quote ))

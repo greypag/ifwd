@@ -283,11 +283,12 @@ $(document).ready(function(){
 			$('.added-driver').eq(current).find('select').prop('required',true);
 			$('.added-driver').eq(current).find('input').prop('required',true);
 			$('.added-driver').eq(current).find('.selectize-input > input').prop('required',false);
-
+			$('.added-driver').eq(current).find('input').val(''); 	
             if(current > 0){
                 $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
             }
             current += 1;
+			
             if (current == totalDriver) {
                 $(this).addClass('hidden');
             }
@@ -305,19 +306,19 @@ $(document).ready(function(){
         $(this).parents('.added-driver').find('input:checkbox').removeAttr('checked');
         $(this).parents('.added-driver').find('option').removeAttr('selected');
 		//$occSelect[0].selectize.clear();
-if(current == 1)
-$motor_d2occupation[0].selectize.clear();
-if(current == 2)
-$motor_d3occupation[0].selectize.clear();
-if(current == 3)
-$motor_d4occupation[0].selectize.clear();
-if(current == 4)
-$motor_d5occupation[0].selectize.clear();
+		if(current == 1)
+		$motor_d2occupation[0].selectize.clear();
+		if(current == 2)
+		$motor_d3occupation[0].selectize.clear();
+		if(current == 3)
+		$motor_d4occupation[0].selectize.clear();
+		if(current == 4)
+		$motor_d5occupation[0].selectize.clear();
 		
         $(this).parents('.added-driver').addClass('hidden');
         $(this).parents('.added-driver').prev().find('.removeDriver').removeClass('hidden');
 		$('#policyDetails').validator('update'); 
-		$('#policyDetails').validator('validate');
+		//$('#policyDetails').validator('validate');
         if(current == totalDriver){
             $('#addDriver').removeClass('hidden');
         }

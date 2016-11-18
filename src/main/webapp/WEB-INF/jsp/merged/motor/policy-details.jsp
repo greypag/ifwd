@@ -101,7 +101,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="fullName" value="Driver" maxlength="100" class="form-control input--grey mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$" data-required-error='<fmt:message key="motor.error.msg.policy.fullname.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.policy.driver.name.format" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="fullName" value="" maxlength="100" class="form-control input--grey mdl-textfield__input" id="fullName" pattern="^[a-zA-Z\s]+$" data-required-error='<fmt:message key="motor.error.msg.policy.fullname.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.policy.driver.name.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label" for="fullName"><fmt:message key="motor.policydetails.driver.name" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -712,13 +712,14 @@ var nextPage = "${nextPageFlow}";
 //var quote = jQuery.parseJSON('{"FullDriversDetails":{"policyId":"26379363","policyStartDate":"17-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"會計","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"17-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"ChCHANCHANCHAN"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODEL Z"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26379363"}');
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 $(document).ready(function(){
-
+	
 	var term = $('#term');
 	var d2term = $('#d2term');
 	var d3term = $('#d3term');
 	var d4term = $('#d4term');
 	var d5term = $('#d5term');
-	
+
+	$("#fullName").attr("value",quote.FullDriversDetails.applicant.name);
 	
 	 var getUrlParameter = function getUrlParameter(sParam) {
 	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -813,8 +814,19 @@ $(document).ready(function(){
 			     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
 			     "previousPolicyNo": $('input[name=prev_policyNo]').val()	
 			 };
+		
+		
+		if($('input[name=d2name]').val()=="")
+			delete submitData.driver[1]
+		if($('input[name=d3name]').val()=="")
+			delete submitData.driver[2]
+		if($('input[name=d4name]').val()=="")
+			delete submitData.driver[3]
+		if($('input[name=d5name]').val()=="")
+			delete submitData.driver[4]
+		
 		console.dir(submitData);
-
+		submitData.driver = submitData.driver.filter(function(x){return x !== null});
 		$.ajax({
 			  beforeSend: function(){
 	          	$('#loading-overlay').modal("show");
@@ -825,9 +837,8 @@ $(document).ready(function(){
 	          contentType : "application/json",
 	          cache: false,
 	          async: false,
-			  url: "/api/iMotor/policy/saving/policyDetails",
+			  url: context + "/api/iMotor/policy/saving/policyDetails",
 			  success: function(data){
-				  alert("A");
 				  var $form = $("<form id='quote-form' />");
 	              if (isThird) {
 	                  $form.attr("action", "third-party-quote");
@@ -842,23 +853,10 @@ $(document).ready(function(){
 	              $form.append($quote);
 	              $("body").append($form);
 	              $('#quote-form').submit();
-				  
 			  },error: function(error) {
-					alert("Error");
-				  var $form = $("<form id='quote-form' />");
-	              if (isThird) {
-	                  $form.attr("action", "third-party-quote");
-	              } else {
-	                  $form.attr("action", "application-summary");
-	              }
-	              $form.attr("method", "post");
-	              var $quote = $("<input type='hidden' name='data' />");
-	              var newdata = {};
-		          newdata['FulPolicyDetails'] = submitData;
-		          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
-	              $form.append($quote);
-	              $("body").append($form);
-	              $('#quote-form').submit();
+				  alert("error");
+				  console.dir(error);
+	              return false;
 			  }
 			});
 		return false;
