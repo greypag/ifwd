@@ -10,7 +10,6 @@ import com.fwd.model.motor.MotorCareDeclaration;
 
 public class MotorCareDetails {
 	private long id;	
-	private QuoteDriver quoteDriver;
 	private String planCode;
 	private String compPlan;
 	private String grossPremium;
@@ -58,14 +57,6 @@ public class MotorCareDetails {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public QuoteDriver getQuoteDriver() {
-		return quoteDriver;
-	}
-	
-	public void setQuoteDriver(QuoteDriver quoteDriver) {
-		this.quoteDriver = quoteDriver;
-	}
-	
 	public String getPlanCode() {
 		return planCode;
 	}
