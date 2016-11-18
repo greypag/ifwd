@@ -2550,8 +2550,8 @@ var totalTraveller = ${planDetailsForm.totalPersonalTraveller};
 
 
 <script>
-	console.log(totalTraveller);
-	console.log(generate_insuredPersonCfgGrp(totalTraveller, insuredPersonCfg));
+	// console.log(totalTraveller);
+	// console.log(generate_insuredPersonCfgGrp(totalTraveller, insuredPersonCfg));
 	//console.log(validatorCfgSkeleton);
     $(document).ready(function() {
         $("#freeFlightForm").formValidation(validatorCfgSkeleton);

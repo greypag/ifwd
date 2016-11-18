@@ -1,4 +1,4 @@
-var validatorCfgSkeleton = {	
+var validatorCfgSkeleton = {
     "row": {
         "valid": "has-success",
         "invalid": "has-error"
@@ -54,7 +54,7 @@ var applicantCfg = {
                 "message": getBundle(getBundleLanguage, "applicant.email.notValid.message")
             }
         }
-    }		
+    }
 };
 var insuredPersonCfg = {
     "personalName": {
@@ -90,47 +90,46 @@ var insuredPersonCfg = {
         }
     }
 };
-function generate_insuredPersonCfgGrp(insuredPersonCount, insuredPersonCfg){
-	var insuredPersonCfgGrp;
-	for (i = 1; i <= insuredPersonCount; i++) {
-		var abc =i;
-		var KeyMap = {
-			personalName : "personalName"+i,
-			personalHKID : "personalHKID"+i,
-			personalAgeRange : "personalAgeRange"+i,
-			personalBeneficiary : "personalBeneficiary"+i
-		};
-		var valueMap = {
-			"#errtxtPersonalFullName" : "#errtxtPersonalFullName"+i,
-			"#errtxtInsuHkid" : "#errtxtInsuHkid"+i,
-			"#errselectAgeRange" : "#errselectAgeRange"+i,
-			"#errpersonalselectBenificiary" : "#errpersonalselectBenificiary"+i			
-		};
-		var newKeyMap = _.reduce(insuredPersonCfg, function(result, value, key) {
-			key = KeyMap[key] || key;
-			/*_.update(value, "container", function(){
-				return value.container+i;
-			});*/
-				var a = value;
-				_.reduce(a, function(result, value, key){
-					if(key=="container"){
-						console.log(key);
-						containerValue = valueMap[value] || value;
-						console.log(containerValue);
-						_.set(a, "container", containerValue);
-					}
-				}, {});
-				//console.log(result);
-		    result[key] = value;
-		    return result;
-		}, {});
-		
-		insuredPersonCfgGrp = _.merge(insuredPersonCfgGrp, newKeyMap);
-	}
-	//console.log(insuredPersonCfgGrp);
-	return insuredPersonCfgGrp;
-}
 
+function generate_insuredPersonCfgGrp(personCount, personCfg){
+	var personCfgGrp = {};
+    var newKeyMap = {};
+
+    var plugIdIntoKeyMap = function(index7, configs) {
+        var keysInConfigs = _.keys(configs);
+        var temp = {};
+
+        for (var i = 0; i < keysInConfigs.length; i++) {
+            temp[keysInConfigs[i]] = keysInConfigs[i] + index7;
+        }
+        return temp;
+    };
+    // {
+    // 	personalName : "personalName"+i,
+    // 	personalHKID : "personalHKID"+i,
+    // 	personalAgeRange : "personalAgeRange"+i,
+    // 	personalBeneficiary : "personalBeneficiary"+i
+    // };
+
+	for (i = 1; i <= personCount; i++) {
+
+		var keyMap = plugIdIntoKeyMap(i, personCfg);
+        newKeyMap = {};
+        _.each( personCfg, function(vv, ii) {
+            var sub = {};
+            var targetKey = 'container';
+
+            sub[targetKey] = vv[targetKey] + i;
+            _.each(vv, function(vvv, iii) {
+                if (iii !== targetKey) { sub[iii] = vv[iii]; }
+            });
+            newKeyMap[ keyMap[ii] ] = _.merge({}, sub);
+        });
+        personCfgGrp = _.merge(personCfgGrp, newKeyMap);
+	}
+
+	return personCfgGrp;
+}
 
 var declarationCfg  = {
 		"checkbox1": {
@@ -146,6 +145,6 @@ var declarationCfg  = {
                 }
             }
         }
-    }  
+    }
 };
 validatorCfgSkeleton.fields = $.extend(validatorCfgSkeleton.fields, applicantCfg, generate_insuredPersonCfgGrp(totalTraveller, insuredPersonCfg));
