@@ -102,8 +102,8 @@
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
                     "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
-                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 31 Jan 2017.",
-                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年01月31日或之前於本網站輸入相關的推廣編號以購買產品。"
+                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 28 Feb 2017.",
+                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年02月28日或之前於本網站輸入相關的推廣編號以購買產品。"
                 }, {
                     "en-US": "The Promotion Code is transferable but can be used once only.",
                     "zh-HK": "推廣編號可以轉讓，但只能使用一次。"
@@ -137,7 +137,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-10-31T15:00:00"
+                "timestamp": "2016-11-30T15:00:00"
             },
             "end": {
                 "action": {
@@ -148,7 +148,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-11-30T14:59:59"
+                "timestamp": "2016-12-31T14:59:59"
             },
             "img_alt": {
                 "en-US": "1-year Home Insurance Plan- FWD Insurance Offers",
@@ -222,8 +222,8 @@
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
                     "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
-                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 31 Jan 2017.",
-                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年01月31日或之前於本網站輸入相關的推廣編號以購買產品。"
+                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 28 Feb 2017.",
+                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年02月28日或之前於本網站輸入相關的推廣編號以購買產品。"
                 }, {
                     "en-US": "The Promotion Code is transferable but can be used once only.",
                     "zh-HK": "推廣編號可以轉讓，但只能使用一次。"
@@ -257,7 +257,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-10-31T15:00:00"
+                "timestamp": "2016-11-30T15:00:00"
             },
             "end": {
                 "action": {
@@ -268,7 +268,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-11-30T14:59:59"
+                "timestamp": "2016-12-31T14:59:59"
             },
             "img_alt": {
                 "en-US": "1-year Working Holiday Plan - FWD Insurance Offers",
@@ -342,8 +342,8 @@
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
                     "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
-                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 31 Jan 2017.",
-                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年01月31日或之前於本網站輸入相關的推廣編號以購買產品。"
+                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 28 Feb 2017.",
+                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年02月28日或之前於本網站輸入相關的推廣編號以購買產品。"
                 }, {
                     "en-US": "The Promotion Code is transferable but can be used once only.",
                     "zh-HK": "推廣編號可以轉讓，但只能使用一次。"
@@ -377,7 +377,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-10-31T15:00:00"
+                "timestamp": "2016-11-30T15:00:00"
             },
             "end": {
                 "action": {
@@ -388,7 +388,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-11-30T14:59:59"
+                "timestamp": "2016-12-31T14:59:59"
             }
         }, {
             "_id":  1,
@@ -461,8 +461,8 @@
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
                     "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
-                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 31 Jan 2017.",
-                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年01月31日或之前於本網站輸入相關的推廣編號以購買產品。"
+                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 28 Feb 2017.",
+                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年02月28日或之前於本網站輸入相關的推廣編號以購買產品。"
                 }, {
                     "en-US": "The Promotion Code is transferable but can be used once only.",
                     "zh-HK": "推廣編號可以轉讓，但只能使用一次。"
@@ -496,7 +496,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-10-31T15:00:00"
+                "timestamp": "2016-11-30T15:00:00"
             },
             "end": {
                 "action": {
@@ -507,7 +507,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-11-30T14:59:59"
+                "timestamp": "2016-12-31T14:59:59"
             },
             "img_alt": {
                 "en-US": "Annual Travel Plan - FWD Insurance Offers",
@@ -581,8 +581,8 @@
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
                     "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
-                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 31 Jan 2017.",
-                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年01月31日或之前於本網站輸入相關的推廣編號以購買產品。"
+                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 28 Feb 2017.",
+                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年02月28日或之前於本網站輸入相關的推廣編號以購買產品。"
                 }, {
                     "en-US": "The Promotion Code is transferable but can be used once only.",
                     "zh-HK": "推廣編號可以轉讓，但只能使用一次。"
@@ -616,7 +616,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-10-31T15:00:00"
+                "timestamp": "2016-11-30T15:00:00"
             },
             "end": {
                 "action": {
@@ -627,7 +627,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-11-30T14:59:59"
+                "timestamp": "2016-12-31T14:59:59"
             },
             "img_alt": {
                 "en-US": "14-day Single Trip Travel Plan - FWD Insurance Offers",
@@ -701,8 +701,8 @@
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
                     "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
-                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 31 Jan 2017.",
-                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年01月31日或之前於本網站輸入相關的推廣編號以購買產品。"
+                    "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 28 Feb 2017.",
+                    "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2017年02月28日或之前於本網站輸入相關的推廣編號以購買產品。"
                 }, {
                     "en-US": "The Promotion Code is transferable but can be used once only.",
                     "zh-HK": "推廣編號可以轉讓，但只能使用一次。"
@@ -736,7 +736,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-10-31T15:00:00"
+                "timestamp": "2016-11-30T15:00:00"
             },
             "end": {
                 "action": {
@@ -747,7 +747,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-11-30T14:59:59"
+                "timestamp": "2016-12-31T14:59:59"
             },
             "img_alt": {
                 "en-US": "4-day Single Trip Travel Plan - FWD Insurance Offers",
