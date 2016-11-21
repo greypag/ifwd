@@ -23,7 +23,7 @@ var applicantCfg = {
                 "message": getBundle(getBundleLanguage, "applicant.hkId.notNull.message")
             },
     		"isHkid": {
-    			"message": getBundle(getBundleLanguage, "applicant.hkId.notValid.message")	
+    			"message": getBundle(getBundleLanguage, "applicant.hkId.notValid.message")
     		}
         }
     },
@@ -95,7 +95,7 @@ var insuredPersonCfg = {
     }
 };
 
-function generate_insuredPersonCfgGrp(personCount, personCfg){
+function generate_insuredPersonCfgGrp(personCount, personCfg) {
 	var personCfgGrp = {};
     var newKeyMap = {};
 

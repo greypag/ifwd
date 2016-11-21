@@ -1,34 +1,41 @@
 /*
- * FWD Constant variables
+ * FWD Constant variables ( reminder : characters have been double escaped )
  */
  var fwdConstant = (function(){
 
 	var _regex_general = {
-		englishOnly : '^[a-zA-Z\Ss]*$',
-		chineseOnly : '^[\s\u4e00-\u9fa5]*%',
-		englishAndChinese : '^[a-zA-Z\s\u4e00-\u9eff]*$',
-		email: '^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$',
-		mobileNo: '^1[0-9]{10}$|^[5689][0-9]{7}$',
-		residentialTelNo: '[0-9]{10}$|^[235689][0-9]{7}$',
-		hkid : '^[a-zA-Z0-9\-]*$',
-		passport: '^[a-zA-Z0-9\-]{5-15}$',
-		address : '^[a-zA-Z0-9\s,-\/]*$',
-		password : '^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$',
-		mobileDevice: '/Andriod|webOS|iPhone|iPad|'
-	}
+        'text': {
+            'enOnly': '^[a-zA-Z\\Ss]*$'                  // englishOnly
+            , 'tcOnly': '^[\s\u4e00-\u9fa5]*%'          // chineseOnly
+            , 'enTcBoth': '^[a-zA-Z\s\u4e00-\u9eff]*$'  // englishAndChinese
+        }
+        , 'devices': {
+            'mob': '\/Andriod|webOS|iPhone|iPad|'        // mobileDevice
+        }
+	};
 
-	var _regex_general = {
-		username: '',
-		password: ''
-	}
-
-	var _regex = {
-		general : _regex_general,
-		user : _regex_user
-	}
+    var _regex_person = {
+        'email': "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$"
+        , 'hkTel': {
+            'mob': "^1[0-9]{10}$|^[5689][0-9]{7}$"      // mobileNo
+            , 'res': '[0-9]{10}$|^[235689][0-9]{7}$'    // residentialTelNo
+        }
+        , 'address': '^[a-zA-Z0-9\s,-\/]*$'             // address
+        , 'login': {
+            password: '^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$'
+            , username: ''
+        }
+        , 'ssn': {
+            'hkid': '^[a-zA-Z0-9\\-]*$'                  // hkid
+            , 'passport': '^[a-zA-Z0-9\\-]{5-15}$'       // passport
+        }
+    }
 
 	return {
-		regex = _regex
+		'regex': {
+    		'general' : _regex_general
+            , 'person' : _regex_person
+    	}
 	};
 
 })();

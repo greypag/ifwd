@@ -2539,35 +2539,47 @@ function createFlightFnc(form){
     }
     return flag;
 }
-
-var totalTraveller = ${planDetailsForm.totalPersonalTraveller};
 </script>
+
+<link href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validatorConfig/custom.formValidatorRule.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validatorConfig/base.config.js" charset="utf-8"></script>
-<link href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.min.js" charset="utf-8"></script>
 
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-constant.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/helpers.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.flightCare.config.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.custom-rule.config.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/init.js" charset="utf-8"></script>
 
 <script>
-	// console.log(totalTraveller);
-	// console.log(generate_insuredPersonCfgGrp(totalTraveller, insuredPersonCfg));
-	//console.log(validatorCfgSkeleton);
-    $(document).ready(function() {   	
-        $("#freeFlightForm").formValidation(validatorCfgSkeleton).on('err.validator.fv', function(e, data) {
-            // $(e.target)    --> The field element
-            // data.fv        --> The FormValidation instance
-            // data.field     --> The field name
-            // data.element   --> The field element
-            // data.validator --> The current validator name
+// JSP values "landing-place"
+fvConfig['travellerCounter'] = {
+    'familyPlan': {
+        'adult': ${planDetailsForm.totalAdultTraveller}
+        , 'child': ${planDetailsForm.totalChildTraveller}
+        , 'other': ${planDetailsForm.totalOtherTraveller}
+    }
+    , 'personalPlan': ${planDetailsForm.totalPersonalTraveller}
+};
 
+var flightCfg = initFVConfig(fvConfig).flightCare();
+
+$(document).ready(function() {
+    $("#freeFlightForm").formValidation(flightCfg)
+        .on('err.validator.fv', function(e, data) {
+            /**
+            *   $(e.target)    --> The field element
+            *   data.fv        --> The FormValidation instance
+            *   data.field     --> The field name
+            *   data.element   --> The field element
+            *   data.validator --> The current validator name
+            **/
             data.element
                 .data('fv.messages')
-                // Hide all the messages
-                .find('.help-block[data-fv-for="' + data.field + '"]').hide()
-                // Show only message associated with current validator
-                .filter('[data-fv-validator="' + data.validator + '"]').show();
-        });;
-    });
+                .find('.help-block[data-fv-for="' + data.field + '"]').hide()       // Hide all the messages
+                .filter('[data-fv-validator="' + data.validator + '"]').show();     // Show only message associated with current validator
+            });
+});
 </script>
