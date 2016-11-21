@@ -21,7 +21,10 @@ var applicantCfg = {
         "validators": {
             "notEmpty": {
                 "message": getBundle(getBundleLanguage, "applicant.hkId.notNull.message")
-            }
+            },
+    		"isHkid": {
+    			"message": getBundle(getBundleLanguage, "applicant.hkId.notValid.message")	
+    		}
         }
     },
     applicantDob: {
@@ -51,6 +54,7 @@ var applicantCfg = {
                 "message": getBundle(getBundleLanguage, "applicant.email.notNull.message")
             },
             "emailAddress": {
+            	"regexp": /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/,
                 "message": getBundle(getBundleLanguage, "applicant.email.notValid.message")
             }
         }

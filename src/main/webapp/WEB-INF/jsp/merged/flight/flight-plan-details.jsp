@@ -476,7 +476,8 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-					                    <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.trLeavingDate}" readonly>
+					                    <%--<input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.trLeavingDate}" readonly>--%>
+					                    <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob"  readonly>
 					                </div>
 					                <span id="dobInvalid" class="text-red"></span>
                                </div>
@@ -2420,7 +2421,6 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 <script>
 
 
-
 /* For Benefitiary Div active and Inactive */
 function activeDiv(id, selected, beneFullName, beneHkId) {
         var selectedValue = $('#' + selected).val();
@@ -2545,6 +2545,7 @@ var totalTraveller = ${planDetailsForm.totalPersonalTraveller};
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validatorConfig/custom.formValidatorRule.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validatorConfig/base.config.js" charset="utf-8"></script>
 <link href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" rel="stylesheet" type="text/css" />
 
@@ -2553,7 +2554,20 @@ var totalTraveller = ${planDetailsForm.totalPersonalTraveller};
 	// console.log(totalTraveller);
 	// console.log(generate_insuredPersonCfgGrp(totalTraveller, insuredPersonCfg));
 	//console.log(validatorCfgSkeleton);
-    $(document).ready(function() {
-        $("#freeFlightForm").formValidation(validatorCfgSkeleton);
+    $(document).ready(function() {   	
+        $("#freeFlightForm").formValidation(validatorCfgSkeleton).on('err.validator.fv', function(e, data) {
+            // $(e.target)    --> The field element
+            // data.fv        --> The FormValidation instance
+            // data.field     --> The field name
+            // data.element   --> The field element
+            // data.validator --> The current validator name
+
+            data.element
+                .data('fv.messages')
+                // Hide all the messages
+                .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+                // Show only message associated with current validator
+                .filter('[data-fv-validator="' + data.validator + '"]').show();
+        });;
     });
 </script>

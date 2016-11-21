@@ -572,6 +572,8 @@ $(function () {
 		endDate: dob_end_date
 		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
+		$("#freeFlightForm").val($("#input_dob").datepicker('getFormattedDate'));
+		$('#freeFlightForm').formValidation('revalidateField', "applicantDob");		
 		var selected = 2;
 		if(ev.date != undefined) {
 			if(ev.date.valueOf() < dob_end_date.valueOf() && ev.date.valueOf() > dob_70_date.valueOf()){
@@ -588,7 +590,7 @@ $(function () {
 		//$("#dobInvalid").html("");
 		//$("#input_dob").removeClass("invalid-field");
 	});
-	$('#input_dob').datepicker('setDate', dob_end_date);
+	//$('#input_dob').datepicker('setDate', dob_end_date);
 
 	$('#input_oversea_dob').datepicker({
 		startView: "decade",
