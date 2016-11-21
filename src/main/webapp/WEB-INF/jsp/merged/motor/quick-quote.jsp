@@ -566,7 +566,7 @@ $('#yourQuoteTitle').html('Third Party');
                     	console.log(data.policyId);
                         /*$('#quote-num').html(data.refNumber);
                         quote.policyId = data.policyId;*/
-                        var object1 = {"policyID": data.policyId,"refNumber":data.refNumber};
+                        var object1 = {"policyId": data.policyId,"refNumber":data.refNumber};
                         var $form = $("<form id='quote-form' />");
                         $form.attr("action", "car-details");
                         $form.attr("method", "post");

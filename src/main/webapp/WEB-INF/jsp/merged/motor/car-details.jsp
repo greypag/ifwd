@@ -368,7 +368,7 @@ $(document).ready(function(){
 				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
 				   "modelDesc": $('input[name=registedModel]').val()    	
 					}, 	
-					"policyId": quote.policyID
+					"policyId": quote.policyId
 					};
 	  
 		$.ajax({

@@ -766,7 +766,7 @@ $(document).ready(function(){
 		   driverMoreThanTwo = true;
 	   }
 	   var submitData = { 		
-			   "policyId": quote.policyID,		
+			   "policyId": quote.policyId,		
 			   "driver": [		
 			   {		
 			     "dateOfBirth": $('input[name=driverDob]').val(),		
@@ -841,12 +841,10 @@ $(document).ready(function(){
 			  url: context + "/api/iMotor/policy/saving/policyDetails",
 			  success: function(data){
 				  var $form = $("<form id='quote-form' />");
-				  $form.attr("action", "application-summary");
+				  //$form.attr("action", "application-summary");
+				  $form.attr("action", "declarations");
 	              $form.attr("method", "post");
 	              var $quote = $("<input type='hidden' name='data' />");
-	              /*var newdata = {};
-		          newdata['FulPolicyDetails'] = submitData;
-		          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));*/
 		          var opts = {};
 		          opts = $.extend(opts,quote, submitData);
 	              opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
@@ -856,7 +854,6 @@ $(document).ready(function(){
 	              $('#quote-form').submit();
 			  },error: function(error) {
 				  alert("error");
-				  console.dir(error);
 	              return false;
 			  }
 			});

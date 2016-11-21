@@ -517,26 +517,20 @@ var nextPage = "${nextPageFlow}";
     </div>
 </div>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
-<script>
+<script type="text/javascript">
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 $(document).ready(function(){
 	
 	$('#declaration').submit(function(event){
-	   var isThird;
-	   if (getUrlParameter('plan')=='third') {
-	 	  isThird = true;
-	   } else {
-	 	  isThird = false;
-	   }
-	   
-	   alert($('input[name=answer1]').val());
-	   
-	   var data = { 		
-			   "policyId": "26379363",		
+	  
+		var submitData = { 		
+			   "policyId": quote.policyId,		
 			   "motorCareDeclaration":[  		
 			      {  		
 			         "declarationAns":true,		
@@ -555,37 +549,33 @@ $(document).ready(function(){
 			   "psNoProvidePersonalData":$('input[name=psNoProvidePersonalData]').val(),		
 			   "psPICS":$('input[name=psPICS]').val()	
 	   			};
-		console.dir(data);
-		
+		console.dir(submitData);
+	
 		$.ajax({
 		  beforeSend: function(){
-          	$('#loading-overlay').modal("show");
+	          	$('#loading-overlay').modal("show");
           },
 		  type: "POST",
-		  data: JSON.stringify(data),
+		  data: JSON.stringify(submitData),
 		  dataType: "json",
           contentType : "application/json",
           cache: false,
           async: false,
-		  url: "/api/iMotor/policy/saving/declarations",
+		  url: context + "/api/iMotor/policy/saving/declarations",
 		  success: function(data){
-			  
-		  	 var $form = $("<form id='quote-form' />");
-             if (isThird) {
-                 $form.attr("action", "third-party-quote");
-             } else {
-                 $form.attr("action", "comprehensive-quote");
-             }
-             $form.attr("method", "post");
-             var $quote = $("<input type='hidden' name='data' />");
-             $quote.attr("value", JSON.stringify(quote));
-             $form.append($quote);
-             $("body").append($form);
-             $('#quote-form').submit();  
-			  
+			  var $form = $("<form id='quote-form' />");
+			  $form.attr("action", "application-summary");
+              $form.attr("method", "post");
+              var $quote = $("<input type='hidden' name='data' />");
+	          var opts = {};
+	          opts = $.extend(opts,quote, submitData);
+              $quote.attr("value", JSON.stringify(opts));
+              $form.append($quote);
+              $("body").append($form);
+              $('#quote-form').submit();         
 		  },error: function(error) {
 			  console.dir(error);
-				return false;
+			  return false;
 		  }
 		});
 		return false;

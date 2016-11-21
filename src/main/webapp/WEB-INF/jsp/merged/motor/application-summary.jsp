@@ -170,7 +170,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.getquote.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T2_Get_Quote_Page.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
+                        <span class="edit_quote"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -236,7 +236,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.cardetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T6_Sign_Up_Page1.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
+                        <span class="edit_cardetail"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -294,7 +294,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.applicantdetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T7_Sign_Up_Page2.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
+                        <span class="edit_driverdetail"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -366,7 +366,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.driverdetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T8_Sign_Up_Page3.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
+                        <span class="edit_driverdetail"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -547,7 +547,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.noclaimdis.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <a href="T8_Sign_Up_Page3.html"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></a>
+                        <span class="edit_noclaim"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -1110,7 +1110,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript">
 //var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyId":"26379363","driver":[{"dateOfBirth":"18-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"chan chan chan","occupation":"Account / Accountant","validAgeGroup":"true"}],"nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"122222222222222","expDateOfPreviousInsurance":"18-11-2016","previousPolicyNo":"p1123332323"},"FullDriversDetails":{"policyId":"26379363","policyStartDate":"18-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"ABERDEEN","estate":"ee","flat":"aaa","floor":"bbb","hkKlNt":"Hong Kong","streetName":null,"streetNo":null},"dateOfBirth":"18-11-1991","email":"kevin.chan@isobar.com","hkid":"z1231232","name":"chan chan chan"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODELZ"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26336399"}');
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
-window.onload = function(event) {
+/*window.onload = function(event) {
 	 event.stopPropagation(true);
 var getUrlParameter = function getUrlParameter(sParam) {
    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -1142,12 +1142,56 @@ if(getUrlParameter('paymentGatewayFlag') == "1")
        $('#quote-form').submit();         
    	
    }	
-};
+};*/
 
 var ApiPayment= new Array();
 var enablePayment=true;
 var clicked = false;
 $(document).ready(function(){
+	
+	$('.edit_quote').on('click',function(event){
+		var $form = $("<form id='quote-form' />");
+        $form.attr("action", "get-quote?plan=third");
+        $form.attr("method", "post");
+        var $quote = $("<input type='hidden' name='data' />");
+        $quote.attr("value", JSON.stringify(quote));
+        $form.append($quote);
+        $("body").append($form);
+        $('#quote-form').submit();  
+	});
+	
+	$('.edit_cardetail').on('click',function(event){
+		var $form = $("<form id='quote-form' />");
+        $form.attr("action", "car-details");
+        $form.attr("method", "post");
+        var $quote = $("<input type='hidden' name='data' />");
+        $quote.attr("value", JSON.stringify(quote));
+        $form.append($quote);
+        $("body").append($form);
+        $('#quote-form').submit();  
+	});
+	
+	$('.edit_driverdetail').on('click',function(event){
+		var $form = $("<form id='quote-form' />");
+        $form.attr("action", "policy-details");
+        $form.attr("method", "post");
+        var $quote = $("<input type='hidden' name='data' />");
+        $quote.attr("value", JSON.stringify(quote));
+        $form.append($quote);
+        $("body").append($form);
+        $('#quote-form').submit();  
+	});
+	
+	$('.edit_noclaim').on('click',function(event){
+		var $form = $("<form id='quote-form' />");
+        $form.attr("action", "policy-details");
+        $form.attr("method", "post");
+        var $quote = $("<input type='hidden' name='data' />");
+        $quote.attr("value", JSON.stringify(quote));
+        $form.append($quote);
+        $("body").append($form);
+        $('#quote-form').submit();  
+	});
 	
 	//quote
 	console.dir(quote);
@@ -1213,9 +1257,6 @@ $(document).ready(function(){
 	$(".previnsuranceexpirydate").html(quote.expDateOfPreviousInsurance);
 	$(".previouspolicyno").html(quote.previousPolicyNo);
 		
-	
-	
-        
 	//check payment
     $.ajax({
 		  type: "POST",
@@ -1307,11 +1348,10 @@ $(document).ready(function(){
     	switchPayment($(this));
    	});
 	$( "#button_confirm" ).on( "click", function(e) {
-    	confirmTravelPayment('no-claim', 'gateway', 'no-claim');
+    	confrimPayment('no-claim', 'gateway', 'no-claim');
    	});
 	
-	function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
-
+	function confrimPayment(form, gatewayUrlId, paymentFormId) {
     	var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
     	clicked = false;
     	console.log(enablePayment);
@@ -1319,30 +1359,9 @@ $(document).ready(function(){
 		if(payValid(selectedPaymentType) && enablePayment){
 			console.log("enablePayment");
     		enablePayment=false;
-	
-    		var gatewayUrlId = '#' + gatewayUrlId;
+	  		var gatewayUrlId = '#' + gatewayUrlId;
             var paymentFormId = '#' + paymentFormId;
-    		//var method = context + "/api/iMotor/confirmation";
     		payment(form, gatewayUrlId, paymentFormId);    		
-    		/*$.ajax({
-                type : "POST",
-                url : method,
-                data : $(paymentFormId).serialize(),
-                async : false,
-                success : function(data) {
-                	clicked = false;
-                    if (data == 'success') {
-                    	
-                    	payment(form, gatewayUrlId, paymentFormId);
-                    } else {
-                    	console.log(data);
-                    	$("#PaymentingDiv").hide();
-                        enablePayment=true;
-                        $('#paymentErrorPopup').modal('show');
-                        return false;
-                    }
-                }
-            });*/
 		}
     }
 	function payment(form, gatewayUrlId, paymentFormId){
@@ -1350,9 +1369,12 @@ $(document).ready(function(){
         clicked = false;
 		if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
 			var geteWayUrl = $(gatewayUrlId).val();
+			
 			 clicked = true;
 			$("#PaymentingDiv").show();
+			
 			setTimeout(function(){
+				console.dir($("#"+form).serialize());
         		$("#"+form).attr('action', geteWayUrl);
                 $("#"+form).submit();
             }, 3000);
