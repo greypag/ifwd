@@ -318,10 +318,10 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
-
 var checkbox=true;
-    //var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"driver":[{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false}');
-var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId": "26336399"}');
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+//var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"driver":[{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false}');
+//var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId": "26336399"}');
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
@@ -360,11 +360,6 @@ $(document).ready(function(){
 	$('#carDetails').submit(function(event){
 	
 	   var isThird;
-       if (getUrlParameter('plan')=='third') {
-    	  isThird = true;
-       } else {
-    	  isThird = false;
-       }
      
 	   var submitData = {"carDetail": {   	
 				   "bankMortgage": checkbox,	
@@ -373,7 +368,7 @@ $(document).ready(function(){
 				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
 				   "modelDesc": $('input[name=registedModel]').val()    	
 					}, 	
-					"policyId": "26379363"  	
+					"policyId": quote.policyID
 					};
 	  
 		$.ajax({
@@ -389,40 +384,19 @@ $(document).ready(function(){
           url:context + "/api/iMotor/policy/saving/carDetails",
 		  success: function(data){
 			  var $form = $("<form id='quote-form' />");
-              if (isThird) {
-                  $form.attr("action", "third-party-quote");
-              } else {
-                  $form.attr("action", "drivers-details");
-              }
+              $form.attr("action", "drivers-details");
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              var newdata = {};
-              newdata['FullCarDetails'] = submitData;
-              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
-              console.dir(newdata);
-              console.dir($.extend( newdata, quote ))
+              var opts = {};
+              opts = $.extend(opts,quote, submitData);
+              opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+              $quote.attr("value", JSON.stringify(opts));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit();             
 		  },error: function(error) {
 			  alert("Error");
-			  var $form = $("<form id='quote-form' />");
-              if (isThird) {
-                  $form.attr("action", "third-party-quote");
-              } else {
-                  $form.attr("action", "drivers-details");
-              }
-              $form.attr("method", "post");
-              var $quote = $("<input type='hidden' name='data' />");
-              var newdata = {};
-              newdata['FullCarDetails'] = data;
-              var pid = {
-            		  "policyID":data.policyId
-              };
-              $quote.attr("value", JSON.stringify($.extend( $.extend( newdata, pid ), quote )));
-              $form.append($quote);
-              $("body").append($form);
-              $('#quote-form').submit(); 
+			  return false;
 		  }
 		});
 		return false;

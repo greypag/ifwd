@@ -196,7 +196,7 @@ var nextPage = "${nextPageFlow}";
 	                        </div>
 	                    </div>
 	                    <div class="clearfix"></div>
-	                    <!--
+	                    
 	                    <form action="/api/iMotor/policy/declarations" method="post">
 	                        <div class="col-xs-12">
 	                            <div class="center" > 
@@ -253,7 +253,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	
 	                        </form>
-	                        -->
+	                        
 	                    </div>
 	                    <div class="col-xs-12">
 	                        <div class="row" >

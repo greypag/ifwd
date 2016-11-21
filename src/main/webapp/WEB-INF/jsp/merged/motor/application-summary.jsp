@@ -1108,8 +1108,8 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
 
 <script type="text/javascript">
-var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyId":"26379363","driver":[{"dateOfBirth":"18-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"chan chan chan","occupation":"Account / Accountant","validAgeGroup":"true"}],"nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"122222222222222","expDateOfPreviousInsurance":"18-11-2016","previousPolicyNo":"p1123332323"},"FullDriversDetails":{"policyId":"26379363","policyStartDate":"18-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"ABERDEEN","estate":"ee","flat":"aaa","floor":"bbb","hkKlNt":"Hong Kong","streetName":null,"streetNo":null},"dateOfBirth":"18-11-1991","email":"kevin.chan@isobar.com","hkid":"z1231232","name":"chan chan chan"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODELZ"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26336399"}');
-
+//var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyId":"26379363","driver":[{"dateOfBirth":"18-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"chan chan chan","occupation":"Account / Accountant","validAgeGroup":"true"}],"nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"122222222222222","expDateOfPreviousInsurance":"18-11-2016","previousPolicyNo":"p1123332323"},"FullDriversDetails":{"policyId":"26379363","policyStartDate":"18-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"ABERDEEN","estate":"ee","flat":"aaa","floor":"bbb","hkKlNt":"Hong Kong","streetName":null,"streetNo":null},"dateOfBirth":"18-11-1991","email":"kevin.chan@isobar.com","hkid":"z1231232","name":"chan chan chan"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODELZ"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26336399"}');
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 window.onload = function(event) {
 	 event.stopPropagation(true);
 var getUrlParameter = function getUrlParameter(sParam) {
@@ -1160,58 +1160,58 @@ $(document).ready(function(){
 	$(".cardiscount").html(quote.applicant.ncb+"%");
 	
 	//car details
-	$(".carchasis").html(quote.FullCarDetails.carDetail.chassisNumber);
-	$(".carcubic").html(quote.FullCarDetails.carDetail.engineCapacity);
-	$(".carmodeldocument").html(quote.FullCarDetails.carDetail.modelDesc);
-	$(".carbankmortgage").html(quote.FullCarDetails.carDetail.bankMortgageName);
-	$(".carotherbankmortgage").html(quote.FullCarDetails.carDetail.bankMortgageName);
+	$(".carchasis").html(quote.carDetail.chassisNumber);
+	$(".carcubic").html(quote.carDetail.engineCapacity);
+	$(".carmodeldocument").html(quote.carDetail.modelDesc);
+	$(".carbankmortgage").html(quote.carDetail.bankMortgageName);
+	$(".carotherbankmortgage").html(quote.carDetail.bankMortgageName);
 	
 	//applicant detail
-	$(".fullname").html(quote.FullDriversDetails.applicant.name);
-	$(".contactno").html(quote.FullDriversDetails.applicant.contactNo);
-	$(".birth").html(quote.FullDriversDetails.applicant.dateOfBirth);
-	$(".email").html(quote.FullDriversDetails.applicant.email);
-	$(".hkid").html(quote.FullDriversDetails.applicant.hkid);
-	$(".policystart").html(quote.FullDriversDetails.policyStartDate);
-	var address = quote.FullDriversDetails.applicant.correspondenceAddress.flat + ", " +
-				  quote.FullDriversDetails.applicant.correspondenceAddress.floor + ", " +
-				  quote.FullDriversDetails.applicant.correspondenceAddress.block + ", " +
-				  quote.FullDriversDetails.applicant.correspondenceAddress.building + ", " +
-				  quote.FullDriversDetails.applicant.correspondenceAddress.streetName + ", " +
-				  quote.FullDriversDetails.applicant.correspondenceAddress.streetNo + ", " +
-				  quote.FullDriversDetails.applicant.correspondenceAddress.district + ", " +
-				  quote.FullDriversDetails.applicant.correspondenceAddress.estate + " " +
-				  quote.FullDriversDetails.applicant.correspondenceAddress.hkKlNt;
+	$(".fullname").html(quote.applicant.name);
+	$(".contactno").html(quote.applicant.contactNo);
+	$(".birth").html(quote.applicant.dateOfBirth);
+	$(".email").html(quote.applicant.email);
+	$(".hkid").html(quote.applicant.hkid);
+	$(".policystart").html(quote.policyStartDate);
+	var address = quote.applicant.correspondenceAddress.flat + ", " +
+				  quote.applicant.correspondenceAddress.floor + ", " +
+				  quote.applicant.correspondenceAddress.block + ", " +
+				  quote.applicant.correspondenceAddress.building + ", " +
+				  quote.applicant.correspondenceAddress.streetName + ", " +
+				  quote.applicant.correspondenceAddress.streetNo + ", " +
+				  quote.applicant.correspondenceAddress.district + ", " +
+				  quote.applicant.correspondenceAddress.estate + " " +
+				  quote.applicant.correspondenceAddress.hkKlNt;
 	$(".address").html(address);
-	$(".policyend").html(quote.FullDriversDetails.applicant.modelDesc);
+	$(".policyend").html(quote.applicant.modelDesc);
 	
 	//drivers
-	$(".driver1fullname").html(quote.FulPolicyDetails.driver[0].name);
-	$(".driver1occupation").html(quote.FulPolicyDetails.driver[0].occupation);
-	$(".driver1birth").html(quote.FulPolicyDetails.driver[0].dateOfBirth);
-	$(".driver1hkid").html(quote.FulPolicyDetails.driver[0].hkid);
+	$(".driver1fullname").html(quote.driver[0].name);
+	$(".driver1occupation").html(quote.driver[0].occupation);
+	$(".driver1birth").html(quote.driver[0].dateOfBirth);
+	$(".driver1hkid").html(quote.driver[0].hkid);
 	
 	var cur_item = 1;
 	
-	$(quote.FulPolicyDetails.driver).each(function(i,item)
+	$(quote.driver).each(function(i,item)
 	{	
-		$(".driver"+(i+1)+"fullname").html(quote.FulPolicyDetails.driver[i].name);
-		$(".driver"+(i+1)+"occupation").html(quote.FulPolicyDetails.driver[i].occupation);
-		$(".driver"+(i+1)+"birth").html(quote.FulPolicyDetails.driver[i].dateOfBirth);
-		$(".driver"+(i+1)+"hkid").html(quote.FulPolicyDetails.driver[i].hkid);
+		$(".driver"+(i+1)+"fullname").html(quote.driver[i].name);
+		$(".driver"+(i+1)+"occupation").html(quote.driver[i].occupation);
+		$(".driver"+(i+1)+"birth").html(quote.driver[i].dateOfBirth);
+		$(".driver"+(i+1)+"hkid").html(quote.driver[i].hkid);
 		cur_item++;
 	});
 	
-	for(var i = quote.FulPolicyDetails.driver.length+1 ;i <6 ;i++)
+	for(var i = quote.driver.length+1 ;i <6 ;i++)
 	{
 		$("#driver"+i).hide();
 	}
 	
 	//no claim discount
-	$(".nameofprevinsurance").html(quote.FulPolicyDetails.nameOfPreviousInusrancer);
-	$(".regofdocument").html(quote.FulPolicyDetails.regNoofPreviousPolicy);
-	$(".previnsuranceexpirydate").html(quote.FulPolicyDetails.expDateOfPreviousInsurance);
-	$(".previouspolicyno").html(quote.FulPolicyDetails.previousPolicyNo);
+	$(".nameofprevinsurance").html(quote.nameOfPreviousInusrancer);
+	$(".regofdocument").html(quote.regNoofPreviousPolicy);
+	$(".previnsuranceexpirydate").html(quote.expDateOfPreviousInsurance);
+	$(".previouspolicyno").html(quote.previousPolicyNo);
 		
 	
 	
@@ -1287,7 +1287,6 @@ $(document).ready(function(){
 	    },
 	    success:function(response){
 	    	if(response){
-	    		
 	    		if(response.userName == '*DIRECTGI'){
 	    			$(".before-login").show();
 	    			return false;	

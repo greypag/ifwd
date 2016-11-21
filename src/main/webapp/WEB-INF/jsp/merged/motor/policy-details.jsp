@@ -719,7 +719,7 @@ $(document).ready(function(){
 	var d4term = $('#d4term');
 	var d5term = $('#d5term');
 
-	$("#fullName").attr("value",quote.FullDriversDetails.applicant.name);
+	$("#fullName").attr("value",quote.applicant.name);
 	
 	 var getUrlParameter = function getUrlParameter(sParam) {
 	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -766,7 +766,7 @@ $(document).ready(function(){
 		   driverMoreThanTwo = true;
 	   }
 	   var submitData = { 		
-			   "policyId": "26379363",		
+			   "policyId": quote.policyID,		
 			   "driver": [		
 			   {		
 			     "dateOfBirth": $('input[name=driverDob]').val(),		
@@ -826,6 +826,7 @@ $(document).ready(function(){
 			delete submitData.driver[4]
 		
 		console.dir(submitData);
+	
 		submitData.driver = submitData.driver.filter(function(x){return x !== null});
 		$.ajax({
 			  beforeSend: function(){
@@ -840,16 +841,16 @@ $(document).ready(function(){
 			  url: context + "/api/iMotor/policy/saving/policyDetails",
 			  success: function(data){
 				  var $form = $("<form id='quote-form' />");
-	              if (isThird) {
-	                  $form.attr("action", "third-party-quote");
-	              } else {
-	                  $form.attr("action", "application-summary");
-	              }
+				  $form.attr("action", "application-summary");
 	              $form.attr("method", "post");
 	              var $quote = $("<input type='hidden' name='data' />");
-	              var newdata = {};
+	              /*var newdata = {};
 		          newdata['FulPolicyDetails'] = submitData;
-		          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+		          $quote.attr("value", JSON.stringify($.extend( newdata, quote )));*/
+		          var opts = {};
+		          opts = $.extend(opts,quote, submitData);
+	              opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
+	              $quote.attr("value", JSON.stringify(opts));
 	              $form.append($quote);
 	              $("body").append($form);
 	              $('#quote-form').submit();

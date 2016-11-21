@@ -41,7 +41,7 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
     <!--/.container--> 
-    <form class="form-inline add-on">
+     <form id="form-inline" class="form-inline add-on" name="" method="post" data-toggle="validator" >
         <div class="container select-plan-main">
             <div id="testimonials">
                 <div class="row planbox-wrapper">
@@ -214,7 +214,8 @@ var nextPage = "${nextPageFlow}";
             <div class="row" >
                 <div class="text-center col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
                     <br />
-                    <a href="javascript:;" id="apply-link" data-toggle="modal" data-target="#contactpopup" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.apply" bundle="${motorMsg}" /></a>
+                    <!-- <a href="javascript:;" id="apply-link" data-toggle="modal" data-target="#contactpopup" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.apply" bundle="${motorMsg}" /></a>-->
+                    <button id="apply-link" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>
                     <br/>
                     <br/>
                 </div>
@@ -420,15 +421,12 @@ var nextPage = "${nextPageFlow}";
                             <div class=" col-xs-4 col-xs-offset-4 text-center">
                             <input type="hidden" name="reason" id="reason" />
 	                          <a href="javascript:;" id="submitEnquiry" class="bdr-curve btn btn-primary nxt-btn">
-                                <fmt:message key="motor.button.submit" bundle="${motorMsg}" />  
-                            </a>
+                                <fmt:message key="motor.button.submit" bundle="${motorMsg}" /></a>
+                            <br/>
 	                        <br/>
-	                        <br/>
                         </div>
                         </div>
                         </div>
-                        
-                   
                     </div>
                 </div>
             </form>
@@ -544,8 +542,12 @@ $('#yourQuoteTitle').html('Third Party');
         });
 
         $('#apply-link').on("click", function(){
-            quote.personalAccident = $('[name="addon1"]').is(':checked');
+            
+        });
+        $('#form-inline').submit(function(event){
+           	quote.personalAccident = $('[name="addon1"]').is(':checked');
             quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
+            
         	if ($('#quote-num').html().trim().length==0){
                 $.ajax({
                     url:  motorApi.quoteSaving,
@@ -559,12 +561,28 @@ $('#yourQuoteTitle').html('Third Party');
                         alert("Error");
                     },
                     success: function(data) {
-                        $('#quote-num').html(data.refNumber);
-                        quote.policyId = data.policyId;
+                    	console.dir(data);
+                    	console.log(data.refNumber);
+                    	console.log(data.policyId);
+                        /*$('#quote-num').html(data.refNumber);
+                        quote.policyId = data.policyId;*/
+                        var object1 = {"policyID": data.policyId,"refNumber":data.refNumber};
+                        var $form = $("<form id='quote-form' />");
+                        $form.attr("action", "car-details");
+                        $form.attr("method", "post");
+                        var $quote = $("<input type='hidden' name='data' />");
+                        $quote.attr("value", JSON.stringify($.extend( object1, quote )));
+                        $form.append($quote);
+                        $("body").append($form);
+                        $('#quote-form').submit();  
+                        return false;
                     }
+                 
                 });
+                
         	}
-        });    
+        	   return false;
+        });
     });
     
     function updateTotalDue(amt){

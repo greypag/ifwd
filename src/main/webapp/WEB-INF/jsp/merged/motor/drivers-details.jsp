@@ -474,8 +474,8 @@ $(document).ready(function(){
 	   } else {
 	   	  isThird = false;
 	   }		
-	   var submitData = { 		
-			   	"policyId": "26379363",		
+	   var submitData = {
+			    "policyId": quote.policyID,		
 			   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
 			  	"applicant": {		
 			  	"contactNo": $('input[name=mobileno]').val(),		
@@ -511,22 +511,22 @@ $(document).ready(function(){
 		  success: function(data){
 			  
 			  var $form = $("<form id='quote-form' />");
-              if (isThird) {
-                  $form.attr("action", "third-party-quote");
-              } else {
-                  $form.attr("action", "policy-details");
-              }
+              $form.attr("action", "policy-details");
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              var newdata = {};
+              /*var newdata = {};
               newdata['FullDriversDetails'] = submitData;
               $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+              */
+              var opts = {};
+              opts = $.extend(opts,quote, submitData);
+              $quote.attr("value", JSON.stringify(opts));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit();
               
 		  },error: function(error) {
-
+							
 			  var $form = $("<form id='quote-form' />");
               if (isThird) {
                   $form.attr("action", "third-party-quote");
@@ -535,9 +535,9 @@ $(document).ready(function(){
               }
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              var newdata = {};
-              newdata['FullDriversDetails'] = submitData;
-              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
+              var opts = {};
+              opts = $.extend(opts,quote, submitData);
+              $quote.attr("value", JSON.stringify(opts));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit();
