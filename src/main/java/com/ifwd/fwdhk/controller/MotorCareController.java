@@ -1,6 +1,7 @@
 package com.ifwd.fwdhk.controller;
 
-import static org.apache.commons.lang3.StringUtils.isEmpty;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.replace;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
@@ -51,8 +52,11 @@ import com.fwd.model.motor.CarDetail;
 import com.fwd.model.motor.MotorFile;
 import com.fwd.model.motor.MotorFileDetails;
 import com.fwd.model.payment.PayDollar;
+import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.OccupationBean;
+import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.motor.ContactMe;
 import com.ifwd.fwdhk.model.motor.MotorCareDetails;
 import com.ifwd.fwdhk.model.motor.MotorSaveForLater;
@@ -73,6 +77,259 @@ public class MotorCareController extends BaseController{
 	private HeaderUtil headerUtil;
 	@Autowired
 	private SendEmailDao sendEmail;
+	@Autowired 
+	private ECommWsConnector eCommConnector;
+	
+	@ApiOperation(
+			value = "This API is used to get district list",
+			response = CodeTable.class,
+			responseContainer = "List"
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 404, message = "System cannot find records"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = "/list/districts", method = GET)
+	public ResponseEntity<List<CodeTable>> getDistrict(HttpServletRequest request) {
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info("getDistrict Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		
+		List<CodeTable> apiResponse = new ArrayList<>();
+		JSONObject responseJsonObj = new JSONObject();
+		try {
+			// ******************* Valid input *******************
+								
+			// ******************* Form URL *******************
+			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "district");
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();				
+					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
+				} else {
+					logger.info("getDistrict record not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info("getDistrict System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}			
+			
+		} catch (Exception e) {
+			logger.info("getDistrict System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to get area list",
+			response = CodeTable.class,
+			responseContainer = "List"
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 404, message = "System cannot find records"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = "/list/areas", method = GET)
+	public ResponseEntity<List<CodeTable>> getArea(HttpServletRequest request) {
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info("getArea Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		
+		List<CodeTable> apiResponse = new ArrayList<>();
+		JSONObject responseJsonObj = new JSONObject();
+		try {
+			// ******************* Valid input *******************
+								
+			// ******************* Form URL *******************
+			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "area");
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();				
+					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
+				} else {
+					logger.info("getArea record not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info("getArea System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}			
+			
+		} catch (Exception e) {
+			logger.info("getArea System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to get insurers list",
+			response = CodeTable.class,
+			responseContainer = "List"
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 404, message = "System cannot find records"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = "/list/insurers", method = GET)
+	public ResponseEntity<List<CodeTable>> getInsurer(HttpServletRequest request) {
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info("getInsurer Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		
+		List<CodeTable> apiResponse = new ArrayList<>();
+		JSONObject responseJsonObj = new JSONObject();
+		try {
+			// ******************* Valid input *******************
+								
+			// ******************* Form URL *******************
+			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "previousInsurance");
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();				
+					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
+				} else {
+					logger.info("getInsurer record not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info("getInsurer System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}			
+			
+		} catch (Exception e) {
+			logger.info("getInsurer System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to get available list of Occupations (version 2)",
+			response = CodeTable.class,
+			responseContainer = "List"
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 404, message = "System cannot find records"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = "/list/occupations/v2", method = GET)
+	public ResponseEntity<List<CodeTable>> getOccupationsV2(HttpServletRequest request) {
+		String methodName = "getOccupationsV2";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info(methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		
+		List<CodeTable> apiResponse = new ArrayList<>();
+		JSONObject responseJsonObj = new JSONObject();
+		try {
+			// ******************* Valid input *******************
+								
+			// ******************* Form URL *******************
+			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "occupation");
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();				
+					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
+				} else {
+					logger.info(methodName + " record not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}			
+			
+		} catch (Exception e) {
+			logger.info(methodName + " System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}	
+	
+	@ApiOperation(
+			value = "This API is used to get available list of bank for mortgage",
+			response = CodeTable.class,
+			responseContainer = "List"
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 404, message = "System cannot find bank details"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = "/list/bankMortgages", method = GET)
+	public ResponseEntity<List<CodeTable>> getBankMortgages(HttpServletRequest request) {
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info("getBankMortgages Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		
+		List<CodeTable> apiResponse = new ArrayList<>();
+		JSONObject responseJsonObj = new JSONObject();
+		try {
+			// ******************* Valid input *******************
+								
+			// ******************* Form URL *******************
+			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "bank");
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			// ******************* Makeup result *******************			
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();				
+					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
+				} else {
+					logger.info("getBankMortgages record not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info("getBankMortgages System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);	
+			}			
+			
+		} catch (Exception e) {
+			logger.info("getBankMortgages System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
 	
 	@ApiOperation(
 			value = "This API is used to get available list of motor brands",
@@ -145,7 +402,7 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		if (isEmpty(makeCode)) {
+		if (isBlank(makeCode)) {
 			return Responses.badRequest(null);
 		}
 		
@@ -180,58 +437,65 @@ public class MotorCareController extends BaseController{
 		}
 		return Responses.ok(apiResponse);
 	}	
-		
+	
 	@ApiOperation(
-			value = "This API is used to get available list of Occupations",
-			response = OccupationBean.class,
-			responseContainer = "List"
+			value = "This API is used to supplement car details by make and model",
+			response = CarDetail.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 404, message = "System cannot find the list of Occupations"),
+			@ApiResponse(code = 400, message = "Invalid car info"),
+			@ApiResponse(code = 404, message = "System cannot find the car supplement details"),
 			@ApiResponse(code = 500, message = "System error")
 			})
-	@RequestMapping(value = "/list/occupations", method = GET)
-	public ResponseEntity<List<OccupationBean>> getOccupations(HttpServletRequest request) {
+	@RequestMapping(value = "/carDetails/{makeCode}/supplement", method = GET)							  
+	public ResponseEntity<CarDetail> getCarSupplementDetailsByMakeAndModel(
+			@ApiParam(value = "Car Make by", required = true) @PathVariable ("makeCode") String makeCode,
+			@ApiParam(value = "Car Model", required = true) @RequestParam ("carModel") String carModel,	
+			HttpServletRequest request) {
 		
 		try {
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
-			logger.info("getOccupations Autherticate error: " + e.toString() );
+			logger.info("getCarSupplementDetailsByMakeAndModel Autherticate error: " + e.toString() );
 			return Responses.error(null);	
-		}
+		}	
 		// ******************* Valid input *******************
+		if (isBlank(makeCode) || isBlank(carModel)) {
+			return Responses.badRequest(null);
+		}
 		
 		// ******************* Init *******************
-		List<OccupationBean> apiResponse = new ArrayList<OccupationBean>();
-//		JSONObject responseJsonObj = new JSONObject();		
-//		try {
-//			
-//			// ******************* Form URL *******************
-//			String url = UserRestURIConstants.MOTOR_CARE_OCCUPATIONS_GET;
-//			
-//			// ******************* Consume Service *******************
-//			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
-//			
-//			// ******************* Makeup result *******************
-//			if (responseJsonObj.get("errMsgs") == null) {
-//				if(responseJsonObj.get("occupationBean") != null && responseJsonObj.get("occupationBean").toString().length() > 0) {
-//					ObjectMapper mapper = new ObjectMapper();				
-//					apiResponse = mapper.readValue(responseJsonObj.get("occupationBean").toString(), mapper.getTypeFactory().constructCollectionType(List.class, OccupationBean.class));
-//				} else {
-//					return Responses.notFound(null);
-//				}
-//				
-//			} else {
-//				// add error handle
-//			}
-//			
-//		} catch (Exception e) {
-//			throw new RuntimeException("System error");
-//		}
-		
-		apiResponse = motorCareValidationService.getMotorOccupationList();//TODO Quick solution, need to replace when eBao side ready
+		CarDetail apiResponse = new CarDetail();
+		JSONObject responseJsonObj = new JSONObject();
+		try {		
+			// ******************* Form URL *******************
+			String encodedMake = urlEncodeInputSpace(makeCode);
+			String encodedCarModel = urlEncodeInputSpace(carModel);			
+			String url = UserRestURIConstants.MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET + "?makeCode=" + encodedMake + "&carModel=" + encodedCarModel;
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("carDetail") != null && responseJsonObj.get("carDetail").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();					
+					apiResponse = mapper.readValue(responseJsonObj.get("carDetail").toString(), CarDetail.class);
+				} else {
+					logger.info("getCarSupplementDetailsByMakeAndModel carDetail not found");
+					return Responses.notFound(null);
+				}
+				
+			} else {
+				logger.info("getCarSupplementDetailsByMakeAndModel System error:" + responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);		
+			}
+		} catch (Exception e) {
+			logger.info("getCarSupplementDetailsByMakeAndModel System error:" + e.toString());
+			return Responses.error(null);	
+		}
 		return Responses.ok(apiResponse);
-	}	
+	}
 		
 	@ApiOperation(
 			value = "This API is used to register email to get promo code",
@@ -258,7 +522,12 @@ public class MotorCareController extends BaseController{
 		try {			
 			Map<String, String> apiResponse = new HashMap<>();
 			boolean result = sendEmail.sendEmail(email, "MOTORSMART", new HashMap<String, String>(headerUtil.getHeader(request)));
-			apiResponse.put("result", result ? "OK" : "FAIL");
+			if (result) {
+				apiResponse.put("result", result ? "OK" : "FAIL");
+			} else {
+				return Responses.badRequest(null);
+			}
+			
 			return Responses.ok(apiResponse);
 			
 		} catch (Exception e) {			
@@ -358,7 +627,7 @@ public class MotorCareController extends BaseController{
 	@RequestMapping(value = "/quote/saving", method = POST) 
 	public ResponseEntity<MotorCareDetails> saveQuote( 
 			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody MotorCareDetails quoteMotor,
-			@ApiParam(value = "Indicator for edit from Summary page") @RequestParam(value = "edit", required = false ) String edit,
+			@ApiParam(value = "Indicator for edit from Summary page / Resume Save4 Later") @RequestParam(value = "edit", required = false ) String edit,
 			HttpServletRequest request) {
 		
 		try {
@@ -393,7 +662,7 @@ public class MotorCareController extends BaseController{
 		
 		try {
 			// ******************* Form URL and Object *******************			
-			String url = UserRestURIConstants.MOTOR_CARE_SAVE_QUOTE_POST + (!isEmpty(edit) ?  "?edit=" + edit : "");			
+			String url = UserRestURIConstants.MOTOR_CARE_SAVE_QUOTE_POST + (!isBlank(edit) ?  "?edit=" + edit : "");			
 			
 			String jsonString = new ObjectMapper().writeValueAsString(quoteMotor);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
@@ -422,65 +691,6 @@ public class MotorCareController extends BaseController{
 		}
 		return Responses.ok(apiResponse);
 	}	
-	
-	/******** Policy related ********/
-	@ApiOperation(
-			value = "This API is used to get policy details",
-			response = MotorCareDetails.class,
-			hidden = true
-			)
-	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Policy info"),
-			@ApiResponse(code = 404, message = "System cannot find the record"),
-			@ApiResponse(code = 500, message = "System error")
-			})
-	@RequestMapping(value = {"/policy/{policyId}"}, method = GET)
-	public ResponseEntity<MotorCareDetails> getPolicy(
-			@ApiParam(value = "Policy ID", required = true) @PathVariable ("policyId") String policyId,	
-			HttpServletRequest request) {
-		
-		try {
-			super.IsAuthenticate(request);
-		} catch (RuntimeException e) {
-			logger.info("getPolicy Autherticate error: " + e.toString() );
-			return Responses.error(null);	
-		}
-		
-		// ******************* Valid input *******************
-		if (isEmpty(policyId)) {
-			return Responses.badRequest(null);
-		}
-		
-		// to be added for full
-		// Check user login or not, logged in user only for get policy
-		
-		
-		// ******************* Init *******************
-		MotorCareDetails apiResponse = new MotorCareDetails();
-		
-		// Dummy for vendor testing, remove it when function is ready 
-		if (StringUtils.equals(policyId, "-99999999")) {
-			// Normal
-			apiResponse.setPolicyId("-99999999");
-		} else if (StringUtils.equals(policyId, "-11111111")) {			
-			// 404
-			return Responses.notFound(null);
-		} else if (StringUtils.equals(policyId, "-22222222")) {			
-			// 400
-			return Responses.badRequest(null);
-		} else {
-			// 500
-			return Responses.error(null);
-		}
-		
-		try {
-			// To-be-updated for FULL and delete this comment when completed the coding
-		} catch (Exception e) {
-			logger.info("getPolicy System error:" + e.toString());
-			return Responses.error(null);		
-		}
-		return Responses.ok(apiResponse);
-	}
 		
 	@ApiOperation(
 			value = "This API is used to perform MotorCare application (Step 1 - Car Details) and return id for further actions",
@@ -733,7 +943,8 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),
 			@ApiResponse(code = 410, message = "System cannot process Referral Case"),
-			@ApiResponse(code = 411, message = "There is a payment is working in process"),	
+			@ApiResponse(code = 411, message = "There is a payment is working in process"),
+			@ApiResponse(code = 412, message = "System asked for login"),	
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/payment"}, method = POST)
@@ -749,15 +960,17 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		
-		
+//		if (!isUserLogin(request)) {
+//			return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(412));
+//		}			
+
 		// ******************* Init *******************
 		PayDollar apiResponse = new PayDollar();
 		JSONObject responseJsonObj = new JSONObject();		
 			
 		try {
 			// ******************* Form URL and Object *******************
-			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_POST + (!isEmpty(paymentGatewayFlag) ?  "?paymentGatewayFlag=" + paymentGatewayFlag : "");						
+			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_POST + (!isBlank(paymentGatewayFlag) ?  "?paymentGatewayFlag=" + paymentGatewayFlag : "");						
 			String jsonString = new ObjectMapper().writeValueAsString(body);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			UserRestURIConstants urc = new UserRestURIConstants();
@@ -822,6 +1035,7 @@ public class MotorCareController extends BaseController{
 	@ApiResponses(value = {			
 			@ApiResponse(code = 400, message = "Invalid Input"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),	
+			@ApiResponse(code = 411, message = "System asked for login"),
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/payment/summary"}, method = POST)
@@ -838,7 +1052,10 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-				
+//		if (!isUserLogin(request)) {
+//			return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(411));
+//		}		
+		
 		// ******************* Init *******************
 		MotorCareDetails apiResponse = new MotorCareDetails();
 		JSONObject responseJsonObj = new JSONObject();		
@@ -880,38 +1097,6 @@ public class MotorCareController extends BaseController{
 		}
 		return Responses.ok(apiResponse);
 	}
-		
-	@Deprecated
-	@ApiOperation(
-			value = "This API is used to finalize(Confirm) MotorCare application after payment",
-			response = String.class,
-			hidden = true
-			)
-	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid policy info"),
-			@ApiResponse(code = 500, message = "System error")
-			})
-	@RequestMapping(value = {"/policy/saving/confirmation"}, method = POST)
-	public ResponseEntity<String> confirmPolicy(
-			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody MotorCareDetails body,
-			HttpServletRequest request) {
-		
-		try {
-			super.IsAuthenticate(request);
-		} catch (RuntimeException e) {
-			logger.info("confirmPolicy Autherticate error: " + e.toString() );
-			return Responses.error(null);	
-		}
-		
-		try {
-			String apiResponse = new String();
-			return Responses.ok(apiResponse);
-			
-		} catch (Exception e) {
-			logger.info("confirmPolicy System error:" + e.toString());
-			return Responses.error(null);			
-		}
-	}
 	
 	@ApiOperation(
 			value = "This API is used to resume previous session for Save for later of policy",
@@ -935,8 +1120,10 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		
-		// ******************* Valid input *******************
-		// Check Login 411 
+		// ******************* Valid input *******************		
+		if (!isUserLogin(request)) {
+			return new ResponseEntity<MotorSaveForLater>((MotorSaveForLater)null, HttpStatus.valueOf(411));
+		}			
 		
 		// ******************* Init *******************
 		MotorSaveForLater apiResponse = new MotorSaveForLater();	
@@ -944,10 +1131,12 @@ public class MotorCareController extends BaseController{
 		
 		try {
 			// ******************* Form URL and Object *******************
+			saveForLater.setUserName(getUserName(request));
+			
 			String url = UserRestURIConstants.MOTOR_CARE_SAVE_FOR_LATER_RESUME_POST;						
 			String jsonString = new ObjectMapper().writeValueAsString(saveForLater);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
-			
+						
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			
@@ -967,6 +1156,80 @@ public class MotorCareController extends BaseController{
 			
 		} catch (Exception e) {
 			logger.info("resumeSaveForLater System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to perform Save for Later (Quote)",
+			response = String.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),			
+			@ApiResponse(code = 411, message = "System asked for login"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/quote/save4Later"}, method = POST)
+	public ResponseEntity<Map<String, String>> save4LaterQuote(
+			@ApiParam(value = "MotorCareDetails", required = true) @RequestBody MotorCareDetails body,
+			HttpServletRequest request) {
+		
+		String methodName = "save4LaterQuote";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info(methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		// ******************* Valid input *******************
+		if (!isUserLogin(request)) {
+			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
+		}			
+				
+		// ******************* Init *******************
+		Map<String, String> apiResponse = new HashMap<>();	
+		JSONObject responseJsonObj = new JSONObject();		
+		
+		try {
+			// ******************* Form URL and Object *******************		
+			String url = UserRestURIConstants.MOTOR_CARE_SAVE_FOR_LATER_QUOTE_POST;
+			
+			// Set UID and current URL
+			MotorSaveForLater save4LaterRequest = new MotorSaveForLater();
+			save4LaterRequest.setLang(UserRestURIConstants.getLanaguage(request));
+			save4LaterRequest.setUri("rider-options");
+			save4LaterRequest.setUserName(getUserName(request));
+			save4LaterRequest.setMotorCareDetails(body);
+			
+			String jsonString = new ObjectMapper().writeValueAsString(save4LaterRequest);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName + " jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(responseJsonObj.get("motorSaveForLater") != null && responseJsonObj.get("motorSaveForLater").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
+					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+					sendEmailByType(request, "SAVE4LATER");
+				} else {
+					logger.info(methodName + " motorSaveForLater not found");
+					return Responses.notFound(null);
+				}				
+			} else {
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
+		
+		} catch (Exception e) {
+			logger.info(methodName + " System error:" + e.toString());
 			return Responses.error(null);			
 		}
 		return Responses.ok(apiResponse);
@@ -996,9 +1259,9 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		if (isEmpty(getUserName(request))) {
+		if (!isUserLogin(request)) {
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
-		}
+		}			
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1029,6 +1292,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+					sendEmailByType(request, "SAVE4LATER");
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1068,9 +1332,9 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		if (isEmpty(getUserName(request))) {
+		if (!isUserLogin(request)) {
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
-		}
+		}	
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1083,7 +1347,7 @@ public class MotorCareController extends BaseController{
 			// Set UID and current URL
 			MotorSaveForLater save4LaterRequest = new MotorSaveForLater();
 			save4LaterRequest.setLang(UserRestURIConstants.getLanaguage(request));
-			save4LaterRequest.setUri("car-details");
+			save4LaterRequest.setUri("drivers-details");
 			save4LaterRequest.setUserName(getUserName(request));
 			save4LaterRequest.setMotorCareDetails(body);
 			
@@ -1101,6 +1365,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+					sendEmailByType(request, "SAVE4LATER");
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1140,9 +1405,9 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		if (isEmpty(getUserName(request))) {
+		if (!isUserLogin(request)) {
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
-		}
+		}	
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1155,7 +1420,7 @@ public class MotorCareController extends BaseController{
 			// Set UID and current URL
 			MotorSaveForLater save4LaterRequest = new MotorSaveForLater();
 			save4LaterRequest.setLang(UserRestURIConstants.getLanaguage(request));
-			save4LaterRequest.setUri("car-details");
+			save4LaterRequest.setUri("policy-details");
 			save4LaterRequest.setUserName(getUserName(request));
 			save4LaterRequest.setMotorCareDetails(body);
 			
@@ -1173,6 +1438,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+					sendEmailByType(request, "SAVE4LATER");
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1212,9 +1478,9 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);	
 		}
 		// ******************* Valid input *******************
-		if (isEmpty(getUserName(request))) {
+		if (!isUserLogin(request)) {
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
-		}
+		}	
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1227,7 +1493,7 @@ public class MotorCareController extends BaseController{
 			// Set UID and current URL
 			MotorSaveForLater save4LaterRequest = new MotorSaveForLater();
 			save4LaterRequest.setLang(UserRestURIConstants.getLanaguage(request));
-			save4LaterRequest.setUri("car-details");
+			save4LaterRequest.setUri("declarations");
 			save4LaterRequest.setUserName(getUserName(request));
 			save4LaterRequest.setMotorCareDetails(body);
 			
@@ -1245,6 +1511,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
+					sendEmailByType(request, "SAVE4LATER");
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1267,17 +1534,22 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 400, message = "Invalid file(s)"),
+			@ApiResponse(code = 411, message = "System asked for login"),
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/fileUpload"}, method = POST)
 	public ResponseEntity<Map<String, String>> uploadFile4Policy(MultipartHttpServletRequest request) {
 		
 		try {
-			//super.IsAuthenticate(request);
+			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("uploadFile4Policy Autherticate error: " + e.toString() );
 			return Responses.error(null);	
 		}
+		
+//		if (!isUserLogin(request)) {
+//			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
+//		}	
 		
 		try {
 			// ******************* Init *******************
@@ -1307,12 +1579,10 @@ public class MotorCareController extends BaseController{
 					 mf.setFileType(docType);
 					 //mf.setPolicyID("26306531");
 					 mf.setPolicyID(policyId);
-					 fileDetailList.add(mf);
-					 
-					
+					 fileDetailList.add(mf);					 
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					logger.info("uploadFile4Policy IOException:" + e.toString());
+					return Responses.error(null);			
 				}
 			}
 			motorFileDetails.setMotorFileList(fileDetailList);
@@ -1332,56 +1602,6 @@ public class MotorCareController extends BaseController{
 		}
 	}	
 		
-	@ApiOperation(
-			value = "This API is used to get available list of bank for mortgage",
-			response = CodeTable.class,
-			responseContainer = "List"
-			)
-	@ApiResponses(value = {			
-			@ApiResponse(code = 404, message = "System cannot find bank details"),
-			@ApiResponse(code = 500, message = "System error")
-			})
-	@RequestMapping(value = "/list/bankMortgages", method = GET)
-	public ResponseEntity<List<CodeTable>> getBankMortgages(HttpServletRequest request) {
-		
-		try {
-			super.IsAuthenticate(request);
-		} catch (RuntimeException e) {
-			logger.info("getBankMortgages Autherticate error: " + e.toString() );
-			return Responses.error(null);	
-		}
-		
-		List<CodeTable> apiResponse = new ArrayList<>();
-		JSONObject responseJsonObj = new JSONObject();
-		try {
-			// ******************* Valid input *******************
-								
-			// ******************* Form URL *******************
-			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "bank");
-			
-			// ******************* Consume Service *******************
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
-			// ******************* Makeup result *******************			
-			if (responseJsonObj.get("errMsgs") == null) {
-				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
-					ObjectMapper mapper = new ObjectMapper();				
-					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
-				} else {
-					logger.info("getBankMortgages record not found");
-					return Responses.notFound(null);
-				}				
-			} else {
-				logger.info("getBankMortgages System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
-			}			
-			
-		} catch (Exception e) {
-			logger.info("getBankMortgages System error:" + e.toString());
-			return Responses.error(null);			
-		}
-		return Responses.ok(apiResponse);
-	}
-	
 	@ApiOperation(
 			value = "This API is for contact me panel",
 			response = String.class			
@@ -1422,65 +1642,60 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);			
 		}		
 	}
-		
+	
+	@Deprecated
 	@ApiOperation(
-			value = "This API is used to supplement car details by make and model",
-			response = CarDetail.class			
+			value = "This API is used to get available list of Occupations",
+			response = OccupationBean.class,
+			hidden = true,
+			responseContainer = "List"
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid car info"),
-			@ApiResponse(code = 404, message = "System cannot find the car supplement details"),
+			@ApiResponse(code = 404, message = "System cannot find the list of Occupations"),
 			@ApiResponse(code = 500, message = "System error")
 			})
-	@RequestMapping(value = "/carDetails/{makeCode}/supplement", method = GET)							  
-	public ResponseEntity<CarDetail> getCarSupplementDetailsByMakeAndModel(
-			@ApiParam(value = "Car Make by", required = true) @PathVariable ("makeCode") String makeCode,
-			@ApiParam(value = "Car Model", required = true) @RequestParam ("carModel") String carModel,	
-			HttpServletRequest request) {
+	@RequestMapping(value = "/list/occupations", method = GET)
+	public ResponseEntity<List<OccupationBean>> getOccupations(HttpServletRequest request) {
 		
 		try {
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
-			logger.info("getCarSupplementDetailsByMakeAndModel Autherticate error: " + e.toString() );
+			logger.info("getOccupations Autherticate error: " + e.toString() );
 			return Responses.error(null);	
-		}	
-		// ******************* Valid input *******************
-		if (isEmpty(makeCode) || isEmpty(carModel)) {
-			return Responses.badRequest(null);
 		}
+		// ******************* Valid input *******************
 		
 		// ******************* Init *******************
-		CarDetail apiResponse = new CarDetail();
-		JSONObject responseJsonObj = new JSONObject();
-		try {		
-			// ******************* Form URL *******************
-			String encodedMake = urlEncodeInputSpace(makeCode);
-			String encodedCarModel = urlEncodeInputSpace(carModel);			
-			String url = UserRestURIConstants.MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET + "?makeCode=" + encodedMake + "&carModel=" + encodedCarModel;
-			
-			// ******************* Consume Service *******************
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
-			
-			// ******************* Makeup result *******************
-			if (responseJsonObj.get("errMsgs") == null) {
-				if(responseJsonObj.get("carDetail") != null && responseJsonObj.get("carDetail").toString().length() > 0) {
-					ObjectMapper mapper = new ObjectMapper();					
-					apiResponse = mapper.readValue(responseJsonObj.get("carDetail").toString(), CarDetail.class);
-				} else {
-					logger.info("getCarSupplementDetailsByMakeAndModel carDetail not found");
-					return Responses.notFound(null);
-				}
-				
-			} else {
-				logger.info("getCarSupplementDetailsByMakeAndModel System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);		
-			}
-		} catch (Exception e) {
-			logger.info("getCarSupplementDetailsByMakeAndModel System error:" + e.toString());
-			return Responses.error(null);	
-		}
+		List<OccupationBean> apiResponse = new ArrayList<OccupationBean>();
+//		JSONObject responseJsonObj = new JSONObject();		
+//		try {
+//			
+//			// ******************* Form URL *******************
+//			String url = UserRestURIConstants.MOTOR_CARE_OCCUPATIONS_GET;
+//			
+//			// ******************* Consume Service *******************
+//			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+//			
+//			// ******************* Makeup result *******************
+//			if (responseJsonObj.get("errMsgs") == null) {
+//				if(responseJsonObj.get("occupationBean") != null && responseJsonObj.get("occupationBean").toString().length() > 0) {
+//					ObjectMapper mapper = new ObjectMapper();				
+//					apiResponse = mapper.readValue(responseJsonObj.get("occupationBean").toString(), mapper.getTypeFactory().constructCollectionType(List.class, OccupationBean.class));
+//				} else {
+//					return Responses.notFound(null);
+//				}
+//				
+//			} else {
+//				// add error handle
+//			}
+//			
+//		} catch (Exception e) {
+//			throw new RuntimeException("System error");
+//		}
+		
+		apiResponse = motorCareValidationService.getMotorOccupationList();//TODO Quick solution, need to replace when eBao side ready
 		return Responses.ok(apiResponse);
-	}
+	}	
 	
 	@Deprecated
 	@ApiOperation(
@@ -1565,218 +1780,114 @@ public class MotorCareController extends BaseController{
 		
 	}
 	
+	
+	@Deprecated
 	@ApiOperation(
-			value = "This API is used to get district list",
-			response = CodeTable.class,
-			responseContainer = "List"
+			value = "This API is used to finalize(Confirm) MotorCare application after payment",
+			response = String.class,
+			hidden = true
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 404, message = "System cannot find records"),
+			@ApiResponse(code = 400, message = "Invalid policy info"),
 			@ApiResponse(code = 500, message = "System error")
 			})
-	@RequestMapping(value = "/list/districts", method = GET)
-	public ResponseEntity<List<CodeTable>> getDistrict(HttpServletRequest request) {
+	@RequestMapping(value = {"/policy/saving/confirmation"}, method = POST)
+	public ResponseEntity<String> confirmPolicy(
+			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody MotorCareDetails body,
+			HttpServletRequest request) {
 		
 		try {
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
-			logger.info("getDistrict Autherticate error: " + e.toString() );
+			logger.info("confirmPolicy Autherticate error: " + e.toString() );
 			return Responses.error(null);	
 		}
 		
-		List<CodeTable> apiResponse = new ArrayList<>();
-		JSONObject responseJsonObj = new JSONObject();
+		
+		
 		try {
-			// ******************* Valid input *******************
-								
-			// ******************* Form URL *******************
-			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "district");
-			
-			// ******************* Consume Service *******************
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
-			// ******************* Makeup result *******************			
-			if (responseJsonObj.get("errMsgs") == null) {
-				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
-					ObjectMapper mapper = new ObjectMapper();				
-					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
-				} else {
-					logger.info("getDistrict record not found");
-					return Responses.notFound(null);
-				}				
-			} else {
-				logger.info("getDistrict System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
-			}			
+			String apiResponse = new String();
+			return Responses.ok(apiResponse);
 			
 		} catch (Exception e) {
-			logger.info("getDistrict System error:" + e.toString());
+			logger.info("confirmPolicy System error:" + e.toString());
 			return Responses.error(null);			
+		}
+	}
+	
+	/******** Policy related ********/
+	@Deprecated
+	@ApiOperation(
+			value = "This API is used to get policy details",
+			response = MotorCareDetails.class,
+			hidden = true
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid Policy info"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/policy/{policyId}"}, method = GET)
+	public ResponseEntity<MotorCareDetails> getPolicy(
+			@ApiParam(value = "Policy ID", required = true) @PathVariable ("policyId") String policyId,	
+			HttpServletRequest request) {
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info("getPolicy Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		
+		// ******************* Valid input *******************
+		if (isBlank(policyId)) {
+			return Responses.badRequest(null);
+		}
+		
+		// to be added for full
+		// Check user login or not, logged in user only for get policy
+		
+		
+		// ******************* Init *******************
+		MotorCareDetails apiResponse = new MotorCareDetails();
+		
+		// Dummy for vendor testing, remove it when function is ready 
+		if (StringUtils.equals(policyId, "-99999999")) {
+			// Normal
+			apiResponse.setPolicyId("-99999999");
+		} else if (StringUtils.equals(policyId, "-11111111")) {			
+			// 404
+			return Responses.notFound(null);
+		} else if (StringUtils.equals(policyId, "-22222222")) {			
+			// 400
+			return Responses.badRequest(null);
+		} else {
+			// 500
+			return Responses.error(null);
+		}
+		
+		try {
+			// To-be-updated for FULL and delete this comment when completed the coding
+		} catch (Exception e) {
+			logger.info("getPolicy System error:" + e.toString());
+			return Responses.error(null);		
 		}
 		return Responses.ok(apiResponse);
 	}
-	
-	@ApiOperation(
-			value = "This API is used to get area list",
-			response = CodeTable.class,
-			responseContainer = "List"
-			)
-	@ApiResponses(value = {			
-			@ApiResponse(code = 404, message = "System cannot find records"),
-			@ApiResponse(code = 500, message = "System error")
-			})
-	@RequestMapping(value = "/list/areas", method = GET)
-	public ResponseEntity<List<CodeTable>> getArea(HttpServletRequest request) {
-		
-		try {
-			super.IsAuthenticate(request);
-		} catch (RuntimeException e) {
-			logger.info("getArea Autherticate error: " + e.toString() );
-			return Responses.error(null);	
-		}
-		
-		List<CodeTable> apiResponse = new ArrayList<>();
-		JSONObject responseJsonObj = new JSONObject();
-		try {
-			// ******************* Valid input *******************
-								
-			// ******************* Form URL *******************
-			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "area");
-			
-			// ******************* Consume Service *******************
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
-			// ******************* Makeup result *******************			
-			if (responseJsonObj.get("errMsgs") == null) {
-				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
-					ObjectMapper mapper = new ObjectMapper();				
-					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
-				} else {
-					logger.info("getArea record not found");
-					return Responses.notFound(null);
-				}				
-			} else {
-				logger.info("getArea System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
-			}			
-			
-		} catch (Exception e) {
-			logger.info("getArea System error:" + e.toString());
-			return Responses.error(null);			
-		}
-		return Responses.ok(apiResponse);
-	}
-	
-	@ApiOperation(
-			value = "This API is used to get area list",
-			response = CodeTable.class,
-			responseContainer = "List"
-			)
-	@ApiResponses(value = {			
-			@ApiResponse(code = 404, message = "System cannot find records"),
-			@ApiResponse(code = 500, message = "System error")
-			})
-	@RequestMapping(value = "/list/insurers", method = GET)
-	public ResponseEntity<List<CodeTable>> getInsurer(HttpServletRequest request) {
-		
-		try {
-			super.IsAuthenticate(request);
-		} catch (RuntimeException e) {
-			logger.info("getInsurer Autherticate error: " + e.toString() );
-			return Responses.error(null);	
-		}
-		
-		List<CodeTable> apiResponse = new ArrayList<>();
-		JSONObject responseJsonObj = new JSONObject();
-		try {
-			// ******************* Valid input *******************
-								
-			// ******************* Form URL *******************
-			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "previousInsurance");
-			
-			// ******************* Consume Service *******************
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
-			// ******************* Makeup result *******************			
-			if (responseJsonObj.get("errMsgs") == null) {
-				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
-					ObjectMapper mapper = new ObjectMapper();				
-					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
-				} else {
-					logger.info("getInsurer record not found");
-					return Responses.notFound(null);
-				}				
-			} else {
-				logger.info("getInsurer System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
-			}			
-			
-		} catch (Exception e) {
-			logger.info("getInsurer System error:" + e.toString());
-			return Responses.error(null);			
-		}
-		return Responses.ok(apiResponse);
-	}
-	
-	@ApiOperation(
-			value = "This API is used to get available list of Occupations (version 2)",
-			response = CodeTable.class,
-			responseContainer = "List"
-			)
-	@ApiResponses(value = {			
-			@ApiResponse(code = 404, message = "System cannot find records"),
-			@ApiResponse(code = 500, message = "System error")
-			})
-	@RequestMapping(value = "/list/occupations/v2", method = GET)
-	public ResponseEntity<List<CodeTable>> getOccupationsV2(HttpServletRequest request) {
-		String methodName = "getOccupationsV2";
-		
-		try {
-			super.IsAuthenticate(request);
-		} catch (RuntimeException e) {
-			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
-		}
-		
-		List<CodeTable> apiResponse = new ArrayList<>();
-		JSONObject responseJsonObj = new JSONObject();
-		try {
-			// ******************* Valid input *******************
-								
-			// ******************* Form URL *******************
-			String url = replace(UserRestURIConstants.MOTOR_CARE_CODE_TABLE_GET,"{type}", "occupation");
-			
-			// ******************* Consume Service *******************
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
-			// ******************* Makeup result *******************			
-			if (responseJsonObj.get("errMsgs") == null) {
-				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
-					ObjectMapper mapper = new ObjectMapper();				
-					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
-				} else {
-					logger.info(methodName + " record not found");
-					return Responses.notFound(null);
-				}				
-			} else {
-				logger.info(methodName + " System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
-			}			
-			
-		} catch (Exception e) {
-			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
-		}
-		return Responses.ok(apiResponse);
-	}	
 	
 	private String urlEncodeInputSpace (String input) throws UnsupportedEncodingException {
 		return replace(URLEncoder.encode(input, "UTF-8"), "+", "%20");
 	}
 	
-	private String getUserName(HttpServletRequest request) {
+	public static String getUserName(HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
 		// return null if the customer did not login yet
 		if (session == null) {
 			return null;
+			// *DIRECTGI
 		} else {
 			if (session.getAttribute("username") != null && session.getAttribute("username").toString().length() > 0) {
+				// canno 
 				return session.getAttribute("username").toString();
 			} else {
 				return null;
@@ -1784,12 +1895,67 @@ public class MotorCareController extends BaseController{
 		}			
 	}
 	
-	private boolean isUserLogin (HttpServletRequest request) {
-		return isEmpty(getUserName(request));
+	public static boolean isUserLogin (HttpServletRequest request) {
+		// not allow UserName = *DIRECTGI
+		String userName = getUserName(request);
+		return isNotBlank(userName) ? !StringUtils.equals("*DIRECTGI", userName) : false ;
 	}
 	
 	private String getMotorBasePath(HttpServletRequest request) {
 		return replace(request.getRequestURL().toString(), request.getServletPath(), "") 
 		+ "/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/" ;
+	}	
+	
+	@SuppressWarnings("unchecked")
+	private JSONObject getSave4LaterEmailSetting (HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		JSONObject parameters = null;
+		JSONObject model = new JSONObject();
+		
+		if (session != null) {
+			parameters = new JSONObject();
+			// Get User Details
+			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
+			// Form URL
+			String serverUrl = replace(request.getRequestURL().toString(), request.getServletPath(), "");
+			// Form JSON to send email 
+			//parameters.put("to", userDetails.getEmailAddress());
+			parameters.put("to", "siuchung.kwok@fwd.com");
+			parameters.put("subject", "Your Savie application has not yet been completed!您的Savie自助息申請尚未完成!");
+				if (userDetails != null) model.put("name", userDetails.getFullName());				
+				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "get-quote?type=3");
+				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "get-quote?type=3");
+			parameters.put("model", model);
+			parameters.put("template", "savie\\saveLater.html");
+			logger.info(parameters.toString());			
+		}
+		return parameters;
 	}
+	
+	private void sendEmailByType (HttpServletRequest request, String type) throws Exception{
+		String methodName = "sendEmailByType";
+		BaseResponse apiResult = null;
+		
+		JSONObject input = getSave4LaterEmailSetting(request);
+		if (input != null) {
+			// Upload Document Later / Save 4 Later
+			apiResult = StringUtils.equals(type, "UPD_LATER") 
+					? connector.sendTemplateEmail(input, headerUtil.getHeader(request))
+					: connector.sendTemplateEmail(input, headerUtil.getHeader(request));
+					
+			if (apiResult == null) {
+				logger.info(methodName + " - Api Error");
+				throw new Exception (methodName + " - Api Error");
+			} else {
+				if (apiResult.hasError()) {
+					logger.info(methodName + " - Api Result Error: " + apiResult.getErrMsgs()[0]);
+					throw new Exception (methodName + " - Api Result Error: " + apiResult.getErrMsgs()[0]);
+				}
+			}			
+		} else {
+			logger.info(methodName + " sendEmail Info not found");
+			throw new Exception (methodName + " sendEmail Info not found");
+		}
+	}
+	
 }

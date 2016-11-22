@@ -522,6 +522,7 @@ public class UserRestURIConstants {
 	public static final String URL_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "document-upload-confirmation";
 	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER = "document-upload-later";
 	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "document-upload-later-confirmation";
+	public static final String URL_MOTOR_PAYMENT_RESULT = "payment-result";
 
 	public static final String FILE_MOTOR_LANDING = "landing";
 	public static final String FILE_MOTOR_GET_QUOTE = "get-quote";
@@ -614,13 +615,16 @@ public class UserRestURIConstants {
     
 	public static final String MOTOR_CARE_GET_QUOTE_POST = SERVICE_URL + "/iMotor/quote";
 	public static final String MOTOR_CARE_SAVE_QUOTE_POST = SERVICE_URL + "/iMotor/quote/saving";
+	public static final String MOTOR_CARE_SAVE_FOR_LATER_QUOTE_POST = SERVICE_URL + "/iMotor/quote/save4Later";
 	public static final String MOTOR_CARE_SAVE_POLICY_POST = SERVICE_URL + "/iMotor/policy/saving/{stepNo}";    	
-	public static final String MOTOR_CARE_FILE_UPLOAD_POST = SERVICE_URL + "/iMotor/policy/fileUpload";	
+	public static final String MOTOR_CARE_FILE_UPLOAD_POST = SERVICE_URL + "/iMotor/policy/fileUpload";
+	public static final String MOTOR_CARE_PAYMENT_FINALIZE_POST = SERVICE_URL + "/iMotor/policy/finalize";
 	public static final String MOTOR_CARE_PAYMENT_POST = SERVICE_URL + "/iMotor/policy/payment";
 	public static final String MOTOR_CARE_PAYMENT_FAILED_POST = SERVICE_URL + "/iMotor/policy/payment/summary";
 	public static final String MOTOR_CARE_PAYMENT_RESULT_GET = SERVICE_URL + "/iMotor/policy/payment/result";
 	public static final String MOTOR_CARE_SAVE_FOR_LATER_POST = SERVICE_URL + "/iMotor/policy/save4Later/{stepNo}";
 	public static final String MOTOR_CARE_SAVE_FOR_LATER_RESUME_POST = SERVICE_URL + "/iMotor/policy/save4Later/resume";
+	
 		
 	static String controller;
 

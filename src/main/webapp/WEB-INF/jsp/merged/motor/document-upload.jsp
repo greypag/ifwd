@@ -8,6 +8,8 @@
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
 var nextPage = "${nextPageFlow}";
+var quote = "${quote}";
+
 </script>
 
 <!--Body-->

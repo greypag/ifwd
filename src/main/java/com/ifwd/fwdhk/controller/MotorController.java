@@ -12,12 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.MotorPageFlowControl;
 @Controller
 public class MotorController extends BaseController{
 	
+	@SuppressWarnings("unused")
 	private final static Logger logger = LoggerFactory.getLogger(MotorController.class);
 	
 	@Autowired
@@ -115,24 +117,39 @@ public class MotorController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/payment-result"})
-	public ModelAndView paymentResult(Model model, HttpServletRequest request) {
+	public ModelAndView paymentResult(Model model, HttpServletRequest request, RedirectAttributes ra) {
 		handleLangFromPath(request);
 					
 		try {
 			JSONObject responseJsonObj = new JSONObject();
+			JSONObject finalResponseJsonObj = new JSONObject();
 			JSONObject jsonInput = new JSONObject();
+			
 			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_RESULT_GET + "?refNum=" + request.getParameter("refNum");
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), jsonInput);
 			
-			if (responseJsonObj.get("gatewayResult") != null && StringUtils.equals("OK", (String)responseJsonObj.get("gatewayResult"))) {
-				return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION);
+			if (responseJsonObj.get("gatewayResult") != null && StringUtils.equals("OK", (String)responseJsonObj.get("gatewayResult"))) {				
+				if (responseJsonObj.get("motorCareDetails") != null ) {
+					url = UserRestURIConstants.MOTOR_CARE_PAYMENT_FINALIZE_POST;
+					finalResponseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), (JSONObject)responseJsonObj.get("motorCareDetails"));
+					
+					if (responseJsonObj.get("motorCareDetails") != null ) {
+						ra.addFlashAttribute("quote", (JSONObject)finalResponseJsonObj.get("motorCareDetails"));
+					}
+				}
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/document-upload");
+				//return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_CONFIRMATION);
 			}	
+			
 		} catch (Exception e) {
-			return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION);
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/application-summary?paymentGatewayFlag=1&refNum=" + request.getParameter("refNum"));
+			//return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_CONFIRMATION);
 		}
 		
-		logger.info("1:" + request.getParameter("refNum"));
-		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION);
+		//logger.info("1:" + request.getParameter("refNum"));
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/document-upload");
+		//return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/application-summary?paymentGatewayFlag=1&refNum=" + request.getParameter("refNum"));
+		//return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_CONFIRMATION);
 	}
 	
 	public static String getUrl(String page) {
