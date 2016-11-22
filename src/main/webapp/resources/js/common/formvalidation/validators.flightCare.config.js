@@ -5,19 +5,11 @@ try {
     // MUST - Check "fvConfig"
     if ( typeof fvConfig === "undefined" && fvConfig === null ) { var fvConfig = {}; }
 
-    // MUST - Check FV customed-made helpers
-    if ( _.has(fvConfig, 'helpers') ) {
-        var helpers = fvConfig.helpers;
-    } else {
-        throw new Error('No Helpers is loaded [ helpers.js ] . Please check');
-    }
+    // MUST - Check FV customed-made helpers, calling example: fvConfig.helpers.xxxx
+    if ( !_.has(fvConfig, 'helpers') ) { throw new Error('No Helpers is loaded [ helpers.js ] . Please check'); }
 
-    // MUST - Check fwdConstant : RegExp etc.
-    if ( typeof fwdConstant === "object" || fwdConstant === null ) {
-        var regexp = fwdConstant.regex;
-    } else {
-        throw ('No fwd-constant "RegExp" are loaded. Please check again.');
-    }
+    // MUST - Check fwdConstant : RegExp etc. , calling example: fvConfig.regex.xxxx
+    if ( typeof fwdConstant === "object" || fwdConstant === null ) { throw ('No fwd-constant.js are loaded. Please check again.'); }
 
 } catch (e) {
     console.error(e.name.toString() + ' >>> ' + e.message);
@@ -72,7 +64,7 @@ fvConfig['applicant'] = function() {
                     "message": getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message")
                 },
                 "regexp": {
-                    "regexp": new RegExp(regexp.person.hkTel.mob),
+                    "regexp": new RegExp(fwdConstant.regex.person.hkTel.mob),
                     "message": getBundle(getBundleLanguage, "applicant.mobileNo.notValid.message")
                 }
             }
@@ -84,7 +76,7 @@ fvConfig['applicant'] = function() {
                     "message": getBundle(getBundleLanguage, "applicant.email.notNull.message")
                 },
                 "emailAddress": {
-                	"regexp": new RegExp(regexp.person.email),
+                	"regexp": new RegExp(fwdConstant.regex.person.email),
                     "message": getBundle(getBundleLanguage, "applicant.email.notValid.message")
                 }
             }
@@ -101,6 +93,13 @@ fvConfig['insuredPerson'] = function() {
                 "notEmpty": {
                     "message": getBundle(getBundleLanguage, "insured.name.notNull.message")
                 }
+                // - new testing code - start -
+                , "identical": {
+                	"enabled": false,
+                    "field": "fullName",
+                    "message": "Name is not same"
+                }
+                // - new testing code - end -
             }
         },
         "personalHKID": {

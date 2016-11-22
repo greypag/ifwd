@@ -35,6 +35,14 @@ var genConfigFlightCare = function(obj) { // orginal >> generate_insuredPersonCf
            var targetKey = 'container';
 
            sub[targetKey] = vv[targetKey] + i;
+           // - new testing code - start -
+           console.log(typeof vv.validators.identical);
+           if (i == 1 && ii=="personalName1"){
+               vv.validators.identical.enabled = true;
+           }else if(i != 1 && typeof vv.validators.identical!="undefined"){
+               vv.validators.identical.enabled = false;
+           }
+           // - new testing code - end -
            _.each(vv, function(vvv, iii) {
                if (iii !== targetKey) { sub[iii] = vv[iii]; }
            });

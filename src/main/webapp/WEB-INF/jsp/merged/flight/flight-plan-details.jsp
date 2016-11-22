@@ -2547,6 +2547,7 @@ function createFlightFnc(form){
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.min.js" charset="utf-8"></script>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-constant.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-validator.js" charset="utf-8"></script>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/helpers.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.flightCare.config.js" charset="utf-8"></script>
@@ -2580,6 +2581,21 @@ $(document).ready(function() {
                 .data('fv.messages')
                 .find('.help-block[data-fv-for="' + data.field + '"]').hide()       // Hide all the messages
                 .filter('[data-fv-validator="' + data.validator + '"]').show();     // Show only message associated with current validator
-            });
+        })
+
+        // - new testing code - start -
+        .on('err.field.fv', function(e, data) {
+            /**
+            * data.field is the field name
+            * data.status is the current status of validator
+            * data.element is the field element
+            * Assume that the form uses the Bootstrap framework
+            * and has a standard structure
+            * Each pair of field and label are placed inside a .form-group element
+            **/
+            data.element.next().children().addClass("text-red");
+			//console.log(data.element.next());
+        });
+        // - new testing code - end -
 });
 </script>

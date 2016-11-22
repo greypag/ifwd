@@ -31,6 +31,15 @@ else{
 var chin = false;
 /* datepicker script*/
 
+
+/**
+*
+* For function IsHKID() -- ALREADY MIGRATED
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js".
+*
+**/
 /* hkid validation script */
 function IsHKID(str) {
 	var strValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -573,7 +582,7 @@ $(function () {
 		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
 		$("#freeFlightForm").val($("#input_dob").datepicker('getFormattedDate'));
-		$('#freeFlightForm').formValidation('revalidateField', "applicantDob");		
+		$('#freeFlightForm').formValidation('revalidateField', "applicantDob");
 		var selected = 2;
 		if(ev.date != undefined) {
 			if(ev.date.valueOf() < dob_end_date.valueOf() && ev.date.valueOf() > dob_70_date.valueOf()){

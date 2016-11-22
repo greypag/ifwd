@@ -4,28 +4,23 @@
 try {
     // MUST - Check "fvConfig"
     if ( typeof fvConfig === "undefined" && fvConfig === null ) { var fvConfig = {}; }
-
-    // COULD - Check fwdConstant : RegExp etc.
-    // if ( typeof fwdConstant === "object" || fwdConstant === null ) {
-    //     var regexp = fwdConstant.regex;
-    // } else {
-    //     throw ('No fwd-constant "RegExp" are loaded. Please check again.');
-    // }
+    
+    // COULD - Check fwdConstant : RegExp etc. , calling example: fvConfig.regex.xxxx
+    if ( typeof fwdConstant === "object" || fwdConstant === null ) { throw ('No fwd-constant.js are loaded. Please check again.'); }
 
 } catch (e) {
     console.error(e.name.toString() + ' >>> ' + e.message);
 }
 // VALIDATION - prerequistite << end >>
 
-
-
 fvConfig['customValidatingRules'] = function() {
     return {
     	isHkid : {
     		validate: function(validator, $field, options) {
     			var value = $field.val();
-    			if (value.length > 0){
-    				if ( !IsHKID(value) ) { // IsHKID(), refer to "js/fwd.js"
+    			if (value.length > 0) {
+    				// if ( !IsHKID(value) ) {                                  // IsHKID(), refer to "js/fwd.js"
+                    if ( !fwdValidator.personalInfo.isValidHkid(value) ) {
     					return {
     		                valid: false,
     		                message: getBundle(getBundleLanguage, "applicant.hkId.notValid.message")
