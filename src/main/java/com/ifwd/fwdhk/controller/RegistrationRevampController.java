@@ -89,10 +89,11 @@ public class RegistrationRevampController extends BaseController{
 			
 			// ******************* Consume Service *******************
 			
-			Map<String,String> header = Maps.newHashMap();
-			header=headerUtil.getHeader(request);
-			header.remove("username");  //*DIRECTGI
-			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
+			//Map<String,String> header = Maps.newHashMap();
+			//header=headerUtil.getHeader(request);
+			//header.remove("username");  //*DIRECTGI
+			//responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			
 			// ******************* Makeup result *******************			
 			responseEntity=getResponseEntityByJsonObj(methodName,ForgetUsernameResponse.class,responseJsonObj);
