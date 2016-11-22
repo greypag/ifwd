@@ -46,6 +46,10 @@ import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.registrationrevamp.ForgetUsernameRequest;
 import com.ifwd.fwdhk.model.registrationrevamp.ForgetUsernameResponse;
+import com.ifwd.fwdhk.model.registrationrevamp.ForgotPasswordRequest;
+import com.ifwd.fwdhk.model.registrationrevamp.ForgotPasswordResponse;
+import com.ifwd.fwdhk.model.registrationrevamp.RegistrationRequest;
+import com.ifwd.fwdhk.model.registrationrevamp.RegistrationResponse;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -160,6 +164,99 @@ public class RegistrationRevampController extends BaseController{
 			}
 		}
 		return Responses.ok(responseObject);
+	}
+	
+	@ApiOperation(
+			value = "registerCustomerUser",
+			response = RegistrationResponse.class,
+			notes ="Warning Code:"
+					
+			)
+	@ApiResponses(value = {
+			@ApiResponse(code = 500, message = "System error"),
+			@ApiResponse(code = 400, message = "Invalid Input")
+			})
+	@RequestMapping(value = "/registerCustomerUser",method=PUT)
+	public ResponseEntity<RegistrationResponse> registerCustomerUser(
+			@ApiParam(value = "User Name,Mobile,Password,Email,Dec No,Policy No,Dob,Opt Out1,Opt Out2", required = true) @RequestBody RegistrationRequest req,
+			HttpServletRequest request) {
+		String methodName="registerCustomerUser";
+		logger.debug(methodName+" getUserName:"+req.getUserName());
+		
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		ResponseEntity<RegistrationResponse> responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.REGISTRATION_REGISTER_USER;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(req);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			// ******************* Consume Service *******************
+			//Map<String,String> header = Maps.newHashMap();
+			//header=headerUtil.getHeader(request);
+			//header.remove("username");  //*DIRECTGI
+			//responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
+			responseJsonObj = restService.consumeApi(HttpMethod.PUT, url, headerUtil.getHeader(request), jsonInput);
+			// ******************* Makeup result *******************			
+	
+			responseEntity=getResponseEntityByJsonObj(methodName,RegistrationResponse.class,responseJsonObj);
+				
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
+	}
+	
+	@ApiOperation(
+			value = "forgotCustomerPassword",
+			response = ForgotPasswordResponse.class,
+			notes ="Warning Code:"
+					
+			)
+	@ApiResponses(value = {
+			@ApiResponse(code = 500, message = "System error"),
+			@ApiResponse(code = 400, message = "Invalid Input")
+			})
+	@RequestMapping(value = "/forgotPassword/Customer", method =POST)
+	public ResponseEntity<ForgotPasswordResponse> registerCustomerUser(
+			@ApiParam(value = "User Name,Doc No,Dob", required = true) @RequestBody  ForgotPasswordRequest req,
+			HttpServletRequest request) {
+
+		String methodName="forgotCustomerPassword";
+		logger.debug(methodName+" getUserName:"+req.getUserName());
+		
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		ResponseEntity<ForgotPasswordResponse> responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.REGISTRATION_REVAMP_FORGET_PASSWORD;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(req);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			// ******************* Consume Service *******************
+			//Map<String,String> header = Maps.newHashMap();
+			//header=headerUtil.getHeader(request);
+			//header.remove("username");  //*DIRECTGI
+			//responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			// ******************* Makeup result *******************			
+	
+			responseEntity=getResponseEntityByJsonObj(methodName,ForgotPasswordResponse.class,responseJsonObj);
+				
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
 	}
 	
 }

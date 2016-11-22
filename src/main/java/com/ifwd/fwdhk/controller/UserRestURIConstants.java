@@ -130,6 +130,7 @@ public class UserRestURIConstants {
 	/*API For Registration Revamp*/
 	public static final String REGISTRATION_REVAMP_FORGET_USERNAME = SERVICE_URL + "/member/forgotUserName/customer";
 	public static final String REGISTRATION_REVAMP_FORGET_PASSWORD = SERVICE_URL + "/member/forgotPassword/customer";
+	public static final String REGISTRATION_REGISTER_USER = SERVICE_URL + "/member/register/member/customer";
 	
 	/*API For Savie*/
 	public static final String SAVIE_PLAN_DETAIL = "/savie/planDetails";
