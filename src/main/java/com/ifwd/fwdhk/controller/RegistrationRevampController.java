@@ -161,6 +161,7 @@ public class RegistrationRevampController extends BaseController{
 		return Responses.ok(responseObject);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@ApiOperation(
 			value = "Register Customer User",
 			response = RegistrationResponse.class
@@ -169,7 +170,7 @@ public class RegistrationRevampController extends BaseController{
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input")
 			})
-	@RequestMapping(value = "/registerCustomerUser",method=PUT)
+	@RequestMapping(value = "/register/member/customer",method=PUT)
 	public ResponseEntity<RegistrationResponse> registerCustomerUser(
 			@ApiParam(value = "User Name,Mobile,Password,Email,Dec No,Policy No,Dob,Opt Out1,Opt Out2", required = true) @RequestBody RegistrationRequest req,
 			HttpServletRequest request) {
