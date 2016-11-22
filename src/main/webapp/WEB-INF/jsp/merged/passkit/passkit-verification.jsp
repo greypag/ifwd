@@ -8,7 +8,6 @@
 
 
 
-	
 
 	<div class="closeMobileMenu commonBody"><div class="container main landing travelcare">
 		<div class="hero" style="background-image: url('<%=request.getContextPath()%>/resources/images/passkit/banner.jpg');"></div>
@@ -50,9 +49,11 @@
 						</div>
 						<div class="verify-action">
 							<input type="submit" value="<fmt:message key="verification.identity.submit" bundle="${msg}" />" class="verify-button" id="tbx-verify-submit" />
+							<div class="verify-error" data-error-for="tbx-verify-submit" data-error-required="<fmt:message key="verification.identity.select.need.massage" bundle="${msg}" />"></div>
 							<p class="verify-remark">
 							<fmt:message key="verification.identity.details.description" bundle="${msg}" />
 							</p>
+							
 						</div>
 					</div>
 				</div>
@@ -61,7 +62,7 @@
 					<h3 class="verify-title">
 						<fmt:message key="verification.pass.expired.text" bundle="${msg}" />
 					</h3>
-					<p><fmt:message key="verification.pass.expired.text.detail" bundle="${msg}" /></p>
+					<!--<p><fmt:message key="verification.pass.expired.text.detail" bundle="${msg}" /></p>-->
 					<p class="verify-remark"><fmt:message key="verification.pass.expired.more" bundle="${msg}" /><a href="https://i.fwd.com.hk">i.fwd.com.hk</a>.</p>
 					<p class="verify-remark"><fmt:message key="verification.pass.expired.contact.detail" bundle="${msg}" /><a href="https://www.fwd.com.hk"><fmt:message key="verification.pass.expired.contact.detail.website" bundle="${msg}" /></a><fmt:message key="verification.pass.expired.contact.detail.2" bundle="${msg}" /></p>
 				</div>

@@ -176,7 +176,8 @@ $(function () {
     $('.verify-textfield').blur(function () {
       $(this).val($(this).val().toUpperCase());
     });
-
+    
+    
     $('.verify-form input[type="radio"]').change(function () {
       $('.verify-form input[type="radio"]:not(:checked)').parents('.verify-option').removeClass('active');
       $(this).parents('.verify-option').addClass('active');
@@ -189,7 +190,7 @@ $(function () {
         scrollTop: $(".verify-content").offset().top - 20
       }, 500);
 
-      $('.verify-action').show();
+      //$('.verify-action').show();
       clearError();
     });
 
@@ -213,7 +214,12 @@ $(function () {
           $hkid.focus();
           $error.showError($error.data('errorRequired'));
         }
+      } else {
+    	  var $error = $('.verify-error[data-error-for="tbx-verify-submit"]');
+    	  $('#tbx-verify-submit').focus();
+    	  $error.showError($error.data('errorRequired'));
       }
+    	  
     });
 
     checkPolicyExpiry();
@@ -223,6 +229,8 @@ $(function () {
     //   showPage(PAGE_NAME.VERIFY_QR_CODE);
     // } else {
     // }
+    
+    $('.verify-action').show();
   });
 
 

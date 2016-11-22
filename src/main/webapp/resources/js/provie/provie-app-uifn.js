@@ -580,6 +580,7 @@ $(document).ready(function(){
 					    		
 				    		}else{
 				    			$("#preferedTimeIsNull").modal("show");
+								changeAppointmentDate_dateEmpty('#app-date');
 				    		}
 				    		$("#loading-overlay").modal("hide");
 				    	}
@@ -1424,14 +1425,32 @@ function onClosed(valueText,inst){
 function changeAppointmentDate(elm,dates){
 	var inst = $(elm).mobiscroll('getInst');
 	inst.clear();
+
 	var obj = {
-		valid:dates
+		valid:dates,
+		readonly:false,
+		onBeforeClose: function (valueText, btn, inst) {}
 	}
 	if(dates.length > 0){
 		obj.minDate = dates[0]
 	}
-	inst.option(obj);
 
+	inst.option(obj);
+}
+
+function changeAppointmentDate_dateEmpty(elm){
+	var inst = $(elm).mobiscroll('getInst');
+	inst.clear();
+	inst.option({
+		readonly:true,
+		valid:[new Date()],
+		minDate:new Date(),
+		onBeforeClose: function (valueText, btn, inst) {
+			if(btn == 'set'){
+				return false;
+			}
+		}
+	});
 }
 
 function showBubble(){
