@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.model.registrationrevamp;
 public class ForgotPasswordResponse {
 	private boolean resp;
 	private String message;
+	
 	public boolean isResp() {
 		return resp;
 	}

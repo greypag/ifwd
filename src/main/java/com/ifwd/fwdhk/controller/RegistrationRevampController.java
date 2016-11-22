@@ -92,11 +92,6 @@ public class RegistrationRevampController extends BaseController{
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			
 			// ******************* Consume Service *******************
-			
-			//Map<String,String> header = Maps.newHashMap();
-			//header=headerUtil.getHeader(request);
-			//header.remove("username");  //*DIRECTGI
-			//responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			
 			// ******************* Makeup result *******************			
@@ -167,10 +162,8 @@ public class RegistrationRevampController extends BaseController{
 	}
 	
 	@ApiOperation(
-			value = "registerCustomerUser",
-			response = RegistrationResponse.class,
-			notes ="Warning Code:"
-					
+			value = "Register Customer User",
+			response = RegistrationResponse.class
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
@@ -188,21 +181,17 @@ public class RegistrationRevampController extends BaseController{
 		ResponseEntity<RegistrationResponse> responseEntity =Responses.error(null);
 		try {			
 			// ******************* Form URL *******************
-			String url = UserRestURIConstants.REGISTRATION_REGISTER_USER;
+			String url = UserRestURIConstants.REGISTRATION_REVAMP_REGISTER_USER;
 			
 			String jsonString = new ObjectMapper().writeValueAsString(req);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			
 			// ******************* Consume Service *******************
-			//Map<String,String> header = Maps.newHashMap();
-			//header=headerUtil.getHeader(request);
-			//header.remove("username");  //*DIRECTGI
-			//responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
 			responseJsonObj = restService.consumeApi(HttpMethod.PUT, url, headerUtil.getHeader(request), jsonInput);
+			
 			// ******************* Makeup result *******************			
-	
 			responseEntity=getResponseEntityByJsonObj(methodName,RegistrationResponse.class,responseJsonObj);
-				
 			
 		} catch (Exception e) {
 			logger.info(methodName+" System error:",e);
@@ -212,17 +201,16 @@ public class RegistrationRevampController extends BaseController{
 		return responseEntity;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@ApiOperation(
-			value = "forgotCustomerPassword",
-			response = ForgotPasswordResponse.class,
-			notes ="Warning Code:"
-					
+			value = "Forgot Customer Password",
+			response = ForgotPasswordResponse.class
 			)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "System error"),
 			@ApiResponse(code = 400, message = "Invalid Input")
 			})
-	@RequestMapping(value = "/forgotPassword/Customer", method =POST)
+	@RequestMapping(value = "/forgotPassword/customer", method =POST)
 	public ResponseEntity<ForgotPasswordResponse> registerCustomerUser(
 			@ApiParam(value = "User Name,Doc No,Dob", required = true) @RequestBody  ForgotPasswordRequest req,
 			HttpServletRequest request) {
@@ -240,16 +228,12 @@ public class RegistrationRevampController extends BaseController{
 			String jsonString = new ObjectMapper().writeValueAsString(req);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			
 			// ******************* Consume Service *******************
-			//Map<String,String> header = Maps.newHashMap();
-			//header=headerUtil.getHeader(request);
-			//header.remove("username");  //*DIRECTGI
-			//responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			
 			// ******************* Makeup result *******************			
-	
 			responseEntity=getResponseEntityByJsonObj(methodName,ForgotPasswordResponse.class,responseJsonObj);
-				
 			
 		} catch (Exception e) {
 			logger.info(methodName+" System error:",e);
