@@ -1,7 +1,5 @@
 'use strict';
 
-var fvConfig = {};
-
 var genConfigFlightCare = function(obj) { // orginal >> generate_insuredPersonCfgGrp(personCount, personCfg)
     try {
         if ( _.isEmpty(obj) ) throw new Error('1 param is required. Please check.');
@@ -54,7 +52,9 @@ var genConfigFlightCare = function(obj) { // orginal >> generate_insuredPersonCf
    return buffer;
 };
 
+
 // Export modules to "fvConfig"
+var fvConfig = {};
 fvConfig['helpers'] = {
     'genConfigFlightCare'     : genConfigFlightCare
 };

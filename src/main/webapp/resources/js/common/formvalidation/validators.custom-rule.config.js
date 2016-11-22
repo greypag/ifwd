@@ -4,12 +4,12 @@
 try {
     // MUST - Check "fvConfig"
     if ( typeof fvConfig === "undefined" && fvConfig === null ) { var fvConfig = {}; }
-    
+
     // COULD - Check fwdConstant : RegExp etc. , calling example: fvConfig.regex.xxxx
-    if ( typeof fwdConstant === "object" || fwdConstant === null ) { throw ('No fwd-constant.js are loaded. Please check again.'); }
+    if ( typeof fwdConstant !== "object" && fwdConstant !== null ) { throw ('No fwd-constant.js are loaded. Please check again.'); }
 
 } catch (e) {
-    console.error(e.name.toString() + ' >>> ' + e.message);
+    console.error( e.toString() );
 }
 // VALIDATION - prerequistite << end >>
 

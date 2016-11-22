@@ -18,11 +18,11 @@ function initFVConfig(argCfg) {
 		if ( _.has(argCfg, 'customValidatingRules') ) {
 			_.assign(FormValidation.Validator, argCfg.customValidatingRules);
 			console.log('FV Customed-validating rules are added.')
-			// console.log(FormValidation.Validator);
 		}
 
 	} catch (e) {
-		console.error(e.name.toString() + ' >>> ' + e.message);
+		// console.error(e.name.toString() + ' >>> ' + e.message);
+		console.error( e.toString() );
 	}
     // VALIDATION - prerequistite << end >>
 

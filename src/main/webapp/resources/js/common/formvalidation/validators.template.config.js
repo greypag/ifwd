@@ -28,11 +28,10 @@ fvConfig['schema'] = {
 };
 
 // Descripe "properties" under validator
-fvConfig['validators'] = function() {
+fvConfig['role/group/anyThingYouWanna'] = function() {
     var buffer = {};
 
-
-
+    
     // return helpers.genConfig(buffer);
     return null;
 }();
