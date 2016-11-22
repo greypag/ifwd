@@ -4,20 +4,24 @@ var currencyRate = {
 		y1:419.15,
 		y2:878.04,
 		y3:1000,
-		s:"$"
+		s:"$",
+		min:48000,
+		max:4800000
 	},
 	"rmb" :{
 		r:1.040,
 		y1:410.06,
 		y2:865.39,
 		y3:1000,
-		s:"¥"
+		s:"¥",
+		min:37000,
+		max:3700000
 	} 
 }
 $(document).ready(function(){
 
 
-	$("input[type='checkbox']").change(function(){
+	$(".checkbox-slider--b input[type='checkbox']").change(function(){
  		var p = $(this).parent();
  		p.removeClass("on off");
  		if($(this).is(":checked")) {
@@ -37,17 +41,83 @@ $(document).ready(function(){
  		}
  	});
 
+ 	$("#txt_amount").on("focus",function(e){
+ 		var val = $(this).val().replace(/[^0-9.]/g, "");
+		var newVal = formatNumberComma(val);
+ 		if(val != "" &&  newVal != $(this).val()){
+ 			$(this).val(formatNumberComma(val));
+ 		}
+ 	});
+
+ 	$("#txt_amount").on("blur",function(e){
+ 		var val = $(this).val().replace(/[^0-9.]/g, "");
+		var newVal = formatNumberComma(val);
+ 		if(val != "" &&  newVal != $(this).val()){
+ 			$(this).val(formatNumberComma(val));
+ 		}
+ 	});
+		
+ 	$("#txt_amount").on("keypress",function(evt){
+ 		var charCode = (evt.which) ? evt.which : evt.keyCode;
+ 		var txt = String.fromCharCode(charCode);
+ 		var FnKey = [
+ 			45,	//Insert
+			46,	//Delete
+			36,	//Home
+			35,	//End
+			37,	//Left
+			38,	//Top
+			39,	//Right
+			40,	//Bottom
+			8	//Backspace
+		];
+        if((!txt.match(/[0-9\,]/) || $.inArray(charCode,FnKey) != -1)) 
+        {
+            return false;
+        }else{
+
+        }
+
+ 	});
+
+ 	$("#txt_amount").on("keyup",function(e){
+ 		var val = $(this).val().replace(/[^0-9.]/g, "");
+ 		var newVal = formatNumberComma(val);
+ 		if(val != "" &&  newVal != $(this).val()){
+ 			$(this).val(formatNumberComma(val));
+ 		}
+ 	});
+
+
+
  	$(".btn-calculate").click(function(){
  		var amount = parseInt($("#txt_amount").val().replace(/,/ig,""),10);
+ 		var errMsg = "";
  		if(!isNaN(amount)){
- 			if(amount > 0){
- 				var currency = $("#sel_currency").val();
- 				showCalculatedRate(amount,currency);
+ 			
+ 			var currency = $("#sel_currency").val();
+
+ 			if(currencyRate[currency].min > amount){
+ 				//Min reached
+ 				errMsg = getBundle(getBundleLanguage, "wealthree.input.error.invalid."+ currency+".min");
+ 			}else if(currencyRate[currency].max < amount){
+ 				//Max reached
+ 				errMsg = getBundle(getBundleLanguage, "wealthree.input.error.invalid."+ currency+".max");
  			}else{
- 				//Error handling?
+ 				showCalculatedRate(amount,currency);
+
+
  			}
+
  		}else{
  			//Error handling?
+ 			errMsg = getBundle(getBundleLanguage, "wealthree.input.error.invalid");
+ 		}
+
+ 		if(errMsg != ""){
+ 			$("#box-input-msg").text(errMsg).show();
+ 		}else{
+ 			$("#box-input-msg").hide();
  		}
  	});
 
@@ -63,6 +133,17 @@ $(document).ready(function(){
  			$(".pv_compareTable").find(".sw-"+key).html($(this).html());
  		});
  	});
+
+ 	$("#tableCarousel").swipe( {
+		//Generic swipe handler for all directions
+		swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+			if(direction == "right"){
+				$("#tableCarousel .left.carousel-control").trigger("click");
+			}else if(direction == "left"){
+				$("#tableCarousel .right.carousel-control").trigger("click");
+			}
+		}
+	});
 
 
 });
@@ -91,7 +172,10 @@ function showCalculatedRate(_amount,_currency){
 
 	$(".y3-c1").text(formatDollar(_amount * 2,symbol));
 	$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
-	$(".y3-c3").text(formatDollar(thirdYear * currencyRate[_currency].y3 / 1000,symbol));	
+	$(".y3-c3").text(formatDollar(thirdYear * currencyRate[_currency].y3 / 1000,symbol));
+
+	$(".box-result .over-bubble").hide();
+ 	$(".box-result ." + _currency).show();
 }
 
 function formatDollar(_amount, _symbol){

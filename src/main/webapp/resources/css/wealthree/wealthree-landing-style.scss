@@ -99,6 +99,19 @@
 	}
 
 }
+.pv_feature_box{
+	.img-responsive{
+		margin:auto;
+	}
+}
+.pv_sec_features .pv_feature_box .pv_feature_desc{
+	padding-left:0;
+	padding-right:0;
+}
+
+.pv_sec_features{
+	text-align: left;
+}
 /* WHAT THE HELL????? */
 #txt_amount::-webkit-input-placeholder{
 	font-size:30px !important;
@@ -162,7 +175,7 @@
 		margin-bottom:20px;
 
 		.form-wrapper{
-			margin-bottom:20px;
+			margin-bottom:10px;
 		}
 		.txt-amount-wrapper{
 			border-bottom:1px solid #fff;
@@ -181,6 +194,14 @@
 					outline: none;
 				}
 			}
+		}
+
+		#box-input-msg{
+			color:#f00;
+			text-align: center;
+			font-size:14px;
+			margin-bottom: 10px;
+			display: none;
 		}
 
 		&:before{
@@ -245,6 +266,8 @@
 			padding:10px 60px;
 			background-color:#fff;
 			color:#fdb714;
+			border-radius: 4px;
+			border-bottom:2px inset #cf9611;
 		}
 	}
 
@@ -252,9 +275,18 @@
 		padding:20px;
 		background-color:#29b4bd;
 		border-radius: 4px;
+		position: relative;
+		
 
 		.ttl_pay_amount, .yrs3_return{
-			font-size:18px;
+			font-size:20px;
+		}
+
+		.over-bubble{
+			position: absolute;
+			bottom: 70px;
+			right: -30px;
+			width: 110px;
 		}
 	}
 
@@ -359,6 +391,12 @@
 }
 
 @media screen and (min-width: 768px){
+
+	.wh_productInfo{
+		.wh_p_desc{
+			font-size:16px;
+		}
+	}
 	.wh_productChart{
 
 
@@ -371,6 +409,10 @@
 	}
 
 	.wp_productCalculator{
+
+		h3{
+			font-size:24px;
+		}
 
 		.col-sm-6{
 			padding-left: 10px;
@@ -405,11 +447,19 @@
 		 .box-result{
 		 	max-width:300px;
 		 	min-height:260px;
+
+		 	.ttl_pay_amount, .yrs3_return{
+				font-size:22px;
+			}
 		 }
 
 		 .tbl-result-wrapper{
 		 	max-width: 620px;
 		 	margin:0 auto 20px;
+
+		 	h4{
+		 		font-size:16px;
+		 	}
 
 		 	.tbl-wrapper{
 		 		.col-data{
@@ -420,6 +470,15 @@
 		 		}
 		 	}
 		 }
+	}
+
+	.pv_sec_features .pv_feature_box{
+		text-align: center;
+	}
+
+	.pv_sec_features .pv_feature_box .pv_feature_desc{
+		padding-left:1em;
+		padding-right:1em;
 	}
 
 }
