@@ -905,3 +905,21 @@ $(document).ready(function(){
     });
 });
 </script>
+
+<jsp:include page="/WEB-INF/jsp/merged/comp/pop-up-temp.jsp"></jsp:include>
+<script>
+$(document).ready(function(){
+	// generate stop-rp-modal
+	var modal_id = 'stop-rp-modal';
+	var img_path = '<fmt:message key="savie.provie.stop.rp.modal.img" bundle="${msg}" />';
+	var title = '<fmt:message key="savie.provie.stop.rp.modal.title" bundle="${msg}" />';
+	var content = '<fmt:message key="savie.provie.stop.rp.modal.content" bundle="${msg}" />';
+	var button = '<fmt:message key="savie.provie.stop.rp.modal.btn" bundle="${msg}" />';
+	imgModal(modal_id, img_path, title, content, button);
+	$('#stop-rp-modal').modal('show');
+	
+	$('#stop-rp-modal').on('hide.bs.modal',function(){
+		window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/single-premium";
+	});
+});
+</script>

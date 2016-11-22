@@ -84,10 +84,8 @@
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg">
 										<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type" >
-										   <option value="regular-payment" data-val="rp-HKD"><fmt:message key="provie.plandetails.dropdown.paymentmode.monthly.hkd" bundle="${provieMsg}" /></option>
-										   <option value="regular-payment" data-val="rp-USD"><fmt:message key="provie.plandetails.dropdown.paymentmode.monthly.usd" bundle="${provieMsg}" /></option>
-										   <option value="one-off-premium" data-val="sp-HKD" selected><fmt:message key="provie.plandetails.dropdown.paymentmode.oneoff.hkd" bundle="${provieMsg}" /></option>
-										   <option value="one-off-premium"  data-val="sp-USD"><fmt:message key="provie.plandetails.dropdown.paymentmode.oneoff.usd" bundle="${provieMsg}" /></option>
+											<option value="one-off-premium" data-val="sp-HKD" selected><fmt:message key="provie.plandetails.dropdown.paymentmode.oneoff.hkd" bundle="${provieMsg}" /></option>
+											<option value="one-off-premium"  data-val="sp-USD"><fmt:message key="provie.plandetails.dropdown.paymentmode.oneoff.usd" bundle="${provieMsg}" /></option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="provie.plandetails.text1" bundle="${provieMsg}" /></label>
@@ -1562,4 +1560,16 @@
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-app-uifn.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-rate-table.js"></script>
-  
+
+<jsp:include page="/WEB-INF/jsp/merged/comp/pop-up-temp.jsp"></jsp:include>
+<script>
+$(window).on('load',function(){
+	var modal_id = 'stop-rp-modal';
+	var img_path = '<fmt:message key="savie.provie.stop.rp.modal.img" bundle="${msg}" />';
+	var title = '<fmt:message key="savie.provie.stop.rp.modal.title" bundle="${msg}" />';
+	var content = '<fmt:message key="savie.provie.stop.rp.modal.content" bundle="${msg}" />';
+	var button = '<fmt:message key="savie.provie.stop.rp.modal.btn" bundle="${msg}" />';
+	imgModal(modal_id, img_path, title, content, button);
+	$('#stop-rp-modal').modal('show');
+});
+</script>
