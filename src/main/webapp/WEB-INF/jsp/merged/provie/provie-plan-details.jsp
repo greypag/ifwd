@@ -1569,7 +1569,8 @@ $(window).on('load',function(){
 	var title = '<fmt:message key="provie.stop.rp.modal.title" bundle="${msg}" />';
 	var content = '<fmt:message key="provie.stop.rp.modal.content" bundle="${msg}" />';
 	var button = '<fmt:message key="provie.stop.rp.modal.btn" bundle="${msg}" />';
-	imgModal(modal_id, img_path, title, content, button);
+	//imgModal(modal_id, img_path, title, content, button);
+	imgModal_noImg(modal_id, title, content, button);
 	$('#stop-rp-modal').modal('show');
 });
 </script>
