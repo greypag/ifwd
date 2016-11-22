@@ -590,7 +590,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="text-center col-xs-6">
 	                                <br />
-	                                 <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+	                                 <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value='<fmt:message key="motor.button.next" bundle="${motorMsg}" />' />
 	                                <br/>
 	                            </div>
 	                            <div class="clearfix"></div> 
@@ -718,8 +718,79 @@ $(document).ready(function(){
 	var d3term = $('#d3term');
 	var d4term = $('#d4term');
 	var d5term = $('#d5term');
+	var totalDriver = $('.added-driver').length;
+	var current = 0;
 
-	$("#fullName").attr("value",quote.applicant.name);
+	var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+	
+	if(getUrlParameter("edit")=="yes")
+	{
+		
+		$("#fullName").attr("value",quote.applicant.name);
+		$('input[name=driverDob]').val(quote.driver[0].dateOfBirth);	
+	    $('input[name=driverID]').val(quote.driver[0].hkid);		
+	    $('input[name=fullName]').val(quote.driver[0].name);
+	    $motor_occupation[0].selectize.setValue(quote.driver[0].occupation);
+	    $("#occupation option:selected").text(quote.driver[0].occupation);	
+	    $('input[name=term]').val(quote.driver[0].validAgeGroup);
+	  	
+	    if(quote.driver.length > 1){
+	    	current =1;
+	    	$('#driver2').removeClass('hidden');
+		    $('input[name=d2dob]').val(quote.driver[1].dateOfBirth);	
+		    $('input[name=d2id]').val(quote.driver[1].hkid);		
+		    $('input[name=d2name]').val(quote.driver[1].name);		
+		    $motor_d2occupation[0].selectize.setValue(quote.driver[1].occupation);
+		    $('input[name=d2term]').val(quote.driver[1].validAgeGroup);
+	    }
+	  	
+	    if(quote.driver.length > 2){
+	    	current =2;
+	    	$('#driver3').removeClass('hidden');
+			$('input[name=d3dob]').val(quote.driver[2].dateOfBirth);	
+			$('input[name=d3id]').val(quote.driver[2].hkid);	
+			$('input[name=d3name]').val(quote.driver[2].name);	
+			$motor_d3occupation[0].selectize.setValue(quote.driver[2].occupation);	
+			$('input[name=d3term]').val(quote.driver[2].validAgeGroup);	
+	    }
+	    
+	    if(quote.driver.length > 3){
+	    	current =3;
+	    	$('#driver4').removeClass('hidden');
+			$('input[name=d4dob]').val(quote.driver[3].dateOfBirth);		
+			$('input[name=d4id]').val(quote.driver[3].hkid);	
+			$('input[name=d4name]').val(quote.driver[3].name);	
+			$motor_d4occupation[0].selectize.setValue(quote.driver[3].occupation);	
+			$('input[name=d4term]').val(quote.driver[3].validAgeGroup);
+	    }
+	    
+	    if(quote.driver.length > 4){
+	    	current =4;
+	    	$('#driver5').removeClass('hidden');
+			$('input[name=d5dob]').val(quote.driver[4].dateOfBirth);			
+			$('input[name=d5id]').val(quote.driver[4].hkid);		
+			$('input[name=d5name]').val(quote.driver[4].name);	
+			$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);
+			$('input[name=d5term]').val(quote.driver[4].validAgeGroup);	
+	    }
+		$('input[name=prev_ic]').val(quote.regNoofPreviousPolicy);
+	    $('input[name=prev_regNo]').val(quote.regNoofPreviousPolicy);		
+	    $('input[name=expiry-datepicker]').val(quote.regNoofPreviousPolicy);		
+	    $('input[name=prev_policyNo]').val(quote.regNoofPreviousPolicy);
+	}
 	
 	 var getUrlParameter = function getUrlParameter(sParam) {
 	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -736,6 +807,58 @@ $(document).ready(function(){
 	        }
 	    };
     
+	    
+	    $('#addDriver').on('click', function(e){
+	        e.preventDefault();
+
+			$('#motor_registerForm [type="submit"]').addClass('disabled');
+	        if(current < totalDriver){
+	            $('.added-driver').eq(current).removeClass('hidden');
+				$('.added-driver').eq(current).find('select').prop('required',true);
+				$('.added-driver').eq(current).find('input').prop('required',true);
+				$('.added-driver').eq(current).find('.selectize-input > input').prop('required',false);
+				$('.added-driver').eq(current).find('input').val(''); 	
+	            if(current > 0){
+	                $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
+	            }
+	            current += 1;
+				
+	            if (current == totalDriver) {
+	                $(this).addClass('hidden');
+	            }
+				$('#policyDetails').validator('update'); 
+			//	$('#policyDetails').validator('validate');
+	        }
+
+	        // console.log(current);
+	    });
+	    $('.removeDriver').on('click', function(e){
+	        e.preventDefault();
+	        $(this).parents('.added-driver').find('input').prop('required',false);
+			$(this).parents('.added-driver').find('select').prop('required',false);
+	        $(this).parents('.added-driver').find('input').val('');
+	        $(this).parents('.added-driver').find('input:checkbox').removeAttr('checked');
+	        $(this).parents('.added-driver').find('option').removeAttr('selected');
+			//$occSelect[0].selectize.clear();
+			if(current == 1)
+			$motor_d2occupation[0].selectize.clear();
+			if(current == 2)
+			$motor_d3occupation[0].selectize.clear();
+			if(current == 3)
+			$motor_d4occupation[0].selectize.clear();
+			if(current == 4)
+			$motor_d5occupation[0].selectize.clear();
+			
+	        $(this).parents('.added-driver').addClass('hidden');
+	        $(this).parents('.added-driver').prev().find('.removeDriver').removeClass('hidden');
+			$('#policyDetails').validator('update'); 
+			//$('#policyDetails').validator('validate');
+	        if(current == totalDriver){
+	            $('#addDriver').removeClass('hidden');
+	        }
+	        current -= 1;
+	    });
+	    
 	    $.ajax({
 			  type: "POST",
 			  data: JSON.stringify(quote),
@@ -815,7 +938,6 @@ $(document).ready(function(){
 			     "previousPolicyNo": $('input[name=prev_policyNo]').val()	
 			 };
 		
-		
 		if($('input[name=d2name]').val()=="")
 			delete submitData.driver[1]
 		if($('input[name=d3name]').val()=="")
@@ -824,7 +946,7 @@ $(document).ready(function(){
 			delete submitData.driver[3]
 		if($('input[name=d5name]').val()=="")
 			delete submitData.driver[4]
-		
+	
 		console.dir(submitData);
 	
 		submitData.driver = submitData.driver.filter(function(x){return x !== null});

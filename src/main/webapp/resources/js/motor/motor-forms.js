@@ -58,14 +58,32 @@ if(motorlanguage == "TC")
 	motorlanguage = "ZH";
 $(document).ready(function(){
 	
+	var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+	
 	/*isobar*/
-	$mortgageBank = $('#mortgageBank').selectize({
+	
+	var $mortgageBank = $('#mortgageBank').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',
         create: false,
         preload: true,
         load: function(query, callback) {
+        	
+			
             $('#mortgageBank-selectized').data('required-error', $('#mortgageBank').data('required-error'));
             $.ajax({
                 url: context + '/api/iMotor/list/bankMortgages',
@@ -75,23 +93,19 @@ $(document).ready(function(){
                         callback();
                     },
                     success: function(res) {
-						/*console.dir(res);
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang!=motorlanguage)                    		
-                    		{delete res[i];total--;}
-                    	});
-                    	res.length = total;
-						console.dir(res);*/
+			
                         callback(res);                        
                     }
             });
         },
+		onInitialize: function() {
+			
+		},
         onChange: function(value){
         }
     });
-
-	$motor_district = $('#district').selectize({
+	
+	var $motor_district = $('#district').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',
@@ -160,10 +174,10 @@ $(document).ready(function(){
         var $this = $(this).find('[type="radio"]');
         $this.prop('checked', true);
         $this.parent().addClass('active').siblings().removeClass('active');
-        if($('[value="yes"]:checked').length == 3){
+        /*if($('[value="yes"]:checked').length == 3){
 			$("#reasonMsg").text("choice 3");
             $("#contactpopup").modal('show');
-        }
+        }*/
 			if($('.has-error').length)
                 $(this).parents('form').validator('validate');
         
@@ -180,6 +194,12 @@ $(document).ready(function(){
     if($('#saveForm').length){
 		$('#saveForm').click(function( event ) {
 			event.preventDefault();
+	    if($('[value="no"]:checked').length){
+                                                $("#reasonMsg").text("choice 3");
+            $("#contactpopup").modal('show');
+        }
+		else
+		{
 			var
 			personalAccident = $('[name="addon1"]').val(),
 			thirdPartyPropertyDemage = $('[name="addon2"]').val();
@@ -196,6 +216,7 @@ $(document).ready(function(){
 				dataType: "json",
 				contentType : "application/json"
 			});
+		}
 		});
     }
     

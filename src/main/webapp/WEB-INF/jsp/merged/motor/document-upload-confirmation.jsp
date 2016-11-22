@@ -81,10 +81,10 @@ var nextPage = "${nextPageFlow}";
     <div class="">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h1 class="landing_h1 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Confirmation Page</h1>
+            <h1 class="landing_h1 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.uploadconfirm.page.heading" bundle="${motorMsg}" /></h1>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h1 class="landing_h1 hidden-lg hidden-md motor-ttl">Confirmation Page</h1>
+            <h1 class="landing_h1 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.uploadconfirm.page.heading" bundle="${motorMsg}" /></h1>
             <!--end mobile--> 
         </div>
     </div>
@@ -93,17 +93,12 @@ var nextPage = "${nextPageFlow}";
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
-
+                        <fmt:message key="motor.uploadconfirm.page.copy.part1" bundle="${motorMsg}" /><strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong><fmt:message key="motor.uploadconfirm.page.copy.part3" bundle="${motorMsg}" />
                         <br/>
-                    </p>
-                    <p>  
-                        Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. 
-                        <br/>
-                        <br/>
+                        <fmt:message key="motor.uploadconfirm.covernote.copy.part1" bundle="${motorMsg}" /><a href='mailto:<fmt:message key="motor.uploadconfirm.covernote.email" bundle="${motorMsg}" />'><fmt:message key="motor.uploadconfirm.covernote.email" bundle="${motorMsg}" /></a><fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" />
                     </p>
                     <p>
-                        Your Reference No.
+                        <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
                         <h3 id="motorRef" class="heading-h3 color-orange ref-number">
                             RQ862541 
                         </h3>
@@ -116,27 +111,27 @@ var nextPage = "${nextPageFlow}";
     <div class="container" >
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Want to get more discount?</h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.uploadconfirm.discount.title" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl">Want to get more discount?</h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.uploadconfirm.discount.title" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row text-center">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="content">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                        <fmt:message key="motor.uploadconfirm.discount.copy" bundle="${motorMsg}" />
                         <br />
                         <br />
                     </p>
                     <p>
-                        <h3>Orginal Renewal <strike>$10000</strike></h3>
-                        <h2 class="orange">Save $400</h2>
+                        <h3><fmt:message key="motor.uploadconfirm.discount.original.copy" bundle="${motorMsg}" /> <strike><fmt:message key="motor.uploadconfirm.discount.original.amount" bundle="${motorMsg}" /></strike></h3>
+                        <h2 class="orange"><fmt:message key="motor.uploadconfirm.discount.save.copy" bundle="${motorMsg}" />400</h2>
                     </p>
                     <p>
                         <br />
-                        <a class="" href="#">Download Now!</a>
+                        <a class="" href="#"><fmt:message key="motor.uploadconfirm.discount.downloadnow" bundle="${motorMsg}" /></a>
                         <br />
                         <img src="https://dummyimage.com/100x50/000/fff.png" alt="" />
                         &nbsp;
@@ -147,9 +142,7 @@ var nextPage = "${nextPageFlow}";
                         <br/>
 
                         <small>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                            <fmt:message key="motor.uploadconfirm.discount.remark.copy.part1" bundle="${motorMsg}" /><a href='<fmt:message key="motor.uploadconfirm.discount.remark.tnc.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.uploadconfirm.discount.remark.tnc.copy" bundle="${motorMsg}" /></a><fmt:message key="motor.uploadconfirm.discount.remark.copy.part2" bundle="${motorMsg}" />
                         </small>
                     </p>
                 </div>
@@ -159,9 +152,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row bottom">
             <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <h3>
-                    Share this great product with friends
-                </h3>
+                <h3><fmt:message key="motor.uploadconfirm.share.title" bundle="${motorMsg}" /></h3>
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                         <input type="text" name="shareUrl" id="" value="https://i.fwd......." class="form-control" disabled/>
@@ -184,20 +175,20 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Read more from our blog</h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.uploadconfirm.tips.heading" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl">Read more from our blog</h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.uploadconfirm.tips.heading" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row read-more-blog">
             <div class="col-sm-6 col-md-3">
                 <div class="hovereffect">
-                    <img class="img-responsive" src="http://placehold.it/767x540" alt="">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/1st_blog_image.jpg" alt="">
                     <div class="overlay ">
-                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <h2><fmt:message key="motor.confirmation.tips.1.title" bundle="${motorMsg}" /></h2>
                         <div class="hidden-xs">
-                            <a class="info" href="#">Read More</a>
+                        <a class="info" href='<fmt:message key="motor.confirmation.tips.1.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                         </div>
                     </div>
                 </div>
@@ -206,7 +197,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="row text-center">
                     <div class="col-xs-4 col-xs-offset-4">
                         <br />
-                        <a class="info visible-xs btn btn-primary bdr-curve" href="#">Read More</a>
+                        <a class="info visible-xs btn btn-primary bdr-curve" href='<fmt:message key="motor.confirmation.tips.1.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
 
@@ -214,28 +205,28 @@ var nextPage = "${nextPageFlow}";
             </div>
             <div class="col-sm-6 hidden-xs col-md-3">
                 <div class="hovereffect">
-                    <img class="img-responsive" src="http://placehold.it/767x540" alt="">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/2nd_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2>product 1</h2>
-                        <a class="info" href="#">Read More</a>
+                        <h2><fmt:message key="motor.confirmation.tips.2.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.confirmation.tips.2.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
             <div class="hidden-sm hidden-xs col-md-3">
                 <div class="hovereffect">
-                    <img class="img-responsive" src="http://placehold.it/767x540" alt="">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/3rd_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2>product 1</h2>
-                        <a class="info" href="#">Read More</a>
+                        <h2><fmt:message key="motor.confirmation.tips.3.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.confirmation.tips.3.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>
             <div class="hidden-sm hidden-xs col-md-3">
                 <div class="hovereffect">
-                    <img class="img-responsive" src="http://placehold.it/767x540" alt="">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/motor/4th_blog_image.jpg" alt="">
                     <div class="overlay">
-                        <h2>product 1</h2>
-                        <a class="info" href="#">Read More</a>
+                        <h2><fmt:message key="motor.confirmation.tips.4.title" bundle="${motorMsg}" /></h2>
+                        <a class="info" href='<fmt:message key="motor.confirmation.tips.4.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.button.readmore" bundle="${motorMsg}" /></a>
                     </div>
                 </div>
             </div>

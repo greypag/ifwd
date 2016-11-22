@@ -177,8 +177,8 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>-->
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="bankName" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="bankName" required data-required-error="Please enter Hire Purchase Owner/ Bank in English only." data-error="Your Bank is invalid.">
-	                                                <label class="mdl-textfield__label" for="bankName">Bank</label>
+	                                                <input type="text" name="bankName" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="bankName" required data-required-error='<fmt:message key="motor.error.msg.mortgagebank.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.mortgagebank.invalid" bundle="${motorMsg}" />'>
+	                                                <label class="mdl-textfield__label" for="bankName"><fmt:message key="motor.cardetails.mortgage.bank" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -200,7 +200,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="text-center col-xs-6">
 	                                <br /> <br />
-	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value='<fmt:message key="motor.button.next" bundle="${motorMsg}" />' />
 	                                <br/>
 	                            </div>
 	                            <div class="clearfix"></div> 
@@ -325,7 +325,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", 
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
-    
+  
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
@@ -340,6 +340,19 @@ $(document).ready(function(){
             }
         }
     };
+    
+    if(getUrlParameter("edit")=="yes")
+    {
+	    $('input[name=chassisNumber]').val(quote.carDetail.chassisNumber);    
+		$('input[name=cubicCapacity]').val(quote.carDetail.engineCapacity);
+		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
+    }
+    
+    
+	if(getUrlParameter("edit")=="yes")
+	{
+			$mortgageBank[0].selectize.setValue(quote.carDetail.bankMortgageName);
+	}
     
      $.ajax({
 		  type: "POST",
@@ -368,7 +381,7 @@ $(document).ready(function(){
 				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
 				   "modelDesc": $('input[name=registedModel]').val()    	
 					}, 	
-					"policyId": quote.policyId
+					"policyId": "26336399"//quote.policyId
 					};
 	  
 		$.ajax({

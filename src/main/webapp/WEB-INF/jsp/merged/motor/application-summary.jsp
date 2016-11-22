@@ -366,7 +366,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.driverdetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <span class="edit_driverdetail"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
+                        <span class="edit_policydetail"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -745,7 +745,7 @@ var nextPage = "${nextPageFlow}";
                                             </div>
                                             <div class="col-xs-6 col-sm-3 text-left">
                                                 <label><fmt:message key="motor.summary.payment.expirydate" bundle="${motorMsg}" /></label>
-                                                <select class="form-control" name="month" id="month" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
+                                                <select class="form-control" name="epMonth" id="month" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
                                                     <option value="" disabled selected hidden><fmt:message key="motor.summary.payment.month" bundle="${motorMsg}" /></option>
                                                     <option value="1">01</option>
 			                                        <option value="2">02</option>
@@ -765,7 +765,7 @@ var nextPage = "${nextPageFlow}";
                                                 </div>
                                             <div class="col-xs-6 col-sm-3 text-left" style="margin-top: 5px;">
                                                 <label></label>
-                                                <select class="form-control" name="year" id="year"onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
+                                                <select class="form-control" name="epYear" id="year"onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
                                                     <option value="" disabled selected hidden><fmt:message key="motor.summary.payment.year" bundle="${motorMsg}" /></option>
                                                 	<option value="2015">2015</option> 
                                         <option value="2016">2016</option> 
@@ -1108,41 +1108,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
 
 <script type="text/javascript">
-//var quote = jQuery.parseJSON('{"FulPolicyDetails":{"policyId":"26379363","driver":[{"dateOfBirth":"18-11-1991","driveMoreThanTwo":false,"hkid":"Z1234567","name":"chan chan chan","occupation":"Account / Accountant","validAgeGroup":"true"}],"nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"122222222222222","expDateOfPreviousInsurance":"18-11-2016","previousPolicyNo":"p1123332323"},"FullDriversDetails":{"policyId":"26379363","policyStartDate":"18-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"ABERDEEN","estate":"ee","flat":"aaa","floor":"bbb","hkKlNt":"Hong Kong","streetName":null,"streetNo":null},"dateOfBirth":"18-11-1991","email":"kevin.chan@isobar.com","hkid":"z1231232","name":"chan chan chan"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODELZ"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26336399"}');
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
-/*window.onload = function(event) {
-	 event.stopPropagation(true);
-var getUrlParameter = function getUrlParameter(sParam) {
-   var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-       sURLVariables = sPageURL.split('&'),
-       sParameterName,
-       i;
-
-   for (i = 0; i < sURLVariables.length; i++) {
-       sParameterName = sURLVariables[i].split('=');
-
-       if (sParameterName[0] === sParam) {
-           return sParameterName[1] === undefined ? true : sParameterName[1];
-       }
-   }
-};
-if(getUrlParameter('paymentGatewayFlag') == "1")
-   {
-	$("#PaymentingDiv").show();
-   	var href = window.location.href;
-   	
-   	var new_action = href.replace("application-summary" , "confirmation");
-   	var $form = $("<form id='quote-form' />");
-       $form.attr("action", new_action);
-       $form.attr("method", "post");
-       var $quote = $("<input type='hidden' name='data' />");
-       $quote.attr("value", JSON.stringify(quote));
-       $form.append($quote);
-       $("body").append($form);
-       $('#quote-form').submit();         
-   	
-   }	
-};*/
 
 var ApiPayment= new Array();
 var enablePayment=true;
@@ -1151,7 +1117,7 @@ $(document).ready(function(){
 	
 	$('.edit_quote').on('click',function(event){
 		var $form = $("<form id='quote-form' />");
-        $form.attr("action", "get-quote?plan=third");
+        $form.attr("action", "get-quote?plan=third&edit=yes");
         $form.attr("method", "post");
         var $quote = $("<input type='hidden' name='data' />");
         $quote.attr("value", JSON.stringify(quote));
@@ -1162,7 +1128,7 @@ $(document).ready(function(){
 	
 	$('.edit_cardetail').on('click',function(event){
 		var $form = $("<form id='quote-form' />");
-        $form.attr("action", "car-details");
+        $form.attr("action", "car-details?edit=yes");
         $form.attr("method", "post");
         var $quote = $("<input type='hidden' name='data' />");
         $quote.attr("value", JSON.stringify(quote));
@@ -1173,7 +1139,18 @@ $(document).ready(function(){
 	
 	$('.edit_driverdetail').on('click',function(event){
 		var $form = $("<form id='quote-form' />");
-        $form.attr("action", "policy-details");
+        $form.attr("action", "drivers-details?edit=yes");
+        $form.attr("method", "post");
+        var $quote = $("<input type='hidden' name='data' />");
+        $quote.attr("value", JSON.stringify(quote));
+        $form.append($quote);
+        $("body").append($form);
+        $('#quote-form').submit();  
+	});
+	
+	$('.edit_policydetail').on('click',function(event){
+		var $form = $("<form id='quote-form' />");
+        $form.attr("action", "policy-details?edit=yes");
         $form.attr("method", "post");
         var $quote = $("<input type='hidden' name='data' />");
         $quote.attr("value", JSON.stringify(quote));
@@ -1184,7 +1161,7 @@ $(document).ready(function(){
 	
 	$('.edit_noclaim').on('click',function(event){
 		var $form = $("<form id='quote-form' />");
-        $form.attr("action", "policy-details");
+        $form.attr("action", "policy-details?edit=yes");
         $form.attr("method", "post");
         var $quote = $("<input type='hidden' name='data' />");
         $quote.attr("value", JSON.stringify(quote));
@@ -1257,43 +1234,7 @@ $(document).ready(function(){
 	$(".previnsuranceexpirydate").html(quote.expDateOfPreviousInsurance);
 	$(".previouspolicyno").html(quote.previousPolicyNo);
 		
-	//check payment
-    $.ajax({
-		  type: "POST",
-		  data: JSON.stringify(quote),
-		  dataType: "json",
-	      contentType : "application/json",
-	      cache: false,
-	      async: false,
-	      url:context + "/api/iMotor/policy/payment",
-		  success: function(data){
-			  console.dir(data);
-			  $('input[name="merchantId"]').attr("value",data.merchantId);
-			  $('input[name="amount"]').attr("value",data.amount);
-			  $('input[name="remark"]').attr("value",data.remark);
-			  $('input[name="orderRef"]').attr("value",data.orderRef);
-			  $('input[name="currCode"]').attr("value",data.currCode);
-			  $('input[name="successUrl"]').attr("value",data.successUrl);
-			  $('input[name="failUrl"]').attr("value",data.failUrl);
-			  $('input[name="errorUrl"]').attr("value",data.errorUrl);
-			  $('input[name="payType"]').attr("value",data.payType);
-			  $('input[name="referenceNo"]').attr("value",data.referenceNo);
-			  $('input[name="lang"]').attr("value",data.lang);
-			  $('input[name="secureHash"]').attr("value",data.secureHash);
-			  $('input[name="emailAddress"]').attr("value",data.emailAddress);
-			  $('input[name="gateway"]').attr("value",data.gateway);
-			  $('input[name="merchantId"]').attr("value",data.merchantId);
-			  $('input[name="appId"]').attr("value",data.appId);
-			  $('input[name="merTradeNo"]').attr("value",data.merTradeNo);
-			  $('input[name="payload"]').attr("value",data.payload);
-			  $('input[name="paymentType"]').attr("value",data.paymentType);
-			  $('input[name="sign"]').attr("value",data.sign);
-			  $('input[name="errorMsg"]').attr("value",data.errorMsg);
-
-		  },error: function(error) {
-			
-		  }
-		});
+	
     
 	$.ajax({
 		  type: "POST",
@@ -1368,22 +1309,61 @@ $(document).ready(function(){
 		var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
         clicked = false;
 		if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
-			var geteWayUrl = $(gatewayUrlId).val();
+			
 			
 			 clicked = true;
 			$("#PaymentingDiv").show();
 			
-			setTimeout(function(){
-				console.dir($("#"+form).serialize());
-        		$("#"+form).attr('action', geteWayUrl);
-                $("#"+form).submit();
-            }, 3000);
+			//check payment
+		    $.ajax({
+				  type: "POST",
+				  data: JSON.stringify(quote),
+				  dataType: "json",
+			      contentType : "application/json",
+			      cache: false,
+			      async: false,
+			      url:context + "/api/iMotor/policy/payment",
+				  success: function(data){
+					  console.dir(data);
+					  $('input[name="merchantId"]').attr("value",data.merchantId);
+					  $('input[name="amount"]').attr("value",data.amount);
+					  $('input[name="remark"]').attr("value",data.remark);
+					  $('input[name="orderRef"]').attr("value",data.orderRef);
+					  $('input[name="currCode"]').attr("value",data.currCode);
+					  $('input[name="successUrl"]').attr("value",data.successUrl);
+					  $('input[name="failUrl"]').attr("value",data.failUrl);
+					  $('input[name="errorUrl"]').attr("value",data.errorUrl);
+					  $('input[name="payType"]').attr("value",data.payType);
+					  $('input[name="referenceNo"]').attr("value",data.referenceNo);
+					  $('input[name="lang"]').attr("value",data.lang);
+					  $('input[name="secureHash"]').attr("value",data.secureHash);
+					  $('input[name="emailAddress"]').attr("value",data.emailAddress);
+					  $('input[name="gateway"]').attr("value",data.gateway);
+					  $('input[name="merchantId"]').attr("value",data.merchantId);
+					  $('input[name="appId"]').attr("value",data.appId);
+					  $('input[name="merTradeNo"]').attr("value",data.merTradeNo);
+					  $('input[name="payload"]').attr("value",data.payload);
+					  $('input[name="paymentType"]').attr("value",data.paymentType);
+					  $('input[name="sign"]').attr("value",data.sign);
+					  $('input[name="errorMsg"]').attr("value",data.errorMsg);
+					  var geteWayUrl = data.gateway;
+					  setTimeout(function(){ 
+						   console.dir($("#"+form).serialize());
+						   alert(geteWayUrl);
+			        		$("#"+form).attr('action', geteWayUrl);
+			                $("#"+form).submit();
+			          }, 5000);
+				  },error: function(error) {
+					
+				  }
+				});
+		    
+			
 		}else{
 	    	$("#PaymentingDiv").hide();
 	        enablePayment=true;
 	    	return false;
 	    }
 	}
-
 });
 </script>

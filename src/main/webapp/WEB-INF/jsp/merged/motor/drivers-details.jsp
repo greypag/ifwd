@@ -192,7 +192,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="buliding" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="buliding" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="building" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="building" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.building" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -313,7 +313,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="text-center col-xs-6">
 	                                <br />
-	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value='<fmt:message key="motor.button.next" bundle="${motorMsg}" />' />
 	                                <br/>
 	                            </div>
 	                            <div class="clearfix"></div> 
@@ -412,7 +412,7 @@ var nextPage = "${nextPageFlow}";
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value='<fmt:message key="motor.button.next" bundle="${motorMsg}" />' />
                                 <br/>
                             </div>
                             <div class="clearfix"></div> 
@@ -451,6 +451,35 @@ $(document).ready(function(){
 	        }
 	    };
     
+	if(getUrlParameter("edit")=="yes")
+    {
+	    $('input[name=fullName]').val(quote.applicant.name);    
+		$('input[name=driverDob]').val(quote.applicant.dateOfBirth);
+		$('input[name=driverID]').val(quote.applicant.hkid);
+		$('input[name=mobileno]').val(quote.applicant.contactNo);
+		$('input[name=email]').val(quote.applicant.email);
+		$('input[name=flat]').val(quote.applicant.correspondenceAddress.flat);
+		$('input[name=floor]').val(quote.applicant.correspondenceAddress.floor);
+		$('input[name=block]').val(quote.applicant.correspondenceAddress.block);
+		$('input[name=building]').val(quote.applicant.correspondenceAddress.building);
+		$('input[name=estate]').val(quote.applicant.correspondenceAddress.estate);
+		$('input[name=district]').val(quote.applicant.correspondenceAddress.district);
+		//$('input[name=hkKlNt]').val(quote.applicant.modelDesc);
+		//$('input[name=driverID]').val(quote.applicant.modelDesc);
+
+		//$("#area")[0].selectize.setValue(quote.applicant.correspondenceAddress.hkKlNt);
+		//$("#district")[0].selectize.setValue(quote.applicant.correspondenceAddress.district);
+	
+		var $motor_aa = $('#area').selectize();
+		var $selectize_aa = $motor_aa[0].selectize;
+		$selectize_aa.setValue(quote.applicant.correspondenceAddress.hkKlNt);
+		var $motor_dd = $('#district').selectize();
+		var $selectize_bb = $motor_dd[0].selectize;
+		$selectize_bb.setValue(quote.applicant.correspondenceAddress.district);
+    }
+	
+	
+	
 	 $.ajax({
 		  type: "POST",
 		  data: JSON.stringify(quote),
@@ -468,20 +497,15 @@ $(document).ready(function(){
 		});
     
 	$('#driverDetails').submit(function(event){
-	   var isThird;
-	   if (getUrlParameter('plan')=='third') {
-	  	  isThird = true;
-	   } else {
-	   	  isThird = false;
-	   }		
+		
 	   var submitData = {
-			    "policyId": quote.policyID,		
+			    "policyId": quote.policyId,		
 			   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
 			  	"applicant": {		
 			  	"contactNo": $('input[name=mobileno]').val(),		
 			  	"correspondenceAddress": {    		
 			    "block":  $('input[name=block]').val(),		
-			    "building":  $('input[name=buliding]').val(),		
+			    "building":  $('input[name=building]').val(),		
 			    "district":  $("#district option:selected").text(),		
 			    "estate":  $('input[name=estate]').val(),		
 			    "flat":  $('input[name=flat]').val(),		
@@ -496,7 +520,8 @@ $(document).ready(function(){
 			  "name": $('input[name=fullName]').val() 		
 			  }		
 			};
-	   	console.dir(submitData);	
+	   	console.dir(submitData);
+	   	console.log(JSON.stringify(submitData));
 		$.ajax({
 		  beforeSend: function(){
           	$('#loading-overlay').modal("show");
@@ -507,40 +532,25 @@ $(document).ready(function(){
           contentType : "application/json",
           cache: false,
           async: false,
-		  url: "/api/iMotor/policy/saving/driverDetails",
+		  url: context + "/api/iMotor/policy/saving/driverDetails",
 		  success: function(data){
 			  
 			  var $form = $("<form id='quote-form' />");
               $form.attr("action", "policy-details");
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
-              /*var newdata = {};
-              newdata['FullDriversDetails'] = submitData;
-              $quote.attr("value", JSON.stringify($.extend( newdata, quote )));
-              */
               var opts = {};
               opts = $.extend(opts,quote, submitData);
+              opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
               $quote.attr("value", JSON.stringify(opts));
               $form.append($quote);
               $("body").append($form);
               $('#quote-form').submit();
               
 		  },error: function(error) {
-							
-			  var $form = $("<form id='quote-form' />");
-              if (isThird) {
-                  $form.attr("action", "third-party-quote");
-              } else {
-                  $form.attr("action", "policy-details");
-              }
-              $form.attr("method", "post");
-              var $quote = $("<input type='hidden' name='data' />");
-              var opts = {};
-              opts = $.extend(opts,quote, submitData);
-              $quote.attr("value", JSON.stringify(opts));
-              $form.append($quote);
-              $("body").append($form);
-              $('#quote-form').submit();
+			 console.dir(error);				
+			  alert("error");
+			  return false;
               
 		  }
 		});

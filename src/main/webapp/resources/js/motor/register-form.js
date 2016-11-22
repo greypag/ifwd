@@ -83,6 +83,9 @@ $(document).ready(function(){
                     }
             });
         },
+		onInitialize: function() {
+			//$motor_occupation[0].selectize.setValue(quote.driver[0].occupation);
+		},
         onChange: function(value){
         }
     });
@@ -114,6 +117,9 @@ $(document).ready(function(){
                     }
             });
         },
+		onInitialize: function() {
+			//$motor_d2occupation[0].selectize.setValue(quote.driver[1].occupation);
+		},
         onChange: function(value){
         }
     });
@@ -145,6 +151,9 @@ $(document).ready(function(){
                     }
             });
         },
+		onInitialize: function() {
+			//$motor_d3occupation[0].selectize.setValue(quote.driver[2].occupation);
+		},
         onChange: function(value){
         }
     });
@@ -176,6 +185,9 @@ $(document).ready(function(){
                     }
             });
         },
+		onInitialize: function() {
+			//$motor_d4occupation[0].selectize.setValue(quote.driver[3].occupation);
+		},
         onChange: function(value){
         }
     });
@@ -207,6 +219,9 @@ $(document).ready(function(){
                     }
             });
         },
+		onInitialize: function() {
+			//$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);
+		},
         onChange: function(value){
         }
     });
@@ -272,58 +287,7 @@ $(document).ready(function(){
         }
     }); 
 	
-    var totalDriver = $('.added-driver').length;
-    var current = 0;
-    $('#addDriver').on('click', function(e){
-        e.preventDefault();
-
-		$('#motor_registerForm [type="submit"]').addClass('disabled');
-        if(current < totalDriver){
-            $('.added-driver').eq(current).removeClass('hidden');
-			$('.added-driver').eq(current).find('select').prop('required',true);
-			$('.added-driver').eq(current).find('input').prop('required',true);
-			$('.added-driver').eq(current).find('.selectize-input > input').prop('required',false);
-			$('.added-driver').eq(current).find('input').val(''); 	
-            if(current > 0){
-                $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
-            }
-            current += 1;
-			
-            if (current == totalDriver) {
-                $(this).addClass('hidden');
-            }
-			$('#policyDetails').validator('update'); 
-		//	$('#policyDetails').validator('validate');
-        }
-
-        // console.log(current);
-    });
-    $('.removeDriver').on('click', function(e){
-        e.preventDefault();
-        $(this).parents('.added-driver').find('input').prop('required',false);
-		$(this).parents('.added-driver').find('select').prop('required',false);
-        $(this).parents('.added-driver').find('input').val('');
-        $(this).parents('.added-driver').find('input:checkbox').removeAttr('checked');
-        $(this).parents('.added-driver').find('option').removeAttr('selected');
-		//$occSelect[0].selectize.clear();
-		if(current == 1)
-		$motor_d2occupation[0].selectize.clear();
-		if(current == 2)
-		$motor_d3occupation[0].selectize.clear();
-		if(current == 3)
-		$motor_d4occupation[0].selectize.clear();
-		if(current == 4)
-		$motor_d5occupation[0].selectize.clear();
-		
-        $(this).parents('.added-driver').addClass('hidden');
-        $(this).parents('.added-driver').prev().find('.removeDriver').removeClass('hidden');
-		$('#policyDetails').validator('update'); 
-		//$('#policyDetails').validator('validate');
-        if(current == totalDriver){
-            $('#addDriver').removeClass('hidden');
-        }
-        current -= 1;
-    });
+   
     $('#sendDriverDetail').on('click', function(e){
         e.preventDefault();
     });

@@ -106,13 +106,13 @@ var nextPage = "${nextPageFlow}";
 		                                    <div class="form-group">
 	                                            <div class="help-block-wrap">
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer1" id="a1yes" value="yes" required>
+	                                            <input type="radio" name="answer1" id="a1yes" value="yes">
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer1" id="a1no" value="no" required>
+	                                            <input type="radio" name="answer1" id="a1no" value="no">
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
@@ -141,13 +141,13 @@ var nextPage = "${nextPageFlow}";
 		                                    <div class="form-group">
 	                                            <div class="help-block-wrap">
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer2" id="a2yes" value="yes" required>
+	                                            <input type="radio" name="answer2" id="a2yes" value="yes">
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer2" id="a2no" value="no" required>
+	                                            <input type="radio" name="answer2" id="a2no" value="no">
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
@@ -176,13 +176,13 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
                                             <div class="help-block-wrap">
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer3" id="a3yes" value="yes" required>
+	                                            <input type="radio" name="answer3" id="a3yes" value="yes">
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center">
-	                                            <input type="radio" name="answer3" id="a3no" value="no" required>
+	                                            <input type="radio" name="answer3" id="a3no" value="no">
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
@@ -200,8 +200,8 @@ var nextPage = "${nextPageFlow}";
 	                    <form action="/api/iMotor/policy/declarations" method="post">
 	                        <div class="col-xs-12">
 	                            <div class="center" > 
-	                                <h1 class="landing_h2 hidden-sm hidden-xs">Privacy Statement</h1>
-	                                <h1 class="landing_h2 hidden-lg hidden-md feature-ttl">Privacy Statement</h1>
+	                                <h1 class="landing_h2 hidden-sm hidden-xs"><fmt:message key="motor.declarations.privacy.policy" bundle="${motorMsg}" /></h1>
+	                                <h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="motor.declarations.privacy.policy" bundle="${motorMsg}" /></h1>
 	                            </div>
 	                        </div>
 	                        <div class="clearfix"></div>
@@ -210,9 +210,9 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <input type="checkbox" id="psNoDM" name="psNoDM" value="" required data-required-error="Please enter Registration No. of Previous Policy." >
+	                                            <input type="checkbox" id="psNoDM" name="psNoDM" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error1" bundle="${motorMsg}" />'>
 	                                            <label><small>
-	                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+	                                                    <fmt:message key="motor.declarations.privacy.policy.q1" bundle="${motorMsg}" /></small>
 	                                            </label>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
@@ -225,9 +225,9 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <input type="checkbox" id="psNoProvidePersonalData" name="psNoProvidePersonalData" value="" required data-required-error="Please enter Registration No. of Previous Policy." >
+	                                            <input type="checkbox" id="psNoProvidePersonalData" name="psNoProvidePersonalData" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error2" bundle="${motorMsg}" />'>
 	                                            <label><small>
-	                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+	                                                    <fmt:message key="motor.declarations.privacy.policy.q2" bundle="${motorMsg}" /></small>
 	                                            </label>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
@@ -240,9 +240,9 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <input type="checkbox" id="psPICS" name="psPICS" value=""  required data-required-error="Please enter Registration No. of Previous Policy." >
+	                                            <input type="checkbox" id="psPICS" name="psPICS" value=""  required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error3" bundle="${motorMsg}" />'>
 	                                            <label><small>
-	                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </small>
+	                                                    <fmt:message key="motor.declarations.privacy.policy.q3" bundle="${motorMsg}" /></small>
 	                                            </label>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
@@ -286,7 +286,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
-                <h3><span class="small title">Your quote</span><span class="price">HK$4,680.00</span></h3>
+                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />4,680.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                 <div class="row">
@@ -294,13 +294,13 @@ var nextPage = "${nextPageFlow}";
                         <span class="ci"> Comprehensive Insurance </span>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <small class="from">from</small><span class="price">HK$4,230.00</span>
+                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />4,230.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-12">
                         <br/>
                     </div>
                     <div class="col-xs-12">
-                    <strong>Add On:</strong> 
+                    <strong><fmt:message key="motor.label.addon" bundle="${motorMsg}" />:</strong> 
                     </div>
                     <div class="col-xs-6">
                         <span>Personal Accident</span>
@@ -312,13 +312,13 @@ var nextPage = "${nextPageFlow}";
                         <br/>
                     </div>
                     <div class="col-xs-6">
-                        <span>Subtitle</span>
+                        <span><fmt:message key="motor.label.subtotal" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-6 text-right">
                         <span>3400.00</span>
                     </div>
                     <div class="col-xs-6">
-                        <span>Discounts</span>
+                        <span><fmt:message key="motor.label.discounts" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-6 text-right">
                         <span>300.00</span>
@@ -327,10 +327,10 @@ var nextPage = "${nextPageFlow}";
                         <hr/>
                     </div>
                     <div class="col-xs-6">
-                        <strong>Amount due:</strong>
+                        <strong><fmt:message key="motor.label.amountdue" bundle="${motorMsg}" />:</strong>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <strong>HKD$300.00</strong>
+                        <strong><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />300.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></strong>
                     </div>
                     <div class="clearfix"></div>
                 </div>
