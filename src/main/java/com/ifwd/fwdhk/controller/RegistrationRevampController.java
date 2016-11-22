@@ -42,10 +42,12 @@ import springfox.documentation.annotations.ApiIgnore;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.registrationrevamp.ForgetUsernameRequest;
 import com.ifwd.fwdhk.model.registrationrevamp.ForgetUsernameResponse;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 
 @Controller
@@ -86,7 +88,11 @@ public class RegistrationRevampController extends BaseController{
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			
 			// ******************* Consume Service *******************
-			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			
+			Map<String,String> header = Maps.newHashMap();
+			header=headerUtil.getHeader(request);
+			header.remove("username");  //*DIRECTGI
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
 			
 			// ******************* Makeup result *******************			
 			responseEntity=getResponseEntityByJsonObj(methodName,ForgetUsernameResponse.class,responseJsonObj);
@@ -142,7 +148,7 @@ public class RegistrationRevampController extends BaseController{
 					break;
 				}
 				responseJsonObj.put("message", errMsg);
-				responseJsonObj.put("done", false);
+				responseJsonObj.remove("errMsgs");
 				ObjectMapper mapper = new ObjectMapper();
 				responseObject= (T) mapper.readValue(responseJsonObj.toString(), responseClass);
 				return new ResponseEntity<T>(responseObject, HttpStatus.valueOf(Integer.parseInt(resultCode)));
