@@ -1158,10 +1158,10 @@ var affordabilityPremium = ${sliderMax};
 <script>
 $(window).on('load',function(){
 	var modal_id = 'stop-rp-modal';
-	var img_path = '<fmt:message key="savie.provie.stop.rp.modal.img" bundle="${msg}" />';
-	var title = '<fmt:message key="savie.provie.stop.rp.modal.title" bundle="${msg}" />';
-	var content = '<fmt:message key="savie.provie.stop.rp.modal.content" bundle="${msg}" />';
-	var button = '<fmt:message key="savie.provie.stop.rp.modal.btn" bundle="${msg}" />';
+	var img_path = '<fmt:message key="savie.stop.rp.modal.img" bundle="${msg}" />';
+	var title = '<fmt:message key="savie.stop.rp.modal.title" bundle="${msg}" />';
+	var content = '<fmt:message key="savie.stop.rp.modal.content" bundle="${msg}" />';
+	var button = '<fmt:message key="savie.stop.rp.modal.btn" bundle="${msg}" />';
 	imgModal(modal_id, img_path, title, content, button);
 	$('#stop-rp-modal').modal('show');
 });
