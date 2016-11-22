@@ -14,6 +14,7 @@ public class MotorPageFlowControl {
 	private final static Logger logger = LoggerFactory
 			.getLogger(MotorPageFlowControl.class);
 
+	
 	public static ModelAndView pageFlow(String plan, Model model, HttpServletRequest request, String key) {
 
 		logger.debug("--------	---------------------------page flow start--------------------------------------------");
@@ -154,6 +155,10 @@ public class MotorPageFlowControl {
 				to = "";
 				fileName = UserRestURIConstants.FILE_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION;
 				break;
+			case UserRestURIConstants.URL_MOTOR_PAYMENT_RESULT: 
+				to = UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD;
+				fileName = UserRestURIConstants.FILE_MOTOR_CONFIRMATION;
+				break;
 			default:
 				to = UserRestURIConstants.URL_MOTOR_LANDING;
 				fileName = UserRestURIConstants.FILE_MOTOR_LANDING;
@@ -221,6 +226,9 @@ public class MotorPageFlowControl {
 		}
 		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER+"/")) {
 			return UserRestURIConstants.URL_MOTOR_DOCUMENT_UPLOAD_LATER;
+		}
+		if(url.endsWith("/"+UserRestURIConstants.URL_MOTOR_PAYMENT_RESULT+"/")) {
+			return UserRestURIConstants.URL_MOTOR_PAYMENT_RESULT;
 		}
 		
 		return "";
