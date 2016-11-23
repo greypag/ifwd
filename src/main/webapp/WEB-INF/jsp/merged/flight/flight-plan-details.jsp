@@ -70,7 +70,8 @@ if(lang === "EN"){
 
 perventRedirect=true;
 
-/* will be removed later, by the validateName() in js/common/helpers.js
+/*
+// will be removed later, by the validateName() in js/common/helpers.js
 var namePlaceholder="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />";
 var hkidPlaceholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />";
 var appMobilePlaceholder = "";

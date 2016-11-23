@@ -141,6 +141,8 @@ var fwdValidator = (function(fwdConstant) {
 	var _isValidBeneRelationship = function(val){};
 	var _isValidBeneEntitlement = function(val, val2, val3){};
 
+    // var _isValidBeneFullName = function (inputId, errorId, insureBoolean, inputType) {
+    // (inputId, errorId) wrapped into "beneMainElem"
     var _isValidBeneFullName = function (insureBoolean, inputType, placeholderObj, insureElem, beneMainElem) {
         var localConfig = {
             'applicant': {
@@ -156,21 +158,28 @@ var fwdValidator = (function(fwdConstant) {
                 , 'namePH':    placeholderObj.beneficiaryName
             }
         };
-        console.log(localConfig);
-    	var placeholder = '';
+
+        // Defined what DOM will be binded to, i.e. Insured Person inputbox
+        if ( insureElem == null ) {
+            // Defaulted
+            insureElem = {
+                'inputBoxId': 'txtInsuFullName1'
+                , 'errMsgDOMId': 'errtxtPersonalFullName1'
+            };
+        }
 
         // Assign "placeholder" value, refer to (applicant, insured, beneficiary)
+        var placeholder = '';
         _.each(localConfig, function(LCvalue, LCindex) {
             if (inputType == LCindex) { placeholder = LCvalue.namePH; }
         });
 
-        // Truncate the field value in $("#"+beneMainElem.inputId) once
+        // Truncate the field value once IF EQUAL TO placeholder value
     	if ( $("#"+beneMainElem.inputId).val() == placeholder.trim() ) {
     		$("#"+beneMainElem.inputId).val('');
         }
 
     	var fullname = $("#"+beneMainElem.inputId).val();
-
     	if (fullname.trim() == "") {
 
     		$("#"+beneMainElem.inputId).addClass("invalid-field");
@@ -200,19 +209,19 @@ var fwdValidator = (function(fwdConstant) {
             // console.log( '#applicantRelationship.val() = ' + document.getElementById("applicantRelationship") );
     		if (document.getElementById("applicantRelationship") != null) {
     			if (document.getElementById("applicantRelationship").value == 'SE'){
-    				$('#'+insureElem.fullname.inputBoxId).val(fullname);
-    				$('#'+insureElem.fullname.inputBoxId).removeClass("bmg_custom_placeholder");
+    				$('#'+insureElem.inputBoxId).val(fullname);
+    				$('#'+insureElem.inputBoxId).removeClass("bmg_custom_placeholder");
 
-    				$('#'+insureElem.fullname.inputBoxId).removeClass("invalid-field");
-    				$('#'+insureElem.fullname.errMsgDOMId).html("");
+    				$('#'+insureElem.inputBoxId).removeClass("invalid-field");
+    				$('#'+insureElem.errMsgDOMId).html("");
     				$("#errtxtAdFullName1").html(""); // where? may check later
     			}
     		} else {
-    			$('#'+insureElem.fullname.inputBoxId).val(fullname);
-    			$('#'+insureElem.fullname.inputBoxId).removeClass("bmg_custom_placeholder");
+    			$('#'+insureElem.inputBoxId).val(fullname);
+    			$('#'+insureElem.inputBoxId).removeClass("bmg_custom_placeholder");
 
-    			$('#'+insureElem.fullname.inputBoxId).removeClass("invalid-field");
-    			$('#'+insureElem.fullname.errMsgDOMId).html("");
+    			$('#'+insureElem.inputBoxId).removeClass("invalid-field");
+    			$('#'+insureElem.errMsgDOMId).html("");
     			$("#errtxtAdFullName1").html(""); // where? may check later
     		}
     	}

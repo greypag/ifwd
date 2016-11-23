@@ -43,29 +43,43 @@ function initFVConfig(argCfg) {
         $(function() {
             // var name = document.getElementById("inputFullName").value;
 
-			var insureElem = {
-	            'fullname': {
-	                'inputBoxId': 'txtInsuFullName1'
-	                , 'errMsgDOMId': 'errtxtPersonalFullName1'
-	            }
-	        };
-			// Initialized fisrt, valued it later.
-			var beneMainElem = { 'inputId': '' , 'errorId': '' };
 
 			// SAME AS ${ind} >> argCfg.travellerCounter.personalPlan (i.e. Total Personal Plan Travller)
+			var dataSourceFieldId = '';
 			for ( var i = 1; i < argCfg.travellerCounter.personalPlan+1; i++ ) (function(i) {
-				$('#personalBenefitiaryId'+i).blur(function() {
-				  console.log(' $(#personalBenefitiaryId'+i+') - onBlur JS detected -');
-				  beneMainElem.inputId = 'personalBenefitiaryId'+i;
-				  beneMainElem.errorId = 'errpersonalBenefitiaryId'+i;
-				  fwdValidator.beneficiaryInfo.isValidBeneFullName( false, 'beneficiary', argCfg.placeholder, insureElem, beneMainElem );
+
+				// Plug onBlur behaviour with isValidBeneFullName() to DOM id = "personalBenefitiaryId"
+				dataSourceFieldId = 'personalBenefitiaryId';
+				$( '#'+dataSourceFieldId+i).blur(function() {
+					console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
+					// insureElem: Defined what DOM will be binded to, i.e. Insured Person inputbox
+					var insureElem = null;
+					var beneMainElem = {
+						'inputId': dataSourceFieldId+i
+						, 'errorId': 'err'+dataSourceFieldId+i
+					};
+					fwdValidator.beneficiaryInfo.isValidBeneFullName( true, 'beneficiary', argCfg.placeholder, insureElem, beneMainElem );
+				});
+
+				// Plug onBlur behaviour with isValidBeneFullName() to DOM id = "inputFullName"
+				dataSourceFieldId = 'inputFullName';
+				$( '#'+dataSourceFieldId+i).blur(function() {
+					console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
+					// insureElem: Defined what DOM will be binded to, i.e. Insured Person inputbox
+					var insureElem = null;
+					var beneMainElem = {
+						'inputId': dataSourceFieldId+i
+						, 'errorId': 'err'+dataSourceFieldId+i
+					};
+					fwdValidator.beneficiaryInfo.isValidBeneFullName( true, 'beneficiary', argCfg.placeholder, insureElem, beneMainElem );
 			  	});
+
 			})(i);
 
         });
 
 
-		// Merge all FV config together, !!! caution $.extend() to result['fields'] !!!
+		// Merge all FV configs together, !!! caution we only targeted to result['fields']
 		var result = argCfg.schema;
 		result.fields = $.extend(
 				argCfg.schema.fields
