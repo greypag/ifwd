@@ -709,8 +709,8 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
-//var quote = jQuery.parseJSON('{"FullDriversDetails":{"policyId":"26379363","policyStartDate":"17-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"會計","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"17-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"ChCHANCHANCHAN"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODEL Z"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26379363"}');
-var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+var quote = jQuery.parseJSON('{"FullDriversDetails":{"policyId":"26379363","policyStartDate":"17-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"會計","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"17-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"ChCHANCHANCHAN"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODEL Z"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26379363"}');
+
 $(document).ready(function(){
 	
 	var term = $('#term');
@@ -745,7 +745,7 @@ $(document).ready(function(){
 	    $('input[name=fullName]').val(quote.driver[0].name);
 	    $motor_occupation[0].selectize.setValue(quote.driver[0].occupation);
 	    $("#occupation option:selected").text(quote.driver[0].occupation);	
-	    $('input[name=term]').val(quote.driver[0].validAgeGroup);
+	    $('input[name=term]').attr("checked",quote.driver[0].validAgeGroup);
 	  	
 	    if(quote.driver.length > 1){
 	    	current =1;
@@ -754,7 +754,7 @@ $(document).ready(function(){
 		    $('input[name=d2id]').val(quote.driver[1].hkid);		
 		    $('input[name=d2name]').val(quote.driver[1].name);		
 		    $motor_d2occupation[0].selectize.setValue(quote.driver[1].occupation);
-		    $('input[name=d2term]').val(quote.driver[1].validAgeGroup);
+		    $('input[name=d2term]').attr("checked",quote.driver[1].validAgeGroup);
 	    }
 	  	
 	    if(quote.driver.length > 2){
@@ -764,7 +764,7 @@ $(document).ready(function(){
 			$('input[name=d3id]').val(quote.driver[2].hkid);	
 			$('input[name=d3name]').val(quote.driver[2].name);	
 			$motor_d3occupation[0].selectize.setValue(quote.driver[2].occupation);	
-			$('input[name=d3term]').val(quote.driver[2].validAgeGroup);	
+			$('input[name=d3term]').attr("checked",quote.driver[2].validAgeGroup);	
 	    }
 	    
 	    if(quote.driver.length > 3){
@@ -774,7 +774,7 @@ $(document).ready(function(){
 			$('input[name=d4id]').val(quote.driver[3].hkid);	
 			$('input[name=d4name]').val(quote.driver[3].name);	
 			$motor_d4occupation[0].selectize.setValue(quote.driver[3].occupation);	
-			$('input[name=d4term]').val(quote.driver[3].validAgeGroup);
+			$('input[name=d4term]').attr("checked",quote.driver[3].validAgeGroup);
 	    }
 	    
 	    if(quote.driver.length > 4){
@@ -784,12 +784,19 @@ $(document).ready(function(){
 			$('input[name=d5id]').val(quote.driver[4].hkid);		
 			$('input[name=d5name]').val(quote.driver[4].name);	
 			$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);
-			$('input[name=d5term]').val(quote.driver[4].validAgeGroup);	
+			$('input[name=d5term]').attr("checked",quote.driver[4].validAgeGroup);	
 	    }
-		$('input[name=prev_ic]').val(quote.regNoofPreviousPolicy);
+		$('input[name=prev_ic]').val(quote.nameOfPreviousInusrancer);
 	    $('input[name=prev_regNo]').val(quote.regNoofPreviousPolicy);		
-	    $('input[name=expiry-datepicker]').val(quote.regNoofPreviousPolicy);		
-	    $('input[name=prev_policyNo]').val(quote.regNoofPreviousPolicy);
+	    $('input[name=expiry-datepicker]').val(quote.expDateOfPreviousInsurance);		
+	    $('input[name=prev_policyNo]').val(quote.previousPolicyNo);
+	    
+	    for(var i=0;i<quote.driver.length;i++)
+	    {
+	    	if(i > 0){
+	    		$('#driver'+i).find('.removeDriver').addClass('hidden');
+            }
+	    }
 	}
 	
 	 var getUrlParameter = function getUrlParameter(sParam) {

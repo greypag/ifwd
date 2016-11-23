@@ -27,6 +27,7 @@ cnErr ={
 		413: '您輸入的座駕估計市值低於最低下限。',
 		416: '您的汽車未能符合即時報價的要求。'
 };
+var $mortgageBank ;
 var motor_mortgageBank, $motor_mortgageBank, 
 motor_district , $motor_district, 
 motor_occupation, $motor_occupation, 
@@ -75,7 +76,7 @@ $(document).ready(function(){
 	
 	/*isobar*/
 	
-	var $mortgageBank = $('#mortgageBank').selectize({
+	$mortgageBank = $('#mortgageBank').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',
@@ -93,8 +94,17 @@ $(document).ready(function(){
                         callback();
                     },
                     success: function(res) {
-			
-                        callback(res);                        
+						
+                        callback(res);   
+						$.each(res, function(i, item) {
+							
+							if(item.desc == quote.carDetail.bankMortgageName)
+							{
+							
+								$mortgageBank[0].selectize.setValue("A1Bank");	
+							}
+						});
+											
                     }
             });
         },
@@ -191,11 +201,12 @@ $(document).ready(function(){
     $.getJSON( "./api/iMotor/ContactMe.json", function( data ) { //get json
         contactJson = data;
     });
-    if($('#saveForm').length){
+    /*if($('#saveForm').length){
 		$('#saveForm').click(function( event ) {
 			event.preventDefault();
-	    if($('[value="no"]:checked').length){
-                                                $("#reasonMsg").text("choice 3");
+
+	    if($('[value="yes"]:checked').length){
+            $("#reasonMsg").text("choice 3");
             $("#contactpopup").modal('show');
         }
 		else
@@ -218,7 +229,7 @@ $(document).ready(function(){
 			});
 		}
 		});
-    }
+    }*/
     
      if($('#contactform-pop').length){
         $('#contactform-pop').submit(function( event ) {

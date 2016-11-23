@@ -320,8 +320,6 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript">
 var checkbox=true;
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
-//var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"driver":[{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false}');
-//var quote = jQuery.parseJSON('{"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId": "26336399"}');
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
@@ -346,12 +344,8 @@ $(document).ready(function(){
 	    $('input[name=chassisNumber]').val(quote.carDetail.chassisNumber);    
 		$('input[name=cubicCapacity]').val(quote.carDetail.engineCapacity);
 		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
-    }
-    
-    
-	if(getUrlParameter("edit")=="yes")
-	{
-			$mortgageBank[0].selectize.setValue(quote.carDetail.bankMortgageName);
+ 		
+	
 	}
     
      $.ajax({
@@ -381,7 +375,7 @@ $(document).ready(function(){
 				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
 				   "modelDesc": $('input[name=registedModel]').val()    	
 					}, 	
-					"policyId": "26336399"//quote.policyId
+					"policyId": quote.policyId
 					};
 	  
 		$.ajax({

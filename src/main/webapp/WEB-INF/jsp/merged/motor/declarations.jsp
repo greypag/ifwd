@@ -524,24 +524,56 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
-var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+var quote = jQuery.parseJSON('{"policyId":"26336399","refNumber":"QFVPE16-001548","applicant":{"ncb":"40","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true,"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"ddd","district":"鴨脷洲","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"23-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"chan chan chan"},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2599","model":"120I","yearOfManufacture":"2016","bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","modelDesc":"MODELZ"},"driver":[{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"a1234567","name":"chan chan chan","occupation":"銀行/金融/保險/投資","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"b1234567","name":"bb bb bb","occupation":"會計","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"c1234567","name":"ccc ccc ccc","occupation":"廣告","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"d1234567","name":"dd dd  ddd","occupation":"演藝娛樂界 (例如：演藝人員/化妝師/髪型師等等)","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"e1234567","name":"ee ee ee","occupation":"航空業","validAgeGroup":"true"}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false,"policyStartDate":"23-11-2016","nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"11233588","expDateOfPreviousInsurance":"27-05-2016","previousPolicyNo":"P122345","motorCareDeclaration":[{"declarationAns":true,"declarationNo":"q1"},{"declarationAns":true,"declarationNo":"q2"},{"declarationAns":true,"declarationNo":"q3"}],"psNoDM":"true","psNoProvidePersonalData":"true","psPICS":"true"}');
+
 $(document).ready(function(){
-	
+	/*var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+    
+    if(getUrlParameter("edit")=="yes")
+    {
+    	$("input[name=answer1]").prop('checked', quote.motorCareDeclaration[0].declarationAns);
+    	$("input[name=answer2]").prop('checked', quote.motorCareDeclaration[1].declarationAns);
+    	$("input[name=answer3]").prop('checked', quote.motorCareDeclaration[2].declarationAns);
+    	$('input[name=psNoDM]').attr("checked",qupte.psNoDM);	
+		$('input[name=psNoProvidePersonalData]').attr("checked",qupte.psNoProvidePersonalData);	
+		$('input[name=psPICS]').attr("checked",qupte.psPICS);	
+    }*/
+   
 	$('#declaration').submit(function(event){
-	  
+	
+	
+		 if($('[value="yes"]:checked').length){
+	            $("#reasonMsg").text("choice 3");
+	            $("#contactpopup").modal('show');
+	            return false;
+	     }else
+	        	{
 		var submitData = { 		
 			   "policyId": quote.policyId,		
 			   "motorCareDeclaration":[  		
 			      {  		
-			         "declarationAns":true,		
+			         "declarationAns":$("input[name=answer1]:checked").val(),		
 			         "declarationNo":"q1"		
 			      },		
 			      {  		
-			         "declarationAns":true,		
+			         "declarationAns":$("input[name=answer2]:checked").val(),		
 			         "declarationNo":"q2"		
 			      },		
 			      {  		
-			         "declarationAns":true,		
+			         "declarationAns":$("input[name=answer3]:checked").val(),		
 			         "declarationNo":"q3"		
 			      }		
 			   ],		
@@ -579,7 +611,9 @@ $(document).ready(function(){
 		  }
 		});
 		return false;
+	        	}
 	});
+	
 });
 </script>
        

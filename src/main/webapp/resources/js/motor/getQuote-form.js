@@ -235,6 +235,7 @@ $(document).ready(function(){
                         },
                         success: function(res) {
                             callback(res);
+							
                             var sessionCarMake = sessionStorage.getItem('carMake');
                             if(sessionCarMake){
                             	$carMake[0].selectize.setValue(sessionCarMake);

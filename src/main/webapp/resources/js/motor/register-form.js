@@ -9,6 +9,7 @@ var fwdApi = {
 			retrieveUserName			: APIServer + context + "/api/member/retrieveUserName",
 		}
 };
+var $mortgageBankSelect;
 var motor_mortgageBank, $motor_mortgageBank, 
 motor_district , $motor_district, 
 motor_occupation, $motor_occupation, 
@@ -30,7 +31,7 @@ $(document).ready(function(){
         $('#motor_registerForm').validator('validate');
     });*/
 	
-     var $mortgageBankSelect = $('#mortgageBank').selectize({
+    $mortgageBankSelect = $('#mortgageBank').selectize({
         valueField: '',
         labelField: '',
         searchField: '',
@@ -79,13 +80,15 @@ $(document).ready(function(){
                     		newres.push(res[i]);
                     	});
 						console.dir(newres);
-                              callback(newres);                        
+                              callback(newres); 
+						$motor_occupation[0].selectize.setValue(quote.driver[0].occupation);							  
                     }
             });
-        },
+        }/*,
 		onInitialize: function() {
-			//$motor_occupation[0].selectize.setValue(quote.driver[0].occupation);
-		},
+			alert(quote.driver[0].occupation);
+			$motor_occupation[0].selectize.setValue(quote.driver[0].occupation);
+		}*/,
         onChange: function(value){
         }
     });
@@ -157,7 +160,7 @@ $(document).ready(function(){
         onChange: function(value){
         }
     });
-	$motor_d4occupation = $('#d4occuption').selectize({
+	$motor_d4occupation = $('#d4occupation').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',

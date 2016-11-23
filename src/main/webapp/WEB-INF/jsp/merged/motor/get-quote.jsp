@@ -399,4 +399,37 @@ width: 100px !important;
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/jquery.maskMoney.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/getQuote-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
 
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+    
+    if(getUrlParameter("edit")=="yes")
+    {   
+    	$(".q2,.q3,q4,.q5").removeClass("hidden");
+
+		$carMake[0].selectize.setValue("BMW");
+		
+		$('input[name=cc]').val(quote.carDetail.engineCapacity)
+		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
+		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
+		
+		$('input[name=validAgeGroup]').attr("checked",true);	
+		$('input[name=driveMoreThanTwo]').attr("checked",true);	
+	  
+    }
+	
+});
+</script>
