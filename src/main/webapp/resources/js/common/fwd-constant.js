@@ -7,6 +7,7 @@
 	var _regex_general = {
         'text': {
             'enOnly': '^[a-zA-Z\\Ss]*$'                  // englishOnly
+            , 'enSpace': '^[A-Za-z ]+$'                 // for fwd-validator, found in fwd.js, function allLetter(inputtxt)
             , 'tcOnly': '^[\s\u4e00-\u9fa5]*%'          // chineseOnly
             , 'enTcBoth': '^[a-zA-Z\s\u4e00-\u9eff]*$'  // englishAndChinese
         }
@@ -28,8 +29,8 @@
         }
         , 'ssn': {
             'hkid': '^[a-zA-Z0-9\\-]*$'                                         // hkid
-            , 'hkidPattern1': '^([A-Z]{1,2})([0-9]{6})([A0-9])$'            // for fwd-validator
-            , 'hkidPattern2': '^([A-Z]{1,2})([0-9]{6})([(])([A0-9])([)])$'  // for fwd-validator
+            , 'hkidPattern1': '^([A-Z]{1,2})([0-9]{6})([A0-9])$'                // for fwd-validator
+            , 'hkidPattern2': '^([A-Z]{1,2})([0-9]{6})([(])([A0-9])([)])$'      // for fwd-validator
             , 'passport': '^[a-zA-Z0-9\\-]{5-15}$'                              // passport
         }
     }

@@ -1,9 +1,19 @@
+**2016-11-23
+    Irvine  -
+    
+    Gary    -
+
 **2016-11-22
 
     Irvine  - Testing on different fields validation.
 
     Gary    - start to DEV the "js/common/fwd-validator.js"
-            - Aim to obsolete the "js/fwd.js", most of the validation-oriented function will be migrated to "js/common/fwd-validator.js"
+            - Aim to obsolete the "js/fwd.js", most of the validation-oriented function will be migrated to
+            a) "js/common/fwd-validator.js",
+            b) "js/common/fwd-utility.js",
+            c) "js/common/fwd-payment.js",
+            d) "js/common/fwd-constant" OR
+            e) "js/common/formvalidation/helpers.js"
 
                 ! --- IMPORTANT --- !
                 1) REMARKED the migrated function in "js/fwd.js" as below
@@ -20,8 +30,8 @@
                 function IsHKID(str) {
                 	var strValidChars ......
                 }
-                2) REMARKED the orginal location migrated from, remarked in "js/common/fwd-validator.js",
-                For Example,
+                2) REMARKED the orginal location migrated from,
+                For Example (in "js/common/fwd-validator.js"),
 
                 /* Migrated from "js/fwd.js", orginal function name < function IsHKID() > */
 
@@ -30,7 +40,7 @@
 
     .... (drafting)
 
-    Gary    - Developing in MoSCoW Principle, code-reused.
+    Gary    - Developing in MoSCoW Principle (better classification what global / external value should be included) and code-reused.
             - start to DEV the "js/common/fwd-constant.js"
             - merged the FV custom-rule, and created the "common/formvalidation/validators.custom-rule.config.js"
             - Suggestion on loading external JS file

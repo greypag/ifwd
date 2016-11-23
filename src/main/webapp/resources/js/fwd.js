@@ -2338,6 +2338,14 @@ function fPlanValid()
 
 }
 
+/**
+*
+* For function allLetter() -- ALREADY MIGRATED
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js", i.e. _isEngSpace() .
+*
+**/
 function allLetter(inputtxt) {
 	var letters = /^[A-Za-z ]+$/;
 	if (inputtxt.match(letters)) {
@@ -2349,8 +2357,16 @@ function allLetter(inputtxt) {
 	}
 }
 
+/**
+*
+* For function validateName() -- ALREADY MIGRATED
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js", i.e. _isValidBeneFullName() .
+*
+**/
 // bmg input fields validation START
-function validateName(inputId, errorId, insureBoolean, inputType){
+function validateName(inputId, errorId, insureBoolean, inputType) {
 	var placeholder='';
 	if(inputType=="applicant"){
 		placeholder=namePlaceholder;

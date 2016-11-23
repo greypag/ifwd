@@ -1,6 +1,6 @@
 'use strict';
 
-var genConfigFlightCare = function(obj) { // orginal >> generate_insuredPersonCfgGrp(personCount, personCfg)
+var gen_configFlightCare = function(obj) {
     try {
         if ( _.isEmpty(obj) ) throw new Error('1 param is required. Please check.');
     } catch(e) {
@@ -34,7 +34,7 @@ var genConfigFlightCare = function(obj) { // orginal >> generate_insuredPersonCf
 
            sub[targetKey] = vv[targetKey] + i;
            // - new testing code - start -
-           console.log(typeof vv.validators.identical);
+        //    console.log(typeof vv.validators.identical);
            if (i == 1 && ii=="personalName1"){
                vv.validators.identical.enabled = true;
            }else if(i != 1 && typeof vv.validators.identical!="undefined"){
@@ -52,11 +52,91 @@ var genConfigFlightCare = function(obj) { // orginal >> generate_insuredPersonCf
    return buffer;
 };
 
+// var validateName = function (inputId, errorId, insureBoolean, inputType, placeholderObj) {
+//     var localConfig = {
+//         'applicant': {
+//             'msg':         getBundle(getBundleLanguage, "applicant.name.notNull.message")
+//             , 'namePH':    placeholderObj.applicantName
+//         },
+//         'insured': {
+//             'msg':         getBundle(getBundleLanguage, "insured.name.notNull.message")
+//             , 'namePH':    placeholderObj.insuredName
+//         },
+//         'beneficiary': {
+//             'msg':         getBundle(getBundleLanguage, "beneficiary.name.notNull.message")
+//             , 'namePH':    placeholderObj.beneficiaryName
+//         }
+//     };
+//
+// 	var placeholder='';
+//     _.each(localConfig, function(LCvalue, LCindex) {
+//         if (inputType == LCindex) { placeholder = LCvalue.namePH }
+//     });
+//
+// 	if ( $("#"+inputId).val() == placeholder.trim() ) {
+// 		$("#"+inputId).val('');
+//     }
+//
+// 	var fullname = $("#"+inputId).val();
+//
+// 	if (fullname.trim() == "") {
+// 		$("#"+inputId).addClass("invalid-field");
+// 		if(inputType=="applicant"){
+// 			$("#"+errorId).html( );
+// 		}else if(inputType=="insured"){
+// 			$("#"+errorId).html( );
+// 		}else if(inputType=="beneficiary"){
+// 			$("#"+errorId).html( );
+// 		}
+// 		$("#"+inputId).val(placeholder);
+// 		return false;
+// 	}
+// 	if (allLetter(fullname) == false) {
+// 		$("#"+inputId).addClass("invalid-field");
+// 		if(inputType=="applicant"){
+// 			$("#"+errorId).html( getBundle(getBundleLanguage, "applicant.name.notNull.message"));
+// 		}else if(inputType=="insured"){
+// 			$("#"+errorId).html( getBundle(getBundleLanguage, "insured.name.notNull.message"));
+// 		}else if(inputType=="beneficiary"){
+// 			$("#"+errorId).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));
+// 		}
+// 		return false;
+// 	}
+// 	if(insureBoolean){
+// 		if (document.getElementById("applicantRelationship") != null) {
+// 			if (document.getElementById("applicantRelationship").value == 'SE'){
+// 				$("#txtInsuFullName1").val(fullname);
+// 				$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
+//
+// 				$("#txtInsuFullName1").removeClass("invalid-field");
+// 				$("#errtxtPersonalFullName1").html("");
+// 				$("#errtxtAdFullName1").html("");
+// 			}
+// 		}
+// 		else {
+// 			$("#txtInsuFullName1").val(fullname);
+// 			$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
+//
+// 			$("#txtInsuFullName1").removeClass("invalid-field");
+// 			$("#errtxtPersonalFullName1").html("");
+// 			$("#errtxtAdFullName1").html("");
+// 		}
+// 	}
+//
+// 	$("#"+errorId).html('');
+// 	$("#"+inputId).removeClass("invalid-field");
+// }
 
 // Export modules to "fvConfig"
 var fvConfig = {};
 fvConfig['helpers'] = {
-    'genConfigFlightCare'     : genConfigFlightCare
+    'generateData': {
+        'cfgFlightCare'     : gen_configFlightCare
+    },
+    'bindingValue': {
+        // 'validateName'      : validateName
+    },
+    'ux': {}
 };
 
 

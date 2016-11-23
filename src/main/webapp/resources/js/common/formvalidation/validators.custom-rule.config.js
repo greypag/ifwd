@@ -9,6 +9,7 @@ try {
     if ( typeof fwdConstant !== "object" && fwdConstant !== null ) { throw ('No fwd-constant.js are loaded. Please check again.'); }
 
 } catch (e) {
+    console.log('This file will not be executed.');
     console.error( e.toString() );
 }
 // VALIDATION - prerequistite << end >>
@@ -20,7 +21,7 @@ fvConfig['customValidatingRules'] = function() {
     			var value = $field.val();
     			if (value.length > 0) {
     				// if ( !IsHKID(value) ) {                                  // IsHKID(), refer to "js/fwd.js"
-                    if ( !fwdValidator.personalInfo.isValidHkid(value) ) {
+                    if ( !fwdValidator.personalInfo.isValidHkid(value) ) {      // refer to fwd-validator.js
     					return {
     		                valid: false,
     		                message: getBundle(getBundleLanguage, "applicant.hkId.notValid.message")

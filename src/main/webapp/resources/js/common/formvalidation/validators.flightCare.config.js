@@ -12,6 +12,7 @@ try {
     if ( typeof fwdConstant !== "object" && fwdConstant !== null ) { throw ('No fwd-constant.js are loaded. Please check again.'); }
 
 } catch (e) {
+    console.log('This file will not be executed.');
     console.error( e.toString() );
 }
 // VALIDATION - prerequistite << end >>
