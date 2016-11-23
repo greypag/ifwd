@@ -145,8 +145,8 @@
                     "zh-HK": "結束"
                 },
                 "display": {
-                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
-                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Dec</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">12月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-12-31T14:59:59"
             },
@@ -265,8 +265,8 @@
                     "zh-HK": "結束"
                 },
                 "display": {
-                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
-                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Dec</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">12月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-12-31T14:59:59"
             },
@@ -385,8 +385,8 @@
                     "zh-HK": "結束"
                 },
                 "display": {
-                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
-                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Dec</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">12月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-12-31T14:59:59"
             }
@@ -504,8 +504,8 @@
                     "zh-HK": "結束"
                 },
                 "display": {
-                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
-                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Dec</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">12月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-12-31T14:59:59"
             },
@@ -624,8 +624,8 @@
                     "zh-HK": "結束"
                 },
                 "display": {
-                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
-                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Dec</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">12月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-12-31T14:59:59"
             },
@@ -744,8 +744,8 @@
                     "zh-HK": "結束"
                 },
                 "display": {
-                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Nov</p><p class=\"value date day\">30</p>",
-                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">11月30日</p><p class=\"title\">結束</p>"
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Dec</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">12月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-12-31T14:59:59"
             },
