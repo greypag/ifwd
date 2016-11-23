@@ -1,0 +1,31 @@
+/* line 6, ../sass/common_screen/_pop-up-temp.scss */
+.modal .modal-dialog .modal-content .modal-body .row .modal-body__img__desktop {
+  text-align: center;
+}
+/* line 10, ../sass/common_screen/_pop-up-temp.scss */
+.modal .modal-dialog .modal-content .modal-body .row .modal-body__right {
+  text-align: center;
+}
+/* line 16, ../sass/common_screen/_pop-up-temp.scss */
+.modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__title h3 {
+  color: #ff8200;
+  font-size: 20px;
+}
+/* line 22, ../sass/common_screen/_pop-up-temp.scss */
+.modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__content p {
+  font-size: 16px;
+  margin-top: 16px;
+}
+/* line 28, ../sass/common_screen/_pop-up-temp.scss */
+.modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__button button {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 992px) {
+  /* line 2, ../sass/desktop/_pop-up-temp.scss */
+  .modal .modal-dialog {
+    width: 600px;
+  }
+}
+
+/*# sourceMappingURL=pop-up-temp.css.map */

@@ -1,0 +1,19 @@
+// @import "normalize";        // #Insert the normalized css for eliminate the difference of browsers [Optional use]
+@import "variable";         // #Define all scss variables
+@import "mixin";
+@import "color";
+// @import "font";
+
+// #Apply for all screens   // #Localize the internal css applying for ALL SCREENs and but only one THEME
+@import "common_screen/pop-up-temp";
+
+//@media screen and #{$mobile} {
+//	@import "mobile/pop-up-temp";
+//}
+
+@media screen and #{$desktop} {
+	@import "desktop/pop-up-temp";
+}
+
+// # Other rules and diff. screen standards for overwrite above
+//@import "customize_screen/pop-up-temp";

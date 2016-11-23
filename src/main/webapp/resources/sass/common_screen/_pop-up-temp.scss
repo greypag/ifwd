@@ -1,0 +1,37 @@
+.modal{
+	.modal-dialog{
+		.modal-content{
+			.modal-body{
+				.row{
+					.modal-body__img__desktop{
+						text-align: center;
+					}
+					
+					.modal-body__right{
+						text-align: center;
+						
+						.modal-body__close{}
+						.modal-body__img__mobile{}
+						.modal-body__title{
+							h3{
+								color: #ff8200;
+								font-size: 20px;
+							}
+						}
+						.modal-body__content{
+							p{
+								font-size: 16px;
+								margin-top: 16px;
+							}
+						}
+						.modal-body__button{
+							button{
+								font-size: 16px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
