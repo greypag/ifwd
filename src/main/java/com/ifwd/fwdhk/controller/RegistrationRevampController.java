@@ -212,7 +212,7 @@ public class RegistrationRevampController extends BaseController{
 			@ApiResponse(code = 400, message = "Invalid Input")
 			})
 	@RequestMapping(value = "/forgotPassword/customer", method =POST)
-	public ResponseEntity<ForgotPasswordResponse> registerCustomerUser(
+	public ResponseEntity<ForgotPasswordResponse> getCustomerPassword(
 			@ApiParam(value = "User Name,Doc No,Dob", required = true) @RequestBody  ForgotPasswordRequest req,
 			HttpServletRequest request) {
 
