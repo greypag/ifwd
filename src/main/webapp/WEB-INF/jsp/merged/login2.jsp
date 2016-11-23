@@ -84,7 +84,7 @@
 						    <input id="fna-check" type="hidden" name="fna" value="false">
                             <input id="nav-bar-check" type="hidden" name="isNavBar" value="true">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
-								class="cta-login-btn--confirm cta-login-btn--orange cta-login-btn">
+								class="cta-login-btn cta--orange">
 								<fmt:message key="header.login.action" bundle="${msg}" />
 							</button>
                             <div class="login-error-wrapper">
@@ -123,8 +123,8 @@
 						</h4>
 
 						<div class="form-group" form_type="forgotUserNameForm">
-							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no" checked><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
-							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no" checked><span class="left-space"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></span></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes"><span class="left-space"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></span></label>
 						</div>
 
 						<!--電話 text-------->
@@ -179,12 +179,12 @@
 
 						<div class="login-button-group forgot-group">
 							<button type="button" onclick="backToLogin()"
-								class="cta-login-btn--confirm cta-login-btn--gray cta-login-btn">
+								class="cta-login-btn cta--gray">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 							<button type="button" onclick="getForgotUserName(this.form)"
-								class="cta-login-btn--confirm cta-login-btn--orange cta-login-btn">
+								class="cta-login-btn cta--orange">
 								<fmt:message key="header.login.action2" bundle="${msg}" />
 							</button>
 						</div>
@@ -224,8 +224,8 @@
 						</h4>
 
 						<div class="form-group" form_type="forgotUserNameForm">
-							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
-							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no"><span class="left-space"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></span></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes" checked><span class="left-space"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></span></label>
 						</div>
 
 						<!-- Policy Number -->
@@ -264,12 +264,12 @@
 
 						<div class="login-button-group forgot-group">
 							<button type="button" onclick="backToLogin()"
-								class="cta-login-btn--confirm cta-login-btn--gray cta-login-btn">
+								class="cta-login-btn cta--gray">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 							<button type="button" onclick="getForgotUserName(this.form)"
-								class="cta-login-btn--confirm cta-login-btn--orange cta-login-btn">
+								class="cta-login-btn cta--orange">
 								<fmt:message key="header.login.action2" bundle="${msg}" />
 							</button>
 						</div>
@@ -363,8 +363,8 @@
 						</h4>
 
 						<div class="form-group" form_type="forgotPasswordForm">
-							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no" checked><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
-							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no" checked><span class="left-space"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></span></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes"><span class="left-space"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></span></label>
 						</div>
 
 						<!-- 電話 inout -->
@@ -459,13 +459,13 @@
 						<div class="login-button-group forgot-group">
 
 							<button type="button" onclick="backToLogin()"
-								class="cta-login-btn--confirm cta-login-btn--gray cta-login-btn">
+								class="cta-login-btn cta--gray">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 
 							<button type="button" onclick="forgotUserPassword(this.form)"
-								class="cta-login-btn--confirm cta-login-btn--orange cta-login-btn">
+								class="cta-login-btn cta--orange">
 								<fmt:message key="member.registration.details.action"
 									bundle="${msg}" />
 							</button>
@@ -513,8 +513,8 @@
 						</h4>
 
 						<div class="form-group" form_type="forgotPasswordForm">
-							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></label>
-							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes" checked><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="no"><span class="left-space"><fmt:message key="member.registration.details.fwdmember.no" bundle="${msg}" /></span></label>
+							<label class="login_is_fwdmember_label"><input type="radio" class="login_is_fwdmember" name="login_is_fwdmember" value="yes" checked><span class="left-space"><fmt:message key="member.registration.details.fwdmember.yes" bundle="${msg}" /></span></label>
 						</div>
 
 						<!-- Dob input-->
@@ -568,13 +568,13 @@
 						<div class="login-button-group forgot-group">
 
 							<button type="button" onclick="backToLogin()"
-								class="cta-login-btn--confirm cta-login-btn--gray cta-login-btn">
+								class="cta-login-btn cta--gray">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 
 							<button type="button" onclick="forgotUserPassword(this.form)"
-								class="cta-login-btn--confirm cta-login-btn--orange cta-login-btn">
+								class="cta-login-btn cta--orange">
 								<fmt:message key="member.registration.details.action"
 									bundle="${msg}" />
 							</button>

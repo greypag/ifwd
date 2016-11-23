@@ -773,14 +773,15 @@ function tooltipPlacement(){
 								src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 						</div>
 
-						<div class="registration">				
+						<div class="registration col-lg-10 col-md-10">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
 								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
 									onkeypress="return alphaOnly(event);"
 									maxlength="100">
-								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /> <fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></label>
+								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /></label>
 								<span id="errorEmptyName" class="text-red"></span>
+								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipFullName" id="tooltipFullName" title="<fmt:message key='member.registration.details.label.fullName.desc' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
 								<input class="mdl-textfield__input registration__input" type="text" id="txtMobileNo" name="mobileNo" value="${userDetails.getMobileNo()}"
@@ -859,9 +860,9 @@ function tooltipPlacement(){
 									<fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" />
 								</a>
 								<fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
-								<p><span id="errorDeclaration" class="text-red"></span>
-								<hr />
-								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
+								<p><span id="errorDeclaration" class="text-red"></span></p>
+								<hr class="move-left">
+								<div class="move-left"><fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" /></div>
 							</label>
 						</div>
 						<span id="chk2" style="display: none"> <label
@@ -883,7 +884,7 @@ function tooltipPlacement(){
 						</div>
 					</div>
 					<div class="col-xs-12 act">
-						<button class="btn btn-primary btn-lg act__btn" onclick="activateUserAccountJoinUs(this.form)">
+						<button class="btn btn-lg act__btn cta--orange" onclick="activateUserAccountJoinUs(this.form)">
 							<fmt:message key="member.registration.activate" bundle="${msg}" />
 						</button>
 					</div>
@@ -910,7 +911,7 @@ function tooltipPlacement(){
 								src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 						</div>
 
-						<div class="registration">					
+						<div class="registration col-lg-10 col-md-10">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
 								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
@@ -974,9 +975,9 @@ function tooltipPlacement(){
 									<fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" />
 								</a>
 								<fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
-								<p><span id="errorDeclaration" class="text-red"></span>
-								<hr />
-								 <fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" />
+								<p><span id="errorDeclaration" class="text-red"></span></p>
+								<hr class="move-left">
+								<div class="move-left"><fmt:message key="member.registration.declarations.PDPO" bundle="${msg}" /></div>
 							</label>
 						</div>
 						<span id="chk2" style="display: none"> <label
@@ -998,7 +999,7 @@ function tooltipPlacement(){
 						</div>
 					</div>
 					<div class="col-xs-12 act">
-						<button class="btn btn-primary btn-lg act__btn" onclick="activateUserAccountJoinUs(this.form)">
+						<button class="btn btn-lg act__btn cta--orange" onclick="activateUserAccountJoinUs(this.form)">
 							<fmt:message key="member.registration.activate" bundle="${msg}" />
 						</button>
 					</div>

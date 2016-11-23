@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-11-18 18:03:10 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-11-23 18:09:18 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -782,6 +782,60 @@ body.chin .bold {
   border: 1px solid #f6871e;
 }
 
+/* line 195, ../sass/base/_button.scss */
+.cta--orange {
+  border: none;
+  border-bottom: 3px solid #cfa238;
+  color: #ffffff;
+  background-color: #ff8200;
+  border-radius: 4px;
+  outline-color: initial;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+/* line 205, ../sass/base/_button.scss */
+.cta--orange:hover {
+  outline: none;
+  box-shadow: none;
+  background: #fff;
+  color: #f6871e;
+  border: 1px solid #f6871e;
+  opacity: 1;
+}
+/* line 214, ../sass/base/_button.scss */
+.cta--orange:focus {
+  color: #ffffff;
+  background-color: #ff8200;
+  outline-color: initial;
+}
+
+/* line 221, ../sass/base/_button.scss */
+.cta--gray {
+  border: none;
+  border-bottom: 3px solid #676f70;
+  color: #ffffff;
+  background-color: #9ba5a7;
+  border-radius: 4px;
+  outline-color: initial;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+/* line 231, ../sass/base/_button.scss */
+.cta--gray:hover {
+  outline: none;
+  box-shadow: none;
+  background: #fff;
+  color: #f6871e;
+  border: 1px solid #f6871e;
+  opacity: 1;
+}
+/* line 240, ../sass/base/_button.scss */
+.cta--gray:focus {
+  color: #ffffff;
+  background-color: #9ba5a7;
+  outline-color: initial;
+}
+
 /* line 1, ../sass/base/_text.scss */
 .text--shadow-default {
   text-shadow: 0 0 10px #666;
@@ -1386,7 +1440,6 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  width: 260px;
   height: 40px;
   line-height: 14px;
   display: inline;
@@ -1543,75 +1596,80 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   display: block;
   margin-bottom: 10px;
 }
+/* line 159, ../sass/common_screen/_loginpopup.scss */
+.fwd-savie-wrapper .loginpopup .login_is_fwdmember_label .left-space,
+.loginpopup .login_is_fwdmember_label .left-space {
+  margin-left: 12px;
+}
 
-/* line 165, ../sass/common_screen/_loginpopup.scss */
+/* line 169, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--confirm {
   padding: 10px 60px;
 }
-/* line 169, ../sass/common_screen/_loginpopup.scss */
+/* line 173, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--apply {
   padding: 10px 40px;
 }
-/* line 173, ../sass/common_screen/_loginpopup.scss */
+/* line 177, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--link {
   padding: 10px 30px;
 }
-/* line 177, ../sass/common_screen/_loginpopup.scss */
+/* line 181, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray {
   background-color: #9ba5a7;
   border: 1px #9ba5a7 solid;
   border-bottom: 3px #676f70 solid;
 }
-/* line 181, ../sass/common_screen/_loginpopup.scss */
+/* line 185, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray:hover {
   background-color: #9ba5a7;
   border: 1px #9ba5a7 solid;
   border-bottom: 3px #676f70 solid;
 }
-/* line 189, ../sass/common_screen/_loginpopup.scss */
+/* line 193, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--orange {
   background-color: #ff8200;
   border: 1px #ff8200 solid;
   border-bottom: 3px #ff8200 solid;
 }
-/* line 193, ../sass/common_screen/_loginpopup.scss */
+/* line 197, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--orange:hover {
   background-color: #ff8200;
   border: 1px #ff8200 solid;
   border-bottom: 3px #ff8200 solid;
 }
-/* line 201, ../sass/common_screen/_loginpopup.scss */
+/* line 205, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--yellow {
   background-color: #fdb714;
   border: 1px #fdb714 solid;
   border-bottom: 3px #cf9611 solid;
 }
-/* line 205, ../sass/common_screen/_loginpopup.scss */
+/* line 209, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--yellow:hover {
   background-color: #fdb714;
   border: 1px #fdb714 solid;
   border-bottom: 3px #cf9611 solid;
 }
-/* line 216, ../sass/common_screen/_loginpopup.scss */
+/* line 220, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray:hover, .cta-login-btn.cta-login-btn--orange:hover, .cta-login-btn.cta-login-btn--yellow:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90);
   opacity: 0.9;
 }
 
-/* line 224, ../sass/common_screen/_loginpopup.scss */
+/* line 228, ../sass/common_screen/_loginpopup.scss */
 _:-ms-fullscreen, :root .loginpopup .login-input {
   line-height: 14px;
 }
 
-/* line 228, ../sass/common_screen/_loginpopup.scss */
+/* line 232, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .close {
   position: absolute;
   text-align: center;
   top: 30px;
   right: 30px;
 }
-/* line 233, ../sass/common_screen/_loginpopup.scss */
+/* line 237, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .close span {
   width: 22px;
   height: 22px;
@@ -1623,11 +1681,11 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   display: inline-block;
 }
 
-/* line 245, ../sass/common_screen/_loginpopup.scss */
+/* line 249, ../sass/common_screen/_loginpopup.scss */
 .login-form {
   padding: 20px 30px 30px 30px;
 }
-/* line 247, ../sass/common_screen/_loginpopup.scss */
+/* line 251, ../sass/common_screen/_loginpopup.scss */
 .login-form .close {
   width: 22px;
   height: 22px;
@@ -1638,7 +1696,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   text-align: center;
   display: inline-block;
 }
-/* line 256, ../sass/common_screen/_loginpopup.scss */
+/* line 260, ../sass/common_screen/_loginpopup.scss */
 .login-form .close span {
   width: 22px;
   height: 22px;
@@ -1649,7 +1707,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   text-align: center;
   display: inline-block;
 }
-/* line 267, ../sass/common_screen/_loginpopup.scss */
+/* line 271, ../sass/common_screen/_loginpopup.scss */
 .login-form .form-group {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -1660,27 +1718,27 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   clear: both;
 }
 
-/* line 278, ../sass/common_screen/_loginpopup.scss */
+/* line 282, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop {
   overflow: hidden;
 }
-/* line 279, ../sass/common_screen/_loginpopup.scss */
+/* line 283, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .login-error-wrapper {
   display: inline;
   padding-left: 20px;
 }
 
-/* line 286, ../sass/common_screen/_loginpopup.scss */
+/* line 290, ../sass/common_screen/_loginpopup.scss */
 .forgotUserNameForm, .forgotPasswordForm {
   overflow: hidden;
 }
 
-/* line 291, ../sass/common_screen/_loginpopup.scss */
+/* line 295, ../sass/common_screen/_loginpopup.scss */
 .loginpopupext .loginform-pop, .loginpopupext .forgotUserNameForm, .loginpopupext .forgotPasswordForm {
   display: inline-block;
 }
 
-/* line 297, ../sass/common_screen/_loginpopup.scss */
+/* line 301, ../sass/common_screen/_loginpopup.scss */
 .login-disclaimer {
   line-height: 1.2;
   letter-spacing: 0px;
@@ -1842,24 +1900,24 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   color: #e4002b;
 }
 
-/* line 309, ../sass/common_screen/_loginpopup.scss */
+/* line 313, ../sass/common_screen/_loginpopup.scss */
 .frm {
   margin-right: 10%;
 }
 
-/* line 314, ../sass/common_screen/_loginpopup.scss */
+/* line 318, ../sass/common_screen/_loginpopup.scss */
 .login-form h2 {
   color: #f68a1d;
   font-size: 24px;
   text-align: left;
 }
-/* line 319, ../sass/common_screen/_loginpopup.scss */
+/* line 323, ../sass/common_screen/_loginpopup.scss */
 .login-form h3 {
   color: #f68a1d;
   font-size: 18px;
   text-align: left;
 }
-/* line 323, ../sass/common_screen/_loginpopup.scss */
+/* line 327, ../sass/common_screen/_loginpopup.scss */
 .login-form h3 a {
   color: #f68a1d;
   font-size: 24px;
@@ -1867,12 +1925,12 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   margin-top: 10px !important;
   text-decoration: underline;
 }
-/* line 329, ../sass/common_screen/_loginpopup.scss */
+/* line 333, ../sass/common_screen/_loginpopup.scss */
 .login-form h3 a:hover {
   color: #9fb1b2;
   text-decoration: none;
 }
-/* line 334, ../sass/common_screen/_loginpopup.scss */
+/* line 338, ../sass/common_screen/_loginpopup.scss */
 .login-form h3 span {
   color: #000;
   font-size: 14px;
@@ -1880,7 +1938,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   font-weight: bold;
   font-style: italic;
 }
-/* line 342, ../sass/common_screen/_loginpopup.scss */
+/* line 346, ../sass/common_screen/_loginpopup.scss */
 .login-form p {
   color: #000;
   font-size: 18px;
@@ -1889,23 +1947,23 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   line-height: 20px;
   margin-top: 22px;
 }
-/* line 350, ../sass/common_screen/_loginpopup.scss */
+/* line 354, ../sass/common_screen/_loginpopup.scss */
 .login-form h4 {
   color: #061d2a;
   font-size: 18px;
 }
-/* line 353, ../sass/common_screen/_loginpopup.scss */
+/* line 357, ../sass/common_screen/_loginpopup.scss */
 .login-form h4 a {
   color: #f68a1d;
   font-size: 18px;
   padding: 4px 0px;
 }
-/* line 359, ../sass/common_screen/_loginpopup.scss */
+/* line 363, ../sass/common_screen/_loginpopup.scss */
 .login-form .btn-box {
   width: 100%;
   text-align: left;
 }
-/* line 362, ../sass/common_screen/_loginpopup.scss */
+/* line 366, ../sass/common_screen/_loginpopup.scss */
 .login-form .btn-box h3 {
   padding: 12px 30px !important;
   font-size: 24px;
@@ -1916,34 +1974,34 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   background-color: #f68a1d;
 }
 
-/* line 375, ../sass/common_screen/_loginpopup.scss */
+/* line 379, ../sass/common_screen/_loginpopup.scss */
 a.forgotUserName {
   color: #ff8200;
 }
-/* line 377, ../sass/common_screen/_loginpopup.scss */
+/* line 381, ../sass/common_screen/_loginpopup.scss */
 a.forgotUserName:hover {
   color: #9fb1b2;
 }
-/* line 381, ../sass/common_screen/_loginpopup.scss */
+/* line 385, ../sass/common_screen/_loginpopup.scss */
 a.link-forgotPassword {
   color: #ff8200;
 }
-/* line 383, ../sass/common_screen/_loginpopup.scss */
+/* line 387, ../sass/common_screen/_loginpopup.scss */
 a.link-forgotPassword:hover {
   color: #9fb1b2;
 }
 
-/* line 390, ../sass/common_screen/_loginpopup.scss */
+/* line 394, ../sass/common_screen/_loginpopup.scss */
 .dw-bubble.mbsc-mobiscroll .dwl {
   color: #333;
   font-size: 18px;
   text-transform: capitalize;
 }
-/* line 395, ../sass/common_screen/_loginpopup.scss */
+/* line 399, ../sass/common_screen/_loginpopup.scss */
 .dw-bubble.mbsc-mobiscroll .dwb {
   color: #f99502;
 }
-/* line 398, ../sass/common_screen/_loginpopup.scss */
+/* line 402, ../sass/common_screen/_loginpopup.scss */
 .dw-bubble.mbsc-mobiscroll .dwwol {
   border-top: 1px solid #f99502;
   border-bottom: 1px solid #f99502;

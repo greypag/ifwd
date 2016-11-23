@@ -39,7 +39,7 @@
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    width:260px;
+    //width:260px;
     height:40px;
     line-height: 14px;
     display:inline;
@@ -152,10 +152,14 @@
   .loginform2 .login-err-msg {
   	white-space: normal;
   }
-  .login_is_fwdmember_label{
-  	display : block;
-  	margin-bottom: 10px;
-  }
+	.login_is_fwdmember_label{
+		display : block;
+		margin-bottom: 10px;
+		
+		.left-space{
+			margin-left: 12px;
+		}
+	}
 }
 
 // .btn--cta ??

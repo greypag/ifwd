@@ -5,41 +5,67 @@
 /* line 4, ../sass/common_screen/_joinus.scss */
 .container--regform .row {
   margin-right: auto;
-  margin-right: 30px;
 }
-/* line 9, ../sass/common_screen/_joinus.scss */
+/* line 7, ../sass/common_screen/_joinus.scss */
+.container--regform .row.padding-15 {
+  padding-left: 15px;
+}
+/* line 10, ../sass/common_screen/_joinus.scss */
+.container--regform .row.padding-15 .radio-wrapper {
+  margin: 20px 0;
+  padding-left: 0;
+}
+/* line 14, ../sass/common_screen/_joinus.scss */
+.container--regform .row.padding-15 .radio-wrapper .radio-choice {
+  padding-left: 0;
+  width: initial;
+  margin-right: 5%;
+}
+/* line 18, ../sass/common_screen/_joinus.scss */
+.container--regform .row.padding-15 .radio-wrapper .radio-choice input {
+  margin-right: 15px;
+}
+/* line 25, ../sass/common_screen/_joinus.scss */
+.container--regform .row .joinus_form_non_member {
+  display: none;
+}
+/* line 30, ../sass/common_screen/_joinus.scss */
+.container--regform .row .regform__left .registration {
+  margin-left: -15px;
+}
+/* line 33, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item {
   width: 100%;
   padding-top: 0;
 }
-/* line 15, ../sass/common_screen/_joinus.scss */
+/* line 39, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item.is-focused .registration__label, .container--regform .row .regform__left .registration .registration__item.is-dirty .registration__label {
   color: #ff8200;
   top: -8px;
 }
-/* line 21, ../sass/common_screen/_joinus.scss */
+/* line 45, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .registration__input {
   background-color: #f1f3f5;
   height: 45px;
   padding: 25px 15px 15px;
   border-bottom: none;
 }
-/* line 27, ../sass/common_screen/_joinus.scss */
+/* line 51, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .registration__input:hover, .container--regform .row .regform__left .registration .registration__item .registration__input:focus {
   border-bottom: 2px solid #Ff8200;
 }
-/* line 33, ../sass/common_screen/_joinus.scss */
+/* line 57, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .registration__label {
   padding-top: 5px;
   padding-left: 15px;
   font-family: 'Calibri-Bold';
   top: 6px;
 }
-/* line 39, ../sass/common_screen/_joinus.scss */
+/* line 63, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .registration__label:after {
   background: none;
 }
-/* line 44, ../sass/common_screen/_joinus.scss */
+/* line 68, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip-icon {
   position: absolute;
   top: 6px;
@@ -48,17 +74,17 @@
   font-size: 28px;
   color: #f68b1f;
 }
-/* line 53, ../sass/common_screen/_joinus.scss */
+/* line 77, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip {
   background-color: transparent;
   color: #000;
   opacity: 1;
 }
-/* line 57, ../sass/common_screen/_joinus.scss */
+/* line 81, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip.bottom {
   width: 200px;
 }
-/* line 60, ../sass/common_screen/_joinus.scss */
+/* line 84, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip.bottom .tooltip-arrow {
   top: -4px;
   left: 89%;
@@ -67,11 +93,11 @@
   border-right: 1px solid #e1e1e1;
   border-bottom: 0;
 }
-/* line 69, ../sass/common_screen/_joinus.scss */
+/* line 93, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip.right {
   width: 100%;
 }
-/* line 72, ../sass/common_screen/_joinus.scss */
+/* line 96, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip.right .tooltip-arrow {
   left: 1px;
   border-left: 1px solid #e1e1e1;
@@ -79,7 +105,7 @@
   border-right: 0;
   border-bottom: 0;
 }
-/* line 80, ../sass/common_screen/_joinus.scss */
+/* line 104, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip .tooltip-inner {
   width: inherit;
   max-width: none;
@@ -94,7 +120,7 @@
   font-weight: bold;
   font-size: 13px;
 }
-/* line 94, ../sass/common_screen/_joinus.scss */
+/* line 118, ../sass/common_screen/_joinus.scss */
 .container--regform .row .regform__left .registration .registration__item .tooltip .tooltip-arrow {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -108,75 +134,39 @@
   border-bottom: 0;
   border-width: 1px !important;
 }
-/* line 113, ../sass/common_screen/_joinus.scss */
+/* line 137, ../sass/common_screen/_joinus.scss */
 .container--regform .row .declaration-content {
   padding-left: 40px;
   margin: auto;
 }
-/* line 118, ../sass/common_screen/_joinus.scss */
+/* line 143, ../sass/common_screen/_joinus.scss */
+.container--regform .row .declaration-content .checkbox label .move-left {
+  margin-left: -30px;
+}
+/* line 150, ../sass/common_screen/_joinus.scss */
 .container--regform .row .act {
   text-align: center;
   margin-bottom: 30px;
 }
-/* line 124, ../sass/common_screen/_joinus.scss */
-.container--regform .row .act .act__btn:hover {
-  outline: none;
-  box-shadow: none;
-  background: #fff;
-  color: #f6871e;
-  border: 1px solid #f6871e;
-  opacity: 1;
-  font-size: 30px;
-}
-/* line 134, ../sass/common_screen/_joinus.scss */
-.container--regform .row .act .act__btn:focus {
-  font-size: 30px;
-  line-height: 31.5px;
-}
-/* line 142, ../sass/common_screen/_joinus.scss */
+/* line 156, ../sass/common_screen/_joinus.scss */
 .container--regform .row span .help-block {
   color: red;
 }
 
-/* line 150, ../sass/common_screen/_joinus.scss */
+/* line 164, ../sass/common_screen/_joinus.scss */
 .dw-bubble.mbsc-mobiscroll .dwl {
   color: #333;
   font-size: 18px;
   text-transform: capitalize;
 }
-/* line 155, ../sass/common_screen/_joinus.scss */
+/* line 169, ../sass/common_screen/_joinus.scss */
 .dw-bubble.mbsc-mobiscroll .dwb {
   color: #f99502;
 }
-/* line 158, ../sass/common_screen/_joinus.scss */
+/* line 172, ../sass/common_screen/_joinus.scss */
 .dw-bubble.mbsc-mobiscroll .dwwol {
   border-top: 1px solid #f99502;
   border-bottom: 1px solid #f99502;
-}
-
-/* line 164, ../sass/common_screen/_joinus.scss */
-.radio-wrapper {
-  margin: 20px 0;
-  padding-left: 0;
-}
-/* line 167, ../sass/common_screen/_joinus.scss */
-.radio-wrapper .radio-choice {
-  padding-left: 0;
-  width: initial;
-}
-/* line 170, ../sass/common_screen/_joinus.scss */
-.radio-wrapper .radio-choice input {
-  margin-right: 15px;
-}
-
-/* line 175, ../sass/common_screen/_joinus.scss */
-.padding-15 {
-  padding-left: 15px;
-}
-
-/* line 178, ../sass/common_screen/_joinus.scss */
-.joinus_form_non_member {
-  display: none;
 }
 
 @media screen and (max-width: 991px) {
@@ -184,10 +174,6 @@
   .container--regform {
     margin-left: 0;
     padding-left: 30px;
-  }
-  /* line 7, ../sass/mobile/_joinus.scss */
-  .container--regform .row .regform__left .registration {
-    margin-right: 30px;
   }
 }
 @media screen and (min-width: 992px) {

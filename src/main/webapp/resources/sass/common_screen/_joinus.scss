@@ -3,9 +3,33 @@
 	
 	.row{
 		margin-right: auto;
-		margin-right: 30px;
+		
+		&.padding-15{
+			padding-left: 15px;
+			
+			.radio-wrapper{
+				margin : 20px 0;
+				padding-left : 0;
+				
+				.radio-choice{
+					padding-left: 0;
+					width: initial;
+					margin-right: 5%;
+					input{
+						margin-right: 15px;
+					}
+				}
+			}
+		}
+		
+		.joinus_form_non_member{
+			display: none;
+		}
+		
 		.regform__left{
 			.registration{
+				margin-left: -15px;
+				
 				.registration__item{
 					width: 100%;
 					padding-top: 0;
@@ -113,29 +137,19 @@
 		.declaration-content{
 			padding-left: 40px;
 			margin: auto;
+			
+			.checkbox{
+				label{
+					.move-left{
+						margin-left: -30px;
+					}
+				}
+			}
 		}
 		
 		.act{
 			text-align: center;
 			margin-bottom: 30px;
-			
-			.act__btn{
-			
-				&:hover{
-					outline: none;
-					box-shadow: none;
-					background: #fff;
-					color: #f6871e;
-					border: 1px solid #f6871e;
-					opacity: 1;
-					font-size: 30px;
-				}
-				
-				&:focus{
-					font-size: 30px;
-					line-height: 31.5px;
-				}
-			}
 		}
 		
 		span{
@@ -160,21 +174,4 @@
     		border-bottom: 1px solid #f99502;
 		}
 	}
-}
-.radio-wrapper{
-	margin : 20px 0;
-	padding-left : 0;
-	.radio-choice{
-	padding-left : 0;
-	    width: initial;
-		input{
-			margin-right : 15px;
-		}
-	}
-}
-.padding-15{
-	padding-left : 15px;
-}
-.joinus_form_non_member{
-	display:none;
 }
