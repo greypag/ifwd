@@ -177,6 +177,16 @@ var home_url = "<%=request.getContextPath()%>";
 							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
 						</label>
 					</div>
+					<div class="clearfix hidden" id="et-before-yes-03-checkbox">
+						<div class="checkbox">
+							<input type="checkbox" name="et-before-yes-03-01" id="et-before-yes-03-01" value="">
+							<label for="et-before-yes-03-01"><fmt:message key="eliteTerms.selectPlan.Do.you.have.an.3.01" bundle="${msg}" /></label>
+						</div>
+						<div class="checkbox">
+							<input type="checkbox" name="et-before-yes-03-02" id="et-before-yes-03-02" value="">
+							<label for="et-before-yes-03-02"><fmt:message key="eliteTerms.selectPlan.Do.you.have.an.3.02" bundle="${msg}" /></label>
+						</div>
+					</div>
 
 				</div>
 
@@ -4171,20 +4181,40 @@ var home_url = "<%=request.getContextPath()%>";
 		var et_before_01_is_yes = false;
 		var et_before_02_is_yes = false;
 		var et_before_03_is_yes = false;
+		var et_before_03_01_is_yes = false;
+		var et_before_03_02_is_yes = false;
 		$('#et-before-yes').on('click', function(){
 			et_before_01_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes,et_before_03_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
 		});
 		$('#et-before-yes-02').on('click', function(){
 			et_before_02_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes,et_before_03_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
 		});
 		$('#et-before-yes-03').on('click', function(){
+			$('#et-before-yes-03-checkbox').removeClass('hidden');
 			et_before_03_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes,et_before_03_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
 		});
-		function isDisplayNext(yes_01, yes_02,yes_03){
-			if(yes_01==true && yes_02==true && yes_03==true){
+		$('#et-before-yes-03-01').change(function(){
+			if($('#et-before-yes-03-01').is(':checked')){
+				et_before_03_01_is_yes = true;
+			}else{
+				et_before_03_01_is_yes = false;
+			}
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
+		});
+		$('#et-before-yes-03-02').change(function(){
+			if($('#et-before-yes-03-02').is(':checked')){
+				et_before_03_02_is_yes = true;
+			}else{
+				et_before_03_02_is_yes = false;
+			}
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
+		});
+		
+		function isDisplayNext(yes_01, yes_02, yes_03, yes_03_01, yes_03_02){
+			if(yes_01==true && yes_02==true && yes_03==true && yes_03_01==true && yes_03_02==true){
 				$('#et-btn-before-start').removeClass('hidden');
 			}else{
 				$('#et-btn-before-start').addClass('hidden');
