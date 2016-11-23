@@ -1,5 +1,12 @@
 'use strict';
 
+/*
+ * - purposes in-drafting -
+ *
+ * @method gen_configFlightCare
+ * @param {Object} obj
+ * @return {Object} obj
+ */
 var gen_configFlightCare = function(obj) {
     try {
         if ( _.isEmpty(obj) ) throw new Error('1 param is required. Please check.');
@@ -7,7 +14,7 @@ var gen_configFlightCare = function(obj) {
         console.error(e.name.toString() + ' >>> ' + e.message);
         return false;
     }
-   //  finally { statements }
+   //  finally { statements } // noted
 
    var buffer = {};
    var newKeyMap = {};
@@ -52,28 +59,94 @@ var gen_configFlightCare = function(obj) {
    return buffer;
 };
 
-var add_validateName = function(index, dataSourceFieldId, insureElem) {
-    // insureElem: Defined what DOM will be binded to, i.e. Insured Person inputbox
+/*
+ * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
+ *
+ * @method add_isValidBeneFullName
+ * @param   {Integer} index
+ *          , {Boolean} insureBoolean
+ *          , {String} dataSourceFieldId
+ *          , {Null or Object} insureElem [Defaulted as Null]
+ * @return Nil
+ */
+var add_isValidBeneFullName = function(index, insureBoolean, dataSourceFieldId, insureElem) {
+
     if ( insureElem == null ) {
-        insureElem = {
+        // Defined what DOM will be binded to, i.e. Insured Person inputbox
+        insureElem = {   // defaulted value
             'inputBoxId': 'txtInsuFullName1'
             , 'errMsgDOMId': 'errtxtPersonalFullName1'
         };
     }
     $( '#'+dataSourceFieldId+i).blur(function() {
         console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
-        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, true, 'beneficiary', argCfg.placeholder, insureElem );
+        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureElem );
     });
 };
 
-// Export modules to "fvConfig"
+/*
+ * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
+ *
+ * @method add_isValidBeneHkid
+ * @param   {Integer} index
+ *          , {Boolean} insureBoolean
+ *          , {String} dataSourceFieldId
+ *          , {Null or Object} insureElem [Defaulted as Null]
+ * @return Nil
+ */
+var add_isValidBeneHkid = function(index, insureBoolean, dataSourceFieldId, insureElem) {
+
+    if ( insureElem == null ) {
+        // Defined what DOM will be binded to, i.e. Insured Person inputbox
+        insureElem = {   // defaulted value
+            'inputBoxId': 'txtInsuFullName1'
+            , 'errMsgDOMId': 'errtxtPersonalFullName1'
+        };
+    }
+    $( '#'+dataSourceFieldId+i).blur(function() {
+        console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
+        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureElem );
+    });
+};
+
+/*
+ * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
+ *
+ * @method add_isValidBeneDob
+ * @param   {Integer} index
+ *          , {Boolean} insureBoolean
+ *          , {String} dataSourceFieldId
+ *          , {Null or Object} insureElem [Defaulted as Null]
+ * @return Nil
+ */
+var add_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insureElem) {
+
+    if ( insureElem == null ) {
+        // Defined what DOM will be binded to, i.e. Insured Person inputbox
+        insureElem = {   // defaulted value
+            'inputBoxId': 'txtInsuFullName1'
+            , 'errMsgDOMId': 'errtxtPersonalFullName1'
+        };
+    }
+    $( '#'+dataSourceFieldId+i).blur(function() {
+        console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
+        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureElem );
+    });
+};
+
+
+/*
+ * Export modules to "fvConfig" object
+ */
 var fvConfig = {};
 fvConfig['helpers'] = {
     'generateData': {
         'cfgFlightCare'     : gen_configFlightCare
     },
     'addEventJS': {
-        'validateName'      : add_validateName
+        'isValidBeneFullName'   : add_isValidBeneFullName   // Active
+        , 'isValidBeneHkid'     : add_isValidBeneHkid       // In-progress, not tested yet
+        // , 'isValidBeneDob'      : add_isValidBeneDob     // Pending
     },
     'ux': {}
 };
@@ -97,18 +170,6 @@ fvConfig['helpers'] = {
 //         }
 //     }
 // };
-
-
-
-
-
-
-// , 'phase': {
-// 'dynamicKeyToObj'               : phase_dynamicKeyToObj
-// , 'toVrProperties'              : phase_toVrProperties
-// }
-// , 'getCurrentFunctName'             : getCurrentFunctName
-// , 'skeltonVr'               : skeltonVr
 
 
 // Build skelton schema (add optional validators) for object "Vr"

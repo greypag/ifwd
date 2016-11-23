@@ -2430,6 +2430,14 @@ function validateName(inputId, errorId, insureBoolean, inputType) {
 	$("#"+inputId).removeClass("invalid-field");
 }
 
+/**
+*
+* For function validateHkid() -- will be MIGRATED --
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js", i.e. _isValidBeneHkid() .
+*
+**/
 function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
 	var placeholder='';
 	if(inputType=="applicant"){
@@ -2562,7 +2570,14 @@ function validateMobile(inputId, errorId, inputType){
 	return true;
 }
 
-
+/**
+*
+* For function validateDob() -- will be MIGRATED --
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js", i.e. _isValidBeneDob() .
+*
+**/
 function validateDob(inputId, errorId, inputType){
 	var dob = $("#"+inputId).val();
 

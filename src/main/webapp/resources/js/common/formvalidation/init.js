@@ -38,19 +38,27 @@ function initFVConfig(argCfg) {
             console.error(e.name.toString() + ' >>> ' + e.message);
         }
 
-		// COULD - other deticated js code before running FV
+		// SHOULD - other deticated js code before running FV
 		// --- Under Developing ---
         $(function() {
 
 			var dataSourceFieldId = '';
-			// This For-loop SAME AS ${ind} >> argCfg.travellerCounter.personalPlan (i.e. Total Personal Plan Travller)
+			// This For-loop SAME AS JSP var ${inx} (i.e. defined in flight-plan-details.jsp)
+			// In JS var, {Integer} 'argCfg.travellerCounter.personalPlan' (i.e. Total Personal Plan Travller)
 			for ( var i = 1; i < argCfg.travellerCounter.personalPlan+1; i++ ) (function(i) {
 
-				// Plug onBlur behaviour with isValidBeneFullName() to DOM [id="personalBenefitiaryId"]
-				argCfg.helpers.addEventJS.validateName(i, 'personalBenefitiaryId', null);
+				// MUST - DOM [id="inputFullName"] is plugged "onBlur" & triggers isValidBeneFullName()
+				argCfg.helpers.addEventJS.isValidBeneFullName(i, true, 'inputFullName', null);
 
-				// Plug onBlur behaviour with isValidBeneFullName() to DOM [id="inputFullName"]
-				argCfg.helpers.addEventJS.validateName(i, 'inputFullName', null);
+				// MUST - DOM [id="inputTxtAppHkid"] is plugged "onBlur" & triggers isValidBeneHkid()
+				// argCfg.helpers.addEventJS.isValidBeneHkid(i, true, 'inputTxtAppHkid', null);
+
+				// MUST - DOM [id="applicantDob"] is plugged "onBlur" & triggers isValidBeneDob()
+				// argCfg.helpers.addEventJS.isValidBeneDob(i, false, 'applicantDob', null);
+
+				// WON'T - Note & Demo only, because these are hidden fields
+				// // DOM [id="personalBenefitiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
+				// argCfg.helpers.addEventJS.isValidBeneFullName(i, false, 'personalBenefitiaryId', null);
 
 			})(i);
 
