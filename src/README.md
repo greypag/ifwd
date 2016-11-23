@@ -16,3 +16,4 @@ Branch Creation Log
 2016-10-31 - DEV Campaign 1111
 2016-11-02 - UAT Release branch v1.26.001 - Campaign 1111 / CS Hotline Standardization
 2016-11-10 - UAT Release branch v1.27.000 - Passkit
+2016-11-18 0 DEV FWDiscover Nov
