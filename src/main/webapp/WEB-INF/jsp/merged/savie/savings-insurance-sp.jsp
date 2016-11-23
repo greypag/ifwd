@@ -919,43 +919,6 @@ var home_url = "<%=request.getContextPath()%>";
 				}
 			}
 
-			// Access Code Cover
-			$('#hunger-selling-buy-now-O2O').click(function(e){
-				//$('.hunger-selling-container').removeClass('hidden');
-				//$('#accessCodeO2O').modal('show');
-				getAppointmentAccessCode();
-			});
-			$('#op-buy-now-O2O-mobile').click(function(e){
-				//$('#accessCodeO2O').modal('show');
-				getAppointmentAccessCode();
-			});
-            //
-			// Access Code Cover Close
-			//$('#close-cover').click(function(e){
-			//	$('.hunger-selling-container').addClass('hidden');
-			//});
-
-			// Access Code Confirmation
-			function getAppointmentAccessCode(){
-				$.ajax({
-				        type: "POST",
-				        url:'<%=request.getContextPath()%>/ajax/savings-evergreen-insurance/getAppointmentAccessCode',
-				        async:false,
-				        success:function(data){
-							if(data.errMsgs != null && data.errMsgs != ''){
-							}
-							else{
-								/* var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
-								$("#o2o-landing-form").attr("action", url); */
-								$('#o2o-landing-form').submit();
-							}
-				        },
-						error:function(){
-						    console.log('error');
-					    }
-				    });
-			};
-
 			// Sign up now validation
 			$('#teaserSignUpForm').submit(function(e){
 				e.preventDefault();
@@ -1102,43 +1065,6 @@ $(document).ready(function(){
 	//$("#vModal").on('show.bs.modal', function(){
 	//	$("#ifwdVideo").attr('src', url);
 	//});
-		$.ajax({
-		        type: "POST",
-		        url:'<%=request.getContextPath()%>/ajax/savings-insurance/getSavieHkidDiscount',
-		        async:false,
-		        success:function(data){
-					if(data.errMsgs != null && data.errMsgs != ''){
-					}
-					else{
-						$(".c11").text(fmoney(data.discounts[0].c1));
-						$(".c12").text(fmoney(data.discounts[0].c2));
-						$(".c13").text(fmoney(data.discounts[0].c3));
-						$(".c14").text(fmoney(data.discounts[0].c4));
-						$(".c15").text(fmoney(data.discounts[0].c5));
-						$(".c16").text(fmoney(data.discounts[0].c6));
-						$(".c17").text(fmoney(data.discounts[0].c7));
-
-						$(".c21").text(fmoney(data.discounts[1].c1));
-						$(".c22").text(fmoney(data.discounts[1].c2));
-						$(".c23").text(fmoney(data.discounts[1].c3));
-						$(".c24").text(fmoney(data.discounts[1].c4));
-						$(".c25").text(fmoney(data.discounts[1].c5));
-						$(".c26").text(fmoney(data.discounts[1].c6));
-						$(".c27").text(fmoney(data.discounts[1].c7));
-
-						$(".c31").text(fmoney(data.discounts[2].c1));
-						$(".c32").text(fmoney(data.discounts[2].c2));
-						$(".c33").text(fmoney(data.discounts[2].c3));
-						$(".c34").text(fmoney(data.discounts[2].c4));
-						$(".c35").text(fmoney(data.discounts[2].c5));
-						$(".c36").text(fmoney(data.discounts[2].c6));
-						$(".c37").text(fmoney(data.discounts[2].c7));
-					}
-		        },
-				error:function(){
-				    console.log('error');
-			    }
-		    });
 });
 
 

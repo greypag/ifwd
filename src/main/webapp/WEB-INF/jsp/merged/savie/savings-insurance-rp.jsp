@@ -780,28 +780,6 @@ var home_url = "<%=request.getContextPath()%>";
 			}
 		});
 
-		$('#op-buy-now-O2O-mobile').click(function(e){
-			getAppointmentAccessCode();
-		});
-
-		// Access Code Confirmation
-		function getAppointmentAccessCode(){
-			$.ajax({
-			        type: "POST",
-			        url:'<%=request.getContextPath()%>/ajax/savings-evergreen-insurance/getAppointmentAccessCode',
-			        async:false,
-			        success:function(data){
-						if(data.errMsgs != null && data.errMsgs != ''){
-						}
-						else{
-							$('#o2o-landing-form').submit();
-						}
-			        },
-					error:function(){
-					    console.log('error');
-				    }
-			    });
-		};
 	</script>
 <div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -835,7 +813,6 @@ var home_url = "<%=request.getContextPath()%>";
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/savie-discount.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/savie-ocean-park.js"></script>
 
@@ -866,43 +843,6 @@ $(document).ready(function(){
 	//$("#vModal").on('show.bs.modal', function(){
 	//	$("#ifwdVideo").attr('src', url);
 	//});
-	$.ajax({
-        type: "POST",
-        url:'<%=request.getContextPath()%>/ajax/savings-insurance/getSavieHkidDiscount',
-        async:false,
-        success:function(data){
-			if(data.errMsgs != null && data.errMsgs != ''){
-			}
-			else{
-				$(".c11").text(fmoney(data.discounts[0].c1));
-				$(".c12").text(fmoney(data.discounts[0].c2));
-				$(".c13").text(fmoney(data.discounts[0].c3));
-				$(".c14").text(fmoney(data.discounts[0].c4));
-				$(".c15").text(fmoney(data.discounts[0].c5));
-				$(".c16").text(fmoney(data.discounts[0].c6));
-				$(".c17").text(fmoney(data.discounts[0].c7));
-
-				$(".c21").text(fmoney(data.discounts[1].c1));
-				$(".c22").text(fmoney(data.discounts[1].c2));
-				$(".c23").text(fmoney(data.discounts[1].c3));
-				$(".c24").text(fmoney(data.discounts[1].c4));
-				$(".c25").text(fmoney(data.discounts[1].c5));
-				$(".c26").text(fmoney(data.discounts[1].c6));
-				$(".c27").text(fmoney(data.discounts[1].c7));
-
-				$(".c31").text(fmoney(data.discounts[2].c1));
-				$(".c32").text(fmoney(data.discounts[2].c2));
-				$(".c33").text(fmoney(data.discounts[2].c3));
-				$(".c34").text(fmoney(data.discounts[2].c4));
-				$(".c35").text(fmoney(data.discounts[2].c5));
-				$(".c36").text(fmoney(data.discounts[2].c6));
-				$(".c37").text(fmoney(data.discounts[2].c7));
-			}
-        },
-		error:function(){
-		    console.log('error');
-	    }
-    });
 });
 </script>
 
