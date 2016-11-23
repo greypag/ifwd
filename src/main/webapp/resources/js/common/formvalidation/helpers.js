@@ -52,80 +52,19 @@ var gen_configFlightCare = function(obj) {
    return buffer;
 };
 
-// var validateName = function (inputId, errorId, insureBoolean, inputType, placeholderObj) {
-//     var localConfig = {
-//         'applicant': {
-//             'msg':         getBundle(getBundleLanguage, "applicant.name.notNull.message")
-//             , 'namePH':    placeholderObj.applicantName
-//         },
-//         'insured': {
-//             'msg':         getBundle(getBundleLanguage, "insured.name.notNull.message")
-//             , 'namePH':    placeholderObj.insuredName
-//         },
-//         'beneficiary': {
-//             'msg':         getBundle(getBundleLanguage, "beneficiary.name.notNull.message")
-//             , 'namePH':    placeholderObj.beneficiaryName
-//         }
-//     };
-//
-// 	var placeholder='';
-//     _.each(localConfig, function(LCvalue, LCindex) {
-//         if (inputType == LCindex) { placeholder = LCvalue.namePH }
-//     });
-//
-// 	if ( $("#"+inputId).val() == placeholder.trim() ) {
-// 		$("#"+inputId).val('');
-//     }
-//
-// 	var fullname = $("#"+inputId).val();
-//
-// 	if (fullname.trim() == "") {
-// 		$("#"+inputId).addClass("invalid-field");
-// 		if(inputType=="applicant"){
-// 			$("#"+errorId).html( );
-// 		}else if(inputType=="insured"){
-// 			$("#"+errorId).html( );
-// 		}else if(inputType=="beneficiary"){
-// 			$("#"+errorId).html( );
-// 		}
-// 		$("#"+inputId).val(placeholder);
-// 		return false;
-// 	}
-// 	if (allLetter(fullname) == false) {
-// 		$("#"+inputId).addClass("invalid-field");
-// 		if(inputType=="applicant"){
-// 			$("#"+errorId).html( getBundle(getBundleLanguage, "applicant.name.notNull.message"));
-// 		}else if(inputType=="insured"){
-// 			$("#"+errorId).html( getBundle(getBundleLanguage, "insured.name.notNull.message"));
-// 		}else if(inputType=="beneficiary"){
-// 			$("#"+errorId).html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));
-// 		}
-// 		return false;
-// 	}
-// 	if(insureBoolean){
-// 		if (document.getElementById("applicantRelationship") != null) {
-// 			if (document.getElementById("applicantRelationship").value == 'SE'){
-// 				$("#txtInsuFullName1").val(fullname);
-// 				$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
-//
-// 				$("#txtInsuFullName1").removeClass("invalid-field");
-// 				$("#errtxtPersonalFullName1").html("");
-// 				$("#errtxtAdFullName1").html("");
-// 			}
-// 		}
-// 		else {
-// 			$("#txtInsuFullName1").val(fullname);
-// 			$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
-//
-// 			$("#txtInsuFullName1").removeClass("invalid-field");
-// 			$("#errtxtPersonalFullName1").html("");
-// 			$("#errtxtAdFullName1").html("");
-// 		}
-// 	}
-//
-// 	$("#"+errorId).html('');
-// 	$("#"+inputId).removeClass("invalid-field");
-// }
+var add_validateName = function(index, dataSourceFieldId, insureElem) {
+    // insureElem: Defined what DOM will be binded to, i.e. Insured Person inputbox
+    if ( insureElem == null ) {
+        insureElem = {
+            'inputBoxId': 'txtInsuFullName1'
+            , 'errMsgDOMId': 'errtxtPersonalFullName1'
+        };
+    }
+    $( '#'+dataSourceFieldId+i).blur(function() {
+        console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
+        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, true, 'beneficiary', argCfg.placeholder, insureElem );
+    });
+};
 
 // Export modules to "fvConfig"
 var fvConfig = {};
@@ -133,8 +72,8 @@ fvConfig['helpers'] = {
     'generateData': {
         'cfgFlightCare'     : gen_configFlightCare
     },
-    'bindingValue': {
-        // 'validateName'      : validateName
+    'addEventJS': {
+        'validateName'      : add_validateName
     },
     'ux': {}
 };

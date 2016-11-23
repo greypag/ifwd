@@ -41,38 +41,16 @@ function initFVConfig(argCfg) {
 		// COULD - other deticated js code before running FV
 		// --- Under Developing ---
         $(function() {
-            // var name = document.getElementById("inputFullName").value;
 
-
-			// SAME AS ${ind} >> argCfg.travellerCounter.personalPlan (i.e. Total Personal Plan Travller)
 			var dataSourceFieldId = '';
+			// This For-loop SAME AS ${ind} >> argCfg.travellerCounter.personalPlan (i.e. Total Personal Plan Travller)
 			for ( var i = 1; i < argCfg.travellerCounter.personalPlan+1; i++ ) (function(i) {
 
-				// Plug onBlur behaviour with isValidBeneFullName() to DOM id = "personalBenefitiaryId"
-				dataSourceFieldId = 'personalBenefitiaryId';
-				$( '#'+dataSourceFieldId+i).blur(function() {
-					console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
-					// insureElem: Defined what DOM will be binded to, i.e. Insured Person inputbox
-					var insureElem = null;
-					var beneMainElem = {
-						'inputId': dataSourceFieldId+i
-						, 'errorId': 'err'+dataSourceFieldId+i
-					};
-					fwdValidator.beneficiaryInfo.isValidBeneFullName( true, 'beneficiary', argCfg.placeholder, insureElem, beneMainElem );
-				});
+				// Plug onBlur behaviour with isValidBeneFullName() to DOM [id="personalBenefitiaryId"]
+				argCfg.helpers.addEventJS.validateName(i, 'personalBenefitiaryId', null);
 
-				// Plug onBlur behaviour with isValidBeneFullName() to DOM id = "inputFullName"
-				dataSourceFieldId = 'inputFullName';
-				$( '#'+dataSourceFieldId+i).blur(function() {
-					console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
-					// insureElem: Defined what DOM will be binded to, i.e. Insured Person inputbox
-					var insureElem = null;
-					var beneMainElem = {
-						'inputId': dataSourceFieldId+i
-						, 'errorId': 'err'+dataSourceFieldId+i
-					};
-					fwdValidator.beneficiaryInfo.isValidBeneFullName( true, 'beneficiary', argCfg.placeholder, insureElem, beneMainElem );
-			  	});
+				// Plug onBlur behaviour with isValidBeneFullName() to DOM [id="inputFullName"]
+				argCfg.helpers.addEventJS.validateName(i, 'inputFullName', null);
 
 			})(i);
 
