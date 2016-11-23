@@ -11,9 +11,9 @@
 //	@import "mobile/pop-up-temp";
 //}
 
-//@media screen and #{$desktop} {
-//	@import "desktop/pop-up-temp";
-//}
+@media screen and #{$desktop} {
+	@import "desktop/pop-up-temp";
+}
 
 // # Other rules and diff. screen standards for overwrite above
 //@import "customize_screen/pop-up-temp";
