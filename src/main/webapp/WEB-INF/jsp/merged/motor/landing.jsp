@@ -689,12 +689,12 @@
 		        <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.5.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
 		    </a>
 		</div>
-        <div class="item">
+        <!--div class="item">
 		    <a class="img-bg" href="<%=request.getContextPath()%>/resources/pdf/motor/<fmt:message key="motor.landing.motor.landing.inforgraphic.6.pdf" bundle="${motorMsg}" />" target="_blank">
 		        <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/Mobile/<fmt:message key="motor.landing.motor.landing.inforgraphic.6.linkmb" bundle="${motorMsg}" />" class="img-responsive hidden-md hidden-lg" alt="">
 		        <img src="<%=request.getContextPath()%>/resources/images/motor/promotion_banner/PC/<fmt:message key="motor.landing.motor.landing.inforgraphic.6.linkpc" bundle="${motorMsg}" />" class="img-responsive hidden-xs hidden-sm" alt="">
 		    </a>
-		</div>
+		</div-->
   </div>
 <!-- video Modal -->
 <div id="vModal" class="vModal modal fade" style="z-index: 999999999999;">
