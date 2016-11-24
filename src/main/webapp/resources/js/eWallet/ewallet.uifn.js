@@ -46,7 +46,7 @@ var eWalletCtr = {
 		//policy Id
 		policyDom.find(".ew_pol_id").html(info.policyId);
 		//policy balance
-		policyDom.find(".ew_pol_blance").html(eWalletCtr.toPriceStr(info.policyValue));
+		policyDom.find(".ew_pol_blance").html(eWalletCtr.toPriceStr(info.policyPrincipal));
 	},
 	showGenericMsg: function(title, msg) {
 		var dom = $(".ew_popup_error");
@@ -64,6 +64,7 @@ var eWalletCtr = {
 		return "$" + this.toPriceWithComma(x);
 	},
 	toPriceWithComma: function(x) {
+		if(!x)return x;
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	},
 	getQueryStringByName(name, url) {
