@@ -59,6 +59,7 @@ import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.life.ProductRecommendation;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.passkit.PassPolicyNoBean;
 import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
@@ -75,6 +76,7 @@ import com.ifwd.fwdhk.util.PDFToImages;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.ifwd.fwdhk.util.ValidationUtils;
 
 @Service
 public class LifeServiceImpl implements LifeService {
@@ -266,6 +268,7 @@ public class LifeServiceImpl implements LifeService {
 					resultJsonObject.put("planCode", proviePlanDetails.getPaymentType() + "-" + proviePlanDetails.getCurrency());
 					resultJsonObject.put("currency", proviePlanDetails.getCurrency());
 					resultJsonObject.put("rider", proviePlanDetails.getRider());
+					
 					net.sf.json.JSONObject credit0Rates = new net.sf.json.JSONObject();
 					net.sf.json.JSONObject credit1Rates = new net.sf.json.JSONObject();					
 					net.sf.json.JSONObject credit2Rates = new net.sf.json.JSONObject();
@@ -279,6 +282,7 @@ public class LifeServiceImpl implements LifeService {
 						//only retrieve 5 years data from 0 Rate
 						if (yearNum <= 5) {
 							planRider.put("premiumYear", yearNum);
+							
 							Double drate0 = Double.parseDouble(planDetails0Rate.get(i).getInterestedRate())*100;
 							double rate0= 0.0;
 							if(drate0.compareTo(new Double("0.00"))==0) {
@@ -309,6 +313,13 @@ public class LifeServiceImpl implements LifeService {
 							plan0.put("accountValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
 							plan0.put("deathBenefit", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit())));
 							plan0.put("totalPaid", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getTotalPremium())));
+							
+							if ((yearNum + issueAge) >= 66) {
+								plan0.put("riderEligible", 0);
+							} else {
+								plan0.put("riderEligible", 1);
+							}
+							
 							credit0Rates.accumulate("plans", plan0);
 						}
 					}
@@ -322,6 +333,12 @@ public class LifeServiceImpl implements LifeService {
 							plan1.put("accountValue", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getAccountEOP())));
 							plan1.put("deathBenefit", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getGuranteedDeathBenefit())));							
 							plan1.put("totalPaid", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getTotalPremium())));
+							if ((yearNum + issueAge) >= 66) {
+								plan1.put("riderEligible", 0);
+							} else {
+								plan1.put("riderEligible", 1);
+							}
+							
 							credit1Rates.accumulate("plans", plan1);
 							
 						}
@@ -335,6 +352,12 @@ public class LifeServiceImpl implements LifeService {
 							plan2.put("accountValue", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getAccountEOP())));
 							plan2.put("deathBenefit", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit())));							
 							plan2.put("totalPaid", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getTotalPremium())));
+							if ((yearNum + issueAge) >= 66) {
+								plan2.put("riderEligible", 0);
+							} else {
+								plan2.put("riderEligible", 1);
+							}
+							
 							credit2Rates.accumulate("plans", plan2);
 						}
 						
@@ -855,7 +878,34 @@ public class LifeServiceImpl implements LifeService {
 	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount()) && Integer.valueOf(saviePlanDetails.getInsuredAmountDiscount()) > 0){
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDue()) + " (Discounted 已扣減 " + 
 	    						NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDiscount()) + " )";
-	    	pdfName = "SavieOnlineApplicationFormDiscount";
+	    	JSONObject jsonObject=getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(), lifePersonalDetails.getHkid(),request);
+	    	JSONArray jsonArray=(JSONArray) jsonObject.get("referralPlan");
+	    	if(jsonArray.get(0).equals("SAVIE PREMIUM DISCOUNT")){
+	    		if(jsonArray.size()==1){
+	    			pdfName="SavieOnlineApplicationFormPremiumDiscount";
+	    		}else{
+	    		switch ((String) jsonArray.get(1)) {
+				case "SAVIE REFERRAL AGENT EMAIL":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
+					pdfName="SavieOnlineApplicationFormPremiumDiscountAgentEmail";
+					break;
+				case "SAVIE REFERRAL POLICY NUMBER":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
+					pdfName="SavieOnlineApplicationFormPremiumDiscountSavieReferral";
+					break;
+				case "FWD 1111 CAMPAIGN":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
+					pdfName="SavieOnlineApplicationFormPremiumDiscountCampaign1111";
+					break;
+				default:
+					pdfName = "SavieOnlineApplicationFormDiscount";
+					break;
+				}
+	    		}
+	    	}else{
+	    		pdfName = "SavieOnlineApplicationFormDiscount";
+	    	}
+	    	//pdfName = "SavieOnlineApplicationFormDiscount";
 	    }else{
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount());
 	    }
@@ -1974,6 +2024,19 @@ public class LifeServiceImpl implements LifeService {
 					request.getSession().setAttribute("isVulnerable", false);
 				}*/
 				//request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
+				if (ValidationUtils.isEmail(saviePlanDetails.getPromoCode())) {
+						BaseResponse apiReturn = null;
+						try {
+							net.sf.json.JSONObject params = new net.sf.json.JSONObject();
+							params.put("policyNo", lifePolicy.getPolicyNo());
+							params.put("agentEmail", saviePlanDetails.getPromoCode());
+							apiReturn = connector.setEliteTermPolicyAgentEmail(params, header);
+						}catch(Exception e){
+							logger.info("EliteTermServiceImpl setEliteTermPolicyAgentEmail occurs an exception!");
+							logger.info(e.getMessage());
+							e.printStackTrace();
+						}
+				}
 			}
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
@@ -2132,6 +2195,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -2204,6 +2268,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -2335,6 +2400,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -2390,6 +2456,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -2449,6 +2516,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("referralCode", saviePlanDetails.getPromoCode());
 		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
@@ -4096,5 +4164,26 @@ public class LifeServiceImpl implements LifeService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
 	}
+	
+	public JSONObject validatePolicyByPolicyNo(String policyNo,HttpServletRequest request) throws ECOMMAPIException{
+		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_BY_POLICY_NO + "?referenceNo=" + policyNo;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+
+	public JSONObject validatePolicyHoldersByPolicyNo(PassPolicyNoBean passPolicy,HttpServletRequest request) throws ECOMMAPIException{
+		//String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
+		String Url = UserRestURIConstants.VALIDATE_POLICY_HOLDERS_BY_POLICY_NO;
+		JSONObject params = new JSONObject();
+		params.put("referenceNo", passPolicy.getReferenceNo());
+		params.put("hkId", passPolicy.getHkId());
+		params.put("role", passPolicy.getRole());
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, params);
+		return responseJsonObj;
+	}
+	
 	
 }

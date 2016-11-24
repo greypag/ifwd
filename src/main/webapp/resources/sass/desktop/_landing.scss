@@ -1,0 +1,40 @@
+#business-partners-container {
+    img {
+        &.hk3_logo {
+            margin-top: 15px;
+            height: 40%;
+            width: 40%;
+        }
+        &.seven_eleven_logo {
+            margin-top: 25px;
+            height: 55%;
+            width: 55%;
+        }
+        &.agoda_logo {
+            margin-top: 15px;
+            height: 55%;
+            width: 55%;
+        }
+        &.cx_logo {
+            margin-top: 20px;
+        }
+        &.cfucome_logo {
+            margin-top: 40px;
+            height: 38%;
+            width: 38%;
+        }
+        &.csl_logo {
+            margin-top: 30px;
+        }
+        &.sony_logo {
+            margin-top: 45px;
+            height: 55%;
+            width: 55%;
+        }
+        &.club_logo {
+            margin-top: 50px;
+    		height: 59%;
+    		width: 59%;
+        }
+    }
+}

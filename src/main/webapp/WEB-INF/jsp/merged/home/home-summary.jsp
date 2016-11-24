@@ -540,7 +540,7 @@ var plan="${plan}";
 		                            <div class="form-group">
 		                                <div class="fld-wrapper">
 		                                    <p class="fld-label"><fmt:message key="payment.card.type" bundle="${msg}" /></p>
-		                                    <p class="fld-val cardtype"><span class="visa">Visa</span>&nbsp;/&nbsp;<span class="mastercard">Master</span></p>
+		                                    <p class="fld-val cardtype"><span class="visa">Visa</span><span class="cardtype-slash">&nbsp;/&nbsp;</span><span class="mastercard">Master</span></p>
 		                                </div>
 		                            </div>
 		                            <div class="form-group">

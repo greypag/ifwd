@@ -343,7 +343,7 @@ $(document).ready(function(){
 				    },
 				    success:function(response){
 				    	if(response){
-				    		$("#preferred-time").empty();
+				    		$("#preferred-time option").remove();
 				    		console.log("response",response);
 				    		if(response.length > 0){
 				    			for(var i in response){
@@ -517,6 +517,11 @@ $(document).ready(function(){
 				$(".centre-address").text(d.address);
 				$(".viewmap-link").attr("href",d.map);
 				
+				$("#preferred-time option").remove();
+				$("#preferred-time").val("");
+    			
+				changeAppointmentDate('#app-date',[]);
+				// $('#app-date').mobiscroll('setVal',"",true);
 				
 				$.ajax({
 					beforeSend:function(){
@@ -547,7 +552,9 @@ $(document).ready(function(){
 				    		if(response.length > 0){
 				    			var dates = [];
 				    			var firstDate = response[0].date;
-				    			$("#preferred-time").empty();
+
+				    			$("#preferred-time option").remove();
+
 					    		for(var i in response){
 					    			var d = response[i];
 					    			var from = d.date.split("-");
@@ -565,6 +572,7 @@ $(document).ready(function(){
 					    				$("#preferred-time").append(option);
 					    			}
 					    		}
+					    		$("#preferred-time").val($("#preferred-time option:first").val());
 					    		//dates.push(new Date(2016,8,1));
 					    		changeAppointmentDate('#app-date',dates);
 					    		$('#app-date').mobiscroll('setVal',dates[0],true);
@@ -572,6 +580,7 @@ $(document).ready(function(){
 					    		
 				    		}else{
 				    			$("#preferedTimeIsNull").modal("show");
+								changeAppointmentDate_dateEmpty('#app-date');
 				    		}
 				    		$("#loading-overlay").modal("hide");
 				    	}
@@ -1416,11 +1425,32 @@ function onClosed(valueText,inst){
 function changeAppointmentDate(elm,dates){
 	var inst = $(elm).mobiscroll('getInst');
 	inst.clear();
-	inst.option({
-		valid:dates,
-		minDate:dates[0]
-	});
 
+	var obj = {
+		valid:dates,
+		readonly:false,
+		onBeforeClose: function (valueText, btn, inst) {}
+	}
+	if(dates.length > 0){
+		obj.minDate = dates[0]
+	}
+
+	inst.option(obj);
+}
+
+function changeAppointmentDate_dateEmpty(elm){
+	var inst = $(elm).mobiscroll('getInst');
+	inst.clear();
+	inst.option({
+		readonly:true,
+		valid:[new Date()],
+		minDate:new Date(),
+		onBeforeClose: function (valueText, btn, inst) {
+			if(btn == 'set'){
+				return false;
+			}
+		}
+	});
 }
 
 function showBubble(){
@@ -1446,7 +1476,8 @@ function renderRateTable(tbDesktop,tbMobHead,tbMobBody,plan,odd){
 	mob_head.find(".premiumYear").text(plan.premiumYear);
 	
 	if(plan.premiumYear == 100){
-		var age100 = UILANGUAGE == "EN" ? "At Age " + plan.premiumYear : "至" + plan.premiumYear+ "歲";
+		//var age100 = UILANGUAGE == "EN" ? "At Age " + plan.premiumYear : "至" + plan.premiumYear+ "歲";
+		var age100 = UILANGUAGE == "EN" ? "Age " + plan.premiumYear : "" + plan.premiumYear+ "歲";
 		dt.find(".premiumYear").text(age100);
 		mob_head.find(".premiumYear").text(age100);
 	}

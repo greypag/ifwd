@@ -1991,6 +1991,7 @@ public class TravelController {
 			
 			
 			model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+			
 			model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 			model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
 			model.addAttribute("referralCode", session.getAttribute("referralCode"));
@@ -2007,6 +2008,8 @@ public class TravelController {
 //			return UserRestURIConstants.getSitePath(request) + "travel/travel";
 //		}
 
+        
+		
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
 		header.put("userName", session.getAttribute("username").toString());

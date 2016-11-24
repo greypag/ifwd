@@ -30,6 +30,10 @@
 	<decorator name="fwdsavie" page="template_savie.jsp">
 		<pattern>/*/savings-insurance*</pattern>
 	</decorator>
+	
+	<decorator name="fwdpasskit" page="template_passkit.jsp">
+		<pattern>/*/passkit*</pattern>
+	</decorator>
 
 	<decorator name="fwdevergreen" page="template_evergreen.jsp">
 		<pattern>/*/savings-evergreen-insurance*</pattern>

@@ -542,12 +542,11 @@ $('#yourQuoteTitle').html('Third Party');
         });
 
         $('#apply-link').on("click", function(){
-            
         });
         $('#form-inline').submit(function(event){
            	quote.personalAccident = $('[name="addon1"]').is(':checked');
             quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
-            
+            //window.location.hash = "callme=popup";
         	if ($('#quote-num').html().trim().length==0){
                 $.ajax({
                     url:  motorApi.quoteSaving,

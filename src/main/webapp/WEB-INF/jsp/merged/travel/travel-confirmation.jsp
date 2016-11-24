@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@page import="com.ifwd.fwdhk.util.Constants"%>
-
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
@@ -95,11 +94,70 @@
 
 	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.reference.no" bundle="${msg}" /></strong><span id="policyNo"> ${referenceNo}</span></h4>
 
-	       <c:choose>
+	       		<c:choose>
 				   <c:when test="${paymentMethod=='TapNGo'}">
 				       <h3 class="bmg-confirmation-h3"><strong><fmt:message key="label.tapNGo.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h3>
 				   </c:when>
 			   </c:choose>
+
+			   <div id="qrcode_div">
+			   	<div class="bmg-confirmation-h3"><fmt:message key="travel.confirmation.qr.cotent1" bundle="${msg}" /></div>
+			   	<div class="passkit-link-wrapper"><a class="btn btn-primary get-btn passkit-btn" href="#" target="_blank"><fmt:message key="travel.confirmation.qr.btn" bundle="${msg}" /></a></div>
+			   	<div class="bmg-confirmation-h3"><fmt:message key="travel.confirmation.qr.cotent2" bundle="${msg}" /></div>
+			   </div>
+			   
+			   <script>
+			   var base64EncodeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";  
+			   var base64DecodeChars = new Array(  
+			       -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  
+			       -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  
+			       -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63,  
+			       52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1,  
+			       -1,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14,  
+			       15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1,  
+			       -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,  
+			       41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1);  
+			     
+			   function base64encode(str) {  
+			       var out, i, len;  
+			       var c1, c2, c3;  
+			     
+			       len = str.length;  
+			       i = 0;  
+			       out = "";  
+			       while(i < len) {  
+			       c1 = str.charCodeAt(i++) & 0xff;  
+			       if(i == len)  
+			       {  
+			           out += base64EncodeChars.charAt(c1 >> 2);  
+			           out += base64EncodeChars.charAt((c1 & 0x3) << 4);  
+			           out += "==";  
+			           break;  
+			       }  
+			       c2 = str.charCodeAt(i++);  
+			       if(i == len)  
+			       {  
+			           out += base64EncodeChars.charAt(c1 >> 2);  
+			           out += base64EncodeChars.charAt(((c1 & 0x3)<< 4) | ((c2 & 0xF0) >> 4));  
+			           out += base64EncodeChars.charAt((c2 & 0xF) << 2);  
+			           out += "=";  
+			           break;  
+			       }  
+			       c3 = str.charCodeAt(i++);  
+			       out += base64EncodeChars.charAt(c1 >> 2);  
+			       out += base64EncodeChars.charAt(((c1 & 0x3)<< 4) | ((c2 & 0xF0) >> 4));  
+			       out += base64EncodeChars.charAt(((c2 & 0xF) << 2) | ((c3 & 0xC0) >>6));  
+			       out += base64EncodeChars.charAt(c3 & 0x3F);  
+			       }  
+			       return out;  
+			   } 
+			    $(document).ready(function(){
+			    			var qrcodehref="<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?referenceNo="+base64encode('${referenceNo}');
+			    			$(".passkit-link-wrapper").append("<img id='qrImg' />");
+			    			$(".passkit-btn").attr("href",qrcodehref);
+			    			$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url="+qrcodehref);
+			    	});
+			    </script>
 
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">

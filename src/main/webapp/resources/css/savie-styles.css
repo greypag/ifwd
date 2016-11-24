@@ -9878,6 +9878,7 @@ select::-ms-value {
 	left: 52%;
 	margin-left: -40px;
 	opacity: 0.7;
+	z-index: 3;
 }
 
 .savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn:hover,
@@ -10023,4 +10024,19 @@ a.to-orange{
 	#appointment-confirmation-page-top .breadcrumbs{
 		padding-top: 0;
 	}
+}
+@media (max-width: 992px){
+	.savie-common-btn.save-hkid-exit-btn1{
+		margin-right: 0;
+	}
+	.savie-common-btn.save-hkid-exit-btn1,.savie-common-btn.save-hkid-exit-btn2{
+		width: 100%;
+	}	
+}
+.savie-common-btn.save-hkid-exit-btn1{
+	margin-right: 10px;
+}
+.savie-common-btn.save-hkid-exit-btn1,.savie-common-btn.save-hkid-exit-btn2{
+	padding: 10px;
+	margin-bottom: 10px;
 }

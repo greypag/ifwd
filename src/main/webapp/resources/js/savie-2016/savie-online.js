@@ -489,7 +489,7 @@ function correspondenceCheckbox() {
 }
 
 //Checking HKID is valid
-function isValidHKID(hkid) {
+/*function isValidHKID(hkid) {
    var isValid = false;
    
    if (hkid && (hkid.length > 7)) {
@@ -583,7 +583,7 @@ function equivalentInteger(hkidChar){
          
    }
    return digit;
-}
+}*/
 
 // Maxlength checking
 function maxLengthCheck(object){
@@ -1658,9 +1658,16 @@ function getTimeSlot(perTime, appointmentTypeId){
 function validatePromoCode(){
 	var amount = $('#R').val();
 	var paymentMode = 'SAVIE-SP';
-	var promoCode= $('#promoCode').val().trim();
+	var promoCode = $('#promoCode').val();
+	if(promoCode != null){
+		promoCode = promoCode.trim();
+	}else{
+		promoCode = '';
+	}
+	
 	$('#promoCodeErrorMsg').addClass('hidden');
-	//alert('savie-online.js' + amount);
+	$('#promoCodeSuccessMsg').addClass('hidden');
+	
 	$.ajax({     
 	    url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
 	    type:'get',     
@@ -1673,14 +1680,17 @@ function validatePromoCode(){
 	    error:function(){       
 	    },     
 	    success:function(data){
+	    	console.log(data);
 	    	//if(data.errMsgs[0]!=null)
 	    	//console.log(data);
 	    	//alert('savie-online.js ' + data.errMsgs[0]);
-	    	if(data != null && data.errMsgs[0] != null && data.errMsgs[0] != ""){
+	    	if(data.errMsgs !== undefined && data.errMsgs != null){
 			   //$("#errorMsg").html(data.errMsgs[0]);
-			   $('#promoCodeErrorMsg').removeClass('hidden');
+			   $('#promoCodeErrorMsg').toggleClass('hidden', promoCode.trim() == "");
+			   $('#promoCodeSuccessMsg').addClass('hidden');
 	    	} else {
 	    	   $('#promoCodeErrorMsg').addClass('hidden');
+	    	   $('#promoCodeSuccessMsg').toggleClass('hidden', promoCode.trim() == "");
 	    	}
 	    }  
 	});

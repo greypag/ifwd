@@ -356,11 +356,20 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASY_HOME_USER_DETAILS = "easy.home.application";
 	public static final String PAGE_PROPERTIES_EASY_HOME_SUMMARY = "easy.home.summary";
 	public static final String PAGE_PROPERTIES_EASY_HOME_CONFIRMATION = "easy.home.confirmation";
+
+	/* API For Passkit      */		
+	public static final String VALIDATE_POLICY_BY_POLICY_NO = SERVICE_URL + "/passkit/policies/validate";	
+	public static final String VALIDATE_POLICY_HOLDERS_BY_POLICY_NO = SERVICE_URL + "/passkit/policies/policiesHolder/validate";
+	
+	public static final String PAGE_PROPERTIES_PASSKIT_LANDING = "passkit.landing";
+	
+	public static final String PAGE_PASSKIT_LANDING = "passkit-verification";	
 	
 	/* API For provie online */		
 	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";		
 	public static final String GET_PROVIE_RIDER_ELIGIBILITY = SERVICE_URL + "/life/provie/rider/eligibility";		
-			
+	
+	
 	/* Page Flow Control For provie online */		
 	public static final String URL_PROVIE_SINGLE_PREMIUM = "single-premium";		
 	public static final String URL_PROVIE_REGULAR_PREMIUM = "regular-premium";		
@@ -510,7 +519,7 @@ public class UserRestURIConstants {
 	public static final String URL_MOTOR_QUICK_QUOTE = "rider-options";
 	public static final String URL_MOTOR_PLAN_THIRD = "third-party-quote";
 	public static final String URL_MOTOR_PLAN_COMP = "comprehensive-quote";
-	
+
 	//public static final String URL_MOTOR_RIDER_OPTIONS = "rider-options";	
 	public static final String URL_MOTOR_CAR_DETAILS = "car-details";
 	public static final String URL_MOTOR_DRIVERS_DETAILS = "drivers-details";
@@ -541,14 +550,14 @@ public class UserRestURIConstants {
 	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "document-upload-confirmation";
 	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER = "document-upload-later";
 	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "document-upload-later-confirmation";
-	
-	
+
 	public static final String PAGE_PROPERTIES_MOTOR_LANDING = "motor.landing";
 	public static final String PAGE_PROPERTIES_MOTOR_GET_QUOTE = "motor.get-quote";
 	public static final String PAGE_PROPERTIES_MOTOR_QUICK_QUOTE = "motor.quick-quote";
 	public static final String PAGE_PROPERTIES_MOTOR_PLAN_THIRD = "motor.plan-third";
 	public static final String PAGE_PROPERTIES_MOTOR_PLAN_COMP = "motor.plan-comp";
 	
+	public static final String PAGE_PROPERTIES_MOTOR_QUOTE = "motor.quote";	
 	public static final String PAGE_PROPERTIES_MOTOR_RIDER_OPTIONS = "motor.rider-options";	
 	public static final String PAGE_PROPERTIES_MOTOR_CAR_DETAILS = "motor.car-details";
 	public static final String PAGE_PROPERTIES_MOTOR_DRIVERS_DETAILS = "motor.drivers-details";
@@ -624,8 +633,8 @@ public class UserRestURIConstants {
 	public static final String MOTOR_CARE_PAYMENT_RESULT_GET = SERVICE_URL + "/iMotor/policy/payment/result";
 	public static final String MOTOR_CARE_SAVE_FOR_LATER_POST = SERVICE_URL + "/iMotor/policy/save4Later/{stepNo}";
 	public static final String MOTOR_CARE_SAVE_FOR_LATER_RESUME_POST = SERVICE_URL + "/iMotor/policy/save4Later/resume";
+
 	
-		
 	static String controller;
 
 	public static boolean isContentEditable() {
@@ -862,5 +871,4 @@ public class UserRestURIConstants {
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);			
 		}
     }
-    
 }

@@ -17,4 +17,5 @@ public interface HomeService {
 	public JSONObject SubmitPolicy(String plan, String referenceNo, HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception;
 	public JSONObject finalizeHomeCarePolicy(String plan, String paymentFail, HttpServletRequest request, HttpSession session) throws Exception;
 	public JSONObject getHomeCareQuote(String plan,HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
+	public JSONObject getHomeCareQuote(String plan, HttpServletRequest request, String referralCode, String answer1, String answer2) throws ECOMMAPIException;
 }

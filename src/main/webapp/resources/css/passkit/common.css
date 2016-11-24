@@ -1,0 +1,711 @@
+/* Override all.css */
+body{
+	font-family: focoregular,"Microsoft JhengHei","Apple LiSong",Sans-Serif!important;
+	font-size: 15px;
+}
+body h1{
+	font-size: 20px;
+}
+body h2{
+	font-size: 22px;
+	font-weight: bold;
+}
+body h3{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+hr{
+	border-top: 1px solid #000;
+}
+a{
+	color: #f68b1f;
+}
+.bold{
+	font-weight: bold;
+}
+
+header .language a.active:hover,
+header .language a.inactive:hover{
+	color: #f68b1f;
+	background: none !important;
+}
+header .language a.active{
+	color: #f68b1f;
+	font-size: 18px;
+}
+header .language a.inactive{
+	color: #fff;
+	font-size: 18px;
+}
+body header .container .top-nav .float-right{
+	top: 0;
+}
+body footer .corp-links ul li a{
+	font-size: 20px;
+	margin: 0 auto;
+	background: none !important;
+	padding: 0 10px 0 5px;
+}
+body footer .full-width-container{
+	padding: 20px 0 0;
+}
+body footer .copyright-links ul li a{
+	background: none !important;
+	font-size: 12px;
+	margin-bottom: 0;
+}
+body footer .copyright-links p{
+	padding: 10px 0;
+	font-size: 12px;
+}
+
+body footer.footer-large .copyright-links{
+	text-align: left;
+	padding: 18px 0;
+}
+body footer.footer-large .copyright-links ul li a{
+	margin: 0;
+	padding: 0 5px 0 0;
+}
+body footer.footer-large .copyright-links p{
+	padding: 0;
+}
+body footer .copyright-links ul{
+	margin-bottom: 12px;
+}
+
+body .main{
+	padding-top: 35px;
+}
+.container.title{
+	margin-bottom: 30px;
+}
+
+/* button */
+.btn.primary{
+	font-size: 16px;
+	min-width: 200px;
+}
+
+body .main.landing{
+	padding-right: 0;
+	padding-left: 0;
+	padding-top: 0;
+}
+.hero{
+	height: 128px;
+}
+body .hero .text-wrap{
+	text-align: right;
+	padding: 8px;
+}
+body .hero .text-wrap h1{
+	line-height: 1;
+	padding-top: 34px;
+}
+body .hero .shadow{
+	opacity: 0.4;
+}
+
+.intro{
+	margin: 30px 15px 15px;
+}
+.intro h2{
+	margin-bottom: 0;
+}
+.content-box .small{
+	margin-bottom: 25px;
+}
+
+.btn-toClaim{
+	text-align: center;
+}
+
+/* reg form */
+.scn-reg{
+	padding: 15px 20px;
+}
+.scn-reg-head{
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+.scn-reg-head span{
+	font-size: 18px;
+	line-height: 1;
+}
+.scn-reg-field{
+	position: relative;
+	margin: 0 0 15px 0;
+}
+/* reg form input */
+.scn-reg-field input,
+.scn-reg-field select,
+.scn-reg-field textarea{
+	width: 100%;
+	height: 40px;
+	margin: 0;
+	padding: 20px 45px 0 15px;
+	background-color: #fdfdfd;
+	color: #575757;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: 0;
+	border: 0;
+	font-size: 15px;
+	resize: vertical;
+	outline: 0;
+	box-shadow: 0 1px 0 0 #e0e0e0;
+	-webkit-box-shadow: 0 1px 0 0 #e0e0e0;
+	-moz-box-shadow: 0 1px 0 0 #e0e0e0;
+	transition: height .2s ease;
+	-webkit-transition: height .2s ease;
+}
+.scn-reg-field.expand input,
+.scn-reg-field.expand select{
+	height: 60px;
+}
+.scn-reg-field input:focus{
+	border: 1px solid #f68b1f;
+}
+.scn-reg-field.error input,
+.scn-reg-field.error select,
+.scn-reg-field.error textarea{
+	border: 1px solid #fe0000;
+}
+
+/* reg form placeholder */
+.scn-reg-field .placeholder{
+	position: absolute;
+	left: 30px;
+	color: #cfcfcf;
+	-webkit-transition: none;
+	transition: none;
+	top: 10px;
+	font-size: 15px;
+}
+.scn-reg-field.expand .placeholder{
+	top: 5px;
+	font-size: 14px;
+	transition: font-size .2s ease,top .2s ease;
+	-webkit-transition: font-size .2s ease,top .2s ease;
+	color: #f68b1f;
+}
+.scn-reg-field.expand.focus .placeholder{
+	color: #f68b1f;
+}
+
+/* reg form error message */
+.scn-reg-field .error-message,
+.scn-declaration .error-message,
+.scn-reg-field .empty-error-message,
+.scn-reg-field .hkid-error-message,
+.scn-reg-field .specialChar-error-message
+{
+	display: none;
+	font-size: 11px;
+	line-height: 1.33333333em;
+	color: #fe0000;
+	padding: 5px 0 0 15px;
+}
+.scn-reg-field.error .error-message,
+.scn-declaration.error .error-message,
+.scn-reg-field.empty-error .empty-error-message,
+.scn-reg-field.hkid-error .hkid-error-message,
+.scn-reg-field.specialChar-error .specialChar-error-message
+{
+	display: block;
+	text-align: left;
+}
+
+.scn-reg-field select{
+	border-radius: 0;
+}
+.scn-reg-field select:focus{
+	border: 1px solid #f68b1f;
+}
+
+.scn-reg-field .sp.icon{
+	position: absolute;
+	top: 6px;
+	right: 25px;
+	transition: top .2s ease;
+	-webkit-transition: top .2s ease;
+	background-image: url(../images/spritesheet.png);
+	background-repeat: no-repeat;
+	display: block;
+}
+.scn-reg-field.expand .sp.icon{
+	top: 15px;
+}
+.scn-reg-field.ok .sp.icon{
+	width: 28px;
+	height: 28px;
+	background-position: -5px -59px;
+}
+/*
+.scn-reg-field.error .sp.icon{
+	width: 28px;
+	height: 28px;
+	background-position: -5px -21px;
+}
+*/
+
+#personal_info .get-screen-protection{
+	width: auto;
+}
+
+.error-message{
+	
+}
+
+.thank-policy-num{
+	font-size: 25px;
+	font-weight: bold;
+	margin: 35px auto;
+}
+.thank-p{
+	font-size: 15px;
+}
+
+.claim-procedure-indicator{
+	height: 70px;
+	width: 70px;
+	margin: 15px auto;
+}
+.claim-procedure-content{
+	text-align: center;
+}
+
+.checkbox-slider--b{
+	text-align: right;
+}
+.checkbox-slider--b i{
+	margin-right: 10px;
+	font-style: normal;
+	animation: popOut ease-in .3s normal;
+	font-size: 20px;
+}
+.checkbox-slider--b span{
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 18px;
+	color: #adadad;
+}
+.checkbox-slider--b span+i{
+	margin-left: 10px;
+	margin-right: 0;
+}
+.checkbox-slider--b .on i:first-child,
+.checkbox-slider--b .off i:last-child{
+	opacity: 0.4;
+}
+.checkbox-slider--b .off i:first-child,
+.checkbox-slider--b .on i:last-child{
+	opacity: 1;
+}
+.checkbox-slider--b input:checked + span:before {
+	background: rgba(100,100,100,.2);
+	box-shadow: inset 0 0 5px rgba(0,0,0,.8);
+}
+.checkbox-slider--b input + span:before {
+	background: #ff8201;
+	box-shadow: none;
+}
+
+.scn-declaration{
+	/*min-height: 50px;*/
+	margin-bottom: 20px;
+}
+.scn-declaration input{
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-top: 0;
+}
+.scn-declaration div{
+	padding-left: 35px;
+}
+
+.dropzone-desc{
+	margin-bottom: 10px;
+}
+div.dropzone{
+	padding: 0;
+	min-height: 150px;
+	border: none;
+	position: relative;
+	margin: auto 0;
+}
+
+.dropzone + .tooltip .tooltip-inner
+{
+	color: #000;
+}
+
+div.dropzone div.upload-icon,
+div.dropzone div.dz-default.dz-message{
+	position: relative;
+	text-align: center;
+	top: 30px;
+	pointer-events: none;
+}
+div.dropzone .upload-icon span{
+	font-size: 50px;
+}
+div.dropzone div.dz-message{
+	margin: 0;
+	color: #cfcfcf;
+	-webkit-transition: none;
+	transition: none;
+	font-size: 15px;
+}
+div.dropzone div.dz-preview{
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	top: -30px;
+}
+div.dropzone div.dz-preview div.dz-image{
+	display: inline-block;
+}
+
+
+
+.div_space{
+	height: 50px;
+}
+
+/* specific for landing page */
+.container.main.landing .content-box{
+	margin-top: 40px;
+}
+.container.main.landing .row{
+	margin: auto 0;
+}
+.container.main.landing .row .scn-declaration{
+	min-height: auto;
+}
+.container.main.landing .content-box .clearfix{
+	margin-bottom: 16px;
+}
+/* specific for thank you registration page */
+body h2.thank-claim-procedure{
+	text-align: center;
+}
+
+/* specific for claim page */
+.scn-reg-field textarea#incident_desc{
+	height: 150px;
+}
+
+.tooltip.fade.top.in{
+	opacity: 1;
+}
+.tooltip.top .tooltip-inner{
+	background-color: #fff;
+	max-width: 1000px !important;
+	min-width: 320px;
+	margin-bottom: 15px;
+}
+.tooltip.top .tooltip-arrow{
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 20px solid #fff;
+}
+
+.declaration{
+	margin: 10px auto;
+}
+/* .scn-reg-field .placeholder.long-placeholder{
+	font-size: 12px;
+	top: 4px;
+}
+*/
+
+.scn-reg-field .icon-dropdown,
+.scn-reg-field .icon-exclamation{
+	position: absolute;
+	top: 6px;
+	right: 25px;
+	display: block;
+	font-size: 28px;
+	color: #f68b1f;
+}
+.scn-reg-field .icon-dropdown{
+	pointer-events: none;
+}
+.scn-reg-field.expand .icon-dropdown,
+.scn-reg-field.expand .icon-exclamation{
+	top: 15px;
+}
+
+.error-msg-overall{
+	display: block;
+	text-align: left;
+	font-size: 11px;
+	line-height: 1.33333333em;
+	color: #fe0000;
+	padding: 5px 0 0 15px;
+}
+
+/*
+.scn-declaration input#agreement-wifi{
+	display: none;
+}
+.scn-declaration input#agreement-wifi+div{
+	padding-left: 0;
+	text-align: left;
+	display: inline-block;
+}
+.scn-declaration input#agreement-wifi+div .sp.icon{
+	background-image: url(../images/spritesheet.png);
+	height: 28px;
+	background-position: -5px -97px;
+	padding: 4px 0 0 35px;
+}
+.scn-declaration input#agreement-wifi:checked+div .sp.icon{
+	background-position: -5px -59px;
+}
+*/
+.scn-declaration input{
+	display: none;
+}
+.scn-declaration input+div{
+	padding-left: 0;
+	text-align: left;
+	display: inline-block;
+}
+.scn-declaration input+div .sp.icon{
+	background-image: url(../images/spritesheet.png);
+	height: 28px;
+	background-position: -5px -97px;
+	padding: 4px 0 0 35px;
+	display: inline-block;
+}
+.scn-declaration input:checked+div .sp.icon{
+	background-position: -5px -59px;
+}
+
+
+.dw-bubble.mbsc-mobiscroll .dwl {
+	color: #333;
+	font-size: 18px;
+	text-transform: capitalize;
+}
+.dw-bubble.mbsc-mobiscroll .dwb {
+	color: #f99502;
+}
+.dw-bubble.mbsc-mobiscroll .dwwol {
+	border-top: 1px solid #f99502;
+	border-bottom: 1px solid #f99502;
+}
+.dw-bubble.mbsc-mobiscroll .dwwr {
+	color: #333;
+}
+
+.title-space{
+	width: 103px;
+	height: 0px;
+	display: block;
+}
+
+.scn-reg-field select#hkid_passport{
+	padding: 0 0 0 15px;
+}
+
+
+#forgotusername-success-message,
+#forgotpassword-success-message{
+	color: #e4002b;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+#forgotusername-error-message,
+#forgotpassword-error-message{
+	color: #e4002b;
+	padding: 15px;
+}
+
+.modal.modal-forgot .modal-dialog .modal-content{
+	background-color: #f1f1f1;
+}
+.modal.modal-forgot .modal-dialog .modal-content h2{
+	color: #f68b1f;
+}
+
+/* error 404 */
+.btn-box-2{
+	padding-left: 25px;
+	padding-right: 25px;
+	background-color: #f68a1d;
+	text-align: center;
+	padding: 10px;
+	color: #fff;
+	font-size: 24px;
+	line-height: 31.5px;
+}
+
+/* term & condition */
+body.t-c{
+	font-size: 18px;
+}
+.t-c-content{
+	margin: auto 30px;
+}
+
+.t-c-content div{
+	margin-bottom: 20px;
+	text-align: left;
+}
+.handset-ul{
+	list-style: initial;
+	margin-left: 15px;
+}
+.tc-ol{
+	padding-left: 15px;
+}
+.seperate{
+	margin-top: 30px;
+	width: 90%;
+	border-top: 1px dotted #000;
+}
+body .main h3.origin_text{
+	color: #575757;
+}
+.orange_text{
+	color: #f68b1f;
+}
+.reg_title{
+	padding: 0 50px;
+}
+
+/* login */
+#login .scn-reg-field .forgot{
+	float: right;
+	cursor: pointer;
+}
+#login .btn.primary{
+	display: block;
+	width: 200px;
+	margin: 35px auto;
+}
+#login .scn-reg-field {
+	margin-bottom: 25px;
+}
+
+@media screen and (min-width: 768px){
+	body{
+		font-size: 16px;
+	}
+	body h1{
+		font-size: 36px;
+	}
+	body h2 {
+		font-size: 30px;
+	}
+	body footer .copyright-links ul{
+		margin-bottom: auto;
+	}
+	
+	body header .container .top-nav .logo-wrap{
+		text-align: left;
+	}
+	.hero{
+		height: 178px;
+	}
+	.intro {
+		 margin: 30px 88px 15px;
+	}
+
+	.scn-reg-field.withSelect{
+		padding-right: 0;
+	}
+	.scn-reg-field input,
+	.scn-reg-field select{
+		height: 60px;
+	}
+	
+	.scn-reg-field .sp.icon{
+		top: 15px;
+	}
+	
+	.scn-reg-field .placeholder{
+		top: 20px;
+	}
+	
+	.dropzone-desc{
+		min-height: 90px;
+	}
+	
+	/* specific for landing page */
+	#serial_number .scn-reg-field input,
+	#login .scn-reg-field input{
+		height: 40px;
+	}
+	#serial_number .scn-reg-field.expand input,
+	#login .scn-reg-field.expand input{
+		height: 60px;
+	}
+	#serial_number .scn-reg-field input:focus,
+	#login .scn-reg-field input:focus{
+		border: 1px solid #f68b1f;
+	}
+	#serial_number .scn-reg-field .placeholder,
+	#login .scn-reg-field .placeholder{
+		top: 10px;
+	}
+	#serial_number .scn-reg-field .sp.icon,
+	#login .scn-reg-field .sp.icon{
+		top: 7px;
+	}
+	#serial_number .scn-reg-field.expand .sp.icon,
+	#login .scn-reg-field.expand .sp.icon{
+		top: 15px;
+	}
+	#serial_number .small{
+		margin-bottom: 0;
+	}
+	#serial_number .scn-reg-field,
+	#serial_number #submit,
+	#login .scn-reg-field,
+	#login #submit{
+		margin-top: 0;
+	}
+	
+	#login .scn-reg-field{
+		margin: 15px 30%;
+	}
+	
+	#login .scn-reg-field .forgot{
+		position: absolute;
+		left: 100%;
+		top: 10px;
+		width: 50%;
+	}
+	
+	.scn-reg-field .placeholder.long-placeholder{
+		font-size: 15px;
+		top: 10px;
+	}
+	
+	.scn-reg-field .icon-dropdown,
+	.scn-reg-field .icon-exclamation{
+		top: 15px;
+	}
+	
+	.tooltip.top .tooltip-inner{
+		min-width: 500px;
+	}
+	
+	#personal_info .scn-reg-field.withSelect .icon-dropdown{
+		right: 3px;
+	}
+}

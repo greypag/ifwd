@@ -19,6 +19,15 @@ a:hover, a:focus{
 	color: #fff;
 }
 
+a{
+	&.pop-youtube{
+		&:hover,
+		&:focus{
+			color: #ffc450;
+		}
+	}
+}
+
 
 
 //========================//
@@ -339,6 +348,9 @@ button.dropdown-toggle{
 					vertical-align: top;
 				}
 			}
+			.pv_content_extra{
+				margin-bottom: 12px;
+			}
 			.line{
 				max-width: 66%;
 			}
@@ -469,6 +481,10 @@ button.dropdown-toggle{
 			.pv_extra_desc{
 				font-size: 1.125em;
 			}
+			.pv_link{
+				color: #fff;
+				text-decoration: underline;
+			}
 		}
 	}
 	.pv_extra_mobile .pv_extra_point{
@@ -478,6 +494,12 @@ button.dropdown-toggle{
 			display: table-cell;
 			float: none;
 			vertical-align: middle;
+			
+			.pv_link{
+				&:hover, &:focus{
+					color: #ffc450;
+				}
+			}
 		}
 		.pv_title{
 			font-size: 1.75em;
@@ -531,6 +553,24 @@ button.dropdown-toggle{
 		/* back, initially hidden pane */
 		.back {
 			transform: rotateY(180deg);
+		}
+	}
+}
+.ie11 .pv_sec_extra{
+	.flip-container{
+		.back{
+			transition: 0.6s;
+			opacity: 0;
+			backface-visibility: visible;
+		}
+	}
+	.flip-container:hover{
+		.front{
+			opacity: 0;
+		}
+		.back{
+			opacity: 1;
+			z-index: 12;
 		}
 	}
 }

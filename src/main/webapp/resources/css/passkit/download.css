@@ -1,0 +1,34 @@
+
+body .container.travelcare.main {
+  min-height: 300px;
+  background-color: #000;
+}
+
+@media screen and (max-width: 425px) {
+  .travelcare.main {
+    min-height: 500px;
+  }
+}
+
+.travelcare .hero {
+  background-position-y: 5%;
+}
+
+.center {
+  text-align: center;
+}
+
+.add-to-wallet {
+  margin: 20px 0px;
+  color: #fff;
+}
+
+.add-to-wallet .button-link {
+  margin: .5em auto;
+  display: inline-block;
+  width: 186px;
+}
+
+.add-to-wallet .button-link img {
+  width: 100%;
+}

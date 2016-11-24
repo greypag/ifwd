@@ -232,14 +232,12 @@ $(document).ready(function(){
         
     });
 	
-	var jsonData, contactJson;
-    $.getJSON( "./api/iMotor/QuoteMotorCare.json", function( data ) { //get json
+	//var jsonData, contactJson;
+    //$.getJSON( "./api/iMotor/QuoteMotorCare.json", function( data ) { //get json
 	
-    var jsonData;
-	 });
-    $.getJSON( "./api/iMotor/ContactMe.json", function( data ) { //get json
-        contactJson = data;
-    });
+    //$.getJSON( "./api/iMotor/ContactMe.json", function( data ) { //get json
+    //    contactJson = data;
+    //});
     /*if($('#saveForm').length){
 		$('#saveForm').click(function( event ) {
 			event.preventDefault();
@@ -270,6 +268,7 @@ $(document).ready(function(){
 		});
     }*/
     
+    /* Merge conflict - 20161124 - It seems there are more advanced handling in latest release
      if($('#contactform-pop').length){
         $('#contactform-pop').submit(function( event ) {
             event.preventDefault();
@@ -296,4 +295,48 @@ $(document).ready(function(){
             });
         });
     }
+    */
+
+    if($('#contactform-pop').length){
+        $('#contactpopup').on('hidden.bs.modal', function () {
+            $('#contactform-pop').removeClass('hidden');
+            $('#successMessage').addClass('hidden');
+        });
+        
+        $('#submitEnquiry').on('click', function( e ) { 
+            e.preventDefault();
+            $('#contactform-pop').validator('validate');
+            if(!$('#contactform-pop .has-error').length){
+                $.ajax({
+                    url: context + '/api/iMotor/contactMe',
+                    contentType: "application/json",
+                    type: 'POST',
+                    dataType: "json",
+                    async: false,
+                    cache: false,
+                    data: JSON.stringify({
+                            "refNum": $("#quote-num").val(),
+                            "fullName": $("#fullName").val(), 
+                            "contactNum": $("#contactNo").val(),
+                    //      "contactNum": $('[name="contactNo"]').val(),
+                            "email": $("#contactEmail").val(),
+                            "preferredContactTime": $("#perferedDate").val(),
+                            "from": "",
+                            "reason": $("#reason").val(),
+                            "quoteMotorCare": quote
+                            }),
+                    error: function(xhr, textStatus, errorThrown) {
+                        e.preventDefault();
+                    },
+                    success: function(data) {
+                        window.location.hash = "callme=complete";
+                        e.preventDefault();
+                        window.location.hash = "callme=complete";
+                        $('#contactform-pop').addClass('hidden');
+                        //$('#successMessage').removeClass('hidden');
+                    }
+                });
+            }
+        });    
+    };
 });

@@ -389,7 +389,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.applicantStreetNo }" class="mdl-textfield__input" type="text" id="applicantStreetNo" name="applicantStreetNo" maxlength="5" data-keyblock-alphabet-num-space="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.applicantStreetNo }" class="mdl-textfield__input" type="text" id="applicantStreetNo" name="applicantStreetNo" maxlength="9" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="applicantStreetNo"><fmt:message key="application.input.address.street.no" bundle="${msg}" /></label>
                                     </div>
                                     

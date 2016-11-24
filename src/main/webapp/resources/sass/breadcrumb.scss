@@ -22,7 +22,7 @@
 }
 
 @media screen and #{$desktop} {
-	//@import "desktop/breadcrumb";
+	@import "desktop/breadcrumb";
 }
 
 // # Other rules and diff. screen standards for overwrite above

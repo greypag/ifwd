@@ -25718,3 +25718,7 @@ label.et-bene-radio,#et-application-second-section label,
    margin-right: 30px;
    display: inline-block;
 }
+
+.success-msg{
+	color : #f68b1f;
+}

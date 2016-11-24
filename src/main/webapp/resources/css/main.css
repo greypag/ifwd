@@ -12134,16 +12134,19 @@ body.chin .partner-headline-wrapper .headline-title{
 	float: left;
 	width: 33.3%;
 	font-size: 16px;
-}@media (max-width: 991px){
-	.faq-answer__orderList__listItem{
-		width: 50%;
-	}
 }
-@media (max-width: 767px){
-	.faq-answer__orderList__listItem{
-		width: 100%;
-		clear: both;
-	}
+@media all and (max-width: 767px) {
+  /* line 2, ../sass/customize_screen/_faq.scss */
+  .faq-answer__orderList__listItem {
+    width: 100%;
+    clear: both;
+  }
+}
+@media all and (max-width: 480px) {
+  /* line 8, ../sass/customize_screen/_faq.scss */
+  .faq-answer a {
+    word-wrap: break-word;
+  }
 }
 /* BEM Naming for faq page End 20160513 */
 
@@ -12488,10 +12491,6 @@ Be caution: <select> have customed made */
 .color-teal-blue{
 	color: #26484e !important;
 }
-/* added on 20160718 7-eleven logo*/
-.partner_image--711{
-	max-width: 240px;
-}
 /* added on 20160728 Screen Protector*/
 .faq_answer__step{
 	text-decoration: underline;
@@ -12626,6 +12625,26 @@ button[disabled].btn.btn-default--vc {
 .faq_answer__list--lo-roman{
 	list-style-type: lower-roman;
 }
+/* line 42, ../sass/common_screen/_faq.scss */
+.faq-answer *, .faq_answer * {
+  font-size: 16px;
+}
+/* line 38, ../sass/common_screen/_faq.scss */
+.faq_answer__list--pad-left20 {
+  padding-left: 20px;
+}
+@media (max-width: 767px) {
+  /* line 3, ../sass/customize_screen/_faq.scss */
+  .faq-answer__orderList__listItem {
+    width: 100%;
+    clear: both;
+  }
+
+  /* line 7, ../sass/customize_screen/_faq.scss */
+  .faq_answer a {
+    word-wrap: break-word;
+  }
+}
 /* End ticket 3448 Add tag and go payment reminder 15-09-2016 By Irvine*/
 
 /* added in scss but not use now */
@@ -12637,4 +12656,146 @@ button[disabled].btn.btn-default--vc {
 .addthis_sharing_toolbox .at-icon-wrapper svg {
   width: 42px !important;
   height: 42px !important;
+}
+
+/* #3988 updating langing page logos */
+@media screen and (min-width: 992px) {
+	#business-partners-container img.hk3_logo {
+		margin-top: 15px;
+		height: 40%;
+		width: 40%;
+	}
+	#business-partners-container img.seven_eleven_logo {
+		margin-top: 25px;
+		height: 55%;
+		width: 55%;
+	}
+	#business-partners-container img.agoda_logo {
+	    margin-top: 15px;
+		height: 55%;
+		width: 55%;
+	}
+	#business-partners-container img.cx_logo {
+		margin-top: 20px;
+	}
+	#business-partners-container img.cfucome_logo {
+		margin-top: 40px;
+		height: 38%;
+		width: 38%;
+	}
+	#business-partners-container img.csl_logo {
+		margin-top: 30px;
+	}
+	#business-partners-container img.sony_logo {
+		margin-top: 45px;
+		height: 55%;
+		width: 55%;
+	}
+	#business-partners-container img.seven_eleven_logo {}
+	#business-partners-container img.club_logo {
+	    margin-top: 50px;
+		height: 59%;
+		width: 59%;
+	}
+}
+
+/* line 2, ../sass/page/travel/page-travel-confirmation.scss */
+.passkit-link-wrapper #qrImg {
+  margin-left: 50px;
+}
+/* line 5, ../sass/page/travel/page-travel-confirmation.scss */
+.passkit-link-wrapper .passkit-btn {
+  border-radius: 4px;
+  background-color: #fdb714;
+  border-color: #fdb714;
+  border-bottom: solid 3px #cfa238;
+}
+/* line 10, ../sass/page/travel/page-travel-confirmation.scss */
+.passkit-link-wrapper .passkit-btn:hover {
+  background-color: transparent;
+  color: #fdb714;
+  border: 1px #fdb714 solid;
+}
+
+@media screen and (max-width: 991px) {
+	#business-partners-container img.hk3_logo {
+		height: 12%;
+		width: 12%;
+    }
+	#business-partners-container img.sony_logo {
+	    height: 30%;
+	    width: 30%;
+	}
+	#business-partners-container img.cx_logo {
+	    height: 40%;
+	    width: 40%;
+	}
+	#business-partners-container img.cfucome_logo {
+		margin-top: 20px;
+		height: 14%;
+		width: 14%;
+	}
+	#business-partners-container img.csl_logo {}
+	#business-partners-container img.seven_eleven_logo {
+		margin-top: 20px;
+		height: 35%;
+		width: 35%;
+	}
+}
+
+/* 3976 partnership content updated */
+@media screen and (min-width: 992px) {
+	.partner_image.partner_image--3hk {
+		max-width: 240px;
+		width: 40%;
+		height: 40%;
+	}
+	.partner_image.partner_image--cathay-pacific {
+		max-width: 240px;
+		width: 90%;
+		height: 90%;
+	}
+	.partner_image.partner_image--711 {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+	.partner_image.partner_image--sony {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+}
+@media screen and (max-width: 991px) {
+	.partner_image.partner_image--3hk {
+		max-width: 240px;
+		width: 30%;
+		height: 30%;
+	}
+	.partner_image.partner_image--cathay-pacific {
+		max-width: 240px;
+		width: 90%;
+		height: 90%;
+	}
+	.partner_image.partner_image--711 {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+	.partner_image.partner_image--sony {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}
+}
+
+.img_1111{
+	position : fixed;
+	left : 50%;
+	top : 50%;
+	z-index : 1031;
+	opacity : 0;
+}
+.img_1111:hover{
+	cursor : pointer;
 }

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,9 +31,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.connector.response.life.GetVulnerableCustomerResponse;
+import com.ifwd.fwdhk.connector.response.life.PolicyApplication;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -158,10 +162,12 @@ public class LifeController extends BaseController{
 		startDOB.add(startDOB.YEAR, -70);
 		startDOB.add(startDOB.DATE, 1);
 		model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
-		
 		Calendar defaultDOB = new GregorianCalendar();
 		Date date1 = new Date();
 		String type = request.getParameter("type");
+		String backSummary=request.getParameter("backSummary");
+		model.addAttribute("type", type);
+		model.addAttribute("backSummary", backSummary);
 		if("2".equals(type)){
 			request.getSession().setAttribute("type", type);
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
@@ -188,10 +194,45 @@ public class LifeController extends BaseController{
 					sliderValue = savieFna.getQ4_b_amount().replace(",", "");
 				}
 			}
+			if (request.getSession().getAttribute("saviePlanDetails")!=null){
+				
+				model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+			}else{
+				model.addAttribute("promoCode", "");
+			}
 			logger.info(sliderValue.replace(",", ""));
 			model.addAttribute("sliderValue", sliderValue.replace(",", ""));
 			defaultDOB.setTime(date1);
 		}else if("3".equals(type)){
+			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+			try {
+				GetPolicyApplicationResponse apiResponse = savieOnlineService.getPolicyApplicationSaveforLater(request);
+				
+				PolicyApplication policyApplication = apiResponse.getPolicyApplication();
+				
+				if (saviePlanDetails != null) {
+					if (policyApplication != null) {
+						saviePlanDetails.setPromoCode(policyApplication.getReferralCode());
+						model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+						request.getSession().setAttribute("promoCode", saviePlanDetails.getPromoCode());
+						
+					}
+					
+				}
+				
+				
+				
+			} catch (ECOMMAPIException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			/*if (request.getSession().getAttribute("saviePlanDetails")!=null){
+				model.addAttribute("promoCode", saviePlanDetails.getPromoCode());
+			}else{
+				model.addAttribute("promoCode", "");
+			}*/
+			
+			
 			model.addAttribute("type", type);
 			request.getSession().setAttribute("savieType", "SP");
 			model.addAttribute("sliderMin", "30000");
@@ -336,12 +377,10 @@ public class LifeController extends BaseController{
 			//request.setAttribute("referralCode", saviePlanDetails.getPromoCode());
 			//request.setAttribute("sumInsured", saviePlanDetails.getInsuredAmount());
 			try {
-				/*
 				jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),userDetails.getHkid(),request);
 				logger.debug("lifecontroller referral discount=" + (String) jsonObject.get("value"));
-                saviePlanDetails.setInsuredAmountDiscount((String) jsonObject.get("value")); 
+				saviePlanDetails.setInsuredAmountDiscount((String) jsonObject.get("value")); 
 				saviePlanDetails.setInsuredAmountDue(String.valueOf(Integer.valueOf(saviePlanDetails.getInsuredAmount()) - Integer.valueOf((String) jsonObject.get("value"))));
-				*/
 				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 			}
 			catch (Exception e) {
@@ -734,6 +773,30 @@ public class LifeController extends BaseController{
 			else{
 				model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
 				model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
+			}
+			//
+			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+			LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
+			model.addAttribute("ifCampaign1111", false);
+			if ("SP".equals(saviePlanDetails.getPaymentType())) {
+				JSONObject jsonObject = new JSONObject();
+				try {
+					//jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),userDetails.getHkid(),request);
+			    	jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(), lifePersonalDetails.getHkid(),request);
+			    	JSONArray jsonArray=(JSONArray) jsonObject.get("referralPlan");
+			    	if(jsonArray.get(0).equals("SAVIE PREMIUM DISCOUNT")){
+			    		if(jsonArray.size()>1){
+			    			if (((String) jsonArray.get(1)).equals("FWD 1111 CAMPAIGN")){
+			    				model.addAttribute("ifCampaign1111", true);
+			    			}
+			    		}
+			    	}
+				}
+				catch (Exception e) {
+					logger.info(e.getMessage(),e);
+					request.getSession().setAttribute("errorMsg", e.getMessage());
+				}
+
 			}
 			
 			//

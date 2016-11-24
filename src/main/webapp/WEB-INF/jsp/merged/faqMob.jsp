@@ -30,9 +30,17 @@
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('h');"><fmt:message key="faq.home.care" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('sp');"><fmt:message key="faq.screenProtector.mobile" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('3hk');"><fmt:message key="faq.3hk.mobile" bundle="${msg}" /></div>
+	                        <div class="faq_menu_item" onclick="faqChangeCareMob('provie');"><fmt:message key="faq.provie" bundle="${msg}" /></div>
+	                        <div class="faq_menu_item" onclick="faqChangeCareMob('driva');"><fmt:message key="faq.driva" bundle="${msg}" /></div>
+	                        <div class="faq_menu_item" onclick="faqChangeCareMob('motor');"><fmt:message key="faq.motor" bundle="${msg}" /></div>
 	                        <div class="clearfix"></div>
 	                    </div>
 				    </div>
+
+				    <jsp:include page="/WEB-INF/jsp/merged/faq/faq_motor_mob.jsp" />
+				    <jsp:include page="/WEB-INF/jsp/merged/faq/faq_driva_mob.jsp" />
+				    <jsp:include page="/WEB-INF/jsp/merged/faq/faq_provie_mob.jsp" />
+
 					<!-- 3hk Iphone start -->
                     <div id="faq_3hk_mob" class="col-xs-12 col-sm-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-xs-12 col-sm-12 hidden-md hidden-lg pad-none faq_title_container">
@@ -4401,6 +4409,278 @@
                                 <div class="clearfix"></div>
                             </div>
 
+                            <div class="clearfix"></div>
+                        </div>
+						<div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                                <fmt:message key="faq.travel.group4" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group4.q30" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group4.a30" bundle="${msg}" /></br><br>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group4.q31" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group4.a31" bundle="${msg}" /></br><br>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group4.q32" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group4.a32" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group4.q33" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group4.a33" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+							<div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group4.q34" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group4.a34" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group4.q35" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group4.a35" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+						<div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                                <fmt:message key="faq.travel.group5" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group5.q36" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group5.a36" bundle="${msg}" /></br><br>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group5.q37" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group5.a37" bundle="${msg}" /></br><br>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group5.q38" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group5.a38" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group5.q39" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group5.a39" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+						<div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                                <fmt:message key="faq.travel.group6" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group6.q40" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group6.a40" bundle="${msg}" /></br><br>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.travel.group6.q41" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.travel.group6.a41" bundle="${msg}" /></br><br>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
                             <div class="clearfix"></div>
                         </div>
 

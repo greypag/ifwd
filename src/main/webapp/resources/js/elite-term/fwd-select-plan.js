@@ -964,7 +964,7 @@
                   callback: {
                      message: getBundle(getBundleLanguage, "form.hkid.invalid"),
                      callback: function(value, validator) {
-                        return isValidHKID(value);
+                        return IsHKID(value);
                      }
                   }
                }

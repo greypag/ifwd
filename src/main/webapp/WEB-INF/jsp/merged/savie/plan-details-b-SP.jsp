@@ -15,7 +15,6 @@ var languageP = "${language}";
 var affordabilityMin = ${slider_min};
 var affordabilityPremium = ${sliderMax};
 </script>
-
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 
 <%!
@@ -90,14 +89,13 @@ var affordabilityPremium = ${sliderMax};
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="row">
-					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa hidden fa-info-circle info-tooltip"></i></h3>
+					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa hidden fa-info-circle info-tooltip"></i><c:choose><c:when test="${type == '2' || type == '3' || backSummary == 'Y'}"><p><fmt:message key="plan.detail.guild_2" bundle="${msg}" /></p></c:when><c:otherwise> <p><fmt:message key="plan.detail.guild" bundle="${msg}" /></p> </c:otherwise></c:choose></h3>
 					<div class="col-md-4 plan-payment-type">
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type" <c:if test="${type == '2' }">disabled</c:if>>
-									   <option value="regular-payment"><fmt:message key="savie.online.select.regular" bundle="${msg}" /></option>
-									   <option value="one-off-premium"><fmt:message key="savie.online.select.oneoff" bundle="${msg}" /></option>
+										<option value="one-off-premium"><fmt:message key="savie.online.select.oneoff" bundle="${msg}" /></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="label.savie.plan.details.paymentmode" bundle="${msg}" /></label>
@@ -178,13 +176,16 @@ var affordabilityPremium = ${sliderMax};
 							</div>
 						</div>
 					</div>
+					<c:if test="${type == '2' || type == '3' || backSummary == 'Y'}">
 					<div class="col-xs-12 col-md-3 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
-							<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
-							<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode" bundle="${msg}" /></label>
+							<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  value="${promoCode}" />
+							<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode.referral" bundle="${msg}" /></label>
 						</div>
 						<span class="error-msg hidden" id="promoCodeErrorMsg"><fmt:message key="plan.detail.promo.code.error" bundle="${msg}" /></span>
+						<span class="success-msg hidden" id="promoCodeSuccessMsg"><fmt:message key="plan.detail.promo.code.success" bundle="${msg}" /></span>
 					</div>
+					</c:if>
 					<div class="col-xs-12 col-md-2 plan-calculate">
 						<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="button.calculate" bundle="${msg}" /></button>
 					</div>
@@ -523,7 +524,7 @@ var affordabilityPremium = ${sliderMax};
 			<div class="btn__proceed_online js-display-savie-sp">
 				<button id="btn-proceed" class="btn plan-details-btn savie-common-btn white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
 			</div>
-			<%--<a onclick="applyCentre();" class="pd-link" style="color: #ff8200;"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a>*/ --%>
+			<a onclick="applyCentre();" class="pd-link" style="color: #ff8200;"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a>
 			<!-- for offline -->
 			<%--<div class="">
 				<button onclick="applyCentre();" class="btn plan-details-btn savie-common-btn white-btn text-orange text-hover-orange"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></button>
@@ -568,21 +569,20 @@ var affordabilityPremium = ${sliderMax};
 			    				</div>
 			    			</div>
 			    			<div class="row" id="on-of-holder">
-			    				<div class="col-md-12 col-xs-12" id="step-online">
-			    					<div class="step one-step">
+			    				<div class="col-md-6 col-xs-12" id="step-online">
+			    					<div class="step">
 					    				<div class="media">
 					    					<div class="media-left" id="stepon-img-holder">
 					    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/pc-icon.png" />
 					    					</div>
 					    					<div class="media-body">
 					    						<p class="procedure"><fmt:message key="product.details.savie.step3.copy" bundle="${msg}" /></p>
-					    						
-					    						<button class="btn savie-common-btn" id="online-application-btn" style="position:relative;"><fmt:message key="button.online.application" bundle="${msg}" /></button>
+					    						<button class="btn savie-common-btn" id="online-application-btn"><fmt:message key="button.online.application" bundle="${msg}" /></button>
 					    					</div>
 					    				</div>
 			    					</div>
 			    				</div>
-			    				<%--<div class="or-word">
+			    				<div class="or-word">
 			    					<div id="or-mobile">
 			    						<span><fmt:message key="label.icon.or" bundle="${msg}" /></span>
 			    					</div>
@@ -599,7 +599,7 @@ var affordabilityPremium = ${sliderMax};
 					    					</div>
 					    				</div>
 			    					</div>
-			    				</div>--%>
+			    				</div>
 			    			</div>
 			    		</div>
 			    	</div>
@@ -686,16 +686,16 @@ var affordabilityPremium = ${sliderMax};
 		$('body').addClass('modal-open');
 		//console.log('${savieType}');
 		if('${savieType}' == 'RP') {
-			$("#type-of-payment").val("regular-payment");
-			$('#plan-amount-holder').removeClass('hidden');
-			$('#amount-slide-holder').addClass('hidden');
-			if($('#plan-dob-datepicker').val() != '') {
-				$('#total-years-holder').removeClass('hidden');
-			}
+			// $("#type-of-payment").val("regular-payment");
+			// $('#plan-amount-holder').removeClass('hidden');
+			// $('#amount-slide-holder').addClass('hidden');
+			// if($('#plan-dob-datepicker').val() != '') {
+				// $('#total-years-holder').removeClass('hidden');
+			// }
 
-			//Hide SP only elements
-			$('.js-display-savie-sp').css('display', 'none');
-			$('.js-display-savie-rp').css('display', 'block');
+			// Hide SP only elements
+			// $('.js-display-savie-sp').css('display', 'none');
+			// $('.js-display-savie-rp').css('display', 'block');
 
 		} else {
 			$("#type-of-payment").val("one-off-premium");
@@ -812,6 +812,7 @@ var affordabilityPremium = ${sliderMax};
 				$('#promoCodeErrorMsg').addClass('hidden');
 			}
 		*/
+			//alert('clicked');
 			var planCode=$("#type-of-payment").val();
 			//alert('planCode=' + planCode + '<<<');
 			if (planCode=='one-off-premium'){
@@ -875,12 +876,12 @@ var affordabilityPremium = ${sliderMax};
 
 		//changing labels of promo code
 		$('#promoCode').focus(function() {
-			$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+			$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 		}).focusout(function () {
 			if($(this).val() == '' ) {
-				$('.promocode-label').text('<fmt:message key="label.promocode" bundle="${msg}" />');
+				$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 			} else {
-				$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+				$('.promocode-label').text('<fmt:message key="label.promocode.referral" bundle="${msg}" />');
 			}
 		});
 
@@ -1151,3 +1152,18 @@ var affordabilityPremium = ${sliderMax};
 </script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
 <%--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script> --%>
+
+
+<jsp:include page="/WEB-INF/jsp/merged/comp/pop-up-temp.jsp"></jsp:include>
+<script>
+$(window).on('load',function(){
+	var modal_id = 'stop-rp-modal';
+	var img_path = '<fmt:message key="savie.stop.rp.modal.img" bundle="${msg}" />';
+	var title = '<fmt:message key="savie.stop.rp.modal.title" bundle="${msg}" />';
+	var content = '<fmt:message key="savie.stop.rp.modal.content" bundle="${msg}" />';
+	var button = '<fmt:message key="savie.provie.stop.rp.modal.btn.continue" bundle="${msg}" />';
+	//imgModal(modal_id, img_path, title, content, button);
+	imgModal_noImg(modal_id, title, content, button);
+	$('#stop-rp-modal').modal('show');
+});
+</script>

@@ -247,13 +247,12 @@
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/chinese.jar</systemPath>
          </dependency>
          
-<dependency>
+		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>1.7</version>
-		</dependency>	
-		
-	<dependency>  
+		</dependency>			
+		<dependency>  
           <groupId>commons-configuration</groupId>  
           <artifactId>commons-configuration</artifactId>  
           <version>1.6</version>  
@@ -264,7 +263,19 @@
 		    <artifactId>fwdModel</artifactId>
 		    <version>0.0.1</version>
 		</dependency>
-		
+
+    	<!-- Qrcode -->
+    	<dependency>  
+            <groupId>com.google.zxing</groupId>  
+            <artifactId>core</artifactId>  
+            <version>3.0.0</version>  
+        </dependency>  
+        <dependency>  
+           <groupId>com.google.zxing</groupId>  
+            <artifactId>javase</artifactId>  
+            <version>3.0.0</version>  
+       </dependency>
+    	
 	</dependencies>
 	<profiles>
 		<profile>

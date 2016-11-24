@@ -28,6 +28,7 @@
 @import "common_screen/overlay";
 @import "common_screen/becomeOurPartner";
 @import "common_screen/faq"; // BEM Naming for faq page 20160513
+@import "page/travel/page-travel-confirmation";
 //@import "common_screen/flight-insurance";
 //@import "common_screen/social-sharing"; //20160912 smartdrop
 
@@ -35,6 +36,7 @@
   @import "mobile/header";
   @import "mobile/footer";
   @import "mobile/container";
+  @import "mobile/landing";
   @import "mobile/loginpopup";
   @import "mobile/becomeOurPartner";
   @import "mobile/faq"; // BEM Naming for faq page 20160513
@@ -42,6 +44,7 @@
 
 @media screen and #{$desktop} {
   @import "desktop/footer";
+  @import "desktop/landing";
   @import "desktop/loginpopup";
 }
 

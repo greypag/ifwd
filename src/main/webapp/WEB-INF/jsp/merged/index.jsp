@@ -8,6 +8,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
+var currentPath = "<%=request.getContextPath()%>";
 </script>
 <html lang="en">
 	<head>
@@ -20,7 +21,7 @@ var languageP = "${language}";
 
 
 
-	 
+
 	<%-- <% --%>
 	<%-- 	session = request.getSession();
 	// 	String uatAuth = (String) session.getAttribute("uatAuth");
@@ -34,7 +35,7 @@ var languageP = "${language}";
 	// 	//System.out.println("uatAuth " + uatAuth);
 	// 	if (uatAuth == null)
 	// 		response.sendRedirect(request.getContextPath() + "/uatAuth");
-		
+
 	// 	if (!uatAuth.equals("ifwdUser"))
 	// 		response.sendRedirect(request.getContextPath() + "/uatAuth");
 	<%-- %> --%>
@@ -67,7 +68,7 @@ var languageP = "${language}";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.easy.health" bundle="${msg}" />"><fmt:message key="header.product.type1.group1.linkname2.full" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>								
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.easy.health" bundle="${msg}" />"><fmt:message key="header.product.type1.group1.linkname2.full" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.elite.term" bundle="${msg}" />"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.flight" bundle="${msg}" />"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.travel" bundle="${msg}" />"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
@@ -117,7 +118,7 @@ var languageP = "${language}";
 						  </div>
 						</div>
 					</div>
-				</div>					
+				</div>
 				<div class="see-more text-center hidden-sm hidden-xs">
 					<p class="text-bold" id="see-all-product-btn"><fmt:message key="label.seeallourproducts" bundle="${msg}" /> <i class="fa fa-caret-right"></i></p>
 				</div>
@@ -226,7 +227,7 @@ var languageP = "${language}";
 				</div>
 				<div class="row row-products">
 					<div class="products-first-block">
-						<div class="col-lg-3 col-md-3 portfolio-item wow fadeIn" data-wow-delay="0s">	
+						<div class="col-lg-3 col-md-3 portfolio-item wow fadeIn" data-wow-delay="0s">
 							<div class="caption">
 								<h4><fmt:message key="blog.blog1.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog1.title2" bundle="${msg}" /></h5>
@@ -264,7 +265,7 @@ var languageP = "${language}";
 						</div>
 					</div>
 					<div class="products-first-block">
-						<div class="col-md-3 col-lg-3 portfolio-item wow fadeIn" data-wow-delay="0.8s">	
+						<div class="col-md-3 col-lg-3 portfolio-item wow fadeIn" data-wow-delay="0.8s">
 							<div class="caption">
 								<h4><fmt:message key="blog.blog5.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog5.title2" bundle="${msg}" /></h5>
@@ -300,7 +301,7 @@ var languageP = "${language}";
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-8.jpg" />
 						</div>
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="container-information fwd-container-limit center-block hidden-sm hidden-xs">
@@ -309,38 +310,67 @@ var languageP = "${language}";
 			<!-- Business Partners -->
 			<div class="bg-business-partners">
 				<div id="business-partners-container" class="container-fluid content-container">
-				   <h2 class="text-bold text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>				   
-				   <div class="bp-divider"></div>				   
-				   <div id="business-partners" class="row">
-					  <div class="col-xs-1">&nbsp;</div>
-					  <div id="bp-agoda" class="col-xs-12 col-md-4 text-center">
-						 <div class="desktop-center clearfix">
-							<img class="agoda_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
+				   <h2 class="text-bold text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>
+				   <div class="bp-divider"></div>
+				   <div id="business-partners">
+					   <div class="row">
+						   <div class="col-xs-1">&nbsp;</div>
+						   <div id="bp-hk3" class="col-xs-12 col-md-2 text-center">
+							   <div class="desktop-center clearfix">
+								   <img class="hk3_logo" src="<%=request.getContextPath()%>/resources/images/partner_3hk.png">
+							   </div>
+ 	 					  </div>
+						  <div id="bp-7eleven" class="col-xs-12 col-md-3 text-center">
+							  <div class="desktop-center clearfix">
+								  <img class="seven_eleven_logo" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png">
+							  </div>
+						  </div>
+						  <div id="bp-agoda" class="col-xs-12 col-md-3 text-center">
+	 						 <div class="desktop-center clearfix">
+	 							<img class="agoda_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
+	 <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
+	 <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
+	 						</div>
+						</div>
+						<div id="bp-cx" class="col-xs-12 col-md-3 text-center">
+						   <div class="desktop-center clearfix">
+							   <img class="cx_logo">
+						   </div>
+					   </div>
+	 				<div class="col-xs-1">&nbsp;</div>
+				</div> <!-- end of row -->
+				<div class="row">
+					<div class="col-xs-1">&nbsp;</div>
+					<div id="bp-cfucome" class="col-xs-12 col-md-2 text-center">
+						<div class="desktop-center clearfix">
+							<img class="cfucome_logo" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png">
+						</div>
+					</div>
+					<div id="bp-csl" class="col-xs-12 col-md-3 text-center">
+						<div class="desktop-center clearfix">
+						<img class="csl_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png">
 <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
 <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
-<!-- 							</p> -->
 						</div>
-					  </div>
-					  <div id="bp-club" class="col-xs-12 col-md-4 text-center">
-						 <div class="desktop-center clearfix">
-							<img class="club_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
-<%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
-<%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
-<!-- 							</p> -->
+					</div>
+					<div id="bp-sony" class="col-xs-12 col-md-3 text-center">
+						<div class="desktop-center clearfix">
+							<img class="sony_logo" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png">
 						</div>
-					  </div>
-					  <div id="bp-csl" class="col-xs-12 col-md-3 text-center">
-						 <div class="desktop-center clearfix">
-							<img class="csl_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png">
-<%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
-<%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
-<!-- 							</p> -->
-						</div>
-					  </div>					  
-					  <div class="col-xs-1">&nbsp;</div>
+					</div>
+					<div id="bp-club" class="col-xs-12 col-md-3 text-center">
+						<div class="desktop-center clearfix">
+ 							<img class="club_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
+ <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
+ <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
+ 						</div>
+					</div>
+					<div class="col-xs-1">&nbsp;</div>
+				</div> <!-- end of row -->
 				   </div>
+
 				</div>
-			</div>						
+			</div>
 		</div>
 		<!-- Review FNA modal  -->
 		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
@@ -353,7 +383,7 @@ var languageP = "${language}";
 			    </div>
 			 </div>
 		</div>
-		
+
 		<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -364,7 +394,7 @@ var languageP = "${language}";
 		    </div>
 		  </div>
 		</div>
-		
+
 		<div class="modal fade common-welcome-modal" id="retrieve-application-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -375,23 +405,47 @@ var languageP = "${language}";
 		    </div>
 		  </div>
 		</div>
-		
+
 		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
 		<script type="text/javascript">
+			// #3988 update
+			(function() {
+				var languageP = "${language}";
+				var currentPath = "<%=request.getContextPath()%>";
+
+				if ( languageP == 'en') {
+
+					$('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_" + languageP + ".png");
+
+				} else if ( languageP == 'tc') {
+
+					// tc also use en version image
+					// $('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_" + languageP + ".png");
+					$('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_en.png");
+
+				} else {
+
+					$('.cx_logo').attr("src", currentPath + "/resources/images/partner_cx_en.png");
+					console.error('No defaulted language found');
+
+				}
+			})();
+			// End of #3988 update
+
 			var language = "en";
-	
+
             jQuery(document).ready(function($) {
-       
+
             	// To show review fna modal when clicking FNA CTA button
                 $('#btn-fna-cta').click(function() {
                 	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-                		$.ajax({     
-			    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+                		$.ajax({
+			    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',
 			    		    type:'get',
-						    cache:false, 
-						    async:false,     
-			    		    error:function(){       
-			    		    },     
+						    cache:false,
+						    async:false,
+			    		    error:function(){
+			    		    },
 			    		    success:function(data){
 			    		    	$('#loginpopup').modal('hide');
 			    		    	if(data != null && data.errMsgs == null && data.name !=null){
@@ -401,7 +455,7 @@ var languageP = "${language}";
 			    		    	else{
 			    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
 			    		    	}
-			    		    }  
+			    		    }
 			    		});
             		}else{
             			$('.modal').modal('hide');
@@ -409,32 +463,32 @@ var languageP = "${language}";
                         $('#loginpopup #fna-check').val("false");
                         $('#loginpopup #nav-bar-check').val("false");
                         $('#loginpopup #forcefna').val("true");
-                        $('#loginpopup .modal-dialog').addClass('loginpopupext');			
+                        $('#loginpopup .modal-dialog').addClass('loginpopupext');
             			$('#loginpopup').modal('show');
-            		    
+
             		}
                 });
-            	
+
             	$("#make-appointment-btn").on('click', function(){
             		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
             	});
-            	
+
             	$("#review-fna-btn").on('click', function(){
             		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
             	});
-            	
+
             	$("#resume-btn").on('click', function(){
             		window.location = '<%=request.getContextPath()%>/'+nextPage;
             	});
-            	
+
             	$("#start-over-btn").on('click', function(){
             		$('#retrieve-application-modal').modal('hide');
             	});
-								
+
 				$("#so-carousel").swipe( {
 			        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 			          if(direction == 'right') {
-			        	  $(this).carousel('prev');			        	
+			        	  $(this).carousel('prev');
 			          } else if(direction == 'left') {
 			        	  $(this).carousel('next');
 			          }
@@ -442,7 +496,7 @@ var languageP = "${language}";
 			        threshold:0,
 			        fingers:'all'
 			      });
-						
+
 				if(getWidth() < 992) {
 					//console.log(getWidth());
 					//$(window).scroll(function(){
@@ -455,17 +509,17 @@ var languageP = "${language}";
 					$('.psa-collapse-content').addClass('collapse');
 					$('.fna-tab-content').removeClass('col-lg-3 col-md-3 active');
 					$('#navtabs-1').addClass('active');
-					
+
 					 $('#so-carousel').carousel({
                          interval: false
                      });
-                   
+
 					 $('#so-carousel').addClass('carousel slide');
                      $('#so-carousel').attr('data-ride', 'carousel');
                      $('.fna-carousel .tab-content').addClass('carousel-inner');
                      $('.fna-carousel .tab-content').attr('role', 'listbox');
                      $('.fna-tab-content').addClass('item');
-                     
+
                      $('#so-carousel').on('slid.bs.carousel', function() {
                     	 //$(window).scroll();
                          if($('#navtabs-1').hasClass('active')) {
@@ -486,12 +540,12 @@ var languageP = "${language}";
                          }
                      });
                      //$('.psa-link-content').hide();
-						
+
 						$('.psa-divider').removeClass('hidden');
 				} else {
 					$('.psa-btn').attr('data-toggle', 'none');
 					$('.psa-collapse-content').removeClass('collapse');
-					
+
 					$('.fna-tab-content').addClass('col-lg-3 col-md-3 active');
 					$('.psa-collapse-content').css('height', 'auto');
 					$('.psa-divider').removeClass('hidden');
@@ -511,13 +565,13 @@ var languageP = "${language}";
 						$('#so-carousel').carousel({
                       interval: false
                   });
-           
+
 						$('#so-carousel').addClass('carousel slide');
 	               $('#so-carousel').attr('data-ride', 'carousel');
 	               $('.fna-carousel .tab-content').addClass('carousel-inner');
 	               $('.fna-carousel .tab-content').attr('role', 'listbox');
 	               $('.fna-tab-content').addClass('item');
-	               
+
 	               $('#so-carousel').on('slid.bs.carousel', function() {
 	            	   //$(window).scroll();
 	                   if($('#navtabs-1').hasClass('active')) {
@@ -537,13 +591,13 @@ var languageP = "${language}";
 	                       $('#nav-title-4').addClass('active');
 	                   }
 	               });
-	
+
 	               $('.psa-link-content').show();
 						$('.psa-divider').removeClass('hidden');
 					} else {
 						$('.psa-btn').attr('data-toggle', 'none');
 						$('.psa-collapse-content').removeClass('collapse');
-						
+
 						$('.fna-tab-content').addClass('col-lg-3 col-md-3 active');
 						$('.psa-collapse-content').css('height', 'auto');
 						$('.psa-divider').removeClass('hidden');
@@ -565,7 +619,7 @@ var languageP = "${language}";
 				$('#see-all-product-btn').on('click', function() {
 					$('.psa-link-content').slideToggle("slow");
 				});
-				
+
 					// plus / minus button
 					$('#psa-btn1').on({
 					    'click': function () {
@@ -591,13 +645,13 @@ var languageP = "${language}";
 					        $('#btn-collapse3').attr('src', src);
 					    }
 					});
-					
+
 					//mobile blog read more button open blog page
 					$('.read-more-btn-mb').click(function(){
 						window.open('<fmt:message key="link.blog1.link" bundle="${msg}" />');
-					});					
+					});
             });
-            
+
 		</script>
 	</body>
 </html>

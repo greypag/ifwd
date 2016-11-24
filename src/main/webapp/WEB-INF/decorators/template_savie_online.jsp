@@ -173,70 +173,6 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 			document.write('<scr'+'ipt src="', hostProtocol+
 			'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
 		</script>
-		<script type=text/javascript>
-			var params = new Array();
-			params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-			params[1]='type=Registration_Step1';
-			params[2]='val=0.0';
-			params[3]='orderId=0';
-			params[4]='promoCode=Regis_Savie_Step1 ZH';
-			params[5]='valueCurrency=USD';
-			params[6]='GCID='; //For Live Tracking only
-			params[7]='kw='; //For Live Tracking only
-			params[8]='product='; //For Live Tracking only
-			k_trackevent(params,'5198');
-		</script>
-
-		<noscript>
-			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Step1&val=0.0&orderId=0&promoCode=Regis_Savie_Step1 ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
-		</noscript>
-
-		<!--LightBox Pop Up-->
-		<script type=text/javascript>
-			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
-			document.write('<scr'+'ipt src="', hostProtocol+
-			'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
-		</script>
-		<script type=text/javascript>
-			var params = new Array();
-			params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-			params[1]='type=Registration';
-			params[2]='val=0.0';
-			params[3]='orderId=0';
-			params[4]='promoCode=Regis_Savie ZH';
-			params[5]='valueCurrency=USD';
-			params[6]='GCID='; //For Live Tracking only
-			params[7]='kw='; //For Live Tracking only
-			params[8]='product='; //For Live Tracking only
-			k_trackevent(params,'5198');
-		</script>
-
-		<noscript>
-			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=0&promoCode=Regis_Savie ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
-		</noscript>
-
-		<script type=text/javascript>
-			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
-			document.write('<scr'+'ipt src="', hostProtocol+
-			'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
-			</script>
-			<script type=text/javascript>
-			var params = new Array();
-			params[0]='id=67bda50a-b010-4425-9f2b-165bf9a1d04a';
-			params[1]='type=Registration_Savie_Survey';
-			params[2]='val=0.0';
-			params[3]='orderId=0';
-			params[4]='promoCode=Regis_Savie_Survey ZH';
-			params[5]='valueCurrency=USD';
-			params[6]='GCID='; //For Live Tracking only
-			params[7]='kw='; //For Live Tracking only
-			params[8]='product='; //For Live Tracking only
-			k_trackevent(params,'5198');
-		</script>
-
-		<noscript>
-			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Savie_Survey&val=0.0&orderId=0&promoCode=Regis_Savie_Survey ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
-		</noscript>
 
 <dec:head />
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
@@ -280,6 +216,20 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		<div class="closeMobileMenu commonBody"><dec:body /></div>
 		<%@ include file="include/merged/footer.jsp"%>
 	</div>
+
+	<%-- 1111 Campaign --%>
+	<%
+		long current = System.currentTimeMillis();
+    	long starttime = cformat.parse("2016-11-11 00:00:00").getTime();
+    	long endtime = cformat.parse("2016-11-12 00:00:00").getTime();
+    	if(current < endtime && current >= starttime){
+    %> 
+	<script>
+		show_1111_campaign("<%=request.getContextPath()%>","${language}");	//refer to main.js
+	</script>
+	<% } %>
+	<%-- End 1111 Campaign --%>
+	
 
 
 	<%-- <!-- Include all compiled plugins (below), or include individual files as needed -->
