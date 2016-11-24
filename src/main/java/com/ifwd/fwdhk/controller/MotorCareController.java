@@ -950,7 +950,7 @@ public class MotorCareController extends BaseController{
 	@RequestMapping(value = {"/policy/payment"}, method = POST)
 	public ResponseEntity<PayDollar> processPayment(
 			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
-			@ApiParam(value = "paymentGatewayFlag") @RequestParam(value = "paymentGatewayFlag", required = false ) String paymentGatewayFlag,	
+			//@ApiParam(value = "paymentGatewayFlag") @RequestParam(value = "paymentGatewayFlag", required = false ) String paymentGatewayFlag,	
 			HttpServletRequest request) {
 		
 		try {
@@ -970,7 +970,8 @@ public class MotorCareController extends BaseController{
 			
 		try {
 			// ******************* Form URL and Object *******************
-			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_POST + (!isBlank(paymentGatewayFlag) ?  "?paymentGatewayFlag=" + paymentGatewayFlag : "");						
+			// String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_POST + (!isBlank(paymentGatewayFlag) ?  "?paymentGatewayFlag=" + paymentGatewayFlag : "");
+			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_POST;
 			String jsonString = new ObjectMapper().writeValueAsString(body);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			UserRestURIConstants urc = new UserRestURIConstants();
@@ -1005,18 +1006,20 @@ public class MotorCareController extends BaseController{
 					logger.info("------------------------------------------------------- : 3 : " + request.getContextPath() );
 					logger.info("------------------------------------------------------- : 4 : " + UserRestURIConstants.getLanaguage(request) );
 					
+					// Set the quote info to Session for fail case from payment gateway
+					// No api call from failure case without login, so use session to handle that agreed with security representative
+					logger.info("Save Quote to Session: (Key)" + body + " QuoteNo: " + apiResponse.getOrderRef() + " Json: " + jsonString ) ;
+					HttpSession session = request.getSession(true);
+					session.setAttribute(apiResponse.getReferenceNo(), body);
+					
 				} else {
 					logger.info("processPayment record not found");
 					return Responses.notFound(null);
 				}				
-			} else {
-				
-				if ( StringUtils.equals((String)responseJsonObj.get("errMsgs"), "404")){
-					return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(404));
-				} else if ( StringUtils.equals((String)responseJsonObj.get("errMsgs"), "400")){
-					return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(400));
-				}
-				
+			} else {				
+				if ( StringUtils.startsWith((String)responseJsonObj.get("errMsgs"), "4")){
+					return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf((String)responseJsonObj.get("errMsgs")));
+				} 
 				logger.info("processPayment System error:" + responseJsonObj.get("errMsgs").toString());
 				return Responses.error(null);				
 			}	
@@ -1056,6 +1059,17 @@ public class MotorCareController extends BaseController{
 //			return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(411));
 //		}		
 		
+		HttpSession session = request.getSession(false);
+		if (session == null) {
+			logger.info( methodName + " no session data found");
+			return Responses.notFound(null);
+		} else {
+			if (session.getAttribute(body.getRefNumber()) == null) {
+				logger.info( methodName + " no valid session data found");
+				return Responses.notFound(null);
+			}
+		}
+		
 		// ******************* Init *******************
 		MotorCareDetails apiResponse = new MotorCareDetails();
 		JSONObject responseJsonObj = new JSONObject();		
@@ -1071,7 +1085,8 @@ public class MotorCareController extends BaseController{
 			
 			// ******************* Makeup result *******************
 			if (responseJsonObj.get("errMsgs") == null) {				
-										
+				apiResponse = (MotorCareDetails) session.getAttribute(body.getRefNumber());	
+				/*
 				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
 					apiResponse = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class);
@@ -1079,14 +1094,12 @@ public class MotorCareController extends BaseController{
 				} else {
 					logger.info( methodName + " record not found");
 					return Responses.notFound(null);
-				}				
+				}	
+				*/			
 			} else {
-				if ( StringUtils.equals((String)responseJsonObj.get("errMsgs"), "404")){
-					return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(404));
-				} else if ( StringUtils.equals((String)responseJsonObj.get("errMsgs"), "400")){
-					return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(400));
-				}
-				
+				if ( StringUtils.startsWith((String)responseJsonObj.get("errMsgs"), "4")){
+					return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf((String)responseJsonObj.get("errMsgs")));
+				} 
 				logger.info( methodName + " System error:" + responseJsonObj.get("errMsgs").toString());
 				return Responses.error(null);				
 			}	
@@ -1884,10 +1897,8 @@ public class MotorCareController extends BaseController{
 		// return null if the customer did not login yet
 		if (session == null) {
 			return null;
-			// *DIRECTGI
 		} else {
 			if (session.getAttribute("username") != null && session.getAttribute("username").toString().length() > 0) {
-				// canno 
 				return session.getAttribute("username").toString();
 			} else {
 				return null;
