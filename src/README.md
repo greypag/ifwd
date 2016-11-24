@@ -18,3 +18,4 @@ Branch Creation Log
 2016-11-10 - UAT Release branch v1.27.000 - Passkit
 2016-11-18 - DEV FWDiscover Nov
 2016-11-21 - DEV Savie RP Stop
+2016-11-14 - DEV Header - Support Member Ajax Login

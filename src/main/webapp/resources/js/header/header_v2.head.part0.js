@@ -6,7 +6,21 @@ $(window).bind("pageshow", function(event) {
         $("#button_confirm").show();
     }
 });
-
+function switchLoginWdiget(loginStatus){
+	//console.log(loginStatus);
+	$(".js-not-logged-in").remove();
+	$(".js-logged-in").removeClass("hidden");
+	$("#loginpopup").modal("hide");
+	$(".js-myDropdown__userName").append(loginStatus.fullName);
+	/*$.ajax({
+		type : "GET",
+		url : "<%=request.getContextPath()%>/api/member/session",
+		async : false,
+		success : function(data) {
+			console.log(data);
+		}
+	});*/
+}
 function submitLoginForm(formID) {
     $('.login-ajax-loading').css({
         "left": "0px",
@@ -24,6 +38,8 @@ function submitLoginForm(formID) {
                 async: false,
                 success: function(data) {
                     if (data.loginResult == 'success') {
+                    	//console.log(data);
+                    	switchLoginWdiget(data);                    	
                         //$('.login-ajax-loading').hide();
                         //var Backlen = history.length;
                         //history.go(-Backlen);
@@ -53,7 +69,7 @@ function submitLoginForm(formID) {
                                 'Click',
                                 'Login success');
                             //location.reload();
-                            window.location.href = window.location.href;
+                            //window.location.href = window.location.href;
                         }
                     } else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
                         try {
