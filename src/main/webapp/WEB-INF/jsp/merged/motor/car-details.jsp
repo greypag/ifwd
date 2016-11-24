@@ -298,7 +298,7 @@ var nextPage = "${nextPageFlow}";
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                                <input type="submit" id="motor-save-submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
                                 <br/>
                             </div>
                             <div class="clearfix"></div> 
@@ -334,6 +334,13 @@ cnErr ={
 var checkbox=true;
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 
+/* 
+ *  Define motor success login callback
+ */
+function callback_motor_LoginSuccess(){
+	alert('Login success. Call Save later API.');
+}
+  	
 $(document).ready(function(){
 	
     $('[data-toggle="tooltip"]').tooltip(); 
@@ -360,7 +367,7 @@ $(document).ready(function(){
 		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
 	}
     
-  //Check UserLogin
+  	//Check UserLogin
 	$.ajax({
 		url:fwdApi.url.session,
 		type:"get",
@@ -381,16 +388,55 @@ $(document).ready(function(){
 	    			$(".before-login").show();
 	    			$("#saveModal").removeClass("hidden");
 	    			return false;	
-	    		}else
+	    		}else{
 	    			$(".before-login").hide();	
+	    		}
 	    	}
 	    }
 	});
 	
-  $("#saveForm").on("click",function(){
+  	$("#saveForm").on("click",function(){
 		$('#saveModal').modal("show");
-  });
-    
+  	});
+
+  	/* 
+  	 *  Save later login check
+  	 */
+  	$('#motor-save-submit').click(function(){
+
+  		// Check if user is logged in
+
+  		$.ajax({
+			url:fwdApi.url.session,
+			type:"get",
+			contentType: "application/json",
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+		        
+		        /* Error denotes system error */
+
+		        if(xhr.status == 404){		        
+		        	/* TO DO - Show errors */
+		        } else {
+		        	/* TO DO - Show errors */
+		        }
+		    },
+		    success:function(response){
+		    	if(response){
+		    		if(response.userName == '*DIRECTGI'){
+		    			/* Show Login Popup */
+		    			$('#saveModal').modal('hide'); // hide save modal
+		    			$('.login-btn').trigger('click');
+		    		} else {
+		    			/* Call Save later API */
+		    		}		    		
+		    	}
+		    }
+		});
+
+  	});
+
      $.ajax({
 		  type: "POST",
 		  data: JSON.stringify(quote),

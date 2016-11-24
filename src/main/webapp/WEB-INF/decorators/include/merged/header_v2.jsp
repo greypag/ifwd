@@ -328,40 +328,62 @@ var nBarConfig = {
 			<%
 				if (!isAuthenticated) {
 			%>
-				    <div class="dropdown login-btn btn btn-lg wd2" id="myDropdown" data-toggle="modal" data-target="#loginpopup">
+				    <div class="dropdown login-btn btn btn-lg wd2 js-not-logged-in" id="myDropdown" data-toggle="modal" data-target="#loginpopup">
 				        <a class="dropdown-toggle log-to-acc" id="fwd-login-mob">
 							<i class="fa fa-lock"></i>
 							<fmt:message key="header.login.heading" bundle="${msg}" />
 						</a>
+					</div>
+					<div class="dropdown login-btn btn btn-lg wd2 hidden js-logged-in" id="myDropdownMob">
+						<a class="js-myDropdown__userName dropdown-toggle" id="fwd-login" data-toggle="dropdown">
+							<fmt:message key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;
+						    <i class="fa fa-caret-right"></i>
+						</a>
+						<div class="dropdown-menu drop-width">
+						    <ul>
+							    <li>
+									<a href="<%=request.getContextPath()%>/${language}/account" class="color1">
+										<fmt:message key="header.menu.member" bundle="${msg}" />
+									</a>
+								</li>
+				    			<li>
+									<a href="<%=request.getContextPath()%>/userLogout" class="color1">
+										<fmt:message key="header.menu.logout" bundle="${msg}" />
+									</a>
+								</li>
+							</ul>
+		    			</div>
+		    		</div>					
 			<%
 				} else {
 			%>
 
 					<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
-					<a class="dropdown-toggle" id="fwd-login" data-toggle="dropdown">
-						<fmt:message key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=username%>
-					    <i class="fa fa-caret-right"></i>
-					</a>
-					<div class="dropdown-menu drop-width">
-					    <ul>
-					    <%
-					        if (!isDirect) {
-					    %>
-						    <li>
-								<a href="<%=request.getContextPath()%>/${language}/account" class="color1">
-									<fmt:message key="header.menu.member" bundle="${msg}" />
-								</a>
-							</li>
-					    <%
-					        }
-					    %>
-		    			<li>
-							<a href="<%=request.getContextPath()%>/userLogout" class="color1">
-								<fmt:message key="header.menu.logout" bundle="${msg}" />
-							</a>
-						</li>
-					</ul>
-	    		</div>
+						<a class="dropdown-toggle" id="fwd-login" data-toggle="dropdown">
+							<fmt:message key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=username%>
+						    <i class="fa fa-caret-right"></i>
+						</a>
+						<div class="dropdown-menu drop-width">
+						    <ul>
+							    <%
+							        if (!isDirect) {
+							    %>
+							    <li>
+									<a href="<%=request.getContextPath()%>/${language}/account" class="color1">
+										<fmt:message key="header.menu.member" bundle="${msg}" />
+									</a>
+								</li>
+							    <%
+							        }
+							    %>
+				    			<li>
+									<a href="<%=request.getContextPath()%>/userLogout" class="color1">
+										<fmt:message key="header.menu.logout" bundle="${msg}" />
+									</a>
+								</li>
+							</ul>
+		    			</div>
+		    		</div>
 	        <%
 	            }
 	        %>

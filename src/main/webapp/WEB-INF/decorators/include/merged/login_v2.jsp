@@ -33,7 +33,7 @@
                     || session.getAttribute("username") == null) {
         %>
 
-        <li class="top-menu__navbar__item top-menu__navbar__item--login-btn dropdown margin-left1 " id="myDropdown">
+        <li class="top-menu__navbar__item top-menu__navbar__item--login-btn dropdown margin-left1 js-not-logged-in" id="myDropdown">
             <a href="#" data-toggle="modal" data-target="#loginpopup">
                 <fmt:message key="header.menu.login" bundle="${msg}" />
                 <i class="fa fa-caret-right"></i>
@@ -42,6 +42,26 @@
 
 
         </li>
+        
+        <li class="dropdown logout-btn margin-left1 top-menu__navbar__item js-logged-in hidden" id="myDropdown">
+            <a class="js-myDropdown__userName" href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message
+                    key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-caret-right"></i> </a>
+            <div class="dropdown-menu drop-width">
+                <ul>
+                    <li><a
+                        href="<%=request.getContextPath()%>/${language}/account"
+                        class="color1"> <fmt:message key="header.menu.member"
+                                bundle="${msg}" /></a></li>
+                    <li><a href="<%=request.getContextPath()%>/userLogout"
+                        class="color1"> <fmt:message key="header.menu.logout"
+                                bundle="${msg}" />
+
+
+                    </a></li>
+                </ul>
+            </div>
+        </li>        
         <%
             } else if (!"true".equals(session.getAttribute("authenticate")
                     .toString())) {
@@ -119,7 +139,6 @@
                 </form>
             </div>
         </li>
-
         <%
             } else {
         %>
