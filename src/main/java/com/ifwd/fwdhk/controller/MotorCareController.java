@@ -919,6 +919,12 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorCareDetails detail = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class); 
 					apiResponse.put("policyID", detail.getPolicyId());
+					apiResponse.put("refNumber", detail.getRefNumber());
+					
+					// Set refNumber to session as security check 
+					logger.info("Save declarations to Session: " + " refNumber: " + detail.getRefNumber() ) ;
+					HttpSession session = request.getSession(true);
+					session.setAttribute("SECURITY_CHECK_" + detail.getRefNumber(), detail.getRefNumber());
 				} else {
 					logger.info(methodName + " motorCareDetails not found");
 					return Responses.notFound(null);
@@ -952,6 +958,7 @@ public class MotorCareController extends BaseController{
 			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
 			//@ApiParam(value = "paymentGatewayFlag") @RequestParam(value = "paymentGatewayFlag", required = false ) String paymentGatewayFlag,	
 			HttpServletRequest request) {
+		String methodName = "processPayment";
 		
 		try {
 			super.IsAuthenticate(request);
@@ -962,7 +969,16 @@ public class MotorCareController extends BaseController{
 		// ******************* Valid input *******************
 //		if (!isUserLogin(request)) {
 //			return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(412));
-//		}			
+//		}
+		if (request.getSession(false) == null) {
+			logger.info( methodName + " no session data found");
+			return Responses.notFound(null);
+		} else {
+			if (request.getSession(false).getAttribute("SECURITY_CHECK_" + body.getRefNumber()) == null) {
+				logger.info( methodName + " no valid session data found");
+				return Responses.notFound(null);
+			}
+		}
 
 		// ******************* Init *******************
 		PayDollar apiResponse = new PayDollar();

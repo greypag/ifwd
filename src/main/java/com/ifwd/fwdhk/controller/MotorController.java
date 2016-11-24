@@ -1,6 +1,7 @@
 package com.ifwd.fwdhk.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
@@ -19,7 +20,6 @@ import com.ifwd.fwdhk.util.MotorPageFlowControl;
 @Controller
 public class MotorController extends BaseController{
 	
-	@SuppressWarnings("unused")
 	private final static Logger logger = LoggerFactory.getLogger(MotorController.class);
 	
 	@Autowired
@@ -118,6 +118,8 @@ public class MotorController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/payment-result"})
 	public ModelAndView paymentResult(Model model, HttpServletRequest request, RedirectAttributes ra) {
+		
+		String methodName = "paymentResult";
 		handleLangFromPath(request);
 					
 		try {
@@ -125,11 +127,26 @@ public class MotorController extends BaseController{
 			JSONObject finalResponseJsonObj = new JSONObject();
 			JSONObject jsonInput = new JSONObject();
 			
+			// Check Session exist or not (security issue)
+			HttpSession session = request.getSession(false);
+			if (session == null) {
+				logger.info( methodName + " no session data found");
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/application-summary?paymentGatewayFlag=1&refNum=" + request.getParameter("refNum"));
+			} else {
+				if (session.getAttribute(request.getParameter("refNum")) == null) {
+					logger.info( methodName + " no valid session data found");
+					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/application-summary?paymentGatewayFlag=1&refNum=" + request.getParameter("refNum"));
+				}
+			}
+			
+			// Check payment result when passed security check 
 			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_RESULT_GET + "?refNum=" + request.getParameter("refNum");
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), jsonInput);
 			
 			if (responseJsonObj.get("gatewayResult") != null && StringUtils.equals("OK", (String)responseJsonObj.get("gatewayResult"))) {				
 				if (responseJsonObj.get("motorCareDetails") != null ) {
+					
+					// Finalize the record when ok
 					url = UserRestURIConstants.MOTOR_CARE_PAYMENT_FINALIZE_POST;
 					finalResponseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), (JSONObject)responseJsonObj.get("motorCareDetails"));
 					
@@ -137,9 +154,11 @@ public class MotorController extends BaseController{
 						ra.addFlashAttribute("quote", (JSONObject)finalResponseJsonObj.get("motorCareDetails"));
 					}
 				}
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/confirmation");
+				//return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/confirmation");
 				//return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_CONFIRMATION);
-			}	
+			} else {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/application-summary?paymentGatewayFlag=1&refNum=" + request.getParameter("refNum"));
+			}
 			
 		} catch (Exception e) {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/application-summary?paymentGatewayFlag=1&refNum=" + request.getParameter("refNum"));
