@@ -87,6 +87,9 @@ var fwdValidator = (function(fwdConstant) {
 	var _isValidBeneGivenName = function(val){};
 	var _isValidBeneChiName = function(val){};
 
+    // var _isValidBeneFullName = function (inputId, errorId, insureBoolean, inputType) {
+    // (inputId, errorId) wrapped into "dataSourceFieldInfo"
+    // var _isValidBeneHkid = function (insureBoolean, inputType, placeholderObj, insureFieldInfo, dataSourceFieldInfo) {
 	var _isValidBeneHkid = function (inputId, selectId, errorId, insureBoolean, inputType) {
     	var placeholder='';
     	if(inputType=="applicant"){
@@ -190,8 +193,8 @@ var fwdValidator = (function(fwdConstant) {
 	var _isValidBeneEntitlement = function(val, val2, val3){};
 
     // var _isValidBeneFullName = function (inputId, errorId, insureBoolean, inputType) {
-    // (inputId, errorId) wrapped into "beneMainElem"
-    var _isValidBeneFullName = function (beneMainElemInputId, beneMainElemErrorId, insureBoolean, inputType, placeholderObj, insureElem) {
+    // (inputId, errorId) wrapped into "dataSourceFieldInfo"
+    var _isValidBeneFullName = function (insureBoolean, personRole, placeholderObj, insureFieldInfo, dataSourceFieldInfo) {
         var localConfig = {
             'applicant': {
                 'msg':         getBundle(getBundleLanguage, "applicant.name.notNull.message")
@@ -207,26 +210,26 @@ var fwdValidator = (function(fwdConstant) {
             }
         };
 
-        // Assign "placeholder" value, refer to (applicant, insured, beneficiary)
+        // // Assign "placeholder" value, refer to (applicant, insured, beneficiary)
         var placeholder = '';
         _.each(localConfig, function(LCvalue, LCindex) {
-            if (inputType == LCindex) { placeholder = LCvalue.namePH; }
+            if (personRole == LCindex) { placeholder = LCvalue.namePH; }
         });
 
         // Truncate the field value once IF EQUAL TO placeholder value
-    	if ( $("#"+beneMainElemInputId).val() == placeholder.trim() ) {
-    		$("#"+beneMainElemInputId).val('');
+    	if ( $("#"+dataSourceFieldInfo.inputId).val() == placeholder.trim() ) {
+    		$("#"+dataSourceFieldInfo.inputId).val('');
         }
 
-    	var fullname = $("#"+beneMainElemInputId).val();
+    	var fullname = $("#"+dataSourceFieldInfo.inputId).val();
     	if (fullname.trim() == "") {
 
-    		$("#"+beneMainElemInputId).addClass("invalid-field");
-            // Assign $("#"+beneMainElemErrorId).html() value, refer to (applicant, insured, beneficiary)
+    		$("#"+dataSourceFieldInfo.inputId).addClass("invalid-field");
+            // Assign $("#"+dataSourceFieldInfo.errorId).html() value, refer to (applicant, insured, beneficiary)
             _.each(localConfig, function(LCvalue, LCindex) {
-                if (inputType == LCindex) { $("#"+beneMainElemErrorId).html( LCvalue.msg ); }
+                if (personRole == LCindex) { $("#"+dataSourceFieldInfo.errorId).html( LCvalue.msg ); }
             });
-    		$("#"+beneMainElemInputId).val(placeholder);
+    		// $("#"+dataSourceFieldInfo.inputId).val(placeholder);
     		return false;
 
     	}
@@ -234,10 +237,10 @@ var fwdValidator = (function(fwdConstant) {
         // if (allLetter(fullname) == false) {
     	if ( _isEngSpace(fullname) == false) { // Private _isEngSpace() in current file
 
-    		$("#"+beneMainElemInputId).addClass("invalid-field");
-            // Assign $("#"+beneMainElemErrorId).html() value, refer to (applicant, insured, beneficiary)
+    		$("#"+dataSourceFieldInfo.inputId).addClass("invalid-field");
+            // Assign $("#"+dataSourceFieldInfo.errorId).html() value, refer to (applicant, insured, beneficiary)
             _.each(localConfig, function(LCvalue, LCindex) {
-                if (inputType == LCindex) { $("#"+beneMainElemErrorId).html( LCvalue.msg ); }
+                if (personRole == LCindex) { $("#"+dataSourceFieldInfo.errorId).html( LCvalue.msg ); }
             });
     		return false;
 
@@ -248,25 +251,25 @@ var fwdValidator = (function(fwdConstant) {
             // console.log( '#applicantRelationship.val() = ' + document.getElementById("applicantRelationship") );
     		if (document.getElementById("applicantRelationship") != null) {
     			if (document.getElementById("applicantRelationship").value == 'SE'){
-    				$('#'+insureElem.inputBoxId).val(fullname);
-    				$('#'+insureElem.inputBoxId).removeClass("bmg_custom_placeholder");
+    				$('#'+insureFieldInfo.inputBoxId).val(fullname);
+    				$('#'+insureFieldInfo.inputBoxId).removeClass("bmg_custom_placeholder");
 
-    				$('#'+insureElem.inputBoxId).removeClass("invalid-field");
-    				$('#'+insureElem.errMsgDOMId).html("");
+    				$('#'+insureFieldInfo.inputBoxId).removeClass("invalid-field");
+    				$('#'+insureFieldInfo.errMsgDOMId).html("");
     				$("#errtxtAdFullName1").html(""); // where? may check later
     			}
     		} else {
-    			$('#'+insureElem.inputBoxId).val(fullname);
-    			$('#'+insureElem.inputBoxId).removeClass("bmg_custom_placeholder");
+    			$('#'+insureFieldInfo.inputBoxId).val(fullname);
+    			$('#'+insureFieldInfo.inputBoxId).removeClass("bmg_custom_placeholder");
 
-    			$('#'+insureElem.inputBoxId).removeClass("invalid-field");
-    			$('#'+insureElem.errMsgDOMId).html("");
+    			$('#'+insureFieldInfo.inputBoxId).removeClass("invalid-field");
+    			$('#'+insureFieldInfo.errMsgDOMId).html("");
     			$("#errtxtAdFullName1").html(""); // where? may check later
     		}
     	}
 
-    	$("#"+beneMainElemErrorId).html('');
-    	$("#"+beneMainElemInputId).removeClass("invalid-field");
+    	$("#"+dataSourceFieldInfo.errorId).html('');
+    	$("#"+dataSourceFieldInfo.inputId).removeClass("invalid-field");
     };
 
 	var _isValidMartialStatus = function(val){};
@@ -354,7 +357,8 @@ var fwdValidator = (function(fwdConstant) {
 		// , isValidBenePassport : _isValidBenePassport
 		// , isValidBeneRelationship : _isValidBeneRelationship
 		// , isValidBeneEntitlement : _isValidBeneEntitlement
-        , isValidBeneFullName : _isValidBeneFullName    // replaced validateName() in fwd.js
+        // ,
+        isValidBeneFullName : _isValidBeneFullName    // replaced validateName() in fwd.js
         // , isValidBeneDob: _isValidBeneDob               // replaced validateDob() in fwd.js
 	};
 

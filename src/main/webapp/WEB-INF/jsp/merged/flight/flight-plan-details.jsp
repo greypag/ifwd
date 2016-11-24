@@ -446,11 +446,13 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    <input type="text"
                                        class="form-control full-control textUpper"
                                        id="inputFullName" name="fullName" placeholder="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />"
+                                       onkeypress="return alphaOnly(event);"
                                        <c:choose>
 										   <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
 										   value="${userDetails.fullName }" readonly="readonly"
 										   </c:when>
-									   </c:choose> maxlength="50" />
+									   </c:choose>
+                                       maxlength="50" />
 	                                   <span id="fullnameinvalid" class="text-red"></span>
 	                           </div>
 	                       </div>
@@ -2347,6 +2349,7 @@ function createFlightFnc(form){
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-constant.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-validator.js" charset="utf-8"></script>

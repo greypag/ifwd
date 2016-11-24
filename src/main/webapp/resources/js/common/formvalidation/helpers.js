@@ -35,23 +35,23 @@ var gen_configFlightCare = function(obj) {
    for (i = 1; i <= counter; i++) {
        var keyMap = plugIdIntoKeyMap(i, obj.insuredPerson);
        newKeyMap = {};
-       _.each( obj.insuredPerson, function(vv, ii) {
+       _.each( obj.insuredPerson, function(insuredPersonV, insuredPersonI) {
            var sub = {};
            var targetKey = 'container';
 
-           sub[targetKey] = vv[targetKey] + i;
+           sub[targetKey] = insuredPersonV[targetKey] + i;
            // - new testing code - start -
-        //    console.log(typeof vv.validators.identical);
-           if (i == 1 && ii=="personalName1"){
-               vv.validators.identical.enabled = true;
-           }else if(i != 1 && typeof vv.validators.identical!="undefined"){
-               vv.validators.identical.enabled = false;
+           // console.log(typeof insuredPersonV.validators.identical);
+           if ( i == 1 && insuredPersonI=="personalName1" ) {
+               insuredPersonV.validators.identical.enabled = true;
+           } else if( i != 1 && typeof insuredPersonV.validators.identical!="undefined" ) {
+               insuredPersonV.validators.identical.enabled = false;
            }
            // - new testing code - end -
-           _.each(vv, function(vvv, iii) {
-               if (iii !== targetKey) { sub[iii] = vv[iii]; }
+           _.each(insuredPersonV, function(insuredPersonV_V, insuredPersonV_I) {
+               if (insuredPersonV_I !== targetKey) { sub[insuredPersonV_I] = insuredPersonV[insuredPersonV_I]; }
            });
-           newKeyMap[ keyMap[ii] ] = _.merge({}, sub);
+           newKeyMap[ keyMap[insuredPersonI] ] = _.merge({}, sub);
        });
        buffer = _.merge(buffer, newKeyMap);
    }
@@ -63,24 +63,25 @@ var gen_configFlightCare = function(obj) {
  * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
  *
  * @method add_isValidBeneFullName
- * @param   {Integer} index
- *          , {Boolean} insureBoolean
- *          , {String} dataSourceFieldId
- *          , {Null or Object} insureElem [Defaulted as Null]
+ * @param   {String}            personRole
+ *          , {Boolean}         insureBoolean
+ *          , {String}          dataSourceFieldId
+ *          , {Null or Object}  insureFieldInfo [ defaulted: Null ]
+ *          , {Object}          placeholderObj
  * @return Nil
  */
-var add_isValidBeneFullName = function(index, insureBoolean, dataSourceFieldId, insureElem) {
-
-    if ( insureElem == null ) {
+var add_isValidBeneFullName = function(personRole, insureBoolean, dataSourceFieldInfo, insureFieldInfo, placeholderObj) {
+    if ( insureFieldInfo == null ) {
         // Defined what DOM will be binded to, i.e. Insured Person inputbox
-        insureElem = {   // defaulted value
+        insureFieldInfo = {   // defaulted value
             'inputBoxId': 'txtInsuFullName1'
             , 'errMsgDOMId': 'errtxtPersonalFullName1'
         };
     }
-    $( '#'+dataSourceFieldId+i).blur(function() {
-        console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
-        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureElem );
+    console.log(personRole, insureBoolean, dataSourceFieldInfo, insureFieldInfo);
+    $( '#'+dataSourceFieldInfo.inputId).blur(function() {
+        console.log(' $(#'+dataSourceFieldInfo.inputId+') - onBlur JS detected -');
+        fwdValidator.beneficiaryInfo.isValidBeneFullName( insureBoolean, personRole, placeholderObj, insureFieldInfo, dataSourceFieldInfo );
     });
 };
 
@@ -91,23 +92,28 @@ var add_isValidBeneFullName = function(index, insureBoolean, dataSourceFieldId, 
  * @param   {Integer} index
  *          , {Boolean} insureBoolean
  *          , {String} dataSourceFieldId
- *          , {Null or Object} insureElem [Defaulted as Null]
+ *          , {Null or Object} insureFieldInfo [ defaulted: Null ]
  * @return Nil
  */
-var add_isValidBeneHkid = function(index, insureBoolean, dataSourceFieldId, insureElem) {
-
-    if ( insureElem == null ) {
-        // Defined what DOM will be binded to, i.e. Insured Person inputbox
-        insureElem = {   // defaulted value
-            'inputBoxId': 'txtInsuFullName1'
-            , 'errMsgDOMId': 'errtxtPersonalFullName1'
-        };
-    }
-    $( '#'+dataSourceFieldId+i).blur(function() {
-        console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
-        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureElem );
-    });
-};
+// var add_isValidBeneHkid = function(index, insureBoolean, dataSourceFieldId, insureFieldInfo) {
+//
+//     if ( insureFieldInfo == null ) {
+//         // Defined what DOM will be binded to, i.e. Insured Person inputbox
+//         insureFieldInfo = {   // defaulted value
+//             'inputBoxId': 'txtInsuFullName1'
+//             , 'errMsgDOMId': 'errtxtPersonalFullName1'
+//         };
+//     }
+//     var dataSourceFieldInfo = {
+//         'inputId': dataSourceFieldId+i
+//         , 'selectId': ''
+//         , 'errorId': 'err'+dataSourceFieldId+i
+//     };
+//     $( '#'+dataSourceFieldId+i).blur(function() {
+//         console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
+//         fwdValidator.beneficiaryInfo.isValidBeneFullName( insureBoolean, 'beneficiary', argCfg.placeholder, insureFieldInfo, dataSourceFieldInfo );
+//     });
+// };
 
 /*
  * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
@@ -116,21 +122,21 @@ var add_isValidBeneHkid = function(index, insureBoolean, dataSourceFieldId, insu
  * @param   {Integer} index
  *          , {Boolean} insureBoolean
  *          , {String} dataSourceFieldId
- *          , {Null or Object} insureElem [Defaulted as Null]
+ *          , {Null or Object} insureFieldInfo [ defaulted: Null ]
  * @return Nil
  */
-var add_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insureElem) {
+var add_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insureFieldInfo) {
 
-    if ( insureElem == null ) {
+    if ( insureFieldInfo == null ) {
         // Defined what DOM will be binded to, i.e. Insured Person inputbox
-        insureElem = {   // defaulted value
+        insureFieldInfo = {   // defaulted value
             'inputBoxId': 'txtInsuFullName1'
             , 'errMsgDOMId': 'errtxtPersonalFullName1'
         };
     }
     $( '#'+dataSourceFieldId+i).blur(function() {
         console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
-        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureElem );
+        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureFieldInfo );
     });
 };
 
@@ -145,7 +151,7 @@ fvConfig['helpers'] = {
     },
     'addEventJS': {
         'isValidBeneFullName'   : add_isValidBeneFullName   // Active
-        , 'isValidBeneHkid'     : add_isValidBeneHkid       // In-progress, not tested yet
+        // , 'isValidBeneHkid'     : add_isValidBeneHkid       // In-progress, not tested yet
         // , 'isValidBeneDob'      : add_isValidBeneDob     // Pending
     },
     'ux': {}
@@ -235,8 +241,8 @@ fvConfig['helpers'] = {
 //     var result = {};
 //     _.each(obj, function(v, i) {
 //         result[i] = {};
-//         _.each(v, function(vv, ii) {
-//             phase_dynamicKeyToObj(result[i], ii, vv);
+//         _.each(v, function(insuredPersonV, insuredPersonI) {
+//             phase_dynamicKeyToObj(result[i], insuredPersonI, insuredPersonV);
 //         });
 //     });
 //     return result;
