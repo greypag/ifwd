@@ -25,6 +25,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -35,8 +36,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -390,6 +393,7 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			String jsonString = new ObjectMapper().writeValueAsString(simple);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			putLangToJson(request, jsonInput);
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
@@ -437,17 +441,7 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			String jsonString = new ObjectMapper().writeValueAsString(authOtpReq);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
-			
-			HttpSession session = request.getSession(false);
-			String language = (String)session.getAttribute("language");
-			if(jsonInput.get("lang")==null){
-				if("en".equalsIgnoreCase(language)){
-					jsonInput.put("lang", "en");
-				}else{
-					jsonInput.put("lang", "zh");
-				}
-			}
-			
+			putLangToJson(request, jsonInput);
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
@@ -463,50 +457,88 @@ public class OnlineWithdrawalController extends BaseController{
 		return responseEntity;
 	}
 
+	private void putLangToJson(HttpServletRequest request, JSONObject jsonInput) {
+		HttpSession session = request.getSession(false);
+		String language = (String)session.getAttribute("language");
+		if(jsonInput.get("lang")==null){
+			if("en".equalsIgnoreCase(language)){
+				jsonInput.put("lang", "en");
+			}else{
+				jsonInput.put("lang", "zh");
+			}
+		}
+	}
+
+	private String reqParamMapToString(Map map){
+		if(map==null)return null;
+		try {
+			return new ObjectMapper().writeValueAsString(map);	
+		} catch (Exception e) { }
+		return null;
+	}
+	
 	@ApiIgnore
-	@ApiOperation(
-			value = "Save linkup info to backend",
-			response = TngPolicySimple.class
-			)
-	@ApiResponses(value = {
-			@ApiResponse(code = 500, message = "System error"),
-			@ApiResponse(code = 400, message = "Invalid Input")
-			})
-	@RequestMapping(value = "/saveTngLinkupInfo", method = POST)
-	public ResponseEntity<TngPolicySimple> saveTngLinkupInfo(
-			@ApiParam(value = "Policy ID, TNG Account ID, Token", required = true) @RequestBody TngLinkupSaveRequest saveRequest,
-			HttpServletRequest request) {
-		super.IsAuthenticate(request);
+	@RequestMapping(value = { "/linkupReturn" } , method = POST)
+	public ModelAndView linkupReturnPage(HttpServletRequest request, Model model) throws Exception {
+		String methodName="linkupReturnPage";
 		
-		String methodName="saveTngLinkupInfo";
-		logger.debug(methodName+" getPolicyId:"+saveRequest.getPolicyId());
+		logger.info(methodName+" request params:" + reqParamMapToString(request.getParameterMap()));
+
+		String lang = UserRestURIConstants.getLanaguage(request);
 		
-		
-		JSONObject responseJsonObj = new JSONObject();		
-		
-		ResponseEntity responseEntity =Responses.error(null);
-		try {			
+		boolean resultSuccess=false;
+		String refCode=null;
+		JSONObject responseJsonObj = new JSONObject();
+
+		try {
+			TngLinkupSaveRequest saveRequest= new TngLinkupSaveRequest();
+			saveRequest.setMerTradeNo(request.getParameter("merTradeNo"));
+			saveRequest.setRecurrentToken(request.getParameter("recurrentToken"));
+			saveRequest.setMsg(request.getParameter("msg"));
+			saveRequest.setResultCode(request.getParameter("resultCode"));
+			saveRequest.setExtras(request.getParameter("extras"));
+			saveRequest.setSign(request.getParameter("sign"));
+			
 			// ******************* Form URL *******************
 			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_SAVE_LINKUP;
-			
-			String jsonString = new ObjectMapper().writeValueAsString(saveRequest);			
+
+			String jsonString = new ObjectMapper().writeValueAsString(saveRequest);
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
-			// ******************* Makeup result *******************			
-			responseJsonObj.remove("result");
-			responseJsonObj.remove("tngExpiryDate");
-			responseJsonObj.remove("sendEmailResult");
-			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicySimple.class,responseJsonObj);
-				
-			
+			// ******************* Makeup result *******************
+
+			JSONObject msgObj = (JSONObject)responseJsonObj.get("msg");
+			String resultCode= (String)msgObj.get("resultCode");
+			refCode= (String)msgObj.get("refCode");
+			if("0".equals(resultCode)){
+				resultSuccess=true;
+			}
 		} catch (Exception e) {
 			logger.info(methodName+" System error:",e);
-			return responseEntity;
+			refCode="500";
 		}
 		
-		return responseEntity;
+		// ******************* Makeup result *******************
+		String successUrl="/account?statusFlag=true";//TODO page, wait kitchen
+		String failUrl="/account?statusFlag=false";
+		
+		String redirect;
+		if("tc".equals(lang)){
+			if(resultSuccess){
+				redirect = "redirect:/tc"+successUrl;
+			}else{
+				redirect = "redirect:/tc"+failUrl + (StringUtils.isEmpty(refCode)?"":("&refCode="+refCode));
+			}
+		}else{
+			if(resultSuccess){
+				redirect = "redirect:/en"+successUrl;
+			}else{
+				redirect = "redirect:/en"+failUrl + (StringUtils.isEmpty(refCode)?"":("&refCode="+refCode));
+			}
+		}
+		return new ModelAndView(redirect);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -547,6 +579,7 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			String jsonString = new ObjectMapper().writeValueAsString(withdrawReq);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			putLangToJson(request, jsonInput);
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
@@ -597,6 +630,7 @@ public class OnlineWithdrawalController extends BaseController{
 			
 			String jsonString = new ObjectMapper().writeValueAsString(withdrawReq);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			putLangToJson(request, jsonInput);
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 
 			// ******************* Consume Service *******************
