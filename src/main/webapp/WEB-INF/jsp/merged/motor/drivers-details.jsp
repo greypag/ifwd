@@ -249,11 +249,14 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="col-sm-6">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <select class="form-control" id="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
+	                                            <!-- <select class="form-control" id="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.driversdetails.address.area" bundle="${motorMsg}" /></option>
 	                                                <option value="Hong Kong"><fmt:message key="motor.driversdetails.address.area.hk" bundle="${motorMsg}" /></option>
 	                                                <option value="Kowloon"><fmt:message key="motor.driversdetails.address.area.kln" bundle="${motorMsg}" /></option>
 	                                                <option value="New Territories"><fmt:message key="motor.driversdetails.address.area.nt" bundle="${motorMsg}" /></option>
+	                                            </select>-->
+	                                            <select class="form-control" id="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
+	                                                <option value="" disabled selected hidden><fmt:message key="motor.driversdetails.address.district" bundle="${motorMsg}" /></option>
 	                                            </select>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
@@ -384,13 +387,12 @@ var nextPage = "${nextPageFlow}";
     </div>
     
 </section>
-
 </div>
 <!-- SaveForm Modal -->
 <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content plan-modal">
-            <div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">Ã</span></a></div>
+            <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
@@ -412,10 +414,10 @@ var nextPage = "${nextPageFlow}";
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value='<fmt:message key="motor.button.next" bundle="${motorMsg}" />' />
+                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
                                 <br/>
                             </div>
-                            <div class="clearfix"></div> 
+                           <div class="clearfix"></div> 
                         </div>
                     </div>
                 </div>
@@ -423,7 +425,6 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
 </div>
-
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
@@ -464,21 +465,38 @@ $(document).ready(function(){
 		$('input[name=building]').val(quote.applicant.correspondenceAddress.building);
 		$('input[name=estate]').val(quote.applicant.correspondenceAddress.estate);
 		$('input[name=district]').val(quote.applicant.correspondenceAddress.district);
-		//$('input[name=hkKlNt]').val(quote.applicant.modelDesc);
-		//$('input[name=driverID]').val(quote.applicant.modelDesc);
-
-		//$("#area")[0].selectize.setValue(quote.applicant.correspondenceAddress.hkKlNt);
-		//$("#district")[0].selectize.setValue(quote.applicant.correspondenceAddress.district);
-	
-		var $motor_aa = $('#area').selectize();
-		var $selectize_aa = $motor_aa[0].selectize;
-		$selectize_aa.setValue(quote.applicant.correspondenceAddress.hkKlNt);
-		var $motor_dd = $('#district').selectize();
-		var $selectize_bb = $motor_dd[0].selectize;
-		$selectize_bb.setValue(quote.applicant.correspondenceAddress.district);
     }
 	
+	//Check UserLogin
+	$.ajax({
+		url:fwdApi.url.session,
+		type:"get",
+		contentType: "application/json",
+		cache:false,
+		async:false,
+	    error:function (xhr, textStatus, errorThrown){
+
+	        if(xhr.status == 404){		        
+	        	$(".before-login").show();
+	        	$("#saveModal").removeClass("hidden");
+	        } else {
+	        	$(".before-login").show();
+	        }
+	    },
+	    success:function(response){
+	    	if(response){
+	    		if(response.userName == '*DIRECTGI'){
+	    			$(".before-login").show();
+	    			return false;	
+	    		}else
+	    			$(".before-login").hide();	
+	    	}
+	    }
+	});
 	
+	$("#saveForm").on("click",function(){
+		$('#saveModal').modal("show");
+  });
 	
 	 $.ajax({
 		  type: "POST",
@@ -549,8 +567,9 @@ $(document).ready(function(){
               
 		  },error: function(error) {
 			 console.dir(error);				
-			  alert("error");
-			  return false;
+			 alert("error");
+             $("#loading-overlay").modal("hide");
+             return false;
               
 		  }
 		});

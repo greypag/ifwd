@@ -157,14 +157,14 @@ var nextPage = "${nextPageFlow}";
 	                                    </div>
 	                                    <div class="col-sm-6 text-right">
 	                                        <span class="switch-light sly"><fmt:message key="motor.button.yes" bundle="${motorMsg}" />&nbsp;</span>
-	                                        <input type="checkbox" class="toggleCheck" name="bankMortgage" checked>
+	                                        <input type="checkbox" class="toggleCheck" name="bankMortgage" style="display:none">
 	                                        <span class="switch-light sln">&nbsp;<fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                    </div>
 	                                </div>
-	                                <div class="mortgageBank">
+	                                <div class="mortgageBank hidden">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <select class="form-control" id="mortgageBank" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.empty" bundle="${motorMsg}" />' required>
+	                                            <select class="form-control" id="mortgageBank" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.empty" bundle="${motorMsg}" />'>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.cardetails.mortgage.hire" bundle="${motorMsg}" /></option>
 	                                            </select>
 	                                            <div class="help-block with-errors"></div>
@@ -177,7 +177,7 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>-->
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="bankName" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="bankName" required data-required-error='<fmt:message key="motor.error.msg.mortgagebank.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.mortgagebank.invalid" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="bankName" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="bankName" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.mortgagebank.invalid" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="bankName"><fmt:message key="motor.cardetails.mortgage.bank" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -271,13 +271,12 @@ var nextPage = "${nextPageFlow}";
     </div>
     
 </section>
-
 </div>
 <!-- SaveForm Modal -->
 <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content plan-modal">
-            <div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
@@ -318,10 +317,25 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
+/*var chin = $('body').hasClass('chin'),
+enErr = {
+404: 'System Cannot find the policy',
+500: 'System Error',
+400: 'Invalid Details',
+410: 'Invalid CarBand',
+},
+cnErr ={
+		404: '您的汽車類型未能合乎即時報價的要求。',   
+		500: '您的汽車類型未能合乎即時報價的要求。',      
+		400: '您的汽車車齡超過13年。',                          
+		410: '您的職業未能合乎即時報價的要求。',        
+};*/
+
 var checkbox=true;
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 
 $(document).ready(function(){
+	
     $('[data-toggle="tooltip"]').tooltip(); 
   
     var getUrlParameter = function getUrlParameter(sParam) {
@@ -344,9 +358,38 @@ $(document).ready(function(){
 	    $('input[name=chassisNumber]').val(quote.carDetail.chassisNumber);    
 		$('input[name=cubicCapacity]').val(quote.carDetail.engineCapacity);
 		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
- 		
-	
 	}
+    
+  //Check UserLogin
+	$.ajax({
+		url:fwdApi.url.session,
+		type:"get",
+		contentType: "application/json",
+		cache:false,
+		async:false,
+	    error:function (xhr, textStatus, errorThrown){
+
+	        if(xhr.status == 404){		        
+	        	$(".before-login").show();
+	        } else {
+	        	$(".before-login").show();
+	        }
+	    },
+	    success:function(response){
+	    	if(response){
+	    		if(response.userName == '*DIRECTGI'){
+	    			$(".before-login").show();
+	    			$("#saveModal").removeClass("hidden");
+	    			return false;	
+	    		}else
+	    			$(".before-login").hide();	
+	    	}
+	    }
+	});
+	
+  $("#saveForm").on("click",function(){
+		$('#saveModal').modal("show");
+  });
     
      $.ajax({
 		  type: "POST",
@@ -363,7 +406,7 @@ $(document).ready(function(){
 			
 		  }
 		});
-    
+     
 	$('#carDetails').submit(function(event){
 	
 	   var isThird;
@@ -402,8 +445,44 @@ $(document).ready(function(){
               $("body").append($form);
               $('#quote-form').submit();             
 		  },error: function(error) {
-			  alert("Error");
-			  return false;
+			  /*$('#reason').attr('value', xhr.status);
+          		e.preventDefault();
+              if (xhr.status == 404) {
+              	if(chin)
+              		$("#reasonMsg").text(cnErr[404]);
+              	else
+              		$("#reasonMsg").text(enErr[404]);
+                  $("#contactpopup").modal('show');
+                  console.log(xhr.status, textStatus, errorThrown);
+              } 
+              if (xhr.status == 500) {
+              	if(chin)
+              		$("#reasonMsg").text(cnErr[500]);
+              	else
+              		$("#reasonMsg").text(enErr[500]);
+                  $("#contactpopup").modal('show');
+                  console.log(xhr.status, textStatus, errorThrown);
+              } 
+              else if (xhr.status == 400) {
+              	if(chin)
+              		$("#reasonMsg").text(cnErr[400]);
+              	else
+              		$("#reasonMsg").text(enErr[400]);
+                  $("#contactpopup").modal('show');
+                  console.log(xhr.status, textStatus, errorThrown);
+              } 
+              else if (xhr.status == 410) {
+              	if(chin)
+              		$("#reasonMsg").text(cnErr[410]);
+              	else
+              		$("#reasonMsg").text(enErr[410]);
+                  $("#contactpopup").modal('show');
+                  console.log(xhr.status, textStatus, errorThrown);
+              }*/
+			  console.dir(error);				
+			  alert("error");
+	          $("#loading-overlay").modal("hide");
+	          return false;
 		  }
 		});
 		return false;

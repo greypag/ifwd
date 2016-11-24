@@ -97,11 +97,9 @@ $(document).ready(function(){
 						
                         callback(res);   
 						$.each(res, function(i, item) {
-							
-							if(item.desc == quote.carDetail.bankMortgageName)
+							if(item.desc == quote.carDetail.bankMortgageName && getUrlParameter("edit")=="yes")
 							{
-							
-								$mortgageBank[0].selectize.setValue("A1Bank");	
+								$mortgageBank[0].selectize.setValue(item.code);	
 							}
 						});
 											
@@ -115,7 +113,7 @@ $(document).ready(function(){
         }
     });
 	
-	var $motor_district = $('#district').selectize({
+	$motor_district = $('#district').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',
@@ -139,7 +137,13 @@ $(document).ready(function(){
                     		newres.push(res[i]);
                     	});
 						console.dir(newres);
-                              callback(newres);                        
+                        callback(newres);
+						$.each(res, function(i, item) {
+							if(item.desc == quote.applicant.correspondenceAddress.district && getUrlParameter("edit")=="yes")
+							{
+								$motor_district[0].selectize.setValue(item.code);	
+							}
+						});
                     }
             });
         },
@@ -147,8 +151,43 @@ $(document).ready(function(){
         }
     });
 	
-	
-	
+	$motor_area = $('#area').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#area-selectized').data('required-error', $('#area').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/areas',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                        callback(newres);
+						$.each(res, function(i, item) {
+							if(item.desc == quote.applicant.correspondenceAddress.hkKlNt && getUrlParameter("edit")=="yes")
+							{
+								$motor_area[0].selectize.setValue(item.code);	
+							}
+						});
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
 	
     var $custom_checkbox = $('.custom-checkbox .checkbox').not('.disabled');
     var $custom_radio = $('.custom-radio .radio');

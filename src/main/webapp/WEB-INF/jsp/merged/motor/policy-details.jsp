@@ -148,7 +148,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="checkbox">
 	                                            <div class="form-group">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="term" name="term" value="agree" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' required>
+	                                                    <input type="checkbox" id="term" name="term" value="true" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' required>
 	                                                    <label><small>
 	                                                            <fmt:message key="motor.policydetails.driver.validlicense" bundle="${motorMsg}" /></small>
 	                                                    </label>
@@ -234,7 +234,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
 	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d2term" name="d2term" value="agree" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
+	                                                    <input type="checkbox" id="d2term" name="d2term" value="true" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
 	                                                        <label><small>
 	                                                                <fmt:message key="motor.policydetails.driver.validlicense" bundle="${motorMsg}" /></small>
 	                                                        </label>
@@ -320,7 +320,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
 	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d3term" name="d3term" value="agree" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
+	                                                    <input type="checkbox" id="d3term" name="d3term" value="true" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
 	                                                        <label><small>
 	                                                                <fmt:message key="motor.policydetails.driver.validlicense" bundle="${motorMsg}" /></small>
 	                                                        </label>
@@ -406,7 +406,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
 	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d4term" name="d4term" value="agree" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
+	                                                    <input type="checkbox" id="true" name="d4term" value="true" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
 	                                                        <label><small>
 	                                                                <fmt:message key="motor.policydetails.driver.validlicense" bundle="${motorMsg}" /></small>
 	                                                        </label>
@@ -492,7 +492,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
 	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d5term" name="d5term" value="agree" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
+	                                                    <input type="checkbox" id="d5term" name="d5term" value="true" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
 	                                                        <label><small>
 	                                                                <fmt:message key="motor.policydetails.driver.validlicense" bundle="${motorMsg}" /></small>
 	                                                        </label>
@@ -536,6 +536,9 @@ var nextPage = "${nextPageFlow}";
 	                                                <input type="text" name="prev_ic" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' minlength="3" maxlength="3" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
+	                                               <!--  <select class="form-control" id="prev_ic" data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
+	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></option>
+	                                            	</select>-->
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -667,7 +670,7 @@ var nextPage = "${nextPageFlow}";
 <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content plan-modal">
-            <div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">Ã</span></a></div>
+            <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
@@ -700,7 +703,6 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
 </div>
-
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
@@ -709,8 +711,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
-var quote = jQuery.parseJSON('{"FullDriversDetails":{"policyId":"26379363","policyStartDate":"17-11-2016","applicant":{"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"dd","district":"會計","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"17-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"ChCHANCHANCHAN"}},"FullCarDetails":{"carDetail":{"bankMortgage":true,"bankMortgageName":"","chassisNumber":"1HGCM82633A004352","engineCapacity":"2599","modelDesc":"MODEL Z"},"policyId":"26379363"},"applicant":{"ncb":"30","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2000","model":"120I","yearOfManufacture":"2016"},"planCode":"Comp","compPlan":"Gold","personalAccident":true,"thirdPartyPropertyDamage":true,"policyId":"26379363"}');
-
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 $(document).ready(function(){
 	
 	var term = $('#term');
@@ -743,18 +744,18 @@ $(document).ready(function(){
 		$('input[name=driverDob]').val(quote.driver[0].dateOfBirth);	
 	    $('input[name=driverID]').val(quote.driver[0].hkid);		
 	    $('input[name=fullName]').val(quote.driver[0].name);
-	    $motor_occupation[0].selectize.setValue(quote.driver[0].occupation);
-	    $("#occupation option:selected").text(quote.driver[0].occupation);	
 	    $('input[name=term]').attr("checked",quote.driver[0].validAgeGroup);
 	  	
 	    if(quote.driver.length > 1){
 	    	current =1;
 	    	$('#driver2').removeClass('hidden');
 		    $('input[name=d2dob]').val(quote.driver[1].dateOfBirth);	
-		    $('input[name=d2id]').val(quote.driver[1].hkid);		
-		    $('input[name=d2name]').val(quote.driver[1].name);		
-		    $motor_d2occupation[0].selectize.setValue(quote.driver[1].occupation);
+		    $('input[name=d2id]').val(quote.driver[1].hkid);
+		    $('input[name=d2name]').val(quote.driver[1].name);	
 		    $('input[name=d2term]').attr("checked",quote.driver[1].validAgeGroup);
+		    $('#driver2').find('select').prop('required',true);
+		    $('#driver2').find('input').prop('required',true);
+		    $('#driver2').find('.selectize-input > input').prop('required',false);
 	    }
 	  	
 	    if(quote.driver.length > 2){
@@ -763,8 +764,10 @@ $(document).ready(function(){
 			$('input[name=d3dob]').val(quote.driver[2].dateOfBirth);	
 			$('input[name=d3id]').val(quote.driver[2].hkid);	
 			$('input[name=d3name]').val(quote.driver[2].name);	
-			$motor_d3occupation[0].selectize.setValue(quote.driver[2].occupation);	
 			$('input[name=d3term]').attr("checked",quote.driver[2].validAgeGroup);	
+			$('#driver3').find('select').prop('required',true);
+		    $('#driver3').find('input').prop('required',true);
+		    $('#driver3').find('.selectize-input > input').prop('required',false);
 	    }
 	    
 	    if(quote.driver.length > 3){
@@ -772,9 +775,11 @@ $(document).ready(function(){
 	    	$('#driver4').removeClass('hidden');
 			$('input[name=d4dob]').val(quote.driver[3].dateOfBirth);		
 			$('input[name=d4id]').val(quote.driver[3].hkid);	
-			$('input[name=d4name]').val(quote.driver[3].name);	
-			$motor_d4occupation[0].selectize.setValue(quote.driver[3].occupation);	
+			$('input[name=d4name]').val(quote.driver[3].name);
 			$('input[name=d4term]').attr("checked",quote.driver[3].validAgeGroup);
+			$('#driver4').find('select').prop('required',true);
+		    $('#driver4').find('input').prop('required',true);
+		    $('#driver4').find('.selectize-input > input').prop('required',false);
 	    }
 	    
 	    if(quote.driver.length > 4){
@@ -782,9 +787,11 @@ $(document).ready(function(){
 	    	$('#driver5').removeClass('hidden');
 			$('input[name=d5dob]').val(quote.driver[4].dateOfBirth);			
 			$('input[name=d5id]').val(quote.driver[4].hkid);		
-			$('input[name=d5name]').val(quote.driver[4].name);	
-			$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);
-			$('input[name=d5term]').attr("checked",quote.driver[4].validAgeGroup);	
+			$('input[name=d5name]').val(quote.driver[4].name);
+			$('input[name=d5term]').attr("checked",quote.driver[4].validAgeGroup);
+			$('#driver5').find('select').prop('required',true);
+		    $('#driver5').find('input').prop('required',true);
+		    $('#driver5').find('.selectize-input > input').prop('required',false);
 	    }
 		$('input[name=prev_ic]').val(quote.nameOfPreviousInusrancer);
 	    $('input[name=prev_regNo]').val(quote.regNoofPreviousPolicy);		
@@ -799,22 +806,243 @@ $(document).ready(function(){
 	    }
 	}
 	
-	 var getUrlParameter = function getUrlParameter(sParam) {
-	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-	            sURLVariables = sPageURL.split('&'),
-	            sParameterName,
-	            i;
-
-	        for (i = 0; i < sURLVariables.length; i++) {
-	            sParameterName = sURLVariables[i].split('=');
-
-	            if (sParameterName[0] === sParam) {
-	                return sParameterName[1] === undefined ? true : sParameterName[1];
-	            }
-	        }
-	    };
-    
-	    
+	/*$prev_ic = $('#prev_ic').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#prev_ic-selectized').data('required-error', $('#prev_ic').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/insurers',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                            callback(res);      
+                            $.each(res, function(i, item) {
+    							if(getUrlParameter("edit")=="yes")
+    							{
+    								if(item.desc == quote.driver[1].occupation)
+    								{
+    									$motor_d2occupation[0].selectize.setValue(item.code);	
+    								}
+    							}
+    						});	
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });*/
+	
+	$motor_occupation = $('#occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#occupation-selectized').data('required-error', $('#occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+						console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres); 
+						$.each(res, function(i, item) {
+							if(getUrlParameter("edit")=="yes")
+							{
+								if(item.desc == quote.driver[0].occupation)
+								{
+									$motor_occupation[0].selectize.setValue(item.code);	
+								}
+							}
+						});						
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d2occupation = $('#d2occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d2occupation-selectized').data('required-error', $('#d2occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);      
+                              $.each(res, function(i, item) {
+      							if(getUrlParameter("edit")=="yes")
+      							{
+      								if(item.desc == quote.driver[1].occupation)
+      								{
+      									$motor_d2occupation[0].selectize.setValue(item.code);	
+      								}
+      							}
+      						});	
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d3occupation = $('#d3occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d3occupation-selectized').data('required-error', $('#d3occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);
+                              $.each(res, function(i, item) {
+      							if(getUrlParameter("edit")=="yes")
+      							{
+      								if(item.desc == quote.driver[2].occupation)
+      								{
+      									$motor_d3occupation[0].selectize.setValue(item.code);	
+      								}
+      							}
+      						});	
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d4occupation = $('#d4occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d4occupation-selectized').data('required-error', $('#d4occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);  
+                              $.each(res, function(i, item) {
+      							if(getUrlParameter("edit")=="yes")
+      							{
+      								if(item.desc == quote.driver[3].occupation)
+      								{
+      									$motor_d4occupation[0].selectize.setValue(item.code);	
+      								}
+      							}
+      						});	
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	$motor_d5occupation = $('#d5occupation').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#d5occupation-selectized').data('required-error', $('#d5occupation').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/occupations/v2',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                              callback(newres);  
+                              $.each(res, function(i, item) {
+      							if(getUrlParameter("edit")=="yes")
+      							{
+      								if(item.desc == quote.driver[4].occupation)
+      								{
+      									$motor_d5occupation[0].selectize.setValue(item.code);	
+      								}
+      							}
+      						});	
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	 if (current == totalDriver) {
+		 $('#addDriver').addClass('hidden');
+     }
+	
 	    $('#addDriver').on('click', function(e){
 	        e.preventDefault();
 
@@ -865,6 +1093,37 @@ $(document).ready(function(){
 	        }
 	        current -= 1;
 	    });
+	    
+	  //Check UserLogin
+		$.ajax({
+			url:fwdApi.url.session,
+			type:"get",
+			contentType: "application/json",
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+
+		        if(xhr.status == 404){		        
+		        	$(".before-login").show();
+		        	$("#saveModal").removeClass("hidden");
+		        } else {
+		        	$(".before-login").show();
+		        }
+		    },
+		    success:function(response){
+		    	if(response){
+		    		if(response.userName == '*DIRECTGI'){
+		    			$(".before-login").show();
+		    			return false;	
+		    		}else
+		    			$(".before-login").hide();	
+		    	}
+		    }
+		});
+		
+		$("#saveForm").on("click",function(){
+			$('#saveModal').modal("show");
+	  });
 	    
 	    $.ajax({
 			  type: "POST",
@@ -982,8 +1241,10 @@ $(document).ready(function(){
 	              $("body").append($form);
 	              $('#quote-form').submit();
 			  },error: function(error) {
-				  alert("error");
-	              return false;
+				  console.dir(error);				
+					 alert("error");
+		             $("#loading-overlay").modal("hide");
+		             return false;
 			  }
 			});
 		return false;

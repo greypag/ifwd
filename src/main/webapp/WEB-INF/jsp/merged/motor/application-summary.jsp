@@ -170,7 +170,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.getquote.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <span class="edit_quote"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
+                        <span class="edit_quote" style="cursor:pointer"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -236,7 +236,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.cardetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <span class="edit_cardetail"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
+                        <span class="edit_cardetail" style="cursor:pointer"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -294,7 +294,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.applicantdetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <span class="edit_driverdetail"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
+                        <span class="edit_driverdetail" style="cursor:pointer"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -366,7 +366,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.driverdetail.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <span class="edit_policydetail"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
+                        <span class="edit_policydetail" style="cursor:pointer"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -547,7 +547,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="panel-heading">
                     <h2 class="panel-title"><fmt:message key="motor.summary.noclaimdis.title" bundle="${motorMsg}" /></h2>
                     <span class="edit-detail">
-                        <span class="edit_noclaim"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
+                        <span class="edit_noclaim" style="cursor:pointer"><fmt:message key="motor.label.edit" bundle="${motorMsg}" /></span>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -1107,9 +1107,8 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
 <script type="text/javascript">
-var quote = jQuery.parseJSON('{"policyId":"26336399","refNumber":"QFVPE16-001548","applicant":{"ncb":"40","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true,"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"ddd","district":"鴨脷洲","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"23-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"chan chan chan"},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2599","model":"120I","yearOfManufacture":"2016","bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","modelDesc":"MODELZ"},"driver":[{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"a1234567","name":"chan chan chan","occupation":"銀行/金融/保險/投資","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"b1234567","name":"bb bb bb","occupation":"會計","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"c1234567","name":"ccc ccc ccc","occupation":"廣告","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"d1234567","name":"dd dd  ddd","occupation":"演藝娛樂界 (例如：演藝人員/化妝師/髪型師等等)","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"e1234567","name":"ee ee ee","occupation":"航空業","validAgeGroup":"true"}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false,"policyStartDate":"23-11-2016","nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"11233588","expDateOfPreviousInsurance":"27-05-2016","previousPolicyNo":"P122345","motorCareDeclaration":[{"declarationAns":true,"declarationNo":"q1"},{"declarationAns":true,"declarationNo":"q2"},{"declarationAns":true,"declarationNo":"q3"}],"psNoDM":"true","psNoProvidePersonalData":"true","psPICS":"true"}');
-
-
+//var quote = jQuery.parseJSON('{"policyId":"26336399","refNumber":"QFVPE16-001548","applicant":{"ncb":"40","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true,"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"ddd","district":"鴨脷洲","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"23-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"chan chan chan"},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2599","model":"120I","yearOfManufacture":"2016","bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","modelDesc":"MODELZ"},"driver":[{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"a1234567","name":"chan chan chan","occupation":"銀行/金融/保險/投資","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"b1234567","name":"bb bb bb","occupation":"會計","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"c1234567","name":"ccc ccc ccc","occupation":"廣告","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"d1234567","name":"dd dd  ddd","occupation":"演藝娛樂界 (例如：演藝人員/化妝師/髪型師等等)","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"e1234567","name":"ee ee ee","occupation":"航空業","validAgeGroup":"true"}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false,"policyStartDate":"23-11-2016","nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"11233588","expDateOfPreviousInsurance":"27-05-2016","previousPolicyNo":"P122345","motorCareDeclaration":[{"declarationAns":true,"declarationNo":"q1"},{"declarationAns":true,"declarationNo":"q2"},{"declarationAns":true,"declarationNo":"q3"}],"psNoDM":"true","psNoProvidePersonalData":"true","psPICS":"true"}');
+var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 var ApiPayment= new Array();
 var enablePayment=true;
 var clicked = false;
@@ -1252,7 +1251,6 @@ $(document).ready(function(){
 		  }
 		});    
 	//Check UserLogin
-	
 	$.ajax({
 		url:fwdApi.url.session,
 		type:"get",
@@ -1291,13 +1289,13 @@ $(document).ready(function(){
 	$( "#button_confirm" ).on( "click", function(e) {
 		
 		//testing
-		var geteWayUrl = "http://localhost:8080/fwdhk/en/motor-insurance/payment-result?refNum=YQUkROWUfMEjqyFbxtSNig==";
-		alert(geteWayUrl);  
+		//var geteWayUrl = "http://localhost:8080/fwdhk/en/motor-insurance/payment-result?refNum=YQUkROWUfMEjqyFbxtSNig==";
+		//alert(geteWayUrl);  
 //setTimeout(function(){ 
-			   console.dir($("#no-claim").serialize());
+			//   console.dir($("#no-claim").serialize());
 			 
-        		$("#no-claim").attr('action', geteWayUrl);
-                $("#no-claim").submit();
+        	//	$("#no-claim").attr('action', geteWayUrl);
+            //    $("#no-claim").submit();
           //}, 3000);
 			//testing
     	confrimPayment('no-claim', 'gateway', 'no-claim');
@@ -1365,7 +1363,10 @@ $(document).ready(function(){
 			                $("#"+form).submit();
 			          }, 5000);
 				  },error: function(error) {
-					
+					  console.dir(error);				
+						 alert("error");
+			             $("#loading-overlay").modal("hide");
+			             return false;
 				  }
 				});
 		    

@@ -256,6 +256,43 @@ width: 100px !important;
     </div>
     <!--/.container-->
 </section>
+<!-- SaveForm Modal -->
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content plan-modal">
+            <div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class="login-title-wrapper">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
+                        <h3 class="heading-h3 color-orange text-center">
+                            Welcome Back! ABC! 
+                        </h3>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 plan-panel">
+                        <div class="row" >
+                            <div class="text-center col-xs-6">
+                                <br />
+                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+                                <br/>
+                            </div>
+                            <div class="text-center col-xs-6">
+                                <br />
+                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                                <br/>
+                            </div>
+                            <div class="clearfix"></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="contactpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div

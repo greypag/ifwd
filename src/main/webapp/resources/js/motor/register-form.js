@@ -56,178 +56,7 @@ $(document).ready(function(){
         }
     });
 	
-	$motor_occupation = $('#occupation').selectize({
-        valueField: 'code',
-        labelField: 'desc',
-        searchField: 'desc',
-        create: false,
-        preload: true,
-        load: function(query, callback) {
-            $('#occupation-selectized').data('required-error', $('#occupation').data('required-error'));
-            $.ajax({
-                url: context + '/api/iMotor/list/occupations/v2',
-                type: 'GET',
-                dataType: 'json',
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-						console.dir(res);
-						var newres= new Array();
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang==motorlanguage) 
-                    		newres.push(res[i]);
-                    	});
-						console.dir(newres);
-                              callback(newres); 
-						$motor_occupation[0].selectize.setValue(quote.driver[0].occupation);							  
-                    }
-            });
-        }/*,
-		onInitialize: function() {
-			alert(quote.driver[0].occupation);
-			$motor_occupation[0].selectize.setValue(quote.driver[0].occupation);
-		}*/,
-        onChange: function(value){
-        }
-    });
-	$motor_d2occupation = $('#d2occupation').selectize({
-        valueField: 'code',
-        labelField: 'desc',
-        searchField: 'desc',
-        create: false,
-        preload: true,
-        load: function(query, callback) {
-            $('#d2occupation-selectized').data('required-error', $('#d2occupation').data('required-error'));
-            $.ajax({
-                url: context + '/api/iMotor/list/occupations/v2',
-                type: 'GET',
-                dataType: 'json',
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-                    	console.dir(res);
-						var newres= new Array();
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang==motorlanguage) 
-                    		newres.push(res[i]);
-                    	});
-						console.dir(newres);
-                              callback(newres);                           
-                    }
-            });
-        },
-		onInitialize: function() {
-			//$motor_d2occupation[0].selectize.setValue(quote.driver[1].occupation);
-		},
-        onChange: function(value){
-        }
-    });
-	$motor_d3occupation = $('#d3occupation').selectize({
-        valueField: 'code',
-        labelField: 'desc',
-        searchField: 'desc',
-        create: false,
-        preload: true,
-        load: function(query, callback) {
-            $('#d3occupation-selectized').data('required-error', $('#d3occupation').data('required-error'));
-            $.ajax({
-                url: context + '/api/iMotor/list/occupations/v2',
-                type: 'GET',
-                dataType: 'json',
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-                    	console.dir(res);
-						var newres= new Array();
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang==motorlanguage) 
-                    		newres.push(res[i]);
-                    	});
-						console.dir(newres);
-                              callback(newres);                             
-                    }
-            });
-        },
-		onInitialize: function() {
-			//$motor_d3occupation[0].selectize.setValue(quote.driver[2].occupation);
-		},
-        onChange: function(value){
-        }
-    });
-	$motor_d4occupation = $('#d4occupation').selectize({
-        valueField: 'code',
-        labelField: 'desc',
-        searchField: 'desc',
-        create: false,
-        preload: true,
-        load: function(query, callback) {
-            $('#d4occupation-selectized').data('required-error', $('#d4occupation').data('required-error'));
-            $.ajax({
-                url: context + '/api/iMotor/list/occupations/v2',
-                type: 'GET',
-                dataType: 'json',
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-                    	console.dir(res);
-						var newres= new Array();
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang==motorlanguage) 
-                    		newres.push(res[i]);
-                    	});
-						console.dir(newres);
-                              callback(newres);                           
-                    }
-            });
-        },
-		onInitialize: function() {
-			//$motor_d4occupation[0].selectize.setValue(quote.driver[3].occupation);
-		},
-        onChange: function(value){
-        }
-    });
-	$motor_d5occupation = $('#d5occupation').selectize({
-        valueField: 'code',
-        labelField: 'desc',
-        searchField: 'desc',
-        create: false,
-        preload: true,
-        load: function(query, callback) {
-            $('#d5occupation-selectized').data('required-error', $('#d5occupation').data('required-error'));
-            $.ajax({
-                url: context + '/api/iMotor/list/occupations/v2',
-                type: 'GET',
-                dataType: 'json',
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-                    	console.dir(res);
-						var newres= new Array();
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang==motorlanguage) 
-                    		newres.push(res[i]);
-                    	});
-						console.dir(newres);
-                              callback(newres);                           
-                    }
-            });
-        },
-		onInitialize: function() {
-			//$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);
-		},
-        onChange: function(value){
-        }
-    });
+	
 
     $('#district').selectize({
         valueField: '',
@@ -265,15 +94,17 @@ $(document).ready(function(){
     $('[name="bankMortgage"]').bootstrapSwitch({
         onText: '',
         offText: '',
-        inverse: true,
+        inverse: true ,
         onSwitchChange: function(e, state){
 		
 			$(".switch-light").removeClass("orange");
             if(state){
-
 				$(".sly").addClass("orange");
-                $('.mortgageBank').removeClass('hidden');
-                $('#mortgageBank, #mortgageBank-selectized, #bankName').prop('required',true);
+   				$('.mortgageBank').removeClass('hidden');
+                $('#mortgageBank, #bankName').prop('required',true);
+				//$('#mortgageBank').find('input').prop('required',true);
+				$('#mortgageBank').find('.selectize-input > input').prop('required',false);
+				$mortgageBankSelect[0].selectize.clear();
 				$('#motor_registerForm').validator('update');
             }
             else{
@@ -283,10 +114,9 @@ $(document).ready(function(){
 				$(".sln").addClass("orange");
                 $('.mortgageBank').addClass('hidden');
                 $('#mortgageBank, #mortgageBank-selectized, #bankName').prop('required',false);
-				
                 $('#motor_registerForm').validator('update'); 
             }
-                $('#motor_registerForm').validator('validate');
+                //$('#motor_registerForm').validator('validate');
         }
     }); 
 	
