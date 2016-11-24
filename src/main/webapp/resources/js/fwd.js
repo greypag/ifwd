@@ -4245,6 +4245,14 @@ function replaceNumeric(id) {
 	string = string.replace(/[^0-9]/g, '');
 	id.value = string;
 }
+/**
+*
+* For function alphaOnly() -- ALREADY MIGRATED
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js". Renamed to "eventReturnEngSpaceOnly(evt)"
+*
+**/
 function alphaOnly(evt) {
 	evt = (evt) ? evt : event;
 	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
@@ -4256,6 +4264,7 @@ function alphaOnly(evt) {
 	}
 	return true;
 }
+
 function replaceAlpha(id) {
 	var string = id.value;
 	string = string.replace(/[^\sa-zA-Z]/g, '');

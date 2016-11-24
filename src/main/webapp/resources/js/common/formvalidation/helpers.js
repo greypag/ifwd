@@ -70,7 +70,7 @@ var gen_configFlightCare = function(obj) {
  *          , {Object}          placeholderObj
  * @return Nil
  */
-var add_isValidBeneFullName = function(personRole, insureBoolean, dataSourceFieldInfo, insureFieldInfo, placeholderObj) {
+var add_isValidBeneFullName = function(personRole, insureBoolean, dataSourceFieldInfo, insureFieldInfo) {
     if ( insureFieldInfo == null ) {
         // Defined what DOM will be binded to, i.e. Insured Person inputbox
         insureFieldInfo = {   // defaulted value
@@ -78,10 +78,9 @@ var add_isValidBeneFullName = function(personRole, insureBoolean, dataSourceFiel
             , 'errMsgDOMId': 'errtxtPersonalFullName1'
         };
     }
-    console.log(personRole, insureBoolean, dataSourceFieldInfo, insureFieldInfo);
     $( '#'+dataSourceFieldInfo.inputId).blur(function() {
         console.log(' $(#'+dataSourceFieldInfo.inputId+') - onBlur JS detected -');
-        fwdValidator.beneficiaryInfo.isValidBeneFullName( insureBoolean, personRole, placeholderObj, insureFieldInfo, dataSourceFieldInfo );
+        fwdValidator.beneficiaryInfo.isValidBeneFullName( insureBoolean, personRole, insureFieldInfo, dataSourceFieldInfo );
     });
 };
 
@@ -127,19 +126,23 @@ var add_isValidBeneFullName = function(personRole, insureBoolean, dataSourceFiel
  */
 var add_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insureFieldInfo) {
 
-    if ( insureFieldInfo == null ) {
+    // IF NULL, applied the defaulted value
+    if ( insureFieldInfo === null ) {
         // Defined what DOM will be binded to, i.e. Insured Person inputbox
-        insureFieldInfo = {   // defaulted value
-            'inputBoxId': 'txtInsuFullName1'
-            , 'errMsgDOMId': 'errtxtPersonalFullName1'
-        };
+        insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1', 'errMsgDOMId': 'errtxtPersonalFullName1' };
     }
     $( '#'+dataSourceFieldId+i).blur(function() {
-        console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
+        // console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
         fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureFieldInfo );
     });
 };
 
+var add_keypress_returnEngSpaceOnly = function(fieldId) {
+    $( '#'+fieldId ).keypress(function(evt) {
+        console.log(' $(#' + fieldId + ') - keypress JS detected -');
+        return fwdValidator.eventHandler.returnEngSpaceOnly(evt);
+    });
+};
 
 /*
  * Export modules to "fvConfig" object
@@ -147,12 +150,15 @@ var add_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insur
 var fvConfig = {};
 fvConfig['helpers'] = {
     'generateData': {
-        'cfgFlightCare'     : gen_configFlightCare
+        'cfgFlightCare':            gen_configFlightCare
     },
-    'addEventJS': {
-        'isValidBeneFullName'   : add_isValidBeneFullName   // Active
+    'event': {
+        'isValidBeneFullName':      add_isValidBeneFullName   // Active
         // , 'isValidBeneHkid'     : add_isValidBeneHkid       // In-progress, not tested yet
         // , 'isValidBeneDob'      : add_isValidBeneDob     // Pending
+        , 'keypress': {
+            'returnEngSpaceOnly':    add_keypress_returnEngSpaceOnly
+        }
     },
     'ux': {}
 };

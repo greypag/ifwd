@@ -248,14 +248,28 @@ var fwdValidator = (function(fwdConstant) {
         var localConfig = {
             'applicant': {
                 'msg':         getBundle(getBundleLanguage, "applicant.name.notNull.message")
+                // , 'namePH':    placeholderObj.applicantName
             },
             'insured': {
                 'msg':         getBundle(getBundleLanguage, "insured.name.notNull.message")
+                // , 'namePH':    placeholderObj.insuredName
             },
             'beneficiary': {
                 'msg':         getBundle(getBundleLanguage, "beneficiary.name.notNull.message")
+                // , 'namePH':    placeholderObj.beneficiaryName
             }
         };
+
+        // // Assign "placeholder" value, refer to (applicant, insured, beneficiary)
+        // var placeholder = '';
+        // _.each(localConfig, function(LCvalue, LCindex) {
+        //     if (personRole == LCindex) { placeholder = LCvalue.namePH; }
+        // });
+        // Truncate the field value once IF EQUAL TO placeholder value
+    	// if ( $("#"+dataSourceFieldInfo.inputId).val() == placeholder.trim() ) {
+        //     console.log('jlkajsldkfalks');
+    	// 	$("#"+dataSourceFieldInfo.inputId).val('');
+        // }
 
     	var fullname = $("#"+dataSourceFieldInfo.inputId).val();
     	if (fullname.trim() == "") {

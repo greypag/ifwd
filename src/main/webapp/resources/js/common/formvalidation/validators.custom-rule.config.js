@@ -16,15 +16,15 @@ try {
 
 fvConfig['customValidatingRules'] = function() {
     return {
-    	isHkid : {
-    		validate: function(validator, $field, options) {
+    	'isHkid' : {
+    		'validate': function(validator, $field, options) {
     			var value = $field.val();
     			if (value.length > 0) {
     				// if ( !IsHKID(value) ) {                                  // IsHKID(), refer to "js/fwd.js"
                     if ( !fwdValidator.personalInfo.isValidHkid(value) ) {      // refer to fwd-validator.js
     					return {
-    		                valid: false,
-    		                message: getBundle(getBundleLanguage, "applicant.hkId.notValid.message")
+    		                'valid': false,
+    		                'message': getBundle(getBundleLanguage, "applicant.hkId.notValid.message")
     					}
     				}
     			}

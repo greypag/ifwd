@@ -48,24 +48,27 @@ function initFVConfig(argCfg) {
 
 			// MUST - DOM [id="inputFullName"] is plugged "onBlur" & triggers isValidBeneFullName()
 			dataSourceFieldInfo = { 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid' };
-			argCfg.helpers.addEventJS.isValidBeneFullName( 'applicant', true, dataSourceFieldInfo, null, argCfg.placeholder );
+			argCfg.helpers.event.isValidBeneFullName( 'applicant', true, dataSourceFieldInfo, null );
+			argCfg.helpers.event.keypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
+
+			// MUST - DOM [id="inputTxtAppHkid"] is plugged "onBlur" & triggers isValidBeneHkid()
+			// dataSourceFieldInfo = { 'inputId': 'inputTxtAppHkid', 'errorId': 'fullnameinvalid' };
+			// argCfg.helpers.event.isValidBeneHkid( 'applicant', true, dataSourceFieldInfo, null );
+
+			// MUST - DOM [id="applicantDob"] is plugged "onBlur" & triggers isValidBeneDob()
+			// dataSourceFieldInfo = { 'inputId': 'applicantDob', 'errorId': 'fullnameinvalid' };
+			// argCfg.helpers.event.isValidBeneDob( 'applicant', false, dataSourceFieldInfo, null );
 
 			// This For-loop SAME AS JSP var ${inx} (i.e. defined in flight-plan-details.jsp)
 			// In JS var, {Integer} 'argCfg.travellerCounter.personalPlan' (i.e. Total Personal Plan Travller)
-			for ( var i = 1; i < argCfg.travellerCounter.personalPlan+1; i++ ) (function(i) {
-
-				// MUST - DOM [id="inputTxtAppHkid"] is plugged "onBlur" & triggers isValidBeneHkid()
-				// argCfg.helpers.addEventJS.isValidBeneHkid(i, true, 'inputTxtAppHkid', null, argCfg.placeholder);
-
-				// MUST - DOM [id="applicantDob"] is plugged "onBlur" & triggers isValidBeneDob()
-				// argCfg.helpers.addEventJS.isValidBeneDob(i, false, 'applicantDob', null, argCfg.placeholder);
-
-				// WON'T - Note & Demo only, because these are hidden fields
-				// // DOM [id="personalBenefitiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
-				dataSourceFieldInfo = { 'inputId': 'personalBenefitiaryId'+i, 'errorId': 'err'+'personalBenefitiaryId'+i };
-				argCfg.helpers.addEventJS.isValidBeneFullName( 'beneficiary', true, dataSourceFieldInfo, null, argCfg.placeholder);
-
-			})(i);
+			// for ( var i = 1; i < argCfg.travellerCounter.personalPlan+1; i++ ) (function(i) {
+			//
+			// 	// WON'T - Note & Demo only, because these are hidden fields
+			// 	// DOM [id="personalBenefitiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
+			// 	dataSourceFieldInfo = { 'inputId': 'personalBenefitiaryId'+i, 'errorId': 'err'+'personalBenefitiaryId'+i };
+			// 	argCfg.helpers.event.isValidBeneFullName( 'beneficiary', true, dataSourceFieldInfo, null);
+			//
+			// })(i);
 
         });
 
@@ -77,6 +80,7 @@ function initFVConfig(argCfg) {
 				, argCfg.applicant
 				, argCfg.helpers.generateData.cfgFlightCare( argCfg )
 			);
+		console.log(result);
 
 		return result;
 	};
