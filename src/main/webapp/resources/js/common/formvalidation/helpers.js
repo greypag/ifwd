@@ -56,13 +56,13 @@ var gen_configFlightCare = function(obj) {
    /*
     * Core progress about FV config generation
     *
-    * @method   [Private]   _dataMassage
+    * @method   [Private]   _configDataMassage
     * @param    {Integer}   iPersonTotal ( insurcedPersonTotal )
     * @param    {Object}    o
     * @param    {Object}    pct ( personConfigType )
     * @return   {Object}
     */
-    var _dataMassage = function(iPersonTotal, o, pct) {
+    var _configDataMassage = function(iPersonTotal, o, pct) {
 
         var buffer = {};
         var newKeyMap = {};
@@ -100,20 +100,17 @@ var gen_configFlightCare = function(obj) {
     // Core
     var buffer = {};
     if ( obj.travellerCounter.personalPlan === 0 ) {
-
        // Family Plan
         var familyConfig = {};
-        familyConfig['adult'] = _dataMassage(obj.travellerCounter.familyPlan.adult, obj, 'insuredAdult');
-        familyConfig['child'] = _dataMassage(obj.travellerCounter.familyPlan.child, obj, 'insuredChild');
-        familyConfig['other'] = _dataMassage(obj.travellerCounter.familyPlan.other, obj, 'insuredOther');
+        familyConfig['adult'] = _configDataMassage(obj.travellerCounter.familyPlan.adult, obj, 'insuredAdult');
+        familyConfig['child'] = _configDataMassage(obj.travellerCounter.familyPlan.child, obj, 'insuredChild');
+        familyConfig['other'] = _configDataMassage(obj.travellerCounter.familyPlan.other, obj, 'insuredOther');
         _.each(familyConfig, function(fcVal, fcInd) {
            buffer = $.extend(buffer, fcVal);
         });
-
     } else {
-
         // Personal Plan
-        buffer = _dataMassage(obj.travellerCounter.personalPlan, obj, 'insuredPerson');
+        buffer = _configDataMassage(obj.travellerCounter.personalPlan, obj, 'insuredPerson');
     }
     return buffer;
 

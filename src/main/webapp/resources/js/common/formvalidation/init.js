@@ -61,7 +61,6 @@ function initFVConfig(argCfg) {
 			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
 			// dataSourceFieldInfo = { 'inputId': 'applicantDob', 'errorId': 'fullnameinvalid' };
 			// argCfg.helpers.event.isValidBeneDob( false, dataSourceFieldInfo, null );
-
         });
 
 
