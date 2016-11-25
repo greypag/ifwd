@@ -239,7 +239,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="col-sm-6">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <select class="form-control" id="district" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.empty" bundle="${motorMsg}" />' required>
+	                                            <select class="form-control" id="district" name="district" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.empty" bundle="${motorMsg}" />' required>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.driversdetails.address.district" bundle="${motorMsg}" /></option>
 	                                            </select>
 	                                            <div class="help-block with-errors"></div>
@@ -255,7 +255,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <option value="Kowloon"><fmt:message key="motor.driversdetails.address.area.kln" bundle="${motorMsg}" /></option>
 	                                                <option value="New Territories"><fmt:message key="motor.driversdetails.address.area.nt" bundle="${motorMsg}" /></option>
 	                                            </select>-->
-	                                            <select class="form-control" id="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
+	                                            <select class="form-control" id="area" name="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.driversdetails.address.district" bundle="${motorMsg}" /></option>
 	                                            </select>
 	                                            <div class="help-block with-errors"></div>
@@ -321,7 +321,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="clearfix"></div> 
 	                            <div class="text-center save">
-	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -395,11 +395,6 @@ var nextPage = "${nextPageFlow}";
             <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
-                        <h3 class="heading-h3 color-orange text-center">
-                            Welcome Back! ABC! 
-                        </h3>
-                    </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
@@ -434,7 +429,16 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
 var checkbox=true;
-var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+/* 
+ *  Define motor success login callback
+ */
+var loginStatus=false;
+function callback_motor_LoginSuccess(){
+	alert('Login success. Call Save later API.');
+	$('#saveModal').modal("show");
+}
+  	
 $(document).ready(function(){
         
 	 var getUrlParameter = function getUrlParameter(sParam) {
@@ -478,7 +482,6 @@ $(document).ready(function(){
 
 	        if(xhr.status == 404){		        
 	        	$(".before-login").show();
-	        	$("#saveModal").removeClass("hidden");
 	        } else {
 	        	$(".before-login").show();
 	        }
@@ -486,17 +489,24 @@ $(document).ready(function(){
 	    success:function(response){
 	    	if(response){
 	    		if(response.userName == '*DIRECTGI'){
+	    			loginStatus=false;
 	    			$(".before-login").show();
+	    			$("#saveModal").removeClass("hidden");
 	    			return false;	
 	    		}else
+	    		{   loginStatus=true;
 	    			$(".before-login").hide();	
+	    		}
 	    	}
 	    }
 	});
-	
-	$("#saveForm").on("click",function(){
-		$('#saveModal').modal("show");
-  });
+
+	  $("#saveForm").on("click",function(){
+		    if(loginStatus==false)
+			$('#loginpopup').modal("show");
+		    else  if(loginStatus==true)
+		    $('#saveModal').modal("show");
+	  });
 	
 	 $.ajax({
 		  type: "POST",
@@ -524,11 +534,11 @@ $(document).ready(function(){
 			  	"correspondenceAddress": {    		
 			    "block":  $('input[name=block]').val(),		
 			    "building":  $('input[name=building]').val(),		
-			    "district":  $("#district option:selected").text(),		
+			    "district":  $('[name="district"]').val(),//$("#district option:selected").text(),		
 			    "estate":  $('input[name=estate]').val(),		
 			    "flat":  $('input[name=flat]').val(),		
 			    "floor":  $('input[name=floor]').val(),		
-			    "hkKlNt": $("#area option:selected").text(),		
+			    "hkKlNt": $('[name="area"]').val(),//$("#area option:selected").text(),		
 			    "streetName": null,		
 			    "streetNo": null		
 			  },		

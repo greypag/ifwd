@@ -27,6 +27,16 @@ cnErr ={
 		413: '您輸入的座駕估計市值低於最低下限。',
 		416: '您的汽車未能符合即時報價的要求。'
 };
+var APIServer = "";
+var fwdApi = {
+		url:{
+			session						: APIServer + context + "/api/member/session",
+			login						: APIServer + context + "/api/member/login",
+			member						: APIServer + context + "/api/member",
+			forgotPassword				: APIServer + context + "/api/member/forgotPassword",
+			retrieveUserName			: APIServer + context + "/api/member/retrieveUserName",
+		}
+};
 var $mortgageBank ;
 var motor_mortgageBank, $motor_mortgageBank, 
 motor_district , $motor_district, 
@@ -97,9 +107,12 @@ $(document).ready(function(){
 						
                         callback(res);   
 						$.each(res, function(i, item) {
-							if(item.desc == quote.carDetail.bankMortgageName && getUrlParameter("edit")=="yes")
+							if(getUrlParameter("edit")=="yes")
 							{
-								$mortgageBank[0].selectize.setValue(item.code);	
+								if(item.desc == quote.carDetail.bankMortgageName)
+								{
+									$mortgageBank[0].selectize.setValue(item.code);	
+								}
 							}
 						});
 											
@@ -139,9 +152,12 @@ $(document).ready(function(){
 						console.dir(newres);
                         callback(newres);
 						$.each(res, function(i, item) {
-							if(item.desc == quote.applicant.correspondenceAddress.district && getUrlParameter("edit")=="yes")
+							if(getUrlParameter("edit")=="yes")
 							{
-								$motor_district[0].selectize.setValue(item.code);	
+								if(item.desc == quote.applicant.correspondenceAddress.district )
+								{
+									$motor_district[0].selectize.setValue(item.code);	
+								}
 							}
 						});
                     }
@@ -177,9 +193,12 @@ $(document).ready(function(){
 						console.dir(newres);
                         callback(newres);
 						$.each(res, function(i, item) {
-							if(item.desc == quote.applicant.correspondenceAddress.hkKlNt && getUrlParameter("edit")=="yes")
+							if(getUrlParameter("edit")=="yes")
 							{
-								$motor_area[0].selectize.setValue(item.code);	
+								if(item.desc == quote.applicant.correspondenceAddress.hkKlNt)
+								{
+									$motor_area[0].selectize.setValue(item.code);	
+								}
 							}
 						});
                     }

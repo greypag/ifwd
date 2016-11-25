@@ -271,7 +271,7 @@ var nextPage = "${nextPageFlow}";
 	                                    </div>
 	                                    <div class="clearfix"></div> 
 	                            <div class="text-center save">
-	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
 	                            </div>
 	                                </div>
 	                            </div>
@@ -348,11 +348,6 @@ var nextPage = "${nextPageFlow}";
             <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
-                        <h3 class="heading-h3 color-orange text-center">
-                            Welcome Back! ABC! 
-                        </h3>
-                    </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
@@ -386,7 +381,15 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
-var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+/* 
+ *  Define motor success login callback
+ */
+var loginStatus=false;
+function callback_motor_LoginSuccess(){
+	alert('Login success. Call Save later API.');
+	$('#saveModal').modal("show");
+}
 $(document).ready(function(){
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -425,7 +428,6 @@ $(document).ready(function(){
 
 	        if(xhr.status == 404){		        
 	        	$(".before-login").show();
-	        	$("#saveModal").removeClass("hidden");
 	        } else {
 	        	$(".before-login").show();
 	        }
@@ -433,17 +435,24 @@ $(document).ready(function(){
 	    success:function(response){
 	    	if(response){
 	    		if(response.userName == '*DIRECTGI'){
+	    			loginStatus=false;
 	    			$(".before-login").show();
+	    			$("#saveModal").removeClass("hidden");
 	    			return false;	
 	    		}else
+	    		{   loginStatus=true;
 	    			$(".before-login").hide();	
+	    		}
 	    	}
 	    }
 	});
-	
-	$("#saveForm").on("click",function(){
-		$('#saveModal').modal("show");
-  });
+
+	  $("#saveForm").on("click",function(){
+		    if(loginStatus==false)
+			$('#loginpopup').modal("show");
+		    else  if(loginStatus==true)
+		    $('#saveModal').modal("show");
+	  });
     
 	$('#declaration').submit(function(event){
 	

@@ -164,7 +164,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="mortgageBank hidden">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <select class="form-control" id="mortgageBank" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.empty" bundle="${motorMsg}" />'>
+	                                            <select class="form-control" id="mortgageBank" name="mortgageBank" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.empty" bundle="${motorMsg}"/>'>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.cardetails.mortgage.hire" bundle="${motorMsg}" /></option>
 	                                            </select>
 	                                            <div class="help-block with-errors"></div>
@@ -205,7 +205,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="clearfix"></div> 
 	                            <div class="text-center save">
-	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -279,26 +279,20 @@ var nextPage = "${nextPageFlow}";
             <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
-                        <h3 class="heading-h3 color-orange text-center">
-                            Welcome Back! ABC! 
-                        </h3>
-                    </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                        </p>
+                            <fmt:message key="motor.lightbox.savecontinuelater.title" bundle="${motorMsg}" />  </p>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 plan-panel">
                         <div class="row" >
                             <div class="text-center col-xs-6">
                                 <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" id="motor-save-submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" />" />
                                 <br/>
                             </div>
                             <div class="clearfix"></div> 
@@ -332,13 +326,16 @@ cnErr ={
 };*/
 
 var checkbox=true;
-var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
 
 /* 
  *  Define motor success login callback
  */
+var loginStatus=false;
 function callback_motor_LoginSuccess(){
 	alert('Login success. Call Save later API.');
+	$('#saveModal').modal("show");
 }
   	
 $(document).ready(function(){
@@ -367,7 +364,7 @@ $(document).ready(function(){
 		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
 	}
     
-  	//Check UserLogin
+  //Check UserLogin
 	$.ajax({
 		url:fwdApi.url.session,
 		type:"get",
@@ -385,28 +382,32 @@ $(document).ready(function(){
 	    success:function(response){
 	    	if(response){
 	    		if(response.userName == '*DIRECTGI'){
+	    			loginStatus=false;
 	    			$(".before-login").show();
 	    			$("#saveModal").removeClass("hidden");
 	    			return false;	
-	    		}else{
+	    		}else
+	    		{   loginStatus=true;
 	    			$(".before-login").hide();	
 	    		}
 	    	}
 	    }
 	});
-	
-  	$("#saveForm").on("click",function(){
-		$('#saveModal').modal("show");
-  	});
 
-  	/* 
-  	 *  Save later login check
-  	 */
-  	$('#motor-save-submit').click(function(){
+	  $("#saveForm").on("click",function(){
+		    if(loginStatus==false)
+			$('#loginpopup').modal("show");
+		    else  if(loginStatus==true)
+		    $('#saveModal').modal("show");
+	  });
+    
+	/* 
+	 *  Save later login check
+	 */
+	$('#motor-save-submit').click(function(){
 
-  		// Check if user is logged in
-
-  		$.ajax({
+		// Check if user is logged in
+		$.ajax({
 			url:fwdApi.url.session,
 			type:"get",
 			contentType: "application/json",
@@ -423,20 +424,21 @@ $(document).ready(function(){
 		        }
 		    },
 		    success:function(response){
+		    	alert("A");
 		    	if(response){
 		    		if(response.userName == '*DIRECTGI'){
 		    			/* Show Login Popup */
 		    			$('#saveModal').modal('hide'); // hide save modal
 		    			$('.login-btn').trigger('click');
 		    		} else {
+		    			$('#saveModal').modal("show");
 		    			/* Call Save later API */
 		    		}		    		
 		    	}
 		    }
 		});
 
-  	});
-
+	});
      $.ajax({
 		  type: "POST",
 		  data: JSON.stringify(quote),
@@ -459,14 +461,14 @@ $(document).ready(function(){
      
 	   var submitData = {"carDetail": {   	
 				   "bankMortgage": checkbox,	
-				   "bankMortgageName": $("#mortgageBank option:selected").text(),	
+				   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
 				   "chassisNumber": $('input[name=chassisNumber]').val(),    	
 				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
 				   "modelDesc": $('input[name=registedModel]').val()    	
 					}, 	
 					"policyId": quote.policyId
 					};
-	  
+
 		$.ajax({
           beforeSend: function(){
           	$('#loading-overlay').modal("show");

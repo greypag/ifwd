@@ -260,29 +260,28 @@ width: 100px !important;
 <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content plan-modal">
-            <div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
                         <h3 class="heading-h3 color-orange text-center">
-                            Welcome Back! ABC! 
+                           <fmt:message key="motor.lightbox.welcomeback.title" bundle="${motorMsg}" /> <span class="userName"></span>
                         </h3>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                        </p>
+                            <fmt:message key="motor.lightbox.welcomeback.copy" bundle="${motorMsg}" />  </p>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 plan-panel">
                         <div class="row" >
                             <div class="text-center col-xs-6">
                                 <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.restart.process" bundle="${motorMsg}" /></a>
                                 <br/>
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" />" />
                                 <br/>
                             </div>
                             <div class="clearfix"></div> 
@@ -431,12 +430,19 @@ width: 100px !important;
         </div>
     </div>
 </div>
+
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/jquery.maskMoney.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/getQuote-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript">
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+var loginStatus=false;
+function callback_motor_LoginSuccess(){
+	alert('Login success. Call Save later API.');
+	$('#saveModal').modal("show");
+}
 $(document).ready(function(){
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -466,6 +472,39 @@ $(document).ready(function(){
 		$('input[name=validAgeGroup]').attr("checked",true);	
 		$('input[name=driveMoreThanTwo]').attr("checked",true);	
 	  
+    }
+    if(getUrlParameter("type")=="3")
+    { 
+	    //Check UserLogin
+		$.ajax({
+			url:fwdApi.url.session,
+			type:"get",
+			contentType: "application/json",
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+	
+		        if(xhr.status == 404){		        
+		        	$(".before-login").show();
+		        } else {
+		        	$(".before-login").show();
+		        }
+		    },
+		    success:function(response){
+		    	if(response){
+		    		if(response.userName == '*DIRECTGI'){
+		    			loginStatus=false;
+		    			$('#loginpopup').modal("show");
+		    			//$(".before-login").show();
+		    			//$("#saveModal").removeClass("hidden");
+		    			return false;	
+		    		}else
+		    		{   loginStatus=true;
+		    			$('#saveModal').modal("show");
+		    		}
+		    	}
+		    }
+		});
     }
 	
 });

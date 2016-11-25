@@ -1,5 +1,4 @@
 var APIServer = "";
-
 var fwdApi = {
 		url:{
 			session						: APIServer + context + "/api/member/session",
@@ -17,6 +16,8 @@ motor_d2occupation , $motor_d2occupation,
 motor_d3occupation , $motor_d3occupation,
 motor_d4occupation , $motor_d4occupation,
 motor_d5occupation , $motor_d5occupation;
+
+
 $(document).ready(function(){
 	
 	bsvFormLogin($("#form-motor-login"));

@@ -241,7 +241,15 @@ $(document).ready(function(){
                             	$carMake[0].selectize.setValue(sessionCarMake);
                             	$('.q1, .q2, .q3, .q4, .q5').removeClass('hidden');
                             }
-
+							$.each(res, function(i, item) {
+								if(getUrlParameter("edit")=="yes")
+								{
+									if(item.makeCode == quote.carDetail.makeCode)
+									{
+										$carMake[0].selectize.setValue(item.makeCode);	
+									}
+								}
+							});
                         }
                 });
             },
@@ -291,6 +299,51 @@ $(document).ready(function(){
             valueField: 'model',
             labelField: 'model',
             searchField: ['model'],
+			load: function(query, callback) {
+
+				if(getUrlParameter("edit")=="yes")
+				{
+					var eCarApi = carMakeApi + "/supplement" + "?carModel=" + value; 
+            	$.ajax({
+            		  url: eCarApi,
+            		  contentType: "application/json",
+            		  type: 'GET',
+            		  dataType: "json",
+            		  success: function(data) {
+            		//	  console.log(data);
+            	//		  console.log(data.electricCar);
+            	            if(data.electricCar){
+            	            //	console.log('eCar!!');
+            	            	$('#cc').addClass('hidden');
+            	            	$('#cc').find('div > input[name="cc"]').removeAttr('required');
+            	            }
+            	            else{
+            	        //    	console.log('Not eCar!!');
+            	            	$('#cc').removeClass('hidden');
+            	            	$('#cc').find('div > input[name="cc"]').prop('required',true);
+            	            }
+							$.each(data, function(i, item) {
+							console.log(item.model+"-"+quote.carDetail.model);
+							if(item.model == quote.carDetail.model)
+							{
+								alert(item.model);
+								$car_details[0].selectize.setValue(item.model);	
+							}
+					
+					});
+							
+                      }, 
+                      error: function() {
+                        //  alert(eCarApi);
+                      }
+            		});
+            	
+
+            	
+            	$('#cc').find('input').focus();
+					
+				}
+			},
             onChange: function(value){
             	var eCarApi = carMakeApi + "/supplement" + "?carModel=" + value; 
             	$.ajax({
@@ -311,6 +364,8 @@ $(document).ready(function(){
             	            	$('#cc').removeClass('hidden');
             	            	$('#cc').find('div > input[name="cc"]').prop('required',true);
             	            }
+							
+							
                       }, 
                       error: function() {
                         //  alert(eCarApi);
@@ -352,6 +407,16 @@ $(document).ready(function(){
                             if(sessionOccupation){
                             	$occupation[0].selectize.setValue(sessionOccupation);
                             }
+							if(getUrlParameter("edit")=="yes")
+							{
+								$.each(res, function(i, item) {
+								//console.log(item.code+"-"+quote.applicant.occupation);
+									if(item.code == quote.applicant.occupation)
+									{
+										$occupation[0].selectize.setValue(item.code);	
+									}
+								});
+							}
                         }
                 });
             }
@@ -361,6 +426,10 @@ $(document).ready(function(){
         	preload: true,
             load: function(query, callback) {
             	 $('#ncd-selectized').data('required-error', $('#ncd').data('required-error'));
+				if(getUrlParameter("edit")=="yes")
+				{
+						$ncd[0].selectize.setValue(quote.applicant.ncb);	
+				}
             }
         });
         ncd = $ncd[0].selectize;

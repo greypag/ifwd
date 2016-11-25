@@ -135,7 +135,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="driverID" value="Z1234567" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
+	                                                <input type="text" name="driverID" value="" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
 	                                                <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -533,12 +533,13 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_ic" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' minlength="3" maxlength="3" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
+	                                                <!--<input type="text" name="prev_ic" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' minlength="3" maxlength="3" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></label>
-	                                                <div class="help-block with-errors"></div>
-	                                               <!--  <select class="form-control" id="prev_ic" data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
+	                                                <div class="help-block with-errors"></div>-->
+	                                                <select class="form-control" id="prev_ic" data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></option>
-	                                            	</select>-->
+	                                            	</select>
+													<div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -598,7 +599,7 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="clearfix"></div> 
 	                            <div class="text-center save">
-	                                <a href="#" data-toggle="modal" id="saveForm" data-target="#saveModal" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -673,11 +674,6 @@ var nextPage = "${nextPageFlow}";
             <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
-                        <h3 class="heading-h3 color-orange text-center">
-                            Welcome Back! ABC! 
-                        </h3>
-                    </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
@@ -711,7 +707,15 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
-var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+/* 
+ *  Define motor success login callback
+ */
+var loginStatus=false;
+function callback_motor_LoginSuccess(){
+	alert('Login success. Call Save later API.');
+	$('#saveModal').modal("show");
+}
 $(document).ready(function(){
 	
 	var term = $('#term');
@@ -736,7 +740,9 @@ $(document).ready(function(){
             }
         }
     };
-	
+	$("input[name=fullName]").val(quote.applicant.name);
+    $("input[name=driverID]").val(quote.applicant.hkid);
+    
 	if(getUrlParameter("edit")=="yes")
 	{
 		
@@ -793,8 +799,8 @@ $(document).ready(function(){
 		    $('#driver5').find('input').prop('required',true);
 		    $('#driver5').find('.selectize-input > input').prop('required',false);
 	    }
-		$('input[name=prev_ic]').val(quote.nameOfPreviousInusrancer);
-	    $('input[name=prev_regNo]').val(quote.regNoofPreviousPolicy);		
+		//$('input[name=prev_ic]').val(quote.nameOfPreviousInusrancer);
+		$('input[name=prev_regNo]').val(quote.regNoofPreviousPolicy);		
 	    $('input[name=expiry-datepicker]').val(quote.expDateOfPreviousInsurance);		
 	    $('input[name=prev_policyNo]').val(quote.previousPolicyNo);
 	    
@@ -806,7 +812,7 @@ $(document).ready(function(){
 	    }
 	}
 	
-	/*$prev_ic = $('#prev_ic').selectize({
+	$prev_ic = $('#prev_ic').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',
@@ -826,9 +832,9 @@ $(document).ready(function(){
                             $.each(res, function(i, item) {
     							if(getUrlParameter("edit")=="yes")
     							{
-    								if(item.desc == quote.driver[1].occupation)
+    								if(item.desc == quote.previousPolicyNo)
     								{
-    									$motor_d2occupation[0].selectize.setValue(item.code);	
+    									$prev_ic[0].selectize.setValue(item.code);	
     								}
     							}
     						});	
@@ -837,7 +843,7 @@ $(document).ready(function(){
         },
         onChange: function(value){
         }
-    });*/
+    });
 	
 	$motor_occupation = $('#occupation').selectize({
         valueField: 'code',
@@ -1105,7 +1111,6 @@ $(document).ready(function(){
 
 		        if(xhr.status == 404){		        
 		        	$(".before-login").show();
-		        	$("#saveModal").removeClass("hidden");
 		        } else {
 		        	$(".before-login").show();
 		        }
@@ -1113,17 +1118,24 @@ $(document).ready(function(){
 		    success:function(response){
 		    	if(response){
 		    		if(response.userName == '*DIRECTGI'){
+		    			loginStatus=false;
 		    			$(".before-login").show();
+		    			$("#saveModal").removeClass("hidden");
 		    			return false;	
 		    		}else
+		    		{   loginStatus=true;
 		    			$(".before-login").hide();	
+		    		}
 		    	}
 		    }
 		});
-		
-		$("#saveForm").on("click",function(){
-			$('#saveModal').modal("show");
-	  });
+
+		  $("#saveForm").on("click",function(){
+			    if(loginStatus==false)
+				$('#loginpopup').modal("show");
+			    else  if(loginStatus==true)
+			    $('#saveModal').modal("show");
+		  });
 	    
 	    $.ajax({
 			  type: "POST",
@@ -1162,7 +1174,7 @@ $(document).ready(function(){
 			     "driveMoreThanTwo": driverMoreThanTwo,		
 			     "hkid": $('input[name=driverID]').val(),		
 			     "name": $('input[name=fullName]').val(),		
-			     "occupation": $("#occupation option:selected").text(),	
+			     "occupation": $('[name="occupation"]').val(),//$("#occupation option:selected").text(),	
 			     "validAgeGroup": $('input[name=term]').val()		
 			   }, 		
 			   {		
@@ -1170,7 +1182,7 @@ $(document).ready(function(){
 			     "driveMoreThanTwo": driverMoreThanTwo,		
 			     "hkid": $('input[name=d2id]').val(),		
 			     "name": $('input[name=d2name]').val(),		
-			     "occupation": $("#d2occupation option:selected").text(),		
+			     "occupation": $('[name="d2occupation"]').val(),//$("#d2occupation option:selected").text(),		
 			     "validAgeGroup":  $('input[name=d2term]').val()			
 			   }, 		
 			   {		
@@ -1178,7 +1190,7 @@ $(document).ready(function(){
 				 "driveMoreThanTwo": driverMoreThanTwo,		
 				 "hkid": $('input[name=d3id]').val(),		
 				 "name": $('input[name=d3name]').val(),		
-				 "occupation": $("#d3occupation option:selected").text(),		
+				 "occupation": $('[name="d3occupation"]').val(),//$("#d3occupation option:selected").text(),		
 				 "validAgeGroup": $('input[name=d3term]').val()		
 			   }, 		
 			   {		
@@ -1186,7 +1198,7 @@ $(document).ready(function(){
 				 "driveMoreThanTwo": driverMoreThanTwo,		
 				 "hkid": $('input[name=d4id]').val(),		
 				 "name": $('input[name=d4name]').val(),		
-				 "occupation": $("#d4occupation option:selected").text(),		
+				 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
 				 "validAgeGroup":  $('input[name=d4term]').val()			
 			   }, 		
 			   {		
@@ -1194,14 +1206,14 @@ $(document).ready(function(){
 				 "driveMoreThanTwo": driverMoreThanTwo,		
 				 "hkid": $('input[name=d5id]').val(),		
 				 "name": $('input[name=d5name]').val(),		
-				 "occupation": $("#d5occupation option:selected").text(),		
+				 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		
 				 "validAgeGroup": $('input[name=d5term]').val()		
 			   }		
 			   ], 		
 			     "nameOfPreviousInusrancer": $('input[name=prev_ic]').val(),		
 			     "regNoofPreviousPolicy": $('input[name=prev_regNo]').val(),		
 			     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
-			     "previousPolicyNo": $('input[name=prev_policyNo]').val()	
+			     "previousPolicyNo": $('[name="prev_ic"]').val()//$("#prev_ic option:selected").val()//$('input[name=prev_policyNo]').val()	
 			 };
 		
 		if($('input[name=d2name]').val()=="")

@@ -829,6 +829,9 @@ var nextPage = "${nextPageFlow}";
                                             </div>
                                         </div>
                                     </div>
+                                	<div class="login-error-wrapper">
+											<div id="payment-error" class="color-red heading-h5" role="alert"></div>
+										</div>
                                 </form>
                             </div>
                         </div>
@@ -1108,7 +1111,9 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
 <script type="text/javascript">
 //var quote = jQuery.parseJSON('{"policyId":"26336399","refNumber":"QFVPE16-001548","applicant":{"ncb":"40","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true,"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"ddd","district":"鴨脷洲","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"23-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"chan chan chan"},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2599","model":"120I","yearOfManufacture":"2016","bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","modelDesc":"MODELZ"},"driver":[{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"a1234567","name":"chan chan chan","occupation":"銀行/金融/保險/投資","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"b1234567","name":"bb bb bb","occupation":"會計","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"c1234567","name":"ccc ccc ccc","occupation":"廣告","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"d1234567","name":"dd dd  ddd","occupation":"演藝娛樂界 (例如：演藝人員/化妝師/髪型師等等)","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"e1234567","name":"ee ee ee","occupation":"航空業","validAgeGroup":"true"}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false,"policyStartDate":"23-11-2016","nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"11233588","expDateOfPreviousInsurance":"27-05-2016","previousPolicyNo":"P122345","motorCareDeclaration":[{"declarationAns":true,"declarationNo":"q1"},{"declarationAns":true,"declarationNo":"q2"},{"declarationAns":true,"declarationNo":"q3"}],"psNoDM":"true","psNoProvidePersonalData":"true","psPICS":"true"}');
-var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+
 var ApiPayment= new Array();
 var enablePayment=true;
 var clicked = false;
@@ -1169,70 +1174,119 @@ $(document).ready(function(){
         $('#quote-form').submit();  
 	});
 	
-	//quote
-	console.dir(quote);
-	$(".carmake").html(quote.carDetail.makeCode);
-	$(".carmodel").html(quote.carDetail.model);
-	$(".carcc").html(quote.carDetail.engineCapacity);
-	$(".carmade").html(quote.carDetail.yearOfManufacture);
-	$(".carvalue").html(quote.carDetail.estimatedValue);
-	$(".useroccupation").html(quote.applicant.occupation);
-	$(".cardiscount").html(quote.applicant.ncb+"%");
+	var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+		//this loop only for the payment return with = handler
+ 		for (i = 0; i < sURLVariables.length; i++) {
+            
+            sParameterName = sURLVariables[i].split('=');
+						
+            if (sParameterName[0] === sParam) {
+                  if(sParameterName[0] == "refNum")
+                  {
+                    var combined_refNum=sParameterName[1];
+                    var temp="";
+                    for (j = i+1; j < sParameterName.length; j++) {
+                    	if(sParameterName[j]!="")
+                      	temp= "="+sParameterName[j];
+                      if(sParameterName[j]=="")
+                      	temp= "=";
+                    	combined_refNum += temp; 
+                    }
+                    	return sParameterName[1] === undefined ? true : combined_refNum;
+                  }else
+                		return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
 	
-	//car details
-	$(".carchasis").html(quote.carDetail.chassisNumber);
-	$(".carcubic").html(quote.carDetail.engineCapacity);
-	$(".carmodeldocument").html(quote.carDetail.modelDesc);
-	$(".carbankmortgage").html(quote.carDetail.bankMortgageName);
-	$(".carotherbankmortgage").html(quote.carDetail.bankMortgageName);
-	
-	//applicant detail
-	$(".fullname").html(quote.applicant.name);
-	$(".contactno").html(quote.applicant.contactNo);
-	$(".birth").html(quote.applicant.dateOfBirth);
-	$(".email").html(quote.applicant.email);
-	$(".hkid").html(quote.applicant.hkid);
-	$(".policystart").html(quote.policyStartDate);
-	var address = quote.applicant.correspondenceAddress.flat + ", " +
-				  quote.applicant.correspondenceAddress.floor + ", " +
-				  quote.applicant.correspondenceAddress.block + ", " +
-				  quote.applicant.correspondenceAddress.building + ", " +
-				  quote.applicant.correspondenceAddress.streetName + ", " +
-				  quote.applicant.correspondenceAddress.streetNo + ", " +
-				  quote.applicant.correspondenceAddress.district + ", " +
-				  quote.applicant.correspondenceAddress.estate + " " +
-				  quote.applicant.correspondenceAddress.hkKlNt;
-	$(".address").html(address);
-	$(".policyend").html(quote.applicant.modelDesc);
-	
-	//drivers
-	$(".driver1fullname").html(quote.driver[0].name);
-	$(".driver1occupation").html(quote.driver[0].occupation);
-	$(".driver1birth").html(quote.driver[0].dateOfBirth);
-	$(".driver1hkid").html(quote.driver[0].hkid);
-	
-	var cur_item = 1;
-	
-	$(quote.driver).each(function(i,item)
-	{	
-		$(".driver"+(i+1)+"fullname").html(quote.driver[i].name);
-		$(".driver"+(i+1)+"occupation").html(quote.driver[i].occupation);
-		$(".driver"+(i+1)+"birth").html(quote.driver[i].dateOfBirth);
-		$(".driver"+(i+1)+"hkid").html(quote.driver[i].hkid);
-		cur_item++;
-	});
-	
-	for(var i = quote.driver.length+1 ;i <6 ;i++)
-	{
-		$("#driver"+i).hide();
-	}
-	
-	//no claim discount
-	$(".nameofprevinsurance").html(quote.nameOfPreviousInusrancer);
-	$(".regofdocument").html(quote.regNoofPreviousPolicy);
-	$(".previnsuranceexpirydate").html(quote.expDateOfPreviousInsurance);
-	$(".previouspolicyno").html(quote.previousPolicyNo);
+    if(getUrlParameter("paymentGatewayFlag")=="1" && getUrlParameter("refNum")!=null)
+    {
+    	var summary={
+    			 		 "refNumber": getUrlParameter("refNum"),
+    				};
+    	$.ajax({
+  		  type: "POST",
+  		  data: JSON.stringify(summary),
+  		  dataType: "json",
+  	      contentType : "application/json",
+  	      cache: false,
+  	      async: false,
+  	      url:context + "/api/iMotor/policy/payment/summary?paymentGatewayFlag=1",
+  		  success: function(data){
+  			  console.dir(data);
+  			  quote = data;
+  		      $("#payment-errors").html("Payment failed");
+  		  },error: function(error) {
+  		  }
+  		});    
+    }
+		//quote
+		console.dir(quote);
+		$(".carmake").html(quote.carDetail.makeCode);
+		$(".carmodel").html(quote.carDetail.model);
+		$(".carcc").html(quote.carDetail.engineCapacity);
+		$(".carmade").html(quote.carDetail.yearOfManufacture);
+		$(".carvalue").html(quote.carDetail.estimatedValue);
+		$(".useroccupation").html(quote.applicant.occupation);
+		$(".cardiscount").html(quote.applicant.ncb+"%");
 		
+		//car details
+		$(".carchasis").html(quote.carDetail.chassisNumber);
+		$(".carcubic").html(quote.carDetail.engineCapacity);
+		$(".carmodeldocument").html(quote.carDetail.modelDesc);
+		$(".carbankmortgage").html(quote.carDetail.bankMortgageName);
+		$(".carotherbankmortgage").html(quote.carDetail.bankMortgageName);
+		
+		//applicant detail
+		$(".fullname").html(quote.applicant.name);
+		$(".contactno").html(quote.applicant.contactNo);
+		$(".birth").html(quote.applicant.dateOfBirth);
+		$(".email").html(quote.applicant.email);
+		$(".hkid").html(quote.applicant.hkid);
+		$(".policystart").html(quote.policyStartDate);
+		var address = quote.applicant.correspondenceAddress.flat + ", " +
+					  quote.applicant.correspondenceAddress.floor + ", " +
+					  quote.applicant.correspondenceAddress.block + ", " +
+					  quote.applicant.correspondenceAddress.building + ", " +
+					  quote.applicant.correspondenceAddress.streetName + ", " +
+					  quote.applicant.correspondenceAddress.streetNo + ", " +
+					  quote.applicant.correspondenceAddress.district + ", " +
+					  quote.applicant.correspondenceAddress.estate + " " +
+					  quote.applicant.correspondenceAddress.hkKlNt;
+		$(".address").html(address);
+		$(".policyend").html(quote.applicant.modelDesc);
+		
+		//drivers
+		$(".driver1fullname").html(quote.driver[0].name);
+		$(".driver1occupation").html(quote.driver[0].occupation);
+		$(".driver1birth").html(quote.driver[0].dateOfBirth);
+		$(".driver1hkid").html(quote.driver[0].hkid);
+		
+		var cur_item = 1;
+		
+		$(quote.driver).each(function(i,item)
+		{	
+			$(".driver"+(i+1)+"fullname").html(quote.driver[i].name);
+			$(".driver"+(i+1)+"occupation").html(quote.driver[i].occupation);
+			$(".driver"+(i+1)+"birth").html(quote.driver[i].dateOfBirth);
+			$(".driver"+(i+1)+"hkid").html(quote.driver[i].hkid);
+			cur_item++;
+		});
+		
+		for(var i = quote.driver.length+1 ;i <6 ;i++)
+		{
+			$("#driver"+i).hide();
+		}
+		
+		//no claim discount
+		$(".nameofprevinsurance").html(quote.nameOfPreviousInusrancer);
+		$(".regofdocument").html(quote.regNoofPreviousPolicy);
+		$(".previnsuranceexpirydate").html(quote.expDateOfPreviousInsurance);
+		$(".previouspolicyno").html(quote.previousPolicyNo);
 	
     
 	$.ajax({
@@ -1287,17 +1341,6 @@ $(document).ready(function(){
     	switchPayment($(this));
    	});
 	$( "#button_confirm" ).on( "click", function(e) {
-		
-		//testing
-		//var geteWayUrl = "http://localhost:8080/fwdhk/en/motor-insurance/payment-result?refNum=YQUkROWUfMEjqyFbxtSNig==";
-		//alert(geteWayUrl);  
-//setTimeout(function(){ 
-			//   console.dir($("#no-claim").serialize());
-			 
-        	//	$("#no-claim").attr('action', geteWayUrl);
-            //    $("#no-claim").submit();
-          //}, 3000);
-			//testing
     	confrimPayment('no-claim', 'gateway', 'no-claim');
    	});
 	
