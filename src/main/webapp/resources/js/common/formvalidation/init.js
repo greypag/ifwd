@@ -46,46 +46,52 @@ function initFVConfig(argCfg) {
 
 			var dataSourceFieldInfo = {};
 
-			// MUST - DOM [id="inputFullName"] is plugged "onBlur" & triggers isValidBeneFullName()
+			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid' };
-			argCfg.helpers.event.isValidBeneFullName( 'applicant', true, dataSourceFieldInfo, null );
-			argCfg.helpers.event.keypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
+			argCfg.helpers.event.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );
+			// input control : alpha + space chars only
+			argCfg.helpers.event.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
 
-			// MUST - DOM [id="inputTxtAppHkid"] is plugged "onBlur" & triggers isValidBeneHkid()
-			// dataSourceFieldInfo = { 'inputId': 'inputTxtAppHkid', 'errorId': 'fullnameinvalid' };
-			// argCfg.helpers.event.isValidBeneHkid( 'applicant', true, dataSourceFieldInfo, null );
+			// MUST - DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
+			dataSourceFieldInfo = { 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid' };
+			argCfg.helpers.event.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );
+			// input control : general HKID valid chars only
+			argCfg.helpers.event.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo.inputId );
 
-			// MUST - DOM [id="applicantDob"] is plugged "onBlur" & triggers isValidBeneDob()
+			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
 			// dataSourceFieldInfo = { 'inputId': 'applicantDob', 'errorId': 'fullnameinvalid' };
-			// argCfg.helpers.event.isValidBeneDob( 'applicant', false, dataSourceFieldInfo, null );
-
-			// This For-loop SAME AS JSP var ${inx} (i.e. defined in flight-plan-details.jsp)
-			// In JS var, {Integer} 'argCfg.travellerCounter.personalPlan' (i.e. Total Personal Plan Travller)
-			// for ( var i = 1; i < argCfg.travellerCounter.personalPlan+1; i++ ) (function(i) {
-			//
-			// 	// WON'T - Note & Demo only, because these are hidden fields
-			// 	// DOM [id="personalBenefitiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
-			// 	dataSourceFieldInfo = { 'inputId': 'personalBenefitiaryId'+i, 'errorId': 'err'+'personalBenefitiaryId'+i };
-			// 	argCfg.helpers.event.isValidBeneFullName( 'beneficiary', true, dataSourceFieldInfo, null);
-			//
-			// })(i);
+			// argCfg.helpers.event.isValidBeneDob( false, dataSourceFieldInfo, null );
 
         });
 
 
 		// Merge all FV configs together, !!! caution we only targeted to result['fields']
 		var result = argCfg.schema;
+
 		result.fields = $.extend(
 				argCfg.schema.fields
 				, argCfg.applicant
 				, argCfg.helpers.generateData.cfgFlightCare( argCfg )
 			);
+
 		console.log(result);
 
 		return result;
 	};
 
-    var travelCare	= function() { return null; };
+    var travelCare	= function() {
+		// This For-loop SAME AS JSP var ${inx} (i.e. defined in flight-plan-details.jsp)
+		// In JS var, {Integer} 'argCfg.travellerCounter.personalPlan' (i.e. Total Personal Plan Travller)
+		// for ( var i = 1; i < argCfg.travellerCounter.personalPlan+1; i++ ) (function(i) {
+		//
+		// 	// WON'T - Note & Demo only, because these are hidden fields
+		// 	// DOM [id="personalBenefitiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
+		// 	dataSourceFieldInfo = { 'inputId': 'personalBenefitiaryId'+i, 'errorId': 'err'+'personalBenefitiaryId'+i };
+		// 	argCfg.helpers.event.isValidBeneFullName( true, dataSourceFieldInfo, null);
+		//
+		// })(i);
+		return null;
+	};
 	var easyHealth	= function() { return null; };
 	var easyHome 	= function() { return null; };
 	var eliteTerm	= function() { return null; };

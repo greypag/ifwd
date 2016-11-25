@@ -34,10 +34,14 @@ fvConfig['applicant'] = function() {
     return {
         'fullName': {
             'container': '#fullnameinvalid'
-            // , 'trigger': 'focus blur'
+            , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'error.contact.person.name.empty')
+                }
+                , 'stringLength': {
+                    'max': 50
+                    , 'message': ''
                 }
             }
         },
@@ -96,18 +100,15 @@ fvConfig['insuredPerson'] = function() {
     return {
         'personalName': {
             'container': '#errtxtPersonalFullName'
-            // , 'trigger': 'blur'
+            , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'insured.name.notNull.message')
                 }
-                // - new testing code - start -
-                // , 'identical': {
-                // 	'enabled': false,
-                //     'field': 'fullName',
-                //     'message': 'Name is not same'
-                // }
-                // - new testing code - end -
+                , 'stringLength': {
+                    'max': 100
+                    , 'message': ''
+                }
             }
         },
         'personalHKID': {
@@ -116,7 +117,14 @@ fvConfig['insuredPerson'] = function() {
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }// - new testing code - start -
+                , 'identical': {
+                // , 'different': {
+                	'enabled': false,
+                    'field': 'fullName',
+                    'message': 'Name is not same'
                 }
+                // - new testing code - end -
             }
         },
         'personalAgeRange': {

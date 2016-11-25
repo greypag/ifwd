@@ -1,13 +1,32 @@
 'use strict';
 
-/*
- * - purposes in-drafting -
- *
- * @method gen_configFlightCare
- * @param {Object} obj
- * @return {Object} obj
- */
+// Global Private Function
+var _bindingValFromA2B = function(insureBoolean, dataSourceFieldInfo, insureFieldInfo) {
+    var conditionalId = 'applicantRelationship';        //  oversea-plan-details.jsp >>> $('#applicantRelationship')
+    var fullname = $("#"+dataSourceFieldInfo.inputId).val();
+
+    console.log( 'insureBoolean = ' + insureBoolean );
+    if (insureBoolean) {
+        if (document.getElementById(conditionalId) != null) {
+            if (document.getElementById(conditionalId).value == 'SE') {
+                $('#'+insureFieldInfo.inputBoxId).val(fullname);
+            }
+        } else {
+            $('#'+insureFieldInfo.inputBoxId).val(fullname);
+        }
+    }
+};
+
+ /*
+  * Flight Care FormValidation Config Generation
+  *
+  * @method [Public]    gen_configFlightCare
+  * @param  {Object}    obj
+  * @return {Object}    buffer  [success]
+  * @return {Boolean}   false   [failure]
+  */
 var gen_configFlightCare = function(obj) {
+
     try {
         if ( _.isEmpty(obj) ) throw new Error('1 param is required. Please check.');
     } catch(e) {
@@ -16,11 +35,15 @@ var gen_configFlightCare = function(obj) {
     }
    //  finally { statements } // noted
 
-   var buffer = {};
-   var newKeyMap = {};
-
-   // Private function
-   var plugIdIntoKeyMap = function(index, configs) {
+   /*
+    * Add the suffix string (i.e. index) on each keys
+    *
+    * @method   [Private]           _plugIdIntoKeyMap
+    * @param    {Integer / String}  index
+    * @param    {Object}            configs
+    * @return   {Object}            temp
+    */
+   var _plugIdIntoKeyMap = function(index, configs) {
        var keys = _.keys(configs);
        var temp = {};
 
@@ -30,101 +53,127 @@ var gen_configFlightCare = function(obj) {
        return temp;
    };
 
-   // Core
-   var counter = obj.travellerCounter.personalPlan;
-   for (i = 1; i <= counter; i++) {
-       var keyMap = plugIdIntoKeyMap(i, obj.insuredPerson);
-       newKeyMap = {};
-       _.each( obj.insuredPerson, function(insuredPersonV, insuredPersonI) {
-           var sub = {};
-           var targetKey = 'container';
+   /*
+    * Core progress about FV config generation
+    *
+    * @method   [Private]   _dataMassage
+    * @param    {Integer}   insurcedPersonTotal
+    * @param    {Object}    o
+    * @return   {Object}
+    */
+   var _dataMassage = function(insurcedPersonTotal, o) {
+       var buffer = {};
+       var newKeyMap = {};
+       for (i = 1; i <= insurcedPersonTotal; i++) {
+           var keyMap = _plugIdIntoKeyMap(i, o.insuredPerson);
+           newKeyMap = {};
+           _.each( o.insuredPerson, function(iPersonV, iPersonI) {
+               var sub = {};
+               var targetKey = 'container';
 
-           sub[targetKey] = insuredPersonV[targetKey] + i;
-           // - new testing code - start -
-           // console.log(typeof insuredPersonV.validators.identical);
-           if ( i == 1 && insuredPersonI=="personalName1" ) {
-               insuredPersonV.validators.identical.enabled = true;
-           } else if( i != 1 && typeof insuredPersonV.validators.identical!="undefined" ) {
-               insuredPersonV.validators.identical.enabled = false;
-           }
-           // - new testing code - end -
-           _.each(insuredPersonV, function(insuredPersonV_V, insuredPersonV_I) {
-               if (insuredPersonV_I !== targetKey) { sub[insuredPersonV_I] = insuredPersonV[insuredPersonV_I]; }
+               sub[targetKey] = iPersonV[targetKey] + i;
+               // - new testing code - start -
+               // console.log(typeof iPersonV.validators.identical);
+               if ( i == 1 && iPersonI=="personalName1" ) {
+                   iPersonV.validators.identical.enabled = true;
+               } else if( i != 1 && typeof iPersonV.validators.identical!="undefined" ) {
+                   iPersonV.validators.identical.enabled = false;
+               }
+               // - new testing code - end -
+               _.each(iPersonV, function(iPersonV_V, iPersonV_I) {
+                   if (iPersonV_I !== targetKey) { sub[iPersonV_I] = iPersonV[iPersonV_I]; }
+               });
+               newKeyMap[ keyMap[iPersonI] ] = _.merge({}, sub);
            });
-           newKeyMap[ keyMap[insuredPersonI] ] = _.merge({}, sub);
-       });
-       buffer = _.merge(buffer, newKeyMap);
-   }
+           buffer = _.merge(buffer, newKeyMap);
+       }
+       return buffer;
+   };
 
-   return buffer;
+   // Core
+   var buffer = {};
+
+   if ( obj.travellerCounter.personalPlan === 0 ) {
+
+       // Family Plan
+        var familyConfig = {};
+        familyConfig['adult'] = _dataMassage(obj.travellerCounter.familyPlan.adult, obj);
+        familyConfig['child'] = _dataMassage(obj.travellerCounter.familyPlan.child, obj);
+        familyConfig['other'] = _dataMassage(obj.travellerCounter.familyPlan.other, obj);
+
+        //    -- underdeveloping --
+        console.log(familyConfig);
+        _.each(familyConfig, function(fcVal, fcInd) {
+           console.log(fcInd);
+           console.log(fcVal);
+           buffer = $.extend(buffer, fcVal);
+        });
+        console.log(buffer);
+        //    -- underdeveloping --
+
+    } else {
+
+        // Personal Plan
+        buffer = _dataMassage(obj.travellerCounter.personalPlan, obj);
+    }
+
+    return buffer;
+
 };
 
 /*
- * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
+ * Binds "onBlur" JS behaviour to Applicant Full Name inputbox
  *
- * @method add_isValidBeneFullName
- * @param   {String}            personRole
- *          , {Boolean}         insureBoolean
- *          , {String}          dataSourceFieldId
- *          , {Null or Object}  insureFieldInfo [ defaulted: Null ]
- *          , {Object}          placeholderObj
+ * @method  [Public] event_applicantName2InsuredPerson
+ * @param   {Boolean}           insureBoolean
+ * @param   {String}          dataSourceFieldId
+ * @param   {Null or Object}  insureFieldInfo [ defaulted: Null ]
  * @return Nil
  */
-var add_isValidBeneFullName = function(personRole, insureBoolean, dataSourceFieldInfo, insureFieldInfo) {
+var event_applicantName2InsuredPerson = function( insureBoolean, dataSourceFieldInfo, insureFieldInfo ) {
+
+    // Defined what DOM will be binded to, i.e. Insured Person inputbox
     if ( insureFieldInfo == null ) {
-        // Defined what DOM will be binded to, i.e. Insured Person inputbox
-        insureFieldInfo = {   // defaulted value
-            'inputBoxId': 'txtInsuFullName1'
-            , 'errMsgDOMId': 'errtxtPersonalFullName1'
-        };
+        insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
     }
     $( '#'+dataSourceFieldInfo.inputId).blur(function() {
         console.log(' $(#'+dataSourceFieldInfo.inputId+') - onBlur JS detected -');
-        fwdValidator.beneficiaryInfo.isValidBeneFullName( insureBoolean, personRole, insureFieldInfo, dataSourceFieldInfo );
+        _bindingValFromA2B(insureBoolean, dataSourceFieldInfo, insureFieldInfo);
+    });
+};
+
+/*
+ * Binds "onBlur" JS behaviour to Applicant HKID inputBox
+ *
+ * @method  [Public] event_applicantHkid2InsuredPerson
+ * @param   {Boolean} insureBoolean
+ * @param   {String} dataSourceFieldId
+ * @param   {Null or Object} insureFieldInfo [ defaulted: Null ]
+ * @return Nil
+ */
+var event_applicantHkid2InsuredPerson = function( insureBoolean, dataSourceFieldInfo, insureFieldInfo ) {
+
+    // Defined what DOM will be binded to, i.e. Insured Person inputbox
+    if ( insureFieldInfo == null ) {
+        insureFieldInfo = { 'inputBoxId': 'txtInsuHkid1' , 'errMsgDOMId': 'errtxtInsuHkid1' };
+    }
+    $( '#'+dataSourceFieldInfo.inputId).blur(function() {
+        console.log(' $(#'+dataSourceFieldInfo.inputId+') - onBlur JS detected -');
+        _bindingValFromA2B(insureBoolean, dataSourceFieldInfo, insureFieldInfo);
     });
 };
 
 /*
  * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
  *
- * @method add_isValidBeneHkid
- * @param   {Integer} index
- *          , {Boolean} insureBoolean
- *          , {String} dataSourceFieldId
- *          , {Null or Object} insureFieldInfo [ defaulted: Null ]
- * @return Nil
- */
-// var add_isValidBeneHkid = function(index, insureBoolean, dataSourceFieldId, insureFieldInfo) {
-//
-//     if ( insureFieldInfo == null ) {
-//         // Defined what DOM will be binded to, i.e. Insured Person inputbox
-//         insureFieldInfo = {   // defaulted value
-//             'inputBoxId': 'txtInsuFullName1'
-//             , 'errMsgDOMId': 'errtxtPersonalFullName1'
-//         };
-//     }
-//     var dataSourceFieldInfo = {
-//         'inputId': dataSourceFieldId+i
-//         , 'selectId': ''
-//         , 'errorId': 'err'+dataSourceFieldId+i
-//     };
-//     $( '#'+dataSourceFieldId+i).blur(function() {
-//         console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
-//         fwdValidator.beneficiaryInfo.isValidBeneFullName( insureBoolean, 'beneficiary', argCfg.placeholder, insureFieldInfo, dataSourceFieldInfo );
-//     });
-// };
-
-/*
- * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
- *
  * @method add_isValidBeneDob
  * @param   {Integer} index
- *          , {Boolean} insureBoolean
- *          , {String} dataSourceFieldId
- *          , {Null or Object} insureFieldInfo [ defaulted: Null ]
+ * @param   {Boolean} insureBoolean
+ * @param   {String} dataSourceFieldId
+ * @param   {Null or Object} insureFieldInfo [ defaulted: Null ]
  * @return Nil
  */
-var add_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insureFieldInfo) {
+var event_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insureFieldInfo) {
 
     // IF NULL, applied the defaulted value
     if ( insureFieldInfo === null ) {
@@ -132,15 +181,22 @@ var add_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insur
         insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1', 'errMsgDOMId': 'errtxtPersonalFullName1' };
     }
     $( '#'+dataSourceFieldId+i).blur(function() {
-        // console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
-        fwdValidator.beneficiaryInfo.isValidBeneFullName( dataSourceFieldId+i, 'err'+dataSourceFieldId+i, insureBoolean, 'beneficiary', argCfg.placeholder, insureFieldInfo );
+        console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
+
     });
 };
 
-var add_keypress_returnEngSpaceOnly = function(fieldId) {
+var event_returnEngSpaceOnly = function(fieldId) {
     $( '#'+fieldId ).keypress(function(evt) {
         console.log(' $(#' + fieldId + ') - keypress JS detected -');
         return fwdValidator.eventHandler.returnEngSpaceOnly(evt);
+    });
+};
+
+var event_returnHkidLegalCharOnly = function(fieldId) {
+    $( '#'+fieldId ).keypress(function(evt) {
+        console.log(' $(#' + fieldId + ') - keypress JS detected -');
+        return fwdValidator.eventHandler.returnHkidLegalCharOnly(evt);
     });
 };
 
@@ -153,14 +209,20 @@ fvConfig['helpers'] = {
         'cfgFlightCare':            gen_configFlightCare
     },
     'event': {
-        'isValidBeneFullName':      add_isValidBeneFullName   // Active
-        // , 'isValidBeneHkid'     : add_isValidBeneHkid       // In-progress, not tested yet
-        // , 'isValidBeneDob'      : add_isValidBeneDob     // Pending
-        , 'keypress': {
-            'returnEngSpaceOnly':    add_keypress_returnEngSpaceOnly
+        'onblur': {
+            'binding': {
+                'applicantName2InsuredPerson':      event_applicantName2InsuredPerson
+                , 'applicantHkid2InsuredPerson':    event_applicantHkid2InsuredPerson
+            }
         }
-    },
-    'ux': {}
+        , 'onkeypress': {
+            'returnEngSpaceOnly':           event_returnEngSpaceOnly
+            , 'returnHkidLegalCharOnly':    event_returnHkidLegalCharOnly
+        }
+        // , 'isValidBeneHkid'     : event_isValidBeneHkid       // In-progress, not tested yet
+        // , 'isValidBeneDob'      : event_isValidBeneDob     // Pending
+    }
+    , 'ux': {}
 };
 
 
@@ -247,8 +309,8 @@ fvConfig['helpers'] = {
 //     var result = {};
 //     _.each(obj, function(v, i) {
 //         result[i] = {};
-//         _.each(v, function(insuredPersonV, insuredPersonI) {
-//             phase_dynamicKeyToObj(result[i], insuredPersonI, insuredPersonV);
+//         _.each(v, function(iPersonV, iPersonI) {
+//             phase_dynamicKeyToObj(result[i], iPersonI, iPersonV);
 //         });
 //     });
 //     return result;

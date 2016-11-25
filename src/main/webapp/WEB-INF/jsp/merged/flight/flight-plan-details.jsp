@@ -436,7 +436,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 										   value="${userDetails.fullName }" readonly="readonly"
 										   </c:when>
 									   </c:choose>
-                                       maxlength="50" />
+                                       />
 	                                   <span id="fullnameinvalid" class="text-red"></span>
 	                           </div>
 	                       </div>
@@ -663,12 +663,12 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 														    value="${userDetails.fullName }"
 														    </c:when>
 														</c:choose>
-														placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" maxlength="100" readonly="readonly" />
+														placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" readonly="readonly" />
 	                                          </c:if>
 	                                          <c:if test="${inx > 1}">
                                                         <input
                                                         type="text" name="personalName${inx}" id="txtInsuFullName${inx}"
-                                                        class="form-control full-control textUpper" placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" maxlength="100" />
+                                                        class="form-control full-control textUpper" placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" />
                                                     </c:if>
                                                     <span id="errtxtPersonalFullName${inx}" class="text-red"> </span>
 			                               </div>
@@ -2346,9 +2346,9 @@ $(function() {
             * Each pair of field and label are placed inside a .form-group element
             **/
             data.element.next().children().addClass("text-red");
-			//console.log(data.element.next());
-            console.log(data.element);
-            console.log( data.fv.getOptions(data.element) );
+			// console.log(data.element.next());
+            // console.log(data.element);
+            // console.log( data.fv.getOptions(data.element) );
         });
         // - new testing code - end -
 });

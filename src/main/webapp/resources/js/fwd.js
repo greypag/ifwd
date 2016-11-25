@@ -2362,7 +2362,10 @@ function allLetter(inputtxt) {
 * For function validateName() -- ALREADY MIGRATED
 *
 * Caution to Developers:
-* If any updated, suggested to do in "resources/js/common/fwd-validator.js", i.e. _isValidBeneFullName() .
+* Functionally replaced by
+* 1) "resources/js/common/formvalidation/helpers.js", i.e. event_fieldDataBinding() .
+* 2) FormValidation.io
+* 3) placeholder.min.js
 *
 **/
 // bmg input fields validation START
@@ -2435,7 +2438,10 @@ function validateName(inputId, errorId, insureBoolean, inputType) {
 * For function validateHkid() -- will be MIGRATED --
 *
 * Caution to Developers:
-* If any updated, suggested to do in "resources/js/common/fwd-validator.js", i.e. _isValidBeneHkid() .
+* Functionally replaced by
+* 1) "resources/js/common/fwd-validator.js", i.e. event_applicantHkid2InsuredPerson() .
+* 2) FormValidation.io
+* 3) placeholder.min.js
 *
 **/
 function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
@@ -2576,6 +2582,17 @@ function validateMobile(inputId, errorId, inputType){
 *
 * Caution to Developers:
 * If any updated, suggested to do in "resources/js/common/fwd-validator.js", i.e. _isValidBeneDob() .
+*
+**/
+/**
+*
+* For function validateName() -- ALREADY MIGRATED
+*
+* Caution to Developers:
+* Functionally replaced by
+* 1) "resources/js/common/formvalidation/helpers.js", i.e. event_fieldDataBinding() .
+* 2) FormValidation.io
+* 3) placeholder.min.js
 *
 **/
 function validateDob(inputId, errorId, inputType){
@@ -4250,7 +4267,7 @@ function replaceNumeric(id) {
 * For function alphaOnly() -- ALREADY MIGRATED
 *
 * Caution to Developers:
-* If any updated, suggested to do in "resources/js/common/fwd-validator.js". Renamed to "eventReturnEngSpaceOnly(evt)"
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js". Renamed to "_returnEngSpaceOnly(evt)"
 *
 **/
 function alphaOnly(evt) {
@@ -6908,6 +6925,14 @@ function hkidValid(ths){
 	}
 }
 
+/**
+*
+* For function hkidOnkeypress() -- ALREADY MIGRATED
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js". Renamed to "_returnHkidLegalCharOnly(evt)"
+*
+**/
 function hkidOnkeypress(evt) {
 	evt = (evt) ? evt : event;
 	var eCode = evt.keyCode;
