@@ -1074,7 +1074,11 @@ $("#et-personal-info-next, #btn-back").click(function () {
 					} else {
 						$('#genderErMsg').find('.help-block').attr('style', 'display:none;');
 					}*/
+		var hasBought = false;
+		var invalidTaxResident = false;
+		
 		$("#errorMsg").html("");
+		// Check has bought savie or not
 		$.ajax({
 			type: "POST",
 			async: false,
@@ -1083,21 +1087,55 @@ $("#et-personal-info-next, #btn-back").click(function () {
 			success: function (data) {
 				if (data != null && data.errorMsg != null && data.errorMsg != "" || !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
 					if(data.errorMsg == "you can only buy one savie"){
-			    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
-			    		$('#prev-savie-app-modal').modal('show');
+						$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+						$('#prev-savie-app-modal').modal('show');
 					}
 					else{
 						show_stack_bar_top(data.errorMsg);
 					}
 				} else {
-					if ('${backSummary}' == "Y") {
-						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
+					hasBought = true;
+				}
+			}
+		});
+		
+		// Identify suspicious tax resident
+		var tax_resident_info = {};
+		tax_resident_info.hkId = $('#hkId').val();
+		tax_resident_info.placeOfBirth = $('#placeOfBirth').val();
+		tax_resident_info.nationality = $('#nationalty').val();
+		tax_resident_info.permanentAddress = {'line1':$('#permanentAddress1').val(),'line2':$('#permanentAddress2').val(),'line3':$('#permanentAddress3').val(),'line4':'','district':$('#permanetAddressDistrict').val()};
+		tax_resident_info.residentialAddress = {'line1':$('#residentialAddress1').val(),'line2':$('#residentialAddress2').val(),'line3':$('#residentialAddress3').val(),'line4':'','district':$('#residentialAddressDistrict').val()};
+		tax_resident_info.correspondenceAddress = {'line1':$('#correspondenceAddress1').val(),'line2':$('#correspondenceAddress2').val(),'line3':$('#correspondenceAddress3').val(),'line4':'','district':$('#correspondenceAddressDistrict').val()};
+		
+		console.log(tax_resident_info);
+		console.log(JSON.stringify(tax_resident_info));
+		
+		$.ajax({
+			type: "POST",
+			async: false,
+			url: "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
+			data: JSON.stringify(tax_resident_info),
+			success: function (data) {
+				console.log(data);
+				
+				if (data != null && data.proceed != null && data.proceed != "") {
+					if(data.proceed == false){
+						$('#tax-resident-modal').modal('show');
 					} else {
-						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+						invalidTaxResident = true;
 					}
 				}
 			}
 		});
+		
+		if(hasBought && invalidTaxResident){
+			if ('${backSummary}' == "Y") {
+				window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
+			} else {
+				window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+			}
+		}
 	}
 });
 
@@ -1456,5 +1494,34 @@ for Chinese Address
 #is-chinese-address is the indicator for detect is Chinese Address or not(value: Y/N)
 */
 </script>
+
+	<!-- tax resident modal -->
+	<div class="modal fade" id="tax-resident-modal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="row">
+						<div class="modal-body__right col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="modal-body__close">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<!--div class="modal-body__title">
+								<h3 class="modal-title"><fmt:message key="savie.tax.resident.modal.title" bundle="${msg}" /></h3>
+							</div-->
+							<div class="modal-body__content">
+								<fmt:message key="savie.tax.resident.modal.content" bundle="${msg}" />
+							</div>
+							<div class="modal-body__button">
+								<button type="button" class="btn btn-primary" data-dismiss="modal"><fmt:message key="savie.tax.resident.modal.btn" bundle="${msg}" /></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
