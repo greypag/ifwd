@@ -493,6 +493,7 @@ $(document).ready(function(){
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
 	          var opts = {};
+	          quote.refNumber = data.refNumber;	          
 	          opts = $.extend(opts,quote, submitData);
               $quote.attr("value", JSON.stringify(opts));
               $form.append($quote);
