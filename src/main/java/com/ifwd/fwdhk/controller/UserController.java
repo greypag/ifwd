@@ -138,7 +138,11 @@ public class UserController {
 							checkJsonObjNull(customer, "referralCode"));
 					/*session.setAttribute("myOverseasReferralCode",
 							checkJsonObjNull(customer, "referralCode"));*/
-					
+
+					String memberType = (String)customer.get("memberType");
+					String customerId = (String)customer.get("customerId");
+					if(memberType!=null)session.setAttribute("memberType", memberType);
+					if(customerId!=null)session.setAttribute("customerId", customerId);
 
 					UserDetails userDetails = new UserDetails();
 					userDetails.setToken(checkJsonObjNull(response, "token"));
