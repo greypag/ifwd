@@ -151,7 +151,7 @@ fvConfig['insuredPerson'] = function() {
 fvConfig['insuredAdult'] = function() {
     return {
         'adultName': {
-            'container': '#errtxtPersonalFullName'
+            'container': '#errtxtAdFullName'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -189,7 +189,7 @@ fvConfig['insuredAdult'] = function() {
             }
         },
         'adultBeneficiary': {
-            'container': '#errpersonalselectBenificiary'
+            'container': '#erradultsselectBenificiary'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -203,7 +203,7 @@ fvConfig['insuredAdult'] = function() {
 fvConfig['insuredChild'] = function() {
     return {
         'childName': {
-            'container': '#errtxtPersonalFullName'
+            'container': '#errtxtChldFullName'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -216,7 +216,7 @@ fvConfig['insuredChild'] = function() {
             }
         },
         'childHKID': {
-            'container': '#errtxtInsuHkid'
+            'container': '#txtChldInsuHkid'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -232,7 +232,7 @@ fvConfig['insuredChild'] = function() {
             }
         },
         'childAgeRange': {
-            'container': '#errselectAgeRange'
+            'container': '#errchildRange'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -241,7 +241,7 @@ fvConfig['insuredChild'] = function() {
             }
         },
         'childBeneficiary': {
-            'container': '#errpersonalselectBenificiary'
+            'container': '#errselectChildbenificiary'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -255,7 +255,7 @@ fvConfig['insuredChild'] = function() {
 fvConfig['insuredOther'] = function() {
     return {
         'otherName': {
-            'container': '#errtxtPersonalFullName'
+            'container': '#errtxtOtherFullName'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -268,7 +268,7 @@ fvConfig['insuredOther'] = function() {
             }
         },
         'otherHKID': {
-            'container': '#errtxtInsuHkid'
+            'container': '#errtxtOtherInsuHkid'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -284,7 +284,7 @@ fvConfig['insuredOther'] = function() {
             }
         },
         'otherAgeRange': {
-            'container': '#errselectAgeRange'
+            'container': '#errselectOtherAgeRange'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
@@ -293,7 +293,7 @@ fvConfig['insuredOther'] = function() {
             }
         },
         'otherBeneficiary': {
-            'container': '#errpersonalselectBenificiary'
+            'container': '#benificiary'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
