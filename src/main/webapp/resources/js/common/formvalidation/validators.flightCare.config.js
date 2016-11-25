@@ -147,3 +147,159 @@ fvConfig['insuredPerson'] = function() {
         }
     };
 }();
+
+fvConfig['insuredAdult'] = function() {
+    return {
+        'adultName': {
+            'container': '#errtxtPersonalFullName'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.name.notNull.message')
+                }
+                , 'stringLength': {
+                    'max': 100
+                    , 'message': ''
+                }
+            }
+        },
+        'adultHKID': {
+            'container': '#errtxtInsuHkid'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }// - new testing code - start -
+                , 'identical': {
+                // , 'different': {
+                	'enabled': false,
+                    'field': 'fullName',
+                    'message': 'Name is not same'
+                }
+                // - new testing code - end -
+            }
+        },
+        'adultAgeRange': {
+            'container': '#errselectAgeRange'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }
+            }
+        },
+        'adultBeneficiary': {
+            'container': '#errpersonalselectBenificiary'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }
+            }
+        }
+    };
+}();
+
+fvConfig['insuredChild'] = function() {
+    return {
+        'childName': {
+            'container': '#errtxtPersonalFullName'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.name.notNull.message')
+                }
+                , 'stringLength': {
+                    'max': 100
+                    , 'message': ''
+                }
+            }
+        },
+        'childHKID': {
+            'container': '#errtxtInsuHkid'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }// - new testing code - start -
+                , 'identical': {
+                // , 'different': {
+                	'enabled': false,
+                    'field': 'fullName',
+                    'message': 'Name is not same'
+                }
+                // - new testing code - end -
+            }
+        },
+        'childAgeRange': {
+            'container': '#errselectAgeRange'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }
+            }
+        },
+        'childBeneficiary': {
+            'container': '#errpersonalselectBenificiary'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }
+            }
+        }
+    };
+}();
+
+fvConfig['insuredOther'] = function() {
+    return {
+        'otherName': {
+            'container': '#errtxtPersonalFullName'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.name.notNull.message')
+                }
+                , 'stringLength': {
+                    'max': 100
+                    , 'message': ''
+                }
+            }
+        },
+        'otherHKID': {
+            'container': '#errtxtInsuHkid'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }// - new testing code - start -
+                , 'identical': {
+                // , 'different': {
+                	'enabled': false,
+                    'field': 'fullName',
+                    'message': 'Name is not same'
+                }
+                // - new testing code - end -
+            }
+        },
+        'otherAgeRange': {
+            'container': '#errselectAgeRange'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }
+            }
+        },
+        'otherBeneficiary': {
+            'container': '#errpersonalselectBenificiary'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }
+            }
+        }
+    };
+}();

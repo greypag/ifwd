@@ -57,66 +57,64 @@ var gen_configFlightCare = function(obj) {
     * Core progress about FV config generation
     *
     * @method   [Private]   _dataMassage
-    * @param    {Integer}   insurcedPersonTotal
+    * @param    {Integer}   iPersonTotal ( insurcedPersonTotal )
     * @param    {Object}    o
+    * @param    {Object}    pct ( personConfigType )
     * @return   {Object}
     */
-   var _dataMassage = function(insurcedPersonTotal, o) {
-       var buffer = {};
-       var newKeyMap = {};
-       for (i = 1; i <= insurcedPersonTotal; i++) {
-           var keyMap = _plugIdIntoKeyMap(i, o.insuredPerson);
-           newKeyMap = {};
-           _.each( o.insuredPerson, function(iPersonV, iPersonI) {
+    var _dataMassage = function(iPersonTotal, o, pct) {
+
+        var buffer = {};
+        var newKeyMap = {};
+        for (i = 1; i <= iPersonTotal; i++) {
+
+            var keyMap = _plugIdIntoKeyMap(i, o[pct]);
+
+            newKeyMap = {};
+            _.each( o[pct], function(iPersonV, iPersonI) {
                var sub = {};
                var targetKey = 'container';
 
                sub[targetKey] = iPersonV[targetKey] + i;
+
                // - new testing code - start -
                // console.log(typeof iPersonV.validators.identical);
                if ( i == 1 && iPersonI=="personalName1" ) {
                    iPersonV.validators.identical.enabled = true;
-               } else if( i != 1 && typeof iPersonV.validators.identical!="undefined" ) {
+               } else if ( i != 1 && typeof iPersonV.validators.identical!="undefined" ) {
                    iPersonV.validators.identical.enabled = false;
                }
                // - new testing code - end -
+
                _.each(iPersonV, function(iPersonV_V, iPersonV_I) {
                    if (iPersonV_I !== targetKey) { sub[iPersonV_I] = iPersonV[iPersonV_I]; }
                });
                newKeyMap[ keyMap[iPersonI] ] = _.merge({}, sub);
-           });
-           buffer = _.merge(buffer, newKeyMap);
-       }
-       return buffer;
-   };
+            });
+            buffer = _.merge(buffer, newKeyMap);
 
-   // Core
-   var buffer = {};
+        }
+        return buffer;
+    };
 
-   if ( obj.travellerCounter.personalPlan === 0 ) {
+    // Core
+    var buffer = {};
+    if ( obj.travellerCounter.personalPlan === 0 ) {
 
        // Family Plan
         var familyConfig = {};
-        familyConfig['adult'] = _dataMassage(obj.travellerCounter.familyPlan.adult, obj);
-        familyConfig['child'] = _dataMassage(obj.travellerCounter.familyPlan.child, obj);
-        familyConfig['other'] = _dataMassage(obj.travellerCounter.familyPlan.other, obj);
-
-        //    -- underdeveloping --
-        console.log(familyConfig);
+        familyConfig['adult'] = _dataMassage(obj.travellerCounter.familyPlan.adult, obj, 'insuredAdult');
+        familyConfig['child'] = _dataMassage(obj.travellerCounter.familyPlan.child, obj, 'insuredChild');
+        familyConfig['other'] = _dataMassage(obj.travellerCounter.familyPlan.other, obj, 'insuredOther');
         _.each(familyConfig, function(fcVal, fcInd) {
-           console.log(fcInd);
-           console.log(fcVal);
            buffer = $.extend(buffer, fcVal);
         });
-        console.log(buffer);
-        //    -- underdeveloping --
 
     } else {
 
         // Personal Plan
-        buffer = _dataMassage(obj.travellerCounter.personalPlan, obj);
+        buffer = _dataMassage(obj.travellerCounter.personalPlan, obj, 'insuredPerson');
     }
-
     return buffer;
 
 };
