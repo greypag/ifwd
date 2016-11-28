@@ -126,7 +126,6 @@ var fwdUtility = (function(){
 	};
 
 	return {
-		// 'example': _example_funct
 		'counter': {
 			'dateDiffInDaysFromNow': _dateDiffInDaysFromNow
 			, 'dateDiffInDays': _dateDiffInDays
@@ -137,6 +136,7 @@ var fwdUtility = (function(){
 		, 'temp': {
 			'flightCare': _temp_flightCare
 		}
+		// , 'data': {} // role familiar with lodash, underscore, but some are dedicated to FWD
 	};
 
 })();

@@ -113,12 +113,16 @@ fvConfig['insuredPerson'] = function() {
             }
         },
         'personalHKID': {
+
             'container': '#errtxtInsuHkid'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
                 }
+                , 'isHkid': {
+        			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
+        		}
                 // - new testing code - start -
                 // , 'identical': {
                 // // , 'different': {
@@ -126,18 +130,24 @@ fvConfig['insuredPerson'] = function() {
                 //     'field': 'fullName',
                 //     'message': 'Name is not same'
                 // }
-                , callback: {
-                    callback: function(value, validator, $field) {
-                        console.log('*** just ran the callback script ~!! ***');
-                        console.log( validator.getFieldElements('personalHKID').length );
-                        console.log( validator.getFieldElements('hkid').length );
-                        var $hkidDoc          = validator.getFieldElements('personalHKID[]'),
-                            numHkidDoc        = $hkidDoc.length,
-                            notEmptyCount    = 0,
-                            obj              = {},
-                            duplicateRemoved = [];
+                , 'callback': {
+                    'callback': function(value, validator, $field) {
+                        // console.log( validator );
+                        // console.log('**********************************');
+                        // console.log('*** just ran the callback script ~!! ***');
+                        // console.log( validator.getFieldElements('hkid') );
+                        // console.log( validator.getFieldElements('personalHKID').length );
+                        // console.log( validator.getFieldElements('hkid').length );
+                        // console.log('**********************************');
+                        // console.log( $('.js__input_hkid') );
+                        // console.log( $('.js__input_hkid').length );
+                        // var $hkidDoc          = validator.getFieldElements('personalHKID[]');
+                        var $hkidDoc          = $('.js__input_hkid');
+                        var notEmptyCount    = 0;
+                        var obj              = {};
+                        var duplicateRemoved = [];
 
-                        for (var i = 0; i < numHkidDoc; i++) {
+                        for (var i = 0; i < $hkidDoc.length; i++) {
                             var v = $hkidDoc.eq(i).val();
                             if (v !== '') {
                                 obj[v] = 0;
@@ -158,12 +168,12 @@ fvConfig['insuredPerson'] = function() {
                         if (duplicateRemoved.length !== notEmptyCount) {
                             return {
                                 valid: false,
-                                message: getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
-                                // message: getBundle(getBundleLanguage, 'duplicate_hkid_no.message')
+                                // message: getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
+                                message: getBundle(getBundleLanguage, 'duplicate_hkid_no.message')
                             };
                         }
 
-                        validator.updateStatus('personalHKID[]', validator.STATUS_VALID, 'callback');
+                        validator.updateStatus('personalHKID', validator.STATUS_VALID, 'callback');
                         return true;
                     }
                 }
