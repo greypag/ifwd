@@ -418,7 +418,7 @@ function activateUserAccountJoinUs() {
 	                               </label>
 	                           </div>
 	                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-	                                <input type="text" name="hkid" class="form-control numberinput textUpper full-control js__input_hkid" id="inputTxtAppHkid"
+	                                <input type="text" name="hkid" class="form-control numberinput textUpper full-control" id="inputTxtAppHkid"
 											placeholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />" />
 	                                 <span id="errAppHkid" class="text-red"> </span>
 	                           </div>

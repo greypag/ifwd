@@ -242,12 +242,17 @@ var event_readonly = function(switchOption, fieldIdInfo) {
 };
 
 
-var event_checkUniqueValueAmongFields = function(value, validator, $field, paramsObj) {
-    var notEmptyCount    = 0;
-    var obj              = {};
-    var duplicateRemoved = [];
+var event_checkUniqueValueAmongFields = function(value, validator, $field) {
+    var littleConfigObj           = {
+        selectorElem: $('.js__input_hkid')
+        , errMsgDOMname: 'personalHKID'
+        , errMsg: getBundle(getBundleLanguage, 'duplicate_hkid_no.message')
+    };
+    var notEmptyCount       = 0;
+    var obj                 = {};
+    var duplicateRemoved    = [];
 
-    for (var i = 0; i < paramsObj.selectorElem.length; i++) {
+    for (var i = 0; i < littleConfigObj.selectorElem.length; i++) {
         var v = $selectorElem.eq(i).val();
         if (v !== '') {
             obj[v] = 0;
@@ -267,11 +272,11 @@ var event_checkUniqueValueAmongFields = function(value, validator, $field, param
     if ( duplicateRemoved.length !== notEmptyCount ) {
         return {
             'valid': false,
-            'message': paramsObj.errMsg
+            'message': littleConfigObj.errMsg
         };
     }
 
-    validator.updateStatus( paramsObj.errMsgDOMId, validator.STATUS_VALID, 'callback' );
+    validator.updateStatus( littleConfigObj.errMsgDOMname, validator.STATUS_VALID, 'callback' );
     return true;
 };
 
