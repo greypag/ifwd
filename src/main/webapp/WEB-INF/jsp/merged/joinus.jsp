@@ -74,6 +74,20 @@
 			},
 		});
 	});
+
+	$.post = function(url, data, callback) {
+	    return jQuery.ajax({
+	    headers: { 
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json' 
+	    },
+	    'type': 'POST',
+	    'url': url,
+	    'data': JSON.stringify(data),
+	    'dataType': 'json',
+	    'success': callback
+	    });
+	};
 	
 	//do fields validation and api call for validation
 	function activateUserAccountJoinUs(form) {
@@ -85,6 +99,75 @@
 		$(form_selector).formValidation('validate');
 		console.log($(form_selector).data('formValidation').isValid());
 		if ($(form_selector).data('formValidation').isValid()) {
+			var dateString=$('#txtDob').val().trim();
+			var yearStr=dateString.split("/")[2];
+			var monStr=dateString.split("/")[1];
+			var dateStr=dateString.split("/")[0];
+			var dob=yearStr+"-"+monStr+"-"+dateStr;
+			if(name=="joinus_form_member"){;
+			return $.post('<%=request.getContextPath()%>/api/member/register/member/customer',
+					{userName: $(form_selector+" input[name='fullName']").val(), mobile: $("#txtMobileNo").val(),
+			    password: $("#txtConfPass").val(),
+			    email: $("#txtEmailId").val(),
+			    docNo: $("#txtHkid").val(),
+			    policyNo: $("#txtPolicyNumber").val(),
+			    dob: dob,
+			    optOut1: true,
+			    optOut2: true})
+					.done(function (data) {
+						var resp=data.message;
+						 $.ajax({
+								type : 'POST',
+								url : '<%=request.getContextPath()%>/joinus/registrationCustomerLogin',
+								data : {userName:$(form_selector+" input[name='fullName']").val(),password:$("#txtConfPass").val(),message:resp},
+								async : false,
+								success : function(data) {
+									if (data == 'success') {
+										$(form_selector + ' #success-message').show();
+										$(form_selector + ' #joinus-err-msg').hide();
+										window.location.hash = form_selector+ ' #success-message';
+										$(form_selector + ' #success-message').html("User succesfully Register"); 
+										if(window.top.document.referrer.indexOf("savings-insurance/plan-details-rp")>0){
+											window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp?thankyou=thankyou';
+										}else if(window.top.document.referrer.indexOf("savings-insurance/plan-details-sp")>0){
+											window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?thankyou=thankyou';
+										}else if(window.top.document.referrer.indexOf("term-life-insurance/select-plan")>0){
+											perventRedirect=false;
+											ga('send', 'event', 'Login', 'Click', 'Login success');
+											window.location.href= "<%=request.getContextPath()%>/${language}/term-life-insurance/select-plan?goApp=yes";
+										}else if("${quarry}" == "FNA"){
+											window.location.href = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+										}else {
+											window.location.href = '<%=request.getContextPath()%>/${language}/account';
+										}
+									} else if(data == 'discover'){
+										window.location.href = '<%=request.getContextPath()%>/${language}/fwdiscover';
+									} else {
+										$(form_selector + ' #joinus-err-msg').show();
+										
+										window.location.hash = form_selector + ' #joinus-err-msg';
+										if (data == 'This username already in use, please try again') {
+											$(form_selector + ' #joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+										} else if (data == 'email address and mobile no. already registered') {
+											$(form_selector + '# joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+										} else {
+											$(form_selector + ' #joinus-err-msg').html(data);
+										}
+									} 
+								},
+								error : function(xhr, status, error) {
+								}
+							});
+			      }).fail(function (err) {
+			    	var resp=JSON.parse(err.responseText).message;
+			        console.log(err);
+			        $(form_selector + ' #joinus-err-msg').show();
+			        //$(form_selector + ' #joinus-err-msg').html("User registration failed");
+			        $(form_selector + ' #joinus-err-msg').html(resp);
+			       
+			      }); 
+			}
+		else{
 			$.ajax({
 				type : 'POST',
 				url : '<%=request.getContextPath()%>/{language}/joinus',
@@ -127,6 +210,7 @@
 				error : function(xhr, status, error) {
 				}
 			});
+			}
 		}
 		return false;
 	}
