@@ -597,6 +597,8 @@ public class UserRestURIConstants {
 	public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
 
 	
+	public static final String CRS_STATUS = SERVICE_URL + "/crs/status";
+	
 	static String controller;
 
 	public static boolean isContentEditable() {

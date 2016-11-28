@@ -6,6 +6,8 @@ import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import io.swagger.annotations.Api;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +29,20 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifwd.fwdhk.controller.core.Responses;
+import com.ifwd.fwdhk.model.CrsStatus;
 import com.ifwd.fwdhk.model.Member;
 import com.ifwd.fwdhk.model.MemberActionResult;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
+import com.ifwd.fwdhk.model.motor.CarDetail;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.Methods;
@@ -350,4 +358,53 @@ public class MemberController extends BaseController {
 			}
 		}			
 	}
+	
+	@ApiOperation(
+			value = "This API is used to get CRS status by HKID",
+			response = CrsStatus.class
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 200, message = "Able to proceed"),
+			@ApiResponse(code = 400, message = "Unable to proceed due to CRS"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+
+    @RequestMapping(value = "/crs", method = POST)
+	public ResponseEntity<CrsStatus> getCrs(
+			@ApiParam(value = "Parameter for client crs input", required = true) @RequestBody CrsStatus crsStatus,            
+			HttpServletRequest request) {
+		
+		// super.IsAuthenticate(request);		
+		// ******************* Valid input *******************
+		
+		// ******************* Init *******************
+		JSONObject responseJsonObj = new JSONObject();
+		try {		
+			// ******************* Form URL *******************
+			
+			String url = UserRestURIConstants.CRS_STATUS;
+			String jsonString = new ObjectMapper().writeValueAsString(crsStatus);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if(Boolean.parseBoolean((String)responseJsonObj.get("proceed")) == true) {
+					return Responses.ok(null);
+				} else {
+					
+					return Responses.error(null);
+				}
+				
+			} else {
+				return Responses.ok(null);
+			}
+		} catch (Exception e) {
+			return Responses.ok(null);		
+		}
+		
+	}	
+
+	
 }
