@@ -17,6 +17,12 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
 
+
+
+
+
+
+
 <div class="modal fade loginpopup" id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div
         style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1052"
@@ -82,8 +88,10 @@
 						</div>
 						<div class="login-button-group">
 						    <input id="fna-check" type="hidden" name="fna" value="false">
+
                             <input id="nav-bar-check" type="hidden" name="isNavBar" value="true">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
+
 								class="cta-login-btn cta--orange">
 								<fmt:message key="header.login.action" bundle="${msg}" />
 							</button>
@@ -143,11 +151,13 @@
 			                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
 			                                    bundle="${msg}" /></label>
 
+
 			                        </span>
 			                        <span id="errorInvalidMob" class="hide1 empHide"> <label
 			                            class="color-red heading-h5"><fmt:message
 			                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
 			                                    bundle="${msg}" /></label>
+
 			                        </span-->
 			                </div>
 						</div>
@@ -179,11 +189,13 @@
 
 						<div class="login-button-group forgot-group">
 							<button type="button" onclick="backToLogin()"
+
 								class="cta-login-btn cta--gray">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 							<button type="button" onclick="getForgotUserName(this.form)"
+
 								class="cta-login-btn cta--orange">
 								<fmt:message key="header.login.action2" bundle="${msg}" />
 							</button>
@@ -217,6 +229,7 @@
 					style="display: none;"></div>
 
 					<div class="form-container">
+
 						<h4 class="heading-h4 color-orange">
 							<!--Message 忘記用戶名稱 -->
 							<fmt:message key="header.login.username.forget.part1"
@@ -231,7 +244,7 @@
 						<!-- Policy Number -->
 						<div class="form-group">
 							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<input type="text" name="PolicyNumber"
+							<input id="PolicyNumber" type="text" name="PolicyNumber"
 								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input">
 							<label class="mdl-textfield__label" for="PolicyNumber"><fmt:message key="member.registration.details.policy.number" bundle="${msg}" /></label>
 		                        <span id="errorEmptyPolicyNumberJoinUs" class="color-red heading-h5">
@@ -252,7 +265,7 @@
 						<!-- Doc input -->
 						<div class="form-group">
 							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<input type="text" name="Hkid"
+							<input id="Hkid" type="text" name="Hkid"
 								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input">
 								<label class="mdl-textfield__label" for="Hkid"><fmt:message key="member.registration.details.hkid" bundle="${msg}" /></label>
 		                        <!-- 使用者ERROR -->
@@ -264,11 +277,13 @@
 
 						<div class="login-button-group forgot-group">
 							<button type="button" onclick="backToLogin()"
+
 								class="cta-login-btn cta--gray">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 							<button type="button" onclick="getForgotUserName(this.form)"
+
 								class="cta-login-btn cta--orange">
 								<fmt:message key="header.login.action2" bundle="${msg}" />
 							</button>
@@ -295,11 +310,49 @@
         	$(current_form + ' #forgotusername-err-msg').hide();
         	$(current_form + ' #success-message').hide();
 
+
+
             if ($(current_form).data('formValidation').isValid()) {
                 $(current_form + ' #forgotusername-err-msg').hide();
                 $('.login-ajax-loading').show();
-                $.ajax({
-                            type : 'POST',
+                
+                var policyNo = $('#PolicyNumber').val().trim();
+				var docNo = $('#Hkid').val().trim();
+				var dateString=$('#login_dob').val().trim();
+				var yearStr=dateString.split("/")[2];
+				var monStr=dateString.split("/")[1];
+				var dateStr=dateString.split("/")[0];
+				var dob=yearStr+"-"+monStr+"-"+dateStr;
+				var postData={"policyNo":policyNo,"docNo":docNo,"dob":dob};
+				
+            	if(form.name=="forgotUserNameForm_member"){
+            		$.ajax({
+                        type : 'POST',
+                        url : '<%=request.getContextPath()%>/api/member/forgotUserName/customer',
+                        //data : $(current_form + ' input').serialize(),
+                        Accept: "application/json",
+                       	contentType: "application/json",
+       					dataType: "json",
+                        data : JSON.stringify(postData),
+                        success : function(data) {
+                            $('.login-ajax-loading').hide();
+							if(data.message==null){
+								 $(current_form + ' #success-message').html(getBundle(getBundleLanguage, "member.login.forgotUserName.success")+' '+data.userName);
+	                                $(current_form + ' #success-message').show();
+	                                $(current_form + ' #user-details-main').hide();
+	                                $(current_form + ' #hide-field').hide();
+                            }
+
+                        },
+                        error : function(xhr, status, error) {
+                        	$(current_form + ' #forgotusername-err-msg').html(JSON.parse(xhr.responseText).message);
+                        	$(current_form + ' #forgotusername-err-msg').show();
+                            $('.login-ajax-loading').hide();
+                        }
+                    });
+            	}else{
+            		$.ajax({
+                        type : 'POST',
                             url : '<%=request.getContextPath()%>/forgotUser',
                             data : $(current_form + ' input').serialize(),
                             success : function(data) {
@@ -319,6 +372,8 @@
                                     $(current_form + ' #success-message').hide();
                                     if(data.slice(2, data.length-2) == "The information you have entered is not valid, please try again"){
                                     	$(current_form + ' #forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.login.forgotUserName.error"));
+
+
                                     }
                                     else{
                                     	$(current_form + ' #forgotusername-err-msg').html(data.slice(2, data.length-2));
@@ -329,11 +384,24 @@
                                     $(current_form + ' #success-message').show();
                                 }
 
+
+
+
+
+
+
                             },
                             error : function(xhr, status, error) {
                                 $('.login-ajax-loading').hide();
+
+
+
+
+
                             }
                         });
+            	}
+
             }
         }
     </script>
@@ -342,6 +410,7 @@
 			<!-- ===================================================================================================== -->
 			<!-- ========================================忘記密碼(non_member)===================================================== -->
 			<!-- ===================================================================================================== -->
+
 
 			<form id="forgotPasswordForm" class="js_form_in_login forgotPasswordForm" name="forgotPasswordForm_non_member" action="forgotPassword" method="post" style="display: none">
 
@@ -376,6 +445,7 @@
 							<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label>
 		                        <!--  phone erro message -->
 										<span id="errorEmptyMob" class="color-red heading-h5"></span>
+
 		                        <!--span id="errorEmptyMob-forgotPassword" class="hide1 empHide color-red heading-h5">
 		                            <label class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
@@ -459,12 +529,14 @@
 						<div class="login-button-group forgot-group">
 
 							<button type="button" onclick="backToLogin()"
+
 								class="cta-login-btn cta--gray">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 
 							<button type="button" onclick="forgotUserPassword(this.form)"
+
 								class="cta-login-btn cta--orange">
 								<fmt:message key="member.registration.details.action"
 									bundle="${msg}" />
@@ -475,6 +547,7 @@
 							  <div id="forgotpassword-err-msg" class="color-red heading-h5"
 									role="alert" style="display: none;">
 									<P id="error1"></P>
+
 							  </div>
 						</div>
 
@@ -568,12 +641,14 @@
 						<div class="login-button-group forgot-group">
 
 							<button type="button" onclick="backToLogin()"
+
 								class="cta-login-btn cta--gray">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 
 							<button type="button" onclick="forgotUserPassword(this.form)"
+
 								class="cta-login-btn cta--orange">
 								<fmt:message key="member.registration.details.action"
 									bundle="${msg}" />
@@ -681,10 +756,47 @@
 				$(current_form + ' #forgotpassword-err-msg').hide();
 				$(current_form + ' #success-message-password').hide();
 
+				var userName = $('#forgetPass_userName').val().trim();
+				var docNo = $('#Hkid2').val().trim();
+				var dateString=$('#login_dob2').val().trim();
+				var yearStr=dateString.split("/")[2];
+				var monStr=dateString.split("/")[1];
+				var dateStr=dateString.split("/")[0];
+				var dob=yearStr+"-"+monStr+"-"+dateStr;
+				var postData={"docNo":docNo,"dob":dob,"userName":userName};
 				// if ($(current_form).data('bootstrapValidator').isValid()) {
 				if ($(current_form).data('formValidation').isValid()) {
 					$(current_form + ' #forgotpassword-err-msg').hide();
 					$('.login-ajax-loading').show();
+					if(form.name=="forgotPasswordForm_member"){
+						$.ajax({
+							type : 'POST',
+							url : '<%=request.getContextPath()%>/api/member/forgotPassword/customer',
+							//data : $(current_form + ' input').serialize(),
+							Accept: "application/json",
+                       		contentType: "application/json",
+							 data : JSON.stringify(postData),
+							success : function(data) {
+								$('.login-ajax-loading').hide();
+								if (data == 'fail') {
+										$(current_form + ' #forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.msg"));
+										$(current_form + ' #forgotpassword-err-msg').show();
+								} else if (data == 'success') {
+										$(current_form + ' #success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
+										$(current_form + ' #success-message-password').show();
+								} else {
+										$(current_form + ' #success-message-password').html(getBundle(getBundleLanguage, "connection.lost.message"));
+										$(current_form + ' #success-message-password').show();
+										$(current_form + ' #user-details-main').hide();
+								}
+							},
+							error : function(xhr, status, error) {
+								$(current_form + ' #forgotpassword-err-msg').html(JSON.parse(xhr.responseText).message);
+	                        	$(current_form + ' #forgotpassword-err-msg').show();
+								$('.login-ajax-loading').hide();
+							}
+						});
+					}else{
 					$.ajax({
 						type : 'POST',
 						url : '<%=request.getContextPath()%>/forgotUserPassword',
@@ -707,6 +819,7 @@
 							$('.login-ajax-loading').hide();
 						}
 					});
+					}
 				}
 			}
     </script>
@@ -747,13 +860,16 @@
 	</div>
 </div>
 
+
 <div class="modal fade overlay" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;" id="loading-overlay">
 	<div class="modal-dialog overlay__wrapper">
 		<div class="modal-content overlay__content">
 			<img class="overlay__img" src="<%=request.getContextPath()%>/resources/images/loading.gif" />
+
 		</div>
 	</div>
 </div>
+
 
 
 <script>
@@ -795,6 +911,7 @@ function generate_common_validate_fields_member(form){
 				},*/
 				notEmpty: {
 					message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
+
 				},
 			}
 		}
@@ -881,12 +998,14 @@ function generate_validate(form,fields){
             // data.element   --> The field element
             // data.validator --> The current validator name
 
+
             data.element
                 .data('fv.messages')
                 // Hide all the messages
                 .find('.help-block[data-fv-for="' + data.field + '"]').hide()
                 // Show only message associated with current validator
                 .filter('[data-fv-validator="' + data.validator + '"]').show();
+
         });
 }
 function bootstrapvalidate(){
@@ -976,6 +1095,7 @@ function bootstrapvalidate(){
 	};
 	generate_validate(form_4,fields_4);
 }
+
 
     function backToLogin(){
     	$(".js_form_in_login").hide();
@@ -1122,6 +1242,7 @@ function bootstrapvalidate(){
                $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
                $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
                $("#userName").removeClass("invalid-field");
+
            })
 
 
@@ -1143,6 +1264,7 @@ function bootstrapvalidate(){
                   $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
                   $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
                   $("#userName").removeClass("invalid-field");
+
            })
 		   $(".login_is_fwdmember").change(function(){
 			   var form = $(this).parent().parent().attr("form_type");
@@ -1158,6 +1280,7 @@ function bootstrapvalidate(){
 		   });
 		 //date from mobiscroll 
 			var dateTo = new Date();
+
 			$('#login_dob').mobiscroll().calendar({
 				//dateOrder: 'ddMyy',
 				display: 'bubble',
