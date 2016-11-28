@@ -73,7 +73,7 @@ function initFVConfig(argCfg) {
 		result.fields = $.extend(
 				argCfg.schema.fields
 				, argCfg.applicant
-				, argCfg.helpers.generateData.cfgFlightCare( argCfg )
+				, argCfg.helpers.generateConfig.flightCare( argCfg )
 			);
 
 		console.log(result);

@@ -208,12 +208,12 @@ var event_returnHkidLegalCharOnly = function(fieldId) {
 /*
  * DOM attr readonly, replacing JSP code, acted by JS
  *
- * @method attr_readonly
+ * @method event_readonly
  * @param   {Boolean} switchOption
  * @param   {String or Array string} fieldIdInfo
  * @return Nil
  */
-var attr_readonly = function(switchOption, fieldIdInfo) {
+var event_readonly = function(switchOption, fieldIdInfo) {
     if ( Object.prototype.toString.call(fieldIdInfo) === '[object String]' ) {
         if ( switchOption === 'enable' ) {
             $( '#'+fieldIdInfo ).prop('readonly', true); // jQuery <=1.9
@@ -222,7 +222,7 @@ var attr_readonly = function(switchOption, fieldIdInfo) {
             $( '#'+fieldIdInfo ).prop('readonly', false); // jQuery <=1.9
             $( '#'+fieldIdInfo ).attr('readonly', false); // jQuery 1.9+
         } else {
-            console.error('Fucnt attr_readonly() >> params "switchOption" should be "enable" / "disable"');
+            console.error('Fucnt event_readonly() >> params "switchOption" should be "enable" / "disable"');
         }
     } else if ( Object.prototype.toString.call(fieldIdInfo) === '[object Array]' ) {
         for (var i = 0; i < fieldIdInfo.length; i++) {
@@ -233,12 +233,46 @@ var attr_readonly = function(switchOption, fieldIdInfo) {
                 $( '#'+fieldIdInfo[i] ).prop('readonly', false); // jQuery <=1.9
                 $( '#'+fieldIdInfo[i] ).attr('readonly', false); // jQuery 1.9+
             } else {
-                console.error('Fucnt attr_readonly() >> params "switchOption" should be "enable" / "disable"');
+                console.error('Fucnt event_readonly() >> params "switchOption" should be "enable" / "disable"');
             }
         }
     } else {
-        console.error('Fucnt attr_readonly() >> params "fieldIdInfo" should be [object String] / [object Array]');
+        console.error('Fucnt event_readonly() >> params "fieldIdInfo" should be [object String] / [object Array]');
     }
+};
+
+
+var event_checkUniqueValueAmongFields = function(value, validator, $field, paramsObj) {
+    var notEmptyCount    = 0;
+    var obj              = {};
+    var duplicateRemoved = [];
+
+    for (var i = 0; i < paramsObj.selectorElem.length; i++) {
+        var v = $selectorElem.eq(i).val();
+        if (v !== '') {
+            obj[v] = 0;
+            notEmptyCount++;
+        }
+    }
+    for (i in obj) {
+        duplicateRemoved.push(obj[i]);
+    }
+
+    // if (duplicateRemoved.length === 0) {
+    //     return {
+    //         valid: false,
+    //         message: 'You must fill at least one email address'
+    //     };
+    // } else
+    if ( duplicateRemoved.length !== notEmptyCount ) {
+        return {
+            'valid': false,
+            'message': paramsObj.errMsg
+        };
+    }
+
+    validator.updateStatus( paramsObj.errMsgDOMId, validator.STATUS_VALID, 'callback' );
+    return true;
 };
 
 /*
@@ -246,9 +280,10 @@ var attr_readonly = function(switchOption, fieldIdInfo) {
  */
 var fvConfig = {};
 fvConfig['helpers'] = {
-    'generateData': {
-        'cfgFlightCare':            gen_configFlightCare
+    'generateConfig': {
+        'flightCare':            gen_configFlightCare
     }
+    , 'fvCallbackFuction':       event_checkUniqueValueAmongFields
     , 'attr': {
         'onblur': {
             'binding': {
@@ -260,9 +295,7 @@ fvConfig['helpers'] = {
             'returnEngSpaceOnly':           event_returnEngSpaceOnly
             , 'returnHkidLegalCharOnly':    event_returnHkidLegalCharOnly
         }
-        // , 'isValidBeneHkid'     : event_isValidBeneHkid       // In-progress, not tested yet
-        // , 'isValidBeneDob'      : event_isValidBeneDob     // Pending
-        , 'readonly':                   attr_readonly
+        , 'readonly':                       event_readonly
     }
     , 'ux': {}
 };

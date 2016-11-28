@@ -130,18 +130,10 @@ fvConfig['insuredPerson'] = function() {
                 //     'field': 'fullName',
                 //     'message': 'Name is not same'
                 // }
+
+                // Handles the unique field-value validation among multi-fields
                 , 'callback': {
                     'callback': function(value, validator, $field) {
-                        // console.log( validator );
-                        // console.log('**********************************');
-                        // console.log('*** just ran the callback script ~!! ***');
-                        // console.log( validator.getFieldElements('hkid') );
-                        // console.log( validator.getFieldElements('personalHKID').length );
-                        // console.log( validator.getFieldElements('hkid').length );
-                        // console.log('**********************************');
-                        // console.log( $('.js__input_hkid') );
-                        // console.log( $('.js__input_hkid').length );
-                        // var $hkidDoc          = validator.getFieldElements('personalHKID[]');
                         var $hkidDoc          = $('.js__input_hkid');
                         var notEmptyCount    = 0;
                         var obj              = {};
