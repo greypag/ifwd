@@ -1,5 +1,4 @@
-// (function() {
-// 	"use strict";
+
 var linkupHelper;
 var withdrawHelper;
 
@@ -48,19 +47,28 @@ var eWalletCtr = {
 		//policy balance
 		policyDom.find(".ew_pol_blance").html(eWalletCtr.toPriceStr(info.policyPrincipal));
 	},
-	showGenericMsg: function(title, msg) {
+	showGenericMsg: function(title, msg, btnTxt) {
 		var dom = $(".ew_popup_error");
 
+		//custom title
 		if(title == "" || !title){
 			dom.find(".modal-title").hide();
 		}else{
 			dom.find(".modal-title").html(title).show();
 		}
 
+		//custom btn text
+		if(!btnTxt){
+			dom.find(".ew_btn_confirm").html(btnTxt);
+		}
+
+		//body msg
 		dom.find(".ew_popup_sec .ew_desc").html(msg);
+
 		dom.modal();
 	},
 	toPriceStr: function(x) {
+		if(!x) return 0;
 		return "$" + this.toPriceWithComma(x);
 	},
 	toPriceWithComma: function(x) {
@@ -84,7 +92,7 @@ var eWalletCtr = {
 // ====== Policy List Process Begin ======
 var policyHelper = {
 	htmlTemplate: null,
-	isPopupShowing: false,
+	isOccupied: false,
 	setTemplate: function() {
 		this.htmlTemplate = $(".ew_pol_template").clone();
 		this.htmlTemplate.removeClass("ew_pol_template");
@@ -140,9 +148,9 @@ var policyHelper = {
 
 					(function(pid) {
 						policyDom.find(".ew_pol_wd_linkupBtn").on("click", function() {
-							if(that.isPopupShowing) return;
+							if(that.isOccupied) return;
 
-							that.isPopupShowing = true;
+							that.isOccupied = true;
 							$(this).addClass("isLoading");
 							linkupHelper.startLinkup(pid);
 						});
@@ -159,9 +167,9 @@ var policyHelper = {
 						});
 
 						policyDom.find(".ew_pol_wd_withdrawBtn").on("click", function() {
-							if(that.isPopupShowing) return;
+							if(that.isOccupied) return;
 
-							that.isPopupShowing = true;
+							that.isOccupied = true;
 							$(this).addClass("isLoading");
 							withdrawHelper.startWithdraw(pid);
 						});
@@ -176,7 +184,7 @@ var policyHelper = {
 			$(".ew_pol_list .ew-tab-title").after(policyDom);
 
 			logViewer.addPolicyNum(info.policyId);
-			console.log("loop", info.policyId);
+			
 		}
 
 		// get first policy info in log view
@@ -216,13 +224,13 @@ var policyHelper = {
 	},
 	popupClosed: function (){
 		$(".ew_pol_wd_linkupBtn, .ew_pol_wd_withdrawBtn").removeClass("isLoading");
-		this.isPopupShowing = false;
+		this.isOccupied = false;
 	},
 	showLoading: function (){
-		$('#loading-overlay').modal();
+		$('#ewallet-plans .ew_loading').show();
 	},
 	hideLoading: function (){
-		$('#loading-overlay').modal('hide');
+		$('#ewallet-plans .ew_loading').hide();
 	}
 };
 // ====== Policy List Process End ======
@@ -412,11 +420,12 @@ function WithdrawClass(){
 
 		this.popupDom.find(".ew_btn_withdraw").on("click", function (){
 			var inputDom = $("#ew_input_amount");
-			if(inputDom.val().length < 3){
+			var amount = parseInt(inputDom.val(), 10);
+			if(inputDom.val().length < 3 || amount < 500 || amount > 3000){
 				inputDom.addClass("ew_err_input");
 				return;
 			}
-			that.amountWithdraw = parseInt(inputDom.val(), 10);
+			that.amountWithdraw = amount;
 			that.requestWithdraw();
 		});
 
@@ -499,8 +508,8 @@ function WithdrawClass(){
 	this.showPanel = function(data) {
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
 		this.popupDom.find(".ew_mobile").html(data.mobile);
-		this.popupDom.find(".ew_tngId").html(data.tngAccountId);
-		this.popupDom.find(".ew_tngExp").html(data.tngExpiryDate);
+		this.popupDom.find(".ew_tngId").html(data.policy.tngAccountId);
+		this.popupDom.find(".ew_tngExp").html(data.policy.principalAsOfDate.split(" ")[0]);
 
 		this.popupDom.modal();
 	};
@@ -626,7 +635,7 @@ function BaseErrMsgHelper() {
 var logViewer = {
 	policyId: null,
 	htmlDom: $("#ewallet-logs"),
-	optDom: $("#ewallet-logs .ew_pol_selector select"),
+	optDom:  $("#ewallet-logs .ew_pol_selector select"),
 	fetechLogs: function (){
 		var that = this;
 
@@ -795,6 +804,7 @@ var apiReqHelper = {
 		//	failFn:function(xhr, textStatus, errorThrown){
 
 		// 	},
+		//  completeFn: function (){}
 		// }
 		var that = this;
 
@@ -845,7 +855,6 @@ var apiLink = {
 
 };
 
-// })();
 
 var msgCtr = {
 	common:{ //getBundle(getBundleLanguage,"");

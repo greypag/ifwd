@@ -874,6 +874,10 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 										<h3 class="heading-title"><fmt:message key="ewallet.planList.pol.title" bundle="${msg}" /></h3>
 									</div>
 
+									<div class="col-xs-12 text-center ew_loading">
+										<i class="fa fa-refresh fa-spin ew_spin"></i>
+									</div>
+
 									
 									<div class="col-xs-12 ew_pol_wd_form">
 										<a href="#" class="ew_pol_wd_formBtn"><fmt:message key="ewallet.downloadFormBtnText" bundle="${msg}" /></a>

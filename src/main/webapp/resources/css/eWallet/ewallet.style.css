@@ -150,6 +150,9 @@
     width: 54px;
     height: 54px; }
 
+#e-wallet-tab-link span {
+  background: url(../../images/eWallet/side_menu_wallet.png) no-repeat !important; }
+
 .ew_pol_list .ew_pol {
   padding: 0;
   margin: 1.25em auto; }

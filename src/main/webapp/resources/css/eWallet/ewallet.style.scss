@@ -203,6 +203,10 @@ $txt-hint-color: #999999;
 // ============ placeholder End ============
 
 
+#e-wallet-tab-link span{
+	background: url(../../images/eWallet/side_menu_wallet.png) no-repeat !important;
+}
+
 // ============ Policy List Begin ============
 .ew_pol_list .ew_pol{
 	@extend %ew_base_garyBox;
