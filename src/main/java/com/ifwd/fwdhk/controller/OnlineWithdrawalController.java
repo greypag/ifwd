@@ -63,6 +63,7 @@ import com.ifwd.fwdhk.model.tngsavie.TngPolicySimple;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawPerformResponse;
 import com.ifwd.fwdhk.model.tngsavie.TngPolicyWithdrawRequest;
 import com.ifwd.fwdhk.model.tngsavie.TngUnlinkRequest;
+import com.ifwd.fwdhk.model.tngsavie.WarnMsg;
 import com.ifwd.fwdhk.util.HeaderUtil;
 
 
@@ -74,7 +75,7 @@ public class OnlineWithdrawalController extends BaseController{
 	
 	@Autowired
 	private HeaderUtil headerUtil;
-	
+		
 	@ApiOperation(
 			value = "Get Policy info List by Customer",
 			response = TngPolicyInfoResponse.class,
@@ -177,9 +178,7 @@ public class OnlineWithdrawalController extends BaseController{
 								  }
 								  
 								  msgObject.remove("resultCode");
-								  msgObject.remove("message_en");
 								  msgObject.remove("refCode");
-								  msgObject.remove("message_zh");
 								}
 			            }  
 					}
@@ -196,9 +195,7 @@ public class OnlineWithdrawalController extends BaseController{
 								msgObject.put("code",mapCode);
 							  }
 							  msgObject.remove("resultCode");
-							  msgObject.remove("message_en");
 							  msgObject.remove("refCode");
-							  msgObject.remove("message_zh");
 						}
 					}
 				}
@@ -255,7 +252,6 @@ public class OnlineWithdrawalController extends BaseController{
 				}
 				String refCode = (String) errMsg.get("refCode");
 				if(refCode!=null){
-					BaseResponse resp = new BaseResponse();
 					String resultRefCode="";
 					if(refCode.startsWith("RWE")){
 						resultRefCode = TngPolicyConstants.getTngWithdrawalValidationErrorCode(refCode);
@@ -264,8 +260,15 @@ public class OnlineWithdrawalController extends BaseController{
 					}else{
 						resultRefCode=refCode;
 					}
-					resp.setErrMsg(resultRefCode);
-					return new ResponseEntity<T>((T)resp, HttpStatus.valueOf(Integer.parseInt(resultCode)));
+					
+					WarnMsg errmsg = new WarnMsg();
+					errmsg.setCode(resultRefCode);
+					if(!"400".equals(resultCode) && !"500".equals(resultCode)){
+						errmsg.setMessage_en((String)errMsg.get("message_en"));
+						errmsg.setMessage_zh((String)errMsg.get("message_zh"));
+					}
+					
+					return new ResponseEntity<T>((T)errmsg, HttpStatus.valueOf(Integer.parseInt(resultCode)));
 				}
 				
 				return new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt(resultCode)));
@@ -442,6 +445,7 @@ public class OnlineWithdrawalController extends BaseController{
 			String jsonString = new ObjectMapper().writeValueAsString(authOtpReq);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			putLangToJson(request, jsonInput);
+			putiFwdPathToJson(request, jsonInput);
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
@@ -466,6 +470,13 @@ public class OnlineWithdrawalController extends BaseController{
 			}else{
 				jsonInput.put("lang", "zh");
 			}
+		}
+	}
+	
+	private void putiFwdPathToJson(HttpServletRequest request, JSONObject jsonInput) {
+		String iFwdPath = UserRestURIConstants.IFWD_PATH;
+		if(!StringUtils.isBlank(iFwdPath)){
+			jsonInput.put("ifwdpath", iFwdPath);
 		}
 	}
 

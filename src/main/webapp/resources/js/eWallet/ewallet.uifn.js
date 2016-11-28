@@ -634,8 +634,7 @@ var logViewer = {
 			link: apiLink.withdrawLog,
 			method: "post",
 			data: {
-				// policyId: this.policyId,
-				policyId : "11097339",// only this policyId has logs
+				policyId: this.policyId,
 				startDate: this.toApiDateFormat($('#dt_log_from').val()),
 				endDate  : this.toApiDateFormat($('#dt_log_to').val())
 			},

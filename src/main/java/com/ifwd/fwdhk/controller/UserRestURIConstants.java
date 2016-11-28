@@ -31,6 +31,8 @@ public class UserRestURIConstants {
 	
 	
 	public final static String SERVICE_URL = getConfigs("url");
+	
+	public final static String IFWD_PATH = getConfigs("ifwdPath");
 
 	/* validate token */
 	public static final String VALIDATE_TOKEN = "/member/token";

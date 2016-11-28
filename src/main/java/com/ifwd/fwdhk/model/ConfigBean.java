@@ -50,6 +50,17 @@ public class ConfigBean {
 
 	@Value("#{configProperties['isSwaggerUiEnable']?:false}")
 	private boolean isSwaggerUiEnable;
+	
+	@Value("#{configProperties['ifwd.path']}")
+	private String ifwdPath;
+
+	public String getIfwdPath() {
+		return ifwdPath;
+	}
+
+	public void setIfwdPath(String ifwdPath) {
+		this.ifwdPath = ifwdPath;
+	}
 
 	public boolean getIsSwaggerUiEnable() {
 		return this.isSwaggerUiEnable;
