@@ -12,6 +12,14 @@ var name_eng_pattern = /^[a-zA-Z\s\u4e00-\u9fa5]*$/; /*English chars only*/
 var name_chi_pattern = /^[\u4e00-\u9fa5\s]*$/; /*Chinese chars only*/
 var name_eng_chi_pattern = /^[a-zA-Z\s\u4e00-\u9fa5]*$/; /*Chinese and english chars only*/
 
+/**
+*
+* For {Boolean} isMobile
+*
+* Caution to Developers:
+* Will be replaced by "_currentDevice_isMobile()" in "fwd-validator.js"
+*
+**/
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
 
@@ -32,14 +40,14 @@ var chin = false;
 /* datepicker script*/
 
 
-/**
-*
-* For function IsHKID() -- ALREADY MIGRATED
-*
-* Caution to Developers:
-* If any updated, suggested to do in "resources/js/common/fwd-validator.js".
-*
-**/
+/*
+ *
+ * For {Function} IsHKID() -- ALREADY MIGRATED
+ *
+ * Caution to Developers:
+ * If any updated, suggested to do in "resources/js/common/fwd-validator.js".
+ *
+ */
 /* hkid validation script */
 function IsHKID(str) {
 	var strValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -100,32 +108,41 @@ function emptyMembershipError(){
 
 $(function () {
 
+
+	/**
+	*
+	* Code below about floatingbox -- will be deprecated
+	*
+	* Caution to Developers:
+	* If any updated, suggested to do in "resources/js/common/fwd-utility.js". Renamed to "_floatingBox()"
+	*
+	**/
     /* scrolling code starts */
-		var floatingbox = $('.floatingbox');
+	var floatingbox = $('.floatingbox');
 
-	    if (floatingbox[0]){
-	    	var floatingboxY = floatingbox.offset().top,
-	        wrapboxY = $("#quote-wrap").offset().top;
-	        var topMargin = 40;
+    if (floatingbox[0]){
+    	var floatingboxY = floatingbox.offset().top,
+        wrapboxY = $("#quote-wrap").offset().top;
+        var topMargin = 40;
 
-	        $(window).on('scroll', function(event) {
-	        	if ($("#quote-wrap").height() > $(".floatingbox").height()){
-	        		var scrollTop = $(window).scrollTop();
-	        		var wrapboxRY = wrapboxY+$("#quote-wrap").height();
-	        		var floatingboxRY = scrollTop+$(".floatingbox").height()+topMargin;
+        $(window).on('scroll', function(event) {
+        	if ($("#quote-wrap").height() > $(".floatingbox").height()){
+        		var scrollTop = $(window).scrollTop();
+        		var wrapboxRY = wrapboxY+$("#quote-wrap").height();
+        		var floatingboxRY = scrollTop+$(".floatingbox").height()+topMargin;
 
-	        		if (wrapboxRY > floatingboxRY){
-	        			floatingbox.stop(false).animate({
-	                        top: scrollTop < floatingboxY ? 0 : scrollTop - floatingboxY + topMargin
-	                    }, 100);
-	        		}else{
-	        			if (floatingboxRY > wrapboxRY){
-	                        floatingbox.css("top", $("#quote-wrap").height()-$(".floatingbox").height())
-	                    }
-	        		}
-	        	}
-	        });
-	    }
+        		if (wrapboxRY > floatingboxRY){
+        			floatingbox.stop(false).animate({
+                        top: scrollTop < floatingboxY ? 0 : scrollTop - floatingboxY + topMargin
+                    }, 100);
+        		}else{
+        			if (floatingboxRY > wrapboxRY){
+                        floatingbox.css("top", $("#quote-wrap").height()-$(".floatingbox").height())
+                    }
+        		}
+        	}
+        });
+    }
     /* scrolling code ends */
 
 	/* payment seccode start*/
@@ -5368,6 +5385,15 @@ function chkTravelHKPass(value) {
     return flag;
 }
 
+/**
+*
+* For function placeholderOnFocus() -- will be deprecated
+*
+* Caution to Developers:
+* 1) may no longer support IE9
+* 2) Replaced by placeholder.min.js functionally.
+*
+**/
 //ie9 placeholder solution
 function placeholderOnFocus(element, placeholderVal){
 	$(element).removeClass("bmg_custom_placeholder");
@@ -5377,6 +5403,15 @@ function placeholderOnFocus(element, placeholderVal){
 	}
 }
 
+/**
+*
+* For function placeholderOnBlur() -- will be deprecated
+*
+* Caution to Developers:
+* 1) may no longer support IE9
+* 2) Replaced by placeholder.min.js functionally.
+*
+**/
 function placeholderOnBlur(element, placeholderVal){
 	if($(element).val()==''){
 		$(element).addClass("bmg_custom_placeholder");
@@ -5883,6 +5918,15 @@ function isNull(element){
 function dateLessThanCurrent(dat){
 
 }
+
+/**
+*
+* Function dateDiffInDaysFromNow() -- will be deprecated
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-utility.js". Renamed to "_dateDiffInDaysFromNow()"
+*
+**/
 function dateDiffInDaysFromNow(dat){
     var nowTemp = new Date();
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);

@@ -1,7 +1,20 @@
+**2016-11-28
+    Gary    - start to build the fwd-utility.js
+            - Built / Migrated functions as below.
+                fwdValidator.currentDevice.isMobile(),
+                fwdUtility.ux.floatingBox()
+                fwdUtility.counter.dateDiffInDaysFromNow(dat)
+                fwdUtility.counter.dateDiffInDays(dat)
+            - Adjusting the header.jsp & flight-plan-details.jsp external JS loading script
+            - testing validating the unique value among multi-fields
+
 **2016-11-23
     Irvine  -
-    
-    Gary    -
+
+    Gary    - Built / Migrated functions as below.
+                fwdValidator.eventHandler.returnEngSpaceOnly()
+                fwdValidator.eventHandler.returnHkidLegalCharOnly()
+            - etc.
 
 **2016-11-22
 

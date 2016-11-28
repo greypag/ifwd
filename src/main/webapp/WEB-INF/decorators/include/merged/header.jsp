@@ -66,7 +66,7 @@
 			    'ios_chrome': {
 			        'mobile': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />'
-			    }			    
+			    }
 			}
 	    }
 	};
@@ -1481,7 +1481,18 @@ $(function() {
     	}
     }
 	$(document).ready(function() {
-		if (isMobile){
+		<%
+		if(request.getRequestURI().indexOf("/flight-insurance/user-details") < 0) {
+		%>
+		if (isMobile) {
+		<%
+		} else {
+		%>
+		// "isMobile" is replaced by "fwdValidator.currentDevice.isMobile()"
+		if ( fwdValidator.currentDevice.isMobile() ) {
+		<%
+		}
+		%>
 			$("#closeMobileMenu").on("touchmove touchstart",function(e) {
 				if($(".mobile-menu-V2").hasClass("in")){
 					$(".mob-menu-btn").click();
@@ -1583,3 +1594,15 @@ $(function() {
 <%-- <%if ((actionName.equals("WorkingHoliday") && request.getRequestURI().indexOf("/user-details")>0) | (actionName.equals("Oversea") && request.getRequestURI().indexOf("/application")>0) | (actionName.equals("Travel") && request.getRequestURI().indexOf("/user-details")>0) ){%>
 <jsp:include page="/WEB-INF/jsp/merged/travel-alert.jsp" />
 <% } %> --%>
+
+<% if(request.getRequestURI().indexOf("/flight-insurance/user-details")>0) { %>
+<link href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-constant.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-validator.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-utility.js" charset="utf-8"></script>
+<% } %>

@@ -46,21 +46,24 @@ function initFVConfig(argCfg) {
 
 			var dataSourceFieldInfo = {};
 
+			// MUST - Apply attr 'readonly'
+			argCfg.helpers.attr.readonly('enable',  ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
+
 			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid' };
-			argCfg.helpers.event.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );
-			// input control : alpha + space chars only
-			argCfg.helpers.event.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
+			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );
+			// Char Input control : alpha + space only
+			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
 
 			// MUST - DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid' };
-			argCfg.helpers.event.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );
-			// input control : general HKID valid chars only
-			argCfg.helpers.event.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo.inputId );
+			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );
+			// Input control : general HKID valid chars only
+			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo.inputId );
 
 			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
 			// dataSourceFieldInfo = { 'inputId': 'applicantDob', 'errorId': 'fullnameinvalid' };
-			// argCfg.helpers.event.isValidBeneDob( false, dataSourceFieldInfo, null );
+			// argCfg.helpers.attr.isValidBeneDob( false, dataSourceFieldInfo, null );
         });
 
 

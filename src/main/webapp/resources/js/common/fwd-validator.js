@@ -29,7 +29,6 @@
      console.error(e);
  }
  // VALIDATION - prerequistite << end >>
-
 var fwdValidator = (function(fwdConstant) {
 
 	/*
@@ -161,14 +160,27 @@ var fwdValidator = (function(fwdConstant) {
     	return false;
     };
 
-
-
-
-
-	/*
-	 * ****************** Generic validation group ******************
+    /*
+	 * Check current device is mobile or not by Regex
+	 *
+	 * @method _currentDevice_isMobile
+	 * @param  nil
+	 * @return {Boolean} Returns true or false
 	 */
-	var _vadidation_generic = {
+    var _currentDevice_isMobile = function() {
+        /* Migrated from "js/fwd.js", orginal {Boolean} name < isMobile > */
+        var mobRegex = new RegExp( fwdConstant.regex.general.devices.mob );
+        return mobRegex.test( navigator.userAgent) ? true : false;
+    };
+
+
+
+
+
+    /*
+	 * ****************** Function groups as below ******************
+	 */
+	var _validation_generic = {
 		// 'isChecked' : _isChecked
 		// , 'isSelected' : _isSelected
 		// , 'isEmpty' : _isEmpty
@@ -189,7 +201,7 @@ var fwdValidator = (function(fwdConstant) {
 	/*
 	 * User account validation group
 	 */
-	var _vadidation_user = {
+	var _validation_user = {
 		// isValidUsername : _isValidUsername
 		// , isValidEmail : _isValidEmail
 		// , isValidPassword : _isValidPassword
@@ -199,19 +211,19 @@ var fwdValidator = (function(fwdConstant) {
 	/*
 	 * Saive quotation validation group
 	 */
-	var _vadidation_savie_quote = {
+	var _validation_savie_quote = {
 		// isValidPromoCode : _isValidPromoCode
 	};
 
 	/*
 	 * Personal info validation group
 	 */
-	var _vadidation_personal_info = {
+	var _validation_personal_info = {
 		// isValidEmail : _isValidEmail
         // ,
 		isValidHkid : _isValidHkid
 		// , isValidPassport : _isValidPassport
-		// , isValidMobile : _isValidMobile
+		, isValidMobile : _isValidMobile
 		// , isValidResidentialNo : _isValidResidentialNo
 		// , isValidAge : _isValidAge
 		// , isValidDob : _isValidDob
@@ -225,7 +237,7 @@ var fwdValidator = (function(fwdConstant) {
 	/*
 	 * Employment info validation group
 	 */
-	var _vadidation_employment_info = {
+	var _validation_employment_info = {
 		// isValidEmployStatus : _isValidEmployStatus
 		// , isValidEmployerName : _isValidEmployerName
 		// , isValidMonthlyIncome : _isValidMonthlyIncome
@@ -237,7 +249,7 @@ var fwdValidator = (function(fwdConstant) {
 	/*
 	 * Beneficiary info validation group
 	 */
-	var _vadidation_beneficiary_info = {
+	var _validation_beneficiary_info = {
 		// 'isValidBeneLastName' : _isValidBeneLastName
 		// , 'isValidBeneGivenName' : _isValidBeneGivenName
 		// , 'isValidBeneChiName' : _isValidBeneChiName
@@ -252,12 +264,12 @@ var fwdValidator = (function(fwdConstant) {
 	/*
 	 * Document upload validation group
 	 */
-	var _vadidation_document_upload = {};
+	var _validation_document_upload = {};
 
 	/*
 	 * Address validation group
 	 */
-	var _vadidation_address = {
+	var _validation_address = {
 		// giAdd: ''
 		// , lifeAdd: _isValidAddress
 		// , isValidDistrict : _isValidDistrict
@@ -266,20 +278,26 @@ var fwdValidator = (function(fwdConstant) {
     /*
 	 * Address validation group
 	 */
-	var _vadidation_eventHandler = {
+	var _validation_eventHandler = {
         'returnEngSpaceOnly':       _returnEngSpaceOnly         // replaced alphaOnly() in fwd.js
         , 'returnHkidLegalCharOnly':  _returnHkidLegalCharOnly    // replaced hkidOnkeypress() in fwd.js
     };
 
+
+    var _devices_detection = {
+        'isMobile': _currentDevice_isMobile
+    };
+
 	return {
-		'generic': _vadidation_generic
-        // , 'user': _vadidation_user
-        // , 'savieQuote': _vadidation_savie_quote
-		, 'personalInfo': _vadidation_personal_info
-		// , 'employmentInfo': _vadidation_employment_info
-		, 'beneficiaryInfo': _vadidation_beneficiary_info
-		// , 'documentUpload': _vadidation_document_upload
-        , 'eventHandler': _vadidation_eventHandler
+		'generic': _validation_generic
+        , 'currentDevice': _devices_detection
+        // , 'user': _validation_user
+        // , 'savieQuote': _validation_savie_quote
+		, 'personalInfo': _validation_personal_info
+		// , 'employmentInfo': _validation_employment_info
+		, 'beneficiaryInfo': _validation_beneficiary_info
+		// , 'documentUpload': _validation_document_upload
+        , 'eventHandler': _validation_eventHandler
 	};
 
 })(fwdConstant);

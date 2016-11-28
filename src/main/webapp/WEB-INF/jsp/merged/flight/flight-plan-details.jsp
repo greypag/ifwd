@@ -645,7 +645,7 @@ function activateUserAccountJoinUs() {
 														    value="${userDetails.fullName }"
 														    </c:when>
 														</c:choose>
-														placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" readonly="readonly" />
+														placeholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" />
 	                                          </c:if>
 	                                          <c:if test="${inx > 1}">
                                                         <input
@@ -667,8 +667,7 @@ function activateUserAccountJoinUs() {
                                                <input
                                                     id="txtInsuHkid${inx}" name="personalHKID${inx}"
                                                     class="form-control textUpper full-control"
-                                                    placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-                                                    <c:if test="${inx == 1}">readonly="readonly"</c:if>/>
+                                                    placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span>
                                            </div>
@@ -873,8 +872,7 @@ function activateUserAccountJoinUs() {
                                                <!-- onkeyup="value=value.replace(/[\W]/g,'')" -->
                                                <input id="txtInsuHkid${inx}" name="adultHKID"
                                                     class="form-control textUpper full-control bmg_custom_placeholder"
-                                                    value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"
-                                                    <c:if test="${inx == 1}">readonly="readonly"</c:if>/>
+                                                    value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="errtxtInsuHkid${inx}"class="text-red"> </span>
                                            </div>
                                        </div>
@@ -1781,15 +1779,6 @@ function createFlightFnc(form){
 }
 </script>
 
-<link href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
-
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-constant.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-validator.js" charset="utf-8"></script>
-
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/helpers.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.flightCare.config.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.custom-rule.config.js" charset="utf-8"></script>
@@ -1809,6 +1798,10 @@ fvConfig['travellerCounter'] = {
 var flightCfg = initFVConfig(fvConfig).flightCare();
 
 $(function() {
+
+    fwdUtility.ux.floatingBox();
+    fwdUtility.temp.flightCare();
+
     $("#freeFlightForm").formValidation(flightCfg)
         .on('err.validator.fv', function(e, data) {
             /**

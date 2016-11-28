@@ -111,18 +111,57 @@ fvConfig['insuredPerson'] = function() {
                 }
             }
         },
-        'personalHKID': {
+        'personalHKID[]': {
             'container': '#errtxtInsuHkid'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
-                }// - new testing code - start -
-                , 'identical': {
-                // , 'different': {
-                	'enabled': false,
-                    'field': 'fullName',
-                    'message': 'Name is not same'
+                }
+                // - new testing code - start -
+                // , 'identical': {
+                // // , 'different': {
+                // 	'enabled': false,
+                //     'field': 'fullName',
+                //     'message': 'Name is not same'
+                // }
+                , callback: {
+                    callback: function(value, validator, $field) {
+                        console.log('just ran the callback script ~!!');
+                        var $hkidDoc          = validator.getFieldElements('personalHKID'),
+                            numHkidDoc        = $hkidDoc.length,
+                            notEmptyCount    = 0,
+                            obj              = {},
+                            duplicateRemoved = [];
+
+                        for (var i = 0; i < numHkidDoc; i++) {
+                            var v = $hkidDoc.eq(i).val();
+                            if (v !== '') {
+                                obj[v] = 0;
+                                notEmptyCount++;
+                            }
+                        }
+
+                        for (i in obj) {
+                            duplicateRemoved.push(obj[i]);
+                        }
+
+                        if (duplicateRemoved.length === 0) {
+                            return {
+                                valid: false,
+                                message: 'You must fill at least one email address'
+                            };
+                        } else if (duplicateRemoved.length !== notEmptyCount) {
+                            return {
+                                valid: false,
+                                message: getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
+                                // message: getBundle(getBundleLanguage, 'duplicate_hkid_no.message')
+                            };
+                        }
+
+                        validator.updateStatus('personalHKID', validator.STATUS_VALID, 'callback');
+                        return true;
+                    }
                 }
                 // - new testing code - end -
             }

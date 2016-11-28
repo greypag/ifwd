@@ -33,7 +33,7 @@
             , 'hkidPattern2': '^([A-Z]{1,2})([0-9]{6})([(])([A0-9])([)])$'      // for fwd-validator
             , 'passport': '^[a-zA-Z0-9\\-]{5-15}$'                              // passport
         }
-    }
+    };
 
     var _text = {
         'allEngChar': {

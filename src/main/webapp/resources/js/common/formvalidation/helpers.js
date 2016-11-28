@@ -17,6 +17,16 @@ var _bindingValFromA2B = function(insureBoolean, dataSourceFieldInfo, insureFiel
     }
 };
 
+var _hasDuplicatedItems = function (inputArray) {
+    var obj              = {},
+        numItems         = inputArray.length,
+        duplicateRemoved = [];
+
+    for (var i = 0; i < numItems; i++) { obj[inputArray[i]] = 0; }
+    for (i in obj) { duplicateRemoved.push(obj[i]); }
+    return duplicateRemoved.length === numItems;
+};
+
  /*
   * Flight Care FormValidation Config Generation
   *
@@ -196,14 +206,50 @@ var event_returnHkidLegalCharOnly = function(fieldId) {
 };
 
 /*
+ * DOM attr readonly, replacing JSP code, acted by JS
+ *
+ * @method attr_readonly
+ * @param   {Boolean} switchOption
+ * @param   {String or Array string} fieldIdInfo
+ * @return Nil
+ */
+var attr_readonly = function(switchOption, fieldIdInfo) {
+    if ( Object.prototype.toString.call(fieldIdInfo) === '[object String]' ) {
+        if ( switchOption === 'enable' ) {
+            $( '#'+fieldIdInfo ).prop('readonly', true); // jQuery <=1.9
+            $( '#'+fieldIdInfo ).attr('readonly', true); // jQuery 1.9+
+        } else if ( switchOption === 'disable' ) {
+            $( '#'+fieldIdInfo ).prop('readonly', false); // jQuery <=1.9
+            $( '#'+fieldIdInfo ).attr('readonly', false); // jQuery 1.9+
+        } else {
+            console.error('Fucnt attr_readonly() >> params "switchOption" should be "enable" / "disable"');
+        }
+    } else if ( Object.prototype.toString.call(fieldIdInfo) === '[object Array]' ) {
+        for (var i = 0; i < fieldIdInfo.length; i++) {
+            if ( switchOption === 'enable' ) {
+                $( '#'+fieldIdInfo[i] ).prop('readonly', true); // jQuery <=1.9
+                $( '#'+fieldIdInfo[i] ).attr('readonly', true); // jQuery 1.9+
+            } else if ( switchOption === 'disable' ) {
+                $( '#'+fieldIdInfo[i] ).prop('readonly', false); // jQuery <=1.9
+                $( '#'+fieldIdInfo[i] ).attr('readonly', false); // jQuery 1.9+
+            } else {
+                console.error('Fucnt attr_readonly() >> params "switchOption" should be "enable" / "disable"');
+            }
+        }
+    } else {
+        console.error('Fucnt attr_readonly() >> params "fieldIdInfo" should be [object String] / [object Array]');
+    }
+};
+
+/*
  * Export modules to "fvConfig" object
  */
 var fvConfig = {};
 fvConfig['helpers'] = {
     'generateData': {
         'cfgFlightCare':            gen_configFlightCare
-    },
-    'event': {
+    }
+    , 'attr': {
         'onblur': {
             'binding': {
                 'applicantName2InsuredPerson':      event_applicantName2InsuredPerson
@@ -216,6 +262,7 @@ fvConfig['helpers'] = {
         }
         // , 'isValidBeneHkid'     : event_isValidBeneHkid       // In-progress, not tested yet
         // , 'isValidBeneDob'      : event_isValidBeneDob     // Pending
+        , 'readonly':                   attr_readonly
     }
     , 'ux': {}
 };

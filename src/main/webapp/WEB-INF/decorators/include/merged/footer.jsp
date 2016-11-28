@@ -116,7 +116,13 @@ if(request.getRequestURI().indexOf("/savings-insurance/provie")>0) {
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
+<%
+if(request.getRequestURI().indexOf("/flight-insurance/user-details") < 0) {
+%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
+<%
+}
+%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
 <jsp:include page="/WEB-INF/jsp/merged/comp/notification.jsp" />
@@ -141,7 +147,7 @@ function fbShare(method,url,title,desc,img){
 }
 
 $(function() {
-		
+
     $('input, textarea').placeholder();
     var winWidth = 575;
     var winHeight = 575;
@@ -173,7 +179,7 @@ $(function() {
     ogDesc = (ogDesc=='')?defaultOg[UILANGUAGE]['desc']:ogDesc;
     ogUrl = (ogUrl=='')?defaultOg[UILANGUAGE]['url']:ogUrl;
     ogImg = (ogImg=='')?defaultOg[UILANGUAGE]['img']:ogImg;
-    
+
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '1684174765175679',
@@ -211,12 +217,12 @@ $(function() {
 			} else {
 				console.log('Post was not published.' + response);
 			}
-		});    
+		});
     }
     $('#fb-dialog-share, .btn-spd-share').on("click",function(){
     	fbShare('share',ogUrl,ogTitle,ogDesc,ogImg);
-    });    
-    
+    });
+
 /*     $('#fb-dialog-share').click(function(e) {
     	window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + ogTitle + '&p[summary]=' + ogDesc + '&p[url]=' + ogUrl + '&p[images][0]=' + ogImg, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     }); */
@@ -226,7 +232,7 @@ $(function() {
     	//window.open('http://www.facebook.com/sharer.php?s=100&p[url]=' + ogUrl + '&p[title]=' + ogTitle + '&p[summary]=' + ogDesc + ogUrl, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     	//window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + ogTitle + '&p[summary]=' + ogDesc + '&p[url]=' + ogUrl + '&p[images][0]=' + ogImg, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     });*/
-     
+
     /*
     function navbarLogoSticky(){
         if(window.pageYOffset<35){
