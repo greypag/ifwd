@@ -21,6 +21,7 @@ try {
 
 // MUST - Schema pass to FormValidation main object - 'fvConfig'
 fvConfig['schema'] = {
+    framework: 'bootstrap',
     'row': {
         'valid': 'has-success'
         , 'invalid': 'has-error'
@@ -111,7 +112,7 @@ fvConfig['insuredPerson'] = function() {
                 }
             }
         },
-        'personalHKID[]': {
+        'personalHKID': {
             'container': '#errtxtInsuHkid'
             , 'trigger': 'blur'
             , 'validators': {
@@ -127,8 +128,10 @@ fvConfig['insuredPerson'] = function() {
                 // }
                 , callback: {
                     callback: function(value, validator, $field) {
-                        console.log('just ran the callback script ~!!');
-                        var $hkidDoc          = validator.getFieldElements('personalHKID'),
+                        console.log('*** just ran the callback script ~!! ***');
+                        console.log( validator.getFieldElements('personalHKID').length );
+                        console.log( validator.getFieldElements('hkid').length );
+                        var $hkidDoc          = validator.getFieldElements('personalHKID[]'),
                             numHkidDoc        = $hkidDoc.length,
                             notEmptyCount    = 0,
                             obj              = {},
@@ -146,12 +149,13 @@ fvConfig['insuredPerson'] = function() {
                             duplicateRemoved.push(obj[i]);
                         }
 
-                        if (duplicateRemoved.length === 0) {
-                            return {
-                                valid: false,
-                                message: 'You must fill at least one email address'
-                            };
-                        } else if (duplicateRemoved.length !== notEmptyCount) {
+                        // if (duplicateRemoved.length === 0) {
+                        //     return {
+                        //         valid: false,
+                        //         message: 'You must fill at least one email address'
+                        //     };
+                        // } else
+                        if (duplicateRemoved.length !== notEmptyCount) {
                             return {
                                 valid: false,
                                 message: getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
@@ -159,7 +163,7 @@ fvConfig['insuredPerson'] = function() {
                             };
                         }
 
-                        validator.updateStatus('personalHKID', validator.STATUS_VALID, 'callback');
+                        validator.updateStatus('personalHKID[]', validator.STATUS_VALID, 'callback');
                         return true;
                     }
                 }
