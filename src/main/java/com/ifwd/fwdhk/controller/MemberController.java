@@ -483,7 +483,13 @@ public class MemberController extends BaseController {
 			
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
-			
+			if(responseJsonObj.get("errMsgs")==null){
+				responseJsonObj.put("resp", true);
+				responseJsonObj.put("message", "");
+			}else{
+				responseJsonObj.put("resp", false);
+				responseJsonObj.put("message", "");
+			}
 			// ******************* Makeup result *******************			
 			responseEntity=getResponseEntityByJsonObj(methodName,ForgotPasswordResponse.class,responseJsonObj);
 			

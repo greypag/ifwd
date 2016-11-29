@@ -778,7 +778,18 @@
 							 data : JSON.stringify(postData),
 							success : function(data) {
 								$('.login-ajax-loading').hide();
-								if (data == 'fail') {
+								if(data.resp==true){
+									$(current_form + ' #success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
+									$(current_form + ' #success-message-password').show();
+								}else if((data.resp==false)){
+									$(current_form + ' #forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.msg"));
+									$(current_form + ' #forgotpassword-err-msg').show();
+								}else{
+									$(current_form + ' #success-message-password').html(getBundle(getBundleLanguage, "connection.lost.message"));
+									$(current_form + ' #success-message-password').show();
+									$(current_form + ' #user-details-main').hide();
+								}
+								/* if (data == 'fail') {
 										$(current_form + ' #forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.msg"));
 										$(current_form + ' #forgotpassword-err-msg').show();
 								} else if (data == 'success') {
@@ -788,7 +799,7 @@
 										$(current_form + ' #success-message-password').html(getBundle(getBundleLanguage, "connection.lost.message"));
 										$(current_form + ' #success-message-password').show();
 										$(current_form + ' #user-details-main').hide();
-								}
+								} */
 							},
 							error : function(xhr, status, error) {
 								$(current_form + ' #forgotpassword-err-msg').html(JSON.parse(xhr.responseText).message);
