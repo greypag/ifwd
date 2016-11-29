@@ -348,21 +348,25 @@ var nextPage = "${nextPageFlow}";
             <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
+                	 <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
+                        <h3 class="heading-h3 color-orange text-center">
+                          
+                        </h3>
+                    </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                        </p>
+                            <fmt:message key="motor.lightbox.savecontinuelater.title" bundle="${motorMsg}" />  </p>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 plan-panel">
                         <div class="row" >
                             <div class="text-center col-xs-6">
                                 <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+                                <a class="bdr-curve btn btn-primary nxt-btn saveExit" onclick="SaveAndExit()"><fmt:message key="motor.button.savecontinue.exit" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                                 <a class="bdr-curve btn btn-primary nxt-btn continue"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="clearfix"></div> 
@@ -389,6 +393,9 @@ var loginStatus=false;
 function callback_motor_LoginSuccess(){
 	alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
+}
+function SaveAndExit()
+{
 }
 $(document).ready(function(){
 	var getUrlParameter = function getUrlParameter(sParam) {

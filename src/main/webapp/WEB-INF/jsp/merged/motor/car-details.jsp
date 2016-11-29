@@ -279,6 +279,11 @@ var nextPage = "${nextPageFlow}";
             <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
+                        <h3 class="heading-h3 color-orange text-center">
+                          
+                        </h3>
+                    </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
                             <fmt:message key="motor.lightbox.savecontinuelater.title" bundle="${motorMsg}" />  </p>
@@ -287,12 +292,12 @@ var nextPage = "${nextPageFlow}";
                         <div class="row" >
                             <div class="text-center col-xs-6">
                                 <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
+                                <a class="bdr-curve btn btn-primary nxt-btn saveExit" onclick="SaveAndExit()"><fmt:message key="motor.button.savecontinue.exit" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" />" />
+                                <a class="bdr-curve btn btn-primary nxt-btn continue"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="clearfix"></div> 
@@ -337,7 +342,41 @@ function callback_motor_LoginSuccess(){
 	alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
 }
-  	
+
+function SaveAndExit()
+{
+	$(document).ready(function(){
+		  var submitData = {"carDetail": {   	
+			   "bankMortgage": checkbox,	
+			   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
+			   "chassisNumber": $('input[name=chassisNumber]').val(),    	
+			   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
+			   "modelDesc": $('input[name=registedModel]').val()    	
+				}, 	
+				"policyId": quote.policyId
+				};
+
+				$.ajax({
+			     beforeSend: function(){
+			     	$('#loading-overlay').modal("show");
+			     },
+				  type: "POST",
+				  data: JSON.stringify(submitData),
+				  dataType: "json",
+			     contentType : "application/json",
+			     cache: false,
+			     async: false,
+			     url:context + "/api/iMotor/policy/save4Later/carDetails",
+				  success: function(data){
+					console.dir(data);  
+				  },error: function(error) {
+					  console.dir(error);				
+					  alert("error");
+			         $("#loading-overlay").modal("hide");
+				  }
+				});
+	});
+}
 $(document).ready(function(){
 	
     $('[data-toggle="tooltip"]').tooltip(); 
@@ -457,8 +496,6 @@ $(document).ready(function(){
      
 	$('#carDetails').submit(function(event){
 	
-	   var isThird;
-     
 	   var submitData = {"carDetail": {   	
 				   "bankMortgage": checkbox,	
 				   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
@@ -535,6 +572,7 @@ $(document).ready(function(){
 		});
 		return false;
 	});
+	
 });
 </script>
        

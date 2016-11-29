@@ -35,6 +35,7 @@ var fwdApi = {
 			member						: APIServer + context + "/api/member",
 			forgotPassword				: APIServer + context + "/api/member/forgotPassword",
 			retrieveUserName			: APIServer + context + "/api/member/retrieveUserName",
+			resume						: APIServer + context + "/api/iMotor/policy/save4Later/resume",
 		}
 };
 var $mortgageBank ;
@@ -168,6 +169,45 @@ $(document).ready(function(){
     });
 	
 	$motor_area = $('#area').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#area-selectized').data('required-error', $('#area').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/areas',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                        callback(newres);
+						$.each(res, function(i, item) {
+							if(getUrlParameter("edit")=="yes")
+							{
+								if(item.desc == quote.applicant.correspondenceAddress.hkKlNt)
+								{
+									$motor_area[0].selectize.setValue(item.code);	
+								}
+							}
+						});
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });$motor_area = $('#area').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',

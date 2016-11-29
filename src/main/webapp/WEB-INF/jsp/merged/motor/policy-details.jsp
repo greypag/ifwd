@@ -674,21 +674,25 @@ var nextPage = "${nextPageFlow}";
             <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
+                	 <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
+                        <h3 class="heading-h3 color-orange text-center">
+                          
+                        </h3>
+                    </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                        </p>
+                            <fmt:message key="motor.lightbox.savecontinuelater.title" bundle="${motorMsg}" />  </p>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 plan-panel">
                         <div class="row" >
                             <div class="text-center col-xs-6">
                                 <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+                                <a class="bdr-curve btn btn-primary nxt-btn saveExit" onclick="SaveAndExit()"><fmt:message key="motor.button.savecontinue.exit" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                                <a class="bdr-curve btn btn-primary nxt-btn continue"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="clearfix"></div> 
@@ -716,6 +720,110 @@ function callback_motor_LoginSuccess(){
 	alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
 }
+function SaveAndExit()
+{
+	$(document).ready(function(){
+		var driverMoreThanTwo = false;
+		   if($('input[name=d3name]').val()!="")
+		   {
+			   driverMoreThanTwo = true;
+		   }
+		   var submitData = { 		
+				   "policyId": quote.policyId,		
+				   "driver": [		
+				   {		
+				     "dateOfBirth": $('input[name=driverDob]').val(),		
+				     "driveMoreThanTwo": driverMoreThanTwo,		
+				     "hkid": $('input[name=driverID]').val(),		
+				     "name": $('input[name=fullName]').val(),		
+				     "occupation": $('[name="occupation"]').val(),//$("#occupation option:selected").text(),	
+				     "validAgeGroup": $('input[name=term]').val()		
+				   }, 		
+				   {		
+				     "dateOfBirth": $('input[name=d2dob]').val(),		
+				     "driveMoreThanTwo": driverMoreThanTwo,		
+				     "hkid": $('input[name=d2id]').val(),		
+				     "name": $('input[name=d2name]').val(),		
+				     "occupation": $('[name="d2occupation"]').val(),//$("#d2occupation option:selected").text(),		
+				     "validAgeGroup":  $('input[name=d2term]').val()			
+				   }, 		
+				   {		
+					 "dateOfBirth": $('input[name=d3dob]').val(),		
+					 "driveMoreThanTwo": driverMoreThanTwo,		
+					 "hkid": $('input[name=d3id]').val(),		
+					 "name": $('input[name=d3name]').val(),		
+					 "occupation": $('[name="d3occupation"]').val(),//$("#d3occupation option:selected").text(),		
+					 "validAgeGroup": $('input[name=d3term]').val()		
+				   }, 		
+				   {		
+					 "dateOfBirth": $('input[name=d4dob]').val(),		
+					 "driveMoreThanTwo": driverMoreThanTwo,		
+					 "hkid": $('input[name=d4id]').val(),		
+					 "name": $('input[name=d4name]').val(),		
+					 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
+					 "validAgeGroup":  $('input[name=d4term]').val()			
+				   }, 		
+				   {		
+					 "dateOfBirth": $('input[name=d5dob]').val(),		
+					 "driveMoreThanTwo": driverMoreThanTwo,		
+					 "hkid": $('input[name=d5id]').val(),		
+					 "name": $('input[name=d5name]').val(),		
+					 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		
+					 "validAgeGroup": $('input[name=d5term]').val()		
+				   }		
+				   ], 		
+				     "nameOfPreviousInusrancer": $('input[name=prev_ic]').val(),		
+				     "regNoofPreviousPolicy": $('input[name=prev_regNo]').val(),		
+				     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
+				     "previousPolicyNo": $('[name="prev_ic"]').val()//$("#prev_ic option:selected").val()//$('input[name=prev_policyNo]').val()	
+				 };
+			
+			if($('input[name=d2name]').val()=="")
+				delete submitData.driver[1]
+			if($('input[name=d3name]').val()=="")
+				delete submitData.driver[2]
+			if($('input[name=d4name]').val()=="")
+				delete submitData.driver[3]
+			if($('input[name=d5name]').val()=="")
+				delete submitData.driver[4]
+		
+			console.dir(submitData);
+		
+			submitData.driver = submitData.driver.filter(function(x){return x !== null});
+			$.ajax({
+				  beforeSend: function(){
+		          	$('#loading-overlay').modal("show");
+		          },
+				  type: "POST",
+				  data: JSON.stringify(submitData),
+				  dataType: "json",
+		          contentType : "application/json",
+		          cache: false,
+		          async: false,
+				  url: context + "/api/iMotor/policy/save4Later/policyDetails",
+				  success: function(data){
+					  var $form = $("<form id='quote-form' />");
+					  //$form.attr("action", "application-summary");
+					  $form.attr("action", "declarations");
+		              $form.attr("method", "post");
+		              var $quote = $("<input type='hidden' name='data' />");
+			          var opts = {};
+			          opts = $.extend(opts,quote, submitData);
+		              opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
+		              $quote.attr("value", JSON.stringify(opts));
+		              $form.append($quote);
+		              $("body").append($form);
+		              $('#quote-form').submit();
+				  },error: function(error) {
+					  console.dir(error);				
+						 alert("error");
+			             $("#loading-overlay").modal("hide");
+			             return false;
+				  }
+				});
+	});
+}
+
 $(document).ready(function(){
 	
 	var term = $('#term');
@@ -1153,13 +1261,6 @@ $(document).ready(function(){
 			  }
 			});
 	$('#policyDetails').submit(function(event){
-
-	   var isThird;
-       if (getUrlParameter('plan')=='third') {
-    	  isThird = true;
-       } else {
-    	  isThird = false;
-       }
    	
        var driverMoreThanTwo = false;
 	   if($('input[name=d3name]').val()!="")

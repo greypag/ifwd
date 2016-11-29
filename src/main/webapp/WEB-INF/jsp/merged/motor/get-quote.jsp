@@ -500,7 +500,7 @@ $(document).ready(function(){
 		    			return false;	
 		    		}else
 		    		{   loginStatus=true;
-		    			$('#saveModal').modal("show");
+			    		
 		    		}
 		    	}
 		    }

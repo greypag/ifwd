@@ -395,24 +395,28 @@ var nextPage = "${nextPageFlow}";
             <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
+                	 <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
+                        <h3 class="heading-h3 color-orange text-center">
+                          
+                        </h3>
+                    </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                        </p>
+                            <fmt:message key="motor.lightbox.savecontinuelater.title" bundle="${motorMsg}" />  </p>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 plan-panel">
                         <div class="row" >
                             <div class="text-center col-xs-6">
                                 <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+                                <a class="bdr-curve btn btn-primary nxt-btn saveExit" onclick="SaveAndExit()"><fmt:message key="motor.button.savecontinue.exit" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+                                <a class="bdr-curve btn btn-primary nxt-btn continue"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
-                           <div class="clearfix"></div> 
+                            <div class="clearfix"></div> 
                         </div>
                     </div>
                 </div>
@@ -434,11 +438,77 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
  *  Define motor success login callback
  */
 var loginStatus=false;
+var motorlanguage=UILANGUAGE;
+
+if(motorlanguage == "TC")
+	motorlanguage = "ZH";
 function callback_motor_LoginSuccess(){
 	alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
 }
-  	
+
+function SaveAndExit()
+{
+	$(document).ready(function(){
+		 var submitData = {
+				    "policyId": quote.policyId,		
+				   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
+				  	"applicant": {		
+				  	"contactNo": $('input[name=mobileno]').val(),		
+				  	"correspondenceAddress": {    		
+				    "block":  $('input[name=block]').val(),		
+				    "building":  $('input[name=building]').val(),		
+				    "district":  $('[name="district"]').val(),//$("#district option:selected").text(),		
+				    "estate":  $('input[name=estate]').val(),		
+				    "flat":  $('input[name=flat]').val(),		
+				    "floor":  $('input[name=floor]').val(),		
+				    "hkKlNt": $('[name="area"]').val(),//$("#area option:selected").text(),		
+				    "streetName": null,		
+				    "streetNo": null		
+				  },		
+				  "dateOfBirth": $('input[name=driverDob]').val(),  		
+				  "email": $('input[name=email]').val() ,		
+				  "hkid": $('input[name=driverID]').val(),		
+				  "name": $('input[name=fullName]').val() 		
+				  }		
+				};
+		   	console.dir(submitData);
+		   	console.log(JSON.stringify(submitData));
+			$.ajax({
+			  beforeSend: function(){
+	          	$('#loading-overlay').modal("show");
+	          },
+			  type: "POST",
+			  data: JSON.stringify(submitData),
+			  dataType: "json",
+	          contentType : "application/json",
+	          cache: false,
+	          async: false,
+			  url: context + "/api/iMotor/policy/save4Later/driverDetails",
+			  success: function(data){
+				  
+				  var $form = $("<form id='quote-form' />");
+	              $form.attr("action", "policy-details");
+	              $form.attr("method", "post");
+	              var $quote = $("<input type='hidden' name='data' />");
+	              var opts = {};
+	              opts = $.extend(opts,quote, submitData);
+	              opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+	              $quote.attr("value", JSON.stringify(opts));
+	              $form.append($quote);
+	              $("body").append($form);
+	              $('#quote-form').submit();
+	              
+			  },error: function(error) {
+				 console.dir(error);				
+				 alert("error");
+	             $("#loading-overlay").modal("hide");
+	             return false;
+	              
+			  }
+			});
+	});
+}
 $(document).ready(function(){
         
 	 var getUrlParameter = function getUrlParameter(sParam) {
@@ -500,7 +570,50 @@ $(document).ready(function(){
 	    	}
 	    }
 	});
-
+	
+	$motor_district = $('#district').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#district-selectized').data('required-error', $('#district').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/districts',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                        callback(newres);
+						$.each(res, function(i, item) {
+							if(getUrlParameter("edit")=="yes")
+							{
+								if(item.desc == quote.applicant.correspondenceAddress.district )
+								{
+									$motor_district[0].selectize.setValue(item.code);	
+								}
+							}
+						});
+                    }
+            });
+        },
+        onChange: function(value){
+        }
+    });
+	
+	
+	
 	  $("#saveForm").on("click",function(){
 		    if(loginStatus==false)
 			$('#loginpopup').modal("show");

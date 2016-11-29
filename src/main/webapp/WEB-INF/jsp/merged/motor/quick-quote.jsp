@@ -220,6 +220,10 @@ var nextPage = "${nextPageFlow}";
                     <br/>
                 </div>
                 <div class="clearfix"></div> 
+				 <div class="text-center save">
+	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                            </div>
+                <div class="clearfix"></div> 
                 <div class="text-center ">
                     <a href="javascript:;"><fmt:message key="motor.quickquote.document.save.text" bundle="${motorMsg}" /></a>
                     <br/>
@@ -229,7 +233,7 @@ var nextPage = "${nextPageFlow}";
 								<p><small><fmt:message key="motor.quickquote.document.disclamier.copy" bundle="${motorMsg}" /></small></p>
 							</div>
                 </div>
-
+                 
             </div>
         </div>
     </form>
@@ -425,6 +429,7 @@ var nextPage = "${nextPageFlow}";
                             <br/>
 	                        <br/>
                         </div>
+                        
                         </div>
                         </div>
                     </div>
@@ -647,7 +652,52 @@ $('#yourQuoteTitle').html('Third Party');
         	}
         	   return false;
         });
-    });
+    
+        //Check UserLogin
+		$.ajax({
+			url:fwdApi.url.session,
+			type:"get",
+			contentType: "application/json",
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+		    	
+		        if(xhr.status == 404){		        
+		        	$(".before-login").show();
+		        } else {
+		        	$(".before-login").show();
+		        }
+		    },
+		    success:function(response){
+		    	if(response){
+		    		if(response.userName == '*DIRECTGI'){
+		    			loginStatus=false;
+		    			//$('#loginpopup').modal("show");
+		    			//$(".before-login").show();
+		    			//$("#saveModal").removeClass("hidden");
+		    			return false;	
+		    		}else
+		    		{   loginStatus=true;
+		    		  $.ajax({
+		    				url:fwdApi.url.resume,
+		    				type:"get",
+		    				contentType: "application/json",
+		    				cache:false,
+		    				async:false,
+		    			    error:function (xhr, textStatus, errorThrown){
+		    			        
+		    			    },
+		    			    success:function(response){
+		    			    	console.dir(response);
+		    			    	$('#saveModal').modal("show");
+		    			    }
+		    			});
+		    		}
+		    	}
+		    }
+		});
+      
+	});
     
     function updateTotalDue(amt){
         $('#yourQuotePrice').html(formatCurrency(amt));
