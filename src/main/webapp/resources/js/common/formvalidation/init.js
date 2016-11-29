@@ -1,7 +1,7 @@
 'use strict';
 
 // function initBSVConfig(errMsgHandler) {
-function initFVConfig(argCfg) {
+var initFVConfig = function(argCfg) {
 
 	// VALIDATION - prerequistite << start >>
 	try {
@@ -42,21 +42,27 @@ function initFVConfig(argCfg) {
 		// --- Under Developing ---
         $(function() {
 
+			// placeholder.min.js
 			$('input, textarea').placeholder();
 
+			// Defaulted here
+			var formId = 'freeFlightForm';
+			// For helpers.attr.xxx
 			var dataSourceFieldInfo = {};
 
-			// MUST - Apply attr 'readonly'
+			// MUST - Multi-fields applied attr 'readonly'
 			argCfg.helpers.attr.readonly('enable',  ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
 
 			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
-			dataSourceFieldInfo = { 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid' };
+			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
+			// Value-binding & field revalidation
 			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );
 			// Char Input control : alpha + space only
 			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
 
 			// MUST - DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
-			dataSourceFieldInfo = { 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid' };
+			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1'  };
+			// Value-binding & field revalidation
 			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );
 			// Input control : general HKID valid chars only
 			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo.inputId );
@@ -107,4 +113,61 @@ function initFVConfig(argCfg) {
 		"easyHome":		easyHome,
 		"eliteTerm":	eliteTerm
 	};
-}
+};
+
+var runFV = function(argCfg) {
+
+	var flightCare = function(formId) {
+
+		// MUST - flightCare() prerequistite variables validating
+        try {
+            if ( typeof formId !== 'string' && formId !== null ) { throw new Error('The "runFV()" requires a form id {String}'); }
+        } catch (e) {
+            console.error( e.toString() );
+        }
+
+		// MUST - Trigger the FormValidation.io library here.
+		$('#' + formId).formValidation(argCfg)
+	        .on('err.validator.fv', function(e, data) {
+	            /**
+	            *   $(e.target)    --> The field element
+	            *   data.fv        --> The FormValidation instance
+	            *   data.field     --> The field name
+	            *   data.element   --> The field element
+	            *   data.validator --> The current validator name
+	            **/
+	            data.element
+	                .data('fv.messages')
+	                .find('.help-block[data-fv-for="' + data.field + '"]').hide()       // Hide all the messages
+	                .filter('[data-fv-validator="' + data.validator + '"]').show();     // Show only message associated with current validator
+	        })
+	        .on('err.field.fv', function(e, data) {
+	            /**
+	            * data.field is the field name
+	            * data.status is the current status of validator
+	            * data.element is the field element
+	            * Assume that the form uses the Bootstrap framework
+	            * and has a standard structure
+	            * Each pair of field and label are placed inside a .form-group element
+	            **/
+	            data.element.next().children().addClass("text-red");
+				// console.log(data.element.next());
+	            // console.log(data.element);
+	            // console.log( data.fv.getOptions(data.element) );
+	        });
+	};
+
+	var travelCare	= function() { return null; };
+	var easyHealth	= function() { return null; };
+	var easyHome 	= function() { return null; };
+	var eliteTerm	= function() { return null; };
+
+	// Export the stream of modules
+	return {
+		"flightCare":	flightCare,
+        "travelCare":   travelCare,
+		"easyHealth":	easyHealth,
+		"easyHome":		easyHome,
+		"eliteTerm":	eliteTerm
+	};
+};

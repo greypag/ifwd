@@ -855,7 +855,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <!-- onkeyup="value=value.replace(/[\W]/g,'')" -->
                                                <input id="txtInsuHkid${inx}" name="adultHKID"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid"
                                                     value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="errtxtInsuHkid${inx}"class="text-red"> </span>
                                            </div>
@@ -969,7 +969,7 @@ function activateUserAccountJoinUs() {
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input id="adultBenefitiaryHKId${inx}"
-                                                    name="adultBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    name="adultBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid"
                                                     value="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="erradultBenefitiaryHKId${inx}" class="text-red"> </span>
                                                </div>
@@ -1030,7 +1030,8 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtChldInsuHkid${inx}" name="childHKID"
-                                                  class="form-control textUpper full-control bmg_custom_placeholder" value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                                  class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid"
+                                                  value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                   <span id="errtxtChldInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
@@ -1195,7 +1196,8 @@ function activateUserAccountJoinUs() {
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID" class="form-control textUpper full-control bmg_custom_placeholder" />
+                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID"
+                                               class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" />
                                                <span id="errtxtOtherInsuHkid${inx}" class="text-red"></span>
                                            </div>
                                        </div>
@@ -1769,54 +1771,23 @@ function createFlightFnc(form){
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/init.js" charset="utf-8"></script>
 
 <script>
-// JSP values "landing-place"
-fvConfig['travellerCounter'] = {
-    'familyPlan': {
-        'adult': ${planDetailsForm.totalAdultTraveller}
-        , 'child': ${planDetailsForm.totalChildTraveller}
-        , 'other': ${planDetailsForm.totalOtherTraveller}
-    }
-    , 'personalPlan': ${planDetailsForm.totalPersonalTraveller}
-};
-
-var flightCfg = initFVConfig(fvConfig).flightCare();
-
 $(function() {
 
     fwdUtility.ux.floatingBox();
     fwdUtility.temp.flightCare();
 
-    $("#freeFlightForm").formValidation(flightCfg)
-        .on('err.validator.fv', function(e, data) {
-            /**
-            *   $(e.target)    --> The field element
-            *   data.fv        --> The FormValidation instance
-            *   data.field     --> The field name
-            *   data.element   --> The field element
-            *   data.validator --> The current validator name
-            **/
-            data.element
-                .data('fv.messages')
-                .find('.help-block[data-fv-for="' + data.field + '"]').hide()       // Hide all the messages
-                .filter('[data-fv-validator="' + data.validator + '"]').show();     // Show only message associated with current validator
-        })
+    // JSP values "landing-place"
+    fvConfig['travellerCounter'] = {
+        'familyPlan': {
+            'adult': ${planDetailsForm.totalAdultTraveller}
+            , 'child': ${planDetailsForm.totalChildTraveller}
+            , 'other': ${planDetailsForm.totalOtherTraveller}
+        }
+        , 'personalPlan': ${planDetailsForm.totalPersonalTraveller}
+    };
 
-        // - new testing code - start -
-        .on('err.field.fv', function(e, data) {
-            /**
-            * data.field is the field name
-            * data.status is the current status of validator
-            * data.element is the field element
-            * Assume that the form uses the Bootstrap framework
-            * and has a standard structure
-            * Each pair of field and label are placed inside a .form-group element
-            **/
-            data.element.next().children().addClass("text-red");
-			// console.log(data.element.next());
-            // console.log(data.element);
-            // console.log( data.fv.getOptions(data.element) );
-        });
-        // - new testing code - end -
+    var flightCfg = initFVConfig(fvConfig).flightCare();
+    runFV(flightCfg).flightCare('freeFlightForm');
 
 });
 </script>

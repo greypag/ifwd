@@ -27,6 +27,8 @@ var _hasDuplicatedItems = function (inputArray) {
     return duplicateRemoved.length === numItems;
 };
 
+// ------------------------------------------------------------------------------
+
  /*
   * Flight Care FormValidation Config Generation
   *
@@ -136,7 +138,6 @@ var gen_configFlightCare = function(obj) {
  * @return Nil
  */
 var event_applicantName2InsuredPerson = function( insureBoolean, dataSourceFieldInfo, insureFieldInfo ) {
-
     // Defined what DOM will be binded to, i.e. Insured Person inputbox
     if ( insureFieldInfo == null ) {
         insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
@@ -144,6 +145,7 @@ var event_applicantName2InsuredPerson = function( insureBoolean, dataSourceField
     $( '#'+dataSourceFieldInfo.inputId).blur(function() {
         console.log(' $(#'+dataSourceFieldInfo.inputId+') - onBlur JS detected -');
         _bindingValFromA2B(insureBoolean, dataSourceFieldInfo, insureFieldInfo);
+        $('#'+dataSourceFieldInfo.formId).formValidation( 'revalidateField', dataSourceFieldInfo.revalidateFieldName );
     });
 };
 
@@ -157,7 +159,6 @@ var event_applicantName2InsuredPerson = function( insureBoolean, dataSourceField
  * @return Nil
  */
 var event_applicantHkid2InsuredPerson = function( insureBoolean, dataSourceFieldInfo, insureFieldInfo ) {
-
     // Defined what DOM will be binded to, i.e. Insured Person inputbox
     if ( insureFieldInfo == null ) {
         insureFieldInfo = { 'inputBoxId': 'txtInsuHkid1' , 'errMsgDOMId': 'errtxtInsuHkid1' };
@@ -165,6 +166,7 @@ var event_applicantHkid2InsuredPerson = function( insureBoolean, dataSourceField
     $( '#'+dataSourceFieldInfo.inputId).blur(function() {
         console.log(' $(#'+dataSourceFieldInfo.inputId+') - onBlur JS detected -');
         _bindingValFromA2B(insureBoolean, dataSourceFieldInfo, insureFieldInfo);
+        $('#'+dataSourceFieldInfo.formId).formValidation( 'revalidateField', dataSourceFieldInfo.revalidateFieldName );
     });
 };
 
@@ -281,6 +283,54 @@ var event_checkUniqueValueAmongFields = function(value, validator, $field) {
 };
 
 /*
+ * Shorthand json object for xxx.config.js calling
+ *
+ * @method  [Public] cb_hkidUniqueValidation
+ * @param   Nil
+ * @return  {Object} 1D object with callback(), dedicated for FV library
+ */
+var cb_hkidUniqueValidation = function() {
+    return {
+        'callback': function(value, validator, $field) {
+            var $elem               = $('.js__input_hkid');
+            var obj                 = {};
+            var notEmptyCount       = 0;
+            var duplicateRemoved    = [];
+
+            for (var i = 0; i < $elem.length; i++) {
+                var v = $elem.eq(i).val();
+                if (v !== '') {
+                    obj[v] = 0;
+                    notEmptyCount++;
+                }
+            }
+            for (i in obj) {
+                duplicateRemoved.push(obj[i]);
+            }
+
+            // Conditions
+            if (duplicateRemoved.length === 0) {
+                return {
+                    valid: false,
+                    message: getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                };
+            } else if ( duplicateRemoved.length !== notEmptyCount ) {
+                return {
+                    valid: false,
+                    // message: getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
+                    message: getBundle(getBundleLanguage, 'duplicate_hkid_no.message')
+                };
+            }
+
+            // console.log($field);
+            // console.log(validator.STATUS_VALID);
+            validator.updateStatus('personalHKID', validator.STATUS_VALID, 'callback');
+            return true;
+        }
+    };
+}();
+
+/*
  * Export modules to "fvConfig" object
  */
 var fvConfig = {};
@@ -303,95 +353,7 @@ fvConfig['helpers'] = {
         , 'readonly':                       event_readonly
     }
     , 'ux': {}
+    , 'fvCallback': {
+        'hkidUniqueValidation':             cb_hkidUniqueValidation
+    }
 };
-
-
-
-
-// var declarationCfg  = {
-// 		"checkbox1": {
-//         "container": "#chk1",
-//         "validators": {
-//             "notEmpty": {
-//                 "message": getBundle(getBundleLanguage, "insured.name.notNull.message")
-//             },
-//             "onSucces": function(e, data) {
-//                 if (!data.fv.isValidField("fullName")) {
-//                     // Revalidate it
-//                     data.fv.revalidateField("fullName");
-//                 }
-//             }
-//         }
-//     }
-// };
-
-
-// Build skelton schema (add optional validators) for object "Vr"
-// var skeltonVr = function (optionalVr) {
-//     var baseVrList_SetNull = [ 'notEmpty', 'regexp', 'onSuccess' ];
-//     for (var i = 0; i < baseVrList_SetNull.length; i++) {
-//         this[ baseVrList_SetNull[i] ] = null;
-//     }
-//     // add optional Vr
-//     if ( typeof optionalVr !== "undefined" || optionalVr !== null ) {
-//         for (k in optionalVr) {
-//             if (optionalVr.hasOwnProperty(k)) {
-//                 this[k] = optionalVr[k];
-//             }
-//         }
-//     }
-//     this._isLastLvl = true;
-// };
-
-// Gary: may not available in 'use strict', have to try
-// var getCurrentFunctName = function ( argumentsCalleeInfo ) {
-//     // Normally the argumentsCalleeInfo should be called from other function with the "arguments.callee" as the arguments / parameters to this function.
-//     var fullScript = argumentsCalleeInfo.toString();
-//     var ownName = fullScript.substr('function '.length);        // trim off text "function"
-//     ownName = ownName.substr(0, ownName.indexOf('('));          // trim off everything after the function name
-// 	return ownName;
-// }
-
-// /*
-//  * Generate an ordered & structured object by catering dynamic-key
-//  * - Mostly used in "validators.config.js"
-//  *
-//  * @method phase_OneDynamicKeyToOneObj
-//  * @param {Object} object with dynamicKey  e.g. >> { "tel.mob": { 'msg': 'abcd' } }
-//  * @return {Object} structured object      e.g. >> { 'tel': { 'mob': { 'msg': 'abcd' } } }
-//  */
-// var phase_dynamicKeyToObj = function (obj, dynamicKeyPath, value) {
-//     var arrKeys = dynamicKeyPath.split('.');
-//     var lastKeyIndex = arrKeys.length - 1;
-//     for (var i = 0; i < lastKeyIndex; ++i) {
-//         var key = arrKeys[i];
-//         if (!(key in obj)) { obj[key] = {}; }
-//         obj = obj[key];
-//     }
-//     obj[arrKeys[lastKeyIndex]] = value;
-// };
-//
-// /*
-//  * ( *** Developing & Testing *** )
-//  * - Mostly used in "validators.config.js"
-//  *
-//  * @method phase_toVrProperties
-//  * @param {String} ID or class
-//  * @return {Boolean} Returns true or false for the checking
-//  */
-// var phase_toVrProperties = function (obj) {
-//     try {
-//         if ( _.isEmpty(obj) ) throw new Error('1 param is required. Please check.');
-//     } catch(e) {
-//         console.error(e.name.toString() + ' >>> ' + e.message);
-//         return false;
-//     }
-//     var result = {};
-//     _.each(obj, function(v, i) {
-//         result[i] = {};
-//         _.each(v, function(iPersonV, iPersonI) {
-//             phase_dynamicKeyToObj(result[i], iPersonI, iPersonV);
-//         });
-//     });
-//     return result;
-// };

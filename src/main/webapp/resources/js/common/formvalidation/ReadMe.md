@@ -1,12 +1,17 @@
+**2016-11-29
+    Gary    - Applied FV "revalidate" for the binding fields.
+            - Built / Migrated some functions and objects as below.
+                {Object} fvConfig.helpers.fvCallback.hkidUniqueValidation
+
 **2016-11-28
     Gary    - start to build the fwd-utility.js
-            - Built / Migrated functions as below.
-                fwdValidator.currentDevice.isMobile(),
-                fwdUtility.ux.floatingBox()
-                fwdUtility.counter.dateDiffInDaysFromNow(dat)
-                fwdUtility.counter.dateDiffInDays(dat)
             - Adjusting the header.jsp & flight-plan-details.jsp external JS loading script
             - testing validating the unique value among multi-fields
+            - Built / Migrated functions as below.
+                {Function} fwdValidator.currentDevice.isMobile(),
+                {Function} fwdUtility.ux.floatingBox()
+                {Function} fwdUtility.counter.dateDiffInDaysFromNow(dat)
+                {Function} fwdUtility.counter.dateDiffInDays(dat)
 
 **2016-11-23
     Irvine  -
