@@ -269,6 +269,13 @@ public class OnlineWithdrawalController extends BaseController{
 					}
 					
 					return new ResponseEntity<T>((T)errmsg, HttpStatus.valueOf(Integer.parseInt(resultCode)));
+				}else{
+					if(!"400".equals(resultCode) && !"500".equals(resultCode)){
+						WarnMsg errmsg = new WarnMsg();
+						errmsg.setMessage_en((String)errMsg.get("message_en"));
+						errmsg.setMessage_zh((String)errMsg.get("message_zh"));
+						return new ResponseEntity<T>((T)errmsg, HttpStatus.valueOf(Integer.parseInt(resultCode)));
+					}
 				}
 				
 				return new ResponseEntity<T>((T)null, HttpStatus.valueOf(Integer.parseInt(resultCode)));

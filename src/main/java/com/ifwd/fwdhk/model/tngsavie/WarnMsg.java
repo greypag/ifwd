@@ -1,5 +1,8 @@
 package com.ifwd.fwdhk.model.tngsavie;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WarnMsg {
 	private String code;
 	private String message_en;
