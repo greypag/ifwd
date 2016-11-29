@@ -106,7 +106,7 @@
 			var dob=yearStr+"-"+monStr+"-"+dateStr;
 			if(name=="joinus_form_member"){
 			return $.post('<%=request.getContextPath()%>/api/member/register/member/customer',
-					{userName: $(form_selector+" input[name='fullName']").val(), mobile: $("#txtMobileNo").val(),
+					{userName: $("#txtUserName1").val(), mobile: $("#txtMobileNo").val(),
 			    password: $("#txtConfPass").val(),
 			    email: $("#txtEmailId").val(),
 			    docNo: $("#txtHkid").val(),
@@ -119,7 +119,7 @@
 						 $.ajax({
 								type : 'POST',
 								url : '<%=request.getContextPath()%>/joinus/registrationCustomerLogin',
-								data : {userName:$(form_selector+" input[name='fullName']").val(),password:$("#txtConfPass").val(),message:resp},
+								data : {userName:$("#txtUserName1").val(),password:$("#txtConfPass").val(),message:resp},
 								async : false,
 								success : function(data) {
 									if (data == 'success') {
