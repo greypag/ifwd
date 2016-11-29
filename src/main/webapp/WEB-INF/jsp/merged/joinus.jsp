@@ -104,7 +104,7 @@
 			var monStr=dateString.split("/")[1];
 			var dateStr=dateString.split("/")[0];
 			var dob=yearStr+"-"+monStr+"-"+dateStr;
-			if(name=="joinus_form_member"){;
+			if(name=="joinus_form_member"){
 			return $.post('<%=request.getContextPath()%>/api/member/register/member/customer',
 					{userName: $(form_selector+" input[name='fullName']").val(), mobile: $("#txtMobileNo").val(),
 			    password: $("#txtConfPass").val(),
