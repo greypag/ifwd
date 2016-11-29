@@ -178,14 +178,14 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12">
-							<h3>您好，我們知道您想展開儲蓄大計！</h3>
-							<p>請告訴我們您的想法及希望如何達成目標。</p>
+							<h3><fmt:message key="wealthree.landing.calculation.title1" bundle="${wealthreeMsg}" /></h3>
+							<p><fmt:message key="wealthree.landing.calculation.title2" bundle="${wealthreeMsg}" /></p>
 
 							<div class="row">
 								<div class="col-xs-12 col-sm-6">
 									<div class="box-input">
 										<img src="<%=request.getContextPath()%>/resources/images/wealthree/s2_icon_01.png" alt="">
-										<span>首年內繳付保費</span>
+										<span><fmt:message key="wealthree.landing.calculation.premiums.paid" bundle="${wealthreeMsg}" /></span>
 
 										<div class="text-center form-wrapper">
 											<div class="txt-amount-wrapper">
@@ -201,19 +201,19 @@ var home_url = "<%=request.getContextPath()%>";
 										</div>
 										<div id="box-input-msg"></div>
 										<div class="text-center">
-											<a href="javascript:void(0);" class="btn-calculate">計算保費</a>
+											<a href="javascript:void(0);" class="btn-calculate"><fmt:message key="wealthree.landing.calculation.cta.calculate" bundle="${wealthreeMsg}" /></a>
 										</div>
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-6">
 									<div class="box-result">
 										<img src="<%=request.getContextPath()%>/resources/images/wealthree/s2_icon_02.png" alt="">
-										<span>總繳付保費</span>
+										<span><fmt:message key="wealthree.landing.calculation.total.paid" bundle="${wealthreeMsg}" /></span>
 										<span class="ttl_pay_amount">
 											
 										</span>
 										<img src="<%=request.getContextPath()%>/resources/images/wealthree/s2_arrow_down.png" alt="">
-										<span>第三年期滿後保證回報</span>
+										<span><fmt:message key="wealthree.landing.calculation.full" bundle="${wealthreeMsg}" /></span>
 
 										<span class="yrs3_return">
 											
@@ -229,13 +229,13 @@ var home_url = "<%=request.getContextPath()%>";
 
 								<div class="col-xs-12">
 									<div class="tbl-result-wrapper">
-										<h4 class="text-center">更享有戶口價值之120% 作為身故權益</h4>
+										<h4 class="text-center"><fmt:message key="wealthree.landing.calculation.120" bundle="${wealthreeMsg}" /></h4>
 										<div class="tbl-wrapper clearfix">
 											<div class="col-year">
 												<div class="col-year-inner">
 													<table>
 														<tr>
-															<th>保單年期</th>
+															<th><fmt:message key="wealthree.landing.calculation.table.amount.year" bundle="${wealthreeMsg}" /></th>
 														</tr>
 														<tr>
 															<td>1</td>
@@ -253,9 +253,9 @@ var home_url = "<%=request.getContextPath()%>";
 												<div class="col-data-scroller">
 													<table>
 														<tr>
-															<th>繳付保費</th>
-															<th>保證身故權益</th>
-															<th>保單價值</th>
+															<th><fmt:message key="wealthree.landing.calculation.table.total.paid" bundle="${wealthreeMsg}" /></th>
+															<th><fmt:message key="wealthree.landing.calculation.table.benefit" bundle="${wealthreeMsg}" /></th>
+															<th><fmt:message key="wealthree.landing.calculation.table.value" bundle="${wealthreeMsg}" /></th>
 														</tr>
 														<tr>
 															<td class="y1-c1">1</td>
@@ -276,12 +276,14 @@ var home_url = "<%=request.getContextPath()%>";
 												</div>
 											</div>
 										</div>
+										<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.table.remark" bundle="${wealthreeMsg}" /></span></p>
 									</div>
 								</div>
 
 								<div class="col-xs-12">
 									<div class="text-center btm-btn">
-										<button class="btn-savenow">開始儲蓄</button>
+										<button class="btn-savenow"><fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" /></button>
+										<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.save.now.remark" bundle="${wealthreeMsg}" /></span></p>
 									</div>
 								</div>
 							</div>
@@ -398,11 +400,9 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 									<div class="col-xs-8 col-sm-12">
 										<h3 class="pv_feature_title"><fmt:message key="wealthree.landing.features.1.title" bundle="${wealthreeMsg}" /></h3>
-										<p class="pv_feature_desc"><fmt:message key="wealthree.landing.features.1.text1" bundle="${wealthreeMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="wealthree.landing.features.1.remarks" bundle="${wealthreeMsg}" /></span></p>
+										<p class="pv_feature_desc"><fmt:message key="wealthree.landing.features.1.text1" bundle="${wealthreeMsg}" /></p>
 									</div>
 								</div>
-								
-								
 							</div>
 
 							<div class="col-xs-12 col-sm-4 pv_feature_box">
@@ -423,117 +423,146 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 									<div class="col-xs-8 col-sm-12">
 										<h3 class="pv_feature_title"><fmt:message key="wealthree.landing.features.3.title" bundle="${wealthreeMsg}" /></h3>
-										<p class="pv_feature_desc"><fmt:message key="wealthree.landing.features.3.text" bundle="${wealthreeMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="wealthree.landing.features.3.remarks" bundle="${wealthreeMsg}" /></span></p>
+										<p class="pv_feature_desc"><fmt:message key="wealthree.landing.features.3.text" bundle="${wealthreeMsg}" /></p>
 									</div>
 								</div>
 							</div>
+							<div class="col-xs-12 col-sm-12 pv_feature_box">
+								<div class="row">
+									<div class="col-xs-12 col-sm-12">
+										<span class="pv_remark"><br>
+										<fmt:message key="wealthree.landing.features.1.remarks" bundle="${wealthreeMsg}" /><br>
+										<fmt:message key="wealthree.landing.features.3.remarks" bundle="${wealthreeMsg}" />
+										</span>
+									</div>
+								</div>
+							</div>							
+							
 						</div>
             		</div>
             	</div>
             </div>
             <div class="hide" id="tableData">
+            	<div class="provie">
+            		<span class="type">
+            			<fmt:message key="wealthree.landing.table.type.provie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="age">
+            			<fmt:message key="wealthree.landing.table.age.provie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="paymentterm">
+            			<fmt:message key="wealthree.landing.table.premium.payment.term.provie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="benefitterm">
+            			<fmt:message key="wealthree.landing.table.benefit.term.provie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="currency">
+            			<fmt:message key="wealthree.landing.table.policy.currency.provie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="interestrate">
+            			<fmt:message key="wealthree.landing.table.rate.of.return.provie.hkd" bundle="${wealthreeMsg}" /><br><br>
+            			<fmt:message key="wealthree.landing.table.rate.of.return.provie.usd" bundle="${wealthreeMsg}" /><br>
+            			<fmt:message key="wealthree.landing.table.rate.of.return.provie.remark" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="deathbenefit">
+            			<fmt:message key="wealthree.landing.table.death.benefit.provie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="monthly">
+            			<fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" />
+            		</span>
+            		<span class="rider-detail">
+						<span class="sub_title">
+							<fmt:message key="wealthree.landing.table.other.benefit.provie1.heading" bundle="${wealthreeMsg}" />
+						</span>
+						<fmt:message key="wealthree.landing.table.other.benefit.provie1" bundle="${wealthreeMsg}" />
+						<br><br>
+						<span class="sub_title">
+							<fmt:message key="wealthree.landing.table.other.benefit.provie2.heading" bundle="${wealthreeMsg}" />
+						</span>
+						<fmt:message key="wealthree.landing.table.other.benefit.provie2" bundle="${wealthreeMsg}" />
+						<br><br>
+						<span class="sub_title">
+							<fmt:message key="wealthree.landing.table.other.benefit.provie3.heading" bundle="${wealthreeMsg}" />
+						</span>
+						<fmt:message key="wealthree.landing.table.other.benefit.provie3" bundle="${wealthreeMsg}" />
+	       			</span>
+					<span class="maturity">
+						<fmt:message key="wealthree.landing.table.maturity.benefit.provie" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="surrender">
+						<fmt:message key="wealthree.landing.table.surrender.benefit.provie" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="psurrender">
+						<fmt:message key="wealthree.landing.table.partial.surrender.benefit.provie" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="withdrawal">
+						<fmt:message key="wealthree.landing.table.no.of.withdrawal.provie" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="minpsurrender">
+						<fmt:message key="wealthree.landing.table.min.partial.surrender.provie" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="maxpsurrender">
+						<fmt:message key="wealthree.landing.table.max.partial.surrender.provie" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="minacc">
+						<fmt:message key="wealthree.landing.table.min.acc.value.provie" bundle="${wealthreeMsg}" />
+					</span>
+            	</div>
             	<div class="savie">
+            		<span class="type">
+            			<fmt:message key="wealthree.landing.table.type.savie" bundle="${wealthreeMsg}" />
+            		</span>
             		<span class="age">
             			<fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" />
             		</span>
+            		<span class="paymentterm">
+            			<fmt:message key="wealthree.landing.table.premium.payment.term.savie" bundle="${wealthreeMsg}" />
+            		</span>
             		<span class="benefitterm">
-            			<fmt:message key="wealthree.landing.table.benefitterm.savie" bundle="${wealthreeMsg}" />
+            			<fmt:message key="wealthree.landing.table.benefit.term.savie" bundle="${wealthreeMsg}" />
             		</span>
             		<span class="currency">
-            			<fmt:message key="wealthree.landing.table.currency.savie" bundle="${wealthreeMsg}" />
+            			<fmt:message key="wealthree.landing.table.policy.currency.savie" bundle="${wealthreeMsg}" />
             		</span>
             		<span class="interestrate">
-            			<fmt:message key="wealthree.landing.table.interestrate.savie" bundle="${wealthreeMsg}" />
+            			<fmt:message key="wealthree.landing.table.rate.of.return.savie.hkd" bundle="${wealthreeMsg}" /><br>
+            			<fmt:message key="wealthree.landing.table.rate.of.return.savie.remark" bundle="${wealthreeMsg}" />
             		</span>
             		<span class="deathbenefit">
-            			<fmt:message key="wealthree.landing.table.deathbenefit.savie" bundle="${wealthreeMsg}" />
+            			<fmt:message key="wealthree.landing.table.death.benefit.savie" bundle="${wealthreeMsg}" />
             		</span>
-            		<span class="rider"></span>
+            		<span class="monthly">
+            			
+            		</span>
             		<span class="rider-detail">
 						<span class="sub_title">
-							<fmt:message key="wealthree.landing.table.rider1.savie.title" bundle="${wealthreeMsg}" />
+							<fmt:message key="wealthree.landing.table.other.benefit.savie1.heading" bundle="${wealthreeMsg}" />
 						</span>
-						<fmt:message key="wealthree.landing.table.rider1.savie.text1" bundle="${wealthreeMsg}" />
-						<span class="remark"><fmt:message key="wealthree.landing.table.rider1.savie.text2" bundle="${wealthreeMsg}" /></span>
-            		</span>
-            		<span class="withdrawal"><fmt:message key="wealthree.landing.table.withdrawal.savie.title" bundle="${wealthreeMsg}" /></span>
-            		<span class="withdrawal-min"><fmt:message key="wealthree.landing.table.withdrawal.min.savie" bundle="${wealthreeMsg}" /></span>
-            		<span class="withdrawal-max"><fmt:message key="wealthree.landing.table.withdrawal.max.savie" bundle="${wealthreeMsg}" /></span>
-            		<span class="maxamount-monthly">
-						<fmt:message key="wealthree.landing.table.maxamount.savie.monthly" bundle="${wealthreeMsg}" />
+						<fmt:message key="wealthree.landing.table.other.benefit.savie1" bundle="${wealthreeMsg}" />
+	       			</span>
+					<span class="maturity">
+						<fmt:message key="wealthree.landing.table.maturity.benefit.savie" bundle="${wealthreeMsg}" />
 					</span>
-					<span class="maxamount-oneoff">
-						<fmt:message key="wealthree.landing.table.maxamount.savie.oneoff" bundle="${wealthreeMsg}" />
+					<span class="surrender">
+						<fmt:message key="wealthree.landing.table.surrender.benefit.savie" bundle="${wealthreeMsg}" />
 					</span>
-					<span class="maxamount-monthly">
-						<fmt:message key="wealthree.landing.table.minamount.savie.monthly" bundle="${wealthreeMsg}" />
+					<span class="psurrender">
+						<fmt:message key="wealthree.landing.table.partial.surrender.benefit.savie" bundle="${wealthreeMsg}" />
 					</span>
-					<span class="maxamount-oneoff">
-						<fmt:message key="wealthree.landing.table.minamount.savie.oneoff" bundle="${wealthreeMsg}" />
+					<span class="withdrawal">
+						<fmt:message key="wealthree.landing.table.no.of.withdrawal.savie" bundle="${wealthreeMsg}" />
 					</span>
-					<span class="minacctvalue">
-						<fmt:message key="wealthree.landing.table.minacctvalue.savie" bundle="${wealthreeMsg}" />
+					<span class="minpsurrender">
+						<fmt:message key="wealthree.landing.table.min.partial.surrender.savie" bundle="${wealthreeMsg}" />
 					</span>
-            	</div>
-            	<div class="provie">
-            		<span class="age">
-            			<fmt:message key="wealthree.landing.table.age.wealthree" bundle="${wealthreeMsg}" />
-            		</span>
-            		<span class="benefitterm">
-            			<fmt:message key="wealthree.landing.table.benefitterm.wealthree" bundle="${wealthreeMsg}" />
-            		</span>
-            		<span class="currency">
-            			<fmt:message key="wealthree.landing.table.currency.wealthree" bundle="${wealthreeMsg}" />
-            		</span>
-            		<span class="interestrate">
-            			<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.remarks" bundle="${wealthreeMsg}" /></span><br>
-										<fmt:message key="wealthree.landing.table.interestrate.wealthree1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2" bundle="${wealthreeMsg}" /><br>
-										<fmt:message key="wealthree.landing.table.interestrate.wealthree3" bundle="${wealthreeMsg}" /><br><br>
-										<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.wealthree.usd" bundle="${wealthreeMsg}" /></span><br>
-										<fmt:message key="wealthree.landing.table.interestrate.wealthree1.usd" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2.usd" bundle="${wealthreeMsg}" />
-            		</span>
-            		<span class="deathbenefit">
-            			<fmt:message key="wealthree.landing.table.deathbenefit.wealthree" bundle="${wealthreeMsg}" />
-            		</span>
-            		<span class="rider">
-            			<fmt:message key="wealthree.landing.table.title2.rider" bundle="${wealthreeMsg}" />
-            		</span>
-            		<span class="rider-detail">
-						<span class="sub_title">
-												<fmt:message key="wealthree.landing.table.title.rider1" bundle="${wealthreeMsg}" />
-											</span>
-											<fmt:message key="wealthree.landing.table.rider1.text" bundle="${wealthreeMsg}" />
-											<span class="remark"><fmt:message key="wealthree.landing.table.rider1.remarks" bundle="${wealthreeMsg}" /></span>
-											<span class="sub_title">
-												<fmt:message key="wealthree.landing.table.title.rider2" bundle="${wealthreeMsg}" />
-											</span>
-											<fmt:message key="wealthree.landing.table.rider2.text" bundle="${wealthreeMsg}" />
-											<span class="remark"><fmt:message key="wealthree.landing.table.rider2.remarks" bundle="${wealthreeMsg}" /></span>
-											<span class="sub_title">
-												<fmt:message key="wealthree.landing.table.title.rider3" bundle="${wealthreeMsg}" />
-											</span>
-											<fmt:message key="wealthree.landing.table.rider3.text" bundle="${wealthreeMsg}" />
-											<span class="remark"><fmt:message key="wealthree.landing.table.rider3.remarks" bundle="${wealthreeMsg}" /></span>
-            		</span>
-            		<span class="withdrawal"><fmt:message key="wealthree.landing.table.withdrawal.wealthree.title" bundle="${wealthreeMsg}" /></span>
-            		<span class="withdrawal-min"><fmt:message key="wealthree.landing.table.withdrawal.min.wealthree" bundle="${wealthreeMsg}" /></span>
-            		<span class="withdrawal-max"><fmt:message key="wealthree.landing.table.withdrawal.max.wealthree" bundle="${wealthreeMsg}" /></span>
-            		<span class="maxamount-monthly">
-						<fmt:message key="wealthree.landing.table.maxamount.wealthree.monthly" bundle="${wealthreeMsg}" />
+					<span class="maxpsurrender">
+						<fmt:message key="wealthree.landing.table.max.partial.surrender.savie" bundle="${wealthreeMsg}" />
 					</span>
-					<span class="maxamount-oneoff">
-						<fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" />
-					</span>
-					<span class="minamount-monthly">
-						<fmt:message key="wealthree.landing.table.minamount.wealthree.monthly" bundle="${wealthreeMsg}" />
-					</span>
-					<span class="minamount-oneoff">
-						<fmt:message key="wealthree.landing.table.minamount.wealthree.oneoff" bundle="${wealthreeMsg}" />
-					</span>
-					<span class="minacctvalue">
-						<fmt:message key="wealthree.landing.table.minacctvalue.wealthree" bundle="${wealthreeMsg}" />
+					<span class="minacc">
+						<fmt:message key="wealthree.landing.table.min.acc.value.savie" bundle="${wealthreeMsg}" />
 					</span>
             	</div>
+            	
             </div>
 			<div class="pv_compareTable">
 				<div class="container">
@@ -549,145 +578,135 @@ var home_url = "<%=request.getContextPath()%>";
 											<div class="sel_wrapper">
 												<i class="fa fa-sort-desc" aria-hidden="true"></i>
 												<select id="sel_savie_provie">
-													<option value="savie" selected><fmt:message key="wealthree.landing.table.title.savie" bundle="${wealthreeMsg}" /></span></option>
-													<option value="provie"><fmt:message key="wealthree.landing.table.title.provie" bundle="${wealthreeMsg}" /></span></option>
+												<option value="provie" selected><fmt:message key="wealthree.landing.table.title.provie" bundle="${wealthreeMsg}" /></option>
+												<option value="savie"><fmt:message key="wealthree.landing.table.title.savie" bundle="${wealthreeMsg}" /></option>
 												</select>
 											</div>
 										</div>
 									</th>
 								</tr>
 								<tr>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.type" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.type.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-type"><fmt:message key="wealthree.landing.table.type.provie" bundle="${wealthreeMsg}" /></span></td>
+								</tr>
+								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.age" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.age.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-age"><fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-age"><fmt:message key="wealthree.landing.table.age.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefitterm" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.benefitterm.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-benefitterm"><fmt:message key="wealthree.landing.table.benefitterm.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.premium.payment.term" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.premium.payment.term.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-paymentterm"><fmt:message key="wealthree.landing.table.premium.payment.term.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.currency" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.currency.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-currency"><fmt:message key="wealthree.landing.table.currency.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefit.term" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.benefit.term.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-benefitterm"><fmt:message key="wealthree.landing.table.benefit.term.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.interestrate" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2" class="highlight"><span class="inner"><span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.remarks" bundle="${wealthreeMsg}" /></span><br>
-										<fmt:message key="wealthree.landing.table.interestrate.wealthree1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2" bundle="${wealthreeMsg}" /><br>
-										<fmt:message key="wealthree.landing.table.interestrate.wealthree3" bundle="${wealthreeMsg}" /><br><br>
-										<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.wealthree.usd" bundle="${wealthreeMsg}" /></span><br>
-										<fmt:message key="wealthree.landing.table.interestrate.wealthree1.usd" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2.usd" bundle="${wealthreeMsg}" /></span>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.policy.currency" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.policy.currency.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-currency"><fmt:message key="wealthree.landing.table.policy.currency.provie" bundle="${wealthreeMsg}" /></span></td>
+								</tr>
+								<tr>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.rate.of.return" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner">
+										<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.rate.of.return.wealthree.hkd1" bundle="${wealthreeMsg}" /></span><br>
+										<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.hkd2" bundle="${wealthreeMsg}" /><br>										<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.hkd3" bundle="${wealthreeMsg}" /><br><br>
+										<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.rate.of.return.wealthree.rmb1" bundle="${wealthreeMsg}" /></span><br>
+										<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.rmb2" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.rate.of.return.wealthree.rmb3" bundle="${wealthreeMsg}" />
+										</span>
 									</td>
-									<td colspan="2"><span class="inner sw-interestrate"><fmt:message key="wealthree.landing.table.interestrate.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-interestrate"><fmt:message key="wealthree.landing.table.rate.of.return.provie.hkd" bundle="${wealthreeMsg}" /><br><br><fmt:message key="wealthree.landing.table.rate.of.return.provie.usd" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.rate.of.return.provie.remark" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.deathbenefit" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.deathbenefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-deathbenefit"><fmt:message key="wealthree.landing.table.deathbenefit.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.death.benefit" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.death.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-deathbenefit"><fmt:message key="wealthree.landing.table.death.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
-								<tr>
+								<tr> <!-- other benefit -->
 									<td colspan="2"></td>
-									<td colspan="2" class="sep highlight"><span class="inner"><fmt:message key="wealthree.landing.table.title2.rider" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-rider"></span></td>
+									<td colspan="2" class="sep highlight"><span class="inner"></span></td>
+									<td colspan="2" class="sep highlight"><span class="inner sw-monthly"><fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
-								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.riders" bundle="${wealthreeMsg}" /></span></td>
+								<tr><!-- other benefit -->
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.other.benefit" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight">
 										<span class="inner">
-											<span class="sub_title">
-												<fmt:message key="wealthree.landing.table.title.rider1" bundle="${wealthreeMsg}" />
-											</span>
-											<fmt:message key="wealthree.landing.table.rider1.text" bundle="${wealthreeMsg}" />
-											<span class="remark"><fmt:message key="wealthree.landing.table.rider1.remarks" bundle="${wealthreeMsg}" /></span>
-											<span class="sub_title">
-												<fmt:message key="wealthree.landing.table.title.rider2" bundle="${wealthreeMsg}" />
-											</span>
-											<fmt:message key="wealthree.landing.table.rider2.text" bundle="${wealthreeMsg}" />
-											<span class="remark"><fmt:message key="wealthree.landing.table.rider2.remarks" bundle="${wealthreeMsg}" /></span>
-											<span class="sub_title">
-												<fmt:message key="wealthree.landing.table.title.rider3" bundle="${wealthreeMsg}" />
-											</span>
-											<fmt:message key="wealthree.landing.table.rider3.text" bundle="${wealthreeMsg}" />
-											<span class="remark"><fmt:message key="wealthree.landing.table.rider3.remarks" bundle="${wealthreeMsg}" /></span>
+											<fmt:message key="wealthree.landing.table.other.benefit.wealthree" bundle="${wealthreeMsg}" />
 										</span>
 									</td>
 									<td colspan="2">
 										<span class="inner sw-rider-detail">
 											<span class="sub_title">
-												<fmt:message key="wealthree.landing.table.rider1.savie.title" bundle="${wealthreeMsg}" />
+												<fmt:message key="wealthree.landing.table.other.benefit.provie1.heading" bundle="${wealthreeMsg}" />
 											</span>
-											<fmt:message key="wealthree.landing.table.rider1.savie.text1" bundle="${wealthreeMsg}" />
-											<span class="remark"><fmt:message key="wealthree.landing.table.rider1.savie.text2" bundle="${wealthreeMsg}" /></span>
+											<fmt:message key="wealthree.landing.table.other.benefit.provie1" bundle="${wealthreeMsg}" />
+											<br><br>
+											<span class="sub_title">
+												<fmt:message key="wealthree.landing.table.other.benefit.provie2.heading" bundle="${wealthreeMsg}" />
+											</span>
+											<fmt:message key="wealthree.landing.table.other.benefit.provie2" bundle="${wealthreeMsg}" />
+											<br><br>
+											<span class="sub_title">
+												<fmt:message key="wealthree.landing.table.other.benefit.provie3.heading" bundle="${wealthreeMsg}" />
+											</span>
+											<fmt:message key="wealthree.landing.table.other.benefit.provie3" bundle="${wealthreeMsg}" />
+
 										</span>
 									</td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.title" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.wealthree.title" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-withdrawal"><fmt:message key="wealthree.landing.table.withdrawal.savie.title" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.maturity.benefit" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.maturity.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-maturity"><fmt:message key="wealthree.landing.table.maturity.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.title" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-withdrawal-min"><fmt:message key="wealthree.landing.table.withdrawal.min.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.surrender.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-surrender"><fmt:message key="wealthree.landing.table.surrender.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.title" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-withdrawal-max"><fmt:message key="wealthree.landing.table.withdrawal.max.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.partial.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.partial.surrender.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-psurrender"><fmt:message key="wealthree.landing.table.partial.surrender.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"></td>
-									<td class="sep"><span class="inner"><fmt:message key="wealthree.landing.table.monthly.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td class="sep hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.oneoff.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td class="sep"><span class="inner"><fmt:message key="wealthree.landing.table.monthly.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td class="sep hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.oneoff.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.no.of.withdrawal" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.no.of.withdrawal.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-withdrawal"><fmt:message key="wealthree.landing.table.no.of.withdrawal.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.maxamount" bundle="${wealthreeMsg}" /></span></td>
-									<td class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span></td>
-									<td class="hideborderLeft highlight"><span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span></td>
-									<td><span class="inner sw-maxamount-monthly"><fmt:message key="wealthree.landing.table.maxamount.savie.monthly" bundle="${wealthreeMsg}" /></span></td>
-									<td class="hideborderLeft"><span class="inner sw-maxamount-oneoff"><fmt:message key="wealthree.landing.table.maxamount.savie.oneoff" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.partial.surrender.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-minpsurrender"><fmt:message key="wealthree.landing.table.min.partial.surrender.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minamount" bundle="${wealthreeMsg}" /></span></td>
-									<td class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span></td>
-									<td class="hideborderLeft highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span></td>
-									<td><span class="inner sw-minamount-monthly"><fmt:message key="wealthree.landing.table.minamount.savie.monthly" bundle="${wealthreeMsg}" /></span></td>
-									<td class="hideborderLeft"><span class="inner sw-minamount-oneoff"><fmt:message key="wealthree.landing.table.minamount.savie.oneoff" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.max.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.max.partial.surrender.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-maxpsurrender"><fmt:message key="wealthree.landing.table.max.partial.surrender.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minacctvalue" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minacctvalue.wealthree" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner sw-minacctvalue"><fmt:message key="wealthree.landing.table.minacctvalue.savie" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.acc.value" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner sw-minacc"><fmt:message key="wealthree.landing.table.min.acc.value.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
+								
 								<tr>
 									<td colspan="6">
 										<span class="inner pv_remark">
-											<sup>*</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks1" bundle="${wealthreeMsg}" />
-											<br>
-											<sup>**</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks2" bundle="${wealthreeMsg}" />
+											<sup>*</sup><fmt:message key="wealthree.landing.table.remark1" bundle="${wealthreeMsg}" /><br><br>
+											<sup>**</sup><fmt:message key="wealthree.landing.table.remark2" bundle="${wealthreeMsg}" /><br><br>
+											<sup>***</sup><fmt:message key="wealthree.landing.table.remark3" bundle="${wealthreeMsg}" /><br><br>
+											<sup>+</sup><fmt:message key="wealthree.landing.table.remark4" bundle="${wealthreeMsg}" /><br><br>
+											<sup>^</sup><fmt:message key="wealthree.landing.table.remark5" bundle="${wealthreeMsg}" /><br><br>
+											<sup>#</sup><fmt:message key="wealthree.landing.table.remark6" bundle="${wealthreeMsg}" /><br>
 										</span>
 									</td>
 								</tr>
-								<tr>
-									<td colspan="6">
-										<span class="inner pv_remark">
-											<fmt:message key="wealthree.landing.table.remarks1.text1" bundle="${wealthreeMsg}" />
-										</span>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="6">
-										<span class="inner pv_remark">
-											<fmt:message key="wealthree.landing.table.remarks2.text1" bundle="${wealthreeMsg}" />
-											<br>
-											<fmt:message key="wealthree.landing.table.remarks3.text1" bundle="${wealthreeMsg}" />
-										</span>
-									</td>
-								</tr>
+
 							</table>
 						</div>
 
@@ -712,213 +731,86 @@ var home_url = "<%=request.getContextPath()%>";
 														<th colspan="4"><span class="inner"><fmt:message key="wealthree.landing.table.title.wealthree" bundle="${wealthreeMsg}" /></span></th>
 													</tr>
 													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.type" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.type.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.age" bundle="${wealthreeMsg}" /></span></td>
 														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.age.wealthree" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefitterm" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.benefitterm.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.premium.payment.term" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.premium.payment.term.wealthree" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.currency" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.currency.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefit.term" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.benefit.term.wealthree" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.interestrate" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.remarks" bundle="${wealthreeMsg}" /></span><br>
-															<fmt:message key="wealthree.landing.table.interestrate.wealthree1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2" bundle="${wealthreeMsg}" /><br>
-															<fmt:message key="wealthree.landing.table.interestrate.wealthree3" bundle="${wealthreeMsg}" /><br>
-															<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.wealthree.usd" bundle="${wealthreeMsg}" /></span><br>
-															<fmt:message key="wealthree.landing.table.interestrate.wealthree1.usd" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2.usd" bundle="${wealthreeMsg}" /></span>
-														</td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.policy.currency" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.policy.currency.wealthree" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.deathbenefit" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.deathbenefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"></td>
-														<td colspan="2" class="sep highlight"><span class="inner"><fmt:message key="wealthree.landing.table.title2.rider" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.riders" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" >
-															<span class="inner">
-																<span class="sub_title">
-																	<fmt:message key="wealthree.landing.table.title.rider1" bundle="${wealthreeMsg}" />
-																</span>
-																<fmt:message key="wealthree.landing.table.rider1.text" bundle="${wealthreeMsg}" />
-																<span class="remark"><fmt:message key="wealthree.landing.table.rider1.remarks" bundle="${wealthreeMsg}" /></span>
-																<span class="sub_title">
-																	<fmt:message key="wealthree.landing.table.title.rider2" bundle="${wealthreeMsg}" />
-																</span>
-																<fmt:message key="wealthree.landing.table.rider2.text" bundle="${wealthreeMsg}" />
-																<span class="remark"><fmt:message key="wealthree.landing.table.rider2.remarks" bundle="${wealthreeMsg}" /></span>
-																<span class="sub_title">
-																	<fmt:message key="wealthree.landing.table.title.rider3" bundle="${wealthreeMsg}" />
-																</span>
-																<fmt:message key="wealthree.landing.table.rider3.text" bundle="${wealthreeMsg}" />
-																<span class="remark"><fmt:message key="wealthree.landing.table.rider3.remarks" bundle="${wealthreeMsg}" /></span>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.rate.of.return" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><span class="pv_sub_heading">
+															<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.hkd1" bundle="${wealthreeMsg}" /></span><br>
+															<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.hkd2" bundle="${wealthreeMsg}" /><br>
+															<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.hkd3" bundle="${wealthreeMsg}" /><br>
+															<br>
+															<span class="pv_sub_heading">
+															<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.rmb1" bundle="${wealthreeMsg}" /></span><br>
+															<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.rmb2" bundle="${wealthreeMsg}" /><br>
+															<fmt:message key="wealthree.landing.table.rate.of.return.wealthree.rmb3" bundle="${wealthreeMsg}" />
 															</span>
 														</td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.wealthree.title" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.death.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.death.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.other.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.other.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.maturity.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.maturity.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"></td>
-														<td class="sep"><span class="inner"><fmt:message key="wealthree.landing.table.monthly.wealthree" bundle="${wealthreeMsg}" /></span></td>
-														<td class="sep hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.oneoff.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.surrender.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.partial.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.partial.surrender.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.no.of.withdrawal" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.no.of.withdrawal.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.partial.surrender.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.max.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.max.partial.surrender.wealthree" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.acc.value" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.wealthree" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 
-													 <tr>
-														<td colspan="2">
-															<span class="inner"><fmt:message key="wealthree.landing.table.title.maxamount" bundle="${wealthreeMsg}" /></span>
-														</td>
-														<td >
-															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span>
-														</td>
-														<td class="hideborderLeft highlight">
-															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span>
-														</td>
-														<!-- <td class="hideborderLeft highlight">
-															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span>
-														</td> -->
-													</tr>
-
-
-
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minamount" bundle="${wealthreeMsg}" /></span></td>
-														<td ><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span></td>
-														<td class="hideborderLeft highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minacctvalue" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.minacctvalue.wealthree" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
+													
 													<tr>
 														<td colspan="6">
 															<span class="inner pv_remark">
-																<sup>*</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks1" bundle="${wealthreeMsg}" /><br>
-																<sup>**</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks2" bundle="${wealthreeMsg}" />
-															</span>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="6">
-															<span class="inner pv_remark">
-																<fmt:message key="wealthree.landing.table.remarks1.text1" bundle="${wealthreeMsg}" />
-															</span>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="6">
-															<span class="inner pv_remark">
-																<fmt:message key="wealthree.landing.table.remarks2.text1" bundle="${wealthreeMsg}" />
-																<br>
-																<fmt:message key="wealthree.landing.table.remarks3.text1" bundle="${wealthreeMsg}" />
-															</span>
-														</td>
-													</tr>
-												</table>
-											</div>
-										</div>
-										<div class="item inner">
-											<div>
-												<table>
-													<tr>
-														<th colspan="4"><span class="inner"><fmt:message key="wealthree.landing.table.title.savie" bundle="${wealthreeMsg}" /></span></th>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.age" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner sw-age"><fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefitterm" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner sw-benefitterm"><fmt:message key="wealthree.landing.table.benefitterm.savie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.currency" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner sw-currency"><fmt:message key="wealthree.landing.table.currency.savie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.interestrate" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner sw-interestrate"><fmt:message key="wealthree.landing.table.interestrate.savie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.deathbenefit" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner sw-deathbenefit"><fmt:message key="wealthree.landing.table.deathbenefit.savie" bundle="${wealthreeMsg}" /></td>
-													</tr>
-													<tr>
-														<td colspan="2"></td>
-														<td colspan="2"></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.rider1.savie.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2">
-															<span class="inner">
-																<span class="sub_title">
-																	<fmt:message key="wealthree.landing.table.rider1.savie.title" bundle="${wealthreeMsg}" />
-																</span>
-																<fmt:message key="wealthree.landing.table.rider1.savie.text1" bundle="${wealthreeMsg}" />
-																<span class="remark"><fmt:message key="wealthree.landing.table.rider1.savie.text2" bundle="${wealthreeMsg}" /></span>
-															</span>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.savie.title" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.savie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.savie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"></td>
-														<td class="sep"><span class="inner"><fmt:message key="wealthree.landing.table.monthly.savie" bundle="${wealthreeMsg}" /></span></td>
-														<td class="sep hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.oneoff.savie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.maxamount" bundle="${wealthreeMsg}" /></span></td>
-														<td><span class="inner"><fmt:message key="wealthree.landing.table.maxamount.savie.monthly" bundle="${wealthreeMsg}" /></span></td>
-														<td class="hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.maxamount.savie.oneoff" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minamount" bundle="${wealthreeMsg}" /></span></td>
-														<td><span class="inner"><fmt:message key="wealthree.landing.table.minamount.savie.monthly" bundle="${wealthreeMsg}" /></span></td>
-														<td class="hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.savie.oneoff" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minacctvalue" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.minacctvalue.savie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="6">
-															<span class="inner pv_remark">
-																<sup>*</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks1" bundle="${wealthreeMsg}" />
-																<br>
-																<sup>**</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks2" bundle="${wealthreeMsg}" />
-															</span>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="6">
-															<span class="inner pv_remark">
-																<fmt:message key="wealthree.landing.table.remarks1.text1" bundle="${wealthreeMsg}" />
+																<sup>*</sup><fmt:message key="wealthree.landing.table.remark1" bundle="${wealthreeMsg}" /><br><br>
+																<sup>**</sup><fmt:message key="wealthree.landing.table.remark2" bundle="${wealthreeMsg}" /><br><br>
+																<sup>***</sup><fmt:message key="wealthree.landing.table.remark3" bundle="${wealthreeMsg}" /><br><br>
+																<sup>+</sup><fmt:message key="wealthree.landing.table.remark4" bundle="${wealthreeMsg}" /><br><br>
+																<sup>^</sup><fmt:message key="wealthree.landing.table.remark5" bundle="${wealthreeMsg}" /><br><br>
+																<sup>#</sup><fmt:message key="wealthree.landing.table.remark6" bundle="${wealthreeMsg}" /><br>
 															</span>
 														</td>
 													</tr>
@@ -932,121 +824,187 @@ var home_url = "<%=request.getContextPath()%>";
 														<th colspan="4"><span class="inner"><fmt:message key="wealthree.landing.table.title.provie" bundle="${wealthreeMsg}" /></span></th>
 													</tr>
 													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.type" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.type.provie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.age" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.age.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.age.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefitterm" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.benefitterm.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.premium.payment.term" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.premium.payment.term.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.currency" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.currency.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefit.term" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.benefit.term.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.interestrate" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.remarks" bundle="${wealthreeMsg}" /></span><br>
-															<fmt:message key="wealthree.landing.table.interestrate.wealthree1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2" bundle="${wealthreeMsg}" /><br>
-															<fmt:message key="wealthree.landing.table.interestrate.wealthree3" bundle="${wealthreeMsg}" /><br>
-															<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.interestrate.wealthree.usd" bundle="${wealthreeMsg}" /></span><br>
-															<fmt:message key="wealthree.landing.table.interestrate.wealthree1.usd" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.table.interestrate.wealthree2.usd" bundle="${wealthreeMsg}" /></span>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.policy.currency" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.policy.currency.provie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.rate.of.return" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><span class="pv_sub_heading">
+															<fmt:message key="wealthree.landing.table.rate.of.return.provie.hkd" bundle="${wealthreeMsg}" /><br><br>
+															<fmt:message key="wealthree.landing.table.rate.of.return.provie.usd" bundle="${wealthreeMsg}" /></span><br><br>
+															<span class="inner pv_remark">
+															<fmt:message key="wealthree.landing.table.rate.of.return.provie.remark" bundle="${wealthreeMsg}" /></span>
+															</span>
 														</td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.deathbenefit" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.deathbenefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.death.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.death.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
 														<td colspan="2"></td>
-														<td colspan="2" class="sep highlight"><span class="inner"><fmt:message key="wealthree.landing.table.title2.rider" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" class="sep"><span class="inner"><fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.riders" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" >
-															<span class="inner">
-																<span class="sub_title">
-																	<fmt:message key="wealthree.landing.table.title.rider1" bundle="${wealthreeMsg}" />
-																</span>
-																<fmt:message key="wealthree.landing.table.rider1.text" bundle="${wealthreeMsg}" />
-																<span class="remark"><fmt:message key="wealthree.landing.table.rider1.remarks" bundle="${wealthreeMsg}" /></span>
-																<span class="sub_title">
-																	<fmt:message key="wealthree.landing.table.title.rider2" bundle="${wealthreeMsg}" />
-																</span>
-																<fmt:message key="wealthree.landing.table.rider2.text" bundle="${wealthreeMsg}" />
-																<span class="remark"><fmt:message key="wealthree.landing.table.rider2.remarks" bundle="${wealthreeMsg}" /></span>
-																<span class="sub_title">
-																	<fmt:message key="wealthree.landing.table.title.rider3" bundle="${wealthreeMsg}" />
-																</span>
-																<fmt:message key="wealthree.landing.table.rider3.text" bundle="${wealthreeMsg}" />
-																<span class="remark"><fmt:message key="wealthree.landing.table.rider3.remarks" bundle="${wealthreeMsg}" /></span>
+<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.other.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner">
+														<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.other.benefit.provie1.heading" bundle="${wealthreeMsg}" /></span>
+														<fmt:message key="wealthree.landing.table.other.benefit.provie1" bundle="${wealthreeMsg}" /><br><br>
+														<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.other.benefit.provie2.heading" bundle="${wealthreeMsg}" /></span>
+														<fmt:message key="wealthree.landing.table.other.benefit.provie2" bundle="${wealthreeMsg}" /><br><br>
+														<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.other.benefit.provie3.heading" bundle="${wealthreeMsg}" /></span>
+														<fmt:message key="wealthree.landing.table.other.benefit.provie3" bundle="${wealthreeMsg}" />
 															</span>
 														</td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.wealthree.title" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.maturity.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.maturity.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.min.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.surrender.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.title" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.withdrawal.max.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.partial.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.partial.surrender.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 													<tr>
-														<td colspan="2"></td>
-														<td class="sep"><span class="inner"><fmt:message key="wealthree.landing.table.monthly.wealthree" bundle="${wealthreeMsg}" /></span></td>
-														<td class="sep hideborderLeft"><span class="inner"><fmt:message key="wealthree.landing.table.oneoff.wealthree" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.no.of.withdrawal" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.no.of.withdrawal.provie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.partial.surrender.provie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.max.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.max.partial.surrender.provie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.acc.value" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
 
-													 <tr>
-														<td colspan="2">
-															<span class="inner"><fmt:message key="wealthree.landing.table.title.maxamount" bundle="${wealthreeMsg}" /></span>
-														</td>
-														<td >
-															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span>
-														</td>
-														<td class="hideborderLeft highlight">
-															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span>
-														</td>
-														<!-- <td class="hideborderLeft highlight">
-															<span class="inner"><fmt:message key="wealthree.landing.table.maxamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span>
-														</td> -->
-													</tr>
-
-
-
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minamount" bundle="${wealthreeMsg}" /></span></td>
-														<td ><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.monthly" bundle="${wealthreeMsg}" /></span></td>
-														<td class="hideborderLeft highlight"><span class="inner"><fmt:message key="wealthree.landing.table.minamount.wealthree.oneoff" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-													<tr>
-														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.minacctvalue" bundle="${wealthreeMsg}" /></span></td>
-														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.minacctvalue.wealthree" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
+													
 													<tr>
 														<td colspan="6">
 															<span class="inner pv_remark">
-																<sup>*</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks1" bundle="${wealthreeMsg}" /><br>
-																<sup>**</sup><fmt:message key="wealthree.landing.table.acctvalue.remarks2" bundle="${wealthreeMsg}" />
+																<sup>*</sup><fmt:message key="wealthree.landing.table.remark1" bundle="${wealthreeMsg}" /><br><br>
+																<sup>**</sup><fmt:message key="wealthree.landing.table.remark2" bundle="${wealthreeMsg}" /><br><br>
+																<sup>***</sup><fmt:message key="wealthree.landing.table.remark3" bundle="${wealthreeMsg}" /><br><br>
+																<sup>+</sup><fmt:message key="wealthree.landing.table.remark4" bundle="${wealthreeMsg}" /><br><br>
+																<sup>^</sup><fmt:message key="wealthree.landing.table.remark5" bundle="${wealthreeMsg}" /><br><br>
+																<sup>#</sup><fmt:message key="wealthree.landing.table.remark6" bundle="${wealthreeMsg}" /><br>
 															</span>
 														</td>
 													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="item inner">
+											<div>
+												<table>
 													<tr>
-														<td colspan="6">
-															<span class="inner pv_remark">
-																<fmt:message key="wealthree.landing.table.remarks1.text1" bundle="${wealthreeMsg}" />
-															</span>
+														<th colspan="4"><span class="inner"><fmt:message key="wealthree.landing.table.title.savie" bundle="${wealthreeMsg}" /></span></th>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.type" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.type.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.age" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.age.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.premium.payment.term" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.premium.payment.term.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.benefit.term" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.benefit.term.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.policy.currency" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.policy.currency.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.rate.of.return" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><span class="pv_sub_heading">
+															<fmt:message key="wealthree.landing.table.rate.of.return.savie.hkd" bundle="${wealthreeMsg}" /></span><br><br>
+															<span class="inner pv_remark"><fmt:message key="wealthree.landing.table.rate.of.return.savie.remark" bundle="${wealthreeMsg}" /><br></span>
+														
+														</span>
 														</td>
 													</tr>
 													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.death.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.death.benefit.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.other.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner">
+														<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.other.benefit.savie1.heading" bundle="${wealthreeMsg}" /></span><br>
+														<fmt:message key="wealthree.landing.table.other.benefit.savie1" bundle="${wealthreeMsg}" />
+														
+														</span>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.maturity.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.maturity.benefit.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.surrender.benefit.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.partial.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.partial.surrender.benefit.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.no.of.withdrawal" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.no.of.withdrawal.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.partial.surrender.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.max.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.max.partial.surrender.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.acc.value" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+
+													
+													<tr>
 														<td colspan="6">
 															<span class="inner pv_remark">
-																<fmt:message key="wealthree.landing.table.remarks2.text1" bundle="${wealthreeMsg}" />
-																<br>
-																<fmt:message key="wealthree.landing.table.remarks3.text1" bundle="${wealthreeMsg}" />
+																<sup>*</sup><fmt:message key="wealthree.landing.table.remark1" bundle="${wealthreeMsg}" /><br><br>
+																<sup>**</sup><fmt:message key="wealthree.landing.table.remark2" bundle="${wealthreeMsg}" /><br><br>
+																<sup>***</sup><fmt:message key="wealthree.landing.table.remark3" bundle="${wealthreeMsg}" /><br><br>
+																<sup>+</sup><fmt:message key="wealthree.landing.table.remark4" bundle="${wealthreeMsg}" /><br><br>
+																<sup>^</sup><fmt:message key="wealthree.landing.table.remark5" bundle="${wealthreeMsg}" /><br><br>
+																<sup>#</sup><fmt:message key="wealthree.landing.table.remark6" bundle="${wealthreeMsg}" /><br>
 															</span>
 														</td>
 													</tr>
@@ -1061,7 +1019,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="col-xs-12">
 							<div class="text-center btm-btn">
 								<br>
-								<button class="btn-savenow">開始儲蓄</button>
+								<button class="btn-savenow"><fmt:message key="wealthree.landing.table.save.now" bundle="${wealthreeMsg}" /></button>
 							</div>
 						</div>
 					</div>

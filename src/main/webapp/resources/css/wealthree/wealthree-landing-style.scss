@@ -140,7 +140,9 @@
 
 .wp_productCalculator{
 	background-color:#f8f8f8;
-
+	.pv_remark{
+		color: #999999;
+	}
 	h3{
 		font-size:18px;
 		color:#333;
@@ -284,7 +286,7 @@
 
 		.over-bubble{
 			position: absolute;
-			bottom: 70px;
+			bottom: 170px;
 			right: -30px;
 			width: 110px;
 		}
@@ -420,7 +422,7 @@
 		}
 		 .box-input{
 		 	max-width:300px;
-		 	min-height:260px;
+		 	min-height:280px;
 		 	float:right;
 
 		 	&:before{
@@ -446,7 +448,7 @@
 
 		 .box-result{
 		 	max-width:300px;
-		 	min-height:260px;
+		 	min-height:280px;
 
 		 	.ttl_pay_amount, .yrs3_return{
 				font-size:22px;
