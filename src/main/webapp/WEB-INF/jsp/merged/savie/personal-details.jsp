@@ -1110,22 +1110,27 @@ $("#et-personal-info-next, #btn-back").click(function () {
 		
 		console.log(tax_resident_info);
 		console.log(JSON.stringify(tax_resident_info));
-		
 		$.ajax({
 			type: "POST",
 			async: false,
-			url: "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
+			contentType: "application/json;charset=utf-8",
+			url: "<%=request.getContextPath()%>/api/member/crs",
 			data: JSON.stringify(tax_resident_info),
-			success: function (data) {
+			success: function (data,code,http_response) {
 				console.log(data);
-				
-				if (data != null && data.proceed != null && data.proceed != "") {
+				console.log(http_response);
+				if(http_response.status==200){
+					invalidTaxResident = true;
+				}else{
+					$('#tax-resident-modal').modal('show');
+				}
+				/*if (data != null && data.proceed != null && data.proceed != "") {
 					if(data.proceed == false){
 						$('#tax-resident-modal').modal('show');
 					} else {
 						invalidTaxResident = true;
 					}
-				}
+				}*/
 			}
 		});
 		

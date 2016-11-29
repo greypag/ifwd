@@ -1277,15 +1277,15 @@
 			$.ajax({
 				type: "POST",
 				async: false,
-				url: "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
+				contentType: "application/json;charset=utf-8",
+				url: "<%=request.getContextPath()%>/api/member/crs",
 				data: JSON.stringify(tax_resident_info),
-				success: function (data) {
+				success: function (data,code,http_response) {
 					console.log(data);
 					
-					if (data != null && data.proceed != null && data.proceed != "") {
-						if(data.proceed == false){
+					if (http_response.status != 200) {
 							$('#tax-resident-modal').modal('show');
-						}else{
+					}else{
 							$.ajax({
 								type: "POST",
 								url:contextPath+'/ajax/eliteTerm/putPersonalInfoSession',
