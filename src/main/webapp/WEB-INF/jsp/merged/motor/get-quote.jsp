@@ -281,7 +281,7 @@ width: 100px !important;
                             </div>
                             <div class="text-center col-xs-6">
                                 <br />
-                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" />" />
+                                <a class="bdr-curve btn btn-primary nxt-btn continue"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
                                 <br/>
                             </div>
                             <div class="clearfix"></div> 
@@ -438,10 +438,28 @@ width: 100px !important;
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript">
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
 	alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
+	var empty = {}; 
+	  $.ajax({
+			url:fwdApi.url.resume,
+			type:"post",
+			contentType: "application/json",
+			data: JSON.stringify(empty),
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+		        alert("error");
+		    },
+		    success:function(response){
+		    	console.dir(response);
+		    	tempquote = response.motorCareDetails;
+		    	$('#saveModal').modal("show");
+		    }
+		});
 }
 $(document).ready(function(){
 	var getUrlParameter = function getUrlParameter(sParam) {
@@ -463,8 +481,9 @@ $(document).ready(function(){
     {   
     	$(".q2,.q3,q4,.q5").removeClass("hidden");
 
-		$carMake[0].selectize.setValue("BMW");
-		
+		//$carMake[0].selectize.setValue(quote.carDetail.makeCode);
+		//$occupation[0].selectize.setValue(quote.driver[0].occupation);
+		//$car_details[0].selectize.setValue(quote.carDetail.model);	
 		$('input[name=cc]').val(quote.carDetail.engineCapacity)
 		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
 		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
@@ -473,39 +492,74 @@ $(document).ready(function(){
 		$('input[name=driveMoreThanTwo]').attr("checked",true);	
 	  
     }
-    if(getUrlParameter("type")=="3")
-    { 
-	    //Check UserLogin
-		$.ajax({
-			url:fwdApi.url.session,
-			type:"get",
-			contentType: "application/json",
-			cache:false,
-			async:false,
-		    error:function (xhr, textStatus, errorThrown){
+  //Check UserLogin
+	$.ajax({
+		url:fwdApi.url.session,
+		type:"get",
+		contentType: "application/json",
+		cache:false,
+		async:false,
+	    error:function (xhr, textStatus, errorThrown){
+	    	
+	        if(xhr.status == 404){		        
+	        	$(".before-login").show();
+	        } else {
+	        	$(".before-login").show();
+	        }
+	    },
+	    success:function(response){
+	    	if(response){
+	    		if(response.userName == '*DIRECTGI'){
+	    			loginStatus=false;
+	    			//$('#loginpopup').modal("show");
+	    			//$(".before-login").show();
+	    			//$("#saveModal").removeClass("hidden");
+	    			return false;	
+	    		}else
+	    		{   loginStatus=true;
+	    			var empty = {}; 
+	    		  $.ajax({
+	    				url:fwdApi.url.resume,
+	    				type:"post",
+	    				contentType: "application/json",
+	    				data: JSON.stringify(empty),
+	    				cache:false,
+	    				async:false,
+	    			    error:function (xhr, textStatus, errorThrown){
+	    			        alert("error");
+	    			    },
+	    			    success:function(response){
+	      			    	console.dir(response);
+	    			    	tempquote = response.motorCareDetails;
+	    			    	$('#saveModal').modal("show");
+	    			    }
+	    			});
+	    		}
+	    	}
+	    }
+	});
 	
-		        if(xhr.status == 404){		        
-		        	$(".before-login").show();
-		        } else {
-		        	$(".before-login").show();
-		        }
-		    },
-		    success:function(response){
-		    	if(response){
-		    		if(response.userName == '*DIRECTGI'){
-		    			loginStatus=false;
-		    			$('#loginpopup').modal("show");
-		    			//$(".before-login").show();
-		    			//$("#saveModal").removeClass("hidden");
-		    			return false;	
-		    		}else
-		    		{   loginStatus=true;
-			    		
-		    		}
-		    	}
-		    }
-		});
-    }
-	
+    $(".continue").on("click",function(){
+    		resume = true;
+    		quote = tempquote;
+    		$('#saveModal').modal("hide");
+    		$(".q2,.q3,q4,.q5").removeClass("hidden");
+    		
+    		$('input[name=cc]').val(quote.carDetail.engineCapacity)
+    		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
+    		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
+    		
+    		$('input[name=validAgeGroup]').attr("checked",true);	
+    		$('input[name=driveMoreThanTwo]').attr("checked",true);	
+    		$carMake[0].selectize.setValue("BMW");
+    		$occupation[0].selectize.setValue(quote.driver[0].occupation);
+    		$car_details[0].selectize.setValue(quote.carDetail.model);	
+    		  var $q3 = $('.get-quote-field').find('.q3');
+    		 		$q3.find('select').change(function(){
+    		    	var sel = quote.driver[0].ncd,
+    		    	selValue = sel.options[sel.selectedIndex].value;
+    		  });
+	});
+	  
 });
 </script>

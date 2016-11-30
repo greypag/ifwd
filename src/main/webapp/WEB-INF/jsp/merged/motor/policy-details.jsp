@@ -715,10 +715,28 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 /* 
  *  Define motor success login callback
  */
+var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
 	alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
+	var empty = {}; 
+	  $.ajax({
+			url:fwdApi.url.resume,
+			type:"post",
+			contentType: "application/json",
+			data: JSON.stringify(empty),
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+		        alert("error");
+		    },
+		    success:function(response){
+		    	console.dir(response);
+		    	tempquote = response.motorCareDetails;
+		    	$('#saveModal').modal("show");
+		    }
+		});
 }
 function SaveAndExit()
 {
@@ -772,10 +790,10 @@ function SaveAndExit()
 					 "validAgeGroup": $('input[name=d5term]').val()		
 				   }		
 				   ], 		
-				     "nameOfPreviousInusrancer": $('input[name=prev_ic]').val(),		
+				     "nameOfPreviousInusrancer": $('[name=prev_ic]').val(),		
 				     "regNoofPreviousPolicy": $('input[name=prev_regNo]').val(),		
 				     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
-				     "previousPolicyNo": $('[name="prev_ic"]').val()//$("#prev_ic option:selected").val()//$('input[name=prev_policyNo]').val()	
+				     "previousPolicyNo": $('[name="prev_policyNo"]').val()//$("#prev_ic option:selected").val()//$('input[name=prev_policyNo]').val()	
 				 };
 			
 			if($('input[name=d2name]').val()=="")
@@ -1216,7 +1234,7 @@ $(document).ready(function(){
 			cache:false,
 			async:false,
 		    error:function (xhr, textStatus, errorThrown){
-
+		    	
 		        if(xhr.status == 404){		        
 		        	$(".before-login").show();
 		        } else {
@@ -1227,17 +1245,38 @@ $(document).ready(function(){
 		    	if(response){
 		    		if(response.userName == '*DIRECTGI'){
 		    			loginStatus=false;
-		    			$(".before-login").show();
-		    			$("#saveModal").removeClass("hidden");
+		    			//$('#loginpopup').modal("show");
+		    			//$(".before-login").show();
+		    			//$("#saveModal").removeClass("hidden");
 		    			return false;	
 		    		}else
 		    		{   loginStatus=true;
-		    			$(".before-login").hide();	
+		    			var empty = {}; 
+		    		  $.ajax({
+		    				url:fwdApi.url.resume,
+		    				type:"post",
+		    				contentType: "application/json",
+		    				data: JSON.stringify(empty),
+		    				cache:false,
+		    				async:false,
+		    			    error:function (xhr, textStatus, errorThrown){
+		    			        alert("error");
+		    			    },
+		    			    success:function(response){
+		      			    	console.dir(response);
+		    			    	tempquote = response.motorCareDetails;
+		    			    	//$('#saveModal').modal("show");
+		    			    }
+		    			});
 		    		}
 		    	}
 		    }
 		});
 
+		$(".continue").on("click",function(){	
+			  $('#saveModal').modal("hide");
+		  });
+	  
 		  $("#saveForm").on("click",function(){
 			    if(loginStatus==false)
 				$('#loginpopup').modal("show");
@@ -1311,10 +1350,10 @@ $(document).ready(function(){
 				 "validAgeGroup": $('input[name=d5term]').val()		
 			   }		
 			   ], 		
-			     "nameOfPreviousInusrancer": $('input[name=prev_ic]').val(),		
+			     "nameOfPreviousInusrancer": $('[name=prev_ic]').val(),		
 			     "regNoofPreviousPolicy": $('input[name=prev_regNo]').val(),		
 			     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
-			     "previousPolicyNo": $('[name="prev_ic"]').val()//$("#prev_ic option:selected").val()//$('input[name=prev_policyNo]').val()	
+			     "previousPolicyNo": $('[name="prev_policyNo"]').val()//$("#prev_ic option:selected").val()//$('input[name=prev_policyNo]').val()	
 			 };
 		
 		if($('input[name=d2name]').val()=="")
@@ -1342,8 +1381,10 @@ $(document).ready(function(){
 			  url: context + "/api/iMotor/policy/saving/policyDetails",
 			  success: function(data){
 				  var $form = $("<form id='quote-form' />");
-				  //$form.attr("action", "application-summary");
-				  $form.attr("action", "declarations");
+				  if(getUrlParameter("edit")=="yes")
+				  	  $form.attr("action", "declarations?edit=yes");
+				  else
+					  $form.attr("action", "declarations");
 	              $form.attr("method", "post");
 	              var $quote = $("<input type='hidden' name='data' />");
 		          var opts = {};

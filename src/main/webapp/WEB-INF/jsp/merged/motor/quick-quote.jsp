@@ -573,41 +573,17 @@ $('#yourQuoteTitle').html('Third Party');
         		      async: false,
         		      url:context + "/api/iMotor/quote/saving?edit=y",
         			  success: function(data){
-        				  quote.personalAccident = $('[name="addon1"]').is(':checked');
-        		            quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
-        		            //window.location.hash = "callme=popup";
-        		        	if ($('#quote-num').html().trim().length==0){
-        		                $.ajax({
-        		                    url:  motorApi.quoteSaving,
-        		            		contentType: "application/json",        
-        		                    type: 'POST',
-        		                    dataType: "json",
-        		                    data: JSON.stringify(quote),
-        		                    async: false,
-        		                    cache: false,
-        		                    error: function() {
-        		                        alert("Error");
-        		                    },
-        		                    success: function(data) {
-        		                    	console.dir(data);
-        		                    	console.log(data.refNumber);
-        		                    	console.log(data.policyId);
-        		                        /*$('#quote-num').html(data.refNumber);
-        		                        quote.policyId = data.policyId;*/
-        		                        var object1 = {"policyId": data.policyId,"refNumber":data.refNumber};
-        		                        var $form = $("<form id='quote-form' />");
-        		                        $form.attr("action", "car-details");
-        		                        $form.attr("method", "post");
-        		                        var $quote = $("<input type='hidden' name='data' />");
-        		                        $quote.attr("value", JSON.stringify($.extend( object1, quote )));
-        		                        $form.append($quote);
-        		                        $("body").append($form);
-        		                        $('#quote-form').submit();  
-        		                        return false;
-        		                    }
-        		                 
-        		                }); 
-        		        	}
+        				  
+	                        var $form = $("<form id='quote-form' />");
+	                        $form.attr("action", "car-details");
+	                        $form.attr("method", "post");
+	                        var $quote = $("<input type='hidden' name='data' />");
+	                        $quote.attr("value", JSON.stringify(quote));
+	                        $form.append($quote);
+	                        $("body").append($form);
+	                        $('#quote-form').submit();  
+	                        return false;
+        		                
         			  },error: function(error) {
         				
         			  }
@@ -678,10 +654,12 @@ $('#yourQuoteTitle').html('Third Party');
 		    			return false;	
 		    		}else
 		    		{   loginStatus=true;
+		    		var empty = {}; 
 		    		  $.ajax({
 		    				url:fwdApi.url.resume,
-		    				type:"get",
+		    				type:"post",
 		    				contentType: "application/json",
+		    				data: JSON.stringify(empty),
 		    				cache:false,
 		    				async:false,
 		    			    error:function (xhr, textStatus, errorThrown){

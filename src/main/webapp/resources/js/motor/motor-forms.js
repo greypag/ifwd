@@ -124,6 +124,20 @@ $(document).ready(function(){
 			
 		},
         onChange: function(value){
+			if(value=="A1Bank")
+			{	
+				$("#bankNameHandle").removeClass("hidden");
+				$("input[name=bankName]").prop('required',true);
+				$('#mortgageBank').find('.selectize-input > input').prop('required',true);
+				$('#motor_registerForm').validator('update');
+			}else
+			{
+				$("#bankNameHandle").addClass("hidden");
+				$('#bankName').val("");
+				$("input[name=bankName]").prop('required',false);
+				$('#mortgageBank').find('.selectize-input > input').prop('required',false);
+				$('#motor_registerForm').validator('update');
+			}	
         }
     });
 	

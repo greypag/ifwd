@@ -105,13 +105,13 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-4 text-center custom-radio">
 		                                    <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                        <div class="radio text-center">
+	                                        <div class="radio text-center a1yes">
 	                                            <input type="radio" name="answer1" id="a1yes" value="true">
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
-	                                        <div class="radio text-center">
+	                                        <div class="radio text-center a1no">
 	                                            <input type="radio" name="answer1" id="a1no" value="false">
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
@@ -140,13 +140,13 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-4 text-center custom-radio">
 		                                    <div class="form-group">
 	                                            <div class="help-block-wrap">
-	                                        <div class="radio text-center">
+	                                        <div class="radio text-center a2yes">
 	                                            <input type="radio" name="answer2" id="a2yes" value="true">
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
-	                                        <div class="radio text-center">
+	                                        <div class="radio text-center a2no">
 	                                            <input type="radio" name="answer2" id="a2no" value="false">
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
@@ -175,13 +175,13 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="col-sm-4 text-center custom-radio">
 	                                    <div class="form-group">
                                             <div class="help-block-wrap">
-	                                        <div class="radio text-center">
+	                                        <div class="radio text-center a3yes">
 	                                            <input type="radio" name="answer3" id="a3yes" value="true">
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
-	                                        <div class="radio text-center">
+	                                        <div class="radio text-center a3no">
 	                                            <input type="radio" name="answer3" id="a3no" value="false">
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
@@ -389,10 +389,28 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 /* 
  *  Define motor success login callback
  */
+var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
 	alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
+	var empty = {}; 
+	  $.ajax({
+			url:fwdApi.url.resume,
+			type:"post",
+			contentType: "application/json",
+			data: JSON.stringify(empty),
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+		        alert("error");
+		    },
+		    success:function(response){
+		    	console.dir(response);
+		    	tempquote = response.motorCareDetails;
+		    	$('#saveModal').modal("show");
+		    }
+		});
 }
 function SaveAndExit()
 {
@@ -415,12 +433,29 @@ $(document).ready(function(){
     
     if(getUrlParameter("edit")=="yes")
     {
+    	/*$("#a1no").attr('checked');
+    	if(quote.motorCareDeclaration[0].declarationAns==false)
+    	{$("#a1no").prop('checked', true);}*/
+    	if(quote.motorCareDeclaration[0].declarationAns=="false")
+    	{$(".a1no").addClass("active");}
+    	else
+    	{$(".a1yes").addClass("active");}
+    	if(quote.motorCareDeclaration[1].declarationAns=="false")
+    	{$(".a2no").addClass("active");}
+    	else
+    	{$(".a2yes").addClass("active");}
+    	if(quote.motorCareDeclaration[2].declarationAns=="false")
+    	{$(".a3no").addClass("active");}
+    	else
+    	{$(".a3yes").addClass("active");}
+    	
+    	
     	$("input[name=answer1]").prop('checked', quote.motorCareDeclaration[0].declarationAns);
     	$("input[name=answer2]").prop('checked', quote.motorCareDeclaration[1].declarationAns);
     	$("input[name=answer3]").prop('checked', quote.motorCareDeclaration[2].declarationAns);
-    	$('input[name=psNoDM]').attr("checked",qupte.psNoDM);	
-		$('input[name=psNoProvidePersonalData]').attr("checked",qupte.psNoProvidePersonalData);	
-		$('input[name=psPICS]').attr("checked",qupte.psPICS);	
+    	$('input[name=psNoDM]').attr("checked",quote.psNoDM);	
+		$('input[name=psNoProvidePersonalData]').attr("checked",quote.psNoProvidePersonalData);	
+		$('input[name=psPICS]').attr("checked",quote.psPICS);	
     }
    
     
@@ -432,7 +467,7 @@ $(document).ready(function(){
 		cache:false,
 		async:false,
 	    error:function (xhr, textStatus, errorThrown){
-
+	    	
 	        if(xhr.status == 404){		        
 	        	$(".before-login").show();
 	        } else {
@@ -443,17 +478,39 @@ $(document).ready(function(){
 	    	if(response){
 	    		if(response.userName == '*DIRECTGI'){
 	    			loginStatus=false;
-	    			$(".before-login").show();
-	    			$("#saveModal").removeClass("hidden");
+	    			//$('#loginpopup').modal("show");
+	    			//$(".before-login").show();
+	    			//$("#saveModal").removeClass("hidden");
 	    			return false;	
 	    		}else
 	    		{   loginStatus=true;
-	    			$(".before-login").hide();	
+	    			var empty = {}; 
+	    		  $.ajax({
+	    				url:fwdApi.url.resume,
+	    				type:"post",
+	    				contentType: "application/json",
+	    				data: JSON.stringify(empty),
+	    				cache:false,
+	    				async:false,
+	    			    error:function (xhr, textStatus, errorThrown){
+	    			        alert("error");
+	    			    },
+	    			    success:function(response){
+	      			    	console.dir(response);
+	    			    	tempquote = response.motorCareDetails;
+	    			    	//$('#saveModal').modal("show");
+	    			    }
+	    			});
 	    		}
 	    	}
 	    }
 	});
 
+	$(".continue").on("click",function(){	
+		  $('#saveModal').modal("hide");
+	  });
+
+  
 	  $("#saveForm").on("click",function(){
 		    if(loginStatus==false)
 			$('#loginpopup').modal("show");
@@ -505,7 +562,10 @@ $(document).ready(function(){
 		  url: context + "/api/iMotor/policy/saving/declarations",
 		  success: function(data){
 			  var $form = $("<form id='quote-form' />");
-			  $form.attr("action", "application-summary");
+			  if(getUrlParameter("edit")=="yes")
+			  	$form.attr("action", "application-summary?edit=yes");
+			  else
+				$form.attr("action", "application-summary");
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
 	          var opts = {};

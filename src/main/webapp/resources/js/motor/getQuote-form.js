@@ -35,6 +35,8 @@ $('#madeYearVal').prop('max', newMax);
 
 var quote;
 var carMake, $carMake, occupation, $occupation, ncd, $ncd;
+var car_details, $car_details;
+var resume = false;
 $(document).ready(function(){
     var $custom_dollarBox = $('.custom-dollar-box input[type="text"]');
     var $q1 = $('.get-quote-field').find('.q1');
@@ -215,7 +217,7 @@ $(document).ready(function(){
     var carMakeApi;
     
     var xhr;
-    var car_details, $car_details;
+
     if($('.get-quote-form').length){
        $carMake = $('#carMake').selectize({
             valueField: 'makeCode',
@@ -326,7 +328,6 @@ $(document).ready(function(){
 							console.log(item.model+"-"+quote.carDetail.model);
 							if(item.model == quote.carDetail.model)
 							{
-								alert(item.model);
 								$car_details[0].selectize.setValue(item.model);	
 							}
 					
@@ -497,7 +498,7 @@ $(document).ready(function(){
             	else
             		var carEstimatedValue = num;
             	
-                quote = {
+                var submitData = {
 	        		"applicant": {
                         "ncb": ncd,
                         "occupation": occupation,
@@ -529,6 +530,7 @@ $(document).ready(function(){
                     quote.planCode = "Comp";
                     quote.compPlan = "Silver"; 
                 }
+				
           //  console.log(num);
                 	$.ajax({
                         beforeSend: function(){
@@ -545,14 +547,26 @@ $(document).ready(function(){
                             $('#loading-overlay').modal("hide");
                             var $form = $("<form id='quote-form' />");
                             if (isThird) {
-                                $form.attr("action", "third-party-quote");
+								if(resume==true)
+									$form.attr("action", "third-party-quote?edit=yes");
+								else
+									$form.attr("action", "third-party-quote");
                             } else {
-                                $form.attr("action", "comprehensive-quote");
+								if(resume==true)
+									$form.attr("action", "comprehensive-quote?edit=yes");
+								else
+									$form.attr("action", "comprehensive-quote");
                             }
                             $form.attr("method", "post");
                             var $quote = $("<input type='hidden' name='data' />");
-                            $quote.attr("value", JSON.stringify(quote));
-                            $form.append($quote);
+							var opts = {};
+							opts = $.extend(opts,quote, submitData);
+							opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+							opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
+							$quote.attr("value", JSON.stringify(opts));				
+                            //$quote.attr("value", JSON.stringify(quote));
+                            //console.dir(opts);
+							$form.append($quote);
                             $("body").append($form);
                             $('#quote-form').submit();                        
                         },

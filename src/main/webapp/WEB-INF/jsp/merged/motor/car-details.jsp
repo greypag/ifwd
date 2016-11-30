@@ -170,7 +170,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
 	                                    </div>
-	                                    <div class="form-group">
+	                                    <div class="form-group" id="bankNameHandle">
 	                                        <!-- <div class="help-block-wrap">
 	                                            <input class="form-control" type="text" pattern="^[a-zA-Z\s]+$"  name="bankName" id="bankName" data-error='<fmt:message key="motor.error.msg.mortgagebank.format" bundle="${motorMsg}" />' placeholder="Bank"/>
 	                                            <div class="help-block with-errors"></div>
@@ -337,12 +337,28 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 /* 
  *  Define motor success login callback
  */
-var loginStatus=false;
-function callback_motor_LoginSuccess(){
-	alert('Login success. Call Save later API.');
-	$('#saveModal').modal("show");
-}
-
+ var tempquote="";
+ var loginStatus=false;
+ function callback_motor_LoginSuccess(){
+ 	alert('Login success. Call Save later API.');
+  	var empty = {}; 
+ 	  $.ajax({
+ 			url:fwdApi.url.resume,
+ 			type:"post",
+ 			contentType: "application/json",
+ 			data: JSON.stringify(empty),
+ 			cache:false,
+ 			async:false,
+ 		    error:function (xhr, textStatus, errorThrown){
+ 		        alert("error");
+ 		    },
+ 		    success:function(response){
+ 		    	console.dir(response);
+ 		    	tempquote = response.motorCareDetails;
+ 		    	$('#saveModal').modal("show");
+ 		    }
+ 		});
+ }
 function SaveAndExit()
 {
 	$(document).ready(function(){
@@ -402,7 +418,8 @@ $(document).ready(function(){
 		$('input[name=cubicCapacity]').val(quote.carDetail.engineCapacity);
 		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
 	}
-    
+    if($('[name="mortgageBank"]').val()!="others")
+    	$("#bankNameHandle").addClass("hidden");
   //Check UserLogin
 	$.ajax({
 		url:fwdApi.url.session,
@@ -411,7 +428,7 @@ $(document).ready(function(){
 		cache:false,
 		async:false,
 	    error:function (xhr, textStatus, errorThrown){
-
+	    	
 	        if(xhr.status == 404){		        
 	        	$(".before-login").show();
 	        } else {
@@ -422,17 +439,37 @@ $(document).ready(function(){
 	    	if(response){
 	    		if(response.userName == '*DIRECTGI'){
 	    			loginStatus=false;
-	    			$(".before-login").show();
-	    			$("#saveModal").removeClass("hidden");
+	    			//$('#loginpopup').modal("show");
+	    			//$(".before-login").show();
+	    			//$("#saveModal").removeClass("hidden");
 	    			return false;	
 	    		}else
 	    		{   loginStatus=true;
-	    			$(".before-login").hide();	
+	    			var empty = {}; 
+	    		  $.ajax({
+	    				url:fwdApi.url.resume,
+	    				type:"post",
+	    				contentType: "application/json",
+	    				data: JSON.stringify(empty),
+	    				cache:false,
+	    				async:false,
+	    			    error:function (xhr, textStatus, errorThrown){
+	    			        alert("error");
+	    			    },
+	    			    success:function(response){
+	      			    	console.dir(response);
+	    			    	tempquote = response.motorCareDetails;
+	    			    	//$('#saveModal').modal("show");
+	    			    }
+	    			});
 	    		}
 	    	}
 	    }
 	});
-
+	  $(".continue").on("click",function(){	
+		  $('#saveModal').modal("hide");
+	  });
+	  
 	  $("#saveForm").on("click",function(){
 		    if(loginStatus==false)
 			$('#loginpopup').modal("show");
@@ -463,7 +500,6 @@ $(document).ready(function(){
 		        }
 		    },
 		    success:function(response){
-		    	alert("A");
 		    	if(response){
 		    		if(response.userName == '*DIRECTGI'){
 		    			/* Show Login Popup */
@@ -519,7 +555,10 @@ $(document).ready(function(){
           url:context + "/api/iMotor/policy/saving/carDetails",
 		  success: function(data){
 			  var $form = $("<form id='quote-form' />");
-              $form.attr("action", "drivers-details");
+			  if(getUrlParameter("edit")=="yes")
+              	$form.attr("action", "drivers-details?edit=yes");
+			  else
+				  $form.attr("action", "drivers-details");  
               $form.attr("method", "post");
               var $quote = $("<input type='hidden' name='data' />");
               var opts = {};
