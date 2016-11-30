@@ -56,7 +56,7 @@ $.fn.autoAlignHeight = function(conf) {
 		reAlignHeight();
 
 		$(window).on("resize", reAlignHeight);
-		$(window).on("orientationchange", reAlignHeight);
+		//$(window).on("orientationchange", reAlignHeight);
 
 		// window.onorientationchange = reAlignHeight;
 		// window.onresize = reAlignHeight;
