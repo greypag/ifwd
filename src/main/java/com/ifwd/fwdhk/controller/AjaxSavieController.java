@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.google.gson.JsonObject;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
@@ -46,6 +46,7 @@ public class AjaxSavieController extends BaseController{
 			savieService.getPlanDetails(model, request, response, httpSession);
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -56,6 +57,7 @@ public class AjaxSavieController extends BaseController{
 			savieService.createSalesIllustrationPdf(model, request, response, httpSession);
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -66,6 +68,7 @@ public class AjaxSavieController extends BaseController{
 			savieService.uploadSalesIllustrationPdf(model, request, response);
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -149,6 +152,7 @@ public class AjaxSavieController extends BaseController{
 			
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 
@@ -171,6 +175,7 @@ public class AjaxSavieController extends BaseController{
 			
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 		
@@ -188,6 +193,7 @@ public class AjaxSavieController extends BaseController{
 				ajaxReturn(response,br);
 			} catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());
+				logger.error(ExceptionUtils.getStackTrace(e));
 				e.printStackTrace();
 			}
 	}
@@ -211,6 +217,7 @@ public class AjaxSavieController extends BaseController{
 			ajaxReturn(response,br);
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
  
@@ -222,6 +229,7 @@ public class AjaxSavieController extends BaseController{
 			savieService.getOccupation(model, request, response);
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -233,6 +241,7 @@ public class AjaxSavieController extends BaseController{
 			savieService.verifyAccessCode(model, request, response);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -247,6 +256,7 @@ public class AjaxSavieController extends BaseController{
 			savieService.getAllAvailableTimeSlot(model, request, response);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -261,6 +271,7 @@ public class AjaxSavieController extends BaseController{
 			savieService.getTimeSlot(model, request, response);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}
@@ -276,6 +287,7 @@ public class AjaxSavieController extends BaseController{
 			savieService.saveAmount(model, request, response);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 		
@@ -306,6 +318,7 @@ public class AjaxSavieController extends BaseController{
 			} catch (Exception e) {
 			//catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());
+				logger.error(ExceptionUtils.getStackTrace(e));
 				e.printStackTrace();
 			}
 	}
