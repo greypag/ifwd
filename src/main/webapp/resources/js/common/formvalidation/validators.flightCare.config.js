@@ -45,8 +45,8 @@ fvConfig['applicant'] = function() {
                     , 'message': ''
                 }
             }
-        },
-        'hkid': {
+        }
+        , 'hkid': {
             'container': '#errAppHkid'
             , 'trigger': 'blur'
             , 'validators': {
@@ -57,8 +57,8 @@ fvConfig['applicant'] = function() {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
             }
-        },
-        'applicantDob': {
+        }
+        , 'applicantDob': {
             'container': '#dobInvalid'
             , 'trigger': 'blur'
             , 'validators': {
@@ -66,8 +66,8 @@ fvConfig['applicant'] = function() {
                     'message': getBundle(getBundleLanguage, 'applicant.dob.notNull.message')
                 }
             }
-        },
-        'mobileNo': {
+        }
+        , 'mobileNo': {
             'container': '#mobileNoInvalid'
             , 'trigger': 'blur'
             , 'validators': {
@@ -79,8 +79,8 @@ fvConfig['applicant'] = function() {
                     , 'message': getBundle(getBundleLanguage, 'applicant.mobileNo.notValid.message')
                 }
             }
-        },
-        'emailAddress': {
+        }
+        , 'emailAddress': {
             'container': '#emailid'
             , 'trigger': 'blur'
             , 'validators': {
@@ -90,6 +90,24 @@ fvConfig['applicant'] = function() {
                 , 'emailAddress': {
                 	'regexp': new RegExp(fwdConstant.regex.person.email)
                     , 'message': getBundle(getBundleLanguage, 'applicant.email.notValid.message')
+                }
+            }
+        }
+        , 'checkbox1': {
+            'container': '#chk1'
+            , 'validators': {
+                'choice': {
+                    'min': 1
+                    , 'message': getBundle(getBundleLanguage, "travelcare.declaration.notChecked.message")
+                }
+            }
+        }
+        , 'checkbox2': {
+            'container': '#chk2'
+            , 'validators': {
+                'choice': {
+                    'min': 1
+                    , 'message': getBundle(getBundleLanguage, "homecare.tnc.notChecked.message")
                 }
             }
         }

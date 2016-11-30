@@ -2481,7 +2481,7 @@ function createFlightFnc(form){
 
 <script>
 // JSP values "landing-place"
-fvConfig['travellerCounter'] = {
+fvConfig['flightJSPcbInfo.counter'] = {
     'familyPlan': {
         'adult': ${planDetailsForm.totalAdultTraveller}
         , 'child': ${planDetailsForm.totalChildTraveller}

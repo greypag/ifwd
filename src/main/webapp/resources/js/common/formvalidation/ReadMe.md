@@ -1,3 +1,6 @@
+**2016-11-30
+    Gary    - moved the JS codes inside the flight-plan-details.jsp to fwd-utility.js.
+
 **2016-11-29
     Gary    - Applied FV "revalidate" for the binding fields.
             - Built / Migrated some functions and objects as below.

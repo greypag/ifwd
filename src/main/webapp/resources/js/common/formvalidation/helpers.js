@@ -111,18 +111,18 @@ var gen_configFlightCare = function(obj) {
 
     // Core
     var buffer = {};
-    if ( obj.travellerCounter.personalPlan === 0 ) {
+    if ( obj.flightJSPcbInfo.counter.personalPlan === 0 ) {
        // Family Plan
         var familyConfig = {};
-        familyConfig['adult'] = _configDataMassage(obj.travellerCounter.familyPlan.adult, obj, 'insuredAdult');
-        familyConfig['child'] = _configDataMassage(obj.travellerCounter.familyPlan.child, obj, 'insuredChild');
-        familyConfig['other'] = _configDataMassage(obj.travellerCounter.familyPlan.other, obj, 'insuredOther');
+        familyConfig['adult'] = _configDataMassage(obj.flightJSPcbInfo.counter.familyPlan.adult, obj, 'insuredAdult');
+        familyConfig['child'] = _configDataMassage(obj.flightJSPcbInfo.counter.familyPlan.child, obj, 'insuredChild');
+        familyConfig['other'] = _configDataMassage(obj.flightJSPcbInfo.counter.familyPlan.other, obj, 'insuredOther');
         _.each(familyConfig, function(fcVal, fcInd) {
            buffer = $.extend(buffer, fcVal);
         });
     } else {
         // Personal Plan
-        buffer = _configDataMassage(obj.travellerCounter.personalPlan, obj, 'insuredPerson');
+        buffer = _configDataMassage(obj.flightJSPcbInfo.counter.personalPlan, obj, 'insuredPerson');
     }
     return buffer;
 

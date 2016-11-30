@@ -18,32 +18,38 @@
         authenticate = session.getAttribute("authenticate").toString();
     }
 %>
-
-
-
 <script>
     $(function() {
         $("[data-toggle='tooltip']").tooltip();
         $( "[data-toggle='tooltip']" ).on( "click", function() {
        		$(".tooltip").toggle();
        	});
+
+        <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
+        fwdUtility.temp.flightCareAuth();
+        <% } else {%>
+        fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
+        <% } %>
+
+        fwdUtility.temp.flightCareBenefitiaryIsActive();
+        fwdUtility.temp.flightCareUserLoginAjax();
+
     });
-</script>
 
-<script>
 
-/* Commented because login is not compulsory */
-<%-- function fligh	ation() {
- <%if (authenticate.equalsIgnoreCase("false")) {%>
-$('#loginpopup').modal('show');
-<%} else {%>
-document.freeFlight.action = "flight-confirmation";
-return true;
-<%}%>
-return false;
-} --%>
+    /* Commented because login is not compulsory */
+    <%-- function fligh	ation() {
+     <%if (authenticate.equalsIgnoreCase("false")) {%>
+    $('#loginpopup').modal('show');
+    <%} else {%>
+    document.freeFlight.action = "flight-confirmation";
+    return true;
+    <%}%>
+    return false;
+    } --%>
 
 </script>
+
 <!-- for debug
 Personal : ${planDetailsForm.getTotalPersonalTraveller()}   <br>
 Adult    : ${planDetailsForm.getTotalAdultTraveller()} 		<br>
@@ -66,247 +72,13 @@ if (lang === "EN") {
 perventRedirect=true;
 </script>
 
-<% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
-
-<script>
-
-
-
-function activateUserAccountJoinUs() {
-    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-
-    setTimeout(function(){
-
-		//html change, change the submit input type to button, add a onclick function
-	    //html change, added some error html note for user, so they know if the user name and email is not success
-
-	    //basic logic(how it works)
-	    /*
-	    1. if no username or password is filled, direct submit the form
-	    2. if username field is filled, call the create user ajax and post data
-	    3. if the data has something wrong, return and show msg.
-	    4. if the data is correct, user created and will continue to submit the form.
-	    5, If user is created and the normal form data is missing,
-	       the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
-	    */
-
-	    /*name = document.getElementById("Username").value;
-	    password = document.getElementById("Password").value;
-	    password2 = document.getElementById("Confirm-Password").value;*/
-
-	    name = $("#Username").val();
-	    password = $("#Password").val();
-	    password2 = $("#Confirm-Password").val();
-
-	    $("#UsernameError").text("");
-	    $("#PasswordError").text("");
-	    $("#Confirm-PasswordError").text("");
-	    $("#Username").removeClass("invalid-field");
-	    $("#Password").removeClass("invalid-field");
-	    $("#Confirm-Password").removeClass("invalid-field");
-
-	    //first error element
-	    var firstErrorElementId="";
-
-	    if(fPlanValid()){
-		    if(name == "" && password == "" && password2 == ""){
-		        $('#freeFlightForm').submit()
-		    }else{
-
-		    	if(name != "" && password != "" && password2 != ""){
-		    		$('#chk1').html('');
-		            $('#chk2').html('');
-
-		            $('#dobInvalid').html('');
-
-		    		validateForm = true;
-		    		if (!checkMembership("Username")){
-		    			if(firstErrorElementId==""){
-		                    firstErrorElementId="Username";
-		                }
-		    			validateForm = false;
-		    		}
-		    		if (!checkMembership("Password")){
-		    			if(firstErrorElementId==""){
-		                    firstErrorElementId="Password";
-		                }
-		    			validateForm = false;
-		    		}
-		    		if (!checkMembership("Confirm-Password")){
-		    			if(firstErrorElementId==""){
-		                    firstErrorElementId="Confirm-Password";
-		                }
-		                validateForm = false;
-		    		}
-		    		var applicantDob = $("#applicantDob").val();
-		            if (applicantDob.trim() == "") {
-
-		                document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
-		                $("#input_dob").addClass("invalid-field");
-		                if(firstErrorElementId==""){
-		                    firstErrorElementId="applicantDob";
-		                }
-		                validateForm = false;
-		            }
-		    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
-		    			if(firstErrorElementId==""){
-		                    firstErrorElementId="inputMobileNo";
-		                }
-		                validateForm = false;
-		    		}
-		    		if (!validateEmail('inputEmailId','emailid')){
-		    			if(firstErrorElementId==""){
-		                    firstErrorElementId="inputEmailId";
-		                }
-		                validateForm = false;
-		    		}
-
-
-
-		    		if(firstErrorElementId!=""){
-		    			$('#loading-overlay').modal('hide');
-		                scrollToElement(firstErrorElementId);
-		            }
-
-		        	if (!validateForm){
-		        		return;
-		        	}
-
-		    		optIn1 = "false"
-		   	        optIn2 = "false"
-		   	        if($('#checkbox4').is(':checked')){
-		   	            optIn2 = "true";
-		   	        }
-		   	        if($('#checkbox3').is(':checked')){
-		   	            optIn1 = "true";
-		   	        }
-		   	        password = document.getElementById("Password").value;
-		   	        mobile = document.getElementById("inputMobileNo").value;
-		   	        name = document.getElementById("inputFullName").value;
-		   	        userName = document.getElementById("Username").value;
-		   	        email = document.getElementById("inputEmailId").value;
-
-		   	       $.ajax({
-                        type : 'POST',
-                        url : '<%=request.getContextPath()%>/${language}/joinus',
-                        data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
-                        async : false,
-                        success : function(data) {
-
-                            if (data == 'success') {
-                                 $(".error-hide").css("display", "none");
-                                 $(".membership-wrap").css("display", "none");
-                                 document.getElementById("Username").value = "";
-                                 document.getElementById("Password").value = "";
-                                 document.getElementById("Confirm-Password").value = "";
-
-                                 $("#link-error").click();
-                              perventRedirect=false;
-                                 $('#freeFlightForm').submit()
-                                return;
-                            } else {
-                            	console.log(data);
-                                $("#link-error").click();
-                                $(".error-hide").css("display", "block");
-                                $('#loading-overlay').modal('hide');
-                        	if (data == 'This username already in use, please try again') {
-                        	    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
-                        	} else if (data == 'email address and mobile no. already registered') {
-                        	    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
-                        	} else {
-                        	    $('.error-hide').html(data);
-                        	}
-                        	firstErrorElementId="error_hide";
-                                return;
-                            }
-                        },
-                        error : function(xhr, status, error) {
-                            $('#loading-overlay').modal('hide');
-                        }
-		   	        });
-		    	}else{
-		    		// not all the fields filled
-		    		if (name == ""){
-		    			$('#UsernameError').text(isValidUsername($("#Username").val().trim()));
-		    			$("#Username").addClass("invalid-field");
-		    			if(firstErrorElementId==""){
-		                    firstErrorElementId="Username";
-		                }
-		    		}else{
-		    			if (!checkMembership("Username")){
-		                    if(firstErrorElementId==""){
-		                        firstErrorElementId="Username";
-		                    }
-		                }
-		    		}
-
-		    		if (password == ""){
-		    			$('#PasswordError').text(isValidPassword($("#Password").val().trim()));
-		    			$("#Password").addClass("invalid-field");
-		                if(firstErrorElementId==""){
-		                    firstErrorElementId="Password";
-		                }
-		    		}else{
-		    			if (!checkMembership("Password")){
-		                    if(firstErrorElementId==""){
-		                        firstErrorElementId="Password";
-		                    }
-		                }
-		    		}
-
-
-		    		if (password2 == ""){
-		    			$('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
-		    			$("#Confirm-Password").addClass("invalid-field");
-		                if(firstErrorElementId==""){
-		                    firstErrorElementId="Confirm-Password";
-		                }
-		    		}else{
-		    			if (!checkMembership("Confirm-Password")){
-		                    if(firstErrorElementId==""){
-		                        firstErrorElementId="Confirm-Password";
-		                    }
-		                }
-		    		}
-		    	}
-		    }
-	    }
-	    if(firstErrorElementId!=""){
-	    	$('#loading-overlay').modal('hide');
-	        scrollToElement(firstErrorElementId);
-	    }
-
-	    return;
-    }, 500);
-}
-</script>
-
-<% }else{%>
-<script>
-function activateUserAccountJoinUs() {
-	perventRedirect=false;
-    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-
-    setTimeout(function(){
-    	if(fPlanValid()){
-   	    	$('#freeFlightForm').submit();
-    	}
-    }, 500);
-}
-
-</script>
-<% } %>
-
 <!--/#main-Content-->
 <section>
     <div id="cn" class="container">
         <div class="row">
             <%-- <form:form name="freeFlight" method="post" action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
-            <form:form name="freeFlightForm" id="freeFlightForm"
-                modelAttribute="createFlightPolicy" method="post"
-                onsubmit="return createFlightFnc(this);">
-                <input type="hidden" name="planSelected"
-                    value="${planDetailsForm.planSelected}">
+            <form:form name="freeFlightForm" id="freeFlightForm" modelAttribute="createFlightPolicy" method="post" onsubmit="return createFlightFnc(this);">
+                <input type="hidden" name="planSelected" value="${planDetailsForm.planSelected}">
                 <div class="container ">
                     <div id="tr-steps"
                         class="col-md-12 col-lg-12 col-sm-12 col-xs-12 shop-tracking-status">
@@ -346,8 +118,8 @@ function activateUserAccountJoinUs() {
                     </div>
                 </div>
                  <ol class="breadcrumb pad-none">
-                    <li><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
-                    <li><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
+                    <li><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /><i class="fa fa-caret-right"></i></li>
+                    <li><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /><i class="fa fa-caret-right"></i></li>
                     <li><fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></li>
                     <li class="active "><i class="fa fa-caret-right"></i>
                     <fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /></li>
@@ -357,13 +129,9 @@ function activateUserAccountJoinUs() {
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none white-bg1">
                         <br>
                         <div class="form-wrap">
-                        <%
-                            if (authenticate.equals("false")
-                                        || authenticate.equals("direct")) {
-                        %>
+                        <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
                         <h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head">
                         <fmt:message key="flight.details.login" bundle="${msg}" />
-                        <!-- 278 -->
                         <a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom"
                             title="<fmt:message key="member.account.login.help" bundle="${msg}" />">
                             <img src="<%=request.getContextPath()%>/resources/images/ic.png" alt="">
@@ -373,13 +141,11 @@ function activateUserAccountJoinUs() {
                         <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="flight.details.login.action" bundle="${msg}" /></a>
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 text-left">
                             <h3 class="text-left or-continue">
-                                <fmt:message key="flight.details.login.other.part1" bundle="${msg}" /> </span>
+                                <fmt:message key="flight.details.login.other.part1" bundle="${msg}" /></span>
                                 <fmt:message key="flight.details.login.other.part2" bundle="${msg}" />
                             </h3>
                         </div>
-                        <%
-                            }
-                        %>
+                        <% } %>
                         </div>
 
                         <div class="clearfix"></div>
@@ -481,10 +247,7 @@ function activateUserAccountJoinUs() {
                        </div>
                        <!-- updated responsive design end -->
                        <%-- commented HTML has been moved to "flight-plan-details-temp0.jsp" --%>
-                        <%
-                            if (authenticate.equals("false")
-                                        || authenticate.equals("direct")) {
-                        %>
+                        <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
                         <div class="gray-bg3-wid container membership-wrap" style="padding-top: 20px;padding-left:0px;padding-right:0px;">
                             <div class="form-wrap">
                             <div class="membership-header">
@@ -510,77 +273,24 @@ function activateUserAccountJoinUs() {
                                    </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                   <input type="password"
-                                            class="form-control full-control input-white" name="password" id="Password">
-
-                                            <span id="PasswordError" class="text-red"></span>
+                                   <input type="password" class="form-control full-control input-white" name="password" id="Password">
+                                   <span id="PasswordError" class="text-red"></span>
                                </div>
                             </div>
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                    <label for="inputEmail3" class="field-label bold-500">
-                                        <fmt:message
-                                         key="flight.details.registration.confirmPassword"
-                                         bundle="${msg}" />
+                                        <fmt:message key="flight.details.registration.confirmPassword" bundle="${msg}" />
                                    </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                   <input type="password"
-                                            class="form-control full-control input-white" name="password"
-                                            id="Confirm-Password">
-                                            <span id="Confirm-PasswordError" class="text-red"></span>
+                                   <input type="password" class="form-control full-control input-white" name="password" id="Confirm-Password">
+                                   <span id="Confirm-PasswordError" class="text-red"></span>
                                </div>
                             </div>
                             </div>
                         </div>
-<%--                         <div class="gray-bg3-wid">
-                            <table class="table plandetail-form margin-left-2 vert-middle"
-                                id="input-white">
-                                <tbody>
-                                    <tr>
-                                        <td colspan="2" class=""><h3 class="">
-                                                <fmt:message key="flight.details.registration.heading"
-                                                    bundle="${msg}" />
-                                            </h3> <i><fmt:message key="flight.details.registration.desc"
-                                                    bundle="${msg}" /></i> <br></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="">&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="middle" class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label for="inputEmail3"
-                                            class="bold-500"><fmt:message
-                                                    key="flight.details.registration.username" bundle="${msg}" /></label></td>
-                                        <td class=""><input type="text" name="userName"
-                                            class="form-control full-control"
-                                            placeholder="<fmt:message key="flight.details.registration.username.placeholder" bundle="${msg}" />"
-                                            id="Username"> <span id="UsernameError"
-                                            class="text-red"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="middle" class=""><label for="inputEmail3"
-                                            class="bold-500"><fmt:message
-                                                    key="flight.details.registration.password" bundle="${msg}" /></label></td>
-                                        <td class=""><input type="password"
-                                            class="form-control full-control" name="password" id="Password"
-                                            autocomplete="off"
-                                            placeholder="<fmt:message key="flight.details.registration.password.placeholder" bundle="${msg}" />">
-                                            <span id="PasswordError" class="text-red"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="middle" class=""><label for="inputEmail3"
-                                            class="bold-500"><fmt:message
-                                                    key="flight.details.registration.confirmPassword"
-                                                    bundle="${msg}" /></label></td>
-                                        <td class=""><input type="password"
-                                            class="form-control full-control" name="password"
-                                            id="Confirm-Password" autocomplete="off"
-                                            placeholder="<fmt:message key="flight.details.registration.confirmPassword.placeholder" bundle="${msg}" />">
-                                            <span id="Confirm-PasswordError" class="text-red"></span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> --%>
+                        <%-- commented HTML has been moved to "flight-plan-details-temp5.jsp" --%>
                         <input type="hidden" id="isLogin" value="false">
                         <%
                             } else {
@@ -789,24 +499,15 @@ function activateUserAccountJoinUs() {
 		                               </div>
 		                               <!-- personalbenificiaryId c end -->
 
-
-
-
-
-
                                     </div>
                                     <%-- commented HTML has been moved to "flight-plan-details-temp1.jsp" --%>
-                                    <input id="personalBenefitiaryRelation${inx}" type="hidden"
-                                                name="personalBenificiaryRelationship" class="form-control"
-                                                value="" />
+                                    <input id="personalBenefitiaryRelation${inx}" type="hidden" name="personalBenificiaryRelationship" class="form-control" value="" />
                                 </div>
                                 </div>
                             </c:forEach>
 
                             <!-- adult  -->
-
-                            <input type="hidden" name="totalAdultTraveller"
-                                id="totalAdultTraveler" value="${planDetailsForm.totalAdultTraveller}">
+                            <input type="hidden" name="totalAdultTraveller" id="totalAdultTraveler" value="${planDetailsForm.totalAdultTraveller}">
                             <c:forEach var="inx" begin="1" end="${planDetailsForm.totalAdultTraveller}">
                                 <div class="form-wrap">
                                 <div class="adulttraveller">
@@ -908,13 +609,6 @@ function activateUserAccountJoinUs() {
                                            </div>
                                        </div>
                                        <!-- beneficiary end -->
-
-
-
-
-
-
-
                                        <!-- adult beneficiary start -->
                                        <div class="form-group float hide" id="adultsbenificiaryId${inx}">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -976,25 +670,14 @@ function activateUserAccountJoinUs() {
                                            </div>
                                        </div>
                                        <!-- adult beneficiary c end -->
-
-
-
-
-
-
-
-
                                     </div>
                                     <%-- commented HTML has been moved to "flight-plan-details-temp2.jsp" --%>
-                                    <input id="adultBenefitiaryRelation${inx}" type="hidden"
-                                                name="adultBenificiaryRelationship" class="form-control"
-                                                value="" />
+                                    <input id="adultBenefitiaryRelation${inx}" type="hidden" name="adultBenificiaryRelationship" class="form-control" value="" />
                                 </div>
                                 </div>
                             </c:forEach>
 
                             <!-- child  -->
-
                             <input type="hidden" name="totalChildTraveller"
                                 value="${planDetailsForm.totalChildTraveller}" id="totalCountOfChild">
                             <c:forEach var="inx" begin="1" end="${planDetailsForm.totalChildTraveller}">
@@ -1085,11 +768,6 @@ function activateUserAccountJoinUs() {
                                            </div>
                                        </div>
                                        <!-- beneficiary end -->
-
-
-
-
-
 
                                        <!-- child beneficiary start -->
                                        <div class="form-group float hide" id="childbenificiaryId${inx}">
@@ -1250,11 +928,6 @@ function activateUserAccountJoinUs() {
                                            </div>
                                        </div>
                                        <!-- beneficiary end -->
-
-
-
-
-
                                        <!-- other beneficiary start -->
                                        <div class="form-group float hide" id="otherbenificiaryId${inx}">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -1316,29 +989,24 @@ function activateUserAccountJoinUs() {
                                            </div>
                                        </div>
                                        <!-- other beneficiary c end -->
-
-
                                      </div>
                                   </div>
                                   <%-- commented HTML has been moved to "flight-plan-details-temp4.jsp" --%>
                                 </div>
                             </c:forEach>
-
-
                             <!--Till this Line  -->
 
                         <div class="clearfix"></div>
 
                         <div class="form-wrap">
                             <h4 class="h4-2 bmg-disclaimer-header">
-                                <fmt:message key="flight.details.declarations.heading"
-                                    bundle="${msg}" />
+                                <fmt:message key="flight.details.declarations.heading" bundle="${msg}" />
                             </h4>
                             <div class="declaration-content" style="margin-left: 0px;margin-right: 0px;">
-                            <div class="checkbox">
+                            <div class="checkbox form-group">
                                 <input id="checkbox1" name="checkbox1" type="checkbox">
-                                <label for="checkbox1"> <fmt:message
-                                        key="flight.details.declarations.tnc" bundle="${msg}" />
+                                <label for="checkbox1">
+                                    <fmt:message key="flight.details.declarations.tnc" bundle="${msg}" />
                                     <ol class="ol-disclaimer">
                                         <li><fmt:message key="flight.details.declarations.tnc.desc1" bundle="${msg}" /></li>
                                         <li><fmt:message key="flight.details.declarations.tnc.desc2" bundle="${msg}" /></li>
@@ -1346,14 +1014,12 @@ function activateUserAccountJoinUs() {
                                         <li><fmt:message key="flight.details.declarations.tnc.desc4" bundle="${msg}" /></li>
                                         <li><fmt:message key="flight.details.declarations.tnc.desc5" bundle="${msg}" /></li>
                                     </ol>
-
                                 </label>
+                                <span id="chk1" class="text-red"> </span>
                             </div>
-                            <span id="chk1" class="text-red"> </span>
 
-
-                            <div class="checkbox">
-                                <input id="checkbox2" type="checkbox">
+                            <div class="checkbox form-group">
+                                <input id="checkbox2" name="checkbox2" type="checkbox">
                                 <label for="checkbox2">
                                     <fmt:message key="flight.details.declarations.PICS.part1" bundle="${msg}" />
                                     <a href="<fmt:message key="PICS.link" bundle="${msg}" />" target="_blank" class="sub-link">
@@ -1362,9 +1028,9 @@ function activateUserAccountJoinUs() {
                                     <fmt:message key="flight.details.declarations.PICS.part3" bundle="${msg}" />
                                     <br>
                                 </label>
+                                <span id="chk2" class="text-red"> </span>
                             </div>
 
-                            <span id="chk2" class="text-red"> </span>
                             <hr />
 
                             <div>
@@ -1390,23 +1056,6 @@ function activateUserAccountJoinUs() {
                                  <fmt:message key="flight.details.declarations.PDPO.warning" bundle="${msg}" />
                             </div>
 
-                            <script type="text/javascript">
-                            function showBubble(){
-                                if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
-                                    $(".flightCheckboxBubble").fadeIn();
-                                }else{
-                                    $(".flightCheckboxBubble").fadeOut();
-                                }
-                            }
-
-                            $("#checkbox3").change(function() {
-                                showBubble();
-                            });
-
-                            $("#checkbox4").change(function() {
-                                showBubble();
-                            });
-                            </script>
                             </div>
                         </div>
                     </div>
@@ -1497,14 +1146,12 @@ function activateUserAccountJoinUs() {
                  <!-- <div class="input-group date" id="dp2-detail-page"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.getReturnDate()}" readonly>
                  </div>-->
-                 <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.returnDate}" readonly>
-                 </div>
-
-
-
-
-
+                        <div class="input-group date">
+                            <span class="input-group-addon in border-radius">
+                                <img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="">
+                            </span>
+                            <input name="returnDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk"  value="${planDetailsForm.returnDate}" readonly>
+                        </div>
                                 <h3 class="txt-bold">
                                     <fmt:message key="flight.details.summary.option3" bundle="${msg}" />
                                     <!-- <span class="span2 uline">
@@ -1547,9 +1194,9 @@ function activateUserAccountJoinUs() {
                             </div>
                             <div class="orange-bdr"></div>
                             <div class="clearfix"></div>
-                            <!-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">
+                            <%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">
                                  Amount due
-                            </h3> -->
+                            </h3> --%>
                             <%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
                                  ${planDetailsForm.getTotalDue()}
                                 &nbsp;
@@ -1642,129 +1289,6 @@ function activateUserAccountJoinUs() {
     </a>
 </div>
 
-<script>
-
-
-/* For Benefitiary Div active and Inactive */
-function activeDiv(id, selected, beneFullName, beneHkId) {
-        var selectedValue = $('#' + selected).val();
-        if (id.indexOf('personal') > -1) {
-            activeDeactive(selectedValue, id, beneFullName, beneHkId);
-        }
-        if (id.indexOf('adult') > -1) {
-            activeDeactive(selectedValue, id, beneFullName, beneHkId);
-        }
-        if (id.indexOf('child') > -1) {
-            activeDeactive(selectedValue, id, beneFullName, beneHkId);
-        }
-        if (id.indexOf('other') > -1) {
-            activeDeactive(selectedValue, id, beneFullName, beneHkId);
-        }
-    }
-    function activeDeactive(selectedValue, id, beneFullName, beneHkId) {
-        if (selectedValue == "SE") {
-        	$('#' + beneFullName).text('');
-            $('#' + beneHkId).text('');
-            $('#' + beneFullName).val('');
-            $('#' + beneHkId).val('');
-
-            $('#' + id).addClass('hide');
-            $('#' + id + 'b').addClass('hide');
-            $('#' + id + 'c').addClass('hide');
-
-
-        } else {
-            $('#' + id).removeClass('hide');
-            $('#' + id + 'b').removeClass('hide');
-            $('#' + id + 'c').removeClass('hide');
-
-        }
-    }
-/* END- For Benefitiary Dive active and Inactive */
-
-/* UserLogin ajax function */
-function userLoginFnc() {
-
-$('#ajax-loading').show();
-/* var a=validUser(); */
-/*
-if(a==true)
-{ */
-
-console.log($("#popUploginform input").serialize());
-$.ajax({
-type : "POST",
-url : "<%=request.getContextPath()%>/userLogin",
-data : $("#popUploginform input").serialize(),
-async : false,
-success : function(data) {
-$('#ajax-loading').hide();
-if (data == 'success') {
-window.location.reload();
-/* window.location.href = "getAccByUsernaneAndPassword"; */
-} else if (data == 'fail') {
-console.log(data);
-$('#ajax-loading').hide();
-$('#login-err-msg').show();
-$('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
-}
-
-}
-});
-/* } */
-return false;
-}
-/* Function for create flight policy */
-
-var flight_click = false;
-
-function createFlightFnc(form){
-
-    var flag = false;
-
-    if (!flight_click){
-        flight_click = true;
-        console.log($("#freeFlightForm").serialize());
-        $.ajax(
-        {
-            type : "POST",
-            url : "<%=request.getContextPath()%>/${language}/flight-insurance/confirm-policy",
-            data : $("#freeFlightForm").serialize(),
-            async : false,
-            success : function(data)
-            {
-                var result = data['result'];
-                var errMsg = data['errMsgs']
-                flight_click = false;
-                if (result == 'success') {
-                    $('#errorMessages').hide();
-                    flag= true;
-                    form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
-                } else {
-                	console.log(data);
-                    flag= false;
-                    $('#errorMessages').removeClass('hide');
-                    $('#errorMessages').html(errMsg);
-                }
-            }
-        });
-    } else {
-    	flight_click = false;
-    	flag = false;
-    }
-
-    if(flag){
-    	$('#loading-overlay').modal({
-            backdrop: 'static',
-            keyboard: false
-         })
-    }else{
-    	$('#loading-overlay').modal('hide');
-    }
-    return flag;
-}
-</script>
-
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/helpers.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.flightCare.config.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.custom-rule.config.js" charset="utf-8"></script>
@@ -1777,17 +1301,26 @@ $(function() {
     fwdUtility.temp.flightCare();
 
     // JSP values "landing-place"
-    fvConfig['travellerCounter'] = {
-        'familyPlan': {
-            'adult': ${planDetailsForm.totalAdultTraveller}
-            , 'child': ${planDetailsForm.totalChildTraveller}
-            , 'other': ${planDetailsForm.totalOtherTraveller}
+    fvConfig['flightJSPcbInfo'] = {
+        'counter': {
+            'familyPlan': {
+                'adult': ${planDetailsForm.totalAdultTraveller}
+                , 'child': ${planDetailsForm.totalChildTraveller}
+                , 'other': ${planDetailsForm.totalOtherTraveller}
+            }
+            , 'personalPlan': ${planDetailsForm.totalPersonalTraveller}
         }
-        , 'personalPlan': ${planDetailsForm.totalPersonalTraveller}
+
+        , 'plannedDays': ${planDetailsForm.days}
+        , 'authenticate': {
+            'equalFalse': ${authenticate.equals("false")}
+            , 'equalDirect': ${authenticate.equals("direct")}
+        }
+
     };
 
     var flightCfg = initFVConfig(fvConfig).flightCare();
-    runFV(flightCfg).flightCare('freeFlightForm');
+    runFV(flightCfg).flightCare({ 'formId': 'freeFlightForm'});
 
 });
 </script>

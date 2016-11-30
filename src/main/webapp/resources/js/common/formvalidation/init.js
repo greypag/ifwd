@@ -33,7 +33,7 @@ var initFVConfig = function(argCfg) {
 
         // MUST - flightCare() prerequistite variables validating
         try {
-            if ( !_.has(argCfg, 'travellerCounter') ) { throw new Error('The "travellerCounter" js object is missing, please check the JSP variables is passed or not.'); }
+            if ( !_.has(argCfg, 'flightJSPcbInfo.counter') ) { throw new Error('The "flightJSPcbInfo.counter" js object is missing, please check the JSP variables is passed or not.'); }
         } catch (e) {
             console.error(e.name.toString() + ' >>> ' + e.message);
         }
@@ -89,8 +89,8 @@ var initFVConfig = function(argCfg) {
 
     var travelCare	= function() {
 		// This For-loop SAME AS JSP var ${inx} (i.e. defined in flight-plan-details.jsp)
-		// In JS var, {Integer} 'argCfg.travellerCounter.personalPlan' (i.e. Total Personal Plan Travller)
-		// for ( var i = 1; i < argCfg.travellerCounter.personalPlan+1; i++ ) (function(i) {
+		// In JS var, {Integer} 'argCfg.flightJSPcbInfo.counter.personalPlan' (i.e. Total Personal Plan Travller)
+		// for ( var i = 1; i < argCfg.flightJSPcbInfo.counter.personalPlan+1; i++ ) (function(i) {
 		//
 		// 	// WON'T - Note & Demo only, because these are hidden fields
 		// 	// DOM [id="personalBenefitiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
@@ -117,17 +117,18 @@ var initFVConfig = function(argCfg) {
 
 var runFV = function(argCfg) {
 
-	var flightCare = function(formId) {
+	var flightCare = function(fcArgs) {
 
 		// MUST - flightCare() prerequistite variables validating
         try {
-            if ( typeof formId !== 'string' && formId !== null ) { throw new Error('The "runFV()" requires a form id {String}'); }
+			if ( Object.prototype.toString.call(fcArgs) !== '[object Object]' ) { throw new Error('The param for "runFV()" is an {Object}'); }
+            if ( typeof fcArgs.formId !== 'string' && fcArgsformId !== null ) { throw new Error('The "runFV()" requires a form id {String}'); }
         } catch (e) {
             console.error( e.toString() );
         }
 
 		// MUST - Trigger the FormValidation.io library here.
-		$('#' + formId).formValidation(argCfg)
+		$('#' + fcArgs.formId).formValidation(argCfg)
 	        .on('err.validator.fv', function(e, data) {
 	            /**
 	            *   $(e.target)    --> The field element
