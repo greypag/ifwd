@@ -538,7 +538,7 @@ $(document).ready(function(){
                         },
                         type: "POST",
                         url: context + "/api/iMotor/quote",  //post to api
-                        data: JSON.stringify(quote),
+                        data: JSON.stringify(submitData),
                         success: function(){
                         	sessionStorage.setItem('carMake', carMakeCode);
                         	sessionStorage.setItem('carModel', carModel);
