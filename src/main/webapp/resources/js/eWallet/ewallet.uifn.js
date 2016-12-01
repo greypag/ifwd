@@ -19,15 +19,13 @@ var eWalletCtr = {
 		this.tryDisplayLinkupSuccess();
 	},
 	tryDisplayLinkupSuccess: function (){
-		var isGoing2Ewallet = this.getQueryStringByName("sec") === "ew";
-		if (isGoing2Ewallet) {
-			$("#e-wallet-tab-link").trigger("click");
+		var flag = this.getQueryStringByName("statusFlag");
+		if (flag == null) {
+			return;
 		}
 
-		var linkupStatus = this.getQueryStringByName("ew_linkup_result");
-
-		if(linkupStatus == null) return;
-		if (linkupStatus === "success") {
+		$("#e-wallet-tab-link").trigger("click");
+		if (flag) {
 			$(".ew_popup_linkupSuccess").modal();
 		} else {
 			eWalletCtr.showGenericMsg("", msgCtr.linkup.tngLinkupFail);
@@ -75,7 +73,7 @@ var eWalletCtr = {
 		if(!x)return x;
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	},
-	getQueryStringByName(name, url) {
+	getQueryStringByName: function(name, url) {
 		if (!url) {
 			url = window.location.href;
 		}
@@ -118,7 +116,7 @@ var policyHelper = {
 			successFn: function(response) {
 				that.composePolicyList(response.policies);
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
+			failFn: function(response) {
 				eWalletCtr.showGenericMsg("", msgCtr.policyList.policyListApiFail);
 			},
 			doneFn: function (){
@@ -206,7 +204,7 @@ var policyHelper = {
 				eWalletCtr.showGenericMsg("Success", "unlink policy ("+pid+")");
 				that.reloadPolicy();
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
+			failFn: function(response) {
 				eWalletCtr.showGenericMsg("", msgCtr.policyList.unlinkApiFail);
 			},
 			doneFn: function (){
@@ -236,7 +234,7 @@ var policyHelper = {
 // ====== Policy List Process End ======
 
 
-
+ 
 
 // ====== Linkup Process Being ======
 function LinkupClass() {
@@ -294,11 +292,11 @@ function LinkupClass() {
 			successFn: function(response) {
 				that.requestShowPanel();
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
+			failFn: function(response) {
 				// hide policyList btn loading
 				$(document).trigger('ew_popupClose', this);
 
-				eWalletCtr.showGenericMsg("", msgCtr.policyList.otpApiFail);
+				eWalletCtr.showGenericMsg("",response["message_"+ eWalletCtr.langMapping[languageP]]);
 			}
 		});
 		//else show error popup
@@ -316,8 +314,9 @@ function LinkupClass() {
 			successFn: function(response) {
 				that.showPanel(response);
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
-				eWalletCtr.showGenericMsg("", msgCtr.policyList.policyInfoApiFail);
+			failFn: function(response) {
+				//eWalletCtr.showGenericMsg("", msgCtr.policyList.policyInfoApiFail);
+				eWalletCtr.showGenericMsg("", response["message_"+ eWalletCtr.langMapping[languageP]]);
 			}
 		});
 	};
@@ -356,8 +355,9 @@ function LinkupClass() {
 				$("#linkupform").attr("action",response.geteWayUrl);
 				$("#linkupform").submit();
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
-				eWalletCtr.showGenericMsg("", msgCtr.policyList.requestApiFail);
+			failFn: function(response) {
+				//eWalletCtr.showGenericMsg("", msgCtr.policyList.requestApiFail);
+				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[languageP]]);
 			}
 		});
 	};
@@ -383,8 +383,9 @@ function LinkupClass() {
 				//pass all response result to TNG
 				console.log(response);
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
-				eWalletCtr.showGenericMsg("", msgCtr.policyList.otpApiFail);
+			failFn: function(response) {
+				//eWalletCtr.showGenericMsg("", msgCtr.policyList.otpApiFail);
+				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[languageP]]);
 			}
 		});
 	};
@@ -409,6 +410,7 @@ function WithdrawClass(){
 		this.popupDom.on("hidden.bs.modal", function() {
 			that.reset();
 			$(document).trigger('ew_popupClose', this);
+			policyHelper.reloadPolicy();
 		});
 
 		this.popupDom.find(".ew_btn_amount").on("click", function (){
@@ -427,7 +429,7 @@ function WithdrawClass(){
 			that.requestWithdraw();
 		});
 
-		this.popupDom.find(".ew_btn_confirm").on("click", function (){
+		this.popupDom.find(".ew_step_2 .ew_btn_confirm").on("click", function (){
 			that.clearErrMsg();
 
 			var isCheckTnc = $("#chk_amount:checked").length > 0;
@@ -493,9 +495,10 @@ function WithdrawClass(){
 			successFn: function(response) {
 				that.showPanel(response);
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
+			failFn: function(response) {
 				$(document).trigger('ew_popupClose', this); // hide policyList loading
-				eWalletCtr.showGenericMsg("", msgCtr.withdraw.policyInfoApiFail);
+				//eWalletCtr.showGenericMsg("", msgCtr.withdraw.policyInfoApiFail);
+				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[languageP]]);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -529,8 +532,10 @@ function WithdrawClass(){
 				that.popupDom.find(".ew_amount").html(eWalletCtr.toPriceStr(that.amountWithdraw));
 				that.switchSection(2);
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
-				eWalletCtr.showGenericMsg("", msgCtr.withdraw.requestApiFail);
+			failFn: function(response) {
+				// eWalletCtr.showGenericMsg("", msgCtr.withdraw.requestApiFail);\
+				that.popupDom.modal("hide");
+				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[languageP]]);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -558,8 +563,9 @@ function WithdrawClass(){
 			successFn: function(response) {
 				that.switchSection(3);
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
-				eWalletCtr.showGenericMsg("", msgCtr.withdraw.performApiFail);
+			failFn: function(response) {
+				// eWalletCtr.showGenericMsg("", msgCtr.withdraw.performApiFail);\
+				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[langMapping]]);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -689,7 +695,6 @@ var logViewer = {
 		this.hideOptionNLog();
 		this.htmlDom.find(".ew_loading").show();
 
-		console.log("fetechPolicyInfo");
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyInfo,
 			method: "post",
@@ -782,7 +787,7 @@ var logViewer = {
 	hideLogLoading: function (){
 		this.htmlDom.find(".ew_btn_ok").removeClass("isLoading");
 	},
-	toApiDateFormat(str){
+	toApiDateFormat: function(str){
 		//yyyy-mm-dd
 		var strAry = str.split("/");
 		return strAry[2] + "-" + strAry[1] + "-" + strAry[0];
@@ -820,7 +825,7 @@ var apiReqHelper = {
 			error: function(xhr, textStatus, errorThrown) {
 				that.isWorking = false;
 				if (!!conf.failFn) {
-					conf.failFn(xhr, textStatus, errorThrown);
+					conf.failFn(JSON.parse(xhr.responseText), xhr, textStatus, errorThrown);
 				} else {
 					eWalletCtr.showGenericMsg(msgCtr.common.errorTitle, msgCtr.common.errorMsg);
 				}
