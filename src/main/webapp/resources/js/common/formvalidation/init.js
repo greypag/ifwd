@@ -35,11 +35,11 @@ var initFVConfig = function(argCfg) {
         try {
             if ( !_.has(argCfg, 'flightJSPcbInfo.counter') ) { throw new Error('The "flightJSPcbInfo.counter" js object is missing, please check the JSP variables is passed or not.'); }
         } catch (e) {
-            console.error(e.name.toString() + ' >>> ' + e.message);
+			console.error('initFVConfig().flightCare() cannot run now');
+            console.error(e.toString());
         }
 
-		// SHOULD - other deticated js code before running FV
-		// --- Under Developing ---
+		// MUST - other deticated js code before running FV
         $(function() {
 
 			// placeholder.min.js
@@ -55,17 +55,38 @@ var initFVConfig = function(argCfg) {
 
 			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
-			// Value-binding & field revalidation
+			// MUST - Value-binding & field revalidation
 			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );
-			// Char Input control : alpha + space only
+			// MUST - Field Input control : alpha + space only
 			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
 
 			// MUST - DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1'  };
-			// Value-binding & field revalidation
+			// MUST - Value-binding & field revalidation
 			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );
-			// Input control : general HKID valid chars only
+			// MUST - Field control : general HKID valid chars only
 			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo.inputId );
+
+			// Under Developing - the tooltip behaviour
+			argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut();
+
+			// fwdUtility.pages.flightCare.fncCheckBoxTooltip({
+			// 	'.flightCheckboxBubble': [ '#checkbox3', '#checkbox4' ]
+			// 	, '.flightCheckboxBubble2': [ '#checkbox5', '#checkbox6' ]
+			// });
+
+			// fwdUtility.pages.flightCare.fncCheckBoxTooltip(
+			// 	{
+			// 		'pickboxSelector': '.flightCheckboxBubble'
+			// 		, 'checkBoxSelector': [ '#checkbox3', '#checkbox4' ]
+			// 		, 'checkBoxRequired': 1
+			// 	}
+			// );
+
+			// MUST - Submit Form
+			$(formId).onsubmit = function() {
+		        fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);
+		    };
 
 			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
 			// dataSourceFieldInfo = { 'inputId': 'applicantDob', 'errorId': 'fullnameinvalid' };
@@ -114,7 +135,9 @@ var initFVConfig = function(argCfg) {
 		"eliteTerm":	eliteTerm
 	};
 };
-
+/*
+ * Trigger the FormValidation
+ */
 var runFV = function(argCfg) {
 
 	var flightCare = function(fcArgs) {
@@ -124,6 +147,7 @@ var runFV = function(argCfg) {
 			if ( Object.prototype.toString.call(fcArgs) !== '[object Object]' ) { throw new Error('The param for "runFV()" is an {Object}'); }
             if ( typeof fcArgs.formId !== 'string' && fcArgsformId !== null ) { throw new Error('The "runFV()" requires a form id {String}'); }
         } catch (e) {
+			console.error('runFV().flightCare() got error, will not run.');
             console.error( e.toString() );
         }
 
@@ -143,14 +167,14 @@ var runFV = function(argCfg) {
 	                .filter('[data-fv-validator="' + data.validator + '"]').show();     // Show only message associated with current validator
 	        })
 	        .on('err.field.fv', function(e, data) {
-	            /**
-	            * data.field is the field name
-	            * data.status is the current status of validator
-	            * data.element is the field element
-	            * Assume that the form uses the Bootstrap framework
-	            * and has a standard structure
-	            * Each pair of field and label are placed inside a .form-group element
-	            **/
+	            /*
+	             * data.field is the field name
+	             * data.status is the current status of validator
+	             * data.element is the field element
+	             * Assume that the form uses the Bootstrap framework
+	             * and has a standard structure
+	             * Each pair of field and label are placed inside a .form-group element
+	             */
 	            data.element.next().children().addClass("text-red");
 				// console.log(data.element.next());
 	            // console.log(data.element);

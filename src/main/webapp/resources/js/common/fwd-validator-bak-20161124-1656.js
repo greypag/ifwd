@@ -65,7 +65,7 @@ var fwdValidator = (function(fwdConstant) {
     var _isValidHkid = function (str) {
 
         /* Migrated from "js/fwd.js", orginal function name < function IsHKID() > */
-        var strValidChars = fwdConstant.constant.text.allEngChar.uppercase;
+        var strValidChars = fwdConstant.text.allEngChar.uppercase;
             // basic check length
             if (str.length < 8)
                 return false;

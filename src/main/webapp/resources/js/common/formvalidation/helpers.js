@@ -330,6 +330,22 @@ var cb_hkidUniqueValidation = function() {
     };
 }();
 
+var event_checkBox_tooltipFadeInOut = function() {
+	var _showBubbleTooltip = function () {
+		if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+			$(".flightCheckboxBubble").fadeIn();
+		}else{
+			$(".flightCheckboxBubble").fadeOut();
+		}
+	};
+	$("#checkbox3").change(function() {
+		_showBubbleTooltip();
+	});
+	$("#checkbox4").change(function() {
+		_showBubbleTooltip();
+	});
+};
+
 /*
  * Export modules to "fvConfig" object
  */
@@ -351,6 +367,10 @@ fvConfig['helpers'] = {
             , 'returnHkidLegalCharOnly':    event_returnHkidLegalCharOnly
         }
         , 'readonly':                       event_readonly
+        , 'onchange': {
+            'checkBox_tooltipFadeInOut':    event_checkBox_tooltipFadeInOut
+        }
+        // , 'onsubmit':                       event_onsubmit
     }
     , 'ux': {}
     , 'fvCallback': {

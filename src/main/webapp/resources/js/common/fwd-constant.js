@@ -6,7 +6,7 @@
 
 	var _regex_general = {
         'text': {
-            'enOnly': '^[a-zA-Z\\Ss]*$'                  // englishOnly
+            'enOnly': '^[a-zA-Z\\Ss]*$'                 // englishOnly
             , 'enSpace': '^[A-Za-z ]+$'                 // for fwd-validator, found in fwd.js, function allLetter(inputtxt)
             , 'tcOnly': '^[\s\u4e00-\u9fa5]*%'          // chineseOnly
             , 'enTcBoth': '^[a-zA-Z\s\u4e00-\u9eff]*$'  // englishAndChinese
@@ -40,16 +40,19 @@
             'uppercase': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'                           // for fwd-validator
             , 'lowercase': 'abcdefghijklmnopqrstuvwxyz'                         // for fwd-validator
         }
-    }
+    };
+
+    var _date = {
+
+    };
 
 	return {
 		'regex': {
     		'general':      _regex_general
             , 'person':     _regex_person
-    	},
-        'constant': {
-            'text':         _text
-        }
+    	}
+        , 'text':         _text
+        // , 'date':         _date
 	};
 
 })();

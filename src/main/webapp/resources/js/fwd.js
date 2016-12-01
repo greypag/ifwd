@@ -1376,14 +1376,12 @@ function setDropDownValue(elm, val){
 
 /* flight plan details your details validation */
 
-function fPlanValid()
-{
+function fPlanValid() {
 	var flag=true;
 	$('#chk1').html('');
 	$('#chk2').html('');
 
 	$('#dobInvalid').html('');
-
 	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
     	$("#inputFullName").val('');
     }
@@ -1391,21 +1389,14 @@ function fPlanValid()
     	$("#inputTxtAppHkid").val('');
     }
 
-
 	var fullname = document.getElementById("inputFullName").value;
 	var emailId = document.getElementById("inputEmailId").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
 	var appHkid = document.getElementById("inputTxtAppHkid").value;
 	var applicantDob = document.getElementById("applicantDob").value;
 
-
 	//first error element
 	var firstErrorElementId="";
-
-
-
-
-
 
     if (fullname.trim() == "") {
     	document.getElementById("fullnameinvalid").innerHTML = getBundle(getBundleLanguage, "applicant.name.notNull.message");
@@ -1599,8 +1590,7 @@ function fPlanValid()
 			}
 		}
 		if (hkid.trim() != "") {
-			for (var j = 1; j <= i-1; j++)
-			{
+			for (var j = 1; j <= i-1; j++) {
 				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
 				if (hkid.toUpperCase() == hkid1.toUpperCase())
 				{
@@ -1613,7 +1603,7 @@ function fPlanValid()
 				}
 			}
 
-			for (var j=1; j<=parseInt(rowCountChild);j++){
+			for (var j=1; j<=parseInt(rowCountChild);j++) {
 				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
 				if (hkid.toUpperCase() == hkid1.toUpperCase()){
 					$('#errtxtChldInsuHkid'+j).html(getBundle(getBundleLanguage, "insured.hkId.duplicate.meesage"));
@@ -1625,7 +1615,7 @@ function fPlanValid()
 				}
 			}
 
-			for (var j=1; j<=parseInt(rowCountOther);j++){
+			for (var j=1; j<=parseInt(rowCountOther);j++) {
 				var hkid1 = document.getElementById("txtOtherInsuHkid" + j).value;
 				if (hkid.toUpperCase() == hkid1.toUpperCase()){
 					$('#errtxtOtherInsuHkid'+j).html(getBundle(getBundleLanguage, "insured.hkId.duplicate.meesage"));
@@ -2595,15 +2585,7 @@ function validateMobile(inputId, errorId, inputType){
 
 /**
 *
-* For function validateDob() -- will be MIGRATED --
-*
-* Caution to Developers:
-* If any updated, suggested to do in "resources/js/common/fwd-validator.js", i.e. _isValidBeneDob() .
-*
-**/
-/**
-*
-* For function validateName() -- ALREADY MIGRATED
+* For function validateDob() -- ALREADY MIGRATED
 *
 * Caution to Developers:
 * Functionally replaced by

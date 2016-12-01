@@ -1,3 +1,55 @@
+// var event_checkBox_tooltipFadeInOut = function(arg) {
+//     if ( Object.prototype.toString.call(arg) === '[object Object]' && arg !== null ) {
+//         var keysOfArg = _.keys(arg);
+//         var valuesOfArg = _.values(arg);
+//
+//         var checkedValueCounter = function (cCounterObj) {
+//             var result = 0;
+//             if ( Object.prototype.toString.call(cCounterObj) === '[object Array]' && cCounterObj !== null ) {
+//                 // *** array String ***, e.g. ['#checkbox3', '#checkbox4']
+//                 for (var w = 0; w < cCounterObj.length; w++) (function(w) {
+//                     if ( $(cCounterObj[w]).prop('checked') ) {
+//                         result += 1;
+//                     }
+//                 })(w);
+//             } else if ( Object.prototype.toString.call(cCounterObj) === '[object String]' && cCounterObj !== null ) {
+//                 // *** string ***, e.g. '#checkbox3'
+//                 result = $(cCounterObj[w]).prop('checked') ? 1 : 0;
+//                 console.log(cCounterObj + '['+result+']' );
+//             } else {
+//                 console.error('*** NOT Array & String ***');
+//             }
+//             return result;
+//         };
+//
+//         var temp = function() {
+//             if ( checkedValueCounter(valuesOfArg[i]) === 0 ) {
+//                 $(keysOfArg[i]).fadeOut();
+//             } else {
+//                 $(keysOfArg[i]).fadeIn();
+//             }
+//         };
+//
+//         for (var i = 0; i < keysOfArg.length; i++) (function(i) {
+//             // e.g. valuesOfArg[i] >> ['#checkbox3', '#checkbox4']
+//
+//         })(i);
+//
+//     } else {
+//         console.error('Invalid format is found on parameter.')
+//     }
+// };
+
+// var event_onsubmit = function(formId) {
+//
+// var form = $('form')
+//     , oldSubmit = form[0].onsubmit;
+
+// form[0].onsubmit = null;
+// $(formId).onsubmit = function() {
+//     fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);
+// };
+// };
 
 // var declarationCfg  = {
 // 		"checkbox1": {

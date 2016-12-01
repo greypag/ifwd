@@ -1,6 +1,5 @@
 var fwdUtility = (function(){
 
-
 	/*
 	 * Format Currency
 	 *
@@ -11,8 +10,7 @@ var fwdUtility = (function(){
 	 */
 	var _formatCurrency = function(a, n){
 		var _decimal = (typeof(n)==='number')?n:2;
-		return parseFloat(a).toFixed(_decimal).replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
-
+		return parseFloat(a).toFixed(_decimal).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	};
 
 	/*
@@ -51,7 +49,6 @@ var fwdUtility = (function(){
 	// function forEachArray(arr, cb){
 	// 	// To Be
 	// }
-	//
 
 	var _floatingBox = function () {
 		/* scrolling code starts */
@@ -97,21 +94,7 @@ var fwdUtility = (function(){
 
 	var _temp_flightCare = function() {
 
-		function showBubbleTooltip(){
-			if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
-				$(".flightCheckboxBubble").fadeIn();
-			}else{
-				$(".flightCheckboxBubble").fadeOut();
-			}
-		}
 
-		$("#checkbox3").change(function() {
-			showBubbleTooltip();
-		});
-
-		$("#checkbox4").change(function() {
-			showBubbleTooltip();
-		});
 
 		// 35 day
 		var dob_42_date = new Date();
@@ -488,9 +471,10 @@ var fwdUtility = (function(){
 		/* END- For Benefitiary Dive active and Inactive */
 	};
 
-	var _temp_flightCare_userLoginAjax = function() {
+	var _pages_flightCare_userLoginAjax = function() {
+		console.log('fwdUtility.temp.flightCareUserLoginAjax() is loaded.');
 		/* UserLogin ajax function */
-		function userLoginFnc() {
+		var _userLoginFnc = function() {
 
 		    $('#ajax-loading').show();
 		    /* var a=validUser(); */
@@ -525,8 +509,7 @@ var fwdUtility = (function(){
 
 		var flight_click = false;
 
-		function createFlightFnc(form) {
-
+		var _createFlightFnc = function(form) {
 		    var flag = false;
 
 		    if (!flight_click) {
@@ -564,8 +547,35 @@ var fwdUtility = (function(){
 		        $('#loading-overlay').modal('hide');
 		    }
 		    return flag;
-		}
-	};
+		};
+
+		return {
+			'userLoginFnc': 		_userLoginFnc
+			, 'createFlightFnc': 	_createFlightFnc
+		};
+	}();
+
+	// var _pages_flightCare_fncCheckBoxTooltip = function(tp) {
+	// 	var _mod = function(single_tp) {
+	// 		console.log(single_tp);
+	// 		$(single_tp).prop('checked')
+	// 	};
+	// 	// var _change_listener = function(cb, tooltip, single_selector) {
+	// 	// 	$(single_selector).change(function() {
+	// 	// 		cb(tooltip);
+	// 	// 	});
+	// 	// };
+	// 	// _change_listener( _mod, tp, '#checkbox3' );
+	// 	var _change_listener2 = function(cb, single_selector) {
+	// 		$(single_selector).change(function() {
+	// 			cb();
+	// 		});
+	// 	};
+	// 	// return (function(_tooltip){
+	// 	// 	console.log(tooltip);
+	//
+	// 	// });
+	// };
 
 	return {
 		'counter': {
@@ -580,7 +590,14 @@ var fwdUtility = (function(){
 			, 'flightCareAuth':					_temp_flightCare_auth
 			, 'flightCareActivate':				_temp_flightCare_activate
 			, 'flightCareBenefitiaryIsActive':	_temp_flightCare_benefitiary_isActive
-			, 'flightCareUserLoginAjax': 		_temp_flightCare_userLoginAjax
+		}
+		, 'pages': {
+			'flightCare': {
+				'userLoginAjax': 				_pages_flightCare_userLoginAjax
+				// , 'fncCheckBoxTooltip':			_pages_flightCare_fncCheckBoxTooltip
+			}
+			, 'travelCare': {}
+
 		}
 		// , 'data': {} // role familiar with lodash, underscore, but some are dedicated to FWD
 	};

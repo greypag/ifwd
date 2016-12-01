@@ -19,6 +19,7 @@
     }
 %>
 <script>
+
     $(function() {
         $("[data-toggle='tooltip']").tooltip();
         $( "[data-toggle='tooltip']" ).on( "click", function() {
@@ -30,12 +31,8 @@
         <% } else {%>
         fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
         <% } %>
-
-        fwdUtility.temp.flightCareBenefitiaryIsActive();
-        fwdUtility.temp.flightCareUserLoginAjax();
-
     });
-
+    fwdUtility.temp.flightCareBenefitiaryIsActive();
 
     /* Commented because login is not compulsory */
     <%-- function fligh	ation() {
@@ -47,7 +44,6 @@
     <%}%>
     return false;
     } --%>
-
 </script>
 
 <!-- for debug
@@ -69,7 +65,7 @@ if (lang === "EN") {
 	    getBundleLanguage = "en";
 	}
 }
-perventRedirect=true;
+perventRedirect = true;
 </script>
 
 <!--/#main-Content-->
@@ -77,7 +73,8 @@ perventRedirect=true;
     <div id="cn" class="container">
         <div class="row">
             <%-- <form:form name="freeFlight" method="post" action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
-            <form:form name="freeFlightForm" id="freeFlightForm" modelAttribute="createFlightPolicy" method="post" onsubmit="return createFlightFnc(this);">
+            <%-- <form:form name="freeFlightForm" id="freeFlightForm" modelAttribute="createFlightPolicy" method="post" onsubmit="return fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);"> --%>
+            <form:form name="freeFlightForm" id="freeFlightForm" modelAttribute="createFlightPolicy" method="post">
                 <input type="hidden" name="planSelected" value="${planDetailsForm.planSelected}">
                 <div class="container ">
                     <div id="tr-steps"
@@ -292,13 +289,9 @@ perventRedirect=true;
                         </div>
                         <%-- commented HTML has been moved to "flight-plan-details-temp5.jsp" --%>
                         <input type="hidden" id="isLogin" value="false">
-                        <%
-                            } else {
-                        %>
+                        <% } else { %>
                         <input type="hidden" id="isLogin" value="true">
-                        <%
-                            }
-                        %>
+                        <% } %>
                         <div class="clearfix"></div>
                         <div class="form-wrap">
                             <div class="big-title black-bold" style="padding-left:0px !important;">
@@ -556,7 +549,7 @@ perventRedirect=true;
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <!-- onkeyup="value=value.replace(/[\W]/g,'')" -->
                                                <input id="txtInsuHkid${inx}" name="adultHKID"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid"
+                                                    class="form-control textUpper full-control bmg_custom_placeholder"
                                                     value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="errtxtInsuHkid${inx}"class="text-red"> </span>
                                            </div>
@@ -622,7 +615,7 @@ perventRedirect=true;
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text" name="adultBenificiaryFullName"
-                                                        id="adultBenefitiaryId${inx}" class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        id="adultBenefitiaryId${inx}" class="form-control full-control textUpper bmg_custom_placeholder js__input_hkid"
                                                         value="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />" />
                                                     <span id="erradultBenefitiaryId${inx}" class="text-red"> </span>
                                                </div>
