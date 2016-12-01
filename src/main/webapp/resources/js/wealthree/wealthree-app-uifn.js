@@ -143,12 +143,8 @@ $(document).ready(function(){
 		$("#btn-appointment-confirm").on('click', function(){
 			var isValid = true;
 			var confirmationJsp="/savings-insurance/wealthree-confirmation-appointment-sp?referenceNum="
-			var appType = 'PROVIE-SP';
+			var appType = 'WTHREE-SP';
 			var paymentType=planCode.split("-")[1];
-			if ("RP"==paymentType){
-				confirmationJsp="/savings-insurance/wealthree-confirmation-appointment-sp?referenceNum="
-				appType = 'PROVIE-RP';
-			}
 			//alert(confirmationJsp);
 			$(".centreErrMsg, .app-dateErrMsg, .preferred-timeErrMsg, .generalErrMsg").empty();
 			if($("#centre").val() == ""){

@@ -260,6 +260,9 @@ public class AppointmentController extends BaseController {
 					case "PROVIE-RP":
 						action = "provie-o2o-rp";
 						break;
+					case "WTHREE-SP":
+						action = "wealthree-o2o-sp";
+						break;
 				}
 				try {
 					savieOnlineService.sendEmails(request, action, models);
