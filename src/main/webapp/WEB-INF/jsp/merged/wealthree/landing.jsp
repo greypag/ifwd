@@ -141,8 +141,8 @@ var home_url = "<%=request.getContextPath()%>";
 	            				<fmt:message key="wealthree.landing.fixrate.table.text0" bundle="${wealthreeMsg}" />
 	            			</p>
 	            			<div class="wh_p_btns-gp text-center">
-	            				<a id="dlProductBrochure" class="" href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/cars-boats/Motor-Smart-Insurance-Brochure_1_041016.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" /></a>
-	            				<a id="dlProductBrochure" class="" href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/cars-boats/Motor-Smart-Insurance-Brochure_1_041016.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" /></a>
+	            				<a id="dlProductBrochure" class="" href="<%=request.getContextPath()%>/resources/pdf/wealthree/Wealthree_${language}_factsheet.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" /></a>
+	            				<a id="dlProductBrochure" class="" href="<%=request.getContextPath()%>/resources/pdf/wealthree/Wealthree_${language}_Provision.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" /></a>
 	            			</div>
 	            		</div>
 	            	</div>
@@ -169,6 +169,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 									<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s1_chart_rmb.jpg" alt="" class="img-responsive visible-xs">
 								</div>
+								<span class="pv_remark"><fmt:message key="wealthree.landing.currency.hkd.remark" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.currency.rmb.remark" bundle="${wealthreeMsg}" /></span>
 							</div>
 						</div>
 					</div>
@@ -280,12 +281,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 								</div>
 
-								<div class="col-xs-12">
-									<div class="text-center btm-btn">
-										<button class="btn-savenow"><fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" /></button>
-										<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.save.now.remark" bundle="${wealthreeMsg}" /></span></p>
-									</div>
-								</div>
+
 							</div>
 						</div>
 					</div>
@@ -436,7 +432,13 @@ var home_url = "<%=request.getContextPath()%>";
 										</span>
 									</div>
 								</div>
-							</div>							
+							</div>	
+							<div class="col-xs-12">
+								<div class="text-center btm-btn">
+									<button class="btn-savenow"><fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" /></button><br><br>
+									<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.save.now.remark" bundle="${wealthreeMsg}" /></span></p>
+								</div>
+							</div>						
 							
 						</div>
             		</div>

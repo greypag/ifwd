@@ -246,25 +246,32 @@
     padding: 12.5px 0;
     width: 100%; }
 
-.pv_compareTable .sel_wrapper {
-  width: 50%;
-  overflow: hidden;
-  margin: auto;
-  position: relative; }
-  .pv_compareTable .sel_wrapper i {
-    position: absolute;
-    right: 0;
-    top: 10px;
-    color: #fff; }
-.pv_compareTable #sel_savie_provie {
-  width: 120%;
-  background-color: transparent;
-  border: none;
-  text-align: center; }
-  .pv_compareTable #sel_savie_provie option {
-    color: #f8882d; }
-  .pv_compareTable #sel_savie_provie:focus {
-    outline: none; }
+.pv_compareTable {
+  overflow: hidden; }
+  .pv_compareTable .sel_wrapper {
+    width: 50%;
+    overflow: hidden;
+    margin: auto;
+    position: relative; }
+    .pv_compareTable .sel_wrapper i {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      color: #fff; }
+  .pv_compareTable #sel_savie_provie {
+    max-width: none;
+    width: auto;
+    background-color: transparent;
+    border: none;
+    padding-right: 30px;
+    margin-left: 30px;
+    position: relative; }
+    .pv_compareTable #sel_savie_provie option {
+      color: #f8882d; }
+    .pv_compareTable #sel_savie_provie:focus {
+      outline: none; }
+  .pv_compareTable table tr td:nth-child(1) {
+    width: 16.6%; }
 
 @media screen and (min-width: 768px) {
   .wh_productInfo .wh_p_desc {

@@ -364,7 +364,7 @@
 	}
 }
 .pv_compareTable{
-
+	overflow: hidden; 
 	.sel_wrapper{
 		width:50%;
 		overflow: hidden;
@@ -379,15 +379,27 @@
 		}
 	}
 	#sel_savie_provie{
-		width:120%;
+		max-width: none;
+		width:auto;
 		background-color:transparent;
 		border:none;
-		text-align: center;
+		padding-right:30px;
+		margin-left:30px;
+		position:relative;
 		option{
 			color:#f8882d;
 		}
 		&:focus{
 			outline: none;
+		}
+	}
+	table{
+		tr{
+			td{
+				&:nth-child(1){
+					width: 16.6%;
+				}
+			}
 		}
 	}
 }
