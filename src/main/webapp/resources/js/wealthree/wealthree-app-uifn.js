@@ -1,5 +1,5 @@
 /*** This part may need move to JSP??? ***/
-var typeId = "SAVIE_OFFLINE";
+var typeId = "WEATHREE_OFFLINE";
 var language="EN";
 var APIServer = "";
 var fwdApi = {
