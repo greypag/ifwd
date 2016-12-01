@@ -345,8 +345,6 @@ function LinkupClass() {
 				otp: otp
 			},
 			successFn: function(response) {
-				//pass all response result to TNG
-				alert("pass data to TNG");
 				var data =response.payload;
 				$('#appId').val(data.appId);
 				$('#merTradeNo').val(data.merTradeNo);
