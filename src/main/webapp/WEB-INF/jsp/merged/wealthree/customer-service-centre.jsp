@@ -499,12 +499,7 @@ function stickToHeader() {
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	$(document).ready(function() {
 		
-		$('#moreThan2Tries-button').click(function(){
-			//alert(language);
-			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
-			window.location.href= context + "/" + language.toLowerCase() + "/savings-insurance/wealthree";
-		});
-		
+				
 		$('#pick-another-centre-btn').click(function(){
 			$('#pickAnotherCentre').modal('hide');
 		});
@@ -513,7 +508,7 @@ function stickToHeader() {
 			window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 		});
 		$('#moreThan2Tries-button').click(function(){
-			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie-plan-details';
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/wealthree';
 		});
 		$('#perferredTimeIsNull-btn').click(function(){
 			$('#perferredTimeIsNull').modal('hide');
