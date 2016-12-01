@@ -438,6 +438,42 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
 </div>
+<!-- SaveForm Modal -->
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content plan-modal">
+            <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class="login-title-wrapper">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
+                        <h3 class="heading-h3 color-orange text-center">
+                          
+                        </h3>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+                        <p>
+                            <fmt:message key="motor.lightbox.savecontinuelater.title" bundle="${motorMsg}" />  </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 plan-panel">
+                        <div class="row" >
+                            <div class="text-center col-xs-6">
+                                <br />
+                                <a class="bdr-curve btn btn-primary nxt-btn saveExit" onclick="SaveAndExit()"><fmt:message key="motor.button.savecontinue.exit" bundle="${motorMsg}" /> </a>
+                                <br/>
+                            </div>
+                            <div class="text-center col-xs-6">
+                                <br />
+                                <a class="bdr-curve btn btn-primary nxt-btn continue"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
+                                <br/>
+                            </div>
+                            <div class="clearfix"></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
 	var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
 </script>
@@ -460,6 +496,64 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
+var tempquote="";
+var loginStatus=false;
+function callback_motor_LoginSuccess(){
+	alert('Login success. Call Save later API.');
+ 	var empty = {}; 
+	  $.ajax({
+			url:fwdApi.url.resume,
+			type:"post",
+			contentType: "application/json",
+			data: JSON.stringify(empty),
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+		        alert("error");
+		    },
+		    success:function(response){
+		    	console.dir(response);
+		    	tempquote = response.motorCareDetails;
+		    	$('#saveModal').modal("show");
+		    }
+		});
+}
+function SaveAndExit()
+{
+	$(document).ready(function(){
+		location.assign(context);
+		  var submitData = {"carDetail": {   	
+			   "bankMortgage": checkbox,	
+			   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
+			   "chassisNumber": $('input[name=chassisNumber]').val(),    	
+			   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
+			   "modelDesc": $('input[name=registedModel]').val()    	
+				}, 	
+				"policyId": quote.policyId
+				};
+
+				$.ajax({
+			     beforeSend: function(){
+			     	$('#loading-overlay').modal("show");
+			     },
+				  type: "POST",
+				  data: JSON.stringify(submitData),
+				  dataType: "json",
+			     contentType : "application/json",
+			     cache: false,
+			     async: false,
+			     url:context + "/api/iMotor/policy/save4Later/carDetails",
+				  success: function(data){
+					console.dir(data);
+					location.assign(context);
+				  },error: function(error) {
+					  console.dir(error);				
+					  alert("error");
+			          $("#loading-overlay").modal("hide");
+				  }
+				});
+	});
+}
 	$(document).ready(function () {
 
         var totalDue = 0;
@@ -497,10 +591,6 @@ else
 else
 $('#yourQuoteTitle').html('Third Party');
 }
-
-
- 
-
             $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
             $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
          //   $('#yourQuotefromPrice').html(formatCurrency(totalDue));
@@ -564,6 +654,7 @@ $('#yourQuoteTitle').html('Third Party');
         $('#form-inline').submit(function(event){
         	if(getUrlParameter("edit") == "yes")
         	{
+        		
         		$.ajax({
         			  type: "POST",
         			  data: JSON.stringify(quote),
@@ -575,7 +666,7 @@ $('#yourQuoteTitle').html('Third Party');
         			  success: function(data){
         				  
 	                        var $form = $("<form id='quote-form' />");
-	                        $form.attr("action", "car-details");
+	                        $form.attr("action", "car-details?edit=yes");
 	                        $form.attr("method", "post");
 	                        var $quote = $("<input type='hidden' name='data' />");
 	                        $quote.attr("value", JSON.stringify(quote));
@@ -629,54 +720,66 @@ $('#yourQuoteTitle').html('Third Party');
         	   return false;
         });
     
-        //Check UserLogin
-		$.ajax({
-			url:fwdApi.url.session,
-			type:"get",
-			contentType: "application/json",
-			cache:false,
-			async:false,
-		    error:function (xhr, textStatus, errorThrown){
-		    	
-		        if(xhr.status == 404){		        
-		        	$(".before-login").show();
-		        } else {
-		        	$(".before-login").show();
-		        }
-		    },
-		    success:function(response){
-		    	if(response){
-		    		if(response.userName == '*DIRECTGI'){
-		    			loginStatus=false;
-		    			//$('#loginpopup').modal("show");
-		    			//$(".before-login").show();
-		    			//$("#saveModal").removeClass("hidden");
-		    			return false;	
-		    		}else
-		    		{   loginStatus=true;
-		    		var empty = {}; 
-		    		  $.ajax({
-		    				url:fwdApi.url.resume,
-		    				type:"post",
-		    				contentType: "application/json",
-		    				data: JSON.stringify(empty),
-		    				cache:false,
-		    				async:false,
-		    			    error:function (xhr, textStatus, errorThrown){
-		    			        
-		    			    },
-		    			    success:function(response){
-		    			    	console.dir(response);
-		    			    	$('#saveModal').modal("show");
-		    			    }
-		    			});
-		    		}
-		    	}
-		    }
-		});
-      
+      //Check UserLogin
+    	$.ajax({
+    		url:fwdApi.url.session,
+    		type:"get",
+    		contentType: "application/json",
+    		cache:false,
+    		async:false,
+    	    error:function (xhr, textStatus, errorThrown){
+    	    	
+    	        if(xhr.status == 404){		        
+    	        	$(".before-login").show();
+    	        } else {
+    	        	$(".before-login").show();
+    	        }
+    	    },
+    	    success:function(response){
+    	    	if(response){
+    	    		if(response.userName == '*DIRECTGI'){
+    	    			loginStatus=false;
+    	    			//$('#loginpopup').modal("show");
+    	    			//$(".before-login").show();
+    	    			//$("#saveModal").removeClass("hidden");
+    	    			return false;	
+    	    		}else
+    	    		{   loginStatus=true;
+    	    			var empty = {}; 
+    	    		  $.ajax({
+    	    				url:fwdApi.url.resume,
+    	    				type:"post",
+    	    				contentType: "application/json",
+    	    				data: JSON.stringify(empty),
+    	    				cache:false,
+    	    				async:false,
+    	    			    error:function (xhr, textStatus, errorThrown){
+    	    			        alert("error");
+    	    			    },
+    	    			    success:function(response){
+    	      			    	console.dir(response);
+    	    			    	tempquote = response.motorCareDetails;
+    	    			    	//$('#saveModal').modal("show");
+    	    			    }
+    	    			});
+    	    		}
+    	    	}
+    	    }
+    	});
+    	  $(".continue").on("click",function(){	
+  		  		$('#saveModal').modal("hide");
+	  	  });
+	  	  
+	  	  $("#saveForm").on("click",function(){
+	  		    if(loginStatus==false)
+	  			$('#loginpopup').modal("show");
+	  		    else  if(loginStatus==true)
+	  		    $('#saveModal').modal("show");
+	  	  });
 	});
     
+	
+	
     function updateTotalDue(amt){
         $('#yourQuotePrice').html(formatCurrency(amt));
         $('#yourQuoteAmmount').html(formatCurrency(amt));

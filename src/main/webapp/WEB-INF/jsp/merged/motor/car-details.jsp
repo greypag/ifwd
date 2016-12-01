@@ -384,11 +384,13 @@ function SaveAndExit()
 			     async: false,
 			     url:context + "/api/iMotor/policy/save4Later/carDetails",
 				  success: function(data){
-					console.dir(data);  
+					console.dir(data);
+					location.assign(context);
 				  },error: function(error) {
 					  console.dir(error);				
 					  alert("error");
 			         $("#loading-overlay").modal("hide");
+			        // location.assign(context);
 				  }
 				});
 	});

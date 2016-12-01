@@ -308,7 +308,20 @@ color: #fff;
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
     
 $(document).ready(function(){
+	var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
 
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
     $.when(
         getMotorQuotePrice('third', quote)
     ).then(function(){
@@ -345,11 +358,17 @@ $(document).ready(function(){
     $('.third-next').on("click", function(){
     	quote.planCode = "Third";
     	quote.compPlan = null;
-    	redirectQuotePage("rider-options", quote);
+    	if(getUrlParameter("edit") == "yes")
+    		redirectQuotePage("rider-options?edit=yes", quote);
+    	else
+    		redirectQuotePage("rider-options", quote);
     });
 
     $('#comp-next').on("click", function(){
-    	redirectQuotePage("comprehensive-quote", quote);
+    	if(getUrlParameter("edit") == "yes")
+    		redirectQuotePage("comprehensive-quote?edit=yes", quote);
+    	else
+    		redirectQuotePage("comprehensive-quote", quote);
     });
 });
 

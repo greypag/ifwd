@@ -215,7 +215,7 @@ width: 100px !important;
                         </div>
                         </div>
                     </div>
-                    <!-- <div id="testimonials" class="q5 fadeInUp animated hidden">
+                    <div id="testimonials" class="q5 fadeInUp animated hidden">
                         <div class="center">
                             <h2><fmt:message key="motor.getquote.promotion.heading" bundle="${motorMsg}" /></h2>
                         </div>
@@ -248,8 +248,7 @@ width: 100px !important;
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-
+                    </div>
                 </form>
             </div>
         </div>
@@ -276,7 +275,7 @@ width: 100px !important;
                         <div class="row" >
                             <div class="text-center col-xs-6">
                                 <br />
-                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.restart.process" bundle="${motorMsg}" /></a>
+                                <a class="bdr-curve btn btn-primary nxt-btn startAgain"><fmt:message key="motor.button.restart.process" bundle="${motorMsg}" /></a>
                                 <br/>
                             </div>
                             <div class="text-center col-xs-6">
@@ -438,6 +437,7 @@ width: 100px !important;
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript">
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+var uri="";
 var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
@@ -456,11 +456,13 @@ function callback_motor_LoginSuccess(){
 		    },
 		    success:function(response){
 		    	console.dir(response);
+		    	uri = response.uri;
 		    	tempquote = response.motorCareDetails;
 		    	$('#saveModal').modal("show");
 		    }
 		});
 }
+
 $(document).ready(function(){
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -480,18 +482,16 @@ $(document).ready(function(){
     if(getUrlParameter("edit")=="yes")
     {   
     	$(".q2,.q3,q4,.q5").removeClass("hidden");
-
 		//$carMake[0].selectize.setValue(quote.carDetail.makeCode);
 		//$occupation[0].selectize.setValue(quote.driver[0].occupation);
 		//$car_details[0].selectize.setValue(quote.carDetail.model);	
 		$('input[name=cc]').val(quote.carDetail.engineCapacity)
 		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
 		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
-		
 		$('input[name=validAgeGroup]').attr("checked",true);	
 		$('input[name=driveMoreThanTwo]').attr("checked",true);	
-	  
     }
+    
   //Check UserLogin
 	$.ajax({
 		url:fwdApi.url.session,
@@ -530,7 +530,8 @@ $(document).ready(function(){
 	    			    },
 	    			    success:function(response){
 	      			    	console.dir(response);
-	    			    	tempquote = response.motorCareDetails;
+	      			    	uri = response.uri;
+	      			    	tempquote = response.motorCareDetails;
 	    			    	$('#saveModal').modal("show");
 	    			    }
 	    			});
@@ -539,26 +540,43 @@ $(document).ready(function(){
 	    }
 	});
 	
+  	$(".startAgain").on("click",function(){
+  		$('#saveModal').modal("hide");
+  	});
+  	  
     $(".continue").on("click",function(){
     		resume = true;
     		quote = tempquote;
-    		$('#saveModal').modal("hide");
-    		$(".q2,.q3,q4,.q5").removeClass("hidden");
-    		
-    		$('input[name=cc]').val(quote.carDetail.engineCapacity)
-    		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
-    		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
-    		
-    		$('input[name=validAgeGroup]').attr("checked",true);	
-    		$('input[name=driveMoreThanTwo]').attr("checked",true);	
-    		$carMake[0].selectize.setValue("BMW");
-    		$occupation[0].selectize.setValue(quote.driver[0].occupation);
-    		$car_details[0].selectize.setValue(quote.carDetail.model);	
-    		  var $q3 = $('.get-quote-field').find('.q3');
-    		 		$q3.find('select').change(function(){
-    		    	var sel = quote.driver[0].ncd,
-    		    	selValue = sel.options[sel.selectedIndex].value;
-    		  });
+    		console.dir(quote);
+    		if(getUrlParameter("edit") == "yes")
+    		{
+    			$('#saveModal').modal("hide");
+	    		$(".q2,.q3,q4,.q5").removeClass("hidden");
+	    		
+	    		$('input[name=cc]').val(quote.carDetail.engineCapacity)
+	    		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
+	    		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
+	    		
+	    		$('input[name=validAgeGroup]').attr("checked",true);	
+	    		$('input[name=driveMoreThanTwo]').attr("checked",true);	
+	    		$carMake[0].selectize.setValue("BMW");
+	    		$occupation[0].selectize.setValue(quote.driver[0].occupation);
+	    		$car_details[0].selectize.setValue(quote.carDetail.model);	
+	    		  var $q3 = $('.get-quote-field').find('.q3');
+	    		 		$q3.find('select').change(function(){
+	    		    	var sel = quote.driver[0].ncd,
+	    		    	selValue = sel.options[sel.selectedIndex].value;
+	    		  });
+    		}else if(uri != "get-quote"){
+	    		var $form = $("<form id='quote-form' />");
+	          	$form.attr("action", uri);
+	            $form.attr("method", "post");
+	            var $quote = $("<input type='hidden' name='data' />");
+	            $quote.attr("value", JSON.stringify(quote));
+	            $form.append($quote);
+	            $("body").append($form);
+	            $('#quote-form').submit();   
+    		}
 	});
 	  
 });

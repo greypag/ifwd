@@ -524,11 +524,11 @@ $(document).ready(function(){
                     "thirdPartyPropertyDamage": false
                 };
                 if (isThird) {
-                    quote.planCode = "Third";
-                    quote.compPlan = null; 
+                    submitData.planCode = "Third";
+                    submitData.compPlan = null; 
                 } else {
-                    quote.planCode = "Comp";
-                    quote.compPlan = "Silver"; 
+                    submitData.planCode = "Comp";
+                    submitData.compPlan = "Silver"; 
                 }
 				
           //  console.log(num);
@@ -546,25 +546,34 @@ $(document).ready(function(){
                           //	e.preventDefault();
                             $('#loading-overlay').modal("hide");
                             var $form = $("<form id='quote-form' />");
-                            if (isThird) {
+		                    if (isThird) {
 								if(resume==true)
+									$form.attr("action", "third-party-quote?edit=yes");
+								else if(getUrlParameter("edit")=="yes")
 									$form.attr("action", "third-party-quote?edit=yes");
 								else
 									$form.attr("action", "third-party-quote");
                             } else {
 								if(resume==true)
 									$form.attr("action", "comprehensive-quote?edit=yes");
+								else if(getUrlParameter("edit")=="yes")
+									$form.attr("action", "comprehensive-quote?edit=yes");
 								else
 									$form.attr("action", "comprehensive-quote");
                             }
                             $form.attr("method", "post");
                             var $quote = $("<input type='hidden' name='data' />");
-							var opts = {};
-							opts = $.extend(opts,quote, submitData);
-							opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
-							opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
-							$quote.attr("value", JSON.stringify(opts));				
-                            //$quote.attr("value", JSON.stringify(quote));
+							if(resume==true)
+							{
+								var opts = {};
+								opts = $.extend(opts,quote, submitData);
+								opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+								opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
+								$quote.attr("value", JSON.stringify(opts));				
+                            }else
+							{
+								$quote.attr("value", JSON.stringify(submitData));
+							}//$quote.attr("value", JSON.stringify(quote));
                             //console.dir(opts);
 							$form.append($quote);
                             $("body").append($form);

@@ -504,7 +504,7 @@ function SaveAndExit()
 			  url: context + "/api/iMotor/policy/save4Later/driverDetails",
 			  success: function(data){
 				  
-				  var $form = $("<form id='quote-form' />");
+				  /*var $form = $("<form id='quote-form' />");
 	              $form.attr("action", "policy-details");
 	              $form.attr("method", "post");
 	              var $quote = $("<input type='hidden' name='data' />");
@@ -514,7 +514,7 @@ function SaveAndExit()
 	              $quote.attr("value", JSON.stringify(opts));
 	              $form.append($quote);
 	              $("body").append($form);
-	              $('#quote-form').submit();
+	              $('#quote-form').submit();*/
 	              
 			  },error: function(error) {
 				 console.dir(error);				
@@ -697,8 +697,10 @@ $(document).ready(function(){
 			  "name": $('input[name=fullName]').val() 		
 			  }		
 			};
+	   
 	   	console.dir(submitData);
 	   	console.log(JSON.stringify(submitData));
+	   	
 		$.ajax({
 		  beforeSend: function(){
           	$('#loading-overlay').modal("show");
@@ -711,7 +713,7 @@ $(document).ready(function(){
           async: false,
 		  url: context + "/api/iMotor/policy/saving/driverDetails",
 		  success: function(data){
-			  
+	
 			  var $form = $("<form id='quote-form' />");
 			  if(getUrlParameter("edit")=="yes")
              	 $form.attr("action", "policy-details?edit=yes");

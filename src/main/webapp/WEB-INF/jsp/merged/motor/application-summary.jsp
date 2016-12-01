@@ -1736,11 +1736,13 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 
 								clicked = true;
 								$("#PaymentingDiv").show();
-
+								
+								var quote_policyId = {"policyId":quote.policyId};
+								
 								//check payment
 								$.ajax({
 									type : "POST",
-									data : JSON.stringify(quote),
+									data : JSON.stringify(quote_policyId),
 									dataType : "json",
 									contentType : "application/json",
 									cache : false,

@@ -536,7 +536,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <!--<input type="text" name="prev_ic" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' minlength="3" maxlength="3" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>-->
-	                                                <select class="form-control" id="prev_ic" data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
+	                                                <select class="form-control" id="prev_ic" name="prev_ic" data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></option>
 	                                            	</select>
 													<div class="help-block with-errors"></div>
@@ -957,9 +957,9 @@ $(document).ready(function(){
                             callback(res);      
                             $.each(res, function(i, item) {
     							if(getUrlParameter("edit")=="yes")
-    							{
-    								if(item.desc == quote.previousPolicyNo)
-    								{
+    							{	console.log(item.desc+"-"+quote.nameOfPreviousInusrancer);
+    								if(item.desc == quote.nameOfPreviousInusrancer)
+    								{	
     									$prev_ic[0].selectize.setValue(item.code);	
     								}
     							}
