@@ -111,7 +111,7 @@ var languageP = "${language}";
 							<button type="button" class="text-bold btn savie-common-btn btn-not-clicked" id="no-btn-03"><fmt:message key="button.no" bundle="${msg}" /></button>
 						</div>
 						<div id="condition-holder-03" class="clearfix pull-right hidden">
-							<p id="no-btn-call-hotline-03"><fmt:message key="info.fatca.call.hotline" bundle="${msg}" /></p>
+							<p id="no-btn-call-hotline-03"><fmt:message key="decleration.fatca.copy1.03.no" bundle="${msg}" /></p>
 						</div>
 						<div class="clearfix hidden" id="agreement-03-checkbox">
 							<div class="checkbox">
