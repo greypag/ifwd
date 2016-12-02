@@ -10,7 +10,6 @@
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
 var customerId ="<%=session.getAttribute("customerId")%>";
-customerId = "16883035";
 </script>
 <%!
 	boolean isSaleActiveClass = false;
