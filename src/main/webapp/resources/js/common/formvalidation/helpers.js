@@ -210,39 +210,38 @@ var event_returnHkidLegalCharOnly = function(fieldId) {
 /*
  * DOM attr readonly, replacing JSP code, acted by JS
  *
- * @method event_readonly
+ * @method event_addHTMLattr
  * @param   {Boolean} switchOption
  * @param   {String or Array string} fieldIdInfo
  * @return Nil
  */
-var event_readonly = function(switchOption, fieldIdInfo) {
+var event_addHTMLattr = function(switchOption, action, fieldIdInfo) {
     if ( Object.prototype.toString.call(fieldIdInfo) === '[object String]' ) {
         if ( switchOption === 'enable' ) {
-            $( '#'+fieldIdInfo ).prop('readonly', true); // jQuery <=1.9
-            $( '#'+fieldIdInfo ).attr('readonly', true); // jQuery 1.9+
+            $( '#'+fieldIdInfo ).prop(action, true); // jQuery <=1.9
+            $( '#'+fieldIdInfo ).attr(action, true); // jQuery 1.9+
         } else if ( switchOption === 'disable' ) {
-            $( '#'+fieldIdInfo ).prop('readonly', false); // jQuery <=1.9
-            $( '#'+fieldIdInfo ).attr('readonly', false); // jQuery 1.9+
+            $( '#'+fieldIdInfo ).prop(action, false); // jQuery <=1.9
+            $( '#'+fieldIdInfo ).attr(action, false); // jQuery 1.9+
         } else {
             console.error('Fucnt event_readonly() >> params "switchOption" should be "enable" / "disable"');
         }
     } else if ( Object.prototype.toString.call(fieldIdInfo) === '[object Array]' ) {
         for (var i = 0; i < fieldIdInfo.length; i++) {
             if ( switchOption === 'enable' ) {
-                $( '#'+fieldIdInfo[i] ).prop('readonly', true); // jQuery <=1.9
-                $( '#'+fieldIdInfo[i] ).attr('readonly', true); // jQuery 1.9+
+                $( '#'+fieldIdInfo[i] ).prop(action, true); // jQuery <=1.9
+                $( '#'+fieldIdInfo[i] ).attr(action, true); // jQuery 1.9+
             } else if ( switchOption === 'disable' ) {
-                $( '#'+fieldIdInfo[i] ).prop('readonly', false); // jQuery <=1.9
-                $( '#'+fieldIdInfo[i] ).attr('readonly', false); // jQuery 1.9+
+                $( '#'+fieldIdInfo[i] ).prop(action, false); // jQuery <=1.9
+                $( '#'+fieldIdInfo[i] ).attr(action, false); // jQuery 1.9+
             } else {
-                console.error('Fucnt event_readonly() >> params "switchOption" should be "enable" / "disable"');
+                console.error('Fucnt event_addHTMLattr() >> params "switchOption" should be "enable" / "disable"');
             }
         }
     } else {
         console.error('Fucnt event_readonly() >> params "fieldIdInfo" should be [object String] / [object Array]');
     }
 };
-
 
 var event_checkUniqueValueAmongFields = function(value, validator, $field) {
     var littleConfigObj           = {
@@ -346,6 +345,38 @@ var event_checkBox_tooltipFadeInOut = function() {
 	});
 };
 
+var event_onchange_changeDate_trigger_selectBoxValueChange = function(info) {
+    // birthday datepicker, only 18-85 year-old users can buy the insurance
+    $( '#' + info.inputId ).datepicker({
+        startView: "decade",
+        autoclose: true,
+        format: "dd-mm-yyyy",
+        // not UTC / GMT, should be "Wed Dec 02 1998 14:48:41 GMT+0800 (HKT)"
+        startDate: fwdConstant.date.dob_start_date,
+        endDate: fwdConstant.date.dob_end_date
+        // /*language: getBundleLanguage*/
+    }).on('changeDate', function (ev) {
+        $('#'+info.formId).val( $('#'+info.inputId).datepicker('getFormattedDate') );
+        $('#'+info.formId).formValidation( 'revalidateField', info.revalidateFieldName );
+        var selected = 2;
+        if (ev.date != undefined) {
+            if ( ev.date.valueOf() < fwdConstant.date.dob_end_date.valueOf()
+                && ev.date.valueOf() > fwdConstant.date.dob_70_date.valueOf() ) {
+                selected = 2;
+            } else {
+                selected = 3;
+            }
+            // Check DOM item existences
+            if ($("#selectAgeRange1").length > 0) {
+                $("#selectAgeRange1").val(selected);
+            } else if ($("#insureDob1").length > 0) {
+                $("#insureDob1").val( $("#applicantDob").val() );
+            }
+        }
+    });
+    //$('#input_dob').datepicker('setDate', dob_end_date);
+};
+
 /*
  * Export modules to "fvConfig" object
  */
@@ -363,17 +394,18 @@ fvConfig['helpers'] = {
             }
         }
         , 'onkeypress': {
-            'returnEngSpaceOnly':           event_returnEngSpaceOnly
-            , 'returnHkidLegalCharOnly':    event_returnHkidLegalCharOnly
+            'returnEngSpaceOnly':                           event_returnEngSpaceOnly
+            , 'returnHkidLegalCharOnly':                    event_returnHkidLegalCharOnly
         }
-        , 'readonly':                       event_readonly
+        , 'addHTMLattr':                                    event_addHTMLattr
         , 'onchange': {
-            'checkBox_tooltipFadeInOut':    event_checkBox_tooltipFadeInOut
+            'checkBox_tooltipFadeInOut':                    event_checkBox_tooltipFadeInOut
+            , 'changeDate_trigger_selectBoxValueChange':    event_onchange_changeDate_trigger_selectBoxValueChange
         }
         // , 'onsubmit':                       event_onsubmit
     }
     , 'ux': {}
     , 'fvCallback': {
-        'hkidUniqueValidation':             cb_hkidUniqueValidation
+        'hkidUniqueValidation':                             cb_hkidUniqueValidation
     }
 };

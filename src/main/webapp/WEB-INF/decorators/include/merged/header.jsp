@@ -1601,6 +1601,7 @@ $(function() {
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/lodash.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-constant.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-validator.js" charset="utf-8"></script>

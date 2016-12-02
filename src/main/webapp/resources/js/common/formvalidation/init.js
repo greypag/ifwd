@@ -51,7 +51,8 @@ var initFVConfig = function(argCfg) {
 			var dataSourceFieldInfo = {};
 
 			// MUST - Multi-fields applied attr 'readonly'
-			argCfg.helpers.attr.readonly('enable',  ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
+			argCfg.helpers.attr.addHTMLattr('enable', 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
+			argCfg.helpers.attr.addHTMLattr('enable', 'disabled', 'selectAgeRange1');
 
 			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
@@ -61,27 +62,52 @@ var initFVConfig = function(argCfg) {
 			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
 
 			// MUST - DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
-			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1'  };
+			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
 			// MUST - Value-binding & field revalidation
 			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );
 			// MUST - Field control : general HKID valid chars only
 			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo.inputId );
 
-			// Under Developing - the tooltip behaviour
+			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
+			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
+			argCfg.helpers.attr.onchange.changeDate_trigger_selectBoxValueChange( dataSourceFieldInfo );
+
+			// Start >>> Under Developing - the tooltip behaviour
+			// [opinion #1 = most simply, but not modulized]
 			argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut();
 
-			// fwdUtility.pages.flightCare.fncCheckBoxTooltip({
-			// 	'.flightCheckboxBubble': [ '#checkbox3', '#checkbox4' ]
-			// 	, '.flightCheckboxBubble2': [ '#checkbox5', '#checkbox6' ]
-			// });
+				// [ Testing code in "helpers.userfulBackup.js" ]
+				// [opinion #2 = moderate simplicity, but not handling checkBoxNumRequired]
+				// fwdUtility.pages.flightCare.fncCheckBoxTooltip({
+				// 	'.flightCheckboxBubble': [ '#checkbox3', '#checkbox4' ]
+				// 	, '.flightCheckboxBubble2': [ '#checkbox5', '#checkbox6' ]
+				// });
 
-			// fwdUtility.pages.flightCare.fncCheckBoxTooltip(
-			// 	{
-			// 		'pickboxSelector': '.flightCheckboxBubble'
-			// 		, 'checkBoxSelector': [ '#checkbox3', '#checkbox4' ]
-			// 		, 'checkBoxRequired': 1
-			// 	}
-			// );
+				// [opinion #3 = Most complexicity, but configs are perfectly]
+				// fwdUtility.pages.flightCare.fncCheckBoxTooltip([
+				// 	{
+				// 		'pickboxSelector': [ '.flightCheckboxBubble' ] OR '.flightCheckboxBubble'
+				// 		, 'checkBoxSelector': [ '#checkbox3', '#checkbox4' ] OR '#checkbox4'
+				// 		, 'checkBoxNumRequired': 1
+				// 	}
+				// ]);
+
+				// Opinion #4: FV callback solution (refer to validators.flightCare.config.js, around Line #114-128)
+                // (this part may solve in phase 2 revamp)
+			// End >>> Under Developing - the tooltip behaviour
+
+			// MUST - Authenticate Username & Password
+			if ( argCfg.flightJSPcbInfo.authenticate.equalDirect || argCfg.flightJSPcbInfo.authenticate.equalFalse ) {
+				fwdUtility.temp.flightCareAuth();
+			} else {
+				fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
+			}
+
+			// <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
+	        // fwdUtility.temp.flightCareAuth();
+	        // <% } else {%>
+	        // fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
+	        // <% } %>
 
 			// MUST - Submit Form
 			$(formId).onsubmit = function() {
@@ -102,7 +128,6 @@ var initFVConfig = function(argCfg) {
 				, argCfg.applicant
 				, argCfg.helpers.generateConfig.flightCare( argCfg )
 			);
-
 		console.log(result);
 
 		return result;
@@ -180,6 +205,9 @@ var runFV = function(argCfg) {
 	            // console.log(data.element);
 	            // console.log( data.fv.getOptions(data.element) );
 	        });
+
+		// Second Form - 
+		// $('#' + fcArgs.formId).formValidation(argCfg)
 	};
 
 	var travelCare	= function() { return null; };

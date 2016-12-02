@@ -116,13 +116,9 @@ if(request.getRequestURI().indexOf("/savings-insurance/provie")>0) {
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
-<%
-if(request.getRequestURI().indexOf("/flight-insurance/user-details") < 0) {
-%>
+<% if (request.getRequestURI().indexOf("/flight-insurance/user-details") < 0) { %>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
-<%
-}
-%>
+<% } %>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
 <jsp:include page="/WEB-INF/jsp/merged/comp/notification.jsp" />

@@ -26,11 +26,11 @@
        		$(".tooltip").toggle();
        	});
 
-        <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
-        fwdUtility.temp.flightCareAuth();
-        <% } else {%>
-        fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
-        <% } %>
+        <% // if (authenticate.equals("false") || authenticate.equals("direct")) { %>
+        // fwdUtility.temp.flightCareAuth();
+        <% // } else {%>
+        // fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
+        <% // } %>
     });
     fwdUtility.temp.flightCareBenefitiaryIsActive();
 
@@ -1233,11 +1233,9 @@ perventRedirect = true;
 	            </div>
 
                 <p class="padding1 workingholiday-plan-disclaimer">
-                    <fmt:message key="flight.details.other.disclaimer.part1"
-                        bundle="${msg}" />
-                    <a class="sub-link" href="https://home.fwd.com.hk/gidoc/policyprovisions/FlightCare_JacketLatest.pdf"
-                        target="_blank"><fmt:message
-                            key="flight.details.other.disclaimer.part2" bundle="${msg}" /></a>
+                    <fmt:message key="flight.details.other.disclaimer.part1" bundle="${msg}" />
+                    <a class="sub-link" href="https://home.fwd.com.hk/gidoc/policyprovisions/FlightCare_JacketLatest.pdf" target="_blank">
+                        <fmt:message key="flight.details.other.disclaimer.part2" bundle="${msg}" /></a>
                     <fmt:message key="flight.details.other.disclaimer.part3" bundle="${msg}" />
                     <br>
                     <fmt:message key="flight.details.other.disclaimer.part4" bundle="${msg}" />
@@ -1251,8 +1249,8 @@ perventRedirect = true;
 				        <div class="top35 pull-right pad-none" style="width:47%">
 							<c:choose>
                                 <c:when test="${language=='en'}">
-                                    <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD');return activateUserAccountJoinUs();"
-                                        class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+                                    <input type="button" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="flight.details.action.next" bundle="${msg}" />"
+                                        onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD');return activateUserAccountJoinUs();"/>
                                 </c:when>
                                 <c:otherwise>
                                     <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD');return activateUserAccountJoinUs();"
@@ -1291,7 +1289,7 @@ perventRedirect = true;
 $(function() {
 
     fwdUtility.ux.floatingBox();
-    fwdUtility.temp.flightCare();
+    // fwdUtility.temp.flightCare(); // Phase 2 may required
 
     // JSP values "landing-place"
     fvConfig['flightJSPcbInfo'] = {

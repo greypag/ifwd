@@ -30,6 +30,39 @@ fvConfig['schema'] = {
     'fields': {}
 };
 
+// Under-development - Member Account Form - Opinion #A
+// fvConfig['memberAccount'] = function() {
+//     return {
+//         'userName': {
+//             'container': '#UsernameError'
+//             , 'trigger': 'blur'
+//             , 'validators': {
+//                 'notEmpty': {
+//                     'message': getBundle(getBundleLanguage, 'user.username.length.message')
+//                 }
+//             }
+//         }
+//         , 'password': {
+//             'container': '#PasswordError'
+//             , 'trigger': 'blur'
+//             , 'validators': {
+//                 'notEmpty': {
+//                     'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message')
+//                 }
+//             }
+//         }
+//         , 'password': {
+//             'container': '#Confirm-PasswordError'
+//             , 'trigger': 'blur'
+//             , 'validators': {
+//                 'notMatch': {
+//                     'message': getBundle(getBundleLanguage, 'member.confirmPassword.notMatch.message')
+//                 }
+//             }
+//         }
+//     };
+// };
+
 // MUST
 fvConfig['applicant'] = function() {
     return {
@@ -111,6 +144,58 @@ fvConfig['applicant'] = function() {
                 }
             }
         }
+        //
+        // , 'checkbox3': {
+        //     'container': '#chk3'
+        //     , 'validators': {
+        //         // Handles tooltip shown & hidden
+        //         , 'callback':
+        //     }
+        // }
+        // , 'checkbox4': {
+        //     'container': '#chk4'
+        //     , 'validators': {
+        //         // Handles tooltip shown & hidden
+        //         , 'callback':
+        //     }
+        // }
+
+        // Under-development - Member Account Form - Opinion #B
+        , 'userName': {
+            'container': '#UsernameError'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'stringLength': {
+                    'message': getBundle(getBundleLanguage, 'user.username.length.message')
+                    , 'max': 50
+                    , 'min': 6
+                }
+                // // Handles accountForm
+                // , 'callback': < checking 1 OR 2 field are filled but not all fields >
+            }
+        }
+        , 'password': {
+            'container': '#PasswordError'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message')
+                }
+                // // Handles accountForm
+                // , 'callback': < checking 1 OR 2 field are filled but not all fields >
+            }
+        }
+        , 'password': {
+            'container': '#Confirm-PasswordError'
+            , 'trigger': 'blur'
+            , 'validators': {
+                'notMatch': {
+                    'message': getBundle(getBundleLanguage, 'member.confirmPassword.notMatch.message')
+                }
+                // // Handles accountForm
+                // , 'callback': < checking 1 OR 2 field are filled but not all fields >
+            }
+        }
     };
 }();
 
@@ -131,7 +216,6 @@ fvConfig['insuredPerson'] = function() {
             }
         },
         'personalHKID': {
-
             'container': '#errtxtInsuHkid'
             , 'trigger': 'blur'
             , 'validators': {

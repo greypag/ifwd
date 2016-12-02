@@ -1,10 +1,40 @@
+**2016-12-02
+    Gary    -   Testing & coding on
+                // Under-development - Member Account Form - Opinion #A / #B
+                //
+**2016-12-01
+    Gary    - tooltip helper have 3 opinions, we choosed and using the option #1
+                refer to [init.js] argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut()
+                option #3 could be the task in JS revamp Phase #2
+            - the var (as below) which date correlated with are migrated from "fwd.js" to "fwd-constant.js"
+                dob_42_date
+                dob_end_date
+                dob_end_date_this_year
+                dob_end_date_this_year_plus_90
+                dob_65_date
+                dob_12_date
+                dob_10_date
+                dob_start_date
+                dob_70_date
+                dob_69_date
+                dob_70_99_date
+            - Tooltip hide/show by checkBox have 3 opinions to do (refer to init.js)
+                Opinion #1: Use currently
+                Opinion #2: Code stacked in "helpers.userfulBackup.js", but not suggested to use
+                Opinion #3: This is a good object structure to pass into the helper, but have to put more time checking any FV config can handle this behaviour.
+                Opinion #4: FV callback solution (refer to validators.flightCare.config.js, around Line #114-128)
+                (this part may solve in phase 2 revamp)
+            - ... etc
+
 **2016-11-30
     Gary    - moved the JS codes inside the flight-plan-details.jsp to fwd-utility.js.
+            - ... etc
 
 **2016-11-29
     Gary    - Applied FV "revalidate" for the binding fields.
             - Built / Migrated some functions and objects as below.
                 {Object} fvConfig.helpers.fvCallback.hkidUniqueValidation
+            - ... etc
 
 **2016-11-28
     Gary    - start to build the fwd-utility.js
@@ -15,14 +45,15 @@
                 {Function} fwdUtility.ux.floatingBox()
                 {Function} fwdUtility.counter.dateDiffInDaysFromNow(dat)
                 {Function} fwdUtility.counter.dateDiffInDays(dat)
+            - ... etc
 
 **2016-11-23
-    Irvine  -
+    Irvine  - ... etc
 
     Gary    - Built / Migrated functions as below.
                 fwdValidator.eventHandler.returnEngSpaceOnly()
                 fwdValidator.eventHandler.returnHkidLegalCharOnly()
-            - etc.
+            - ... etc
 
 **2016-11-22
 
