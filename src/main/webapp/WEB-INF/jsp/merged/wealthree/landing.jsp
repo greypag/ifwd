@@ -229,8 +229,8 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="clearfix"></div>
 
 								<div class="col-xs-12">
-									<div class="tbl-result-wrapper">
-										<h4 class="text-center"><fmt:message key="wealthree.landing.calculation.120" bundle="${wealthreeMsg}" /></h4>
+									<div class="tbl-result-wrapper hidden">
+										<%-- <h4 class="text-center"><fmt:message key="wealthree.landing.calculation.120" bundle="${wealthreeMsg}" /></h4> --%>
 										<div class="tbl-wrapper clearfix">
 											<div class="col-year">
 												<div class="col-year-inner">
@@ -253,10 +253,17 @@ var home_url = "<%=request.getContextPath()%>";
 											<div class="col-data">
 												<div class="col-data-scroller">
 													<table>
-														<tr>
+									
+														<tr class="calTableTitleHKD">
 															<th><fmt:message key="wealthree.landing.calculation.table.total.paid" bundle="${wealthreeMsg}" /></th>
 															<th><fmt:message key="wealthree.landing.calculation.table.benefit" bundle="${wealthreeMsg}" /></th>
 															<th><fmt:message key="wealthree.landing.calculation.table.value" bundle="${wealthreeMsg}" /></th>
+														</tr>
+														<tr class="calTableTitleRMB">
+															
+															<th><fmt:message key="wealthree.landing.calculation.table.total.paid.rmb" bundle="${wealthreeMsg}" /></th>
+															<th><fmt:message key="wealthree.landing.calculation.table.benefit.rmb" bundle="${wealthreeMsg}" /></th>
+															<th><fmt:message key="wealthree.landing.calculation.table.value.rmb" bundle="${wealthreeMsg}" /></th>
 														</tr>
 														<tr>
 															<td class="y1-c1">1</td>
@@ -277,6 +284,14 @@ var home_url = "<%=request.getContextPath()%>";
 												</div>
 											</div>
 										</div>
+										<a class="left col-data-control" href="#" role="button" data-slide="prev">
+										<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								    	<span class="sr-only">Previous</span>
+									</a>
+									<a class="right col-data-control" href="#" role="button" data-slide="next">
+										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
 										<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.table.remark" bundle="${wealthreeMsg}" /></span></p>
 									</div>
 								</div>

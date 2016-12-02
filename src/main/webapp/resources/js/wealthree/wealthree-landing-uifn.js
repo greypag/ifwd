@@ -11,7 +11,7 @@ var currencyRate = {
 	"rmb" :{
 		r:1.040,
 		y1:410.06,
-		y2:865.39,
+		y2:865.38,
 		y3:1000,
 		s:"¥",
 		min:37000,
@@ -121,8 +121,7 @@ $(document).ready(function(){
  		}
  	});
 
- 	showCalculatedRate(100000,"hkd");
-
+ 	//showCalculatedRate(100000,"hkd");
  	$("#sel_savie_provie").change(function(){
  		var val = $(this).val();
  		console.log("val",val);
@@ -142,9 +141,25 @@ $(document).ready(function(){
 			}else if(direction == "left"){
 				$("#tableCarousel .right.carousel-control").trigger("click");
 			}
-		}
+		}, allowPageScroll: "auto"
 	});
+ 	
+ 	$("#sel_savie_provie").parents(".sel_wrapper").css("width", $("#sel_savie_provie").width() + 30);
 
+$(".col-data-control.left").click(function(){
+	//scroll left function here
+	var crt = 0;
+	//var offset = 10;
+	var scrollInterval = setInterval(function(){
+		if(crt < 10){
+			offset += 10;
+			$("div.col-data").scrollLeft(offset);
+			crt++;
+		}else{
+			clearInterval(scrollInterval);
+		}
+	}, 20);
+});
 
 });
 
@@ -158,6 +173,15 @@ function showCalculatedRate(_amount,_currency){
 	var thirdYear = (((_amount * rate) + _amount) * rate) * rate;
 	var symbol = currencyRate[_currency].s;
 
+	if (_currency == "hkd"){
+		$(".calTableTitleHKD").css("display","table-row");
+		$(".calTableTitleRMB").css("display","none");
+	}else if (_currency == "rmb"){
+		$(".calTableTitleRMB").css("display","table-row");
+		$(".calTableTitleHKD").css("display","none");
+	}
+	$(".tbl-result-wrapper").removeClass().addClass("tbl-result-wrapper");
+	
 	$(".ttl_pay_amount").text(formatDollar(_amount * 2,symbol));
 	$(".yrs3_return").text(formatDollar(thirdYear,symbol));
 
@@ -173,10 +197,16 @@ function showCalculatedRate(_amount,_currency){
 	$(".y3-c1").text(formatDollar(_amount * 2,symbol));
 	$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
 	$(".y3-c3").text(formatDollar(thirdYear * currencyRate[_currency].y3 / 1000,symbol));
-
+	
 	$(".box-result .over-bubble").hide();
  	$(".box-result ." + _currency).show();
-}
+ 	
+ 	setTimeout(function(){
+ 		var far = $('.col-data').width()+50;
+ 	    var pos = $('.col-data').scrollLeft() + far;
+ 	    $(".col-data").animate( { scrollLeft: pos }, 1000, 'easeOutQuad' )
+ 	}, 500);
+ }
 
 function formatDollar(_amount, _symbol){
 	return _symbol + formatNumberComma(parseInt(_amount,10));

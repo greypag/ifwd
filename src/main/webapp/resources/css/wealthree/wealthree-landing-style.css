@@ -10,7 +10,7 @@
   background-color: #fff;
   padding: 26px 0; }
   .wh_productInfo .wh_p_desc {
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto 20px; }
   .wh_productInfo .wh_p_btns-gp a {
     padding: 15px; }
@@ -62,27 +62,27 @@
 /* WHAT THE HELL????? */
 #txt_amount::-webkit-input-placeholder {
   font-size: 30px !important;
-  color: #fdc760 !important;
+  color: #fee2a1 !important;
   opacity: 1 !important;
   font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important; }
 
 #txt_amount:-moz-placeholder {
   font-size: 30px !important;
-  color: #fdc760 !important;
+  color: #fee2a1 !important;
   opacity: 1 !important;
   /* For Firefox 18- */
   font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important; }
 
 #txt_amount::-moz-placeholder {
   font-size: 30px !important;
-  color: #fdc760 !important;
+  color: #fee2a1 !important;
   opacity: 1 !important;
   /* For Firefox 19+ */
   font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important; }
 
 #txt_amount:-ms-input-placeholder {
   font-size: 30px !important;
-  color: #fdc760 !important;
+  color: #fee2a1 !important;
   opacity: 1 !important;
   font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important; }
 
@@ -221,6 +221,8 @@
           border-right: 1px solid #fa8818; }
         .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-year table {
           width: 100%; }
+          .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-year table tr th:nth-child(1) {
+            background-color: #fa8818; }
       .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data {
         width: 70%;
         overflow-x: scroll;
@@ -231,6 +233,10 @@
           width: 100%; }
           .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data table th {
             width: 33.33%; }
+          .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data table .calTableTitleHKD th {
+            background-color: #fa8818; }
+          .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data table .calTableTitleRMB th {
+            background-color: #fa8818; }
       .wp_productCalculator .tbl-result-wrapper .tbl-wrapper th, .wp_productCalculator .tbl-result-wrapper .tbl-wrapper td {
         text-align: center;
         padding: 5px; }
@@ -238,13 +244,20 @@
 .btm-btn {
   margin-bottom: 20px; }
   .btm-btn .btn-savenow {
-    max-width: 230px;
+    color: white;
     font-size: 24px;
-    background: #fdb714;
-    color: #fff;
+    width: 100%;
+    background: #f3bc3a;
+    border: none;
+    max-width: 210px;
+    height: auto;
     border-radius: 4px;
-    padding: 12.5px 0;
-    width: 100%; }
+    padding: 11px 0;
+    border-bottom: solid 3px #cfa238; }
+    .btm-btn .btn-savenow:hover {
+      background-color: #fff;
+      color: #fdb714;
+      border: 1px #fdb714  solid; }
 
 .pv_compareTable {
   overflow: hidden; }
@@ -272,6 +285,9 @@
       outline: none; }
   .pv_compareTable table tr td:nth-child(1) {
     width: 16.6%; }
+  .pv_compareTable .pv_remark {
+    font-weight: normal;
+    font-size: 12px; }
 
 @media screen and (min-width: 768px) {
   .wh_productInfo .wh_p_desc {
