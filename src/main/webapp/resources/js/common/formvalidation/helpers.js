@@ -217,25 +217,25 @@ var event_returnHkidLegalCharOnly = function(fieldId) {
  */
 var event_addHTMLattr = function(switchOption, action, fieldIdInfo) {
     if ( Object.prototype.toString.call(fieldIdInfo) === '[object String]' ) {
-        if ( switchOption === 'enable' ) {
+        if ( switchOption === 'add' ) {
             $( '#'+fieldIdInfo ).prop(action, true); // jQuery <=1.9
             $( '#'+fieldIdInfo ).attr(action, true); // jQuery 1.9+
-        } else if ( switchOption === 'disable' ) {
+        } else if ( switchOption === 'remove' ) {
             $( '#'+fieldIdInfo ).prop(action, false); // jQuery <=1.9
             $( '#'+fieldIdInfo ).attr(action, false); // jQuery 1.9+
         } else {
-            console.error('Fucnt event_readonly() >> params "switchOption" should be "enable" / "disable"');
+            console.error('Fucnt event_readonly() >> params "switchOption" should be "add" / "remove"');
         }
     } else if ( Object.prototype.toString.call(fieldIdInfo) === '[object Array]' ) {
         for (var i = 0; i < fieldIdInfo.length; i++) {
-            if ( switchOption === 'enable' ) {
+            if ( switchOption === 'add' ) {
                 $( '#'+fieldIdInfo[i] ).prop(action, true); // jQuery <=1.9
                 $( '#'+fieldIdInfo[i] ).attr(action, true); // jQuery 1.9+
-            } else if ( switchOption === 'disable' ) {
+            } else if ( switchOption === 'remove' ) {
                 $( '#'+fieldIdInfo[i] ).prop(action, false); // jQuery <=1.9
                 $( '#'+fieldIdInfo[i] ).attr(action, false); // jQuery 1.9+
             } else {
-                console.error('Fucnt event_addHTMLattr() >> params "switchOption" should be "enable" / "disable"');
+                console.error('Fucnt event_addHTMLattr() >> params "switchOption" should be "add" / "remove"');
             }
         }
     } else {

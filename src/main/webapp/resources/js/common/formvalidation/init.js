@@ -51,8 +51,8 @@ var initFVConfig = function(argCfg) {
 			var dataSourceFieldInfo = {};
 
 			// MUST - Multi-fields applied attr 'readonly'
-			argCfg.helpers.attr.addHTMLattr('enable', 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
-			argCfg.helpers.attr.addHTMLattr('enable', 'disabled', 'selectAgeRange1');
+			argCfg.helpers.attr.addHTMLattr('add', 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
+			argCfg.helpers.attr.addHTMLattr('add', 'disabled', 'selectAgeRange1');
 
 			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
@@ -206,7 +206,7 @@ var runFV = function(argCfg) {
 	            // console.log( data.fv.getOptions(data.element) );
 	        });
 
-		// Second Form - 
+		// Second Form -
 		// $('#' + fcArgs.formId).formValidation(argCfg)
 	};
 
