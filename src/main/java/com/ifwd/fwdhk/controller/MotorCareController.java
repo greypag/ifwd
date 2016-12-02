@@ -70,6 +70,7 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 public class MotorCareController extends BaseController{
 			
 	private final static Logger logger = LoggerFactory.getLogger(MotorCareController.class);
+	private static String BANK_OTHER_DEF = "OTHER";
 
 	@Autowired
 	private MotorCareValidationService motorCareValidationService;
@@ -315,6 +316,13 @@ public class MotorCareController extends BaseController{
 				if(responseJsonObj.get("codeTable") != null && responseJsonObj.get("codeTable").toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();				
 					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
+					
+					// iFwd self: add record for other
+					CodeTable itemOther = new CodeTable();
+					itemOther.setCode(BANK_OTHER_DEF);
+					itemOther.setDesc(BANK_OTHER_DEF);
+					itemOther.setId(BANK_OTHER_DEF);
+					apiResponse.add(itemOther);
 				} else {
 					logger.info("getBankMortgages record not found");
 					return Responses.notFound(null);
@@ -970,6 +978,9 @@ public class MotorCareController extends BaseController{
 //		if (!isUserLogin(request)) {
 //			return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(412));
 //		}
+		
+		logger.info("--------------------- processPayment security check: " + body.getRefNumber() );
+		
 		if (request.getSession(false) == null) {
 			logger.info( methodName + " no session data found");
 			return Responses.notFound(null);
@@ -1011,8 +1022,8 @@ public class MotorCareController extends BaseController{
 					if ( StringUtils.equals(apiResponse.getErrorMsg(), "PIP") ) {
 						return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(411));
 					}
-					String successUrl = toBasePath + "payment-result" + "?refNum=" + apiResponse.getReferenceNo();
-					String failUrl = toBasePath + "application-summary" + "?paymentGatewayFlag=1&refNum=" + apiResponse.getReferenceNo();
+					String successUrl = toBasePath + "payment-result" + "?refNum=" + urlEncodeInputSpace(apiResponse.getReferenceNo());
+					String failUrl = toBasePath + "application-summary" + "?paymentGatewayFlag=1&refNum=" + urlEncodeInputSpace(apiResponse.getReferenceNo());
 					
 					apiResponse.setSuccessUrl(successUrl);					
 					apiResponse.setFailUrl(failUrl);
@@ -1024,7 +1035,7 @@ public class MotorCareController extends BaseController{
 					
 					// Set the quote info to Session for fail case from payment gateway
 					// No api call from failure case without login, so use session to handle that agreed with security representative
-					logger.info("Save Quote to Session: (Key)" + body + " QuoteNo: " + apiResponse.getOrderRef() + " Json: " + jsonString ) ;
+					logger.info("Save Quote to Session: (Key)" + apiResponse.getReferenceNo() + " QuoteNo: " + apiResponse.getOrderRef() + " Json: " + jsonString ) ;
 					HttpSession session = request.getSession(true);
 					session.setAttribute(apiResponse.getReferenceNo(), body);
 					
@@ -1247,7 +1258,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					sendEmailByType(request, "SAVE4LATER");
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1321,7 +1332,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					sendEmailByType(request, "SAVE4LATER");
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1394,7 +1405,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					sendEmailByType(request, "SAVE4LATER");
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1467,7 +1478,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					sendEmailByType(request, "SAVE4LATER");
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1540,7 +1551,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					sendEmailByType(request, "SAVE4LATER");
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return Responses.notFound(null);
@@ -1550,6 +1561,64 @@ public class MotorCareController extends BaseController{
 				return Responses.error(null);
 			}
 			
+		} catch (Exception e) {
+			logger.info(methodName + " System error:" + e.toString());
+			return Responses.error(null);			
+		}
+		return Responses.ok(apiResponse);
+	}
+	
+	@ApiOperation(
+			value = "This API is used to validate before upload later",
+			response = String.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),			
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/policy/fileUpload/check"}, method = POST)
+	public ResponseEntity<Map<String, String>> verify4ResumeUploadLater(
+			@ApiParam(value = "Motor Care Details", required = true) @RequestBody MotorCareDetails body,
+			HttpServletRequest request) {
+		
+		String methodName = "verify4ResumeUploadLater";
+		
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info(methodName + " Autherticate error: " + e.toString() );
+			return Responses.error(null);	
+		}
+		// ******************* Valid input *******************
+				
+		// ******************* Init *******************
+		Map<String, String> apiResponse = new HashMap<>();	
+		JSONObject responseJsonObj = new JSONObject();		
+		
+		try {
+			// ******************* Form URL and Object *******************		
+			String url = replace(UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_CHECK_GET,"{type}", "2");
+			url = url + "?refNum=" + MotorCareController.urlEncodeInputSpace(body.getRefNumber()) 
+					+ "&hkid=" + body.getApplicant().getHkid() + "&coverNote=" + body.getCoverNoteNum();
+			
+			logger.debug(methodName + " url:" + url);
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+			logger.debug(methodName + " responseJsonObj:"+responseJsonObj.toString());
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if (responseJsonObj.get("result") != null && StringUtils.equals("OK", (String)responseJsonObj.get("result"))) {				
+					apiResponse.put("result", (String)responseJsonObj.get("result"));
+				} else {
+					apiResponse.put("result", "Fail");
+				}
+			} else {				
+				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
+				return Responses.error(null);
+			}
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
 			return Responses.error(null);			
@@ -1904,7 +1973,7 @@ public class MotorCareController extends BaseController{
 		return Responses.ok(apiResponse);
 	}
 	
-	private String urlEncodeInputSpace (String input) throws UnsupportedEncodingException {
+	public static String urlEncodeInputSpace (String input) throws UnsupportedEncodingException {
 		return replace(URLEncoder.encode(input, "UTF-8"), "+", "%20");
 	}
 	
@@ -1947,8 +2016,9 @@ public class MotorCareController extends BaseController{
 			String serverUrl = replace(request.getRequestURL().toString(), request.getServletPath(), "");
 			// Form JSON to send email 
 			//parameters.put("to", userDetails.getEmailAddress());
-			parameters.put("to", "siuchung.kwok@fwd.com");
-			parameters.put("subject", "Your Savie application has not yet been completed!您的Savie自助息申請尚未完成!");
+			//parameters.put("to", "siuchung.kwok@fwd.com");
+			if (userDetails != null) parameters.put("to", userDetails.getEmailAddress());
+			parameters.put("subject", "Your Motor Smart application has not yet been completed!您的Motor Smart申請尚未完成!");
 				if (userDetails != null) model.put("name", userDetails.getFullName());				
 				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "get-quote?type=3");
 				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "get-quote?type=3");
@@ -1959,17 +2029,45 @@ public class MotorCareController extends BaseController{
 		return parameters;
 	}
 	
-	private void sendEmailByType (HttpServletRequest request, String type) throws Exception{
+	@SuppressWarnings("unchecked")
+	private JSONObject getUploadLaterEmailSetting (HttpServletRequest request, JSONObject data) throws UnsupportedEncodingException {
+		HttpSession session = request.getSession(false);
+		JSONObject parameters = null;
+		JSONObject model = new JSONObject();
+		JSONObject applicant = data != null ? (JSONObject)(data.get("applicant")) : null;
+		
+		if (session != null) {
+			parameters = new JSONObject();			
+			// Form URL
+			String serverUrl = replace(request.getRequestURL().toString(), request.getServletPath(), "");
+			// Form JSON to send email 
+			//parameters.put("to", userDetails.getEmailAddress());
+			//parameters.put("to", "siuchung.kwok@fwd.com");
+			if (applicant != null) parameters.put("to", (String)(applicant.get("email")));
+			parameters.put("subject", "Your Motor Smart application (Upload Later) has not yet been completed!您的Motor Smart申請尚未完成!");
+				if (applicant != null) model.put("name", (String)(applicant.get("name")));				
+				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "start-upload-later?refNum="+urlEncodeInputSpace((String)(data.get("refNumber"))));
+				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "start-upload-later?refNum="+urlEncodeInputSpace((String)data.get("refNumber")));
+			parameters.put("model", model);
+			parameters.put("template", "savie\\saveLater.html");
+			logger.info(parameters.toString());			
+		}
+		return parameters;
+	}
+	
+	// data is used for upload doc later
+	protected void sendEmailByType (HttpServletRequest request, String type, JSONObject data) throws Exception{
 		String methodName = "sendEmailByType";
 		BaseResponse apiResult = null;
-		
-		JSONObject input = getSave4LaterEmailSetting(request);
+
+		// Upload Document Later / Save 4 Later
+		JSONObject input = StringUtils.equals(type, "UPD_LATER") 
+				? getUploadLaterEmailSetting(request, data) 
+				: getSave4LaterEmailSetting(request);
+				
 		if (input != null) {
-			// Upload Document Later / Save 4 Later
-			apiResult = StringUtils.equals(type, "UPD_LATER") 
-					? connector.sendTemplateEmail(input, headerUtil.getHeader(request))
-					: connector.sendTemplateEmail(input, headerUtil.getHeader(request));
-					
+			apiResult = connector.sendTemplateEmail(input, headerUtil.getHeader(request));
+			
 			if (apiResult == null) {
 				logger.info(methodName + " - Api Error");
 				throw new Exception (methodName + " - Api Error");

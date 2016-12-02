@@ -627,6 +627,8 @@ public class UserRestURIConstants {
 	public static final String MOTOR_CARE_SAVE_FOR_LATER_QUOTE_POST = SERVICE_URL + "/iMotor/quote/save4Later";
 	public static final String MOTOR_CARE_SAVE_POLICY_POST = SERVICE_URL + "/iMotor/policy/saving/{stepNo}";    	
 	public static final String MOTOR_CARE_FILE_UPLOAD_POST = SERVICE_URL + "/iMotor/policy/fileUpload";
+	public static final String MOTOR_CARE_FILE_UPLOAD_LATER_POST = SERVICE_URL + "/iMotor/policy/fileUploadLater";
+	public static final String MOTOR_CARE_FILE_UPLOAD_CHECK_GET = SERVICE_URL + "/iMotor/policy/fileUpload/check/{type}";
 	public static final String MOTOR_CARE_PAYMENT_FINALIZE_POST = SERVICE_URL + "/iMotor/policy/finalize";
 	public static final String MOTOR_CARE_PAYMENT_POST = SERVICE_URL + "/iMotor/policy/payment";
 	public static final String MOTOR_CARE_PAYMENT_FAILED_POST = SERVICE_URL + "/iMotor/policy/payment/summary";
