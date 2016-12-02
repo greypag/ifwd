@@ -100,6 +100,7 @@ $(document).ready(function(){
 		
 			$(".switch-light").removeClass("orange");
             if(state){
+				$("[name=bankMortgage]").prop("checked",true);
 				$(".sly").addClass("orange");
    				$('.mortgageBank').removeClass('hidden');
                 $('#mortgageBank, #bankName').prop('required',true);
@@ -109,6 +110,7 @@ $(document).ready(function(){
 				$('#motor_registerForm').validator('update');
             }
             else{
+				$("[name=bankMortgage]").prop("checked",false);
 				$mortgageBankSelect[0].selectize.clear(); 
 				$('#bankName').val("");
 				$('#motor_registerForm input[type="submit"]').removeClass('disabled');

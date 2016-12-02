@@ -1737,7 +1737,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 								clicked = true;
 								$("#PaymentingDiv").show();
 								
-								var quote_policyId = {"policyId":quote.policyId};
+								var quote_policyId = {"policyId":quote.policyId,"refNumber":quote.refNumber};
 								
 								//check payment
 								$.ajax({

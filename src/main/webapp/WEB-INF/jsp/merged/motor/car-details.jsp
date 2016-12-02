@@ -330,7 +330,7 @@ cnErr ={
 		410: '您的職業未能合乎即時報價的要求。',        
 };*/
 
-var checkbox=true;
+var checkbox=false;
 
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
 
@@ -362,6 +362,10 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 function SaveAndExit()
 {
 	$(document).ready(function(){
+
+		if($('input[name=bankMortgage]:checked').length>0)
+			checkbox = true;
+	
 		  var submitData = {"carDetail": {   	
 			   "bankMortgage": checkbox,	
 			   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
@@ -533,7 +537,8 @@ $(document).ready(function(){
 		});
      
 	$('#carDetails').submit(function(event){
-	
+		if($('input[name=bankMortgage]:checked').length>0)
+			checkbox = true;
 	   var submitData = {"carDetail": {   	
 				   "bankMortgage": checkbox,	
 				   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
