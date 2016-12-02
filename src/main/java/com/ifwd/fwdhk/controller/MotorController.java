@@ -201,7 +201,7 @@ public class MotorController extends BaseController{
 		handleLangFromPath(request);
 			
 		ModelAndView passView = new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/confirmation");
-		ModelAndView failView = new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/document-upload");
+		ModelAndView failView = new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/");
 		
 		try {
 			JSONObject responseJsonObj = new JSONObject();
@@ -214,8 +214,9 @@ public class MotorController extends BaseController{
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), jsonInput);
 			
 			if (responseJsonObj.get("result") != null && StringUtils.equals("OK", (String)responseJsonObj.get("result"))) {				
-				
+				ra.addFlashAttribute("refNumber", request.getParameter("refNum"));
 			} else {
+				logger.info( methodName +  " Cannot pass upload later checking (refNum):" + request.getParameter("refNum"));
 				return failView;
 			}
 		} catch (Exception e) {

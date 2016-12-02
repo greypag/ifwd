@@ -1699,6 +1699,104 @@ public class MotorCareController extends BaseController{
 			return Responses.error(null);			
 		}
 	}	
+	
+	@ApiOperation(
+			value = "This API is used to upload later",
+			response = String.class			
+			)
+	@ApiResponses(value = {			
+			@ApiResponse(code = 400, message = "Invalid file(s)"),
+			@ApiResponse(code = 411, message = "Cannot pass upload check"),
+			@ApiResponse(code = 500, message = "System error")
+			})
+	@RequestMapping(value = {"/policy/fileUploadLater"}, method = POST)
+	public ResponseEntity<Map<String, String>> uploadFileLater4Policy(MultipartHttpServletRequest request) {
+		
+//		try {
+//			super.IsAuthenticate(request);
+//		} catch (RuntimeException e) {
+//			logger.info("uploadFile4Policy Autherticate error: " + e.toString() );
+//			return Responses.error(null);	
+//		}
+
+		try {
+			// ******************* Init *******************
+			Map<String, String> apiResponse = new HashMap<>();
+			List<MotorFile> fileDetailList = new ArrayList<> (); 
+			MotorFileDetails motorFileDetails = new MotorFileDetails();
+			JSONObject responseJsonObj = new JSONObject();
+					
+			Iterator<String> itr =  request.getFileNames();
+			String refNum = request.getParameter("refNumber");
+			String coverNote = request.getParameter("coverNote");
+			String hkid = request.getParameter("hkid");
+			String docType = request.getParameter("docType");
+			String policyId = null;
+			logger.info("refNum:" + refNum);
+			logger.info("coverNote:" + coverNote);
+			logger.info("hkid:" + hkid);
+			logger.info("docType:" + docType);			
+			
+			// Valid First
+			String url = replace(UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_CHECK_GET,"{type}", "2");
+			url = url + "?refNum=" + MotorCareController.urlEncodeInputSpace(refNum) 
+					+ "&hkid=" + hkid + "&coverNote=" + coverNote;
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if (responseJsonObj.get("result") != null && StringUtils.equals("OK", (String)responseJsonObj.get("result"))) {				
+					// Can upload 
+					policyId = (String)responseJsonObj.get("policyId");
+				} else {
+					logger.info("uploadFileLater4Policy" + " - cannot pass the upload check");
+					return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));					
+				}
+			} else {				
+				logger.info("uploadFileLater4Policy" + " - cannot pass the upload check");
+				return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
+			}
+			
+			// do upload when passed the check
+			MultipartFile mpf = null;
+			while(itr.hasNext()){
+				 mpf = request.getFile(itr.next()); 
+				 MotorFile mf = new MotorFile();
+				 
+				 try {
+					 System.out.println(mpf.getOriginalFilename() +" uploaded! "+ mpf.getContentType());
+					 System.out.println(FilenameUtils.getExtension(mpf.getOriginalFilename()));
+					 System.out.println(Base64.getEncoder().encodeToString(mpf.getBytes()));
+					 mf.setFileBase64String(Base64.getEncoder().encodeToString(mpf.getBytes()));
+					 mf.setFileName(mpf.getOriginalFilename());
+					 mf.setFileDocExt(FilenameUtils.getExtension(mpf.getOriginalFilename()));
+					 mf.setFileType(docType);
+					 //mf.setPolicyID("26306531");
+					 mf.setPolicyID(policyId);
+					 fileDetailList.add(mf);					 
+				} catch (IOException e) {
+					logger.info("uploadFileLater4Policy IOException:" + e.toString());
+					return Responses.error(null);			
+				}
+			}
+			motorFileDetails.setMotorFileList(fileDetailList);
+			
+			// ******************* Consume Service *******************
+			url = UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_LATER_POST;
+			String jsonString = new ObjectMapper().writeValueAsString(motorFileDetails);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			
+			apiResponse.put("result", "OK");
+			return Responses.ok(apiResponse);
+			
+		} catch (Exception e) {
+			logger.info("uploadFileLater4Policy System error:" + e.toString());
+			return Responses.error(null);			
+		}
+	}	
 		
 	@ApiOperation(
 			value = "This API is for contact me panel",
