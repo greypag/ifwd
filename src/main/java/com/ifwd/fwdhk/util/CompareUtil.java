@@ -315,6 +315,34 @@ public class CompareUtil {
 			}
 		});
 		ProductList productList;
+		LinkedList<ProductList> sortedBeans = new LinkedList<ProductList>();
+		for(int i = 0; i < beans.size(); i++) {
+			String group=beans.get(i).getGroup();
+			if(group.equals("有投資成份的保險產品 - 投資決定及風險由保險公司承擔")||group.equals( "Insurance product with investment element – investment decisions and risks borne by insurer")){
+				sortedBeans.add(beans.get(i));
+			}
+			
+		}
+		for(int i = 0; i < beans.size(); i++) {
+			String group=beans.get(i).getGroup();
+			if(group.equals("有儲蓄成份的保險產品 - 有儲蓄但沒有投資成份")||group.equals( "Insurance product with savings element - with any savings but without investment element")){
+				sortedBeans.add(beans.get(i));
+			}
+		}
+		for(int i = 0; i < beans.size(); i++) {
+			String group=beans.get(i).getGroup();
+			if(group.equals("有投資成份的保險產品 - 投資決定及風險由保單持有人承擔")||group.equals( "Insurance product with investment element – investment decisions and risks borne by policyholder")){
+				sortedBeans.add(beans.get(i));
+			}
+		}
+		for(int i = 0; i < beans.size(); i++) {
+			String group=beans.get(i).getGroup();
+			if(group.equals("純保險產品 - 沒有任何儲蓄或投資成份")||group.equals( "Pure insurance product - without any savings or investment element")){
+				sortedBeans.add(beans.get(i));
+			}
+		}
+		beans=sortedBeans;
+	
 		for(int i = 0; i < beans.size(); i++) {
 			productList = beans.get(i);
 			for(int j = 0; j < productList.getProducts().size(); j++){
