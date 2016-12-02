@@ -414,6 +414,57 @@ function callback_motor_LoginSuccess(){
 }
 function SaveAndExit()
 {
+	if($('[value="yes"]:checked').length){
+        $("#reasonMsg").text("choice 3");
+        $("#contactpopup").modal('show');
+        return false;
+	 }else
+	    	{
+	var submitData = { 		
+		   "policyId": quote.policyId,		
+		   "motorCareDeclaration":[  		
+		      {  		
+		         "declarationAns":$("input[name=answer1]:checked").val(),		
+		         "declarationNo":"q1"		
+		      },		
+		      {  		
+		         "declarationAns":$("input[name=answer2]:checked").val(),		
+		         "declarationNo":"q2"		
+		      },		
+		      {  		
+		         "declarationAns":$("input[name=answer3]:checked").val(),		
+		         "declarationNo":"q3"		
+		      }		
+		   ],		
+		   "psNoDM":$('input[name=psNoDM]').val(),		
+		   "psNoProvidePersonalData":$('input[name=psNoProvidePersonalData]').val(),		
+		   "psPICS":$('input[name=psPICS]').val()	
+				};
+	console.dir(submitData);
+	
+	$.ajax({
+	  beforeSend: function(){
+	      	$('#loading-overlay').modal("show");
+	  },
+	  type: "POST",
+	  data: JSON.stringify(submitData),
+	  dataType: "json",
+	  contentType : "application/json",
+	  cache: false,
+	  async: false,
+	  url: context + "/api/iMotor/policy/saving/declarations",
+	  success: function(data){
+		  console.dir(data);
+		  $('#saveModal').modal("hide");
+		  location.assign(context);
+	  },error: function(error) {
+		  console.dir(error);				
+			 alert("error");
+             $("#loading-overlay").modal("hide");
+             return false;
+	  }
+	});
+	    	}
 }
 $(document).ready(function(){
 	var getUrlParameter = function getUrlParameter(sParam) {

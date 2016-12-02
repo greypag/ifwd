@@ -569,7 +569,7 @@ $(document).ready(function(){
 	    		  });
     		}else if(uri != "get-quote"){
 	    		var $form = $("<form id='quote-form' />");
-	          	$form.attr("action", uri);
+	          	$form.attr("action", uri+"?edit=yes");
 	            $form.attr("method", "post");
 	            var $quote = $("<input type='hidden' name='data' />");
 	            $quote.attr("value", JSON.stringify(quote));

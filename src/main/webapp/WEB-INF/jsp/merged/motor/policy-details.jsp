@@ -820,18 +820,9 @@ function SaveAndExit()
 		          async: false,
 				  url: context + "/api/iMotor/policy/save4Later/policyDetails",
 				  success: function(data){
-					  var $form = $("<form id='quote-form' />");
-					  //$form.attr("action", "application-summary");
-					  $form.attr("action", "declarations");
-		              $form.attr("method", "post");
-		              var $quote = $("<input type='hidden' name='data' />");
-			          var opts = {};
-			          opts = $.extend(opts,quote, submitData);
-		              opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
-		              $quote.attr("value", JSON.stringify(opts));
-		              $form.append($quote);
-		              $("body").append($form);
-		              $('#quote-form').submit();
+					  console.dir(data);
+					  $('#saveModal').modal("hide");
+					  location.assign(context);
 				  },error: function(error) {
 					  console.dir(error);				
 						 alert("error");
@@ -873,9 +864,9 @@ $(document).ready(function(){
 	{
 		
 		$("#fullName").attr("value",quote.applicant.name);
-		$('input[name=driverDob]').val(quote.driver[0].dateOfBirth);	
-	    $('input[name=driverID]').val(quote.driver[0].hkid);		
-	    $('input[name=fullName]').val(quote.driver[0].name);
+		$('input[name=driverDob]').val(quote.applicant.dateOfBirth);	
+	    $('input[name=driverID]').val(quote.applicant.hkid);		
+	    $('input[name=fullName]').val(quote.applicant.name);
 	    $('input[name=term]').attr("checked",quote.driver[0].validAgeGroup);
 	  	
 	    if(quote.driver.length > 1){
@@ -955,15 +946,15 @@ $(document).ready(function(){
                     },
                     success: function(res) {
                             callback(res);      
-                            $.each(res, function(i, item) {
-    							if(getUrlParameter("edit")=="yes")
-    							{	console.log(item.desc+"-"+quote.nameOfPreviousInusrancer);
-    								if(item.desc == quote.nameOfPreviousInusrancer)
+                            //$.each(res, function(i, item) {
+    							//if(getUrlParameter("edit")=="yes")
+    							{	
+    								//if(item.desc == quote.nameOfPreviousInusrancer)
     								{	
-    									$prev_ic[0].selectize.setValue(item.code);	
+    									$prev_ic[0].selectize.setValue(quote.nameOfPreviousInusrancer);	
     								}
     							}
-    						});	
+    						//});	
                     }
             });
         },
@@ -996,15 +987,15 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                               callback(newres); 
-						$.each(res, function(i, item) {
-							if(getUrlParameter("edit")=="yes")
+						//$.each(res, function(i, item) {
+							//if(getUrlParameter("edit")=="yes")
 							{
-								if(item.desc == quote.driver[0].occupation)
+								//if(item.code == quote.driver[0].occupation)
 								{
-									$motor_occupation[0].selectize.setValue(item.code);	
+									$motor_occupation[0].selectize.setValue(quote.driver[0].occupation);	
 								}
 							}
-						});						
+						//});						
                     }
             });
         },
@@ -1036,15 +1027,15 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                               callback(newres);      
-                              $.each(res, function(i, item) {
-      							if(getUrlParameter("edit")=="yes")
+                             // $.each(res, function(i, item) {
+      							//if(getUrlParameter("edit")=="yes")
       							{
-      								if(item.desc == quote.driver[1].occupation)
+      							//	if(item.desc == quote.driver[1].occupation)
       								{
-      									$motor_d2occupation[0].selectize.setValue(item.code);	
+      									$motor_d2occupation[0].selectize.setValue(quote.driver[1].occupation);	
       								}
       							}
-      						});	
+      						//});	
                     }
             });
         },
@@ -1076,15 +1067,15 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                               callback(newres);
-                              $.each(res, function(i, item) {
-      							if(getUrlParameter("edit")=="yes")
+                              //$.each(res, function(i, item) {
+      							//if(getUrlParameter("edit")=="yes")
       							{
-      								if(item.desc == quote.driver[2].occupation)
+      								//if(item.desc == quote.driver[2].occupation)
       								{
-      									$motor_d3occupation[0].selectize.setValue(item.code);	
+      									$motor_d3occupation[0].selectize.setValue(quote.driver[2].occupation);	
       								}
       							}
-      						});	
+      						//});	
                     }
             });
         },
@@ -1116,15 +1107,15 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                               callback(newres);  
-                              $.each(res, function(i, item) {
-      							if(getUrlParameter("edit")=="yes")
+                              //$.each(res, function(i, item) {
+      							//if(getUrlParameter("edit")=="yes")
       							{
-      								if(item.desc == quote.driver[3].occupation)
+      								//if(item.desc == quote.driver[3].occupation)
       								{
-      									$motor_d4occupation[0].selectize.setValue(item.code);	
+      									$motor_d4occupation[0].selectize.setValue(quote.driver[3].occupation);	
       								}
       							}
-      						});	
+      						//});	
                     }
             });
         },
@@ -1156,15 +1147,15 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                               callback(newres);  
-                              $.each(res, function(i, item) {
-      							if(getUrlParameter("edit")=="yes")
+                              //$.each(res, function(i, item) {
+      							//if(getUrlParameter("edit")=="yes")
       							{
-      								if(item.desc == quote.driver[4].occupation)
+      								//if(item.desc == quote.driver[4].occupation)
       								{
-      									$motor_d5occupation[0].selectize.setValue(item.code);	
+      									$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);	
       								}
       							}
-      						});	
+      						//});	
                     }
             });
         },

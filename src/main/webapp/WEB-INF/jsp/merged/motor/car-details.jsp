@@ -388,8 +388,9 @@ function SaveAndExit()
 			     async: false,
 			     url:context + "/api/iMotor/policy/save4Later/carDetails",
 				  success: function(data){
-					console.dir(data);
-					location.assign(context);
+					  console.dir(data);
+					  $('#saveModal').modal("hide");
+					  location.assign(context);
 				  },error: function(error) {
 					  console.dir(error);				
 					  alert("error");
@@ -424,7 +425,8 @@ $(document).ready(function(){
 		$('input[name=cubicCapacity]').val(quote.carDetail.engineCapacity);
 		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
 	}
-    if($('[name="mortgageBank"]').val()!="others")
+    else
+   	 if($('[name="mortgageBank"]').val()!="others")
     	$("#bankNameHandle").addClass("hidden");
   //Check UserLogin
 	$.ajax({

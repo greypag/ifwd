@@ -503,19 +503,9 @@ function SaveAndExit()
 	          async: false,
 			  url: context + "/api/iMotor/policy/save4Later/driverDetails",
 			  success: function(data){
-				  
-				  /*var $form = $("<form id='quote-form' />");
-	              $form.attr("action", "policy-details");
-	              $form.attr("method", "post");
-	              var $quote = $("<input type='hidden' name='data' />");
-	              var opts = {};
-	              opts = $.extend(opts,quote, submitData);
-	              opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
-	              $quote.attr("value", JSON.stringify(opts));
-	              $form.append($quote);
-	              $("body").append($form);
-	              $('#quote-form').submit();*/
-	              
+				  console.dir(data);
+				  $('#saveModal').modal("hide");
+				  location.assign(context);
 			  },error: function(error) {
 				 console.dir(error);				
 				 alert("error");

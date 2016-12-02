@@ -310,11 +310,11 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="carmodeldocument"></span>
 								</div>
-								<div class="col-xs-6 text-left odd">
+								<div class="col-xs-6 text-left odd carbankmortgageField">
 									<span><fmt:message key="motor.summary.cardetails.other"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right odd">
+								<div class="col-xs-6 text-right odd carbankmortgageField">
 									<span class="carotherbankmortgage"></span>
 								</div>
 							</div>
@@ -329,14 +329,14 @@ var nextPage = "${nextPageFlow}";
 									<span class="carcubic"></span>
 								</div>
 								<div class="col-xs-6 text-left even">
-									<span><fmt:message
+									<span class=" carbankmortgageField"><fmt:message
 											key="motor.summary.cardetails.mortgage" bundle="${motorMsg}" /></span>
 								</div>
 								<div class="col-xs-6 text-right even">
-									<span class="carbankmortgage"></span>
+									<span class="carbankmortgage carbankmortgageField"></span>
 								</div>
-								<div class="col-xs-6 text-left odd hidden-xs"></div>
-								<div class="col-xs-6 text-right odd hidden-xs"></div>
+								<div class="col-xs-6 text-left odd hidden-xs carbankmortgageField"></div>
+								<div class="col-xs-6 text-right odd hidden-xs carbankmortgageField"></div>
 							</div>
 						</div>
 					</div>
@@ -1580,18 +1580,17 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 						$(".carcc").html(quote.carDetail.engineCapacity);
 						$(".carmade").html(quote.carDetail.yearOfManufacture);
 						$(".carvalue").html(quote.carDetail.estimatedValue);
-						$(".useroccupation").html(quote.applicant.occupation);
+						
 						$(".cardiscount").html(quote.applicant.ncb + "%");
 
 						//car details
 						$(".carchasis").html(quote.carDetail.chassisNumber);
 						$(".carcubic").html(quote.carDetail.engineCapacity);
 						$(".carmodeldocument").html(quote.carDetail.modelDesc);
-						$(".carbankmortgage").html(
-								quote.carDetail.bankMortgageName);
-						$(".carotherbankmortgage").html(
-								quote.carDetail.bankMortgageName);
 
+						if(quote.carDetail.bankMortgageName.length=="")
+							$(".carbankmortgageField").hide();
+						
 						//applicant detail
 						$(".fullname").html(quote.applicant.name);
 						$(".contactno").html(quote.applicant.contactNo);
@@ -1621,19 +1620,78 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 
 						//drivers
 						$(".driver1fullname").html(quote.driver[0].name);
-						$(".driver1occupation")
-								.html(quote.driver[0].occupation);
+						
 						$(".driver1birth").html(quote.driver[0].dateOfBirth);
 						$(".driver1hkid").html(quote.driver[0].hkid);
 
+						  $.ajax({
+				                url: context + '/api/iMotor/list/bankMortgages',
+				                type: 'GET',
+				                dataType: 'json',
+				                error: function() {
+				                        callback();
+				                    },
+				                    success: function(res) {
+
+				                        $.each(res, function(i, item) {
+								
+											if(item.code == quote.carDetail.bankMortgageName)
+												$(".carbankmortgage").html(item.desc);
+										});
+															
+				                    }
+				            });
+						
+						$.ajax({
+			                url: context + '/api/iMotor/list/occupations/v2',
+			                type: 'GET',
+			                dataType: 'json',
+			                error: function() {
+			                        callback();
+			                    },
+			                    success: function(res) {
+									console.dir(res);
+									var newres= new Array();
+			                    	var total = res.length;
+			                    	$.each(res, function(i, item) {
+			                    		if(item.lang==motorlanguage) 
+			                    		newres.push(res[i]);
+			                    	});
+									console.dir(newres);
+					                       
+									$.each(newres, function(i, item) {
+											if(item.code == quote.applicant.occupation)
+												$(".useroccupation").html(item.desc);
+									
+											if(item.code == quote.driver[0].occupation)
+												$(".driver1occupation").html(item.desc);
+											
+											if(quote.driver.length>1)
+											if(item.code == quote.driver[1].occupation)
+												$(".driver2occupation").html(item.desc);
+											
+											if(quote.driver.length>2)
+											if(item.code == quote.driver[2].occupation)
+												$(".driver3occupation").html(item.desc);
+											
+											if(quote.driver.length>3)
+											if(item.code == quote.driver[3].occupation)
+												$(".driver4occupation").html(item.desc);
+											
+											if(quote.driver.length>4)
+											if(item.code == quote.driver[0].occupation)
+												$(".driver5occupation").html(item.desc);
+									});
+			                    }
+			            });
+						
+						
 						var cur_item = 1;
 
 						$(quote.driver).each(
 								function(i, item) {
 									$(".driver" + (i + 1) + "fullname").html(
 											quote.driver[i].name);
-									$(".driver" + (i + 1) + "occupation").html(
-											quote.driver[i].occupation);
 									$(".driver" + (i + 1) + "birth").html(
 											quote.driver[i].dateOfBirth);
 									$(".driver" + (i + 1) + "hkid").html(

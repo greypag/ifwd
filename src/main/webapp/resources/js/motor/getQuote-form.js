@@ -243,19 +243,21 @@ $(document).ready(function(){
                             	$carMake[0].selectize.setValue(sessionCarMake);
                             	$('.q1, .q2, .q3, .q4, .q5').removeClass('hidden');
                             }
-							$.each(res, function(i, item) {
+							//$.each(res, function(i, item) {
 								if(getUrlParameter("edit")=="yes")
 								{
-									if(item.makeCode == quote.carDetail.makeCode)
+									//console.log(item.makeCode+"-"+quote.carDetail.makeCode);
+									//if(item.makeCode == quote.carDetail.makeCode)
 									{
-										$carMake[0].selectize.setValue(item.makeCode);	
+										$carMake[0].selectize.setValue(quote.carDetail.makeCode);	
 									}
 								}
-							});
+							//});
                         }
                 });
             },
             onChange: function(value){
+				
             	carMakeApi = "";
                 if (!value.length) {
                     car_details.disable();
@@ -284,6 +286,10 @@ $(document).ready(function(){
                             		sessionStorage.clear();
                             		}, 500);
                             }
+							else if(getUrlParameter("edit")=="yes")
+							{
+								$car_details[0].selectize.setValue(quote.carDetail.model);	
+							}
                             else
                             	car_details.open();
                             	
@@ -325,7 +331,7 @@ $(document).ready(function(){
             	            	$('#cc').find('div > input[name="cc"]').prop('required',true);
             	            }
 							$.each(data, function(i, item) {
-							console.log(item.model+"-"+quote.carDetail.model);
+							//console.log(item.model+"-"+quote.carDetail.model);
 							if(item.model == quote.carDetail.model)
 							{
 								$car_details[0].selectize.setValue(item.model);	
@@ -567,10 +573,21 @@ $(document).ready(function(){
 							{
 								var opts = {};
 								opts = $.extend(opts,quote, submitData);
+								opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
 								opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
-								opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
+								opts=  $.extend(opts,{"driver": $.extend(quote.driver[0], submitData.driver[0])});
 								$quote.attr("value", JSON.stringify(opts));				
-                            }else
+                            }
+							else if(getUrlParameter("edit")=="yes")
+							{
+								var opts = {};
+								opts = $.extend(opts,quote, submitData);
+								opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+								opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+								opts=  $.extend(opts,{"driver": $.extend([],quote.driver, submitData.driver)});
+								$quote.attr("value", JSON.stringify(opts));	
+							}
+							else
 							{
 								$quote.attr("value", JSON.stringify(submitData));
 							}//$quote.attr("value", JSON.stringify(quote));

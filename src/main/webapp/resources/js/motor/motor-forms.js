@@ -110,10 +110,22 @@ $(document).ready(function(){
 						$.each(res, function(i, item) {
 							if(getUrlParameter("edit")=="yes")
 							{
-								if(item.desc == quote.carDetail.bankMortgageName)
+								if(item.code == quote.carDetail.bankMortgageName)
 								{
-									$mortgageBank[0].selectize.setValue(item.code);	
+									$(".switch-light").removeClass("orange");
+									//$('[name="bankMortgage"]').bootstrapSwitch('setState',true);
+									$('[name="bankMortgage"]').bootstrapSwitch('state',true);
+									$("[name=bankMortgage]").prop("checked",true);
+									$(".sly").addClass("orange");
+									$("#bankNameHandle,.mortgageBank").removeClass("hidden");
+									$('#mortgageBank, #bankName').prop('required',true);
+									//$('#mortgageBank').find('input').prop('required',true);
+									$('#mortgageBank').find('.selectize-input > input').prop('required',false);
+									//$mortgageBankSelect[0].selectize.clear();
+									$('#motor_registerForm').validator('update');
+									$mortgageBank[0].selectize.setValue(item.desc);	
 								}
+								
 							}
 						});
 											
@@ -124,7 +136,7 @@ $(document).ready(function(){
 			
 		},
         onChange: function(value){
-			if(value=="A1Bank")
+			if(value=="OTHER")
 			{	
 				$("#bankNameHandle").removeClass("hidden");
 				$("input[name=bankName]").prop('required',true);

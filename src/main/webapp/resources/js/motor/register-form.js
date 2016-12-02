@@ -97,29 +97,45 @@ $(document).ready(function(){
         offText: '',
         inverse: true ,
         onSwitchChange: function(e, state){
-		
-			$(".switch-light").removeClass("orange");
-            if(state){
-				$("[name=bankMortgage]").prop("checked",true);
-				$(".sly").addClass("orange");
-   				$('.mortgageBank').removeClass('hidden');
-                $('#mortgageBank, #bankName').prop('required',true);
-				//$('#mortgageBank').find('input').prop('required',true);
-				$('#mortgageBank').find('.selectize-input > input').prop('required',false);
-				$mortgageBankSelect[0].selectize.clear();
-				$('#motor_registerForm').validator('update');
-            }
-            else{
-				$("[name=bankMortgage]").prop("checked",false);
-				$mortgageBankSelect[0].selectize.clear(); 
-				$('#bankName').val("");
-				$('#motor_registerForm input[type="submit"]').removeClass('disabled');
-				$(".sln").addClass("orange");
-                $('.mortgageBank').addClass('hidden');
-                $('#mortgageBank, #mortgageBank-selectized, #bankName').prop('required',false);
-                $('#motor_registerForm').validator('update'); 
-            }
-                //$('#motor_registerForm').validator('validate');
+			var getUrlParameter = function getUrlParameter(sParam) {
+			var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+				sURLVariables = sPageURL.split('&'),
+				sParameterName,
+				i;
+
+			for (i = 0; i < sURLVariables.length; i++) {
+				sParameterName = sURLVariables[i].split('=');
+
+				if (sParameterName[0] === sParam) {
+					return sParameterName[1] === undefined ? true : sParameterName[1];
+				}
+			}
+		};
+			if(getUrlParameter("edit")!="yes")
+			{
+				$(".switch-light").removeClass("orange");
+				if(state){
+					$("[name=bankMortgage]").prop("checked",true);
+					$(".sly").addClass("orange");
+					$('.mortgageBank').removeClass('hidden');
+					$('#mortgageBank, #bankName').prop('required',true);
+					//$('#mortgageBank').find('input').prop('required',true);
+					$('#mortgageBank').find('.selectize-input > input').prop('required',false);
+					$mortgageBankSelect[0].selectize.clear();
+					$('#motor_registerForm').validator('update');
+				}
+				else{
+					$("[name=bankMortgage]").prop("checked",false);
+					$mortgageBankSelect[0].selectize.clear(); 
+					$('#bankName').val("");
+					$('#motor_registerForm input[type="submit"]').removeClass('disabled');
+					$(".sln").addClass("orange");
+					$('.mortgageBank').addClass('hidden');
+					$('#mortgageBank, #mortgageBank-selectized, #bankName').prop('required',false);
+					$('#motor_registerForm').validator('update'); 
+				}
+					//$('#motor_registerForm').validator('validate');
+			}
         }
     }); 
 	
