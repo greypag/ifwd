@@ -1110,6 +1110,7 @@ $("#et-personal-info-next, #btn-back").click(function () {
 		
 		console.log(tax_resident_info);
 		console.log(JSON.stringify(tax_resident_info));
+		console.log("<%=request.getContextPath()%>");
 		$.ajax({
 			type: "POST",
 			async: false,
@@ -1131,6 +1132,12 @@ $("#et-personal-info-next, #btn-back").click(function () {
 						invalidTaxResident = true;
 					}
 				}*/
+			},
+			fail: function(){
+				$('#tax-resident-modal').modal('show');
+			},
+			error:function(){
+				$('#tax-resident-modal').modal('show');
 			}
 		});
 		
