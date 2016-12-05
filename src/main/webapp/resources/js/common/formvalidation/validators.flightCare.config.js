@@ -180,6 +180,10 @@ fvConfig['applicant'] = function() {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message')
                 }
+                , 'identical': {
+                    'field': 'password',
+                    'message': getBundle(getBundleLanguage, 'member.confirmPassword.notMatch.message')
+                }
             }
         }
         , 'password': {

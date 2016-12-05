@@ -97,7 +97,7 @@ var initFVConfig = function(argCfg) {
 			// End >>> Under Developing - the tooltip behaviour
 
 			// MUST - Authenticate Username & Password
-			if ( argCfg.flightJSPcbInfo.authenticate.equalDirect || argCfg.flightJSPcbInfo.authenticate.equalFalse ) {
+			if ( argCfg.flightJSPcbInfo.authenticate ) {
 
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
 

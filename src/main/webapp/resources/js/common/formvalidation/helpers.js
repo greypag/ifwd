@@ -17,16 +17,6 @@ var _bindingValFromA2B = function(insureBoolean, dataSourceFieldInfo, insureFiel
     }
 };
 
-var _hasDuplicatedItems = function (inputArray) {
-    var obj              = {},
-        numItems         = inputArray.length,
-        duplicateRemoved = [];
-
-    for (var i = 0; i < numItems; i++) { obj[inputArray[i]] = 0; }
-    for (i in obj) { duplicateRemoved.push(obj[i]); }
-    return duplicateRemoved.length === numItems;
-};
-
 // ------------------------------------------------------------------------------
 
  /*
@@ -272,44 +262,6 @@ var event_modifiedDOM = function(switchOption, action, fieldIdInfo) {
     }
 };
 
-var event_checkUniqueValueAmongFields = function(value, validator, $field) {
-    var littleConfigObj           = {
-        selectorElem: $('.js__input_hkid')
-        , errMsgDOMname: 'personalHKID'
-        , errMsg: getBundle(getBundleLanguage, 'duplicate_hkid_no.message')
-    };
-    var notEmptyCount       = 0;
-    var obj                 = {};
-    var duplicateRemoved    = [];
-
-    for (var i = 0; i < littleConfigObj.selectorElem.length; i++) {
-        var v = $selectorElem.eq(i).val();
-        if (v !== '') {
-            obj[v] = 0;
-            notEmptyCount++;
-        }
-    }
-    for (i in obj) {
-        duplicateRemoved.push(obj[i]);
-    }
-
-    // if (duplicateRemoved.length === 0) {
-    //     return {
-    //         valid: false,
-    //         message: 'You must fill at least one email address'
-    //     };
-    // } else
-    if ( duplicateRemoved.length !== notEmptyCount ) {
-        return {
-            'valid': false,
-            'message': littleConfigObj.errMsg
-        };
-    }
-
-    validator.updateStatus( littleConfigObj.errMsgDOMname, validator.STATUS_VALID, 'callback' );
-    return true;
-};
-
 /*
  * Shorthand json object for xxx.config.js calling
  *
@@ -335,7 +287,7 @@ var cb_hkidUniqueValidation = function() {
             for (i in obj) {
                 duplicateRemoved.push(obj[i]);
             }
-            
+
             // Conditions
             if (duplicateRemoved.length === 0 || _.isEmpty(value) ) {
                 return {
@@ -419,7 +371,6 @@ fvConfig['helpers'] = {
     'generateConfig': {
         'flightCare':            gen_configFlightCare
     }
-    , 'fvCallbackFuction':       event_checkUniqueValueAmongFields
     , 'attr': {
         'onblur': {
             'binding': {

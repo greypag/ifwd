@@ -518,7 +518,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
-                                                        <input type="text" name="adultName" id="txtInsuFullName${inx}"
+                                                        <input type="text" name="adultName${inx}" id="txtInsuFullName${inx}"
                                                         class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                                         <c:choose>
 														    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI'}">
@@ -531,7 +531,7 @@ perventRedirect = true;
                                                         />
                                                </c:if>
                                                <c:if test="${inx > 1}">
-                                                        <input type="text" name="adultName" id="txtInsuFullName${inx}"
+                                                        <input type="text" name="adultName${inx}" id="txtInsuFullName${inx}"
                                                         class="form-control full-control textUpper bmg_custom_placeholder"
                                                         value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" />
                                                     </c:if>
@@ -548,7 +548,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <!-- onkeyup="value=value.replace(/[\W]/g,'')" -->
-                                               <input id="txtInsuHkid${inx}" name="adultHKID"
+                                               <input id="txtInsuHkid${inx}" name="adultHKID${inx}"
                                                     class="form-control textUpper full-control bmg_custom_placeholder" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                     <span id="errtxtInsuHkid${inx}"class="text-red"> </span>
                                            </div>
@@ -562,7 +562,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select"><select
-                                                        name="adultAgeRange" class="form-control soflow select-label"
+                                                        name="adultAgeRange${inx}" class="form-control soflow select-label"
                                                         id="selectAgeRange${inx}">
                                                         <c:forEach var="ageList" items="${mapSelfType}">
                                                             <c:choose>
@@ -689,7 +689,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
-                                                   type="text" name="childName" id="txtChldFullName${inx}"
+                                                   type="text" name="childName${inx}" id="txtChldFullName${inx}"
                                                    class="form-control full-control textUpper bmg_custom_placeholder"
                                                    value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" />
                                                <span id="errtxtChldFullName${inx}" class="text-red"></span>
@@ -704,7 +704,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtChldInsuHkid${inx}" name="childHKID" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                               <input id="txtChldInsuHkid${inx}" name="childHKID{inx}" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                   <span id="errtxtChldInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
@@ -717,7 +717,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                                    <select name="childAgeRange" class="form-control soflow select-label"
+                                                    <select name="childAgeRange${inx}" class="form-control soflow select-label"
                                                         id="selectchildAgeRange${inx}">
                                                         <c:forEach var="ageList" items="${mapChildType}">
                                                             <c:choose>
@@ -848,7 +848,7 @@ perventRedirect = true;
                                                     key="flight.details.insured.name" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input type="text" name="otherName" id="txtOtherFullName${inx}"
+                                               <input type="text" name="otherName${inx}" id="txtOtherFullName${inx}"
                                                     class="form-control full-control textUpper bmg_custom_placeholder"
                                                     value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" />
                                                     <span id="errtxtOtherFullName${inx}" class="text-red"></span>
@@ -864,7 +864,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID${inx}" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                <span id="errtxtOtherInsuHkid${inx}" class="text-red"></span>
                                            </div>
                                        </div>
@@ -877,7 +877,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                                    <select name="otherAgeRange" class="form-control soflow select-label"
+                                                    <select name="otherAgeRange${inx}" class="form-control soflow select-label"
                                                         id="selectOtherAgeRange${inx}">
                                                    <c:forEach var="ageList" items="${mapAgeType}">
                                                        <c:choose>
@@ -1297,10 +1297,7 @@ $(function() {
         }
 
         , 'plannedDays': ${planDetailsForm.days}
-        , 'authenticate': {
-            'equalFalse': ${authenticate.equals("false")}
-            , 'equalDirect': ${authenticate.equals("direct")}
-        }
+        , 'authenticate': ( ${authenticate.equals("false")} || ${authenticate.equals("direct")} )
 
     };
 
