@@ -50,6 +50,7 @@ public class MotorCareDetails {
 	private String theClubMemberNum;
 	private String coverNoteNum;
 	private Applicant applicant;
+	private Double riderDiscountAmt;
 	
 	public long getId() {
 		return id;
@@ -378,4 +379,10 @@ public class MotorCareDetails {
 		this.applicant = applicant;
 	}
 	
+	public Double getRiderDiscountAmt() {
+		return riderDiscountAmt;
+	}
+	public void setRiderDiscountAmt(Double riderDiscountAmt) {
+		this.riderDiscountAmt = riderDiscountAmt;
+	}
 }
