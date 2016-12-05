@@ -549,8 +549,7 @@ perventRedirect = true;
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <!-- onkeyup="value=value.replace(/[\W]/g,'')" -->
                                                <input id="txtInsuHkid${inx}" name="adultHKID"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder"
-                                                    value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" />
+                                                    class="form-control textUpper full-control bmg_custom_placeholder" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                     <span id="errtxtInsuHkid${inx}"class="text-red"> </span>
                                            </div>
                                        </div>
@@ -705,9 +704,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtChldInsuHkid${inx}" name="childHKID"
-                                                  class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid"
-                                                  value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                               <input id="txtChldInsuHkid${inx}" name="childHKID" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                   <span id="errtxtChldInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
@@ -867,8 +864,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID"
-                                               class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" />
+                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                <span id="errtxtOtherInsuHkid${inx}" class="text-red"></span>
                                            </div>
                                        </div>
@@ -1207,13 +1203,13 @@ perventRedirect = true;
                             <div class="top35 pull-right pad-none" style="width:47%">
                                 <c:choose>
                                     <c:when test="${language=='en'}">
-                                   	<button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD');"
+                                   	<button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD'); return fwdUtility.pages.flightCare.activateUserAccountJoinUs();"
                                         class="bdr-curve btn btn-primary nxt-btn"/>
                                         <fmt:message key="flight.details.action.next" bundle="${msg}" />
                                     </button>
                                    </c:when>
                                    <c:otherwise>
-                                    <button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD');"
+                                    <button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD'); return fwdUtility.pages.flightCare.activateUserAccountJoinUs();"
                                     class="bdr-curve btn btn-primary nxt-btn"/><fmt:message key="flight.details.action.next" bundle="${msg}" /></button>
                             	</c:otherwise>
                             </c:choose>
@@ -1249,14 +1245,12 @@ perventRedirect = true;
 				        <div class="top35 pull-right pad-none" style="width:47%">
 							<c:choose>
                                 <c:when test="${language=='en'}">
-                                    <input type="button" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="flight.details.action.next" bundle="${msg}" />"
-                                        onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD');return activateUserAccountJoinUs();"/>
+                                    <input type="button" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD');return fwdUtility.pages.flightCare.activateUserAccountJoinUs();" />
                                 </c:when>
                                 <c:otherwise>
-                                    <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD');return activateUserAccountJoinUs();"
-                                        class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
-                                    </c:otherwise>
-                                </c:choose>
+                                    <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD');return fwdUtility.pages.flightCare.activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="flight.details.action.next" bundle="${msg}" />" />
+                                </c:otherwise>
+                            </c:choose>
 				        </div>
 				        <div class="clearfix"></div>
 				    </div>

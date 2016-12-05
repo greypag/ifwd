@@ -107,8 +107,6 @@ function emptyMembershipError(){
 
 
 $(function () {
-
-
 	/**
 	*
 	* Code below about floatingbox -- will be deprecated

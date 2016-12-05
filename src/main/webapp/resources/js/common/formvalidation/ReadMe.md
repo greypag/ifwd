@@ -1,7 +1,13 @@
+**2016-12-05
+    Gary    - 1) helpers.js "cb_hkidUniqueValidation()" bug is fixed, allow to  check HKID invalid, and tested on personal plan
+            - 2) argCfg.helpers.attr.modifiedDOM() amended
+            - 3) replace JSP code by JS, in "init.js", Line#101 - 116 >> if ( argCfg.flightJSPcbInfo.authenticate.equalDirect || argCfg.flightJSPcbInfo.authenticate.equalFalse )
+            - 4) add event_returnValidUsernameChar(), event_returnValidEmailChar(), event_hideMembershipError()
+
 **2016-12-02
     Gary    -   Testing & coding on
                 // Under-development - Member Account Form - Opinion #A / #B
-                //
+
 **2016-12-01
     Gary    - tooltip helper have 3 opinions, we choosed and using the option #1
                 refer to [init.js] argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut()

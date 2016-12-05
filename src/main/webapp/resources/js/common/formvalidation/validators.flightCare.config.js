@@ -170,30 +170,27 @@ fvConfig['applicant'] = function() {
                     , 'max': 50
                     , 'min': 6
                 }
-                // // Handles accountForm
-                // , 'callback': < checking 1 OR 2 field are filled but not all fields >
             }
         }
         , 'password': {
-            'container': '#PasswordError'
+            'selector': '#Password'
+            , 'container': '#PasswordError'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message')
                 }
-                // // Handles accountForm
-                // , 'callback': < checking 1 OR 2 field are filled but not all fields >
             }
         }
         , 'password': {
-            'container': '#Confirm-PasswordError'
+            'selector': '#Confirm-Password'
+            , 'container': '#Confirm-PasswordError'
             , 'trigger': 'blur'
             , 'validators': {
-                'notMatch': {
+                'identical': {
+                    'field': 'password',
                     'message': getBundle(getBundleLanguage, 'member.confirmPassword.notMatch.message')
                 }
-                // // Handles accountForm
-                // , 'callback': < checking 1 OR 2 field are filled but not all fields >
             }
         }
     };

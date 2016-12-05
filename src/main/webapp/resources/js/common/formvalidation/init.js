@@ -114,7 +114,7 @@ var initFVConfig = function(argCfg) {
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
-				fwdUtility.temp.flightCareAuth();
+				// fwdUtility.temp.flightCareAuth();
 
 			} else {
 				dataSourceFieldInfo = { 'formId': formId };
