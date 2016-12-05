@@ -390,7 +390,7 @@ public class MemberController extends BaseController {
 			
 			// ******************* Makeup result *******************
 			if (responseJsonObj.get("errMsgs") == null) {
-				if(Boolean.parseBoolean((String)responseJsonObj.get("proceed")) == true) {
+				if((boolean)responseJsonObj.get("proceed") == true) {
 					return Responses.ok(null);
 				} else {
 					
@@ -401,6 +401,7 @@ public class MemberController extends BaseController {
 				return Responses.ok(null);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			return Responses.ok(null);		
 		}
 		
