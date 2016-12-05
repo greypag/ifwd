@@ -68,13 +68,13 @@ var gen_configFlightCare = function(obj) {
    /*
     * Core progress about FV config generation
     *
-    * @method   [Private]   _configDataMassage
+    * @method   [Private]   _multiplyConfig
     * @param    {Integer}   iPersonTotal ( insurcedPersonTotal )
     * @param    {Object}    o
     * @param    {Object}    pct ( personConfigType )
     * @return   {Object}
     */
-    var _configDataMassage = function(iPersonTotal, o, pct) {
+    var _multiplyConfig = function(iPersonTotal, o, pct) {
 
         var buffer = {};
         var newKeyMap = {};
@@ -114,15 +114,15 @@ var gen_configFlightCare = function(obj) {
     if ( obj.flightJSPcbInfo.counter.personalPlan === 0 ) {
        // Family Plan
         var familyConfig = {};
-        familyConfig['adult'] = _configDataMassage(obj.flightJSPcbInfo.counter.familyPlan.adult, obj, 'insuredAdult');
-        familyConfig['child'] = _configDataMassage(obj.flightJSPcbInfo.counter.familyPlan.child, obj, 'insuredChild');
-        familyConfig['other'] = _configDataMassage(obj.flightJSPcbInfo.counter.familyPlan.other, obj, 'insuredOther');
+        familyConfig['adult'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.adult, obj, 'insuredAdult');
+        familyConfig['child'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.child, obj, 'insuredChild');
+        familyConfig['other'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.other, obj, 'insuredOther');
         _.each(familyConfig, function(fcVal, fcInd) {
            buffer = $.extend(buffer, fcVal);
         });
     } else {
         // Personal Plan
-        buffer = _configDataMassage(obj.flightJSPcbInfo.counter.personalPlan, obj, 'insuredPerson');
+        buffer = _multiplyConfig(obj.flightJSPcbInfo.counter.personalPlan, obj, 'insuredPerson');
     }
     return buffer;
 
@@ -363,18 +363,18 @@ var cb_hkidUniqueValidation = function() {
     };
 }();
 
-var event_checkBox_tooltipFadeInOut = function() {
+var event_checkBox_tooltipFadeInOut = function(opt1, opt2) {
 	var _showBubbleTooltip = function () {
-		if($("#checkbox3").prop('checked') || $("#checkbox4").prop("checked")) {
+		if($("#"+opt1).prop('checked') || $("#"+opt2).prop("checked")) {
 			$(".flightCheckboxBubble").fadeIn();
 		}else{
 			$(".flightCheckboxBubble").fadeOut();
 		}
 	};
-	$("#checkbox3").change(function() {
+	$("#"+opt1).change(function() {
 		_showBubbleTooltip();
 	});
-	$("#checkbox4").change(function() {
+	$("#"+opt2).change(function() {
 		_showBubbleTooltip();
 	});
 };

@@ -74,7 +74,7 @@ var initFVConfig = function(argCfg) {
 
 			// Start >>> Under Developing - the tooltip behaviour
 			// [opinion #1 = most simply, but not modulized]
-			argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut();
+			argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut('checkbox3', 'checkbox4');
 
 				// [ Testing code in "helpers.userfulBackup.js" ]
 				// [opinion #2 = moderate simplicity, but not handling checkBoxNumRequired]
@@ -158,8 +158,8 @@ var initFVConfig = function(argCfg) {
 		// for ( var i = 1; i < argCfg.flightJSPcbInfo.counter.personalPlan+1; i++ ) (function(i) {
 		//
 		// 	// WON'T - Note & Demo only, because these are hidden fields
-		// 	// DOM [id="personalBenefitiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
-		// 	dataSourceFieldInfo = { 'inputId': 'personalBenefitiaryId'+i, 'errorId': 'err'+'personalBenefitiaryId'+i };
+		// 	// DOM [id="personalBeneficiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
+		// 	dataSourceFieldInfo = { 'inputId': 'personalBeneficiaryId'+i, 'errorId': 'err'+'personalBeneficiaryId'+i };
 		// 	argCfg.helpers.event.isValidBeneFullName( true, dataSourceFieldInfo, null);
 		//
 		// })(i);
