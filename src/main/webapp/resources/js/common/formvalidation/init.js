@@ -70,7 +70,15 @@ var initFVConfig = function(argCfg) {
 
 			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
-			argCfg.helpers.attr.onchange.changeDate_trigger_selectBoxValueChange( dataSourceFieldInfo );
+			var datepickerConfig = {
+		        startView: "decade",
+		        autoclose: true,
+		        format: "dd-mm-yyyy",
+		        startDate: fwdConstant.date.dob_start_date, // Note: not UTC / GMT, should be "Wed Dec 02 1998 14:48:41 GMT+0800 (HKT)"
+		        endDate: fwdConstant.date.dob_end_date
+		        // /*language: getBundleLanguage*/
+		    };
+			argCfg.helpers.initDatePicker.changeDate_trigger_selectBoxValueChange( dataSourceFieldInfo, datepickerConfig );
 
 			// Start >>> Under Developing - the tooltip behaviour
 			// [opinion #1 = most simply, but not modulized]

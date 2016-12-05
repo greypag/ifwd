@@ -331,36 +331,30 @@ var event_checkBox_tooltipFadeInOut = function(opt1, opt2) {
 	});
 };
 
-var event_onchange_changeDate_trigger_selectBoxValueChange = function(info) {
+var initDatePicker_changeDate_trigger_selectBoxValueChange = function(info, datepickerConfig) {
     // birthday datepicker, only 18-85 year-old users can buy the insurance
-    $( '#' + info.inputId ).datepicker({
-        startView: "decade",
-        autoclose: true,
-        format: "dd-mm-yyyy",
-        // not UTC / GMT, should be "Wed Dec 02 1998 14:48:41 GMT+0800 (HKT)"
-        startDate: fwdConstant.date.dob_start_date,
-        endDate: fwdConstant.date.dob_end_date
-        // /*language: getBundleLanguage*/
-    }).on('changeDate', function (ev) {
-        $('#'+info.formId).val( $('#'+info.inputId).datepicker('getFormattedDate') );
-        $('#'+info.formId).formValidation( 'revalidateField', info.revalidateFieldName );
-        var selected = 2;
-        if (ev.date != undefined) {
-            if ( ev.date.valueOf() < fwdConstant.date.dob_end_date.valueOf()
-                && ev.date.valueOf() > fwdConstant.date.dob_70_date.valueOf() ) {
-                selected = 2;
-            } else {
-                selected = 3;
+    $( '#' + info.inputId )
+        .datepicker(datepickerConfig)
+        .on('changeDate', function (ev) {
+            $('#'+info.formId).val( $('#'+info.inputId).datepicker('getFormattedDate') );
+            $('#'+info.formId).formValidation( 'revalidateField', info.revalidateFieldName );
+            var selected = 2;
+            if (ev.date != undefined) {
+                if ( ev.date.valueOf() < fwdConstant.date.dob_end_date.valueOf()
+                    && ev.date.valueOf() > fwdConstant.date.dob_70_date.valueOf() ) {
+                    selected = 2;
+                } else {
+                    selected = 3;
+                }
+                // Check DOM item existences
+                if ($("#selectAgeRange1").length > 0) {
+                    $("#selectAgeRange1").val(selected);
+                } else if ($("#insureDob1").length > 0) {
+                    $("#insureDob1").val( $("#applicantDob").val() );
+                }
             }
-            // Check DOM item existences
-            if ($("#selectAgeRange1").length > 0) {
-                $("#selectAgeRange1").val(selected);
-            } else if ($("#insureDob1").length > 0) {
-                $("#insureDob1").val( $("#applicantDob").val() );
-            }
-        }
-    });
-    //$('#input_dob').datepicker('setDate', dob_end_date);
+        });
+        //$('#input_dob').datepicker('setDate', dob_end_date);
 };
 
 /*
@@ -370,6 +364,9 @@ var fvConfig = {};
 fvConfig['helpers'] = {
     'generateConfig': {
         'flightCare':            gen_configFlightCare
+    }
+    , 'initDatePicker': {
+        'changeDate_trigger_selectBoxValueChange':    initDatePicker_changeDate_trigger_selectBoxValueChange
     }
     , 'attr': {
         'onblur': {
@@ -387,7 +384,6 @@ fvConfig['helpers'] = {
         , 'modifiedDOM':                                    event_modifiedDOM
         , 'onchange': {
             'checkBox_tooltipFadeInOut':                    event_checkBox_tooltipFadeInOut
-            , 'changeDate_trigger_selectBoxValueChange':    event_onchange_changeDate_trigger_selectBoxValueChange
         }
         , 'onfocus': {
             'hideMembershipError':                         event_hideMembershipError         // replaced emptyMembershipError()
