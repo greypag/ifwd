@@ -1,6 +1,6 @@
 /*
  * FWD Constant variables
- * ALL REGEX characters should be double escaped
+ * ALL REGEX characters should be double escaped here
  */
  var fwdConstant = (function(){
 

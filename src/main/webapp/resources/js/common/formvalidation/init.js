@@ -51,22 +51,22 @@ var initFVConfig = function(argCfg) {
 			var dataSourceFieldInfo = {};
 
 			// MUST - Multi-fields applied attr 'readonly'
-			argCfg.helpers.attr.addHTMLattr('add', 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
-			argCfg.helpers.attr.addHTMLattr('add', 'disabled', 'selectAgeRange1');
+			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
+			argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
 
 			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
 			// MUST - Value-binding & field revalidation
 			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );
 			// MUST - Field Input control : alpha + space only
-			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo.inputId );
+			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo );
 
 			// MUST - DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
 			// MUST - Value-binding & field revalidation
 			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );
 			// MUST - Field control : general HKID valid chars only
-			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo.inputId );
+			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo );
 
 			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
@@ -98,9 +98,27 @@ var initFVConfig = function(argCfg) {
 
 			// MUST - Authenticate Username & Password
 			if ( argCfg.flightJSPcbInfo.authenticate.equalDirect || argCfg.flightJSPcbInfo.authenticate.equalFalse ) {
+
+				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
+
+				// MUST - DOM [id="Username"] is plugged extra JS behaviour
+				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Username' };
+				argCfg.helpers.attr.onkeypress.returnValidUsernameChar( dataSourceFieldInfo );
+				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
+
+				// MUST - DOM [id="Password"] is plugged extra JS behaviour
+				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Password' };
+				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
+
+				// MUST - DOM [id="Confirm-Password"] is plugged extra JS behaviour
+				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
+				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
+
 				fwdUtility.temp.flightCareAuth();
+
 			} else {
-				fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
+				dataSourceFieldInfo = { 'formId': formId };
+				fwdUtility.temp.flightCareActivate( dataSourceFieldInfo );
 			}
 
 			// <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
@@ -108,6 +126,7 @@ var initFVConfig = function(argCfg) {
 	        // <% } else {%>
 	        // fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
 	        // <% } %>
+
 
 			// MUST - Submit Form
 			$(formId).onsubmit = function() {

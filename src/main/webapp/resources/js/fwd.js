@@ -7132,7 +7132,14 @@ split = split || function (undef) {
 
 }();
 
-
+/**
+*
+* For function validationUsername() -- ALREADY MIGRATED
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js". Renamed to "_returnValid_Username_or_Email_Char(evt)"
+*
+**/
 function validationUsername(evt){
 		evt = (evt) ? evt : event;
 		var eCode = evt.keyCode;
@@ -7153,6 +7160,14 @@ try{$("#headerUserName").unbind("keyup");}catch(err){}
 try{$("#userName").unbind("keyup");}catch(err){}
 try{$("#inputEmailId").unbind("keyup");}catch(err){}
 
+/**
+*
+* For function validationUsername() -- ALREADY MIGRATED
+*
+* Caution to Developers:
+* If any updated, suggested to do in "resources/js/common/fwd-validator.js". Renamed to "_returnValid_Username_or_Email_Char(evt)"
+*
+**/
 function validationEmail(evt){
 	evt = (evt) ? evt : event;
 	var eCode = evt.keyCode;
@@ -7238,7 +7253,7 @@ function mergeCreditCard(){
 	},500);
 }
 
-$( document ).ready(function() {
+// $( document ).ready(function() {
 //	$('#cardNo1_trigger').on('click', function () {
 //		$('#cardNo1').trigger('touchstart'); //trigger touchstart
 //    });
@@ -7263,7 +7278,7 @@ $( document ).ready(function() {
 //	$('#cardNo4').on('touchstart', function () {
 //        $(this).focus();
 //    });
-});
+// });
 
 
 // Extend Date prototype to a specific String format

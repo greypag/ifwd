@@ -193,49 +193,78 @@ var event_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, ins
     });
 };
 
-var event_returnEngSpaceOnly = function(fieldId) {
-    $( '#'+fieldId ).keypress(function(evt) {
-        console.log(' $(#' + fieldId + ') - keypress JS detected -');
+var event_returnEngSpaceOnly = function(o) {
+    $( '#'+ o.inputId ).keypress(function(evt) {
+        console.log(' $(#' + o.inputId + ') - keypress JS detected -');
         return fwdValidator.eventHandler.returnEngSpaceOnly(evt);
     });
 };
 
-var event_returnHkidLegalCharOnly = function(fieldId) {
-    $( '#'+fieldId ).keypress(function(evt) {
-        console.log(' $(#' + fieldId + ') - keypress JS detected -');
+var event_returnHkidLegalCharOnly = function(o) {
+    $( '#'+ o.inputId ).keypress(function(evt) {
+        console.log(' $(#' + o.inputId + ') - keypress JS detected -');
         return fwdValidator.eventHandler.returnHkidLegalCharOnly(evt);
+    });
+};
+
+var event_returnValidUsernameChar = function(o) {
+    $( '#'+ o.inputId ).keypress(function(evt) {
+        console.log(' $(#' + o.inputId + ') - keypress JS detected -');
+        return fwdValidator.eventHandler.returnValidUsernameChar(evt);
+    });
+};
+
+var event_returnValidEmailChar = function(o) {
+    $( '#'+ o.inputId ).keypress(function(evt) {
+        console.log(' $(#' + o.inputId + ') - keypress JS detected -');
+        return fwdValidator.eventHandler.returnValidEmailChar(evt);
+    });
+};
+
+var event_hideMembershipError = function (o) {
+    $( '#'+ o.inputId ).focus(function(evt) {
+        console.log(' $(#' + o.inputId + ') - onfocus JS detected -');
+    	$(".error-hide").hide();
     });
 };
 
 /*
  * DOM attr readonly, replacing JSP code, acted by JS
  *
- * @method event_addHTMLattr
+ * @method event_modifiedDOM
  * @param   {Boolean} switchOption
  * @param   {String or Array string} fieldIdInfo
  * @return Nil
  */
-var event_addHTMLattr = function(switchOption, action, fieldIdInfo) {
+var event_modifiedDOM = function(switchOption, action, fieldIdInfo) {
     if ( Object.prototype.toString.call(fieldIdInfo) === '[object String]' ) {
-        if ( switchOption === 'add' ) {
+        if ( switchOption === 'true' || switchOption === true ) {
             $( '#'+fieldIdInfo ).prop(action, true); // jQuery <=1.9
             $( '#'+fieldIdInfo ).attr(action, true); // jQuery 1.9+
-        } else if ( switchOption === 'remove' ) {
+        } else if ( switchOption === 'false' || switchOption === false ) {
             $( '#'+fieldIdInfo ).prop(action, false); // jQuery <=1.9
             $( '#'+fieldIdInfo ).attr(action, false); // jQuery 1.9+
+        } else if ( switchOption === 'on' ) {
+            $( '#'+fieldIdInfo ).attr(action, 'on'); // jQuery 1.9+
+        } else if ( switchOption === 'off' ) {
+            $( '#'+fieldIdInfo ).attr(action, 'off'); // jQuery 1.9+
         } else {
-            console.error('Fucnt event_readonly() >> params "switchOption" should be "add" / "remove"');
+            console.error('Fucnt event_readonly() >> params "switchOption" should be "true" / "false" / "on" / "off"');
         }
     } else if ( Object.prototype.toString.call(fieldIdInfo) === '[object Array]' ) {
         for (var i = 0; i < fieldIdInfo.length; i++) {
-            if ( switchOption === 'add' ) {
+            if ( switchOption === 'true' || switchOption === true ) {
                 $( '#'+fieldIdInfo[i] ).prop(action, true); // jQuery <=1.9
                 $( '#'+fieldIdInfo[i] ).attr(action, true); // jQuery 1.9+
-            } else if ( switchOption === 'remove' ) {
+            } else if ( switchOption === 'false' || switchOption === false ) {
                 $( '#'+fieldIdInfo[i] ).prop(action, false); // jQuery <=1.9
                 $( '#'+fieldIdInfo[i] ).attr(action, false); // jQuery 1.9+
+            } else if ( switchOption === 'on' ) {
+                $( '#'+fieldIdInfo[i] ).attr(action, 'on'); // jQuery 1.9+
+            } else if ( switchOption === 'off' ) {
+                $( '#'+fieldIdInfo[i] ).attr(action, 'off'); // jQuery 1.9+
             } else {
-                console.error('Fucnt event_addHTMLattr() >> params "switchOption" should be "add" / "remove"');
+                console.error('Fucnt event_readonly() >> params "switchOption" should be "true" / "false" / "on" / "off"');
             }
         }
     } else {
@@ -306,13 +335,18 @@ var cb_hkidUniqueValidation = function() {
             for (i in obj) {
                 duplicateRemoved.push(obj[i]);
             }
-
+            
             // Conditions
-            if (duplicateRemoved.length === 0) {
+            if (duplicateRemoved.length === 0 || _.isEmpty(value) ) {
                 return {
                     valid: false,
                     message: getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
                 };
+            } else if ( !fwdValidator.personalInfo.isValidHkid(value) ) {
+                return {
+                    'valid': false,
+                    'message': getBundle(getBundleLanguage, "applicant.hkId.notValid.message")
+                }
             } else if ( duplicateRemoved.length !== notEmptyCount ) {
                 return {
                     valid: false,
@@ -396,11 +430,16 @@ fvConfig['helpers'] = {
         , 'onkeypress': {
             'returnEngSpaceOnly':                           event_returnEngSpaceOnly
             , 'returnHkidLegalCharOnly':                    event_returnHkidLegalCharOnly
+            , 'returnValidUsernameChar':                    event_returnValidUsernameChar    // replaced validationUsername() validationEmail()
+            , 'returnValidEmailChar':                       event_returnValidEmailChar       // replaced validationUsername() validationEmail()
         }
-        , 'addHTMLattr':                                    event_addHTMLattr
+        , 'modifiedDOM':                                    event_modifiedDOM
         , 'onchange': {
             'checkBox_tooltipFadeInOut':                    event_checkBox_tooltipFadeInOut
             , 'changeDate_trigger_selectBoxValueChange':    event_onchange_changeDate_trigger_selectBoxValueChange
+        }
+        , 'onfocus': {
+            'hideMembershipError':                         event_hideMembershipError         // replaced emptyMembershipError()
         }
         // , 'onsubmit':                       event_onsubmit
     }

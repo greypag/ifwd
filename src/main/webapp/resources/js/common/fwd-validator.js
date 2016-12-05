@@ -146,6 +146,19 @@ var fwdValidator = (function(fwdConstant) {
     	return true;
     };
 
+    var _returnValid_Username_or_Email_Char = function(evt) {
+		evt = (evt) ? evt : event;
+		var eCode = evt.keyCode;
+		var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+		var keychar = String.fromCharCode(charCode)
+		if ( (charCode >=48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 127 || charCode == 8
+				|| (evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0 && evt.keyCode==46) || (evt.charCode == 0  && evt.keyCode==39)
+				|| charCode == 45 || charCode == 95 || charCode == 46 || charCode == 64) {
+			return true;
+		}
+		return false;
+	};
+
     var _returnHkidLegalCharOnly = function(evt) {
     	evt = (evt) ? evt : event;
     	var eCode = evt.keyCode;
@@ -279,8 +292,10 @@ var fwdValidator = (function(fwdConstant) {
 	 * Address validation group
 	 */
 	var _validation_eventHandler = {
-        'returnEngSpaceOnly':       _returnEngSpaceOnly         // replaced alphaOnly() in fwd.js
-        , 'returnHkidLegalCharOnly':  _returnHkidLegalCharOnly    // replaced hkidOnkeypress() in fwd.js
+        'returnEngSpaceOnly':           _returnEngSpaceOnly                    // replaced alphaOnly() in fwd.js
+        , 'returnHkidLegalCharOnly':    _returnHkidLegalCharOnly               // replaced hkidOnkeypress() in fwd.js
+        , 'returnValidUsernameChar':    _returnValid_Username_or_Email_Char    // replaced validationUsername() validationEmail()
+        , 'returnValidEmailChar':       _returnValid_Username_or_Email_Char    // replaced validationUsername() validationEmail()
     };
 
 
