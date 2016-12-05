@@ -499,7 +499,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
-	alert('Login success. Call Save later API.');
+	//alert('Login success. Call Save later API.');
  	var empty = {}; 
 	  $.ajax({
 			url:fwdApi.url.resume,
@@ -509,7 +509,7 @@ function callback_motor_LoginSuccess(){
 			cache:false,
 			async:false,
 		    error:function (xhr, textStatus, errorThrown){
-		        alert("error");
+		        //alert("error");
 		    },
 		    success:function(response){
 		    	console.dir(response);
@@ -521,19 +521,36 @@ function callback_motor_LoginSuccess(){
 function SaveAndExit()
 {
 	$(document).ready(function(){
-		location.assign(context);
-		  var submitData = {"carDetail": {   	
-			   "bankMortgage": checkbox,	
-			   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
-			   "chassisNumber": $('input[name=chassisNumber]').val(),    	
-			   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
-			   "modelDesc": $('input[name=registedModel]').val()    	
-				}, 	
-				"policyId": quote.policyId
-				};
-
+		
+		 var submitData = {
+	        		"applicant": {
+                     "ncb": quote.applicant.ncb,
+                     "occupation": quote.applicant.occupation,
+	    	         "driveMoreThanTwo": quote.applicant.driveMoreThanTwo,         
+                     "validAgeGroup": quote.applicant.validAgeGroup
+                 },
+                 "carDetail": {
+                 	 "estimatedValue": quote.carDetail.estimatedValue,
+                      "makeCode": quote.carDetail.makeCode,
+                      "engineCapacity": quote.carDetail.engineCapacity,
+                      "model": quote.carDetail.model,
+                      "yearOfManufacture": quote.carDetail.yearOfManufacture                       
+                 }, 
+                 "driver" : [{   
+	    	        	"ncb": quote.applicant.ncd,
+	    	        	"occupation": quote.applicant.occupation,
+	    	        	"driveMoreThanTwo": quote.applicant.driveMoreThanTwo,         
+	    	        	"validAgeGroup": quote.applicant.validAgeGroup, 
+	    	        }],
+                 "planCode": quote.planCode,
+                 "compPlan": quote.compPlan,
+                 "personalAccident": $('[name="addon1"]').is(':checked'),
+                 "thirdPartyPropertyDamage": $('[name="addon2"]').is(':checked')
+             };
+               
 				$.ajax({
 			     beforeSend: function(){
+			    	 $('#saveModal').modal("hide");
 			     	$('#loading-overlay').modal("show");
 			     },
 				  type: "POST",
@@ -542,7 +559,7 @@ function SaveAndExit()
 			     contentType : "application/json",
 			     cache: false,
 			     async: false,
-			     url:context + "/api/iMotor/policy/save4Later/carDetails",
+			     url:context + "/api/iMotor/quote/save4Later",
 				  success: function(data){
 					console.dir(data);
 					location.assign(context);
@@ -556,6 +573,11 @@ function SaveAndExit()
 }
 	$(document).ready(function () {
 
+		 if(getUrlParameter("edit")=="yes")
+		 {  
+			 $("[name=addon1]").attr("checked", quote.personalAccident);
+			 $("[name=addon2]").attr("checked", quote.thirdPartyPropertyDamage);
+		 }
         var totalDue = 0;
         var addOnPaQuote = 0;
         var addOnTppdQuote = 0;
@@ -754,7 +776,7 @@ $('#yourQuoteTitle').html('Third Party');
     	    				cache:false,
     	    				async:false,
     	    			    error:function (xhr, textStatus, errorThrown){
-    	    			        alert("error");
+    	    			        //alert("error");
     	    			    },
     	    			    success:function(response){
     	      			    	console.dir(response);

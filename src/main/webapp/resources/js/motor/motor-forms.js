@@ -106,43 +106,64 @@ $(document).ready(function(){
                     },
                     success: function(res) {
 						
-                        callback(res);   
+                        callback(res); 
+						var match =false;
 						$.each(res, function(i, item) {
 							if(getUrlParameter("edit")=="yes")
-							{
+							{	
 								if(item.code == quote.carDetail.bankMortgageName)
-								{
+								{	match=true;
+									
 									$(".switch-light").removeClass("orange");
 									//$('[name="bankMortgage"]').bootstrapSwitch('setState',true);
 									$('[name="bankMortgage"]').bootstrapSwitch('state',true);
 									$("[name=bankMortgage]").prop("checked",true);
 									$(".sly").addClass("orange");
 									$("#bankNameHandle,.mortgageBank").removeClass("hidden");
-									$('#mortgageBank, #bankName').prop('required',true);
+									$('#mortgageBank').prop('required',true);
 									//$('#mortgageBank').find('input').prop('required',true);
 									$('#mortgageBank').find('.selectize-input > input').prop('required',false);
 									//$mortgageBankSelect[0].selectize.clear();
-									$('#motor_registerForm').validator('update');
-									$mortgageBank[0].selectize.setValue(item.desc);	
-								}
 								
+									$mortgageBank[0].selectize.setValue(item.code);
+									
+								}
 							}
 						});
-											
+								if(match == false &&  quote.carDetail.bankMortgageName != "" && getUrlParameter("edit")=="yes")
+								{		
+										$(".switch-light").removeClass("orange");
+										//$('[name="bankMortgage"]').bootstrapSwitch('setState',true);
+										$('[name="bankMortgage"]').bootstrapSwitch('state',true);
+										$("[name=bankMortgage]").prop("checked",true);
+										$(".sly").addClass("orange");
+										$("#bankNameHandle,.mortgageBank").removeClass("hidden");
+										$('#mortgageBank, #bankName').prop('required',true);
+										//$('#mortgageBank').find('input').prop('required',true);
+										$('#mortgageBank').find('.selectize-input > input').prop('required',false);
+										//$mortgageBankSelect[0].selectize.clear();
+										$mortgageBank[0].selectize.setValue("OTHER");
+										$('#motor_registerForm').validator('update');
+										$("input[name=bankName]").prop('required',false);
+										$("#bankNameHandle").removeClass("hidden");
+										$('#bankName').val(quote.carDetail.bankMortgageName);
+								}	
+							$('#motor_registerForm').validator('update');				
                     }
             });
         },
-		onInitialize: function() {
+		onInitialize: function(value) {
 			
 		},
         onChange: function(value){
+			
 			if(value=="OTHER")
 			{	
 				$("#bankNameHandle").removeClass("hidden");
 				$("input[name=bankName]").prop('required',true);
 				$('#mortgageBank').find('.selectize-input > input').prop('required',true);
 				$('#motor_registerForm').validator('update');
-			}else
+			}else 
 			{
 				$("#bankNameHandle").addClass("hidden");
 				$('#bankName').val("");
@@ -219,12 +240,12 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                         callback(newres);
-						$.each(res, function(i, item) {
+						$.each(newres, function(i, item) {
 							if(getUrlParameter("edit")=="yes")
 							{
-								if(item.desc == quote.applicant.correspondenceAddress.hkKlNt)
-								{
-									$motor_area[0].selectize.setValue(item.code);	
+								if(item.code == quote.applicant.correspondenceAddress.hkKlNt)
+								{	
+									$motor_area[0].selectize.setValue(item.desc);	
 								}
 							}
 						});

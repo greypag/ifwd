@@ -91,7 +91,6 @@ $(document).ready(function(){
     });
 	
 	
-	
     $('[name="bankMortgage"]').bootstrapSwitch({
         onText: '',
         offText: '',
@@ -111,7 +110,6 @@ $(document).ready(function(){
 				}
 			}
 		};
-			if(getUrlParameter("edit")!="yes")
 			{
 				$(".switch-light").removeClass("orange");
 				if(state){

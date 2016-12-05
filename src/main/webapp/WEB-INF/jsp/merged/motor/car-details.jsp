@@ -340,7 +340,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
  var tempquote="";
  var loginStatus=false;
  function callback_motor_LoginSuccess(){
- 	alert('Login success. Call Save later API.');
+ 	//alert('Login success. Call Save later API.');
   	var empty = {}; 
  	  $.ajax({
  			url:fwdApi.url.resume,
@@ -350,7 +350,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
  			cache:false,
  			async:false,
  		    error:function (xhr, textStatus, errorThrown){
- 		        alert("error");
+ 		        //alert("error");
  		    },
  		    success:function(response){
  		    	console.dir(response);
@@ -368,7 +368,7 @@ function SaveAndExit()
 	
 		  var submitData = {"carDetail": {   	
 			   "bankMortgage": checkbox,	
-			   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
+			   "bankMortgageName": $('[name="mortgageBank"]').val()!="OTHER"?$('[name="mortgageBank"]').val():$('input[name=bankName]').val(),//$("#mortgageBank option:selected").val(),	
 			   "chassisNumber": $('input[name=chassisNumber]').val(),    	
 			   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
 			   "modelDesc": $('input[name=registedModel]').val()    	
@@ -424,6 +424,7 @@ $(document).ready(function(){
 	    $('input[name=chassisNumber]').val(quote.carDetail.chassisNumber);    
 		$('input[name=cubicCapacity]').val(quote.carDetail.engineCapacity);
 		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
+		$("#bankNameHandle").addClass("hidden");
 	}
     else
    	 if($('[name="mortgageBank"]').val()!="others")
@@ -462,7 +463,7 @@ $(document).ready(function(){
 	    				cache:false,
 	    				async:false,
 	    			    error:function (xhr, textStatus, errorThrown){
-	    			        alert("error");
+	    			        //alert("error");
 	    			    },
 	    			    success:function(response){
 	      			    	console.dir(response);
@@ -543,7 +544,7 @@ $(document).ready(function(){
 			checkbox = true;
 	   var submitData = {"carDetail": {   	
 				   "bankMortgage": checkbox,	
-				   "bankMortgageName": $('[name="mortgageBank"]').val(),//$("#mortgageBank option:selected").val(),	
+				   "bankMortgageName": $('[name="mortgageBank"]').val()!="OTHER"?$('[name="mortgageBank"]').val():$('input[name=bankName]').val(),//$("#mortgageBank option:selected").val(),	
 				   "chassisNumber": $('input[name=chassisNumber]').val(),    	
 				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
 				   "modelDesc": $('input[name=registedModel]').val()    	

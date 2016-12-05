@@ -441,7 +441,7 @@ var uri="";
 var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
-	alert('Login success. Call Save later API.');
+	//alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
 	var empty = {}; 
 	  $.ajax({
@@ -452,7 +452,7 @@ function callback_motor_LoginSuccess(){
 			cache:false,
 			async:false,
 		    error:function (xhr, textStatus, errorThrown){
-		        alert("error");
+		        //alert("error");
 		    },
 		    success:function(response){
 		    	console.dir(response);
@@ -526,13 +526,14 @@ $(document).ready(function(){
 	    				cache:false,
 	    				async:false,
 	    			    error:function (xhr, textStatus, errorThrown){
-	    			        alert("error");
+	    			        //alert("error");
 	    			    },
 	    			    success:function(response){
 	      			    	console.dir(response);
 	      			    	uri = response.uri;
-	      			    	tempquote = response.motorCareDetails;
-	    			    	$('#saveModal').modal("show");
+	       			    	tempquote = response.motorCareDetails;
+	      			    	if(getUrlParameter("edit")!="yes")
+	      			    	   	$('#saveModal').modal("show");
 	    			    }
 	    			});
 	    		}

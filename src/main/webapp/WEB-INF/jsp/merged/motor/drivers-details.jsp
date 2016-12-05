@@ -256,7 +256,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <option value="New Territories"><fmt:message key="motor.driversdetails.address.area.nt" bundle="${motorMsg}" /></option>
 	                                            </select>-->
 	                                            <select class="form-control" id="area" name="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
-	                                                <option value="" disabled selected hidden><fmt:message key="motor.driversdetails.address.district" bundle="${motorMsg}" /></option>
+	                                                <option value="" disabled selected hidden><fmt:message key="motor.driversdetails.address.area" bundle="${motorMsg}" /></option>
 	                                            </select>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
@@ -311,7 +311,7 @@ var nextPage = "${nextPageFlow}";
 	                        <div class="row" >
 	                            <div class="text-center col-xs-6">
 	                                <br />
-	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /> </a>
+	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackCarDetail();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /> </a>
 	                                <br/>
 	                            </div>
 	                            <div class="text-center col-xs-6">
@@ -334,7 +334,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
-                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />4,680.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
+                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                 <div class="row">
@@ -444,7 +444,7 @@ if(motorlanguage == "TC")
 var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
-	alert('Login success. Call Save later API.');
+	//alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
 	var empty = {}; 
 	  $.ajax({
@@ -455,7 +455,7 @@ function callback_motor_LoginSuccess(){
 			cache:false,
 			async:false,
 		    error:function (xhr, textStatus, errorThrown){
-		        alert("error");
+		        //alert("error");
 		    },
 		    success:function(response){
 		    	console.dir(response);
@@ -532,7 +532,7 @@ $(document).ready(function(){
 	            }
 	        }
 	    };
-    
+    console.dir(quote);
 	if(getUrlParameter("edit")=="yes")
     {
 	    $('input[name=fullName]').val(quote.applicant.name);    
@@ -582,7 +582,7 @@ $(document).ready(function(){
 	    				cache:false,
 	    				async:false,
 	    			    error:function (xhr, textStatus, errorThrown){
-	    			        alert("error");
+	    			        //alert("error");
 	    			    },
 	    			    success:function(response){
 	      			    	console.dir(response);

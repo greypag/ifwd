@@ -286,7 +286,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
-                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />4,680.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
+                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                 <div class="row">
@@ -392,7 +392,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
-	alert('Login success. Call Save later API.');
+	//alert('Login success. Call Save later API.');
 	$('#saveModal').modal("show");
 	var empty = {}; 
 	  $.ajax({
@@ -403,9 +403,10 @@ function callback_motor_LoginSuccess(){
 			cache:false,
 			async:false,
 		    error:function (xhr, textStatus, errorThrown){
-		        alert("error");
+		        //alert("error");
 		    },
 		    success:function(response){
+		    	
 		    	console.dir(response);
 		    	tempquote = response.motorCareDetails;
 		    	$('#saveModal').modal("show");
@@ -452,7 +453,7 @@ function SaveAndExit()
 	  contentType : "application/json",
 	  cache: false,
 	  async: false,
-	  url: context + "/api/iMotor/policy/saving/declarations",
+	  url: context + "/api/iMotor/policy/save4Later/declarations",
 	  success: function(data){
 		  console.dir(data);
 		  $('#saveModal').modal("hide");
@@ -484,26 +485,19 @@ $(document).ready(function(){
     
     if(getUrlParameter("edit")=="yes")
     {
-    	/*$("#a1no").attr('checked');
     	if(quote.motorCareDeclaration[0].declarationAns==false)
-    	{$("#a1no").prop('checked', true);}*/
-    	if(quote.motorCareDeclaration[0].declarationAns=="false")
     	{$(".a1no").addClass("active");}
     	else
     	{$(".a1yes").addClass("active");}
-    	if(quote.motorCareDeclaration[1].declarationAns=="false")
+    	if(quote.motorCareDeclaration[1].declarationAns==false)
     	{$(".a2no").addClass("active");}
     	else
     	{$(".a2yes").addClass("active");}
-    	if(quote.motorCareDeclaration[2].declarationAns=="false")
+    	if(quote.motorCareDeclaration[2].declarationAns==false)
     	{$(".a3no").addClass("active");}
     	else
     	{$(".a3yes").addClass("active");}
     	
-    	
-    	$("input[name=answer1]").prop('checked', quote.motorCareDeclaration[0].declarationAns);
-    	$("input[name=answer2]").prop('checked', quote.motorCareDeclaration[1].declarationAns);
-    	$("input[name=answer3]").prop('checked', quote.motorCareDeclaration[2].declarationAns);
     	$('input[name=psNoDM]').attr("checked",quote.psNoDM);	
 		$('input[name=psNoProvidePersonalData]').attr("checked",quote.psNoProvidePersonalData);	
 		$('input[name=psPICS]').attr("checked",quote.psPICS);	
@@ -544,9 +538,10 @@ $(document).ready(function(){
 	    				cache:false,
 	    				async:false,
 	    			    error:function (xhr, textStatus, errorThrown){
-	    			        alert("error");
+	    			        //alert("error");
 	    			    },
 	    			    success:function(response){
+	    			
 	      			    	console.dir(response);
 	    			    	tempquote = response.motorCareDetails;
 	    			    	//$('#saveModal').modal("show");
