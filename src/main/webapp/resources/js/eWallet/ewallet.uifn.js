@@ -83,6 +83,19 @@ var eWalletCtr = {
 		if (!results) return null;
 		if (!results[2]) return '';
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	},
+	getApiErrorMsg: function (apiName, headerCode, code){
+		var errMsg = "network error.";
+		var errMsgCode = "c_" + headerCode + "_";
+
+		if(headerCode == 400 || headerCode == 500){
+			errMsgCode += code.substring(0,2);
+		}else{
+			errMsgCode += code;
+		}
+		errMsg = apiErrMsg[apiName][errMsgCode] || errMsg;
+
+		return errMsg + " (" + code + ")";
 	}
 	//Common Function End
 };
@@ -161,7 +174,9 @@ var policyHelper = {
 					policyDom.find(".ew_pol_wd_linkup_tngId").html(info.tngAccountId);
 					(function(pid, tid) {
 						policyDom.find(".ew_pol_wd_linkup_unlink").on("click", function() {
-							that.unlinkTng(pid, tid);
+							if(confirm( msgCtr.unlink.confirmMsg + pid +")") == true){
+								that.unlinkTng(pid, tid);
+							}							
 						});
 
 						policyDom.find(".ew_pol_wd_withdrawBtn").on("click", function() {
@@ -204,8 +219,9 @@ var policyHelper = {
 				eWalletCtr.showGenericMsg("Success", "unlink policy ("+pid+")");
 				that.reloadPolicy();
 			},
-			failFn: function(response) {
-				eWalletCtr.showGenericMsg("", msgCtr.policyList.unlinkApiFail);
+			failFn: function(response, xhr) {
+				var msg = eWalletCtr.getApiErrorMsg("unlinkTngPolicy", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -292,11 +308,12 @@ function LinkupClass() {
 			successFn: function(response) {
 				that.requestShowPanel();
 			},
-			failFn: function(response) {
+			failFn: function(response, xhr) {
 				// hide policyList btn loading
 				$(document).trigger('ew_popupClose', this);
 
-				eWalletCtr.showGenericMsg("",response["message_"+ eWalletCtr.langMapping[languageP]]);
+				var msg = eWalletCtr.getApiErrorMsg("sendTngOtpSms", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			}
 		});
 		//else show error popup
@@ -314,9 +331,9 @@ function LinkupClass() {
 			successFn: function(response) {
 				that.showPanel(response);
 			},
-			failFn: function(response) {
-				//eWalletCtr.showGenericMsg("", msgCtr.policyList.policyInfoApiFail);
-				eWalletCtr.showGenericMsg("", response["message_"+ eWalletCtr.langMapping[languageP]]);
+			failFn: function(response, xhr) {
+				var msg = eWalletCtr.getApiErrorMsg("getPolicyInfo", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			}
 		});
 	};
@@ -355,9 +372,9 @@ function LinkupClass() {
 				$("#linkupform").attr("action",response.geteWayUrl);
 				$("#linkupform").submit();
 			},
-			failFn: function(response) {
-				//eWalletCtr.showGenericMsg("", msgCtr.policyList.requestApiFail);
-				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[languageP]]);
+			failFn: function(response, xhr) {
+				var msg = eWalletCtr.getApiErrorMsg("authTngOtp", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			}
 		});
 	};
@@ -381,11 +398,11 @@ function LinkupClass() {
 			},
 			successFn: function(response) {
 				//pass all response result to TNG
-				console.log(response);
+				//console.log(response);
 			},
-			failFn: function(response) {
-				//eWalletCtr.showGenericMsg("", msgCtr.policyList.otpApiFail);
-				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[languageP]]);
+			failFn: function(response, xhr) {
+				var msg = eWalletCtr.getApiErrorMsg("sendTngOtpSms", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			}
 		});
 	};
@@ -495,10 +512,11 @@ function WithdrawClass(){
 			successFn: function(response) {
 				that.showPanel(response);
 			},
-			failFn: function(response) {
+			failFn: function(response, xhr) {
 				$(document).trigger('ew_popupClose', this); // hide policyList loading
-				//eWalletCtr.showGenericMsg("", msgCtr.withdraw.policyInfoApiFail);
-				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[languageP]]);
+				
+				var msg = eWalletCtr.getApiErrorMsg("getPolicyInfo", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -532,10 +550,11 @@ function WithdrawClass(){
 				that.popupDom.find(".ew_amount").html(eWalletCtr.toPriceStr(that.amountWithdraw));
 				that.switchSection(2);
 			},
-			failFn: function(response) {
-				// eWalletCtr.showGenericMsg("", msgCtr.withdraw.requestApiFail);\
+			failFn: function(response, xhr) {
 				that.popupDom.modal("hide");
-				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[languageP]]);
+
+				var msg = eWalletCtr.getApiErrorMsg("requestWithdraw", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -563,9 +582,9 @@ function WithdrawClass(){
 			successFn: function(response) {
 				that.switchSection(3);
 			},
-			failFn: function(response) {
-				// eWalletCtr.showGenericMsg("", msgCtr.withdraw.performApiFail);\
-				eWalletCtr.showGenericMsg("", response["message_"+eWalletCtr.langMapping[langMapping]]);
+			failFn: function(response, xhr) {
+				var msg = eWalletCtr.getApiErrorMsg("performWithdraw", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -654,8 +673,9 @@ var logViewer = {
 			successFn: function(response) {
 				that.composeLogTable(response);
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
-				eWalletCtr.showGenericMsg("", msgCtr.log.logApiFail);
+			failFn: function(response, xhr) {
+				var msg = eWalletCtr.getApiErrorMsg("withdrawLog", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			}
 		});
 	},
@@ -706,8 +726,9 @@ var logViewer = {
 				that.htmlDom.find(".ew_log_dt_selectWrapper").show();
 				that.htmlDom.find(".ew_loading").hide();
 			},
-			failFn: function(xhr, textStatus, errorThrown) {
-				eWalletCtr.showGenericMsg("", msgCtr.log.policyInfoApiFail);
+			failFn: function(response, xhr) {
+				var msg = eWalletCtr.getApiErrorMsg("getPolicyInfo", xhr.status, response.code);
+				eWalletCtr.showGenericMsg("", msg);
 			}
 		});
 	},
@@ -864,26 +885,151 @@ var msgCtr = {
 		errorTitle: getBundle(getBundleLanguage,"ewallet.msgctr.common.error.title") ,
 		errorMsg  : getBundle(getBundleLanguage,"ewallet.msgctr.common.error.msg")
 	},
-	policyList:{
-		otpApiFail       : getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.otpapifail"),
-		policyListApiFail: getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.policylistapifail"),
-		requestApiFail   : getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.requestapifail"),
-		unlinkApiFail    : getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.unlinkapifail"),
-		policyInfoApiFail: getBundle(getBundleLanguage,"ewallet.msgctr.policylist.error.policyinfoapifail")
-	},
-	withdraw:{
-		requestApiFail   : getBundle(getBundleLanguage,"ewallet.msgctr.withdraw.error.requestapifail"),
-		performApiFail   : getBundle(getBundleLanguage,"ewallet.msgctr.withdraw.error.performapifail"),
-		policyInfoApiFail: getBundle(getBundleLanguage,"ewallet.msgctr.withdraw.error.policyinfoapifail"),
-		otpApiFail       : getBundle(getBundleLanguage,"ewallet.msgctr.withdraw.error.otpapifail")
-	},
-	log: {
-		logApiFail       : getBundle(getBundleLanguage,"ewallet.msgctr.log.error.logapifail"),
-		policyInfoApiFail: getBundle(getBundleLanguage,"ewallet.msgctr.log.error.policyinfoapifail")
-	},
 	linkup:{
 		invalidOtpInput: getBundle(getBundleLanguage,"ewallet.msgctr.linkup.error.invalidotpinput"),
 		notCheckTnc    : getBundle(getBundleLanguage,"ewallet.msgctr.linkup.error.notchecktnc"),
 		tngLinkupFail  : getBundle(getBundleLanguage,"ewallet.msgctr.linkup.error.tnglinkupfail")
+	},
+	policyList: {
+
+	},
+	unlink: {
+		confirmMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.confirmmsg")
 	}
 };
+
+// var apiErrMsg = {
+// 	unlinkTngPolicy:{
+// 		c_400_MP: "資料不正確。請返回上一頁重新開始",
+// 		c_400_IP: "資料不正確。請返回上一頁重新開始",
+// 		c_417_TGE001: "未能接通拍住賞，請稍後再嘗試",
+// 		c_417_TGE002: "拍住賞未有確認，請更新頁面查看最新配對狀況"
+// 	},
+// 	getPolicyInfo: {
+// 		c_400_MP: "未能取得保單資料",
+// 		c_400_IP: "未能取得保單資料",
+// 		c_411_GPE001: "此服務只適用於已生效的保單",
+// 		c_411_GPE002: "此服務只適用於已生效的保單",
+// 		c_411_GPE003: "此服務只適用於過了退保冷靜期的保單",
+// 		c_411_GPE004: "此服務只適用於本金水平達5,000港元以上的保單"
+// 	},
+// 	authTngOtp: {
+// 		c_400_MP: "未能驗證一次性密碼。請稍後再嘗試",
+// 		c_400_IP: "未能驗證一次性密碼。請稍後再嘗試",
+// 		c_412_: "一次性密碼服務被暫停。請致電24小時服務電線3123 3123重新啟動",
+// 		c_413_OTE004: "一次性密碼無效，請1分鐘後要求重發",
+// 		c_413_OTE005: "一次性密碼無效",
+// 		c_413_OTE006: "一次性密碼無效，請要求重發",
+// 		c_413_OTE008: "一次性密碼未能重發，請稍後再嘗試"
+// 	},
+// 	sendTngOtpSms: {
+// 		c_400_MP: "資料不正確。不能發出一次性密碼",
+// 		c_400_IP: "資料不正確。不能發出一次性密碼",
+// 		c_412_: "一次性密碼服務被暫停。請致電24小時服務電線3123 3123重新啟動",
+// 		c_413_OTE001: "一次性密碼未能重發，請稍後再嘗試",
+// 		c_413_OTE002: "一次性密碼須於1分鐘之後方可重發",
+// 		c_413_OTE003: "一次性密碼未能發出，請稍後再嘗試",
+// 		c_416_SYE001: "一次性密碼未能發出，請稍後再嘗試"
+// 	},
+// 	requestWithdraw: {
+// 		c_400_MP: "資料不正確。未能開始提取服務",
+// 		c_400_IP: "資料不正確。未能開始提取服務",
+// 		c_411_: "保單無效",
+// 		c_412_: "提取服務被暫停。請致電24小時服務電線3123 3123重新啟動",
+// 		c_413_OTE003: "一次性密碼未能發出，請稍後再嘗試",
+// 		c_413_OTE007: "一次性密碼已發出",
+// 		c_415_TWE000: "提取服務被暫停。請致電24小時服務電線3123 3123重新啟動",
+// 		c_415_TWE001: "提取的最低金額為500港元",
+// 		c_415_TWE002: "提取至拍住賞的金額已超過每年5萬港元這個上限",
+// 		c_415_TWE003: "提取至拍住賞的金額已超過每日3千港元這個上限",
+// 		c_415_TWE004: "提取服務被暫停。請致電24小時服務電線3123 3123重新啟動",
+// 		c_416_SYE001: "今天已錄得3次的提取，請明天再嘗試"
+// 	},
+// 	performWithdraw: {
+// 		c_400_MP: "資料不正確。未能開始提取服務",
+// 		c_400_IP: "資料不正確。未能開始提取服務",
+// 		c_412_: "提取服務被暫停。請致電24小時服務電線3123 3123重新啟動",
+// 		c_413_OTE003: "一次性密碼未能重發，請稍後再嘗試",
+// 		c_413_OTE004: "一次性密碼無效，請1分鐘後要求重發",
+// 		c_413_OTE005: "一次性密碼無效",
+// 		c_413_OTE006: "一次性密碼無效，請要求重發",
+// 		c_416_SYE001: "一次性密碼未能發出，請稍後再嘗試",
+// 		c_417_TGE001: "未能接通拍住賞，請稍後再嘗試",
+// 		c_417_TGE002: "拍住賞未有確認，請更新頁面查看最新配對狀況",
+// 		c_500_DB: "不能進行提取，請稍後再嘗試"
+// 	},
+// 	withdrawLog: {
+// 		c_400_MP: "資料不正確。沒有交易收據",
+// 		c_400_IP: "資料不正確。沒有交易收據"
+// 	}
+// };
+
+var apiErrMsg = { 
+	getPolicyListByCustomer:{  
+		c_400_MP:getBundle(getBundleLanguage,ewallet.apiErrMsg.getPolicyListByCustomer.c_400_MP),
+		c_400_IP:getBundle(getBundleLanguage,ewallet.apiErrMsg.getPolicyListByCustomer.c_400_IP)
+   },	
+    unlinkTngPolicy:{  
+		c_400_MP:getBundle(getBundleLanguage,ewallet.apiErrMsg.unlinkTngPolicy.c_400_MP),
+		c_400_IP:getBundle(getBundleLanguage,ewallet.apiErrMsg.unlinkTngPolicy.c_400_IP),
+		c_417_TGE001:getBundle(getBundleLanguage,ewallet.apiErrMsg.unlinkTngPolicy.c_417_TGE001),
+		c_417_TGE002:getBundle(getBundleLanguage,ewallet.apiErrMsg.unlinkTngPolicy.c_417_TGE002)
+   },
+    getPolicyInfo:{  
+		c_400_MP:getBundle(getBundleLanguage,ewallet.apiErrMsg.getPolicyInfo.c_400_MP),
+		c_400_IP:getBundle(getBundleLanguage,ewallet.apiErrMsg.getPolicyInfo.c_400_IP),
+		c_411_GPE001:getBundle(getBundleLanguage,ewallet.apiErrMsg.getPolicyInfo.c_411_GPE001),
+		c_411_GPE002:getBundle(getBundleLanguage,ewallet.apiErrMsg.getPolicyInfo.c_411_GPE002),
+		c_411_GPE003:getBundle(getBundleLanguage,ewallet.apiErrMsg.getPolicyInfo.c_411_GPE003),
+		c_411_GPE004:getBundle(getBundleLanguage,ewallet.apiErrMsg.getPolicyInfo.c_411_GPE004)
+   },
+    authTngOtp:{  
+		c_400_MP:getBundle(getBundleLanguage,ewallet.apiErrMsg.authTngOtp.c_400_MP),
+		c_400_IP:getBundle(getBundleLanguage,ewallet.apiErrMsg.authTngOtp.c_400_IP),
+		c_412_:getBundle(getBundleLanguage,ewallet.apiErrMsg.authTngOtp.c_412_),
+		c_413_OTE004:getBundle(getBundleLanguage,ewallet.apiErrMsg.authTngOtp.c_413_OTE004),
+		c_413_OTE005:getBundle(getBundleLanguage,ewallet.apiErrMsg.authTngOtp.c_413_OTE005),
+		c_413_OTE006:getBundle(getBundleLanguage,ewallet.apiErrMsg.authTngOtp.c_413_OTE006),
+		c_413_OTE008:getBundle(getBundleLanguage,ewallet.apiErrMsg.authTngOtp.c_413_OTE008)
+   },
+    sendTngOtpSms:{  
+		c_400_MP:getBundle(getBundleLanguage,ewallet.apiErrMsg.sendTngOtpSms.c_400_MP),
+		c_400_IP:getBundle(getBundleLanguage,ewallet.apiErrMsg.sendTngOtpSms.c_400_IP),
+		c_412_:getBundle(getBundleLanguage,ewallet.apiErrMsg.sendTngOtpSms.c_412_),
+		c_413_OTE001:getBundle(getBundleLanguage,ewallet.apiErrMsg.sendTngOtpSms.c_413_OTE001),
+		c_413_OTE002:getBundle(getBundleLanguage,ewallet.apiErrMsg.sendTngOtpSms.c_413_OTE002),
+		c_413_OTE003:getBundle(getBundleLanguage,ewallet.apiErrMsg.sendTngOtpSms.c_413_OTE003),
+		c_416_SYE001:getBundle(getBundleLanguage,ewallet.apiErrMsg.sendTngOtpSms.c_416_SYE001)
+   },
+    requestWithdraw:{  
+		c_400_MP:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_400_MP),
+		c_400_IP:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_400_IP),
+		c_411_:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_411_),
+		c_412_:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_412_),
+		c_413_OTE003:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_413_OTE003),
+		c_413_OTE007:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_413_OTE007),
+		c_415_TWE000:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_415_TWE000),
+		c_415_TWE001:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_415_TWE001),
+		c_415_TWE002:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_415_TWE002),
+		c_415_TWE003:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_415_TWE003),
+		c_415_TWE004:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_415_TWE004),
+		c_416_SYE001:getBundle(getBundleLanguage,ewallet.apiErrMsg.requestWithdraw.c_416_SYE001)
+   },
+    performWithdraw:{  
+		c_400_MP:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_400_MP),
+		c_400_IP:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_400_IP),
+		c_412_:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_412_),
+		c_413_OTE003:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_413_OTE003),
+		c_413_OTE004:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_413_OTE004),
+		c_413_OTE005:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_413_OTE005),
+		c_413_OTE006:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_413_OTE006),
+		c_416_SYE001:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_416_SYE001),
+		c_417_TGE001:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_417_TGE001),
+		c_417_TGE002:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_417_TGE002),
+		c_500_DB:getBundle(getBundleLanguage,ewallet.apiErrMsg.performWithdraw.c_500_DB)
+   },
+    withdrawLog:{  
+		c_400_MP:getBundle(getBundleLanguage,ewallet.apiErrMsg.withdrawLog.c_400_MP),
+		c_400_IP:getBundle(getBundleLanguage,ewallet.apiErrMsg.withdrawLog.c_400_IP)
+   }
+}
