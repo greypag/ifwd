@@ -33,7 +33,7 @@ var eWalletCtr = {
 	},
 	//Common Function Begin
 	langMapping: {
-		tc: "zh",
+		tc: "zh", 
 		en: "en"
 	},
 	fillPolicyInfo: function(policyDom, info) {
