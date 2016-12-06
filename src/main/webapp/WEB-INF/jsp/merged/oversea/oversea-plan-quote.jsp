@@ -425,7 +425,11 @@ $(document).ready(function() {
 
 
     $('#amountdue').html('8,000.00'); */
-    changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2')
+    changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2');
+
+    <c:if test="${selectedRegion!=null}">
+    $('#region-btn-${selectedRegion}').click();
+    </c:if>
 });
 
 </script>

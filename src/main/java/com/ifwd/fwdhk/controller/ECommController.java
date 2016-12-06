@@ -34,6 +34,7 @@ import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.services.EasyHealthService;
 import com.ifwd.fwdhk.services.HomeService;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
+import com.ifwd.fwdhk.services.OverseaService;
 import com.ifwd.fwdhk.services.impl.LifeServiceImpl;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
@@ -56,7 +57,9 @@ public class ECommController extends BaseController {
 	@Autowired
 	private WorkingHolidayController workingHolidayController;
 	@Autowired
-	private EasyHealthService easyHealthService;	
+	private EasyHealthService easyHealthService;
+	@Autowired
+	private OverseaService overseaService;
 
 	@RequestMapping(value = {"/page"}, method = RequestMethod.GET)
 	public RedirectView getExternalLanding(Model model, HttpServletRequest request) 
@@ -90,7 +93,12 @@ public class ECommController extends BaseController {
 					rv = new RedirectView(language+"/household-insurance/home-liability/quote");
 					break;
 				case "overseasStudyCare":
-					rv = new RedirectView(language+"/overseas-study-insurance/plan-options");
+					if (request.getParameter("region") != null && (!request.getParameter("region").equals("Worldwide") && !request.getParameter("region").equals("Asia")))
+					{
+						throw new Exception("Invalid input paramter for Overseas Study Care"); 
+					}					
+					overseaService.applyPromotionCode(request, null, request.getSession());
+					rv = new RedirectView(language+"/overseas-study-insurance/plan-options?region="+request.getParameter("region"));
 					break;
 				case "workingHoliday":
 					if (request.getParameter("plan") != null && (!request.getParameter("plan").equals("A") && !request.getParameter("plan").equals("B")))
