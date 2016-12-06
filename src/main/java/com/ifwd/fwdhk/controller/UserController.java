@@ -2,13 +2,8 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +27,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryPolicies;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
-import com.ifwd.fwdhk.model.PurchaseHistory;
+import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
+import com.ifwd.fwdhk.model.tngsavie.PhwCallerRequest;
+import com.ifwd.fwdhk.model.tngsavie.PhwSearchPolicyRequest;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
@@ -216,6 +216,154 @@ public class UserController {
 
 	}
 
+	private PurchaseHistoryResponse getPolicyListFromPhw(HttpServletRequest request, String userId, String customerId, String sessionKey)throws Exception{
+
+		String methodName = "getPolicyListFromPhw";
+		String url = UserRestURIConstants.ONLINE_WITHDRAWAL_SEARCH_PHW_POLICY;
+
+		PhwSearchPolicyRequest parameters = new PhwSearchPolicyRequest();
+		PhwCallerRequest callerRequest = new PhwCallerRequest();
+
+		callerRequest.setSessionKey(sessionKey);
+		callerRequest.setCompany("HK");
+		callerRequest.setCustomerId(customerId);
+		callerRequest.setUserId(userId);
+		callerRequest.setApplication("CP");
+
+		parameters.setCallerRequest(callerRequest);
+
+		String jsonString = new ObjectMapper().writeValueAsString(parameters);			
+		JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+		logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+		
+		PurchaseHistoryResponse purchaseHistory = (new ObjectMapper()).readValue(responseJsonObj.toString(), PurchaseHistoryResponse.class);
+
+		return purchaseHistory;
+	}
+	private Map<String,String> getPhwPolicyUiCategory(HttpServletRequest request){
+		String methodName = "getPhwPolicyUiCategory";
+		String url = UserRestURIConstants.ONLINE_WITHDRAWAL_PHW_POLICY_UI_CATEGORY+ "?itemTable=phw_policy_category";
+		
+		Map<String,String> header = Maps.newHashMap();
+		header.put("token", (String)request.getSession().getAttribute("token"));
+		header.put("username", (String)request.getSession().getAttribute("username"));
+		header.put("Content-Type","application/json");
+		
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, url, header, null);
+		if (responseJsonObj.get("errMsgs") == null) {
+			JSONArray jsonOptionItemDescs = (JSONArray) responseJsonObj.get("optionItemDesc");
+			Map<String,String> codeCategoryMap = Maps.newHashMap();
+			if(jsonOptionItemDescs!=null){
+				for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+					JSONObject catObj=(JSONObject)jsonOptionItemDescs.get(i);
+					codeCategoryMap.put((String)catObj.get("itemCode"), (String)catObj.get("itemDesc"));
+				}
+			}
+			return codeCategoryMap;
+		}else{
+			logger.warn(methodName+" errMsgs:"+responseJsonObj.get("errMsgs"));
+		}
+		
+		return null;
+	}
+	
+
+	private void processPhwPolicyCategory(HttpServletRequest request, Model model, PurchaseHistoryResponse phwPurchaseHistory) {
+		if(request==null||model==null||phwPurchaseHistory==null){return;}
+//		String methodName = "processPhwPolicyCategory";
+		
+		List<PurchaseHistoryPolicies> active_life = new ArrayList<PurchaseHistoryPolicies>();
+		List<PurchaseHistoryPolicies> past_life = new ArrayList<PurchaseHistoryPolicies>();
+		List<PurchaseHistoryPolicies> active_saving = new ArrayList<PurchaseHistoryPolicies>();
+		List<PurchaseHistoryPolicies> past_saving = new ArrayList<PurchaseHistoryPolicies>();
+		List<PurchaseHistoryPolicies> active_house = new ArrayList<PurchaseHistoryPolicies>();
+		List<PurchaseHistoryPolicies> past_house = new ArrayList<PurchaseHistoryPolicies>();
+		List<PurchaseHistoryPolicies> active_travel = new ArrayList<PurchaseHistoryPolicies>();
+		List<PurchaseHistoryPolicies> past_travel = new ArrayList<PurchaseHistoryPolicies>();
+		
+		String CAT_LIFE="Life";
+		String CAT_SAVE="Save";
+		String CAT_HOUSEHOLD="Household";
+		String CAT_TRAVEL="Travel";
+		
+		Map<String, String> phwPolicyUiCategory = this.getPhwPolicyUiCategory(request);
+		if(phwPolicyUiCategory==null){return;}
+		List<PurchaseHistoryPolicies> pls= phwPurchaseHistory.getPolicies();
+		if(pls==null){return;}
+		
+		String language = (String) request.getSession().getAttribute("language");
+		if(StringUtils.isEmpty(language)){
+			language = "tc";
+		}
+		
+		long currentTime = DateApi.getCurrentTime();
+		String inComplete = WebServiceUtils.getMessage("user.policy.status.incomplete", UserRestURIConstants.getLanaguage(request));
+		
+		for(PurchaseHistoryPolicies entity:pls){
+			
+			String productId = entity.getPlanCode();
+			String category = phwPolicyUiCategory.get(productId);
+			
+			if(entity.getPlanName()==null){
+				if("tc".equalsIgnoreCase(language) && !StringUtils.isEmpty(entity.getProductDescZh())){
+					entity.setPlanName(entity.getProductDescZh());
+				}else{
+					entity.setPlanName(entity.getProductDescEn());
+				}
+			}
+			
+			if(!StringUtils.isEmpty(entity.getCommencementDate())) {
+				entity.setCommencementDateDesc(DateApi.formatTime2(entity.getCommencementDate()));
+			}else {
+				entity.setCommencementDateDesc(inComplete);
+		    }
+			if(!StringUtils.isEmpty(entity.getExpiryDate())) {
+				entity.setExpiryDateDesc(DateApi.formatTime2(entity.getExpiryDate()));
+			}else {
+				entity.setExpiryDateDesc(inComplete);
+			}
+			
+			boolean isActive = currentTime <= DateApi.String2Long(entity.getExpiryDate());
+			if(CAT_LIFE.equalsIgnoreCase(category)){
+				if(isActive){
+					active_life.add(entity);
+				}else{
+					past_life.add(entity);
+				}
+			}else if(CAT_SAVE.equalsIgnoreCase(category)){
+				if(isActive){
+					active_saving.add(entity);
+				}else{
+					past_saving.add(entity);
+				}
+			}else if(CAT_HOUSEHOLD.equalsIgnoreCase(category)){
+				if(isActive){
+					active_house.add(entity);
+				}else{
+					past_house.add(entity);
+				}
+			}else if(CAT_TRAVEL.equalsIgnoreCase(category)){
+				if(isActive){
+					active_travel.add(entity);
+				}else{
+					past_travel.add(entity);
+				}
+			}
+
+		}
+		
+		model.addAttribute("active_life", active_life);
+		model.addAttribute("active_saving", active_saving);
+		model.addAttribute("active_house", active_house);
+		model.addAttribute("active_travel", active_travel);
+		model.addAttribute("past_life", past_life);
+		model.addAttribute("past_saving", past_saving);
+		model.addAttribute("past_house", past_house);
+		model.addAttribute("past_travel", past_travel);
+	}
+	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = {"/getAccByUsernaneAndPassword", "/{lang}/account"}, method = RequestMethod.GET)
 	public ModelAndView getAccountDetailsByUsernameAndPassoword(HttpServletRequest request, Model model) {
@@ -245,6 +393,17 @@ public class UserController {
 									.getLanaguage(request)));
 
 					PurchaseHistoryResponse purchaseHistory = connector.getPurchaseHistory(header);
+
+					if(("FWDCUST".equalsIgnoreCase((String)session.getAttribute("memberType")))){
+						try {
+							String customerId = (String)session.getAttribute("customerId");
+							PurchaseHistoryResponse phwPurchaseHistory = this.getPolicyListFromPhw(request, usernameInSession, customerId, tokenInSession);
+							this.processPhwPolicyCategory(request, model, phwPurchaseHistory);
+						} catch (Exception e) {
+							logger.warn("getPolicyListFromPhw Exception",e);
+						}
+					}else{
+					
 					/*List<PurchaseHistoryPolicies> policiesGI = new ArrayList<PurchaseHistoryPolicies>();
 					List<PurchaseHistoryPolicies> policiesLife = new ArrayList<PurchaseHistoryPolicies>();
 					if(purchaseHistory !=null && !purchaseHistory.hasError() && purchaseHistory.getPolicies().size()>0){
@@ -569,7 +728,10 @@ public class UserController {
 										past_travel.add(entity);
 									}
 								}
+
 							}
+							
+							
 						}
 						
 						
@@ -587,6 +749,7 @@ public class UserController {
 						model.addAttribute("past_travel", past_travel);
 						
 					}
+					}
 				}
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eservices");
 			} catch (Exception e) {
@@ -598,6 +761,7 @@ public class UserController {
 		}
 		return new ModelAndView("");
 	}
+
 
 	@RequestMapping(value = {"/{lang}/joinus", "/{lang}/join-us"}, method = RequestMethod.GET)
 	public String signup(Model model, HttpServletRequest req) {
