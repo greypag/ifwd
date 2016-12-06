@@ -716,6 +716,17 @@ maxlength="19"/>
 </div>
 <!-- FOOTER -->
 </div>
+<!-- hkid referral modal -->
+<div class="modal fade common-welcome-modal" id="hkid-continue-back-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content save-con-modal-content">
+<p class="text-center description-msg"><fmt:message key="label.savie.referral.error" bundle="${msg}"/></p>
+<div class="save-con-btns text-center clearfix">
+<button class="btn savie-common-btn save-hkid-exit-btn2"><fmt:message key="button.save.and.exit.referral" bundle="${msg}"/></button>
+</div>
+</div>
+</div>
+</div>
 <!-- Save and continue modal -->
 <div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
 <div class="modal-dialog">
@@ -771,12 +782,92 @@ maxlength="19"/>
 </div>
 
 <!-- JS INCLUDES -->
+<c:if test="${planIndex == 'savings-insurance' && not empty saviePlanDetails.promoCode}">
+<script type="text/javascript">
+//Check if referral code owner is the applicant.
+$('.save-hkid-exit-btn1').click(function () {
+	$('#hkid-continue-back-modal').modal('hide');
+});
+
+$('.save-hkid-exit-btn2').click(function () {
+	window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2';
+});
+function getSavieReferralDiscount(){
+	 var promoCode = '${saviePlanDetails.promoCode}';
+	 var amount =  ${saviePlanDetails.insuredAmount};
+	 var hkId = $("#hkId").val();
+	 var result;
+	 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
+		$.ajax({     
+	   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
+	    		type:'get',     
+	    		data:{    
+	    				"planCode": "SAVIE-SP",
+	        			"referralCode":promoCode,
+	        			"sumInsured":amount,
+	        			"hkId":hkId
+  					},     
+	    		error:function(){       
+	    				},     
+	    		success:function(data){
+	    			//console.log(data);
+	    			//alert('personal-details.jsp2 ' + data.errMsgs);
+	    			if(data.value =='0'){
+	    				console.log(data);
+	    				$("#hkid-continue-back-modal").modal("show");
+	    			} else {
+	    	   			//$('#promoCodeErrorMsg').addClass('hidden');
+	    			}
+	    			return data;
+	    		}  
+			});
+	 }	
+}
+
+<%-- 	$('#hkId').blur(function () {
+		 var promoCode = '${saviePlanDetails.promoCode}';
+		 var amount =  ${saviePlanDetails.insuredAmount};
+		 var hkId = $('#hkId').val();
+		 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
+			$.ajax({     
+		   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
+		    		type:'get',     
+		    		data:{    
+		    				"planCode": "SAVIE-SP",
+		        			"referralCode":promoCode,
+		        			"sumInsured":amount,
+		        			"hkId":hkId
+	  					},     
+		    		error:function(){       
+		    				},     
+		    		success:function(data){
+		    			//console.log(data);
+		    			//alert('personal-details.jsp2 ' + data.errMsgs);
+		    			if(data.value =='0'){
+		    				console.log(data);
+		    				$("#hkid-continue-back-modal").modal("show");
+		    				$('.save-hkid-exit-btn1').click(function () {
+		    					$('#hkid-continue-back-modal').modal('hide');
+		    				});
+
+		    				$('.save-hkid-exit-btn2').click(function () {
+		    					window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2';
+		    				});
+				   			//alert('personal-details.jsp3--you can not use yourself policy as promoCode');
+		    			} else {
+		    	   			//$('#promoCodeErrorMsg').addClass('hidden');
+		    			}
+		    		}  
+				});
+		 }
+	});	 --%>
+</script>
+</c:if>
 <script type="text/javascript">
 var language = "en";
 var getpath = "<%=request.getContextPath()%>";
 
 $(document).ready(function () {
-
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
 
 	setSelectReadonly('tmpGender', true);
@@ -886,36 +977,6 @@ $(document).ready(function () {
 		});
 	});
 
-	//Check if referral code owner is the applicant.
-	//$('#hkId').blur(function () {
-	//	 var promoCode = '${saviePlanDetails.promoCode}';
-	//	 var amount =  ${saviePlanDetails.insuredAmount};
-	//	 var hkId = $('#hkId').val();
-	//	 if (promoCode!=null && promoCode!='' && hkId!=null && hkId!='') {
-	//		$.ajax({     
-	//	   			url:context+'/ajax/savings-insurance/getSavieReferralDiscount',     
-	//	    		type:'get',     
-	//	    		data:{    
-	//	    				"planCode": "SAVIE-SP",
-	//	        			"referralCode":promoCode,
-	//	        			"sumInsured":amount,
-	//	        			"hkId":hkId
-	//   					},     
-	//	    		error:function(){       
-	//	    				},     
-	//	    		success:function(data){
-	//	    			//console.log(data);
-	//	    			//alert('personal-details.jsp2 ' + data.errMsgs);
-	//	    			if(data.value ='0'){
-	//			   			alert('personal-details.jsp3--you can not use yourself policy as promoCode');
-	//	    			} else {
-	//	    	   			//$('#promoCodeErrorMsg').addClass('hidden');
-	//	    			}
-	//	    		}  
-	//			});
-	//	 }
-	//});	
-	
 	$('#btn-app-save').click(function () {
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 	});
@@ -1130,7 +1191,22 @@ function soFormValidation() {
 					callback: {
 						message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 						callback: function (value, validator) {
-							return isValidHKID(value);
+							if(IsHKID(value)){
+								if(typeof getSavieReferralDiscount != 'function'){
+									return true;
+								}else{
+									//console.log(getSavieReferralDiscount());
+									//getSavieReferralDiscount();
+									console.log(getSavieReferralDiscount());
+									if(getSavieReferralDiscount()=="0"){
+										return false;
+									}else{
+										return true;
+									}
+								}
+							}else{
+								return false;
+							}
 						}
 					}
 				}
@@ -1331,15 +1407,28 @@ function soFormValidation() {
 	}).on('error.form.bv', function (e) {});
 }
 
-$('.chinese-input').bind('keydown', function (event) {
-	var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
-	var key = String.fromCharCode(!event.charCode
-		? event.which
-		: event.charCode);
+var isIEforChineseInput = window.navigator.userAgent.indexOf("MSIE") > 0 || window.navigator.userAgent.match(/Trident.*rv\:11\./) != null;
+
+$('.chinese-input').bind('keydown change', function (event) {
+	if (!isIEforChineseInput || event.type != 'keydown') {
+		var keycode = event.keyCode || event.which;
+
+		if ((keycode == undefined || [8,35,36,37,38,39,40].indexOf(keycode) == -1) && event.ctrlKey !== true) {
+			var value = $(this).val();
+			var new_value = value.replace(/[^\s\u3000\u4e00-\u9fa5]/g, "");
+			$(this).val(new_value);
+		}
+	}
+});
+
+$('.chinese-input').bind('keyup paste', function (event) {
 	var keycode = event.keyCode || event.which;
-	if (!regex.test(key) && keycode != 8) {
-		event.preventDefault();
-		return false;
+
+	if (event.type == 'paste' || (!isIEforChineseInput && [8,35,36,37,38,39,40].indexOf(keycode) == -1)) {
+		var thisInput = $(this);
+		setTimeout(function() { 
+			thisInput.trigger('change');
+    	}, 100);
 	}
 });
 

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.sf.json.JSONNull;
+
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -71,6 +73,11 @@ public class AjaxLifeController extends BaseController{
 			saviePlanDetails.validate(language);
 			saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, session);
+			Object promoCode=jsonObject.getJSONObject("salesIllustration").getJSONArray("inputTable").getJSONObject(0).get("promoCode");
+			if(promoCode.equals("null")){
+				jsonObject.getJSONObject("salesIllustration").getJSONArray("inputTable").getJSONObject(0).put("promoCode", "");
+			}
+			
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"路"+dob[1]+"路"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
@@ -168,7 +175,7 @@ public class AjaxLifeController extends BaseController{
 				//int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
 				int dis = 0;
 				if("SP".equals(saviePlanDetails.getPaymentType())){
-					jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),"",request);
+					jsonObject=savieOnlineService.getSavieReferralDiscountParams("SAVIE-SP",saviePlanDetails.getPromoCode(),saviePlanDetails.getInsuredAmount(),lifePersonalDetails.getHkid(),request);
 					dis = Integer.valueOf((String) jsonObject.get("value"));
 					logger.debug("ajax lifePersonalDetails discount=" + (String) jsonObject.get("value"));
 				}
@@ -620,7 +627,7 @@ public class AjaxLifeController extends BaseController{
 				if("SP".equals(savieType)) { 
 					int amount = Integer.valueOf(request.getSession().getAttribute("amount").toString().replace(",", ""));
 					JSONObject jsonObject2 = savieOnlineService
-							.getSavieReferralDiscountParams("SAVIE-SP",policyApplication.getReferralCode(),String.valueOf(amount),"",request);
+							.getSavieReferralDiscountParams("SAVIE-SP",policyApplication.getReferralCode(),String.valueOf(amount),policyApplication.getApplicantHkId(),request);
 					int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
 					logger.info("discount=" + String.valueOf(dis));
 					saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
@@ -632,8 +639,11 @@ public class AjaxLifeController extends BaseController{
 				saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 				saviePlanDetails.setPaymentType("SP");
 				saviePlanDetails.setDob(savieFna.getDob());
+				saviePlanDetails.setPromoCode(policyApplication.getReferralCode());
+				
 				savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, request.getSession());
 				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
+				request.getSession().setAttribute("promoCode", saviePlanDetails.getPromoCode());
 				request.getSession().setAttribute("fatcaYes", "fatcaYes");
 			}
 		}

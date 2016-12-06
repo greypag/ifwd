@@ -19,8 +19,8 @@
 	@import "mobile/stepIndicator";
 }
 
-@media screen and #{$desktop_mdlg} {
-  @import "desktop_mdlg/stepIndicator";
+@media screen and #{$desktop} {
+  @import "desktop/stepIndicator";
 }
 
 @import "customize_screen/stepIndicator";

@@ -87,6 +87,23 @@ public class ProvieController extends BaseController{
 	private CommonUtils commonUtils;
 	
 	@ApiIgnore
+	@RequestMapping(value = {"/provie"})
+	public ModelAndView o2OLanding1(Model model, HttpServletRequest request, HttpSession httpSession) {
+		provieOnlineService.removeProvieOnlineSession(request);		
+		String lang = UserRestURIConstants.getLanaguage(request);		
+		if(lang.equalsIgnoreCase("cn")||lang.equalsIgnoreCase("tc"))
+		{
+			lang="tc";
+		}
+		else
+		{
+			lang="en";
+		}
+		return new ModelAndView("redirect:/"+lang+"/savings-insurance/provie");
+		//return ProviePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_LANDING);
+	}
+	
+	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		provieOnlineService.removeProvieOnlineSession(request);
@@ -292,7 +309,7 @@ public class ProvieController extends BaseController{
 					plan.setDeathBenefit(Float.valueOf(jo.getInt("deathBenefit")));
 					
 					
-					plan.setRiderValue(Integer.valueOf(calculateRider(jo.getInt("accountValue"), plans.getRider())));
+					plan.setRiderValue(Integer.valueOf(calculateRider(currency, jo.getInt("accountValue"), plans.getRider())));
 					//logger.info(String.valueOf(jo.getInt("riderValue")));
 					list.add(plan);
 			}
@@ -315,7 +332,7 @@ public class ProvieController extends BaseController{
 					plan.setDeathBenefit(Float.valueOf(pa.getInt("deathBenefit")));
 					plan.setTotalPaid(Float.valueOf(pa.getInt("totalPaid")));
 					if (pa.getInt("riderEligible") == 1) {
-						plan.setRiderValue(calculateRider(pa.getInt("accountValue"), plans.getRider()));
+						plan.setRiderValue(calculateRider(currency, pa.getInt("accountValue"), plans.getRider()));
 					} else {
 						plan.setRiderValue(0);
 					}
@@ -335,13 +352,47 @@ public class ProvieController extends BaseController{
 		}
 	}
 
-	private int calculateRider(int accountValue, String rider) {
+	private int calculateRider(String currency, int accountValue, String rider) {
+		int value = 0;
 		if ("CANCER_BENEFIT".equals(rider)){
-			return (int)(accountValue * 0.5);
+			value = (int) (accountValue * 0.5);
+			if (currency.equalsIgnoreCase("hkd")) {
+				if (value > 2000000) {
+					value = 2000000;
+				}
+					
+			} else {
+				if (value > 250000) {
+					value = 250000;
+				}
+			}
+			return value;
 		} else if("TERM_LIFE_BENEFIT".equals(rider)){
-			return (int)(accountValue * 1);
+			value = (int) (accountValue * 1);
+			if (currency.equalsIgnoreCase("hkd")) {
+				if (value > 4000000) {
+					value = 4000000;
+				}
+			} else {
+				if (value > 500000) {
+					value = 500000;
+				}
+			}
+			return value;
 		} else if("ACCIDENTIAL_DEATH_BENEFIT".equals(rider)){
-			return (int)(accountValue * 5);
+			value = (int) (accountValue * 5);
+			if (currency.equalsIgnoreCase("hkd")) {
+				if (value > 12000000) {
+					value = 12000000;
+				}
+			} else {
+				if (value > 1500000) {
+					value = 1500000;
+				}
+			}
+			
+			
+			return value;
 		} else {
 			return (int)(accountValue * 1);
 		}

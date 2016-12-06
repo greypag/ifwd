@@ -224,8 +224,7 @@ public class WorkingHolidayController {
 	
 	@RequestMapping(value = "/prepareWorkingHolidayPlan")
 	@ResponseBody
-	public String prepareWorkingHolidayPlan(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public String prepareWorkingHolidayPlan(HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		
 		String token = null, username = null;
@@ -242,8 +241,9 @@ public class WorkingHolidayController {
 		}
 		
 		LocalDate commencementDate = new LocalDate(new Date());
+		String referralCode = session.getAttribute("referralCode")!=null?((String)session.getAttribute("referralCode")).replace(" ", ""):"";
 		String Url = UserRestURIConstants.WORKINGHOLIDAY_GET_QUOTE + "?planCode=WorkingHoliday"
-				+ "&commencementDate=" + commencementDate + "&referralCode=" + (String) session.getAttribute("referralCode");
+				+ "&commencementDate=" + commencementDate + "&referralCode=" + referralCode;
 
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
@@ -305,10 +305,7 @@ public class WorkingHolidayController {
 			session.setAttribute("errMsgs", responseJsonObj.get("errMsgs"));
 			return "fail";
 		}
-
-		
 	}
-	
 	
 	@RequestMapping(value = {"/{lang}/getWorkingHolidayQuote", "/{lang}/working-holiday-insurance/quote"})
 	public ModelAndView prepareWorkingHolidayPlan(
@@ -330,6 +327,8 @@ public class WorkingHolidayController {
 				
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
+				model.addAttribute("selectedPlan", request.getParameter("plan")!=null&&request.getParameter("plan").equals("A")?"0":"1");
+				model.addAttribute("referralCode", (String)session.getAttribute("referralCode"));
 				model.addAttribute("workingholidayQuoteBean", workingholidayQuote);
 			} else {
 				model.addAttribute("errMsgs", session.getAttribute("errMsgs"));

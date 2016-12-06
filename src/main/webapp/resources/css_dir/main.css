@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2016-10-06 10:45:28 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-11-23 18:09:18 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -782,6 +782,60 @@ body.chin .bold {
   border: 1px solid #f6871e;
 }
 
+/* line 195, ../sass/base/_button.scss */
+.cta--orange {
+  border: none;
+  border-bottom: 3px solid #cfa238;
+  color: #ffffff;
+  background-color: #ff8200;
+  border-radius: 4px;
+  outline-color: initial;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+/* line 205, ../sass/base/_button.scss */
+.cta--orange:hover {
+  outline: none;
+  box-shadow: none;
+  background: #fff;
+  color: #f6871e;
+  border: 1px solid #f6871e;
+  opacity: 1;
+}
+/* line 214, ../sass/base/_button.scss */
+.cta--orange:focus {
+  color: #ffffff;
+  background-color: #ff8200;
+  outline-color: initial;
+}
+
+/* line 221, ../sass/base/_button.scss */
+.cta--gray {
+  border: none;
+  border-bottom: 3px solid #676f70;
+  color: #ffffff;
+  background-color: #9ba5a7;
+  border-radius: 4px;
+  outline-color: initial;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+/* line 231, ../sass/base/_button.scss */
+.cta--gray:hover {
+  outline: none;
+  box-shadow: none;
+  background: #fff;
+  color: #f6871e;
+  border: 1px solid #f6871e;
+  opacity: 1;
+}
+/* line 240, ../sass/base/_button.scss */
+.cta--gray:focus {
+  color: #ffffff;
+  background-color: #9ba5a7;
+  outline-color: initial;
+}
+
 /* line 1, ../sass/base/_text.scss */
 .text--shadow-default {
   text-shadow: 0 0 10px #666;
@@ -1336,9 +1390,8 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   left: 0;
   right: 0;
   outline-color: transparent;
-  overflow: hidden;
 }
-/* line 11, ../sass/common_screen/_loginpopup.scss */
+/* line 10, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup h1, .fwd-savie-wrapper .loginpopup h2, .fwd-savie-wrapper .loginpopup h3, .fwd-savie-wrapper .loginpopup h4, .fwd-savie-wrapper .loginpopup h5,
 .loginpopup h1,
 .loginpopup h2,
@@ -1348,37 +1401,37 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   margin: 0;
   padding: 0;
 }
-/* line 16, ../sass/common_screen/_loginpopup.scss */
+/* line 15, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup a.forgotUserName,
 .loginpopup a.forgotUserName {
   color: #ff8200;
 }
-/* line 18, ../sass/common_screen/_loginpopup.scss */
+/* line 17, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup a.forgotUserName:hover,
 .loginpopup a.forgotUserName:hover {
   color: #9fb1b2;
 }
-/* line 22, ../sass/common_screen/_loginpopup.scss */
+/* line 21, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup a.link-forgotPassword,
 .loginpopup a.link-forgotPassword {
   color: #ff8200;
 }
-/* line 24, ../sass/common_screen/_loginpopup.scss */
+/* line 23, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup a.link-forgotPassword:hover,
 .loginpopup a.link-forgotPassword:hover {
   color: #9fb1b2;
 }
-/* line 30, ../sass/common_screen/_loginpopup.scss */
+/* line 29, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .login-button-group,
 .loginpopup .login-button-group {
   margin: 20px 0;
 }
-/* line 33, ../sass/common_screen/_loginpopup.scss */
+/* line 32, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .modal-open,
 .loginpopup .modal-open {
   overflow: auto;
 }
-/* line 36, ../sass/common_screen/_loginpopup.scss */
+/* line 35, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .login-input,
 .loginpopup .login-input {
   border: 1px solid #ebebeb;
@@ -1387,12 +1440,11 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  width: 260px;
   height: 40px;
   line-height: 14px;
   display: inline;
 }
-/* line 48, ../sass/common_screen/_loginpopup.scss */
+/* line 47, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .login-input-error,
 .fwd-savie-wrapper .loginpopup .invalid-field,
 .loginpopup .login-input-error,
@@ -1404,47 +1456,47 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-/* line 57, ../sass/common_screen/_loginpopup.scss */
+/* line 56, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog,
 .loginpopup .loginpopup__modal-dialog {
   width: 428px !important;
 }
-/* line 60, ../sass/common_screen/_loginpopup.scss */
+/* line 59, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog input::-webkit-input-placeholder,
 .loginpopup .loginpopup__modal-dialog input::-webkit-input-placeholder {
   font-size: 14px !important;
 }
-/* line 63, ../sass/common_screen/_loginpopup.scss */
+/* line 62, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog input:-moz-placeholder,
 .loginpopup .loginpopup__modal-dialog input:-moz-placeholder {
   /* Firefox 18- */
   font-size: 14px !important;
   line-height: 14px;
 }
-/* line 68, ../sass/common_screen/_loginpopup.scss */
+/* line 67, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog input::-moz-placeholder,
 .loginpopup .loginpopup__modal-dialog input::-moz-placeholder {
   /* Firefox 19+ */
   font-size: 14px !important;
   line-height: 14px;
 }
-/* line 73, ../sass/common_screen/_loginpopup.scss */
+/* line 72, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog input:-ms-input-placeholder,
 .loginpopup .loginpopup__modal-dialog input:-ms-input-placeholder {
   font-size: 14px !important;
 }
-/* line 77, ../sass/common_screen/_loginpopup.scss */
+/* line 76, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content {
   border: none;
   padding: 0;
 }
-/* line 80, ../sass/common_screen/_loginpopup.scss */
+/* line 79, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .login-info-savie .upper-overlay,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .login-info-savie .upper-overlay {
   padding: 30px 50px 0 30px;
 }
-/* line 84, ../sass/common_screen/_loginpopup.scss */
+/* line 83, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopupext .modal-content.plan-modal,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopupext .modal-content.plan-modal {
   min-height: 380px;
@@ -1452,18 +1504,18 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   position: relative;
   width: 100%;
 }
-/* line 90, ../sass/common_screen/_loginpopup.scss */
+/* line 89, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopupext .login-info-savie img,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopupext .login-info-savie img {
   /*position: absolute;
   bottom: 0;*/
 }
-/* line 94, ../sass/common_screen/_loginpopup.scss */
+/* line 93, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopupext .upper-overlay h4,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopupext .upper-overlay h4 {
   margin-bottom: 10px;
 }
-/* line 98, ../sass/common_screen/_loginpopup.scss */
+/* line 97, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopup__modal-dialog__modal-content__close-wrapper,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopup__modal-dialog__modal-content__close-wrapper {
   position: absolute;
@@ -1474,23 +1526,23 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   right: 20px;
   z-index: 1;
 }
-/* line 106, ../sass/common_screen/_loginpopup.scss */
+/* line 105, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopup__modal-dialog__modal-content__close-wrapper .close,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopup__modal-dialog__modal-content__close-wrapper .close {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 109, ../sass/common_screen/_loginpopup.scss */
+/* line 108, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopup__modal-dialog__modal-content__close-wrapper .close span,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopup__modal-dialog__modal-content__close-wrapper .close span {
   color: #9ba5a7;
 }
-/* line 114, ../sass/common_screen/_loginpopup.scss */
+/* line 113, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopup__modal-dialog__modal-content__title-wrapper,
 .loginpopup .loginpopup__modal-dialog .loginpopup__modal-dialog__modal-content .loginpopup__modal-dialog__modal-content__title-wrapper {
   display: none;
 }
-/* line 119, ../sass/common_screen/_loginpopup.scss */
+/* line 118, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .login-form-footer,
 .loginpopup .login-form-footer {
   bottom: 0;
@@ -1503,14 +1555,14 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   font-size: 14px;
   z-index: 1;
 }
-/* line 130, ../sass/common_screen/_loginpopup.scss */
+/* line 129, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .login-form-footer h5,
 .loginpopup .login-form-footer h5 {
   height: 38px;
   line-height: 38px;
   font-size: 14px;
 }
-/* line 136, ../sass/common_screen/_loginpopup.scss */
+/* line 135, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .login-close-wrapper,
 .loginpopup .login-close-wrapper {
   position: absolute;
@@ -1521,92 +1573,103 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   right: 20px;
   z-index: 1;
 }
-/* line 145, ../sass/common_screen/_loginpopup.scss */
+/* line 144, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .login-disclaimer,
 .loginpopup .login-disclaimer {
   line-height: 1.2;
   letter-spacing: 0px;
 }
-/* line 149, ../sass/common_screen/_loginpopup.scss */
+/* line 148, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginform2 .form-container,
 .loginpopup .loginform2 .form-container {
   float: left;
   width: 100%;
 }
-/* line 153, ../sass/common_screen/_loginpopup.scss */
+/* line 152, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup .loginform2 .login-err-msg,
 .loginpopup .loginform2 .login-err-msg {
   white-space: normal;
 }
+/* line 155, ../sass/common_screen/_loginpopup.scss */
+.fwd-savie-wrapper .loginpopup .login_is_fwdmember_label,
+.loginpopup .login_is_fwdmember_label {
+  display: block;
+  margin-bottom: 10px;
+}
+/* line 159, ../sass/common_screen/_loginpopup.scss */
+.fwd-savie-wrapper .loginpopup .login_is_fwdmember_label .left-space,
+.loginpopup .login_is_fwdmember_label .left-space {
+  margin-left: 12px;
+}
 
-/* line 162, ../sass/common_screen/_loginpopup.scss */
+/* line 169, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--confirm {
   padding: 10px 60px;
 }
-/* line 166, ../sass/common_screen/_loginpopup.scss */
+/* line 173, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--apply {
   padding: 10px 40px;
 }
-/* line 170, ../sass/common_screen/_loginpopup.scss */
+/* line 177, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--link {
   padding: 10px 30px;
 }
-/* line 174, ../sass/common_screen/_loginpopup.scss */
+/* line 181, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray {
   background-color: #9ba5a7;
   border: 1px #9ba5a7 solid;
   border-bottom: 3px #676f70 solid;
 }
-/* line 178, ../sass/common_screen/_loginpopup.scss */
+/* line 185, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray:hover {
   background-color: #9ba5a7;
   border: 1px #9ba5a7 solid;
   border-bottom: 3px #676f70 solid;
 }
-/* line 186, ../sass/common_screen/_loginpopup.scss */
+/* line 193, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--orange {
   background-color: #ff8200;
   border: 1px #ff8200 solid;
   border-bottom: 3px #ff8200 solid;
 }
-/* line 190, ../sass/common_screen/_loginpopup.scss */
+/* line 197, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--orange:hover {
   background-color: #ff8200;
   border: 1px #ff8200 solid;
   border-bottom: 3px #ff8200 solid;
 }
-/* line 198, ../sass/common_screen/_loginpopup.scss */
+/* line 205, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--yellow {
   background-color: #fdb714;
   border: 1px #fdb714 solid;
   border-bottom: 3px #cf9611 solid;
 }
-/* line 202, ../sass/common_screen/_loginpopup.scss */
+/* line 209, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--yellow:hover {
   background-color: #fdb714;
   border: 1px #fdb714 solid;
   border-bottom: 3px #cf9611 solid;
 }
-/* line 213, ../sass/common_screen/_loginpopup.scss */
+/* line 220, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray:hover, .cta-login-btn.cta-login-btn--orange:hover, .cta-login-btn.cta-login-btn--yellow:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90);
   opacity: 0.9;
 }
 
-/* line 221, ../sass/common_screen/_loginpopup.scss */
+/* line 228, ../sass/common_screen/_loginpopup.scss */
 _:-ms-fullscreen, :root .loginpopup .login-input {
   line-height: 14px;
 }
 
-/* line 225, ../sass/common_screen/_loginpopup.scss */
+/* line 232, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .close {
   position: absolute;
   text-align: center;
   top: 30px;
   right: 30px;
 }
-/* line 230, ../sass/common_screen/_loginpopup.scss */
+/* line 237, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .close span {
   width: 22px;
   height: 22px;
@@ -1618,11 +1681,11 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   display: inline-block;
 }
 
-/* line 242, ../sass/common_screen/_loginpopup.scss */
+/* line 249, ../sass/common_screen/_loginpopup.scss */
 .login-form {
   padding: 20px 30px 30px 30px;
 }
-/* line 244, ../sass/common_screen/_loginpopup.scss */
+/* line 251, ../sass/common_screen/_loginpopup.scss */
 .login-form .close {
   width: 22px;
   height: 22px;
@@ -1633,7 +1696,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   text-align: center;
   display: inline-block;
 }
-/* line 253, ../sass/common_screen/_loginpopup.scss */
+/* line 260, ../sass/common_screen/_loginpopup.scss */
 .login-form .close span {
   width: 22px;
   height: 22px;
@@ -1644,7 +1707,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   text-align: center;
   display: inline-block;
 }
-/* line 264, ../sass/common_screen/_loginpopup.scss */
+/* line 271, ../sass/common_screen/_loginpopup.scss */
 .login-form .form-group {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -1655,27 +1718,27 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   clear: both;
 }
 
-/* line 275, ../sass/common_screen/_loginpopup.scss */
+/* line 282, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop {
   overflow: hidden;
 }
-/* line 276, ../sass/common_screen/_loginpopup.scss */
+/* line 283, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .login-error-wrapper {
   display: inline;
   padding-left: 20px;
 }
 
-/* line 283, ../sass/common_screen/_loginpopup.scss */
+/* line 290, ../sass/common_screen/_loginpopup.scss */
 .forgotUserNameForm, .forgotPasswordForm {
   overflow: hidden;
 }
 
-/* line 288, ../sass/common_screen/_loginpopup.scss */
+/* line 295, ../sass/common_screen/_loginpopup.scss */
 .loginpopupext .loginform-pop, .loginpopupext .forgotUserNameForm, .loginpopupext .forgotPasswordForm {
   display: inline-block;
 }
 
-/* line 294, ../sass/common_screen/_loginpopup.scss */
+/* line 301, ../sass/common_screen/_loginpopup.scss */
 .login-disclaimer {
   line-height: 1.2;
   letter-spacing: 0px;
@@ -1837,24 +1900,24 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   color: #e4002b;
 }
 
-/* line 306, ../sass/common_screen/_loginpopup.scss */
+/* line 313, ../sass/common_screen/_loginpopup.scss */
 .frm {
   margin-right: 10%;
 }
 
-/* line 311, ../sass/common_screen/_loginpopup.scss */
+/* line 318, ../sass/common_screen/_loginpopup.scss */
 .login-form h2 {
   color: #f68a1d;
   font-size: 24px;
   text-align: left;
 }
-/* line 316, ../sass/common_screen/_loginpopup.scss */
+/* line 323, ../sass/common_screen/_loginpopup.scss */
 .login-form h3 {
   color: #f68a1d;
   font-size: 18px;
   text-align: left;
 }
-/* line 320, ../sass/common_screen/_loginpopup.scss */
+/* line 327, ../sass/common_screen/_loginpopup.scss */
 .login-form h3 a {
   color: #f68a1d;
   font-size: 24px;
@@ -1862,12 +1925,12 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   margin-top: 10px !important;
   text-decoration: underline;
 }
-/* line 326, ../sass/common_screen/_loginpopup.scss */
+/* line 333, ../sass/common_screen/_loginpopup.scss */
 .login-form h3 a:hover {
   color: #9fb1b2;
   text-decoration: none;
 }
-/* line 331, ../sass/common_screen/_loginpopup.scss */
+/* line 338, ../sass/common_screen/_loginpopup.scss */
 .login-form h3 span {
   color: #000;
   font-size: 14px;
@@ -1875,7 +1938,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   font-weight: bold;
   font-style: italic;
 }
-/* line 339, ../sass/common_screen/_loginpopup.scss */
+/* line 346, ../sass/common_screen/_loginpopup.scss */
 .login-form p {
   color: #000;
   font-size: 18px;
@@ -1884,23 +1947,23 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   line-height: 20px;
   margin-top: 22px;
 }
-/* line 347, ../sass/common_screen/_loginpopup.scss */
+/* line 354, ../sass/common_screen/_loginpopup.scss */
 .login-form h4 {
   color: #061d2a;
   font-size: 18px;
 }
-/* line 350, ../sass/common_screen/_loginpopup.scss */
+/* line 357, ../sass/common_screen/_loginpopup.scss */
 .login-form h4 a {
   color: #f68a1d;
   font-size: 18px;
   padding: 4px 0px;
 }
-/* line 356, ../sass/common_screen/_loginpopup.scss */
+/* line 363, ../sass/common_screen/_loginpopup.scss */
 .login-form .btn-box {
   width: 100%;
   text-align: left;
 }
-/* line 359, ../sass/common_screen/_loginpopup.scss */
+/* line 366, ../sass/common_screen/_loginpopup.scss */
 .login-form .btn-box h3 {
   padding: 12px 30px !important;
   font-size: 24px;
@@ -1911,21 +1974,37 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   background-color: #f68a1d;
 }
 
-/* line 372, ../sass/common_screen/_loginpopup.scss */
+/* line 379, ../sass/common_screen/_loginpopup.scss */
 a.forgotUserName {
   color: #ff8200;
 }
-/* line 374, ../sass/common_screen/_loginpopup.scss */
+/* line 381, ../sass/common_screen/_loginpopup.scss */
 a.forgotUserName:hover {
   color: #9fb1b2;
 }
-/* line 378, ../sass/common_screen/_loginpopup.scss */
+/* line 385, ../sass/common_screen/_loginpopup.scss */
 a.link-forgotPassword {
   color: #ff8200;
 }
-/* line 380, ../sass/common_screen/_loginpopup.scss */
+/* line 387, ../sass/common_screen/_loginpopup.scss */
 a.link-forgotPassword:hover {
   color: #9fb1b2;
+}
+
+/* line 394, ../sass/common_screen/_loginpopup.scss */
+.dw-bubble.mbsc-mobiscroll .dwl {
+  color: #333;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+/* line 399, ../sass/common_screen/_loginpopup.scss */
+.dw-bubble.mbsc-mobiscroll .dwb {
+  color: #f99502;
+}
+/* line 402, ../sass/common_screen/_loginpopup.scss */
+.dw-bubble.mbsc-mobiscroll .dwwol {
+  border-top: 1px solid #f99502;
+  border-bottom: 1px solid #f99502;
 }
 
 /* line 1, ../sass/common_screen/_overlay.scss */
@@ -2459,6 +2538,34 @@ body.chin .partner-headline-wrapper .headline-title {
     padding-left: 30px !important;
   }
 
+  /* line 3, ../sass/mobile/_landing.scss */
+  #business-partners-container img.hk3_logo {
+    height: 12%;
+    width: 12%;
+  }
+  /* line 7, ../sass/mobile/_landing.scss */
+  #business-partners-container img.sony_logo {
+    height: 30%;
+    width: 30%;
+  }
+  /* line 11, ../sass/mobile/_landing.scss */
+  #business-partners-container img.cx_logo {
+    height: 40%;
+    width: 40%;
+  }
+  /* line 15, ../sass/mobile/_landing.scss */
+  #business-partners-container img.cfucome_logo {
+    margin-top: 20px;
+    height: 14%;
+    width: 14%;
+  }
+  /* line 21, ../sass/mobile/_landing.scss */
+  #business-partners-container img.seven_eleven_logo {
+    margin-top: 20px;
+    height: 35%;
+    width: 35%;
+  }
+
   /* line 3, ../sass/mobile/_loginpopup.scss */
   .fwd-savie-wrapper .loginpopup .loginpopup__modal-dialog,
   .loginpopup .loginpopup__modal-dialog {
@@ -2707,53 +2814,43 @@ body.chin .partner-headline-wrapper .headline-title {
     width: 50%;
   }
 }
-@media screen and (min-width: 1200px) {
-  /* line 2, ../sass/desktop_lg/motor/_quick-quote.scss */
-  .quick-quote .ready-content h3 {
-    padding-top: 1em;
-  }
-  /* line 5, ../sass/desktop_lg/motor/_quick-quote.scss */
-  .quick-quote .addOn-content {
-    height: 145px;
-  }
-}
 @media screen and (min-width: 992px) {
-  /* line 3, ../sass/desktop_mdlg/_footer.scss */
+  /* line 3, ../sass/desktop/_footer.scss */
   .footer-container .footer-container__top-wrapper {
     margin: 0 auto;
     padding: 30px 15px;
   }
-  /* line 6, ../sass/desktop_mdlg/_footer.scss */
+  /* line 6, ../sass/desktop/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__contact {
     margin-right: 100px;
     display: inline-block;
     float: left;
   }
-  /* line 11, ../sass/desktop_mdlg/_footer.scss */
+  /* line 11, ../sass/desktop/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link {
     display: inline-block;
     float: left;
   }
-  /* line 14, ../sass/desktop_mdlg/_footer.scss */
+  /* line 14, ../sass/desktop/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper {
     float: left;
     margin-right: 50px;
   }
-  /* line 17, ../sass/desktop_mdlg/_footer.scss */
+  /* line 17, ../sass/desktop/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper a {
     display: block;
     line-height: 1;
     margin-bottom: 16px;
   }
-  /* line 24, ../sass/desktop_mdlg/_footer.scss */
+  /* line 24, ../sass/desktop/_footer.scss */
   .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__social-link {
     float: right;
   }
-  /* line 33, ../sass/desktop_mdlg/_footer.scss */
+  /* line 33, ../sass/desktop/_footer.scss */
   .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link {
     margin: 0 auto;
   }
-  /* line 35, ../sass/desktop_mdlg/_footer.scss */
+  /* line 35, ../sass/desktop/_footer.scss */
   .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link .footer-container__btm-wrapper__link__copy-right {
     padding-top: 5px;
     float: right;
@@ -2762,33 +2859,78 @@ body.chin .partner-headline-wrapper .headline-title {
     line-height: 18px;
   }
 
-  /* line 1, ../sass/desktop_mdlg/_loginpopup.scss */
+  /* line 3, ../sass/desktop/_landing.scss */
+  #business-partners-container img.hk3_logo {
+    margin-top: 15px;
+    height: 40%;
+    width: 40%;
+  }
+  /* line 8, ../sass/desktop/_landing.scss */
+  #business-partners-container img.seven_eleven_logo {
+    margin-top: 25px;
+    height: 55%;
+    width: 55%;
+  }
+  /* line 13, ../sass/desktop/_landing.scss */
+  #business-partners-container img.agoda_logo {
+    margin-top: 15px;
+    height: 55%;
+    width: 55%;
+  }
+  /* line 18, ../sass/desktop/_landing.scss */
+  #business-partners-container img.cx_logo {
+    margin-top: 20px;
+  }
+  /* line 21, ../sass/desktop/_landing.scss */
+  #business-partners-container img.cfucome_logo {
+    margin-top: 40px;
+    height: 38%;
+    width: 38%;
+  }
+  /* line 26, ../sass/desktop/_landing.scss */
+  #business-partners-container img.csl_logo {
+    margin-top: 30px;
+  }
+  /* line 29, ../sass/desktop/_landing.scss */
+  #business-partners-container img.sony_logo {
+    margin-top: 45px;
+    height: 55%;
+    width: 55%;
+  }
+  /* line 34, ../sass/desktop/_landing.scss */
+  #business-partners-container img.club_logo {
+    margin-top: 50px;
+    height: 59%;
+    width: 59%;
+  }
+
+  /* line 1, ../sass/desktop/_loginpopup.scss */
   #errUserName, #errPass {
     display: block;
   }
 
-  /* line 9, ../sass/desktop_mdlg/_loginpopup.scss */
+  /* line 9, ../sass/desktop/_loginpopup.scss */
   .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog,
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog,
   .forgotUserNameForm .modal-dialog.loginpopup__modal-dialog,
   .forgotPasswordForm .modal-dialog.loginpopup__modal-dialog {
     width: 800px;
   }
-  /* line 11, ../sass/desktop_mdlg/_loginpopup.scss */
+  /* line 11, ../sass/desktop/_loginpopup.scss */
   .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .login-info-savie .upper-overlay,
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .login-info-savie .upper-overlay,
   .forgotUserNameForm .modal-dialog.loginpopup__modal-dialog .login-info-savie .upper-overlay,
   .forgotPasswordForm .modal-dialog.loginpopup__modal-dialog .login-info-savie .upper-overlay {
     min-height: 200px;
   }
-  /* line 14, ../sass/desktop_mdlg/_loginpopup.scss */
+  /* line 14, ../sass/desktop/_loginpopup.scss */
   .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .login-input,
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .login-input,
   .forgotUserNameForm .modal-dialog.loginpopup__modal-dialog .login-input,
   .forgotPasswordForm .modal-dialog.loginpopup__modal-dialog .login-input {
     display: inline-block;
   }
-  /* line 17, ../sass/desktop_mdlg/_loginpopup.scss */
+  /* line 17, ../sass/desktop/_loginpopup.scss */
   .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .loginpopupext .login-info-savie img,
   .modal.fade.loginpopup .modal-dialog.loginpopup__modal-dialog .loginpopupext .login-info-savie img,
   .forgotUserNameForm .modal-dialog.loginpopup__modal-dialog .loginpopupext .login-info-savie img,
@@ -2797,7 +2939,7 @@ body.chin .partner-headline-wrapper .headline-title {
     bottom: 0;*/
   }
 
-  /* line 25, ../sass/desktop_mdlg/_loginpopup.scss */
+  /* line 25, ../sass/desktop/_loginpopup.scss */
   .loginpopup .loginpopupext .upper-overlay .heading-h4,
   .loginpopup .loginpopupext .upper-overlay .heading-h5 {
     line-height: 1.3;

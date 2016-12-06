@@ -1,0 +1,27 @@
+#business-partners-container {
+    img {
+        &.hk3_logo {
+            height: 12%;
+            width: 12%;
+        }
+        &.sony_logo {
+            height: 30%;
+            width: 30%;
+        }
+        &.cx_logo {
+            height: 40%;
+            width: 40%;
+        }
+        &.cfucome_logo {
+            margin-top: 20px;
+            height: 14%;
+            width: 14%;
+        }
+        &.csl_logo {}
+        &.seven_eleven_logo {
+            margin-top: 20px;
+            height: 35%;
+            width: 35%;
+        }
+    }
+}

@@ -99,7 +99,9 @@ $(document).ready(function(){
 					e.preventDefault();
 				},
 				success: function(data) {
+					 window.location.hash = "callme=complete";
 					e.preventDefault();
+					window.location.hash = "callme=complete";
 					$('#contactform-pop').addClass('hidden');
 					//$('#successMessage').removeClass('hidden');
 					}

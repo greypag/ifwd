@@ -58,13 +58,13 @@ if(request.getRequestURI().indexOf("/become-partner")>0) {
 
 <% String requestUri = request.getRequestURI(); %>
 <% 
-	if(!requestUri.endsWith("-insurance") 
+	if((!requestUri.endsWith("-insurance") 
 		&&!(requestUri.endsWith("/tc/home") || requestUri.endsWith("/tc/home/") 
 			|| requestUri.endsWith("/tc") || requestUri.endsWith("/tc/"))
 		&&!(requestUri.endsWith("/en/home") || requestUri.endsWith("/en/home/") 
 			|| requestUri.endsWith("/en") || requestUri.endsWith("/en/"))
 		&& !requestUri.endsWith("/offers") 
-		&& !requestUri.endsWith("/faq")) { 
+		&& !requestUri.endsWith("/faq")) && !(requestUri.endsWith("/home-liability") || requestUri.endsWith("/easy-home-care")) ) { 
 %>
 <meta name="robots" content="noindex">
 <% }
@@ -112,7 +112,25 @@ function kenshoo_conv(type,value,orderId,promoCode,valueCurrency) {
 	a.onload = function() { kVoid(); }
 }
 </script>
+<script>
+	var context = "${pageContext.request.contextPath}";
+	var language = "${language}";
+	var affiliate = "${affiliate}";
+	var home_url = "<%=request.getContextPath()%>";
+	<%--For Savie online 2016 JS --%>
+	var getpath = "<%=request.getContextPath()%>";
+	<%--For Savie online 2016 JS END--%>
 
+	/*
+	 * Global Site Variables
+	 */
+	var Site = {
+		'context':'${pageContext.request.contextPath}',
+		'language': '${language}',
+		'affiliate': '${affiliate}',
+	};
+
+</script>
 
 <dec:head />
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />

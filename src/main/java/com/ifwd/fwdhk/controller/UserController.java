@@ -960,7 +960,127 @@ public class UserController {
 		}
 		
 	}
+	
+	@RequestMapping(value = {"/joinus/registrationCustomerLogin"}, method = RequestMethod.POST)
+	@ResponseBody
+	public String registrationCustomer(
+			@ModelAttribute("userDetails") UserDetails userDetails,
+			HttpServletRequest servletRequest, Model model) {
+		HttpSession session = servletRequest.getSession(false);
+		String message=(String) servletRequest.getParameter("message");
+		boolean optIn1 = false;
+		boolean optIn2 = false;
+		if (userDetails.getCheckbox3() == null) { 
+			optIn1 = false;
+		} else	if (userDetails.getCheckbox3().toUpperCase().equals("ON")) {
+			optIn1 = true;
+		} else {
+			optIn1 = false;
+		}
+		
+		if (userDetails.getCheckbox4() == null) {
+			optIn2 = false;
+		}
+		else if (userDetails.getCheckbox4().toUpperCase().equals("ON")) {
+			optIn2 = true;
+		} else {
+			optIn2 = false;
+		}
+		
+		
+		try {
+			
+			JSONObject params = new JSONObject();
+			if (message==null||"".equals(message)) {
+				UserLogin userLogin = new UserLogin();
+				userLogin.setUserName(userDetails.getUserName());
+				userLogin.setPassword(userDetails.getPassword());
+				params = new JSONObject();
+				params.put("userName", userLogin.getUserName());
+				params.put("password", userLogin.getPassword());
+				
+				logger.info("USER_LOGIN Request " + JsonUtils.jsonPrint(params));
+				JSONObject response = restService.consumeApi(HttpMethod.POST,
+						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
+						params);
+				logger.info("USER_LOGIN Response " + JsonUtils.jsonPrint(response));
+				if (response.get("errMsgs") == null && response != null) {
+					session.setAttribute("authenticate", "true");
+					session.setAttribute("token", response.get("token")
+							.toString());
+					session.setAttribute("username", userLogin.getUserName());
+					JSONObject customer = (JSONObject) response.get("customer");
+					session.setAttribute("emailAddress",
+							checkJsonObjNull(customer, "email"));
+					session.setAttribute("myReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myHomeReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myTravelReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myAnnualTravelReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					/*session.setAttribute("myOverseasReferralCode",
+							checkJsonObjNull(customer, "referralCode"));*/
 
+					UserDetails loginUserDetails = new UserDetails();
+					loginUserDetails.setToken(checkJsonObjNull(response, "token"));
+					loginUserDetails.setFullName(checkJsonObjNull(customer, "name"));
+					if(loginUserDetails.getFullName() != null && loginUserDetails.getFullName().contains(" ")){
+						String[] strArray = loginUserDetails.getFullName().split(" ");
+						String firstName = "";
+						String lastName = "";
+						for(int i=0;i<strArray.length;i++){
+							if(i==0){
+								lastName = strArray[0];
+							}
+							else{
+								firstName += strArray[i]+" ";
+							}
+						}
+						loginUserDetails.setFirstName(firstName);
+						loginUserDetails.setLastName(lastName);
+					}
+					else{
+						loginUserDetails.setFirstName(loginUserDetails.getFullName());
+					}
+					loginUserDetails.setEmailAddress(checkJsonObjNull(customer,
+							"email"));
+					loginUserDetails.setMobileNo(Methods.formatMobile(checkJsonObjNull(customer,
+							"contactNo")));
+					loginUserDetails.setUserName(userLogin.getUserName());
+					loginUserDetails.setReferralCode(checkJsonObjNull(customer,
+							"referralCode"));
+					loginUserDetails.setReferralCodeUsedCount(checkJsonObjNull(
+							customer, "referralCodeUsedCount"));
+					loginUserDetails.setReferralLink(checkJsonObjNull(customer,
+							"referralLink"));
+					loginUserDetails.setGender(checkJsonObjNull(customer, "gender"));
+					loginUserDetails.setDob(checkJsonObjNull(customer, "dob"));
+					loginUserDetails.setOptIn1(checkJsonObjNull(customer, "optIn1"));
+					loginUserDetails.setOptIn2(checkJsonObjNull(customer, "optIn2"));
+					session.setAttribute("userDetails", loginUserDetails);
+					if(session.getAttribute("chooseCampaign") != null) {
+						return "discover";
+					}
+
+					return "success";
+				} else {
+					String errMessage = response.get("errMsgs").toString();
+					return errMessage.replaceAll("\"", "").replace("[", "")
+							.replace("]", "");
+				}
+				} else {
+					return message;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "fail";
+		}
+		
+	}
+	
 	@RequestMapping(value = {"/forgotUser", "forget-user-name"}, method = RequestMethod.POST)
 	@ResponseBody
 	public String forgotUserName(

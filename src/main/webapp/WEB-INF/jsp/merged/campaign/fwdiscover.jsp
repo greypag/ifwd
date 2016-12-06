@@ -40,7 +40,7 @@
     //hotel monthly campiagn display end time
     long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
-    long cStart = cformat.parse("2016-10-31 14:59:59").getTime();
+    long cStart = cformat.parse("2016-11-30 14:59:59").getTime();
     //cCurrent =  cformat.parse("2016-09-30 15:59:59").getTime();
     /* For Debug and test the campaign switching logic
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
@@ -53,8 +53,8 @@
     String countDownDD = "";
     String countDownMM = "";
     String countDownDate_special = "2016-05-21 14:59:59";
-    String countDownDate_regular = "2016-09-30 14:59:59";
-    String countDownDate_regular_after = "2016-10-31 14:59:59";
+    String countDownDate_regular = "2016-10-31 14:59:59";
+    String countDownDate_regular_after = "2016-11-30 14:59:59";
     String countDownDate_regular2 = "2016-06-30 14:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
@@ -97,14 +97,14 @@
     } else {
         //Regular Offer Period Before Start
         countDownDate = countDownDate_regular;
-        countDownDD = "30";
-        countDownMM = "Sep";
+        countDownDD = "31";
+        countDownMM = "Oct";
 
         //Regular Offer Period Start
         if(cCurrent >= cformat.parse(countDownDate_regular).getTime() ){
             countDownDate = countDownDate_regular_after;
-            countDownDD = "31";
-            countDownMM = "Oct";
+            countDownDD = "30";
+            countDownMM = "Nov";
         }
 
         //Special Offer Period
@@ -596,6 +596,10 @@
                 	$('#offer23-details').modal('show');
                 });
 
+                $(document).on("click", "#twenty-fourth-plan-button", function() {
+                    $('#offer24-details').modal('show');
+                });
+
                 $(document).on("click", "#modal-grab-button-first", function() {
                     if('<%=username2%>' == 'null') {
                         loginpopup("5");
@@ -637,6 +641,14 @@
                         loginpopup("23");
                     } else {
                         assignPromoCode("23");
+                    }
+                });
+
+                $(document).on("click", "#modal-grab-button-twenty-fourth", function() {
+                    if('<%=username2%>' == 'null') {
+                        loginpopup("24");
+                    } else {
+                        assignPromoCode("24");
                     }
                 });
 
@@ -757,7 +769,7 @@
             // -- ./ngPrivateFunct: offersAJAXLoader() --
 
             // -- Initialize the custom-made ngPrivateFunct --
-            offersAJAXLoader("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers_sep.json");
+            offersAJAXLoader("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers.json");
             // -- ./Initialize the custom-made ngPrivateFunct --
         });
         <%-- ./angular --%>
@@ -1010,6 +1022,8 @@
                 link="savings-insurance?promo="+code;
             }else if("23"==campaignId){
                 link="overseas-study-insurance?promo="+code;
+            }else if("24"==campaignId){
+                link="household-insurance/home-liability?promo="+code;
             }
             $("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
                 $('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);

@@ -10,9 +10,7 @@
 @import 'common_screen/motor/landing';
 @import 'common_screen/motor/your-quote';
 @import 'common_screen/motor/quick-quote';
-@media screen and #{$desktop_lg} {
-	@import 'desktop_lg/motor/quick-quote';
-}
+
 @media screen and #{$desktop} {
     @import 'desktop/motor/landing';
 	@import 'desktop/motor/plan-panel';

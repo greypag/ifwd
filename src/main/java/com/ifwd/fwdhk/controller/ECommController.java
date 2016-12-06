@@ -25,7 +25,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.services.HomeService;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
@@ -40,6 +42,65 @@ public class ECommController extends BaseController {
 	private RestServiceDao restService;
 	@Autowired
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
+	@Autowired
+	private HomeService homeService;
+	@Autowired
+	private WorkingHolidayController workingHolidayController;
+
+	@RequestMapping(value = {"/page"}, method = RequestMethod.GET)
+	public RedirectView getExternalLanding(Model model, HttpServletRequest request) 
+	{
+		RedirectView rv = null;
+		String product = request.getParameter("product");
+		String language = request.getParameter("lang");
+		if (language == null || (!language.equals("en") && !language.equals("tc"))) {
+			language = "en";
+		}
+		try {
+			switch (product) {
+				case "easyHomeCare":
+					if (!Boolean.parseBoolean(request.getParameter("age")) 
+							|| !Boolean.parseBoolean(request.getParameter("storeye"))
+							|| !Boolean.parseBoolean(request.getParameter("areas")))
+					{
+						throw new Exception("Invalid input paramter for Easy Home Care");
+					}
+					homeService.getHomeCareQuote(UserRestURIConstants.URL_EASY_HOME_LANDING, request, request.getParameter("promoCode"), "N", "N");
+					rv = new RedirectView(language+"/household-insurance/easy-home-care/quote");
+					break;
+				case "homeLiability":
+					if (!Boolean.parseBoolean(request.getParameter("age")) 
+							|| !Boolean.parseBoolean(request.getParameter("storeye"))
+							|| !Boolean.parseBoolean(request.getParameter("areas")))
+					{
+						throw new Exception("Invalid input paramter for Home Liability");
+					}
+					homeService.getHomeCareQuote(UserRestURIConstants.URL_HOME_LIABILITY_LANDING, request, request.getParameter("promoCode"), "N", "N");
+					rv = new RedirectView(language+"/household-insurance/home-liability/quote");
+					break;
+				case "overseasStudyCare":
+					rv = new RedirectView(language+"/overseas-study-insurance/plan-options");
+					break;
+				case "workingHoliday":
+					if (request.getParameter("plan") != null && (!request.getParameter("plan").equals("A") && !request.getParameter("plan").equals("B")))
+					{
+						throw new Exception("Invalid input paramter for Working Holiday"); 
+					}
+					HttpSession session = request.getSession();
+					session.setAttribute("referralCode", request.getParameter("promoCode"));
+					workingHolidayController.prepareWorkingHolidayPlan(request);
+					rv = new RedirectView(language+"/working-holiday-insurance/quote?plan="+request.getParameter("plan"));
+					break;
+				default:
+					rv = new RedirectView(language);
+					break;
+			}		
+		} catch (Exception ex) {
+			rv = new RedirectView(language);
+		}
+		rv.setStatusCode(HttpStatus.MOVED_TEMPORARILY);
+		return rv;
+	}
 	
 	@RequestMapping(value = {"/{lang}/home-insurance"}, method = RequestMethod.GET)
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
@@ -390,31 +451,31 @@ public class ECommController extends BaseController {
 						break;
 					case 5:
 						discount="Fanfare.discount0";
-						date="31-12-2016";
+						date="31-01-2017";
 						offername="Fanfare.offername0";
 						tnc="Fanfare.tnc0";
 						break;
 					case 6:
 						discount="Fanfare.discount1";
-						date="31-12-2016";
+						date="31-01-2017";
 						offername="Fanfare.offername1";
 						tnc="Fanfare.tnc1";
 						break;
 					case 7:
 						discount="Fanfare.discount2";
-						date="31-12-2016";
+						date="31-01-2017";
 						offername="Fanfare.offername2";
 						tnc="Fanfare.tnc2";
 						break;
 					case 8:
 						discount="Fanfare.discount3";
-						date="31-12-2016";
+						date="31-01-2017";
 						offername="Fanfare.offername3";
 						tnc="Fanfare.tnc3";
 						break;
 					case 9:
 						discount="Fanfare.discount4";
-						date="31-12-2016";
+						date="31-01-2017";
 						offername="Fanfare.offername4";
 						tnc="Fanfare.tnc4";
 						break;
@@ -450,7 +511,7 @@ public class ECommController extends BaseController {
 						break;
                     case 23:
                         discount="Fanfare.discount11";
-                        date="31-12-2016";
+                        date="31-01-2017";
                         offername="Fanfare.offername11";
                         tnc="Fanfare.tnc11";
                         break;
