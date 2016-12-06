@@ -457,289 +457,305 @@ $(document).ready(function(){
         
     	if (getUrlParameter('plan')=='third')
     		$q2.find('#carValue').removeAttr('required');
-    
+		var promo=false;
         $('#submitGetQuote').on('click', function(e){
-        	e.preventDefault();
-        	  $('#get-quote-form').validator('validate');
-        	  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
-          	if($('#carValue').prop('required')){
-            	if(num < 50000){
-            		 $('.custom-dollar-box').addClass('has-error has-danger');
-            		 var err = $('#carValue').data('min-error');
-            		 $('#carValue').parents('.form-group').find('.help-block.with-errors').html('<ul class="list-unstyled"><li>' + err + '</li></ul>');
-            	}
-            	else{
-            		$('#carValue').parents('.form-group').find('.help-block.with-errors').empty();
-            		$('.custom-dollar-box').removeClass('has-error has-danger');
-            	}
-            	}
-        	  
-        	if(!$('#get-quote-form .has-error').length){
-             	var isThird;
-            	if (getUrlParameter('plan')=='third') {
-            		isThird = true;
-            	} else {
-            		isThird = false;
-            	}
-            	var
-                //formObject = $(this).serializeArray(),
-                carMakeCode = $('[name="carMakeCode"]').val(),
-                carModel = $('[name="carModel"]').val(),
-                cc = $('[name="cc"]').val(),
-                ncb = $('[name="ncb"]').val(),
-                carYearOfManufacture = $('[name="carYearOfManufacture"]').val(),
-                clubMember = $('[name="clubMember"]').val(),
-                num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000,
-                occupation = $('[name="occupation"]').val(),
-                driveMoreThanTwo = "true",
-                validAgeGroup = "true",
-                promoCode = $('[name="promoCode"]').val(),
-                clubMemberNum = $('[name="clubMemberNum"]').val(),
-                ncd = $('[name="ncd"]').val(),
-                driveMoreThanTwo = $('[name="driveMoreThanTwo"]').is(':checked'),
-                validAgeGroup = $('[name="validAgeGroup"]').is(':checked');
-            	
-            	if (isThird)
-            		var carEstimatedValue = (num == 0) ? "" : num;
-            	else
-            		var carEstimatedValue = num;
-            	
-                var submitData = {
-	        		"applicant": {
-                        "ncb": ncd,
-                        "occupation": occupation,
-	    	        	"driveMoreThanTwo": driveMoreThanTwo,         
-                        "validAgeGroup": validAgeGroup
-                    },
-                    "carDetail": {
-                    	 "estimatedValue": carEstimatedValue,
-                         "makeCode": carMakeCode,
-                         "engineCapacity": cc,
-                         "model": carModel,
-                         "yearOfManufacture": carYearOfManufacture                        
-                    }, 
-                    "driver" : [{   
-	    	        	"ncb": ncd,
-	    	        	"occupation": occupation,
-	    	        	"driveMoreThanTwo": driveMoreThanTwo,         
-	    	        	"validAgeGroup": validAgeGroup, 
-	    	        }],
-                    "planCode": null,
-                    "compPlan": null,
-                    "personalAccident": false,
-                    "thirdPartyPropertyDamage": false
-                };
-                if (isThird) {
-                    submitData.planCode = "Third";
-                    submitData.compPlan = null; 
-                } else {
-                    submitData.planCode = "Comp";
-                    submitData.compPlan = "Silver"; 
-                }
-				
-          //  console.log(num);
-                	$.ajax({
-                        beforeSend: function(){
-                        	$('#loading-overlay').modal("show");
-                        },
-                        type: "POST",
-                        url: context + "/api/iMotor/quote",  //post to api
-                        data: JSON.stringify(submitData),
-                        success: function(){
-                        	sessionStorage.setItem('carMake', carMakeCode);
-                        	sessionStorage.setItem('carModel', carModel);
-                        	sessionStorage.setItem('occupation', occupation);
-                          //	e.preventDefault();
-                            $('#loading-overlay').modal("hide");
-                            var $form = $("<form id='quote-form' />");
-		                    if (isThird) {
+		/*	if(promo==false)
+			{
+				promo=true;
+				$("#testimonials").removeClass('hidden');
+				return false;
+			}
+		});
+		
+		//$('.finalsubmitGetQuote').on('click', function(e){
+
+			if($(this).attr('data')=="go")*/
+			{
+				e.preventDefault();
+				  $('#get-quote-form').validator('validate');
+				  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
+				if($('#carValue').prop('required')){
+					if(num < 50000){
+						 $('.custom-dollar-box').addClass('has-error has-danger');
+						 var err = $('#carValue').data('min-error');
+						 $('#carValue').parents('.form-group').find('.help-block.with-errors').html('<ul class="list-unstyled"><li>' + err + '</li></ul>');
+					}
+					else{
+						$('#carValue').parents('.form-group').find('.help-block.with-errors').empty();
+						$('.custom-dollar-box').removeClass('has-error has-danger');
+					}
+					}
+				  
+				if(!$('#get-quote-form .has-error').length){
+					var isThird;
+					if (getUrlParameter('plan')=='third') {
+						isThird = true;
+					} else {
+						isThird = false;
+					}
+					var
+					//formObject = $(this).serializeArray(),
+					carMakeCode = $('[name="carMakeCode"]').val(),
+					carModel = $('[name="carModel"]').val(),
+					cc = $('[name="cc"]').val(),
+					ncb = $('[name="ncb"]').val(),
+					carYearOfManufacture = $('[name="carYearOfManufacture"]').val(),
+					clubMember = $('[name="clubMember"]').val(),
+					num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000,
+					occupation = $('[name="occupation"]').val(),
+					driveMoreThanTwo = "true",
+					validAgeGroup = "true",
+					promoCode = $('[name="promoCode"]').val(),
+					clubMemberNum = $('[name="clubMemberNum"]').val(),
+					ncd = $('[name="ncd"]').val(),
+					driveMoreThanTwo = $('[name="driveMoreThanTwo"]').is(':checked'),
+					validAgeGroup = $('[name="validAgeGroup"]').is(':checked');
+					
+					
+					if (isThird)
+						var carEstimatedValue = (num == 0) ? "" : num;
+					else
+						var carEstimatedValue = num;
+					
+					var submitData = {
+						"applicant": {
+							"ncb": ncd,
+							"occupation": occupation,
+							"driveMoreThanTwo": driveMoreThanTwo,         
+							"validAgeGroup": validAgeGroup
+						},
+						"carDetail": {
+							 "estimatedValue": carEstimatedValue,
+							 "makeCode": carMakeCode,
+							 "engineCapacity": cc,
+							 "model": carModel,
+							 "yearOfManufacture": carYearOfManufacture                        
+						}, 
+						"driver" : [{   
+							"ncb": ncd,
+							"occupation": occupation,
+							"driveMoreThanTwo": driveMoreThanTwo,         
+							"validAgeGroup": validAgeGroup, 
+						}],
+						"planCode": null,
+						"compPlan": null,
+						"personalAccident": false,
+						"thirdPartyPropertyDamage": false,
+						"promoCode":promoCode
+					};
+					if (isThird) {
+						submitData.planCode = "Third";
+						submitData.compPlan = null; 
+					} else {
+						submitData.planCode = "Comp";
+						submitData.compPlan = "Silver"; 
+					}
+					
+					
+			  //  console.log(num);
+						$.ajax({
+							beforeSend: function(){
+								$('#loading-overlay').modal("show");
+							},
+							type: "POST",
+							url: context + "/api/iMotor/quote",  //post to api
+							data: JSON.stringify(submitData),
+							success: function(){
+								sessionStorage.setItem('carMake', carMakeCode);
+								sessionStorage.setItem('carModel', carModel);
+								sessionStorage.setItem('occupation', occupation);
+							  //	e.preventDefault();
+								$('#loading-overlay').modal("hide");
+								var $form = $("<form id='quote-form' />");
+								if (isThird) {
+									if(resume==true)
+										$form.attr("action", "third-party-quote?edit=yes");
+									else if(getUrlParameter("edit")=="yes")
+										$form.attr("action", "third-party-quote?edit=yes");
+									else
+										$form.attr("action", "third-party-quote");
+								} else {
+									if(resume==true)
+										$form.attr("action", "comprehensive-quote?edit=yes");
+									else if(getUrlParameter("edit")=="yes")
+										$form.attr("action", "comprehensive-quote?edit=yes");
+									else
+										$form.attr("action", "comprehensive-quote");
+								}
+								$form.attr("method", "post");
+								var $quote = $("<input type='hidden' name='data' />");
 								if(resume==true)
-									$form.attr("action", "third-party-quote?edit=yes");
+								{
+									var opts = {};
+									opts = $.extend(opts,quote, submitData);
+									opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+									opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+									opts=  $.extend(opts,{"driver": $.extend(quote.driver[0], submitData.driver[0])});
+									$quote.attr("value", JSON.stringify(opts));				
+								}
 								else if(getUrlParameter("edit")=="yes")
-									$form.attr("action", "third-party-quote?edit=yes");
+								{
+									var opts = {};
+									opts = $.extend(opts,quote, submitData);
+									opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+									opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+									opts=  $.extend(opts,{"driver": $.extend([],quote.driver, submitData.driver)});
+									$quote.attr("value", JSON.stringify(opts));	
+								}
 								else
-									$form.attr("action", "third-party-quote");
-                            } else {
-								if(resume==true)
-									$form.attr("action", "comprehensive-quote?edit=yes");
-								else if(getUrlParameter("edit")=="yes")
-									$form.attr("action", "comprehensive-quote?edit=yes");
-								else
-									$form.attr("action", "comprehensive-quote");
-                            }
-                            $form.attr("method", "post");
-                            var $quote = $("<input type='hidden' name='data' />");
-							if(resume==true)
-							{
-								var opts = {};
-								opts = $.extend(opts,quote, submitData);
-								opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
-								opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
-								opts=  $.extend(opts,{"driver": $.extend(quote.driver[0], submitData.driver[0])});
-								$quote.attr("value", JSON.stringify(opts));				
-                            }
-							else if(getUrlParameter("edit")=="yes")
-							{
-								var opts = {};
-								opts = $.extend(opts,quote, submitData);
-								opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
-								opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
-								opts=  $.extend(opts,{"driver": $.extend([],quote.driver, submitData.driver)});
-								$quote.attr("value", JSON.stringify(opts));	
+								{
+									$quote.attr("value", JSON.stringify(submitData));
+								}//$quote.attr("value", JSON.stringify(quote));
+								//console.dir(opts);
+								$form.append($quote);
+								$("body").append($form);
+								$('#quote-form').submit();                        
+							},
+							dataType: "json",
+							contentType : "application/json",
+							cache: false,
+							async: false,
+							error: function(xhr, textStatus, errorThrown) {
+								$('#reason').attr('value', xhr.status);
+								e.preventDefault();
+								if (xhr.status == 400) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[400]);
+									else
+										$("#reasonMsg").text(enErr[400]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								if (xhr.status == 405) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 417) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 406) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[406]);
+									else
+										$("#reasonMsg").text(enErr[406]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 408) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[408]);
+									else
+										$("#reasonMsg").text(enErr[408]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 409) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[409]);
+									else
+										$("#reasonMsg").text(enErr[409]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 412) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[412]);
+									else
+										$("#reasonMsg").text(enErr[412]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 413) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[413]);
+									else
+										$("#reasonMsg").text(enErr[413]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 414) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[414]);
+									else
+										$("#reasonMsg").text(enErr[414]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 415) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[415]);
+									else
+										$("#reasonMsg").text(enErr[415]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 416) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[416]);
+									else
+										$("#reasonMsg").text(enErr[416]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 500) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[500]);
+									else
+										$("#reasonMsg").text(enErr[500]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+									
+								} else {
+									$("#reasonMsg").text('System error');
+									console.log(xhr.status, textStatus, errorThrown);
+								 
+								}
+								$("#loading-overlay").modal("hide");
+							 
 							}
-							else
-							{
-								$quote.attr("value", JSON.stringify(submitData));
-							}//$quote.attr("value", JSON.stringify(quote));
-                            //console.dir(opts);
-							$form.append($quote);
-                            $("body").append($form);
-                            $('#quote-form').submit();                        
-                        },
-                        dataType: "json",
-                        contentType : "application/json",
-                        cache: false,
-                        async: false,
-                        error: function(xhr, textStatus, errorThrown) {
-                        	$('#reason').attr('value', xhr.status);
-                        	e.preventDefault();
-                            if (xhr.status == 400) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[400]);
-                            	else
-                            		$("#reasonMsg").text(enErr[400]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            if (xhr.status == 405) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[417]);
-                            	else
-                            		$("#reasonMsg").text(enErr[417]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 410) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[410]);
-                            	else
-                            		$("#reasonMsg").text(enErr[410]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 417) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[417]);
-                            	else
-                            		$("#reasonMsg").text(enErr[417]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 406) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[406]);
-                            	else
-                            		$("#reasonMsg").text(enErr[406]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 408) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[408]);
-                            	else
-                            		$("#reasonMsg").text(enErr[408]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 409) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[409]);
-                            	else
-                            		$("#reasonMsg").text(enErr[409]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 410) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[410]);
-                            	else
-                            		$("#reasonMsg").text(enErr[410]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 412) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[412]);
-                            	else
-                            		$("#reasonMsg").text(enErr[412]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 413) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[413]);
-                            	else
-                            		$("#reasonMsg").text(enErr[413]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 414) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[414]);
-                            	else
-                            		$("#reasonMsg").text(enErr[414]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 415) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[415]);
-                            	else
-                            		$("#reasonMsg").text(enErr[415]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 416) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[416]);
-                            	else
-                            		$("#reasonMsg").text(enErr[416]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 500) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[500]);
-                            	else
-                            		$("#reasonMsg").text(enErr[500]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                                
-                            } else {
-                                $("#reasonMsg").text('System error');
-                                console.log(xhr.status, textStatus, errorThrown);
-                             
-                            }
-                            $("#loading-overlay").modal("hide");
-                         
-                        }
-                    });
-        		
-        	}
+						});
+					
+				}
+			}
         });
       
        

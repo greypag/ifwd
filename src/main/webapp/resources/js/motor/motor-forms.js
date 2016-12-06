@@ -199,15 +199,16 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                         callback(newres);
-						$.each(res, function(i, item) {
-							if(getUrlParameter("edit")=="yes")
-							{
-								if(item.desc == quote.applicant.correspondenceAddress.district )
+						if(quote.applicant.correspondenceAddress != null)
+							$.each(res, function(i, item) {
+								if(getUrlParameter("edit")=="yes")
 								{
-									$motor_district[0].selectize.setValue(item.code);	
+									if(item.desc == quote.applicant.correspondenceAddress.district )
+									{
+										$motor_district[0].selectize.setValue(item.code);	
+									}
 								}
-							}
-						});
+							});
                     }
             });
         },
@@ -240,15 +241,16 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                         callback(newres);
-						$.each(newres, function(i, item) {
-							if(getUrlParameter("edit")=="yes")
-							{
-								if(item.code == quote.applicant.correspondenceAddress.hkKlNt)
-								{	
-									$motor_area[0].selectize.setValue(item.desc);	
+						if(quote.applicant.correspondenceAddress != null)
+							$.each(newres, function(i, item) {
+								if(getUrlParameter("edit")=="yes")
+								{
+									if(item.code == quote.applicant.correspondenceAddress.hkKlNt)
+									{	
+										$motor_area[0].selectize.setValue(item.desc);	
+									}
 								}
-							}
-						});
+							});
                     }
             });
         },

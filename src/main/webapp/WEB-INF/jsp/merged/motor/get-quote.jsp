@@ -230,7 +230,7 @@ width: 100px !important;
                                         <br/>
                                         <br/>
                                     </div>
-                                    <div class="col-md-6 text-left">
+                                    <!-- <div class="col-md-6 text-left">
                                         <div class="checkbox">
                                             <input type="checkbox" id="the-club-member-toggle" name="clubMember"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
                                                     <img src="<%=request.getContextPath()%>/resources/images/theclub-logo.png" > <fmt:message key="motor.getquote.promotion.clubmemeber.checkbox" bundle="${motorMsg}" /></a></label>
@@ -245,7 +245,19 @@ width: 100px !important;
                                     <div class="col-md-6">
                                         <input type="text" name="clubMemberNum" id="" class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.clubmemeber.placeholder" bundle="${motorMsg}" />' />
                                     </div>
-                                </div>
+                                </div>-->
+                                <div class="col-md-6 col-md-offset-3">
+			                            <div class="row">
+			                                <div class="col-xs-6">
+			                                    <a href="javascript:;" class="finalsubmitGetQuote" data="go" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.skip" bundle="${motorMsg}" /></a>
+			                                    <br />
+			                                </div>
+			                                <div class="col-xs-6">
+			                                    <a href="javascript:;" class="finalsubmitGetQuote" data="check" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.next" bundle="${motorMsg}" /></a>
+			                                    <br />
+			                                </div>
+			                            </div>
+			                        </div>
                             </div>
                         </div>
                     </div>

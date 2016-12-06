@@ -434,6 +434,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript">
 var checkbox=true;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+//quote = jQuery.parseJSON('{"id":0,"planCode":"Third","compPlan":null,"grossPremium":null,"discountAmount":null,"personalAccident":true,"thirdPartyPropertyDamage":true,"addOnPaAmt":"100","addOnTppdAmt":"309","addOnPaBenefit":"500000","addOnTppdIncrease":"5000000","policyId":"26932443","refNumber":"QFVPE16-001864","amtFromThirdPartyToCompSilver":null,"amtFromThirdPartyToCompGold":null,"compInsuranceAmount":null,"personalAccidentAmount":null,"subTotalAmount":null,"amountDueAmount":"2023.53","ownDamageExcess":null,"theftExcess":null,"unnamedDriverExcess":null,"youngDriverExcess":null,"inexperiencedDriverExcess":null,"tPPDExcess":null,"parkingExcess":null,"promoCode":null,"carDetail":{"id":null,"makeCode":"BMW","model":"120I","engineCapacity":2599,"typeOfBody":null,"carGroup":null,"electricCar":false,"alarm":null,"modelDesc":"MODELZ","yearOfManufacture":"2016","estimatedValue":2000000,"chassisNumber":"1HGCM82633A004352","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null},"driver":[{"name":"chan chan chan","dateOfBirth":"06-12-1991","hkid":"a1234563","contactNo":null,"email":null,"occupation":"A1","ncb":null,"validAgeGroup":true,"driveMoreThanTwo":true}],"policyStartDate":"06-12-2016","nameOfPreviousInusrancer":"ACEInsuranceLimited","regNoofPreviousPolicy":"1111111","expDateOfPreviousInsurance":"06-12-2016","previousPolicyNo":"p1233213","motorCareDeclaration":[{"declarationNo":"q1","declarationDesc":null,"declarationAns":false,"langCode":null},{"declarationNo":"q2","declarationDesc":null,"declarationAns":true,"langCode":null},{"declarationNo":"q3","declarationDesc":null,"declarationAns":false,"langCode":null}],"psPICS":false,"psNoDM":true,"psNoProvidePersonalData":true,"theClubMemberNum":null,"coverNoteNum":null,"applicant":{"name":"chan chan chan","dateOfBirth":"06-12-1991","hkid":"a1234563","contactNo":"28515450","email":"kevin.chan@isobar.com","occupation":"A1","ncb":40,"validAgeGroup":true,"driveMoreThanTwo":true,"correspondenceAddress":null},"riderDiscountAmt":0}');
 /* 
  *  Define motor success login callback
  */
@@ -540,12 +541,16 @@ $(document).ready(function(){
 		$('input[name=driverID]').val(quote.applicant.hkid);
 		$('input[name=mobileno]').val(quote.applicant.contactNo);
 		$('input[name=email]').val(quote.applicant.email);
-		$('input[name=flat]').val(quote.applicant.correspondenceAddress.flat);
-		$('input[name=floor]').val(quote.applicant.correspondenceAddress.floor);
-		$('input[name=block]').val(quote.applicant.correspondenceAddress.block);
-		$('input[name=building]').val(quote.applicant.correspondenceAddress.building);
-		$('input[name=estate]').val(quote.applicant.correspondenceAddress.estate);
-		$('input[name=district]').val(quote.applicant.correspondenceAddress.district);
+		
+		if(quote.applicant.correspondenceAddress != null)
+		{
+			$('input[name=flat]').val(quote.applicant.correspondenceAddress.flat);
+			$('input[name=floor]').val(quote.applicant.correspondenceAddress.floor);
+			$('input[name=block]').val(quote.applicant.correspondenceAddress.block);
+			$('input[name=building]').val(quote.applicant.correspondenceAddress.building);
+			$('input[name=estate]').val(quote.applicant.correspondenceAddress.estate);
+			$('input[name=district]').val(quote.applicant.correspondenceAddress.district);
+		}
     }
 	
 	//Check UserLogin

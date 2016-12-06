@@ -1795,12 +1795,14 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 								clicked = true;
 								$("#PaymentingDiv").show();
 								
-								var quote_policyId = {"policyId":quote.policyId,"refNumber":quote.refNumber};
+								//quote.policyId 
+								//quote.refNumber
+								//var quote_policyId = {"policyId":quote.policyId,"refNumber":quote.refNumber};
 								
 								//check payment
 								$.ajax({
 									type : "POST",
-									data : JSON.stringify(quote_policyId),
+									data : JSON.stringify(quote),
 									dataType : "json",
 									contentType : "application/json",
 									cache : false,
