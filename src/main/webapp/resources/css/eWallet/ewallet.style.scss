@@ -326,6 +326,13 @@ $txt-hint-color: #999999;
 .ew_popup_linkupSuccess{
 	@extend %ew_base_popup;
 	text-align: center;
+	.sub-header{
+		color: #ff9900;
+		padding: 0.416em 0;
+	}
+	.ew_desc{
+		padding: 1em 0;	
+	}
 	.ew_btn_confirm{
 		@extend %ew_base_popup_btn;
 	}

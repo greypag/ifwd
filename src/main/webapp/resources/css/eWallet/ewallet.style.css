@@ -216,6 +216,11 @@
 
 .ew_popup_linkupSuccess {
   text-align: center; }
+  .ew_popup_linkupSuccess .sub-header {
+    color: #ff9900;
+    padding: 0.416em 0; }
+  .ew_popup_linkupSuccess .ew_desc {
+    padding: 1em 0; }
 
 .ew_popup_withdraw .ew_popup_sec_pol {
   padding: 0; }

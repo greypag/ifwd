@@ -25,7 +25,7 @@ var eWalletCtr = {
 		}
 
 		$("#e-wallet-tab-link").trigger("click");
-		if (flag) {
+		if (flag == "true") {
 			$(".ew_popup_linkupSuccess").modal();
 		} else {
 			eWalletCtr.showGenericMsg("", msgCtr.linkup.tngLinkupFail);
@@ -206,13 +206,13 @@ var policyHelper = {
 			}
 			
 			// add wraning msg
+			var warns = info.warnMsg;
+
 			if(warns.length == 0){
 				policyDom.find(".ew_pol_warns .ew_pol_btnMore").hide();
 			}else{
 				policyDom.find(".ew_pol_warns .ew_pol_btnMore").attr("href", "#p" + info.policyId);
-				policyDom.find(".ew_pol_warns .ew_pol_warnList").attr("id", "p" + info.policyId);
-
-				var warns = info.warnMsg;
+				policyDom.find(".ew_pol_warns .ew_pol_warnList").attr("id", "p" + info.policyId);	
 			
 				for( var wi = 0; wi < warns.length; wi++){
 					var wranItem = $("<li/>");

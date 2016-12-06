@@ -1127,16 +1127,18 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-				<h4 class="modal-title"><fmt:message key="ewallet.linkup.title" bundle="${msg}" /></h4>
+				<h4 class="modal-title"><fmt:message key="ewallet.popup.pair.success.title" bundle="${msg}" /></h4>
 			</div>
 			<div class="modal-body">
 				<div class="container-fluid bd-example-row">
 					<div class="row">
 						<div class="col-xs-12 ew_popup_sec">
+							<h3 class="sub-header"><fmt:message key="ewallet.popup.pair.success.txt1" bundle="${msg}" /></h3>
+
 							<p class="ew_desc">
-								<fmt:message key="ewallet.popup.password.success.prompt" bundle="${msg}" />
+								<fmt:message key="ewallet.popup.pair.success.txt2" bundle="${msg}" />
 							</p>
-							<a href="javascript:void(0);" data-dismiss="modal" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText1" bundle="${msg}" /></a>
+							<a href="javascript:void(0);" data-dismiss="modal" class="ew_btn_confirm"><fmt:message key="ewallet.popup.pair.success.btn" bundle="${msg}" /></a>
 						</div>					
 					</div>
 				</div>
