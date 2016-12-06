@@ -211,7 +211,8 @@
       margin-bottom: 0; }
     .wp_productCalculator .tbl-result-wrapper .tbl-wrapper {
       background-color: #fff;
-      padding-top: 10px; }
+      padding-top: 10px;
+      position: relative; }
       .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-year, .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data {
         float: left;
         /* margin-bottom:10px; */ }
@@ -226,7 +227,8 @@
       .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data {
         width: 70%;
         overflow-x: scroll;
-        -webkit-overflow-scrolling: touch; }
+        -webkit-overflow-scrolling: touch;
+        position: relative; }
         .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data .col-data-scroller {
           width: 140%; }
         .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data table {
@@ -240,6 +242,19 @@
       .wp_productCalculator .tbl-result-wrapper .tbl-wrapper th, .wp_productCalculator .tbl-result-wrapper .tbl-wrapper td {
         text-align: center;
         padding: 5px; }
+      .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data-control-wrapper {
+        position: absolute;
+        top: 17px;
+        width: 70%;
+        right: 0; }
+        .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data-control-wrapper .col-data-control.right {
+          position: absolute;
+          top: 0;
+          right: 0; }
+        .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data-control-wrapper .col-data-control.left {
+          position: absolute;
+          top: 0;
+          left: 0; }
 
 .btm-btn {
   margin-bottom: 20px; }
@@ -261,6 +276,9 @@
 
 .pv_compareTable {
   overflow: hidden; }
+  .pv_compareTable a:hover {
+    text-decoration: underline;
+    color: #ff8200; }
   .pv_compareTable .sel_wrapper {
     width: 50%;
     overflow: hidden;
@@ -337,6 +355,8 @@
       overflow-x: hidden; }
       .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data .col-data-scroller {
         width: 100%; }
+    .wp_productCalculator .tbl-result-wrapper .tbl-wrapper .col-data-control-wrapper {
+      display: none; }
 
   .pv_sec_features .pv_feature_box {
     text-align: center; }

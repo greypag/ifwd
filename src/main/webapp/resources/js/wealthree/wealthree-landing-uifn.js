@@ -6,7 +6,10 @@ var currencyRate = {
 		y3:1000,
 		s:"$",
 		min:48000,
-		max:4800000
+		max:4800000,
+		g3:0.47003,
+		g1:0.41915,
+		g2:0.87804
 	},
 	"rmb" :{
 		r:1.040,
@@ -15,7 +18,10 @@ var currencyRate = {
 		y3:1000,
 		s:"¥",
 		min:37000,
-		max:3700000
+		max:3700000,
+		g3: 0.45321,
+		g1: 0.41006,
+		g2: 0.86538
 	} 
 }
 $(document).ready(function(){
@@ -91,11 +97,20 @@ $(document).ready(function(){
 
 
  	$(".btn-calculate").click(function(){
- 		var amount = parseInt($("#txt_amount").val().replace(/,/ig,""),10);
+ 		var amount = parseInt($("#txt_amount").val().replace(/,/ig,""),10) / 2;
  		var errMsg = "";
  		if(!isNaN(amount)){
  			
  			var currency = $("#sel_currency").val();
+
+ 			var cb_next = currency == "rmb";
+ 			var cb_curr = $("input[name='cb1']").prop("checked");
+
+ 			if(cb_next != cb_curr){
+ 				$("input[name='cb1']").prop("checked",cb_next);
+ 				$("input[name='cb1']").change();
+ 			}
+
 
  			if(currencyRate[currency].min > amount){
  				//Min reached
@@ -105,8 +120,11 @@ $(document).ready(function(){
  				errMsg = getBundle(getBundleLanguage, "wealthree.input.error.invalid."+ currency+".max");
  			}else{
  				showCalculatedRate(amount,currency);
+ 				$(".tbl-result-wrapper").collapse("show");
 
-
+ 				//recalibrate Table Height
+ 				recalibrateTable();
+ 				$.scrollTo('.tbl-result-wrapper', 300, {offset:{top:($(".logobox").outerHeight() + 30) * -1}});
  			}
 
  		}else{
@@ -145,8 +163,25 @@ $(document).ready(function(){
 	});
  	
  	$("#sel_savie_provie").parents(".sel_wrapper").css("width", $("#sel_savie_provie").width() + 30);
+ 	
+ 	var recalibrateTableTimeout;
+ 	$(window).resize(function(){
+ 		clearTimeout(recalibrateTableTimeout);
+ 		recalibrateTableTimeout = setTimeout(recalibrateTable,500);
+ 		$("#sel_savie_provie").parents(".sel_wrapper").css("width", $("#sel_savie_provie").width() + 30);
+ 	});
 
-$(".col-data-control.left").click(function(){
+ 	$(".col-data-control.right").on("click",function(){
+ 		$(".col-data").animate({scrollLeft:"200%"},300);
+ 	});
+
+ 	$(".col-data-control.left").on("click",function(){
+ 		$(".col-data").animate({scrollLeft:0},300);
+ 	});
+
+
+//What is that???
+/*$(".col-data-control.left").click(function(){
 	//scroll left function here
 	var crt = 0;
 	//var offset = 10;
@@ -159,9 +194,19 @@ $(".col-data-control.left").click(function(){
 			clearInterval(scrollInterval);
 		}
 	}, 20);
-});
+});*/
 
 });
+
+function recalibrateTable(){
+	var maxHeight = 0;
+	
+	$(".tbl-wrapper th").each(function(){
+		maxHeight = Math.max($(this).height(),maxHeight);
+	});
+	
+	$(".tbl-wrapper th").height(maxHeight);
+}
 
 
 
@@ -180,34 +225,47 @@ function showCalculatedRate(_amount,_currency){
 		$(".calTableTitleRMB").css("display","table-row");
 		$(".calTableTitleHKD").css("display","none");
 	}
-	$(".tbl-result-wrapper").removeClass().addClass("tbl-result-wrapper");
 	
+	var guaranteedCash_3rd =_amount / currencyRate[_currency].g3;
+	var guaranteedCash_1st = guaranteedCash_3rd * currencyRate[_currency].g1;
+	var guaranteedCash_2nd = guaranteedCash_3rd * currencyRate[_currency].g2;
+
 	$(".ttl_pay_amount").text(formatDollar(_amount * 2,symbol));
 	$(".yrs3_return").text(formatDollar(thirdYear,symbol));
 
 
 	$(".y1-c1").text(formatDollar(_amount,symbol));
 	$(".y1-c2").text(formatDollar(_amount * 1.1,symbol));
-	$(".y1-c3").text(formatDollar(thirdYear * currencyRate[_currency].y1 / 1000,symbol));
+	$(".y1-c3").text(formatDollar(Math.floor(guaranteedCash_1st),symbol));
 
 	$(".y2-c1").text(formatDollar(_amount * 2,symbol));
 	$(".y2-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
-	$(".y2-c3").text(formatDollar(thirdYear * currencyRate[_currency].y2 / 1000,symbol));
+	$(".y2-c3").text(formatDollar(Math.floor(guaranteedCash_2nd),symbol));
 
 	$(".y3-c1").text(formatDollar(_amount * 2,symbol));
 	$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
-	$(".y3-c3").text(formatDollar(thirdYear * currencyRate[_currency].y3 / 1000,symbol));
+	//$(".y3-c3").text(formatDollar(thirdYear * currencyRate[_currency].y3 / 1000,symbol));
+	$(".y3-c3").text(formatDollar( Math.ceil(guaranteedCash_3rd),symbol));
 	
-	$(".box-result .over-bubble").hide();
- 	$(".box-result ." + _currency).show();
+	$(".box-result .over-bubble").addClass("hide");
+ 	$(".box-result ." + _currency).removeClass("hide");
  	
- 	setTimeout(function(){
+ 	//huh???
+ 	/*setTimeout(function(){
  		var far = $('.col-data').width()+50;
  	    var pos = $('.col-data').scrollLeft() + far;
  	    $(".col-data").animate( { scrollLeft: pos }, 1000, 'easeOutQuad' )
- 	}, 500);
+ 	}, 500);*/
  }
 
 function formatDollar(_amount, _symbol){
 	return _symbol + formatNumberComma(parseInt(_amount,10));
 }
+
+/**
+ * Copyright (c) 2007-2015 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
+ * Licensed under MIT
+ * @author Ariel Flesler
+ * @version 2.1.2
+ */
+;(function(f){"use strict";"function"===typeof define&&define.amd?define(["jquery"],f):"undefined"!==typeof module&&module.exports?module.exports=f(require("jquery")):f(jQuery)})(function($){"use strict";function n(a){return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),["iframe","#document","html","body"])}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:"xy",duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){"object"=== typeof d&&(b=d,d=0);"function"===typeof b&&(b={onAfter:b});"max"===a&&(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&&1<b.axis.length;u&&(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&&function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case "number":case "string":if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case "object":if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&&b.offset(q,e)||b.offset;$.each(b.axis.split(""),function(a,c){var d="x"===c?"Left":"Top",m=d.toLowerCase(),g="scroll"+d,h=r[g](),n=p.max(q,c);t?(f[g]=t[m]+(l?0:h-r.offset()[m]),b.margin&&(f[g]-=parseInt(e.css("margin"+d),10)||0,f[g]-=parseInt(e.css("border"+d+"Width"),10)||0),f[g]+=v[m]||0,b.over[m]&&(f[g]+=e["x"===c?"width":"height"]()*b.over[m])):(d=e[m],f[g]=d.slice&& "%"===d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^\d+$/.test(f[g])&&(f[g]=0>=f[g]?0:Math.min(f[g],n));!a&&1<b.axis.length&&(h===f[g]?f={}:u&&(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b="x"===d?"Width":"Height",h="scroll"+b;if(!n(a))return a[h]-$(a)[b.toLowerCase()]();var b="client"+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return Math.max(l[h],k[h])-Math.min(l[b],k[b])};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(a.elem)[a.prop]()}, set:function(a){var d=this.get(a);if(a.options.interrupt&&a._last&&a._last!==d)return $(a.elem).stop();var b=Math.round(a.now);d!==b&&($(a.elem)[a.prop](b),a._last=this.get(a))}};return p});

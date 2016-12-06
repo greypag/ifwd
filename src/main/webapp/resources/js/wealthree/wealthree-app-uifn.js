@@ -19,6 +19,8 @@ var fwdApi = {
 var isLogged = false;
 var userName = "";
 var IMG_DIR = context + "/resources/images";
+
+var allCentreObj = {};
 //var planCode = "<%= (String) request.getParameter('planCode')%>";
 
 
@@ -79,7 +81,7 @@ $(document).ready(function(){
 				    },
 				    success:function(response){
 				    	if(response){
-				    		$("#preferred-time").empty();
+				    		$("#preferred-time option").remove();
 				    		console.log("response",response);
 				    		if(response.length > 0){
 				    			for(var i in response){
@@ -249,6 +251,11 @@ $(document).ready(function(){
 				$(".centre-address").text(d.address);
 				$(".viewmap-link").attr("href",d.map);
 				
+				$("#preferred-time option").remove();
+				$("#preferred-time").val("");
+    			
+				changeAppointmentDate('#app-date',[]);
+				// $('#app-date').mobiscroll('setVal',"",true);
 				
 				$.ajax({
 					beforeSend:function(){
@@ -279,7 +286,9 @@ $(document).ready(function(){
 				    		if(response.length > 0){
 				    			var dates = [];
 				    			var firstDate = response[0].date;
-				    			$("#preferred-time").empty();
+
+				    			$("#preferred-time option").remove();
+
 					    		for(var i in response){
 					    			var d = response[i];
 					    			var from = d.date.split("-");
@@ -297,6 +306,7 @@ $(document).ready(function(){
 					    				$("#preferred-time").append(option);
 					    			}
 					    		}
+					    		$("#preferred-time").val($("#preferred-time option:first").val());
 					    		//dates.push(new Date(2016,8,1));
 					    		changeAppointmentDate('#app-date',dates);
 					    		$('#app-date').mobiscroll('setVal',dates[0],true);
@@ -304,6 +314,7 @@ $(document).ready(function(){
 					    		
 				    		}else{
 				    			$("#preferedTimeIsNull").modal("show");
+								changeAppointmentDate_dateEmpty('#app-date');
 				    		}
 				    		$("#loading-overlay").modal("hide");
 				    	}
@@ -398,16 +409,17 @@ $(document).ready(function(){
 			    			
 			    		}
 			    		
-			    		$("#centre").change();
+			    		//$("#centre").change();
+			    		checkAllServiceCenterAvailable();
 		    		}else{
 		    			$("#fullyBooked").modal('show');
 		    		}
 		    	}
 
-		    	$("#loading-overlay").modal("hide");
+		    	//$("#loading-overlay").modal("hide");
 		    },
 		    complete:function(){
-		    	$("#loading-overlay").modal("hide");
+		    	//$("#loading-overlay").modal("hide");
 		    }
 		});
 	}
@@ -448,6 +460,78 @@ $(document).ready(function(){
 		
 	}
 });
+
+function checkAllServiceCenterAvailable(){
+	allCentreObj.ttl = $("#centre option").length;
+	allCentreObj.current = 0;
+
+	checkServiceCenterAvailable();
+
+
+
+}
+
+function checkServiceCenterAvailable(){
+
+	var d = $($("#centre option").get(allCentreObj.current)).data();
+
+	 	$.ajax({
+			
+			url:fwdApi.url.findAvailableDateByCentre,
+			type:"get",
+			contentType: "application/json",
+			data:{type:typeId,centreCode:d.serviceCentreCode,date:""},
+			cache:false,
+			async:false,
+			error:function(xhr, textStatus, errorThrown){
+
+				allCentreObj.current++;
+
+				if(allCentreObj.current == allCentreObj.ttl){
+		    		
+		    	}
+
+		    },
+		    success:function(response){
+
+		    	allCentreObj.current++;
+		    	var haveSlot = false;
+
+
+
+		    	if(response){
+		    		if(response.length > 0){
+		    			//Select it
+		    			haveSlot = true;
+		    		}
+		    	}
+
+
+				if(allCentreObj.current == allCentreObj.ttl){
+					$("#loading-overlay").modal("hide");
+		    		if(haveSlot){
+		    			//Select it
+		    			$('#centre option').eq(allCentreObj.current - 1).prop('selected', true);
+		    			$('#centre').change();
+
+		    		}else{
+		    			$("#fullyBooked").modal('show');
+		    		}
+		    	}else{
+		    		if(haveSlot){
+		    			$("#loading-overlay").modal("hide");
+		    			//Select it
+		    			$('#centre option').eq(allCentreObj.current - 1).prop('selected', true);
+		    			$('#centre').change();
+
+		    		}else{
+		    			//Check Next
+		    			checkServiceCenterAvailable();
+		    		}
+		    	}		    	
+		    }
+	});
+}
 //Get Service Center Name - begin
 function getServiceCenterName(SelCenterCode){
 	//Get Availabe Service Center
@@ -1148,9 +1232,31 @@ function onClosed(valueText,inst){
 function changeAppointmentDate(elm,dates){
 	var inst = $(elm).mobiscroll('getInst');
 	inst.clear();
-	inst.option({
+
+	var obj = {
 		valid:dates,
-		minDate:dates[0]
+		readonly:false,
+		onBeforeClose: function (valueText, btn, inst) {}
+	}
+	if(dates.length > 0){
+		obj.minDate = dates[0]
+	}
+
+	inst.option(obj);
+}
+
+function changeAppointmentDate_dateEmpty(elm){
+	var inst = $(elm).mobiscroll('getInst');
+	inst.clear();
+	inst.option({
+		readonly:true,
+		valid:[new Date()],
+		minDate:new Date(),
+		onBeforeClose: function (valueText, btn, inst) {
+			if(btn == 'set'){
+				return false;
+			}
+		}
 	});
 
 }

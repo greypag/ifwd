@@ -221,7 +221,7 @@ var home_url = "<%=request.getContextPath()%>";
 										</span>
 
 										<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s2_ball_hkd.png" class="hkd over-bubble hidden-xs">
-										<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s2_ball_rmb.png" class="rmb over-bubble hidden-xs">
+										<img src="<%=request.getContextPath()%>/resources/images/wealthree/${language}/m_s2_ball_rmb.png" class="rmb over-bubble hidden-xs hide">
 
 									</div>
 								</div>
@@ -229,7 +229,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="clearfix"></div>
 
 								<div class="col-xs-12">
-									<div class="tbl-result-wrapper hidden">
+									<div class="tbl-result-wrapper collapse" aria-expanded="false">
 										<%-- <h4 class="text-center"><fmt:message key="wealthree.landing.calculation.120" bundle="${wealthreeMsg}" /></h4> --%>
 										<div class="tbl-wrapper clearfix">
 											<div class="col-year">
@@ -283,15 +283,18 @@ var home_url = "<%=request.getContextPath()%>";
 													</table>
 												</div>
 											</div>
+											<div class="col-data-control-wrapper">
+												<a class="left col-data-control" href="javascript:void(0);">
+													<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+											    	<span class="sr-only">Previous</span>
+												</a>
+												<a class="right col-data-control" href="javascript:void(0);">
+													<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+													<span class="sr-only">Next</span>
+												</a>
+											</div>
 										</div>
-										<a class="left col-data-control" href="#" role="button" data-slide="prev">
-										<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-								    	<span class="sr-only">Previous</span>
-									</a>
-									<a class="right col-data-control" href="#" role="button" data-slide="next">
-										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-										<span class="sr-only">Next</span>
-									</a>
+										
 										<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.table.remark" bundle="${wealthreeMsg}" /></span></p>
 									</div>
 								</div>
@@ -524,6 +527,9 @@ var home_url = "<%=request.getContextPath()%>";
 					<span class="minacc">
 						<fmt:message key="wealthree.landing.table.min.acc.value.provie" bundle="${wealthreeMsg}" />
 					</span>
+					<span class="detail">
+						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/provie"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></a>
+					</span>
             	</div>
             	<div class="savie">
             		<span class="type">
@@ -577,6 +583,9 @@ var home_url = "<%=request.getContextPath()%>";
 					</span>
 					<span class="minacc">
 						<fmt:message key="wealthree.landing.table.min.acc.value.savie" bundle="${wealthreeMsg}" />
+					</span>
+					<span class="detail">
+						<a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></a>
 					</span>
             	</div>
             	
@@ -709,6 +718,13 @@ var home_url = "<%=request.getContextPath()%>";
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.acc.value" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-minacc"><fmt:message key="wealthree.landing.table.min.acc.value.provie" bundle="${wealthreeMsg}" /></span></td>
+								</tr>
+								<tr>
+									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2"><span class="inner">&nbsp;</span></td>
+									<td colspan="2"><span class="inner sw-detail">
+										<a href="<%=request.getContextPath()%>/${language}/savings-insurance/provie"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></a>
+									</span></td>
 								</tr>
 								
 								<tr>
@@ -918,6 +934,10 @@ var home_url = "<%=request.getContextPath()%>";
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.acc.value" bundle="${wealthreeMsg}" /></span></td>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><a href="<%=request.getContextPath()%>/${language}/savings-insurance/provie"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></a></span></td>
+													</tr>
 
 													
 													<tr>
@@ -1010,6 +1030,10 @@ var home_url = "<%=request.getContextPath()%>";
 													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.acc.value" bundle="${wealthreeMsg}" /></span></td>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.savie" bundle="${wealthreeMsg}" /></span></td>
+													</tr>
+													<tr>
+														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></span></td>
+														<td colspan="2"><span class="inner"><a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></a></span></td>
 													</tr>
 
 													

@@ -306,6 +306,7 @@
 		.tbl-wrapper{
 			background-color:#fff;
 			padding-top:10px;
+			position: relative;
 			.col-year, .col-data{
 				float:left;
 				/* margin-bottom:10px; */
@@ -335,6 +336,7 @@
 				width:70%;
 				overflow-x: scroll;
 				-webkit-overflow-scrolling: touch;
+				position: relative;
 
 				.col-data-scroller{
 					width:140%;
@@ -353,11 +355,35 @@
 						background-color:#fa8818;
 					}
 				}
+
+
+
+				
 			}
 
 			th,td{
 				text-align: center;
 				padding:5px;
+			}
+
+			.col-data-control-wrapper{
+				position: absolute;
+				top:17px;
+				width:70%;
+				right:0;
+
+
+				.col-data-control.right{
+		 			position: absolute;
+		 			top:0;
+		 			right:0;
+		 		}
+
+		 		.col-data-control.left{
+		 			position: absolute;
+		 			top:0;
+		 			left:0;
+		 		}
 			}
 		}
 	}
@@ -386,7 +412,12 @@
 	}
 }
 .pv_compareTable{
-	overflow: hidden; 
+	overflow: hidden;
+
+	a:hover{
+		text-decoration:underline;
+		color:#ff8200;
+	}
 	.sel_wrapper{
 		width:50%;
 		overflow: hidden;
@@ -504,9 +535,14 @@
 		 	.tbl-wrapper{
 		 		.col-data{
 		 			overflow-x:hidden;
+
 		 			.col-data-scroller{
 		 				width:100%;
 		 			}
+		 		}
+
+		 		.col-data-control-wrapper{
+					display:none;
 		 		}
 		 	}
 		 }
