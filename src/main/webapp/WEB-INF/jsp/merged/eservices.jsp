@@ -926,6 +926,11 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 										<a class="ew_pol_wd_withdrawBtn" href="javascript:void(0);"><i class="fa fa-refresh fa-spin ew_spin"></i><fmt:message key="ewallet.withdrawMethod.withdrawBtnText" bundle="${msg}" /></a>
 									</div>
 								</div>
+								<div class="col-xs-12 ew_pol_warns">
+									<a class="ew_pol_btnMore" role="button" data-toggle="collapse"><span class="glyphicon glyphicon-exclamation-sign"></span></a>
+									<ul class="collapse ew_pol_warnList">
+									</ul>
+								</div>
 							</div>
 
 							<div class="tab-pane" id="ewallet-logs">

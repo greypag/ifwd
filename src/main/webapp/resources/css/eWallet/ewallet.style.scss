@@ -263,7 +263,8 @@ $txt-hint-color: #999999;
 }
 .ew_pol_list .ew_pol_wd_linkup_status, 
 .ew_pol_list .ew_pol_wd_linkup_action,
-.ew_pol_list .ew_pol_wd_form{
+.ew_pol_list .ew_pol_wd_form,
+.ew_pol_list .ew_pol_warn{
 	@extend %noPadLR;
 }
 .ew_pol_list .ew_pol_wd_linkup_icon, 
@@ -291,6 +292,15 @@ $txt-hint-color: #999999;
 }
 .ew_pol_template{
 	display: none;
+}
+.ew_pol_list .ew_pol_warns{
+	padding: 0.625em 1.250em;
+}
+.ew_pol_list .ew_pol_btnMore{
+	font-size: 30px;
+}
+.ew_pol_list .ew_pol_warnList{
+	color: #970707;
 }
 // ============ Policy List End ============
 
