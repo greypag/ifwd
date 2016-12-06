@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpMethod;
@@ -27,8 +30,11 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
+import com.ifwd.fwdhk.services.EasyHealthService;
 import com.ifwd.fwdhk.services.HomeService;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
+import com.ifwd.fwdhk.services.impl.LifeServiceImpl;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -36,6 +42,9 @@ import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
 public class ECommController extends BaseController {
+	
+	private final static Logger logger = LoggerFactory.getLogger(ECommController.class);
+	
 	@Autowired
 	private SendEmailDao sendEmail;
 	@Autowired
@@ -46,6 +55,8 @@ public class ECommController extends BaseController {
 	private HomeService homeService;
 	@Autowired
 	private WorkingHolidayController workingHolidayController;
+	@Autowired
+	private EasyHealthService easyHealthService;	
 
 	@RequestMapping(value = {"/page"}, method = RequestMethod.GET)
 	public RedirectView getExternalLanding(Model model, HttpServletRequest request) 
@@ -91,6 +102,24 @@ public class ECommController extends BaseController {
 					workingHolidayController.prepareWorkingHolidayPlan(request);
 					rv = new RedirectView(language+"/working-holiday-insurance/quote?plan="+request.getParameter("plan"));
 					break;
+				case "easyHealth":
+					EasyHealthPlanDetailBean planDetail = new EasyHealthPlanDetailBean();
+					try {
+						planDetail.setDobdmy(request.getParameter("dob"));
+						planDetail.setGender("M".equals(request.getParameter("gender"))?"0":"1");
+						planDetail.setSmoker(Boolean.parseBoolean(request.getParameter("smoker"))?"1":"0");
+					} catch (Exception ex) {
+						throw new Exception("Invalid input paramter for Easy Health"); 
+					}
+
+					try {
+						easyHealthService.getPremium(planDetail, request);
+					} catch (ECOMMAPIException e) {
+						logger.info(e.getMessage());
+						e.printStackTrace();
+					}		
+					rv = new RedirectView(language+"/medical-insurance/plan-option");
+					break;
 				default:
 					rv = new RedirectView(language);
 					break;
@@ -106,6 +135,7 @@ public class ECommController extends BaseController {
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
 	{
 		RedirectView rv = new RedirectView("household-insurance/easy-home-care");
+		logger.error("home insurance redirect");
 		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
 		return rv;
 	}
