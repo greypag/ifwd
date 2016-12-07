@@ -151,11 +151,11 @@ var policyHelper = {
 
 		logViewer.clearPolicyOption();
 
+		// show msg if no policy return
 		if(policyAry.length == 0){
 			eWalletCtr.showGenericMsg("", msgCtr.policyList.policyEmpty);
 			return;
 		}
-
 
 		for (var pi = 0; pi < policyAry.length; pi++) {
 			var info = policyAry[pi];
@@ -168,7 +168,7 @@ var policyHelper = {
 			//set tng status
 			var statusWrapper = policyDom.find(".ew_pol_wd_linkup");
 			//set tng expiry date
-			policyDom.find(".ew_pol_tngExp").html(info.tngExpiryDate.split(' ')[0]);
+			policyDom.find(".ew_pol_tngExp").html(info.valueAsOfDate.split(' ')[0]);
 			switch (info.tngPolicyStatus.toLowerCase()) {
 				case "eligible":
 					statusWrapper.addClass("isEmpty");
@@ -190,7 +190,7 @@ var policyHelper = {
 					policyDom.find(".ew_pol_wd_linkup_tngId").html(info.tngAccountId);
 					(function(pid, tid) {
 						policyDom.find(".ew_pol_wd_linkup_unlink").on("click", function() {
-							if(confirm( msgCtr.unlink.confirmMsg + pid +")") == true){
+							if(confirm( msgCtr.unlink.confirmMsg + "(Policy Id" + pid +")") == true){
 								that.unlinkTng(pid, tid);
 							}							
 						});
