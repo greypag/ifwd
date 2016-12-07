@@ -201,7 +201,9 @@ $txt-hint-color: #999999;
 }
 
 // ============ placeholder End ============
-
+.left-side-tab-menu.e-wallet{
+	border-top: 1px solid #d4d5d4;
+}
 
 #e-wallet-tab-link span{
 	background: url(../../images/eWallet/side_menu_wallet.png) no-repeat !important;
@@ -227,8 +229,8 @@ $txt-hint-color: #999999;
 
 
 .ew_pol_list .ew_pol_wd_linkup{
+	@extend %noPadLR;
 	display: inline-block;
-	padding: 0.625em 1.250em;
 	.ew_pol_wd_linkup_empty,
 	.ew_pol_wd_linkup_connected,
 	.ew_pol_wd_linkup_locked,
@@ -260,12 +262,6 @@ $txt-hint-color: #999999;
 	.ew_pol_wd_linkupBtn, .ew_pol_wd_withdrawBtn{
 		@extend %ew_base_loadingBtn;
 	}
-}
-.ew_pol_list .ew_pol_wd_linkup_status, 
-.ew_pol_list .ew_pol_wd_linkup_action,
-.ew_pol_list .ew_pol_wd_form,
-.ew_pol_list .ew_pol_warn{
-	@extend %noPadLR;
 }
 .ew_pol_list .ew_pol_wd_linkup_icon, 
 .ew_pol_list .ew_pol_wd_linkup_detail{

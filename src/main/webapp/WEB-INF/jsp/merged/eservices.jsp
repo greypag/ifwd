@@ -10,6 +10,7 @@
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
 var customerId ="<%=session.getAttribute("customerId")%>";
+customerId = "16883035";
 </script>
 <%!
 	boolean isSaleActiveClass = false;
@@ -910,7 +911,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									<p><fmt:message key="ewallet.withdrawMethod.linkUp.title" bundle="${msg}" /></p>
 								</div>
 								<div class="col-xs-12 ew_pol_wd_linkup">
-									<div class="col-xs-12 col-sm-8 ew_pol_wd_linkup_status">
+									<div class="col-xs-12 col-sm-4 ew_pol_wd_linkup_status">
 										<img src="<%=request.getContextPath()%>/resources/images/eWallet/ewallet-tng-icon.png" alt="<fmt:message key='ewallet.tapngo' bundle='${msg}'/>" class="img-responsive ew_pol_wd_linkup_icon">
 										<div class="ew_pol_wd_linkup_detail">
 											<p class="ew_pol_info_fieldName"><fmt:message key="ewallet.withdrawMethod.linkUp.name" bundle="${msg}" /></p>
@@ -922,6 +923,12 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 											<p class="ew_pol_info_fieldName ew_pol_wd_linkup_status ew_pol_wd_linkup_locked"><fmt:message key="ewallet.withdrawMethod.status.lockedText" bundle="${msg}" /></p>	
 										</div>
 										
+									</div>
+									<div class="ew_pol_info">	
+										<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+											<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.tngExpiry" bundle="${msg}" /></span>
+											<span class="ew_pol_info_fieldValue ew_pol_tngExp"></span>
+										</p>
 									</div>
 									<div class="col-xs-12 col-sm-4 ew_pol_wd_linkup_action">
 										<a class="ew_pol_wd_linkupBtn" href="javascript:void(0);"><i class="fa fa-refresh fa-spin ew_spin"></i><fmt:message key="ewallet.withdrawMethod.linkUpBtnText" bundle="${msg}" /></a>
@@ -1280,7 +1287,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 							<div class="ew_success">
 								<p class="ew_bigTxt"><fmt:message key="ewallet.prompt.success" bundle="${msg}" /></p>
 								<p class="ew_desc">
-									<fmt:message key="ewallet.popup.password.success.prompt" bundle="${msg}" />
+									<fmt:message key="ewallet.prompt.withdrawal.successTxt1" bundle="${msg}" /><span class="pid"></span><fmt:message key="ewallet.prompt.withdrawal.successTxt2" bundle="${msg}" />
 								</p>
 								<a href="javascript:void(0);" class="ew_btn_confirm" data-dismiss="modal"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
 							</div>

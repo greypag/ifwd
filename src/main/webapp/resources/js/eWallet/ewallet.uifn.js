@@ -85,7 +85,7 @@ var eWalletCtr = {
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	},
 	getApiErrorMsg: function (apiName, headerCode, code){
-		var errMsg = "network error.";
+		var errMsg = msgCtr.common.errorMsg;
 		var errMsgCode = "c_" + headerCode + "_";
 
 		if(headerCode == 400 || headerCode == 500){
@@ -93,9 +93,12 @@ var eWalletCtr = {
 		}else{
 			errMsgCode += code;
 		}
-		errMsg = apiErrMsg[apiName][errMsgCode] || errMsg;
 
-		return errMsg + " (" + code + ")";
+		if(!!apiErrMsg[apiName][errMsgCode]){
+			errMsg = apiErrMsg[apiName][errMsgCode] + " (" + code + ")";
+		}
+
+		return errMsg;
 	}
 	//Common Function End
 };
@@ -134,7 +137,7 @@ var policyHelper = {
 					eWalletCtr.showGenericMsg("", msgCtr.policyList.noMobileNum);
 				}
 			},
-			failFn: function(response) {
+			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("getPolicyListByCustomer", xhr.status, response.code);
 				eWalletCtr.showGenericMsg("", msg);
 			},
@@ -164,6 +167,8 @@ var policyHelper = {
 
 			//set tng status
 			var statusWrapper = policyDom.find(".ew_pol_wd_linkup");
+			//set tng expiry date
+			policyDom.find(".ew_pol_tngExp").html(info.tngExpiryDate.split(' ')[0]);
 			switch (info.tngPolicyStatus.toLowerCase()) {
 				case "eligible":
 					statusWrapper.addClass("isEmpty");
@@ -555,7 +560,7 @@ function WithdrawClass(){
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
 		this.popupDom.find(".ew_mobile").html(data.mobile);
 		this.popupDom.find(".ew_tngId").html(data.policy.tngAccountId);
-		this.popupDom.find(".ew_tngExp").html(data.policy.principalAsOfDate.split(" ")[0]);
+		this.popupDom.find(".ew_tngExp").html(data.policy.tngExpiryDate.split(" ")[0]);
 
 		this.popupDom.modal();
 	};
@@ -608,6 +613,7 @@ function WithdrawClass(){
 			},
 			successFn: function(response) {
 				that.switchSection(3);
+				that.popupDom.find(".ew_step_3 .ew_desc .pid").html(that.policyId);
 			},
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("performWithdraw", xhr.status, response.code);
@@ -873,7 +879,12 @@ var apiReqHelper = {
 			error: function(xhr, textStatus, errorThrown) {
 				that.isWorking = false;
 				if (!!conf.failFn) {
-					conf.failFn(JSON.parse(xhr.responseText), xhr, textStatus, errorThrown);
+					try {
+					    conf.failFn(JSON.parse(xhr.responseText), xhr, textStatus, errorThrown);
+					}
+					catch(err) {
+					    conf.failFn({code: ""}, xhr, textStatus, errorThrown);
+					}
 				} else {
 					eWalletCtr.showGenericMsg(msgCtr.common.errorTitle, msgCtr.common.errorMsg);
 				}

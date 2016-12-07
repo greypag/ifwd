@@ -1,8 +1,5 @@
 @charset "UTF-8";
-.ew_pol_list .ew_pol_wd_linkup_status,
-.ew_pol_list .ew_pol_wd_linkup_action,
-.ew_pol_list .ew_pol_wd_form,
-.ew_pol_list .ew_pol_warn, .ew_popup_linkup .ew_remark, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content,
+.ew_pol_list .ew_pol_wd_linkup, .ew_popup_linkup .ew_remark, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content,
 .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_popup_sec_content [class*=col], .ew_popup_withdraw .ew_desc_err, .ew_popup_withdraw .ew_remark, .ew_pol_log .ew_log_selectWrapper, .ew_pol_log .ew_log_selectWrapper [class*=col], .ew_pol_log .ew_pol_info, .ew_pol_log .ew_log_dt_selectWrapper, .ew_pol_log .ew_logTable_wrapper, #e-wallet-tab-contents .ew-tab-title {
   padding-left: 0;
   padding-right: 0; }
@@ -151,6 +148,9 @@
     width: 54px;
     height: 54px; }
 
+.left-side-tab-menu.e-wallet {
+  border-top: 1px solid #d4d5d4; }
+
 #e-wallet-tab-link span {
   background: url(../../images/eWallet/side_menu_wallet.png) no-repeat !important; }
 
@@ -165,8 +165,7 @@
   margin-bottom: 0.625em; }
 
 .ew_pol_list .ew_pol_wd_linkup {
-  display: inline-block;
-  padding: 0.625em 1.250em; }
+  display: inline-block; }
   .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkup_empty,
   .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkup_connected,
   .ew_pol_list .ew_pol_wd_linkup .ew_pol_wd_linkup_locked,
