@@ -1151,45 +1151,31 @@ perventRedirect = true;
                                 </h3>
                                 <h4>
                                     <c:if test="${planDetailsForm.totalAdultTraveller !=0 }">
-                                        <fmt:message key="flight.sidebar.summary.label.family.parent"
-                                            bundle="${msg}" />: ${planDetailsForm.totalAdultTraveller} <br>
+                                        <fmt:message key="flight.sidebar.summary.label.family.parent" bundle="${msg}" />: ${planDetailsForm.totalAdultTraveller} <br>
                                     </c:if>
                                     <c:if test="${planDetailsForm.totalChildTraveller !=0 }">
-                                        <fmt:message key="flight.sidebar.summary.label.family.child"
-                                            bundle="${msg}" />: ${planDetailsForm.totalChildTraveller} <br>
+                                        <fmt:message key="flight.sidebar.summary.label.family.child" bundle="${msg}" />: ${planDetailsForm.totalChildTraveller} <br>
                                     </c:if>
                                     <c:if test="${planDetailsForm.totalOtherTraveller !=0}">
-                                        <fmt:message key="flight.sidebar.summary.label.family.others"
-                                            bundle="${msg}" />: ${planDetailsForm.totalOtherTraveller} <br>
+                                        <fmt:message key="flight.sidebar.summary.label.family.others" bundle="${msg}" />: ${planDetailsForm.totalOtherTraveller} <br>
                                     </c:if>
                                     <c:if test="${planDetailsForm.totalPersonalTraveller !=0}">
-                                        <fmt:message key="flight.sidebar.summary.label.personal"
-                                            bundle="${msg}" />: ${planDetailsForm.totalPersonalTraveller}</c:if>
+                                        <fmt:message key="flight.sidebar.summary.label.personal" bundle="${msg}" />: ${planDetailsForm.totalPersonalTraveller}</c:if>
                                 </h4>
-                                <input type="hidden" name="otherInput"
-                                    value="${planDetailsForm.totalOtherTraveller}"> <input
-                                    type="hidden" name="childInput"
-                                    value="${planDetailsForm.totalChildTraveller}"> <br>
-                                <input type="hidden" name="days"
-                                    value="${planDetailsForm.days}">
+                                <input type="hidden" name="otherInput" value="${planDetailsForm.totalOtherTraveller}">
+                                <input type="hidden" name="childInput" value="${planDetailsForm.totalChildTraveller}"> <br>
+                                <input type="hidden" name="days" value="${planDetailsForm.days}">
                                 <h3 class="txt-bold">
-                                    <fmt:message key="flight.details.summary.option4"
-                                        bundle="${msg}" />
+                                    <fmt:message key="flight.details.summary.option4" bundle="${msg}" />
                                     <span>${planDetailsForm.days}</span>
-                                    <fmt:message key="flight.details.summary.option5"
-                                        bundle="${msg}" />
+                                    <fmt:message key="flight.details.summary.option5" bundle="${msg}" />
                                 </h3>
                                 </div>
                             </div>
                             <div class="orange-bdr"></div>
                             <div class="clearfix"></div>
-                            <%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">
-                                 Amount due
-                            </h3> --%>
-                            <%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">
-                                 ${planDetailsForm.getTotalDue()}
-                                &nbsp;
-                            </h3> --%>
+                            <%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6">Amount due</h3> --%>
+                            <%-- <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right">${planDetailsForm.getTotalDue()}&nbsp;</h3> --%>
 
                         <!--mob-hidden-->
                         </div>
@@ -1297,7 +1283,7 @@ $(function() {
         }
 
         , 'plannedDays': ${planDetailsForm.days}
-        , 'authenticate': ( ${authenticate.equals("false")} || ${authenticate.equals("direct")} )
+        , 'authenticated': ( ${authenticate.equals("false")} || ${authenticate.equals("direct")} )
 
     };
 

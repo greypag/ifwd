@@ -50,7 +50,7 @@ var fwdValidator = (function(fwdConstant) {
 	var _isAlphanumeric = function(val){};
 	var _isEnglish = function(val){};
 
-    var _isEngSpace = function(inputtxt) {
+    var _isAlphaSpace = function(inputtxt) {
         /* Migrated from "js/fwd.js", orginal function name < function allLetter() > */
     	var letters = new RegExp(fwdConstant.regex.general.text.enSpace);
     	return inputtxt.match(letters) ? true : false;
@@ -187,9 +187,6 @@ var fwdValidator = (function(fwdConstant) {
     };
 
 
-
-
-
     /*
 	 * ****************** Function groups as below ******************
 	 */
@@ -205,8 +202,8 @@ var fwdValidator = (function(fwdConstant) {
 		// , 'isAlphanumeric' : _isAlphanumeric
 		// , 'isEnglish' : _isEnglish
         // ,
-        'isEngSpace': _isEngSpace             // replaced allLetter() in fwd.js
-		// , 'isChinese' : _isChinese
+        'isAlphaSpace':     _isAlphaSpace             // replaced allLetter() in fwd.js
+		// , 'isChinese': _isChinese
 		// , 'isMatch' : _isMatch
 		// , 'isValidLength' : _isValidLength
 	};

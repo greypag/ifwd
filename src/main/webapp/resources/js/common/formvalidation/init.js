@@ -49,6 +49,7 @@ var initFVConfig = function(argCfg) {
 			var formId = 'freeFlightForm';
 			// For helpers.attr.xxx
 			var dataSourceFieldInfo = {};
+			var datepickerConfig = {};
 
 			// MUST - Multi-fields applied attr 'readonly'
 			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
@@ -70,7 +71,7 @@ var initFVConfig = function(argCfg) {
 
 			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
-			var datepickerConfig = {
+			datepickerConfig = {
 		        startView: "decade",
 		        autoclose: true,
 		        format: "dd-mm-yyyy",
@@ -105,7 +106,7 @@ var initFVConfig = function(argCfg) {
 			// End >>> Under Developing - the tooltip behaviour
 
 			// MUST - Authenticate Username & Password
-			if ( argCfg.flightJSPcbInfo.authenticate ) {
+			if ( argCfg.flightJSPcbInfo.authenticated ) {
 
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
 
@@ -122,11 +123,11 @@ var initFVConfig = function(argCfg) {
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
-				// fwdUtility.temp.flightCareAuth();
-
 			} else {
+
 				dataSourceFieldInfo = { 'formId': formId };
-				fwdUtility.temp.flightCareActivate( dataSourceFieldInfo );
+				fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( dataSourceFieldInfo );
+
 			}
 
 			// <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
@@ -138,6 +139,7 @@ var initFVConfig = function(argCfg) {
 
 			// MUST - Submit Form
 			$(formId).onsubmit = function() {
+				console.log(fwdUtility.pages.flightCare.userLoginAjax);
 		        fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);
 		    };
 

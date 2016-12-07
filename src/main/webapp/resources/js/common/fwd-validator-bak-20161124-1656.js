@@ -51,7 +51,7 @@ var fwdValidator = (function(fwdConstant) {
 	var _isAlphanumeric = function(val){};
 	var _isEnglish = function(val){};
 
-    var _isEngSpace = function(inputtxt) {
+    var _isAlphaSpace = function(inputtxt) {
 
         /* Migrated from "js/fwd.js", orginal function name < function allLetter() > */
     	var letters = new RegExp(fwdConstant.regex.general.text.enSpace);
@@ -285,7 +285,7 @@ var fwdValidator = (function(fwdConstant) {
 
     	}
 
-    	// if ( _isEngSpace(fullname) == false) { // Private "_isEngSpace()" in current file
+    	// if ( _isAlphaSpace(fullname) == false) { // Private "_isAlphaSpace()" in current file
         //
     	// 	$("#"+dataSourceFieldInfo.inputId).addClass("invalid-field");
         //     // Assign $("#"+dataSourceFieldInfo.errorId).html() value, refer to (applicant, insured, beneficiary)
@@ -356,7 +356,7 @@ var fwdValidator = (function(fwdConstant) {
 		// , 'isAlphanumeric' : _isAlphanumeric
 		// , 'isEnglish' : _isEnglish
         // ,
-        'isEngSpace': _isEngSpace             // replaced allLetter() in fwd.js
+        'isAlphaSpace': _isAlphaSpace             // replaced allLetter() in fwd.js
 		// , 'isChinese' : _isChinese
 		// , 'isMatch' : _isMatch
 		// , 'isValidLength' : _isValidLength
