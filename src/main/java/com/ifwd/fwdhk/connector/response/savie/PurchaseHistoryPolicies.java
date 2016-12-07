@@ -23,7 +23,14 @@ public class PurchaseHistoryPolicies{
 	
 	private String productDescEn;
 	private String productDescZh;
+	private String amountAsOfDate;
 	
+	public String getAmountAsOfDate() {
+		return amountAsOfDate;
+	}
+	public void setAmountAsOfDate(String amountAsOfDate) {
+		this.amountAsOfDate = amountAsOfDate;
+	}
 	public String getProductDescEn() {
 		return productDescEn;
 	}

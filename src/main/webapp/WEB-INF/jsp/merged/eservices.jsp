@@ -377,6 +377,8 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
+															<c:if test="${list.amount ne '0.0'}"><p class="info-data">${list.amount} (${list.amountAsOfDate})</p></c:if>
+															<c:if test="${list.amount eq '0.0'}"><p class="info-data">N/A</p></c:if>
 															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												

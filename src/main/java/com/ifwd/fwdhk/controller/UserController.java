@@ -31,14 +31,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
-import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryPolicies;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
-import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.model.tngsavie.PhwCallerRequest;
 import com.ifwd.fwdhk.model.tngsavie.PhwSearchPolicyRequest;
+import com.ifwd.fwdhk.model.tngsavie.TngPolicyListRequest;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
@@ -364,6 +363,85 @@ public class UserController {
 		model.addAttribute("past_travel", past_travel);
 	}
 	
+
+	private void supplementPhwPolicyBalance(HttpServletRequest request, Model model){
+		if(request==null||model==null){return;}
+		String methodName = "supplementPhwPolicyBalance";
+
+		Map<String, Object> modelMap = model.asMap();
+		
+		List<PurchaseHistoryPolicies> active_life = (List<PurchaseHistoryPolicies>)modelMap.get("active_life");
+		List<PurchaseHistoryPolicies> active_saving = (List<PurchaseHistoryPolicies>)modelMap.get("active_saving");
+
+		Map<String, JSONObject> policyMap = this.getPhwPolicyBalance(request);
+		if(policyMap==null || policyMap.isEmpty()){return;}
+
+		String amountKey="policyPrincipal";
+		String amountAsOfDateKey="principalAsOfDate";
+		
+		if(active_life!=null){
+			for(PurchaseHistoryPolicies p:active_life){
+				String policyNo = p.getPolicyNumber();
+				JSONObject jo = policyMap.get(policyNo);
+				Double amount = (Double)jo.get(amountKey);
+				String amountAsOfDate = (String)jo.get(amountAsOfDateKey);
+				if(amount!=null && amountAsOfDate!=null){
+					p.setAmount(amount.toString());
+					p.setAmountAsOfDate(amountAsOfDate);
+				}
+//				logger.debug(methodName+" "+policyNo+"/"+amount+"/"+amountAsOfDate);
+			}
+		}
+		
+		if(active_saving!=null){
+			for(PurchaseHistoryPolicies p:active_saving){
+				String policyNo = p.getPolicyNumber();
+				JSONObject jo = policyMap.get(policyNo);
+				Double amount = (Double)jo.get(amountKey);
+				String amountAsOfDate = (String)jo.get(amountAsOfDateKey);
+				if(amount!=null && amountAsOfDate!=null){
+					p.setAmount(amount.toString());
+					p.setAmountAsOfDate(amountAsOfDate);
+				}
+//				logger.debug(methodName+" "+policyNo+"/"+amount+"/"+amountAsOfDate);
+			}
+		}
+		
+	}
+		
+	private Map<String, JSONObject> getPhwPolicyBalance(HttpServletRequest request){
+		String methodName = "getPhwPolicyBalance";
+		Map<String, JSONObject> resultMap = new HashMap<String, JSONObject>();
+		try {
+			TngPolicyListRequest tplReq = new TngPolicyListRequest();
+			HttpSession session = request.getSession(false);
+			String customerId = (String)session.getAttribute("customerId");
+			tplReq.setCustomerId(customerId);
+			String url = UserRestURIConstants.ONLINE_WITHDRAWAL_POLICY_BY_CUST;
+			String jsonString = new ObjectMapper().writeValueAsString(tplReq);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+				
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			logger.debug(methodName+" responseJsonObj:"+responseJsonObj.toString());
+			
+			JSONObject msg=(JSONObject)responseJsonObj.get("msg");
+			if(msg!=null){
+				String resultCode = (String)msg.get("resultCode");
+				if("0".equals(resultCode)||"10".equals(resultCode)){
+					JSONArray policies=(JSONArray)responseJsonObj.get("policies");
+					for(Object policy : policies){
+						String policyId=(String)((JSONObject)policy).get("policyId");
+						resultMap.put(policyId, (JSONObject)policy);	
+					}
+				}
+			}
+		} catch (Exception e) {
+			logger.warn(methodName+" Exception",e);
+		}
+		return resultMap;
+	}
+	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = {"/getAccByUsernaneAndPassword", "/{lang}/account"}, method = RequestMethod.GET)
 	public ModelAndView getAccountDetailsByUsernameAndPassoword(HttpServletRequest request, Model model) {
@@ -399,6 +477,7 @@ public class UserController {
 							String customerId = (String)session.getAttribute("customerId");
 							PurchaseHistoryResponse phwPurchaseHistory = this.getPolicyListFromPhw(request, usernameInSession, customerId, tokenInSession);
 							this.processPhwPolicyCategory(request, model, phwPurchaseHistory);
+							this.supplementPhwPolicyBalance(request, model);
 						} catch (Exception e) {
 							logger.warn("getPolicyListFromPhw Exception",e);
 						}
