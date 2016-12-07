@@ -107,33 +107,43 @@
 				'ios_chrome': {
 			        'mobile': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />'
+			    },
+				'motor_insurance': {
+			        'mobile': '<fmt:message key="header.notification.msg.motor" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.motor" bundle="${msg}" />'
 			    }
-
 			}
 	    }
 	};
-
 // Default value
 var isChromeIOS = navigator.userAgent.match('CriOS') ? true : false;
 var contentIndexArr = [];
-
+var nBarConfig = {};
+var showNotification = ( <%=showNotification%> == false ) ? false : true;
 <% if(request.getRequestURI().indexOf("/travel-insurance")>0) { %>
 
-var nBarConfig = {
-	'contentIndex': contentIndexArr,
-	'isVisible': ( <%=showNotification%> == false ) ? false : true
-}
-
-<% } else { %>
-
-if ( isChromeIOS ) { contentIndexArr.push('ios_chrome'); }
-var nBarConfig = {
-	'contentIndex': contentIndexArr,
-	'isVisible': ( <%=showNotification%> == false && isChromeIOS == false ) ? false : true
-}
+	nBarConfig = {
+		'contentIndex': contentIndexArr,
+		'isVisible': showNotification
+	}
+<% }else if(request.getRequestURI().indexOf("/motor-insurance")>0) { %>
+	contentIndexArr.push("motor_insurance");
+	console.log(contentIndexArr);
+	nBarConfig = {
+		'contentIndex': contentIndexArr,
+		'isVisible': showNotification
+	}
 
 <% } %>
 
+if ( isChromeIOS ) { 
+	contentIndexArr.push('ios_chrome'); 
+}
+
+nBarConfig = {
+	'contentIndex': contentIndexArr,
+	'isVisible': showNotification
+}
 </script>
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 
