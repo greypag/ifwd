@@ -1120,7 +1120,9 @@ $("#et-personal-info-next, #btn-back").click(function () {
 			success: function (data,code,http_response) {
 				console.log(data);
 				console.log(http_response);
-				if(http_response.status==200){
+
+				if (data.proceed == true) {
+// 				if(http_response.status==200){
 					invalidTaxResident = true;
 				}else{
 					$('#tax-resident-modal').modal('show');

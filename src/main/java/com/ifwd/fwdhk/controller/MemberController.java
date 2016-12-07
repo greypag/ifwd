@@ -38,6 +38,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.CrsStatus;
+import com.ifwd.fwdhk.model.CrsStatusResponse;
 import com.ifwd.fwdhk.model.Member;
 import com.ifwd.fwdhk.model.MemberActionResult;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -370,7 +371,7 @@ public class MemberController extends BaseController {
 			})
 
     @RequestMapping(value = "/crs", method = POST)
-	public ResponseEntity<CrsStatus> getCrs(
+	public ResponseEntity<CrsStatusResponse> getCrs(
 			@ApiParam(value = "Parameter for client crs input", required = true) @RequestBody CrsStatus crsStatus,            
 			HttpServletRequest request) {
 		
@@ -389,17 +390,11 @@ public class MemberController extends BaseController {
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			
 			// ******************* Makeup result *******************
-			if (responseJsonObj.get("errMsgs") == null) {
-				if((boolean)responseJsonObj.get("proceed") == true) {
-					return Responses.ok(null);
-				} else {
-					
-					return Responses.error(null);
-				}
-				
-			} else {
-				return Responses.ok(null);
-			}
+			CrsStatusResponse c = new CrsStatusResponse();
+			c.setProceed((boolean)responseJsonObj.get("proceed"));
+			
+			return Responses.ok(c);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Responses.ok(null);		
