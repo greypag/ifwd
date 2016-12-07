@@ -194,8 +194,8 @@ var home_url = "<%=request.getContextPath()%>";
 											</div>
 											<div class="sel-currency-wrapper">
 												<select id="sel_currency">
-													<option value="hkd"><fmt:message key="wealthree.landing.currency.hkd" bundle="${wealthreeMsg}" /></option>
-													<option value="rmb"><fmt:message key="wealthree.landing.currency.rmb" bundle="${wealthreeMsg}" /></option>
+													<option value="hkd"><fmt:message key="wealthree.landing.currency.hkd1" bundle="${wealthreeMsg}" /></option>
+													<option value="rmb"><fmt:message key="wealthree.landing.currency.rmb1" bundle="${wealthreeMsg}" /></option>
 												</select>
 												<i class="fa fa-sort-desc" aria-hidden="true"></i>
 											</div>

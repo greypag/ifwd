@@ -21,6 +21,7 @@ var language = "${language}";
 %>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/wealthree/wealthree-confirmation-appointment.css">
 
 <div id="make-an-appointment-page" class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps">			
 	
