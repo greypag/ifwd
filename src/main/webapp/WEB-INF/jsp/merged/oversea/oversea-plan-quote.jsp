@@ -428,6 +428,10 @@ $(document).ready(function() {
     changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2')
 });
 
+<c:if test="${selectedRegion!=null}">
+$('#region-btn-${selectedRegion}').click();
+</c:if>
+
 </script>
 
 <section class="product_header_path_container ">
