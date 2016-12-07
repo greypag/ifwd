@@ -128,7 +128,6 @@ var showNotification = ( <%=showNotification%> == false ) ? false : true;
 	}
 <% }else if(request.getRequestURI().indexOf("/motor-insurance")>0) { %>
 	contentIndexArr.push("motor_insurance");
-	console.log(contentIndexArr);
 	nBarConfig = {
 		'contentIndex': contentIndexArr,
 		'isVisible': showNotification
