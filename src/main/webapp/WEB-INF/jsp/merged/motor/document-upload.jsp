@@ -299,10 +299,18 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 				acceptedFiles: 'image/jpeg,image/png',
 	            init: function() {
 	            	this.on("sending", function(file, xhr, formData){
-	                        formData.append("policyId", "26379363");
+	                        formData.append("policyId", quote.policyId);
 	                        formData.append("docType", "vehicleReg");
 	                });
 	                this.on("addedfile", function(file) { 
+	                	//total_vehicleReg_dz++;
+	                	//submit_enable();
+	  	                $('.error-msg').html('');
+	                    if($('#vehicleReg-dz').hasClass('dz-max-files-reached')){
+	                        $('#vehicleReg-dz').find('.dz-error-message span').html($('#vehicleReg-dz-error-message').data('max-error'));
+	                    }
+	                });
+	                this.on("complete", function(file) { 
 	                	total_vehicleReg_dz++;
 	                	submit_enable();
 	  	                $('.error-msg').html('');
@@ -332,10 +340,18 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 	            parallelUploads: 4,
 	            init: function() {
 	            	this.on("sending", function(file, xhr, formData){
-                        formData.append("policyId", "26379363");
+	            		formData.append("policyId", quote.policyId);
                         formData.append("docType", "hkid");
                 	});
 	                this.on("addedfile", function(file) { 
+	                	//total_hkid_dz++;
+	                	//submit_enable();
+	                    $('.error-msg').html('');
+	                    if($('#hkid-dz').hasClass('dz-max-files-reached')){
+	                        $('#hkid-dz').find('.dz-error-message span').html($('#hkid-dz-error-message').data('max-error'));
+	                    }
+	                });
+	                this.on("complete", function(file) { 
 	                	total_hkid_dz++;
 	                	submit_enable();
 	                    $('.error-msg').html('');
@@ -365,10 +381,18 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 	            parallelUploads: 4,
 	            init: function() {
 	            	this.on("sending", function(file, xhr, formData){
-                        formData.append("policyId", "26379363");
+	            		formData.append("policyId", quote.policyId);
                         formData.append("docType", "license");
                 	});
 	                this.on("addedfile", function(file) {
+	                	//total_license_dz++;
+	                	//submit_enable();
+	                    $('.error-msg').html('');
+	                    if($('#license-dz').hasClass('dz-max-files-reached')){
+	                        $('#license-dz').find('.dz-error-message span').html($('#license-dz-error-message').data('max-error'));
+	                    }
+	                });
+	                this.on("complete", function(file) {
 	                	total_license_dz++;
 	                	submit_enable();
 	                    $('.error-msg').html('');

@@ -130,7 +130,7 @@ $(document).ready(function(){
 								}
 							}
 						});
-								if(match == false &&  quote.carDetail.bankMortgageName != "" && getUrlParameter("edit")=="yes")
+								if(match == false &&  quote.carDetail.bankMortgageName != "" && getUrlParameter("edit")=="yes" && quote.applicant.correspondenceAddress != null)
 								{		
 										$(".switch-light").removeClass("orange");
 										//$('[name="bankMortgage"]').bootstrapSwitch('setState',true);

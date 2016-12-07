@@ -225,7 +225,7 @@ width: 100px !important;
                                     <div class="form-group col-md-12">
                                         <input type="text" name="promoCode" id="" class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
                                         <label>
-                                            <a href="javascript:;"><fmt:message key="motor.getquote.promotion.how.text" bundle="${motorMsg}" /></a>
+                                            <a href="javascript:;" id="findPromo" ><fmt:message key="motor.getquote.promotion.how.text" bundle="${motorMsg}" /></a>
                                         </label>
                                         <br/>
                                         <br/>
@@ -441,6 +441,56 @@ width: 100px !important;
         </div>
     </div>
 </div>
+<!--Get promotion code popup-->
+<div class="modal fade bs-promo-modal-lg " id="PromoModal" tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
+  <div class="modal-dialog modal-lg">
+            <div class="modal-content plan-modal">
+                <div class="login-form" id="sendmailofpromocode">
+                <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
+                     <span aria-hidden="true" style="font-size:30px;">×</span>
+                   </a>
+                </div>
+                <form>
+                    <div class="form-container">
+                        <h2>Don't have a promotion code? Enter your email address and we'll send you one.</h2>
+                        <div class="alert alert-success hide proSuccess"></div>
+                        <h4>Email address</h4>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder=""
+                                name="emailToSendPromoCode" id="emailToSendPromoCode" style="background-color:#f2f2f2">
+                            <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">
+                        </div>
+                        <span id="errPromoEmail" class="text-red"></span> <br>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <!-- <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();">Submit</a> -->
+
+                                <button type="submit" onclick="return sendEmail()"
+                                                            class="bdr-curve btn btn-primary btn-lg wd5">
+                                                            Submit
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
+                            </div>
+                            <br> <br>
+                            <div class="col-lg-12 col-md-12">
+                                <p>By submitting my email address I agree to receive FWD's promotion code and other offers in the future.</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+
+
+            </div>
+        </div>
+</div>
+<!--/ Get promotion code popup-->
+
 
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
@@ -473,6 +523,30 @@ function callback_motor_LoginSuccess(){
 		    	$('#saveModal').modal("show");
 		    }
 		});
+}
+function sendEmail() {
+    $('.proSuccess').addClass('hide');
+    if (get_promo_val()) {
+    	//console.log($("#sendmailofpromocode form").serialize());
+        /*$.ajax({
+            type : "POST",
+            url : "/sendEmail",
+            data : $("#sendmailofpromocode form").serialize(),
+            async : false,
+            success : function(data) {
+                if (data == 'success') {
+                    $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+                } else {
+                	//console.log(data);
+                    $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+                }
+            },
+            error : function() {
+            }
+        });*/
+        alert("Email");
+    }
+    return false;
 }
 
 $(document).ready(function(){

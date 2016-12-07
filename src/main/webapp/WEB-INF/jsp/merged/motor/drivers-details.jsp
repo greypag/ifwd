@@ -311,7 +311,7 @@ var nextPage = "${nextPageFlow}";
 	                        <div class="row" >
 	                            <div class="text-center col-xs-6">
 	                                <br />
-	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackCarDetail();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /> </a>
+	                                <a class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /> </a>
 	                                <br/>
 	                            </div>
 	                            <div class="text-center col-xs-6">
@@ -434,7 +434,8 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript">
 var checkbox=true;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
-//quote = jQuery.parseJSON('{"id":0,"planCode":"Third","compPlan":null,"grossPremium":null,"discountAmount":null,"personalAccident":true,"thirdPartyPropertyDamage":true,"addOnPaAmt":"100","addOnTppdAmt":"309","addOnPaBenefit":"500000","addOnTppdIncrease":"5000000","policyId":"26932443","refNumber":"QFVPE16-001864","amtFromThirdPartyToCompSilver":null,"amtFromThirdPartyToCompGold":null,"compInsuranceAmount":null,"personalAccidentAmount":null,"subTotalAmount":null,"amountDueAmount":"2023.53","ownDamageExcess":null,"theftExcess":null,"unnamedDriverExcess":null,"youngDriverExcess":null,"inexperiencedDriverExcess":null,"tPPDExcess":null,"parkingExcess":null,"promoCode":null,"carDetail":{"id":null,"makeCode":"BMW","model":"120I","engineCapacity":2599,"typeOfBody":null,"carGroup":null,"electricCar":false,"alarm":null,"modelDesc":"MODELZ","yearOfManufacture":"2016","estimatedValue":2000000,"chassisNumber":"1HGCM82633A004352","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null},"driver":[{"name":"chan chan chan","dateOfBirth":"06-12-1991","hkid":"a1234563","contactNo":null,"email":null,"occupation":"A1","ncb":null,"validAgeGroup":true,"driveMoreThanTwo":true}],"policyStartDate":"06-12-2016","nameOfPreviousInusrancer":"ACEInsuranceLimited","regNoofPreviousPolicy":"1111111","expDateOfPreviousInsurance":"06-12-2016","previousPolicyNo":"p1233213","motorCareDeclaration":[{"declarationNo":"q1","declarationDesc":null,"declarationAns":false,"langCode":null},{"declarationNo":"q2","declarationDesc":null,"declarationAns":true,"langCode":null},{"declarationNo":"q3","declarationDesc":null,"declarationAns":false,"langCode":null}],"psPICS":false,"psNoDM":true,"psNoProvidePersonalData":true,"theClubMemberNum":null,"coverNoteNum":null,"applicant":{"name":"chan chan chan","dateOfBirth":"06-12-1991","hkid":"a1234563","contactNo":"28515450","email":"kevin.chan@isobar.com","occupation":"A1","ncb":40,"validAgeGroup":true,"driveMoreThanTwo":true,"correspondenceAddress":null},"riderDiscountAmt":0}');
+if(typeof quote.policyId == "undefined")
+	window.location="/fwdhk/en/motor-insurance/";
 /* 
  *  Define motor success login callback
  */
@@ -516,6 +517,14 @@ function SaveAndExit()
 			  }
 			});
 	});
+}
+function BackMe() {
+	
+	/*if(getUrlParameter("edit")=="yes")
+		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
+	else
+		window.location="/fwdhk/en/motor-insurance/rider-options";*/
+	window.history.back();
 }
 $(document).ready(function(){
         

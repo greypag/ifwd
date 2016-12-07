@@ -308,6 +308,7 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
 </div>
+
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
@@ -333,12 +334,28 @@ cnErr ={
 var checkbox=false;
 
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+if(typeof quote.policyId == "undefined")
+	window.location="/fwdhk/en/motor-insurance/";
 
 /* 
  *  Define motor success login callback
  */
  var tempquote="";
  var loginStatus=false;
+ var getUrlParameter = function getUrlParameter(sParam) {
+     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+         sURLVariables = sPageURL.split('&'),
+         sParameterName,
+         i;
+
+     for (i = 0; i < sURLVariables.length; i++) {
+         sParameterName = sURLVariables[i].split('=');
+
+         if (sParameterName[0] === sParam) {
+             return sParameterName[1] === undefined ? true : sParameterName[1];
+         }
+     }
+ };
  function callback_motor_LoginSuccess(){
  	//alert('Login success. Call Save later API.');
   	var empty = {}; 
@@ -400,24 +417,19 @@ function SaveAndExit()
 				});
 	});
 }
+function BackMe() {
+	
+	/*if(getUrlParameter("edit")=="yes")
+		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
+	else
+		window.location="/fwdhk/en/motor-insurance/rider-options";*/
+	window.history.back();
+}
+
 $(document).ready(function(){
 	
     $('[data-toggle="tooltip"]').tooltip(); 
-  
-    var getUrlParameter = function getUrlParameter(sParam) {
-        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-            sURLVariables = sPageURL.split('&'),
-            sParameterName,
-            i;
-
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : sParameterName[1];
-            }
-        }
-    };
+ 
     
     if(getUrlParameter("edit")=="yes")
     {

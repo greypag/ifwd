@@ -712,6 +712,8 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+if(typeof quote.policyId == "undefined")
+	window.location="/fwdhk/en/motor-insurance/";
 //quote = jQuery.parseJSON('{"id":0,"planCode":"Third","compPlan":null,"grossPremium":null,"discountAmount":null,"personalAccident":true,"thirdPartyPropertyDamage":true,"addOnPaAmt":"100","addOnTppdAmt":"309","addOnPaBenefit":"500000","addOnTppdIncrease":"5000000","policyId":"26932443","refNumber":"QFVPE16-001864","amtFromThirdPartyToCompSilver":null,"amtFromThirdPartyToCompGold":null,"compInsuranceAmount":null,"personalAccidentAmount":null,"subTotalAmount":null,"amountDueAmount":"2023.53","ownDamageExcess":null,"theftExcess":null,"unnamedDriverExcess":null,"youngDriverExcess":null,"inexperiencedDriverExcess":null,"tPPDExcess":null,"parkingExcess":null,"promoCode":null,"carDetail":{"id":null,"makeCode":"BMW","model":"120I","engineCapacity":2599,"typeOfBody":null,"carGroup":null,"electricCar":false,"alarm":null,"modelDesc":"MODELZ","yearOfManufacture":"2016","estimatedValue":2000000,"chassisNumber":"1HGCM82633A004352","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null},"driver":[{"name":"chan chan chan","dateOfBirth":"06-12-1991","hkid":"a1234563","contactNo":null,"email":null,"occupation":"A1","ncb":null,"validAgeGroup":true,"driveMoreThanTwo":true}],"policyStartDate":"06-12-2016","nameOfPreviousInusrancer":"ACEInsuranceLimited","regNoofPreviousPolicy":"1111111","expDateOfPreviousInsurance":"06-12-2016","previousPolicyNo":"p1233213","motorCareDeclaration":[],"psPICS":false,"psNoDM":true,"psNoProvidePersonalData":true,"theClubMemberNum":null,"coverNoteNum":null,"applicant":{"name":"chan chan chan","dateOfBirth":"06-12-1991","hkid":"a1234563","contactNo":"28515450","email":"kevin.chan@isobar.com","occupation":"A1","ncb":40,"validAgeGroup":true,"driveMoreThanTwo":true,"correspondenceAddress":null},"riderDiscountAmt":0}');
 
 /* 
@@ -833,6 +835,14 @@ function SaveAndExit()
 				  }
 				});
 	});
+}
+function BackMe() {
+	
+	/*if(getUrlParameter("edit")=="yes")
+		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
+	else
+		window.location="/fwdhk/en/motor-insurance/rider-options";*/
+	window.history.back();
 }
 
 $(document).ready(function(){
@@ -993,6 +1003,7 @@ $(document).ready(function(){
 							//if(getUrlParameter("edit")=="yes")
 							{
 								//if(item.code == quote.driver[0].occupation)
+								if(quote.driver.length > 0)	
 								{
 									$motor_occupation[0].selectize.setValue(quote.driver[0].occupation);	
 								}

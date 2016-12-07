@@ -780,7 +780,7 @@ $('#yourQuoteTitle').html('Third Party');
     	    			    },
     	    			    success:function(response){
     	      			    	console.dir(response);
-    	    			    	tempquote = response.motorCareDetails;
+    	    			    	quote = response.motorCareDetails;
     	    			    	//$('#saveModal').modal("show");
     	    			    }
     	    			});

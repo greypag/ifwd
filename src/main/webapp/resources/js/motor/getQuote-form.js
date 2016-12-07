@@ -458,6 +458,11 @@ $(document).ready(function(){
     	if (getUrlParameter('plan')=='third')
     		$q2.find('#carValue').removeAttr('required');
 		var promo=false;
+		
+		$("#findPromo").on('click',function(e){
+			$("#PromoModal").modal("show");
+		});
+		
         $('#submitGetQuote').on('click', function(e){
 		/*	if(promo==false)
 			{
@@ -467,7 +472,7 @@ $(document).ready(function(){
 			}
 		});
 		
-		//$('.finalsubmitGetQuote').on('click', function(e){
+		$('.finalsubmitGetQuote').on('click', function(e){
 
 			if($(this).attr('data')=="go")*/
 			{
