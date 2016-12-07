@@ -86,19 +86,19 @@ var home_url = "<%=request.getContextPath()%>";
                 	</div>
 
                     <div class="fwd-container-limit hidden-sm hidden-xs">
-                        <form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/wealthree-customer-service-centre"  method="post">
+
                             <div class="img-banner-text savie-landing">
                                 <div id="clearfix-height-rp">
                                     <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
                                 </div>
                             </div>
-                        </form>
+
                     </div>
                 </div>
             </div>
 			<div class="pv_mobile_middle_buttons hidden-lg hidden-md">
 				<div class="fwd-container-limit">
-					<form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/wealthree-customer-service-centre"  method="post">
+
 						<div class="img-banner-text savie-landing">
 							<div id="clearfix-height-rp">
 								<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
@@ -130,7 +130,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</div> -->
 
 						</div>
-					</form>
+
 				</div>
 			</div>
 			<div class="wh_productInfo">
@@ -1180,11 +1180,11 @@ var home_url = "<%=request.getContextPath()%>";
 		}
 	};
 
-	$(document).ready(function(){
+ 	$(document).ready(function(){
 		$(".btn-savenow, start-btn").on('click', function(){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/wealthree-customer-service-centre'
 		});
-	});
+	}); 
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-payment-discount.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-landing-style.css">
