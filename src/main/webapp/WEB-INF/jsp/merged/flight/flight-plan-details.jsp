@@ -32,7 +32,7 @@
         // fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
         <% // } %>
     });
-    fwdUtility.temp.flightCareBenefitiaryIsActive();
+    // fwdUtility.temp.flightCareBenefitiaryIsActive();
 
     /* Commented because login is not compulsory */
     <%-- function fligh	ation() {

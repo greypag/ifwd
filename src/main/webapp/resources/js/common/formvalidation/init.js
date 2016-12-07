@@ -123,6 +123,9 @@ var initFVConfig = function(argCfg) {
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
+				dataSourceFieldInfo = { 'formId': formId };
+				fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( dataSourceFieldInfo );
+
 			} else {
 
 				dataSourceFieldInfo = { 'formId': formId };
@@ -140,6 +143,7 @@ var initFVConfig = function(argCfg) {
 			// MUST - Submit Form
 			$(formId).onsubmit = function() {
 				console.log(fwdUtility.pages.flightCare.userLoginAjax);
+				console.log('laksjdfklaksjflkasj');
 		        fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);
 		    };
 

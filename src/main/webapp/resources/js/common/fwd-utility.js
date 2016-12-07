@@ -191,8 +191,8 @@ var fwdUtility = (function() {
 		// });
 	};
 
-	var _pages_activateUserAccountJoinUs = function() {
-		console.log('_pages_activateUserAccountJoinUs() is loaded.');
+	var _pages_activateUserAccountJoinUs_auth = function() {
+		console.log('_pages_activateUserAccountJoinUs_auth() is loaded.');
 
 		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 
@@ -210,11 +210,6 @@ var fwdUtility = (function() {
 			5, If user is created and the normal form data is missing,
 			   the user create field html will hide, and the vaule will erase so it wont trigger the create user function again.
 			*/
-
-			/*name = document.getElementById("Username").value;
-			password = document.getElementById("Password").value;
-			password2 = document.getElementById("Confirm-Password").value;*/
-
 			name = $("#Username").val();
 			password = $("#Password").val();
 			password2 = $("#Confirm-Password").val();
@@ -351,8 +346,6 @@ var fwdUtility = (function() {
 								}
 							}
 						}
-
-
 						if (password2 == "") {
 							$('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
 							$("#Confirm-Password").addClass("invalid-field");
@@ -369,7 +362,7 @@ var fwdUtility = (function() {
 					}
 				}
 			}
-			if(firstErrorElementId!="") {
+			if (firstErrorElementId != "") {
 				$('#loading-overlay').modal('hide');
 				_scrollToElement(firstErrorElementId);
 			}
@@ -402,26 +395,11 @@ var fwdUtility = (function() {
 
 	};
 
-	// var _temp_flightCare_activate = function(arg) {
-	// 	console.log('fwdUtility.temp.flightCareActivate() is loaded.');
-	// 	function activateUserAccountJoinUs() {
-	// 		perventRedirect = false;
-	// 	    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-	// 		console.log( arg.formId );
-	// 	    setTimeout(function() {
-	// 	    	if(_pages_fPlanValid()) {
-	// 	   	    	$('#' + arg.formId).submit();
-	// 	    	}
-	// 	    }, 500);
-	// 	};
-	// 	activateUserAccountJoinUs();
-	// };
-
-	var _activateUserAccountJoinUs_non_auth = function(arg) {
+	var _pages_activateUserAccountJoinUs_non_auth = function(arg) {
 		perventRedirect = false;
 		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 		setTimeout(function() {
-			if(_pages_fPlanValid()) {
+			if ( _pages_fPlanValid() ) {
 				$('#' + arg.formId).submit();
 			}
 		}, 500);
@@ -431,6 +409,7 @@ var fwdUtility = (function() {
 		console.log('fwdUtility.temp.flightCareBenefitiaryIsActive() is loaded.');
 		/* For Benefitiary Div active and Inactive */
 		function activeDiv(id, selected, beneFullName, beneHkId) {
+			console.log('fwdUtility.temp.flightCareBenefitiaryIsActive().activeDiv is loaded.');
 		    var selectedValue = $('#' + selected).val();
 		    if (id.indexOf('personal') > -1) {
 		        activeDeactive(selectedValue, id, beneFullName, beneHkId);
@@ -446,6 +425,7 @@ var fwdUtility = (function() {
 		    }
 		}
 		function activeDeactive(selectedValue, id, beneFullName, beneHkId) {
+			console.log('fwdUtility.temp.flightCareBenefitiaryIsActive().activeDeactive is loaded.');
 		    if (selectedValue == "SE") {
 		        $('#' + beneFullName).text('');
 		        $('#' + beneHkId).text('');
@@ -559,10 +539,10 @@ var fwdUtility = (function() {
 		}
 		, 'pages': {
 			'flightCare': {
-				'userLoginAjax': 				_pages_flightCare_userLoginAjax
-				, 'activateUserAccountJoinUs_non_auth': _activateUserAccountJoinUs_non_auth
-				, 'activateUserAccountJoinUs':	_pages_activateUserAccountJoinUs
-				, 'fPlanValid':					_pages_fPlanValid
+				'userLoginAjax': 						_pages_flightCare_userLoginAjax
+				, 'activateUserAccountJoinUs_non_auth':	_pages_activateUserAccountJoinUs_non_auth
+				, 'activateUserAccountJoinUs_auth':		_pages_activateUserAccountJoinUs_auth
+				, 'fPlanValid':							_pages_fPlanValid
 				// , 'fncCheckBoxTooltip':			_pages_flightCare_fncCheckBoxTooltip
 			}
 			, 'travelCare': {}
@@ -598,4 +578,4 @@ function validUser(formID) {
 		flag = false;
 	}
 	return flag;
-}
+};
