@@ -72,10 +72,9 @@ import com.ifwd.fwdhk.util.HeaderUtil;
 public class OnlineWithdrawalController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(OnlineWithdrawalController.class);
 	
-	//TODO
 	//400 500 is blocked by company firewall, need replaced by other status code
-	private final static int WITHDRAWAL_STATUS_CODE_SYSTEM_ERROR=500;//510;
-	private final static int WITHDRAWAL_STATUS_CODE_INVALID_INPUT=400;//431;
+	private final static int WITHDRAWAL_STATUS_CODE_SYSTEM_ERROR=510;
+	private final static int WITHDRAWAL_STATUS_CODE_INVALID_INPUT=431;
 	
 	@Autowired
 	private HeaderUtil headerUtil;
