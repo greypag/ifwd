@@ -940,30 +940,30 @@ var msgCtr = {
 
 var apiErrMsg = { 
 	getPolicyListByCustomer:{  
-		c_400_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_MP"),
-		c_400_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_IP"),
+		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_MP"),
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_IP"),
 		c_200_TPW001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW001"),
 		c_200_TPW002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW002"),
 		c_200_TPW003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW003"),
 		c_200_TPW004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW004"),
    },	
     unlinkTngPolicy:{  
-		c_400_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.unlinkTngPolicy.c_400_MP"),
-		c_400_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.unlinkTngPolicy.c_400_IP"),
+		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.unlinkTngPolicy.c_400_MP"),
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.unlinkTngPolicy.c_400_IP"),
 		c_417_TGE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.unlinkTngPolicy.c_417_TGE001"),
 		c_417_TGE002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.unlinkTngPolicy.c_417_TGE002")
    },
     getPolicyInfo:{  
-		c_400_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_400_MP"),
-		c_400_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_400_IP"),
+		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_400_MP"),
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_400_IP"),
 		c_411_GPE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE001"),
 		c_411_GPE002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE002"),
 		c_411_GPE003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE003"),
 		c_411_GPE004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE004")
    },
     authTngOtp:{  
-		c_400_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_400_MP"),
-		c_400_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_400_IP"),
+		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_400_MP"),
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_400_IP"),
 		c_412_:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_412_"),
 		c_413_OTE004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_413_OTE004"),
 		c_413_OTE005:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_413_OTE005"),
@@ -971,8 +971,8 @@ var apiErrMsg = {
 		c_413_OTE008:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_413_OTE008")
    },
     sendTngOtpSms:{  
-		c_400_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.sendTngOtpSms.c_400_MP"),
-		c_400_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.sendTngOtpSms.c_400_IP"),
+		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.sendTngOtpSms.c_400_MP"),
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.sendTngOtpSms.c_400_IP"),
 		c_412_:getBundle(getBundleLanguage,"ewallet.apiErrMsg.sendTngOtpSms.c_412_"),
 		c_413_OTE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.sendTngOtpSms.c_413_OTE001"),
 		c_413_OTE002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.sendTngOtpSms.c_413_OTE002"),
@@ -980,8 +980,8 @@ var apiErrMsg = {
 		c_416_SYE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.sendTngOtpSms.c_416_SYE001")
    },
     requestWithdraw:{  
-		c_400_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_400_MP"),
-		c_400_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_400_IP"),
+		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_400_MP"),
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_400_IP"),
 		c_411_:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_411_"),
 		c_412_:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_412_"),
 		c_413_OTE003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_413_OTE003"),
@@ -994,8 +994,8 @@ var apiErrMsg = {
 		c_416_SYE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_416_SYE001")
    },
     performWithdraw:{  
-		c_400_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_400_MP"),
-		c_400_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_400_IP"),
+		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_400_MP"),
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_400_IP"),
 		c_412_:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_412_"),
 		c_413_OTE003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_413_OTE003"),
 		c_413_OTE004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_413_OTE004"),
@@ -1004,10 +1004,10 @@ var apiErrMsg = {
 		c_416_SYE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_416_SYE001"),
 		c_417_TGE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_417_TGE001"),
 		c_417_TGE002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_417_TGE002"),
-		c_500_DB:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_500_DB")
+		c_510_DB:getBundle(getBundleLanguage,"ewallet.apiErrMsg.performWithdraw.c_500_DB")
    },
     withdrawLog:{  
-		c_400_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.withdrawLog.c_400_MP"),
-		c_400_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.withdrawLog.c_400_IP")
+		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.withdrawLog.c_400_MP"),
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.withdrawLog.c_400_IP")
    }
 }
