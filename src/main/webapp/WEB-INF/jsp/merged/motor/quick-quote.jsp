@@ -498,6 +498,8 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 var tempquote="";
 var loginStatus=false;
+var planCode;
+var compPlan;
 function callback_motor_LoginSuccess(){
 	//alert('Login success. Call Save later API.');
  	var empty = {}; 
@@ -542,8 +544,8 @@ function SaveAndExit()
 	    	        	"driveMoreThanTwo": quote.applicant.driveMoreThanTwo,         
 	    	        	"validAgeGroup": quote.applicant.validAgeGroup, 
 	    	        }],
-                 "planCode": quote.planCode,
-                 "compPlan": quote.compPlan,
+                 "planCode":planCode,
+                 "compPlan": compPlan,
                  "personalAccident": $('[name="addon1"]').is(':checked'),
                  "thirdPartyPropertyDamage": $('[name="addon2"]').is(':checked')
              };
@@ -572,8 +574,9 @@ function SaveAndExit()
 	});
 }
 	$(document).ready(function () {
-
-		 if(getUrlParameter("edit")=="yes")
+		planCode = quote.planCode;
+		compPlan = quote.compPlan;
+		 if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 		 {  
 			 $("[name=addon1]").attr("checked", quote.personalAccident);
 			 $("[name=addon2]").attr("checked", quote.thirdPartyPropertyDamage);
@@ -676,7 +679,7 @@ $('#yourQuoteTitle').html('Third Party');
         $('#form-inline').submit(function(event){
         	quote.personalAccident = $('[name="addon1"]').is(':checked');
             quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
-        	if(getUrlParameter("edit") == "yes")
+        	if(getUrlParameter("edit") == "yes" || getUrlParameter("back")=="yes")
         	{
         		
         		$.ajax({

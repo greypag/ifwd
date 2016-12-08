@@ -268,10 +268,10 @@ width: 100px !important;
     <!--/.container-->
 </section>
 <!-- SaveForm Modal -->
-<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content plan-modal">
-            <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;display:none"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
             <div class="login-title-wrapper">
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
@@ -567,7 +567,7 @@ $(document).ready(function(){
     
     if(getUrlParameter("edit")=="yes")
     {   
-    	$(".q2,.q3,q4,.q5").removeClass("hidden");
+    	$(".q2,.q3,.q4,.q5").removeClass("hidden");//q5 for promo
 		//$carMake[0].selectize.setValue(quote.carDetail.makeCode);
 		//$occupation[0].selectize.setValue(quote.driver[0].occupation);
 		//$car_details[0].selectize.setValue(quote.carDetail.model);	

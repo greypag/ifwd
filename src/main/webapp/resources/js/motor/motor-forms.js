@@ -109,7 +109,7 @@ $(document).ready(function(){
                         callback(res); 
 						var match =false;
 						$.each(res, function(i, item) {
-							if(getUrlParameter("edit")=="yes")
+							if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
 							{	
 								if(item.code == quote.carDetail.bankMortgageName)
 								{	match=true;
@@ -130,7 +130,7 @@ $(document).ready(function(){
 								}
 							}
 						});
-								if(match == false &&  quote.carDetail.bankMortgageName != "" && getUrlParameter("edit")=="yes" && quote.applicant.correspondenceAddress != null)
+								if(match == false &&  quote.carDetail.bankMortgageName != "" && (getUrlParameter("edit")=="yes"  || getUrlParameter("back")=="yes" )&& quote.applicant.correspondenceAddress != null)
 								{		
 										$(".switch-light").removeClass("orange");
 										//$('[name="bankMortgage"]').bootstrapSwitch('setState',true);
@@ -201,7 +201,7 @@ $(document).ready(function(){
                         callback(newres);
 						if(quote.applicant.correspondenceAddress != null)
 							$.each(res, function(i, item) {
-								if(getUrlParameter("edit")=="yes")
+								if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
 								{
 									if(item.desc == quote.applicant.correspondenceAddress.district )
 									{
@@ -243,11 +243,12 @@ $(document).ready(function(){
                         callback(newres);
 						if(quote.applicant.correspondenceAddress != null)
 							$.each(newres, function(i, item) {
-								if(getUrlParameter("edit")=="yes")
+								if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
 								{
+								
 									if(item.code == quote.applicant.correspondenceAddress.hkKlNt)
 									{	
-										$motor_area[0].selectize.setValue(item.desc);	
+										$motor_area[0].selectize.setValue(item.code);	
 									}
 								}
 							});

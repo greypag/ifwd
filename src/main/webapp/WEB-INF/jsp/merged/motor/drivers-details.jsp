@@ -524,7 +524,15 @@ function BackMe() {
 		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
 	else
 		window.location="/fwdhk/en/motor-insurance/rider-options";*/
-	window.history.back();
+	//window.history.back();
+	 var $form = $("<form id='quote-form' />");
+    	 $form.attr("action", "car-details?back=yes");
+     $form.attr("method", "post");
+     var $quote = $("<input type='hidden' name='data' />");
+     $quote.attr("value", JSON.stringify(quote));
+     $form.append($quote);
+     $("body").append($form);
+     $('#quote-form').submit();
 }
 $(document).ready(function(){
         
@@ -543,7 +551,7 @@ $(document).ready(function(){
 	        }
 	    };
     console.dir(quote);
-	if(getUrlParameter("edit")=="yes")
+	if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
     {
 	    $('input[name=fullName]').val(quote.applicant.name);    
 		$('input[name=driverDob]').val(quote.applicant.dateOfBirth);

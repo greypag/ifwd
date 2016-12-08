@@ -464,7 +464,7 @@ $(document).ready(function(){
 		});
 		
         $('#submitGetQuote').on('click', function(e){
-		/*	if(promo==false)
+			if(promo==false)
 			{
 				promo=true;
 				$("#testimonials").removeClass('hidden');
@@ -474,7 +474,7 @@ $(document).ready(function(){
 		
 		$('.finalsubmitGetQuote').on('click', function(e){
 
-			if($(this).attr('data')=="go")*/
+			if($(this).attr('data')=="go")
 			{
 				e.preventDefault();
 				  $('#get-quote-form').validator('validate');

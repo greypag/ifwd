@@ -285,7 +285,7 @@ var nextPage = "${nextPageFlow}";
     <section class="yourQuote">
     <div class="container">
         <div class="row" >
-            <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
+           <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
                 <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
@@ -613,7 +613,15 @@ function BackMe() {
 		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
 	else
 		window.location="/fwdhk/en/motor-insurance/rider-options";*/
-	window.history.back();
+	//window.history.back();
+	 var $form = $("<form id='quote-form' />");
+    	 $form.attr("action", "policy-details?back=yes");
+     $form.attr("method", "post");
+     var $quote = $("<input type='hidden' name='data' />");
+     $quote.attr("value", JSON.stringify(quote));
+     $form.append($quote);
+     $("body").append($form);
+     $('#quote-form').submit();
 }
 $(document).ready(function(){
 	var getUrlParameter = function getUrlParameter(sParam) {
@@ -631,22 +639,23 @@ $(document).ready(function(){
         }
     };
     
-    if(getUrlParameter("edit")=="yes")
+    if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
     {  
     	if(typeof quote.motorCareDeclaration != 'undefined' && quote.motorCareDeclaration != null )
     	{
-	    	if(quote.motorCareDeclaration[0].declarationAns==false)
-	    	{$(".a1no").addClass("active");}
+
+	    	if(quote.motorCareDeclaration[0].declarationAns==false || quote.motorCareDeclaration[0].declarationAns=="false")
+	    	{$(".a1no").addClass("active");$('input[name=answer1]').prop("checked",true);	}
 	    	else
-	    	{$(".a1yes").addClass("active");}
-	    	if(quote.motorCareDeclaration[1].declarationAns==false)
-	    	{$(".a2no").addClass("active");}
+	    	{$(".a1yes").addClass("active");$('input[name=answer1]').prop("checked",true);	}
+	    	if(quote.motorCareDeclaration[1].declarationAns==false || quote.motorCareDeclaration[1].declarationAns=="false")
+	    	{$(".a2no").addClass("active");$('input[name=answer2]').prop("checked",true);	}
 	    	else
-	    	{$(".a2yes").addClass("active");}
-	    	if(quote.motorCareDeclaration[2].declarationAns==false)
-	    	{$(".a3no").addClass("active");}
+	    	{$(".a2yes").addClass("active");$('input[name=answer2]').prop("checked",true);	}
+	    	if(quote.motorCareDeclaration[2].declarationAns==false || quote.motorCareDeclaration[2].declarationAns=="false")
+	    	{$(".a3no").addClass("active");$('input[name=answer3]').prop("checked",true);	}
 	    	else
-	    	{$(".a3yes").addClass("active");}
+	    	{$(".a3yes").addClass("active");$('input[name=answer3]').prop("checked",true);	}
 	    	
 	    	$('input[name=psNoDM]').attr("checked",quote.psNoDM);	
 			$('input[name=psNoProvidePersonalData]').attr("checked",quote.psNoProvidePersonalData);	
@@ -714,7 +723,21 @@ $(document).ready(function(){
 		    else  if(loginStatus==true)
 		    $('#saveModal').modal("show");
 	  });
-    
+	  $.ajax({
+		  type: "POST",
+		  data: JSON.stringify(quote),
+		  dataType: "json",
+	      contentType : "application/json",
+	      cache: false,
+	      async: false,
+	      url:context + "/api/iMotor/quote",
+		  success: function(data){
+			  console.dir(data);
+			  $('.price').html(formatCurrency(data.amountDueAmount));
+		  },error: function(error) {
+			
+		  }
+		});
 	$('#declaration').submit(function(event){
 	
 

@@ -842,9 +842,16 @@ function BackMe() {
 		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
 	else
 		window.location="/fwdhk/en/motor-insurance/rider-options";*/
-	window.history.back();
+	//window.history.back();
+	 var $form = $("<form id='quote-form' />");
+    	 $form.attr("action", "drivers-details?back=yes");
+     $form.attr("method", "post");
+     var $quote = $("<input type='hidden' name='data' />");
+     $quote.attr("value", JSON.stringify(quote));
+     $form.append($quote);
+     $("body").append($form);
+     $('#quote-form').submit();
 }
-
 $(document).ready(function(){
 	
 	var term = $('#term');
@@ -872,7 +879,7 @@ $(document).ready(function(){
 	$("input[name=fullName]").val(quote.applicant.name);
     $("input[name=driverID]").val(quote.applicant.hkid);
     
-	if(getUrlParameter("edit")=="yes")
+	if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 	{
 		
 		$("#fullName").attr("value",quote.applicant.name);
