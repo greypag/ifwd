@@ -124,7 +124,7 @@ $(document).ready(function(){
 
  				//recalibrate Table Height
  				recalibrateTable();
- 				$.scrollTo('.tbl-result-wrapper', 300, {offset:{top:($(".logobox").outerHeight() + 30) * -1}});
+ 				$.scrollTo('.box-result', 300, {offset:{top:($(".logobox").outerHeight() + 50) * -1}});
  			}
 
  		}else{
@@ -139,6 +139,10 @@ $(document).ready(function(){
  		}
  	});
 
+ 	$(".savie-landing .start-btn").on('click', function(){
+ 		$.scrollTo('.wp_productCalculator', 300, {offset:{top:($(".logobox").outerHeight() + 20) * -1}});
+	});
+ 	
  	//showCalculatedRate(100000,"hkd");
  	$("#sel_savie_provie").change(function(){
  		var val = $(this).val();
