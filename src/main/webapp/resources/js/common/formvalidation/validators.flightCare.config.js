@@ -164,6 +164,7 @@ fvConfig['applicant'] = function() {
         , 'userName': {
             'container': '#UsernameError'
             , 'trigger': 'blur'
+            , 'enabled': false
             , 'validators': {
                 'stringLength': {
                     'message': getBundle(getBundleLanguage, 'user.username.length.message')
@@ -176,6 +177,7 @@ fvConfig['applicant'] = function() {
             'selector': '#Password'
             , 'container': '#PasswordError'
             , 'trigger': 'blur'
+            , 'enabled': false
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message')
@@ -190,6 +192,7 @@ fvConfig['applicant'] = function() {
             'selector': '#Confirm-Password'
             , 'container': '#Confirm-PasswordError'
             , 'trigger': 'blur'
+            , 'enabled': false
             , 'validators': {
                 'identical': {
                     'field': 'password',

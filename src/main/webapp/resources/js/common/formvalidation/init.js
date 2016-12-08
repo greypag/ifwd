@@ -222,6 +222,7 @@ var runFV = function(argCfg) {
 				var fv  	= $(e.target).data('formValidation'); // FormValidation instance
 
 				var temp = $('#'+ fcArgs.formId).serialize();
+				console.log(temp);
 				var fieldnameToRemoveIndex = [
 					'personalName'
 					, 'personalHKID'
@@ -229,6 +230,7 @@ var runFV = function(argCfg) {
 					, 'personalBeneficiary'
 				];
 				var temp2 = fvConfig.helpers.other.removeIndexNum_onSerializedString( fvConfig['flightJSPcbInfo'], temp, fieldnameToRemoveIndex );
+				console.log(temp2);
 
 				$.ajax({
 		            type: "POST",
