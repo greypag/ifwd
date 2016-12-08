@@ -1275,20 +1275,23 @@ $(function() {
     fvConfig['flightJSPcbInfo'] = {
         'counter': {
             'familyPlan': {
-                'adult': ${planDetailsForm.totalAdultTraveller}
-                , 'child': ${planDetailsForm.totalChildTraveller}
-                , 'other': ${planDetailsForm.totalOtherTraveller}
+                'adult':    ${planDetailsForm.totalAdultTraveller}
+                , 'child':  ${planDetailsForm.totalChildTraveller}
+                , 'other':  ${planDetailsForm.totalOtherTraveller}
             }
             , 'personalPlan': ${planDetailsForm.totalPersonalTraveller}
         }
-
-        , 'plannedDays': ${planDetailsForm.days}
-        , 'authenticated': ( ${authenticate.equals("false")} || ${authenticate.equals("direct")} )
+        , 'currentPage': {
+            'lang':             '${language}'
+            , 'contextPath':    '<%=request.getContextPath()%>'
+        }
+        , 'plannedDays':    ${planDetailsForm.days}
+        , 'authenticated':  ( ${authenticate.equals("false")} || ${authenticate.equals("direct")} )
 
     };
 
     var flightCfg = initFVConfig(fvConfig).flightCare();
-    runFV(flightCfg).flightCare({ 'formId': 'freeFlightForm'});
+    runFV(flightCfg).flightCare(fvConfig, { 'formId': 'freeFlightForm'});
 
 });
 </script>

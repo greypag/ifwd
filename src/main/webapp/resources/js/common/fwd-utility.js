@@ -401,6 +401,7 @@ var fwdUtility = (function() {
 	};
 
 	var _pages_activateUserAccountJoinUs_non_auth = function(arg) {
+		console.log('_pages_activateUserAccountJoinUs_non_auth() is loaded.');
 		perventRedirect = false;
 		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 		setTimeout(function() {

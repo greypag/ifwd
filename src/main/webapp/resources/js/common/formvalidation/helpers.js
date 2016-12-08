@@ -357,6 +357,31 @@ var initDatePicker_changeDate_trigger_selectBoxValueChange = function(info, date
         //$('#input_dob').datepicker('setDate', dob_end_date);
 };
 
+var other_rmIndexNum_onSerializedString = function(cfg, serializedString, fieldnameToRemoveIndex) {
+
+    var _removeIndex = function( stringInput, travellerCounter, fieldnameToRemoveIndex ) {
+        var temp = stringInput;
+        for (var i = 0; i < fieldnameToRemoveIndex.length; i++) {
+            for (var w = 1; w < travellerCounter+1; w++) {
+                temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
+            }
+        }
+        return temp;
+    };
+
+    // Core
+    var stringBuffer = serializedString;
+    if ( cfg.counter.personalPlan === 0 ) {
+
+        console.log('Family Plan');
+        // ... have to develop it later
+
+    } else {
+        stringBuffer = _removeIndex( stringBuffer, cfg.counter.personalPlan, fieldnameToRemoveIndex );
+    }
+    return stringBuffer;
+};
+
 /*
  * Export modules to "fvConfig" object
  */
@@ -392,6 +417,9 @@ fvConfig['helpers'] = {
     }
     , 'ux': {}
     , 'fvCallback': {
-        'hkidUniqueValidation':                             cb_hkidUniqueValidation
+        'hkidUniqueValidation':                       cb_hkidUniqueValidation
+    }
+    , 'other': {
+        'removeIndexNum_onSerializedString':              other_rmIndexNum_onSerializedString
     }
 };

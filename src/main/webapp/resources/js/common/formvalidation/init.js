@@ -125,7 +125,7 @@ var initFVConfig = function(argCfg) {
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
 				dataSourceFieldInfo = { 'formId': formId };
-				fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( dataSourceFieldInfo );
+				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( dataSourceFieldInfo );
 
 			} else {
 				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
@@ -200,7 +200,7 @@ var initFVConfig = function(argCfg) {
  */
 var runFV = function(argCfg) {
 
-	var flightCare = function(fcArgs) {
+	var flightCare = function(fvCfgs, fcArgs) {
 
 		// MUST - flightCare() prerequistite variables validating
         try {
@@ -218,10 +218,41 @@ var runFV = function(argCfg) {
 	            e.preventDefault();
 
 	            // Some instances you can use are
-	            var $form = $(e.target),        // The form instance
-	                fv    = $(e.target).data('formValidation'); // FormValidation instance
+	            var $form	= $(e.target);
+				var fv  	= $(e.target).data('formValidation'); // FormValidation instance
 
-				
+				var temp = $('#'+ fcArgs.formId).serialize();
+				var fieldnameToRemoveIndex = [
+					'personalName'
+					, 'personalHKID'
+					, 'personalAgeRange'
+					, 'personalBeneficiary'
+				];
+				var temp2 = fvConfig.helpers.other.removeIndexNum_onSerializedString( fvConfig['flightJSPcbInfo'], temp, fieldnameToRemoveIndex );
+
+				$.ajax({
+		            type: "POST",
+		            url: fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy",
+		            data: temp2,
+		            async: false,
+		            success: function(data) {
+		                var result = data['result'];
+		                var errMsg = data['errMsgs']
+						console.log(result);
+						console.log(errMsg);
+		                flight_click = false;
+		                if (result == 'success') {
+		                    $('#errorMessages').hide();
+		                    flag = true;
+		                    form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
+		                } else {
+		                    console.log(data);
+		                    flag = false;
+		                    $('#errorMessages').removeClass('hide');
+		                    $('#errorMessages').html(errMsg);
+		                }
+		            }
+		        });
 	        })
 	        .on('err.validator.fv', function(e, data) {
 	            /**
@@ -246,6 +277,11 @@ var runFV = function(argCfg) {
 	             * Each pair of field and label are placed inside a .form-group element
 	             */
 	            data.element.next().children().addClass("text-red");
+
+				// Get the first invalid field
+	            var $invalidFields = data.fv.getInvalidFields().eq(0);
+
+	            console.log( $invalidFields );
 				// console.log(data.element.next());
 	            // console.log(data.element);
 	            // console.log( data.fv.getOptions(data.element) );
