@@ -441,10 +441,50 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 								</div>
 							</div>
+							<div class="col-xs-12">
+							<div id="pd-sf-tab-content-container" class="container-fluid content-container-fluid">
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="pd-sf-sale-illustration-sample-pane">
+					<div class="panel-group" id="pd-sf-sale-illustration-sample-group" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
+						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+							  <h4 class="panel-title">
+								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+									<fmt:message key="provie.plandetails.productrisks.title" bundle="${wealthreeMsg}" />
+									<span class="pull-right">
+									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+									</span>
+								 </a>
+							  </h4>
+						   </div>
+						   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
+							  <div class="panel-body">
+								<div>
+									<p><fmt:message key="provie.plandetails.risk1.title" bundle="${wealthreeMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk1.text" bundle="${wealthreeMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk2.title" bundle="${wealthreeMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk2.text" bundle="${wealthreeMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk3.title" bundle="${wealthreeMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk3.text" bundle="${wealthreeMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk4.title" bundle="${wealthreeMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk4.text" bundle="${wealthreeMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk5.title" bundle="${wealthreeMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk5.text" bundle="${wealthreeMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.term.title" bundle="${wealthreeMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.term.text" bundle="${wealthreeMsg}" /></p>
+								</div>
+							  </div>
+						   </div>
+						</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+			</div>
 							<div class="col-xs-12 col-sm-12 pv_feature_box">
 								<div class="row">
 									<div class="col-xs-12 col-sm-12">
-										<span class="pv_remark"><br>
+										<span class="pv_remark">
 										<fmt:message key="wealthree.landing.features.1.remarks" bundle="${wealthreeMsg}" /><br>
 										<fmt:message key="wealthree.landing.features.3.remarks" bundle="${wealthreeMsg}" />
 										</span>
@@ -462,6 +502,7 @@ var home_url = "<%=request.getContextPath()%>";
             		</div>
             	</div>
             </div>
+                        
             <div class="hide" id="tableData">
             	<div class="provie">
             		<span class="type">
@@ -589,7 +630,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</span>
             	</div>
             	
-            </div>
+            </div>            
 			<div class="pv_compareTable">
 				<div class="container">
 					<div class="row">

@@ -288,6 +288,21 @@
       color: #fdb714;
       border: 1px #fdb714  solid; }
 
+#pd-sf-tab-content-container {
+  max-width: 1170px; }
+  #pd-sf-tab-content-container .tab-content .panel-title {
+    text-align: center;
+    font-family: 'Calibri-Bold',Arial; }
+    #pd-sf-tab-content-container .tab-content .panel-title a {
+      display: inline-block;
+      width: 100%;
+      font-size: 18px;
+      text-decoration: none;
+      outline: 0;
+      box-shadow: none;
+      color: #4e4e4e;
+      font-weight: bold; }
+
 .pv_compareTable {
   overflow: hidden; }
   .pv_compareTable a:hover {
@@ -308,8 +323,8 @@
     width: auto;
     background-color: transparent;
     border: none;
-    padding-right: 30px;
-    margin-left: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     position: relative; }
     .pv_compareTable #sel_savie_provie option {
       color: #f8882d; }
@@ -355,6 +370,8 @@
       bottom: 0;
       left: inherit;
       right: -15px; }
+    .wp_productCalculator .box-input select::-ms-value {
+      padding-right: 16px; }
   .wp_productCalculator .box-result {
     max-width: 300px;
     min-height: 280px; }
@@ -381,5 +398,7 @@
   .pv_sec_features .pv_feature_box .pv_feature_desc {
     padding-left: 1em;
     padding-right: 1em; } }
+select::-ms-value {
+  color: #fff; }
 
 /*# sourceMappingURL=wealthree-landing-style.css.map */

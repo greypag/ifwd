@@ -426,6 +426,25 @@
 		}
 	}
 }
+#pd-sf-tab-content-container{
+	max-width:1170px;
+	 .tab-content {
+	 	.panel-title{ 
+	 			text-align:center;
+	 			font-family: 'Calibri-Bold',Arial;
+		 	a {
+				display: inline-block;
+				width:100%;
+				font-size:18px;
+				text-decoration:none;
+				outline:0;
+				box-shadow: none;
+				color: #4e4e4e;
+				font-weight : bold;
+		 	}
+	 	}
+	 }
+}
 .pv_compareTable{
 	overflow: hidden;
 
@@ -446,13 +465,16 @@
 			color:#fff;
 		}
 	}
+	
 	#sel_savie_provie{
 		max-width: none;
 		width:auto;
 		background-color:transparent;
 		border:none;
-		padding-right:30px;
-		margin-left:30px;
+		//padding-right:30px;
+		//margin-left:30px;
+		-webkit-appearance:none;
+		-moz-appearance:none;
 		position:relative;
 		option{
 			color:#f8882d;
@@ -528,6 +550,9 @@
 				left:inherit;
 				right:-15px;
 		 	}
+		 	select::-ms-value{
+		 		padding-right:16px;
+		 	}
 		 }
 
 		 .box-result{
@@ -575,4 +600,7 @@
 		padding-right:1em;
 	}
 
+}
+select::-ms-value{
+	color: #fff;
 }
