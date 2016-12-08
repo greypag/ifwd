@@ -1189,16 +1189,16 @@ perventRedirect = true;
                             <div class="top35 pull-right pad-none" style="width:47%">
                                 <c:choose>
                                     <c:when test="${language=='en'}">
-                                   	<button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD'); return fwdUtility.pages.flightCare.activateUserAccountJoinUs();"
-                                        class="bdr-curve btn btn-primary nxt-btn"/>
-                                        <fmt:message key="flight.details.action.next" bundle="${msg}" />
+                                   	<button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 EN','USD');"
+                                        class="bdr-curve btn btn-primary nxt-btn"/><fmt:message key="flight.details.action.next" bundle="${msg}" />
                                     </button>
                                    </c:when>
                                    <c:otherwise>
-                                    <button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD'); return fwdUtility.pages.flightCare.activateUserAccountJoinUs();"
-                                    class="bdr-curve btn btn-primary nxt-btn"/><fmt:message key="flight.details.action.next" bundle="${msg}" /></button>
-                            	</c:otherwise>
-                            </c:choose>
+                                    <button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD');"
+                                        class="bdr-curve btn btn-primary nxt-btn"/><fmt:message key="flight.details.action.next" bundle="${msg}" />
+                                    </button>
+                            	   </c:otherwise>
+                               </c:choose>
                             </div>
                         </div>
                         <div class="clearfix"></div>

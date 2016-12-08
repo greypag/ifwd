@@ -226,8 +226,10 @@ var fwdUtility = (function() {
 
 			// if ( fwdUtility.pages.flightCare.fPlanValid() ) {
 			if ( _pages_fPlanValid() ) {
+				console.log( (name == "" && password == "" && password2 == "") );
 				if (name == "" && password == "" && password2 == "") {
-					$('#freeFlightForm').submit()
+					$('#freeFlightForm').submit();
+					console.log('$(\'#freeFlightForm\').submit();');
 				} else {
 					if(name != "" && password != "" && password2 != "") {
 						$('#chk1').html('');
@@ -235,25 +237,28 @@ var fwdUtility = (function() {
 
 						$('#dobInvalid').html('');
 
+						// validateForm = false;
+						// console.log(validateForm);
 						validateForm = true;
-						if ( !_checkMembership("Username") ) {
-							if(firstErrorElementId=="") {
-								firstErrorElementId="Username";
-							}
-							validateForm = false;
-						}
-						if ( !_checkMembership("Password") ) {
-							if(firstErrorElementId=="") {
-								firstErrorElementId="Password";
-							}
-							validateForm = false;
-						}
-						if ( !_checkMembership("Confirm-Password") ) {
-							if(firstErrorElementId=="") {
-								firstErrorElementId="Confirm-Password";
-							}
-							validateForm = false;
-						}
+
+						// if ( !_checkMembership("Username") ) {
+						// 	if(firstErrorElementId=="") {
+						// 		firstErrorElementId="Username";
+						// 	}
+						// 	validateForm = false;
+						// }
+						// if ( !_checkMembership("Password") ) {
+						// 	if(firstErrorElementId=="") {
+						// 		firstErrorElementId="Password";
+						// 	}
+						// 	validateForm = false;
+						// }
+						// if ( !_checkMembership("Confirm-Password") ) {
+						// 	if(firstErrorElementId=="") {
+						// 		firstErrorElementId="Confirm-Password";
+						// 	}
+						// 	validateForm = false;
+						// }
 						var applicantDob = $("#applicantDob").val();
 
 						if(firstErrorElementId!="") {

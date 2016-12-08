@@ -107,6 +107,7 @@ var initFVConfig = function(argCfg) {
 
 			// MUST - Authenticate Username & Password
 			if ( argCfg.flightJSPcbInfo.authenticated ) {
+				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
 
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
 
@@ -127,6 +128,7 @@ var initFVConfig = function(argCfg) {
 				fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( dataSourceFieldInfo );
 
 			} else {
+				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
 
 				dataSourceFieldInfo = { 'formId': formId };
 				fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( dataSourceFieldInfo );
@@ -211,6 +213,16 @@ var runFV = function(argCfg) {
 
 		// MUST - Trigger the FormValidation.io library here.
 		$('#' + fcArgs.formId).formValidation(argCfg)
+			.on('success.form.fv', function(e) {
+	            // Prevent form submission
+	            e.preventDefault();
+
+	            // Some instances you can use are
+	            var $form = $(e.target),        // The form instance
+	                fv    = $(e.target).data('formValidation'); // FormValidation instance
+
+				
+	        })
 	        .on('err.validator.fv', function(e, data) {
 	            /**
 	            *   $(e.target)    --> The field element
