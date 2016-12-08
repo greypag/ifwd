@@ -3959,11 +3959,11 @@ var home_url = "<%=request.getContextPath()%>";
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<!--div class="modal-body__title">
-							<h3 class="modal-title"><fmt:message key="savie.tax.resident.modal.title" bundle="${msg}" /></h3>
-						</div-->
 						<div class="modal-body__content">
-							<fmt:message key="savie.tax.resident.modal.content" bundle="${msg}" />
+							<fmt:message key="savie.tax.resident.modal.content_1" bundle="${msg}" />
+						</div>
+						<div class="modal-body__content">
+							<fmt:message key="savie.tax.resident.modal.content_2" bundle="${msg}" />
 						</div>
 						<div class="modal-body__button">
 							<button type="button" class="btn btn-primary" data-dismiss="modal"><fmt:message key="savie.tax.resident.modal.btn" bundle="${msg}" /></button>
