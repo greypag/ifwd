@@ -53,7 +53,8 @@ var initFVConfig = function(argCfg) {
 
 			// MUST - Multi-fields applied attr 'readonly'
 			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
-			argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
+			// *Developer* if 'disabled' is true, the AJAX serialize will not pass the fieldname to backend. That may cause a bug.
+			// argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
 
 			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
@@ -72,12 +73,12 @@ var initFVConfig = function(argCfg) {
 			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
 			datepickerConfig = {
-		        startView: "decade",
-		        autoclose: true,
-		        format: "dd-mm-yyyy",
-		        startDate: fwdConstant.date.dob_start_date, // Note: not UTC / GMT, should be "Wed Dec 02 1998 14:48:41 GMT+0800 (HKT)"
-		        endDate: fwdConstant.date.dob_end_date
-		        // /*language: getBundleLanguage*/
+		        'startView': 'decade',
+		        'autoclose': true,
+		        'format': 'dd-mm-yyyy',
+		        'startDate': fwdConstant.date.dob_start_date, // Note: not UTC / GMT, should be "Wed Dec 02 1998 14:48:41 GMT+0800 (HKT)"
+		        'endDate': fwdConstant.date.dob_end_date
+		        // /*'language': getBundleLanguage*/
 		    };
 			argCfg.helpers.initDatePicker.changeDate_trigger_selectBoxValueChange( dataSourceFieldInfo, datepickerConfig );
 
@@ -134,13 +135,6 @@ var initFVConfig = function(argCfg) {
 				fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( dataSourceFieldInfo );
 
 			}
-
-			// <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
-	        // fwdUtility.temp.flightCareAuth();
-	        // <% } else {%>
-	        // fwdUtility.temp.flightCareActivate( {'formId': 'freeFlightForm'} );
-	        // <% } %>
-
 
 			// MUST - Submit Form
 			$(formId).onsubmit = function() {
@@ -223,12 +217,21 @@ var runFV = function(argCfg) {
 
 				var temp = $('#'+ fcArgs.formId).serialize();
 				console.log(temp);
-				var fieldnameToRemoveIndex = [
-					'personalName'
-					, 'personalHKID'
-					, 'personalAgeRange'
-					, 'personalBeneficiary'
-				];
+
+				if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {
+					var fieldnameToRemoveIndex = [
+						'adultName', 'adultHKID', 'adultAgeRange', 'adultBeneficiary'
+						, 'childName', 'childHKID', 'childAgeRange', 'childBeneficiary'
+						, 'otherName', 'otherHKID', 'otherAgeRange', 'otherBeneficiary'
+					];
+			    } else {
+					var fieldnameToRemoveIndex = [
+						'personalName'
+						, 'personalHKID'
+						, 'personalAgeRange'
+						, 'personalBeneficiary'
+					];
+			    }
 				var temp2 = fvConfig.helpers.other.removeIndexNum_onSerializedString( fvConfig['flightJSPcbInfo'], temp, fieldnameToRemoveIndex );
 				console.log(temp2);
 

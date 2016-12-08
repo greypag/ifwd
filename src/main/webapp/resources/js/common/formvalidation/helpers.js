@@ -417,9 +417,9 @@ fvConfig['helpers'] = {
     }
     , 'ux': {}
     , 'fvCallback': {
-        'hkidUniqueValidation':                       cb_hkidUniqueValidation
+        'hkidUniqueValidation':                 cb_hkidUniqueValidation
     }
     , 'other': {
-        'removeIndexNum_onSerializedString':              other_rmIndexNum_onSerializedString
+        'removeIndexNum_onSerializedString':    other_rmIndexNum_onSerializedString
     }
 };
