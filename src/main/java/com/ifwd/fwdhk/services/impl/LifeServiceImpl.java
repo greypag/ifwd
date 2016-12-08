@@ -472,7 +472,23 @@ public class LifeServiceImpl implements LifeService {
 					}
 				}
 				else if(issueAge < 67){
-					if(age == 65){
+					if(age>=65&&age%5==0){
+						if("tc".equals(lang)){
+							showAge = (age+1)+"歲";
+						}else{
+							showAge = "Age "+(age+1);
+						}
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+(age+1),totalPremium));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_"+(age+1),showAge));
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+(age+1),totalPremium));
+						attributeList.add(new PdfAttribute("Accountvalue_"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
+						attributeList.add(new PdfAttribute("DeathBenefit_"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
+					}
+					/*if(age == 65){
 						if("tc".equals(lang)){
 							showAge = "66歲";
 						}else{
@@ -487,7 +503,8 @@ public class LifeServiceImpl implements LifeService {
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
 						attributeList.add(new PdfAttribute("DeathBenefit_66",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
-					}
+					}*/
+					
 					if(policyYear == 100){
 						if("tc".equals(lang)){
 							showAge = "100歲";
@@ -569,7 +586,23 @@ public class LifeServiceImpl implements LifeService {
 					}
 				}
 				else if(issueAge < 67){
-					if(age == 65){
+					if(age>=65&&age%5==0){
+						if("tc".equals(lang)){
+							showAge = (age+1)+"歲";
+						}else{
+							showAge = "Age "+(age+1);
+						}
+						
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+(age+1),totalPremium));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_"+(age+1),showAge));
+						attributeList.add(new PdfAttribute("Accountvalue_a"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
+						attributeList.add(new PdfAttribute("DeathBenefit_a"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
+					}
+					/*if(age == 65){
 						if("tc".equals(lang)){
 							showAge = "66歲";
 						}else{
@@ -583,7 +616,7 @@ public class LifeServiceImpl implements LifeService {
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
 						attributeList.add(new PdfAttribute("DeathBenefit_a66",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
-					}
+					}*/
 					if(policyYear == 100){
 						if("tc".equals(lang)){
 							showAge = "100歲";
