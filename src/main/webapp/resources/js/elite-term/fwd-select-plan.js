@@ -1278,77 +1278,46 @@
 				type: "POST",
 				async: false,
 				contentType: "application/json;charset=utf-8",
-				url: "<%=request.getContextPath()%>/api/member/crs",
+				url: contextPath + "/api/member/crs",
 				data: JSON.stringify(tax_resident_info),
 				success: function (data,code,http_response) {
 					console.log(data);
-					
-					if (http_response.status != 200) {
-							$('#tax-resident-modal').modal('show');
+					if (data != null && data.proceed != null && data.proceed != "") {
+							if(data.proceed == true){
+								$.ajax({
+									type: "POST",
+									url:contextPath+'/ajax/eliteTerm/putPersonalInfoSession',
+									data: $('#eliteTermsInsuredInfoForm').serialize(),
+									success:function(data){}
+								});
+								$('#et-personal-info-next').removeAttr('disabled');
+
+								if ($('#et-personal-info-next').hasClass('back-to-summary')) {
+								  storeAppInfo();
+									populateAppSummPI();
+								$('#et-application-third-section').removeClass('hide-element');
+									$('body, html').animate({
+										scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
+									}, 0);
+								} else {
+									var $ben = $('#et-employment-info-section');
+
+									$ben.removeClass('hide-element')
+											 .css('margin-bottom', '280px');
+
+									$('body, html').animate({
+										scrollTop: ($ben.offset().top - stickyHeight) + 'px'
+									}, 500);
+								}
+
+								//Store application info data
+								storeAppInfo();								
+							}else{
+								$('#tax-resident-modal').modal('show');
+							}
+							
 					}else{
-							$.ajax({
-								type: "POST",
-								url:contextPath+'/ajax/eliteTerm/putPersonalInfoSession',
-								data: $('#eliteTermsInsuredInfoForm').serialize(),
-								success:function(data){}
-							});
-
-							// Check if permanent address lines
-							/*if (!isPerLineValid()) {
-								_form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'INVALID', 'callback');
-
-								isValidAddLine = false;
-							} else {
-								_form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'VALID', 'callback');
-							}
-
-							// Check if res address lines
-							if (!isResLineValid()) {
-								_form.bootstrapValidator('updateStatus', 'savieApplicantBean.residentialAdress1', 'INVALID', 'callback');
-								isValidAddLine = false;
-							} else {
-								_form.bootstrapValidator('updateStatus', 'savieApplicantBean.residentialAdress1', 'VALID', 'callback');
-							}
-
-							// Check if corr address lines
-							if (!isCorrLineValid()) {
-								_form.bootstrapValidator('updateStatus', 'savieApplicantBean.correspondenceAdress1', 'INVALID', 'callback');
-								isValidAddLine = false;
-							} else {
-								_form.bootstrapValidator('updateStatus', 'savieApplicantBean.correspondenceAdress1', 'VALID', 'callback');
-							}
-
-							if (!isValidAddLine) {
-								$('body, html').animate({
-									scrollTop: ($('#et-application-info-section').offset().top - stickyHeight) + 'px'
-								}, 0);
-								return false;
-							}*/
-
-							//isAppDobValid();
-							$('#et-personal-info-next').removeAttr('disabled');
-
-							if ($('#et-personal-info-next').hasClass('back-to-summary')) {
-							  storeAppInfo();
-								populateAppSummPI();
-							$('#et-application-third-section').removeClass('hide-element');
-								$('body, html').animate({
-									scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
-								}, 0);
-							} else {
-								var $ben = $('#et-employment-info-section');
-
-								$ben.removeClass('hide-element')
-										 .css('margin-bottom', '280px');
-
-								$('body, html').animate({
-									scrollTop: ($ben.offset().top - stickyHeight) + 'px'
-								}, 500);
-							}
-
-							//Store application info data
-							storeAppInfo();
-						}
+						$('#tax-resident-modal').modal('show');
 					}
 				}
 			});

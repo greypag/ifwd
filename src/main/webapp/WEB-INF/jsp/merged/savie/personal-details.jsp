@@ -1120,20 +1120,15 @@ $("#et-personal-info-next, #btn-back").click(function () {
 			success: function (data,code,http_response) {
 				console.log(data);
 				console.log(http_response);
-
-				if (data.proceed == true) {
-// 				if(http_response.status==200){
-					invalidTaxResident = true;
+				if (data != null && data.proceed != null && data.proceed != "") {
+					if(data.proceed == true){
+						invalidTaxResident = true;
+					} else {
+						$('#tax-resident-modal').modal('show');
+					}
 				}else{
 					$('#tax-resident-modal').modal('show');
 				}
-				/*if (data != null && data.proceed != null && data.proceed != "") {
-					if(data.proceed == false){
-						$('#tax-resident-modal').modal('show');
-					} else {
-						invalidTaxResident = true;
-					}
-				}*/
 			},
 			fail: function(){
 				$('#tax-resident-modal').modal('show');
