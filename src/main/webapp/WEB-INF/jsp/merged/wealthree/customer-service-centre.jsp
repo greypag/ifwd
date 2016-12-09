@@ -24,6 +24,7 @@ var planCode = '<%=request.getParameter("planCode")%>';
 <link href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css"/>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/wealthree/wealthree-customer-service-centre.css"/>
 
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-appointment" id="make-an-appointment-page">			
 	
@@ -424,6 +425,25 @@ function stickToHeader() {
 			</div><!-- /.modal-dialog -->	
 		</div><!-- /.modal -->
 		
+		<!--Modal in Customer Service Centre  preferedTimeIsNull-->
+		<div class="modal fade" role="dialog" aria-labelledby="preferedTimeIsNull" id="preferedTimeIsNull" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog teaserSurvey" role="document">
+				<div class="modal-content teaserSurvey">
+					<div class="modal-header teaserSurvey">
+						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+						<h2><fmt:message key="wealthree.appoint.popup.prefered.time.slot.null.title" bundle="${wealthreeMsg}" /></h2>
+					</div>
+					<div class="modal-body teaserSurvey">
+						<!-- <p class="registered">preferedTimeIsNull</p> -->
+						
+						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
+						<button type="button" class="btn btn-orange" id="prefered-time-is-null-btn"><fmt:message key="wealthree.appoint.popup.prefered.time.slot.null.btn" bundle="${wealthreeMsg}" /></button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->	
+		</div><!-- /.modal -->
+		
+		
 		<!--Modal in Customer Service Centre (access code had been used)-->
 		<div class="modal fade" role="dialog" aria-labelledby="accessCodeUsed" id="accessCodeUsed">
 			<div class="modal-dialog teaserSurvey" role="document">
@@ -519,6 +539,9 @@ function stickToHeader() {
 	
 		$('#back-to-home-btn').click(function(){
 			window.location.href= context + "/" + language + "/savings-insurance/wealthree";
+		});
+		$('#prefered-time-is-null-btn').click(function(){
+			$('#preferedTimeIsNull').modal('hide');
 		});
 
 		return;

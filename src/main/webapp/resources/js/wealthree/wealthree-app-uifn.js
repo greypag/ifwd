@@ -280,7 +280,7 @@ $(document).ready(function(){
 				    },
 				    success:function(response){
 				    	
-				    	$("#preferedTimeIsNull").modal("show");
+				    	//$("#preferedTimeIsNull").modal("show");
 				    	if(response){
 				    		
 				    		if(response.length > 0){
