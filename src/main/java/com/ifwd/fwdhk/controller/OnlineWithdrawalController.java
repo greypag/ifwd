@@ -154,11 +154,12 @@ public class OnlineWithdrawalController extends BaseController{
 	private <T> ResponseEntity getResponseEntityByJsonObj(String methodName,
 			Class<T> responseClass,
 			JSONObject responseJsonObj) throws JsonParseException, JsonMappingException, IOException {
-		//MessageCodeUtil messageUtil=new MessageCodeUtil();
-		if (responseJsonObj==null||responseJsonObj.get("errMsgs")!=null&&!((String)((JSONArray)responseJsonObj.get("errMsgs")).get(0)).contains("TWE")){
-			return Responses.error(null);
+
+		logger.info(methodName+" response :" + ((responseJsonObj==null)?null:responseJsonObj.toString()));
+		
+		if (responseJsonObj==null||responseJsonObj.get("errMsgs")!=null){
+			return this.getDefaultErrorResonseEntity();
 		}
-		logger.info(methodName+" response :" + responseJsonObj.toString());
 		T responseObject=null;
 		JSONObject errMsg=null;
 		if(responseJsonObj.get("msg") instanceof JSONArray){
