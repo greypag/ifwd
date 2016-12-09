@@ -382,6 +382,24 @@ var other_rmIndexNum_onSerializedString = function(cfg, serializedString, fieldn
     return stringBuffer;
 };
 
+// Check fields is all-emptied or not
+// Listener internally returns True, run the cb(); Returns false, won't run cb()
+var listener_isFieldsEmptied= function( dInfo, cb ) {
+    var arrFields   = dInfo.fieldsForValidation;
+    var isNotEmptyCounter = 0;
+    for (var i = 0; i < arrFields.length; i++) {
+        (function( w ) {
+            $(document).on('change', arrFields[w], function() {
+                if ( $.trim( $(arrFields[w]).val() ) !== '' ) {
+                    isNotEmptyCounter = isNotEmptyCounter + 1;
+                }
+                if ( isNotEmptyCounter >= dInfo.fieldsLimitedTo ) {
+                    cb();
+                }
+            });
+        })(i);
+    }
+};
 /*
  * Export modules to "fvConfig" object
  */
@@ -418,6 +436,9 @@ fvConfig['helpers'] = {
     , 'ux': {}
     , 'fvCallback': {
         'hkidUniqueValidation':                 cb_hkidUniqueValidation
+    }
+    , 'listener': {
+        'isFieldsEmptied':                     listener_isFieldsEmptied
     }
     , 'other': {
         'removeIndexNum_onSerializedString':    other_rmIndexNum_onSerializedString

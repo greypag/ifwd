@@ -106,8 +106,10 @@ var initFVConfig = function(argCfg) {
                 // (this part may solve in phase 2 revamp)
 			// End >>> Under Developing - the tooltip behaviour
 
-			// MUST - Authenticate Username & Password
+			// MUST - Login Authenticate Username & Password
 			if ( argCfg.flightJSPcbInfo.authenticated ) {
+
+				// Scenario for Authenticated case
 				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
 
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
@@ -125,14 +127,48 @@ var initFVConfig = function(argCfg) {
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
-				dataSourceFieldInfo = { 'formId': formId };
+				// MUST - Check fields is all-emptied or not. #Username, #Password, #Confirm-Password (Not-authenticated-case only)
+				dataSourceFieldInfo = {
+					'formId': formId
+					// Should be a selector (ID / CLASSNAME) in distinct for targeted field(s)
+					, 'fieldsForValidation': [
+						'#Username'
+						, '#Password'
+						, '#Confirm-Password'
+					]
+					, 'fieldnamesForValidation': [
+						'userName'
+						, 'password'
+						, 'password'
+					]
+					// min. number of "not-empty" fields to triggers cb().
+					, 'fieldsLimitedTo': 1
+				};
+				var cb_enableFieldValidators = function() {
+					console.log('cb_enableFieldValidators() is run.');
+					var arrFieldnames = dataSourceFieldInfo.fieldnamesForValidation;
+					for (var h = 0; h < arrFieldnames.length; h++) {
+						(function( k ) {
+							// in-progress >> pls refer to http://formvalidation.io/examples/toggling-validators-master-page/
+							$(dataSourceFieldInfo.formId).formValidation('enableFieldValidators', arrFieldnames[k], true)
+						})(h);
+					}
+				};
+				// Listener return True, run the cb(); Returns false, won't run cb()
+				argCfg.helpers.listener.isFieldsEmptied( dataSourceFieldInfo, cb_enableFieldValidators );
+
+				// Still drafting - just for reference
+				// dataSourceFieldInfo = { 'formId': formId };
 				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( dataSourceFieldInfo );
 
 			} else {
+
+				// Scenario for Non-Authenticated case
 				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
 
-				dataSourceFieldInfo = { 'formId': formId };
-				fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( dataSourceFieldInfo );
+				// Still drafting - just for reference
+				// dataSourceFieldInfo = { 'formId': formId };
+				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( dataSourceFieldInfo );
 
 			}
 
@@ -210,73 +246,57 @@ var runFV = function(argCfg) {
 			.on('success.form.fv', function(e) {
 				// Prevent form submission
 				e.preventDefault();
-				console.log(e.target);
-	            // Some instances you can use are
-	            var $form	= $(e.target);
-				var fv  	= $(e.target).data('formValidation'); // FormValidation instance
 
-				var temp = $('#'+ fcArgs.formId).serialize();
+	            // Some instances you can use
+	            var $form	= $(e.target);
+				var fv  	= $(e.target).data('formValidation');
+
+				var serializedString_withIndex = $('#'+ fcArgs.formId).serialize();
+
+				// Washing ${inx} out from VAR serializedString_withIndex
+				var fieldnameToRemoveIndex = [];
 				if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {
-					var fieldnameToRemoveIndex = [
+					fieldnameToRemoveIndex = [
 						'adultName', 'adultHKID', 'adultAgeRange', 'adultBeneficiary'
 						, 'childName', 'childHKID', 'childAgeRange', 'childBeneficiary'
 						, 'otherName', 'otherHKID', 'otherAgeRange', 'otherBeneficiary'
 					];
 			    } else {
-					var fieldnameToRemoveIndex = [
-						'personalName'
-						, 'personalHKID'
-						, 'personalAgeRange'
-						, 'personalBeneficiary'
+					fieldnameToRemoveIndex = [
+						'personalName', 'personalHKID', 'personalAgeRange', 'personalBeneficiary'
 					];
 			    }
-				console.log(temp);
-				var temp2 = fvConfig.helpers.other.removeIndexNum_onSerializedString( fvConfig['flightJSPcbInfo'], temp, fieldnameToRemoveIndex );
-				console.log(temp2);
-				// var flight_click = false;
+				var serializedString_withoutIndex = fvConfig.helpers.other.removeIndexNum_onSerializedString(
+					fvConfig['flightJSPcbInfo']
+					, serializedString_withIndex
+					, fieldnameToRemoveIndex
+				);
+
 				$.ajax({
 		            type: "POST",
 		            url: fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy",
-		            data: temp2,
+		            data: serializedString_withoutIndex,
 		            async: false,
 		            success: function(data) {
-		                var result = data['result'];
-		                var errMsg = data['errMsgs']
-		                // flight_click = false;
-		                if (result == 'success') {
+		                if (data.result == 'success') {
+
 		                    $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
 							$('#errorMessages').hide();
 
-							/*
-							 * Original script below >>
-							 * form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
-							 *
-							 * Opinion #1. Failure on >> "No Form Post Params, redirected to landing page"
-							 * window.location.href = fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation";
-							 *
-							 * Opinion #2. Failure on >> In "$(form).attr(...).submit()" .submit not return Ture/False & $(form).submit is wrong calling-method on FormValidation.io
-							 * $('#' + fcArgs.formId).attr("action", fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation").submit();
-							 *
-							 * Opinion #3. Failure on >> The object-level like a sub-sub-sub of $('#' + fcArgs.formId), and will not changed the sourced object value $('#' + fcArgs.formId), unless we use jQuery to amend the "action" HTML attr.
-							 * fv.action = fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation";
-							 */
-
 							$('#' + fcArgs.formId).attr("action", fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation");
-
 							// Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
 							// Don't use general form.submit(function(e) {...}); etc...
 							fv.defaultSubmit(function(e) {
-								console.log('Form submitted to '+fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation");
 								return true;
 							});
 
 		                } else {
-							flag = false;
+							// Exception, mostly not related
 							$('#loading-overlay').modal('hide');
 							$('#errorMessages').removeClass('hide');
-							console.log(data);
-		                    $('#errorMessages').html(errMsg);
+		                    $('#errorMessages').html(data.errMsgs);
 
+							console.log(data);
 							fv.defaultSubmit(function(e) {
 								return false;
 							});

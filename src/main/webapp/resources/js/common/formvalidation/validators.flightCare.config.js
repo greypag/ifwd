@@ -166,7 +166,10 @@ fvConfig['applicant'] = function() {
             , 'trigger': 'blur'
             , 'enabled': false
             , 'validators': {
-                'stringLength': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'applicant.email.notNull.message') // Msg content not confirmed yet
+                }
+                , 'stringLength': {
                     'message': getBundle(getBundleLanguage, 'user.username.length.message')
                     , 'max': 50
                     , 'min': 6
@@ -180,7 +183,7 @@ fvConfig['applicant'] = function() {
             , 'enabled': false
             , 'validators': {
                 'notEmpty': {
-                    'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message')
+                    'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message') // Msg content not confirmed yet
                 }
                 , 'identical': {
                     'field': 'password',
@@ -194,7 +197,10 @@ fvConfig['applicant'] = function() {
             , 'trigger': 'blur'
             , 'enabled': false
             , 'validators': {
-                'identical': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message') // Msg content not confirmed yet
+                }
+                , 'identical': {
                     'field': 'password',
                     'message': getBundle(getBundleLanguage, 'member.confirmPassword.notMatch.message')
                 }
