@@ -300,6 +300,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 	            init: function() {
 	            	this.on("sending", function(file, xhr, formData){
 	                        formData.append("policyId", quote.policyId);
+	                        formData.append("refNumber", quote.refNumber);
 	                        formData.append("docType", "vehicleReg");
 	                });
 	                this.on("addedfile", function(file) { 
@@ -341,6 +342,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 	            init: function() {
 	            	this.on("sending", function(file, xhr, formData){
 	            		formData.append("policyId", quote.policyId);
+                        formData.append("refNumber", quote.refNumber);
                         formData.append("docType", "hkid");
                 	});
 	                this.on("addedfile", function(file) { 
@@ -382,6 +384,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 	            init: function() {
 	            	this.on("sending", function(file, xhr, formData){
 	            		formData.append("policyId", quote.policyId);
+                        formData.append("refNumber", quote.refNumber);
                         formData.append("docType", "license");
                 	});
 	                this.on("addedfile", function(file) {

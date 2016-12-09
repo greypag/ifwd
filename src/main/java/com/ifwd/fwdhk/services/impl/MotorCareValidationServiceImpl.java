@@ -1,12 +1,19 @@
 package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.length;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +27,12 @@ import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fwd.model.motor.CarDetail;
+import com.fwd.model.motor.Driver;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.OccupationBean;
 import com.ifwd.fwdhk.model.motor.MotorCareDetails;
 import com.ifwd.fwdhk.services.MotorCareValidationService;
-
 
 @Service
 public class MotorCareValidationServiceImpl implements
@@ -105,11 +112,11 @@ public class MotorCareValidationServiceImpl implements
 				}
 			}else{
 				logger.error("validationCarMakeMode carDetails Exception:"+responseJsonObj.get("errMsgs"));
-				return HttpStatus.INTERNAL_SERVER_ERROR;	
+				return HttpStatus.valueOf(504);	
 			}
 		} catch (Exception e) {
 			logger.error("validationCarMakeMode Exception", e);
-			return HttpStatus.INTERNAL_SERVER_ERROR;
+			return HttpStatus.valueOf(504);
 		}
 		return HttpStatus.OK; 
 	}
@@ -187,4 +194,151 @@ public class MotorCareValidationServiceImpl implements
 		
 		return HttpStatus.OK;//200
 	}
+	
+	public boolean passFieldCheckCarDetails(MotorCareDetails motorCare){
+		try {
+			if (isBlank(motorCare.getCarDetail().getChassisNumber()) 
+				|| motorCare.getCarDetail().getEngineCapacity() <= 0
+				|| isBlank(motorCare.getCarDetail().getModelDesc()) 				
+				|| isBlank(motorCare.getPolicyId()) ) {
+				return false;
+			}			
+			
+			// Check CC Length
+			if (length(motorCare.getCarDetail().getEngineCapacity().toString()) <3 
+					|| length(motorCare.getCarDetail().getEngineCapacity().toString()) >5) {
+				return false;
+			}
+			
+			// Check Model in Registration Doc
+			if (length(motorCare.getCarDetail().getModelDesc()) <4 
+					|| length(motorCare.getCarDetail().getModelDesc()) >10) {
+				return false;
+			}
+				
+			// Check Bank
+			if (motorCare.getCarDetail().isBankMortgage() && isBlank(motorCare.getCarDetail().getBankMortgageName()) ) {
+				return false;
+			}
+		} catch (NullPointerException e) {
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean passFieldCheckDriverDetails(MotorCareDetails motorCare){
+		try {
+			if (isBlank(motorCare.getApplicant().getName())				
+				|| isBlank(motorCare.getApplicant().getDateOfBirth())
+				|| isBlank(motorCare.getApplicant().getContactNo())
+				|| isBlank(motorCare.getApplicant().getEmail())
+				|| isBlank(motorCare.getApplicant().getHkid())
+				|| isBlank(motorCare.getApplicant().getCorrespondenceAddress().getDistrict())
+				|| isBlank(motorCare.getApplicant().getCorrespondenceAddress().getHkKlNt())
+				|| isBlank(motorCare.getPolicyStartDate())
+				|| isBlank(motorCare.getPolicyId())				
+				) {
+				return false;
+			}	
+			
+			int age = getAgeUntilToday (DateUtils.parseDate(motorCare.getApplicant().getDateOfBirth(), new String[]{"dd-MM-yyyy"}));
+			if (age < 25 || age > 75) {
+				return false;
+			}
+			
+			// Check Estate and building
+			if ( (!isBlank(motorCare.getApplicant().getCorrespondenceAddress().getEstate()) 
+					&& isBlank(motorCare.getApplicant().getCorrespondenceAddress().getBuilding())) || 
+				 (!isBlank(motorCare.getApplicant().getCorrespondenceAddress().getBuilding()) 
+					&& isBlank(motorCare.getApplicant().getCorrespondenceAddress().getEstate())) 
+					) {
+				return false;
+			}
+			
+			// Check Policy Start Date
+			Date policyStartDte = DateUtils.parseDate(motorCare.getPolicyStartDate(), new String[]{"dd-MM-yyyy"});
+			if (DateUtils.truncatedCompareTo(policyStartDte, new Date(), Calendar.DAY_OF_MONTH) < 0 ||
+				DateUtils.truncatedCompareTo(policyStartDte, DateUtils.addDays(new Date(), 90), Calendar.DAY_OF_MONTH) > 0)
+			{
+				return false;
+			}
+		} catch (NullPointerException e) {
+			return false;
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean passFieldCheckPolicyDetails(MotorCareDetails motorCare){
+		try {
+			if (motorCare.getDriver() == null || motorCare.getDriver().size() <=0) {
+				return false;
+			}
+					
+			for (Driver driver: motorCare.getDriver()){
+				if (isBlank(driver.getName())
+						|| isBlank(driver.getOccupation())				
+						|| isBlank(driver.getHkid())
+						|| !driver.isDriveMoreThanTwo()
+						|| !driver.isValidAgeGroup()				
+						) {
+						return false;
+					}	
+				
+				
+				int age = getAgeUntilToday (DateUtils.parseDate(driver.getDateOfBirth(), new String[]{"dd-MM-yyyy"}));
+				if (age < 25 || age > 75) {
+					return false;
+				}
+			}
+			
+			if (isBlank(motorCare.getNameOfPreviousInusrancer())
+				|| isBlank(motorCare.getRegNoofPreviousPolicy())				
+				|| isBlank(motorCare.getExpDateOfPreviousInsurance())
+				|| isBlank(motorCare.getPreviousPolicyNo())
+				|| isBlank(motorCare.getPolicyId())				
+				) {
+				return false;
+			}
+			
+			// Check Length
+			if (length(motorCare.getRegNoofPreviousPolicy()) <4 
+					|| length(motorCare.getRegNoofPreviousPolicy()) >8) {
+				return false;
+			}
+			
+			// Check Previous Insurance Expiry Date
+			Date expDate = DateUtils.parseDate(motorCare.getExpDateOfPreviousInsurance(), new String[]{"dd-MM-yyyy"});
+			Date policyStartDte = DateUtils.parseDate(motorCare.getPolicyStartDate(), new String[]{"dd-MM-yyyy"});
+			
+			// need Expiry date < Start Date
+			if (DateUtils.truncatedCompareTo(expDate, policyStartDte, Calendar.DAY_OF_MONTH) < 0) {
+				// Valid
+			} else {
+				return false;
+			}
+						
+			if (DateUtils.truncatedCompareTo(policyStartDte, DateUtils.addDays(expDate, 365), Calendar.DAY_OF_MONTH) <= 0) {
+				// Valid
+			} else {
+				return false;
+			}
+		} catch (NullPointerException e) {
+			return false;
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+	private int getAgeUntilToday (Date birthdayInput) {
+		LocalDate today = LocalDate.now();
+		LocalDate birthday = birthdayInput.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+		Period p = Period.between(birthday, today);
+		return p.getYears();
+
+	}
+	
 }

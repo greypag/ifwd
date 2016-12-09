@@ -167,7 +167,9 @@ public class MotorController extends BaseController{
 							// Set motorCareDetail to page's EL var
 							ra.addFlashAttribute("quote", (JSONObject)finalResponseJsonObj.get("motorCareDetails"));
 							JSONObject mcd = (JSONObject)finalResponseJsonObj.get("motorCareDetails");
+							// Plain text
 							mcd.remove("refNumber");
+							// Encrypted ref
 							mcd.put("refNumber", request.getParameter("refNum"));
 							
 							// Send doc upload later email

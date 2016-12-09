@@ -8,10 +8,10 @@
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
 var nextPage = "${nextPageFlow}";
-//var quote = "${quote}";
-var quote = '{"addOnTppdAmt":"309","addOnPaBenefit":"500000","discountAmount":null,"theClubMemberNum":null,"addOnPaAmt":"100","personalAccidentAmount":null,"expDateOfPreviousInsurance":null,"motorCareDeclaration":[{"declarationDesc":null,"langCode":null,"declarationNo":"q1","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q2","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q3","declarationAns":false}],"tPPDExcess":null,"amtFromThirdPartyToCompGold":null,"compInsuranceAmount":null,"regNoofPreviousPolicy":null,"psNoProvidePersonalData":true,"youngDriverExcess":null,"inexperiencedDriverExcess":null,"promoCode":null,"id":0,"addOnTppdIncrease":"5000000","carDetail":{"yearOfManufacture":"2016","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null,"electricCar":false,"engineCapacity":2599,"chassisNumber":"1HGCM82633A004352","estimatedValue":200000,"typeOfBody":null,"alarm":null,"makeCode":"BMW","model":"120I","modelDesc":"MODELZ","id":null,"carGroup":null},"thirdPartyPropertyDamage":false,"theftExcess":null,"amountDueAmount":"1614.53","previousPolicyNo":null,"unnamedDriverExcess":null,"compPlan":null,"subTotalAmount":null,"amtFromThirdPartyToCompSilver":null,"ownDamageExcess":null,"coverNoteNum":"CVVPE16-000257","parkingExcess":null,"policyStartDate":"2016-11-25T10:54:02","planCode":"Third","applicant":{"occupation":"A1","name":null,"dateOfBirth":null,"ncb":40.0,"validAgeGroup":true,"hkid":null,"email":null,"driveMoreThanTwo":true,"contactNo":null,"correspondenceAddress":null},"personalAccident":false,"policyId":"26655406","driver":[{"occupation":"A1","name":null,"dateOfBirth":null,"ncb":null,"validAgeGroup":true,"hkid":null,"email":null,"driveMoreThanTwo":true,"contactNo":null}],"psPICS":false,"refNumber":"QFVPE16-001608","psNoDM":true,"grossPremium":null,"nameOfPreviousInusrancer":null}';
+var quote = '${quote}';
+//var quote = '{"addOnTppdAmt":"309","addOnPaBenefit":"500000","discountAmount":null,"theClubMemberNum":null,"addOnPaAmt":"100","personalAccidentAmount":null,"expDateOfPreviousInsurance":null,"motorCareDeclaration":[{"declarationDesc":null,"langCode":null,"declarationNo":"q1","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q2","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q3","declarationAns":false}],"tPPDExcess":null,"amtFromThirdPartyToCompGold":null,"compInsuranceAmount":null,"regNoofPreviousPolicy":null,"psNoProvidePersonalData":true,"youngDriverExcess":null,"inexperiencedDriverExcess":null,"promoCode":null,"id":0,"addOnTppdIncrease":"5000000","carDetail":{"yearOfManufacture":"2016","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null,"electricCar":false,"engineCapacity":2599,"chassisNumber":"1HGCM82633A004352","estimatedValue":200000,"typeOfBody":null,"alarm":null,"makeCode":"BMW","model":"120I","modelDesc":"MODELZ","id":null,"carGroup":null},"thirdPartyPropertyDamage":false,"theftExcess":null,"amountDueAmount":"1614.53","previousPolicyNo":null,"unnamedDriverExcess":null,"compPlan":null,"subTotalAmount":null,"amtFromThirdPartyToCompSilver":null,"ownDamageExcess":null,"coverNoteNum":"CVVPE16-000257","parkingExcess":null,"policyStartDate":"2016-11-25T10:54:02","planCode":"Third","applicant":{"occupation":"A1","name":null,"dateOfBirth":null,"ncb":40.0,"validAgeGroup":true,"hkid":null,"email":null,"driveMoreThanTwo":true,"contactNo":null,"correspondenceAddress":null},"personalAccident":false,"policyId":"26655406","driver":[{"occupation":"A1","name":null,"dateOfBirth":null,"ncb":null,"validAgeGroup":true,"hkid":null,"email":null,"driveMoreThanTwo":true,"contactNo":null}],"psPICS":false,"refNumber":"QFVPE16-001608","psNoDM":true,"grossPremium":null,"nameOfPreviousInusrancer":null}';
 
-var jsonQuote = jQuery.parseJSON(quote);
+var jsonQuote = jQuery.parseJSON('${quote}');
 console.dir(jsonQuote);
 </script>
 
@@ -314,7 +314,7 @@ console.dir(jsonQuote);
 
 $(document).ready(function(){
 	$("#sendMail").html("<a href='mailto:"+jsonQuote.applicant.email+"'>"+jsonQuote.applicant.email+"</a>");
-	$(".ref-number").html(jsonQuote.refNumber);
+	$(".ref-number").html(jsonQuote.coverNoteNum);
 	$("#uploadDoc").on('click',function(){
 		var $form = $("<form id='quote-form' />");
         $form.attr("action", "document-upload");

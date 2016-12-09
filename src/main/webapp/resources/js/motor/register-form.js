@@ -191,11 +191,11 @@ $(document).ready(function(){
 
 					var resp = $.parseJSON(xhr.responseText);
 
-					if(xhr.status == 400){
+					if(xhr.status == 422){
 						$(".loginPanErrMsg").html($("<small/>").text(resp.message));	
 					} else if(xhr.status == 401){
 						$(".loginPanErrMsg").html($("<small/>").text(resp.message));	
-					} else if(xhr.status == 500){
+					} else if(xhr.status == 504){
 						$(".loginPanErrMsg").html($("<small/>").text(resp.message));	
 					} else {
 						console.log("unable to load API : "+ fwdApi.url.login);
