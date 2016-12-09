@@ -2163,7 +2163,12 @@ public class MotorCareController extends BaseController{
 				? getUploadLaterEmailSetting(request, data) 
 				: getSave4LaterEmailSetting(request);
 				
-		if (input != null) {
+		if (input != null) {			
+			if (!input.containsKey("to") && isBlank((String)input.get("to"))) {
+				logger.info(methodName + " - sendEmail Info: no receiver email address is found");
+				throw new Exception (methodName +  " - sendEmail Info: no receiver email address is found");
+			}
+			
 			apiResult = connector.sendTemplateEmail(input, headerUtil.getHeader(request));
 			
 			if (apiResult == null) {
