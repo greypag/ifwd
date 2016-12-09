@@ -216,8 +216,6 @@ var runFV = function(argCfg) {
 				var fv  	= $(e.target).data('formValidation'); // FormValidation instance
 
 				var temp = $('#'+ fcArgs.formId).serialize();
-				console.log(temp);
-
 				if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {
 					var fieldnameToRemoveIndex = [
 						'adultName', 'adultHKID', 'adultAgeRange', 'adultBeneficiary'
@@ -232,6 +230,7 @@ var runFV = function(argCfg) {
 						, 'personalBeneficiary'
 					];
 			    }
+				console.log(temp);
 				var temp2 = fvConfig.helpers.other.removeIndexNum_onSerializedString( fvConfig['flightJSPcbInfo'], temp, fieldnameToRemoveIndex );
 				console.log(temp2);
 				// var flight_click = false;
@@ -245,19 +244,25 @@ var runFV = function(argCfg) {
 		                var errMsg = data['errMsgs']
 		                // flight_click = false;
 		                if (result == 'success') {
-		                    $('#errorMessages').hide();
-		                    // flag = true;
-		                    // form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
-							window.location.href(fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation");
-							// $('#' + fcArgs.formId).attr("action", ");
+		                    $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+							$('#errorMessages').hide();
+
+							// Original script below >>
+							// form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
+							// Replacing Opinion #1
+							// $('#' + fcArgs.formId).attr("action", fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation").submit();
+							// Replacing Opinion #2
+							window.location.href = fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation";
+
 		                } else {
-		                    console.log(data);
-		                    // flag = false;
-		                    $('#errorMessages').removeClass('hide');
+							$('#loading-overlay').modal('hide');
+							$('#errorMessages').removeClass('hide');
+							console.log(data);
 		                    $('#errorMessages').html(errMsg);
 		                }
 		            }
 		        });
+
 	        })
 	        .on('err.validator.fv', function(e, data) {
 	            /**
