@@ -208,9 +208,9 @@ var runFV = function(argCfg) {
 		// MUST - Trigger the FormValidation.io library here.
 		$('#' + fcArgs.formId).formValidation(argCfg)
 			.on('success.form.fv', function(e) {
-	            // Prevent form submission
-	            e.preventDefault();
-
+				// Prevent form submission
+				e.preventDefault();
+				console.log(e.target);
 	            // Some instances you can use are
 	            var $form	= $(e.target);
 				var fv  	= $(e.target).data('formValidation'); // FormValidation instance
@@ -247,22 +247,42 @@ var runFV = function(argCfg) {
 		                    $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
 							$('#errorMessages').hide();
 
-							// Original script below >>
-							// form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
-							// Replacing Opinion #1
-							// $('#' + fcArgs.formId).attr("action", fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation").submit();
-							// Replacing Opinion #2
-							window.location.href = fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation";
+							/*
+							 * Original script below >>
+							 * form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
+							 *
+							 * Opinion #1. Failure on >> "No Form Post Params, redirected to landing page"
+							 * window.location.href = fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation";
+							 *
+							 * Opinion #2. Failure on >> In "$(form).attr(...).submit()" .submit not return Ture/False & $(form).submit is wrong calling-method on FormValidation.io
+							 * $('#' + fcArgs.formId).attr("action", fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation").submit();
+							 *
+							 * Opinion #3. Failure on >> The object-level like a sub-sub-sub of $('#' + fcArgs.formId), and will not changed the sourced object value $('#' + fcArgs.formId), unless we use jQuery to amend the "action" HTML attr.
+							 * fv.action = fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation";
+							 */
+
+							$('#' + fcArgs.formId).attr("action", fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation");
+
+							// Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
+							// Don't use general form.submit(function(e) {...}); etc...
+							fv.defaultSubmit(function(e) {
+								console.log('Form submitted to '+fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation");
+								return true;
+							});
 
 		                } else {
+							flag = false;
 							$('#loading-overlay').modal('hide');
 							$('#errorMessages').removeClass('hide');
 							console.log(data);
 		                    $('#errorMessages').html(errMsg);
+
+							fv.defaultSubmit(function(e) {
+								return false;
+							});
 		                }
 		            }
 		        });
-
 	        })
 	        .on('err.validator.fv', function(e, data) {
 	            /**
