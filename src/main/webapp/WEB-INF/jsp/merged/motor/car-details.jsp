@@ -308,7 +308,6 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
 </div>
-
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
@@ -320,14 +319,14 @@ var nextPage = "${nextPageFlow}";
 /*var chin = $('body').hasClass('chin'),
 enErr = {
 404: 'System Cannot find the policy',
-500: 'System Error',
-400: 'Invalid Details',
+504: 'System Error',
+422: 'Invalid Details',
 410: 'Invalid CarBand',
 },
 cnErr ={
 		404: '您的汽車類型未能合乎即時報價的要求。',   
-		500: '您的汽車類型未能合乎即時報價的要求。',      
-		400: '您的汽車車齡超過13年。',                          
+		504: '您的汽車類型未能合乎即時報價的要求。',      
+		422: '您的汽車車齡超過13年。',                          
 		410: '您的職業未能合乎即時報價的要求。',        
 };*/
 
@@ -609,19 +608,19 @@ $(document).ready(function(){
                   $("#contactpopup").modal('show');
                   console.log(xhr.status, textStatus, errorThrown);
               } 
-              if (xhr.status == 500) {
+              if (xhr.status == 504) {
               	if(chin)
-              		$("#reasonMsg").text(cnErr[500]);
+              		$("#reasonMsg").text(cnErr[504]);
               	else
-              		$("#reasonMsg").text(enErr[500]);
+              		$("#reasonMsg").text(enErr[504]);
                   $("#contactpopup").modal('show');
                   console.log(xhr.status, textStatus, errorThrown);
               } 
-              else if (xhr.status == 400) {
+              else if (xhr.status == 422) {
               	if(chin)
-              		$("#reasonMsg").text(cnErr[400]);
+              		$("#reasonMsg").text(cnErr[422]);
               	else
-              		$("#reasonMsg").text(enErr[400]);
+              		$("#reasonMsg").text(enErr[422]);
                   $("#contactpopup").modal('show');
                   console.log(xhr.status, textStatus, errorThrown);
               } 

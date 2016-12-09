@@ -751,11 +751,12 @@ function SaveAndExit()
 			   driverMoreThanTwo = true;
 		   }
 		   var submitData = { 		
-				   "policyId": quote.policyId,		
+				   "policyId": quote.policyId,
+				   "policyStartDate": quote.policyStartDate,
 				   "driver": [		
 				   {		
 				     "dateOfBirth": $('input[name=driverDob]').val(),		
-				     "driveMoreThanTwo": driverMoreThanTwo,		
+				     "driveMoreThanTwo": $('input[name=term]').val(),		
 				     "hkid": $('input[name=driverID]').val(),		
 				     "name": $('input[name=fullName]').val(),		
 				     "occupation": $('[name="occupation"]').val(),//$("#occupation option:selected").text(),	
@@ -763,7 +764,7 @@ function SaveAndExit()
 				   }, 		
 				   {		
 				     "dateOfBirth": $('input[name=d2dob]').val(),		
-				     "driveMoreThanTwo": driverMoreThanTwo,		
+				     "driveMoreThanTwo": $('input[name=d2term]').val(),		
 				     "hkid": $('input[name=d2id]').val(),		
 				     "name": $('input[name=d2name]').val(),		
 				     "occupation": $('[name="d2occupation"]').val(),//$("#d2occupation option:selected").text(),		
@@ -771,7 +772,7 @@ function SaveAndExit()
 				   }, 		
 				   {		
 					 "dateOfBirth": $('input[name=d3dob]').val(),		
-					 "driveMoreThanTwo": driverMoreThanTwo,		
+					 "driveMoreThanTwo": $('input[name=d3term]').val()	,		
 					 "hkid": $('input[name=d3id]').val(),		
 					 "name": $('input[name=d3name]').val(),		
 					 "occupation": $('[name="d3occupation"]').val(),//$("#d3occupation option:selected").text(),		
@@ -779,7 +780,7 @@ function SaveAndExit()
 				   }, 		
 				   {		
 					 "dateOfBirth": $('input[name=d4dob]').val(),		
-					 "driveMoreThanTwo": driverMoreThanTwo,		
+					 "driveMoreThanTwo": $('input[name=d4term]').val(),		
 					 "hkid": $('input[name=d4id]').val(),		
 					 "name": $('input[name=d4name]').val(),		
 					 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
@@ -787,7 +788,7 @@ function SaveAndExit()
 				   }, 		
 				   {		
 					 "dateOfBirth": $('input[name=d5dob]').val(),		
-					 "driveMoreThanTwo": driverMoreThanTwo,		
+					 "driveMoreThanTwo": $('input[name=d5term]').val()	,		
 					 "hkid": $('input[name=d5id]').val(),		
 					 "name": $('input[name=d5name]').val(),		
 					 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		
@@ -1323,10 +1324,11 @@ $(document).ready(function(){
 	   }
 	   var submitData = { 		
 			   "policyId": quote.policyId,		
+			   "policyStartDate": quote.policyStartDate,
 			   "driver": [		
 			   {		
 			     "dateOfBirth": $('input[name=driverDob]').val(),		
-			     "driveMoreThanTwo": driverMoreThanTwo,		
+			     "driveMoreThanTwo": $('input[name=term]').val(),		
 			     "hkid": $('input[name=driverID]').val(),		
 			     "name": $('input[name=fullName]').val(),		
 			     "occupation": $('[name="occupation"]').val(),//$("#occupation option:selected").text(),	
@@ -1334,7 +1336,7 @@ $(document).ready(function(){
 			   }, 		
 			   {		
 			     "dateOfBirth": $('input[name=d2dob]').val(),		
-			     "driveMoreThanTwo": driverMoreThanTwo,		
+			     "driveMoreThanTwo": $('input[name=d2term]').val(),		
 			     "hkid": $('input[name=d2id]').val(),		
 			     "name": $('input[name=d2name]').val(),		
 			     "occupation": $('[name="d2occupation"]').val(),//$("#d2occupation option:selected").text(),		
@@ -1342,7 +1344,7 @@ $(document).ready(function(){
 			   }, 		
 			   {		
 				 "dateOfBirth": $('input[name=d3dob]').val(),		
-				 "driveMoreThanTwo": driverMoreThanTwo,		
+				 "driveMoreThanTwo": $('input[name=d3term]').val(),		
 				 "hkid": $('input[name=d3id]').val(),		
 				 "name": $('input[name=d3name]').val(),		
 				 "occupation": $('[name="d3occupation"]').val(),//$("#d3occupation option:selected").text(),		
@@ -1350,7 +1352,7 @@ $(document).ready(function(){
 			   }, 		
 			   {		
 				 "dateOfBirth": $('input[name=d4dob]').val(),		
-				 "driveMoreThanTwo": driverMoreThanTwo,		
+				 "driveMoreThanTwo": $('input[name=d4term]').val(),		
 				 "hkid": $('input[name=d4id]').val(),		
 				 "name": $('input[name=d4name]').val(),		
 				 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
@@ -1358,7 +1360,7 @@ $(document).ready(function(){
 			   }, 		
 			   {		
 				 "dateOfBirth": $('input[name=d5dob]').val(),		
-				 "driveMoreThanTwo": driverMoreThanTwo,		
+				 "driveMoreThanTwo": $('input[name=d5term]').val()	,		
 				 "hkid": $('input[name=d5id]').val(),		
 				 "name": $('input[name=d5name]').val(),		
 				 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		

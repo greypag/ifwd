@@ -71,6 +71,8 @@ public class MotorCareController extends BaseController{
 			
 	private final static Logger logger = LoggerFactory.getLogger(MotorCareController.class);
 	private static String BANK_OTHER_DEF = "OTHER";
+	private static int MOTOR_ERR_STATUS_CDE = 504;
+	private static int MOTOR_BAD_REQUEST_STATUS_CDE = 422;
 
 	@Autowired
 	private MotorCareValidationService motorCareValidationService;
@@ -88,7 +90,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 404, message = "System cannot find records"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/list/districts", method = GET)
 	public ResponseEntity<List<CodeTable>> getDistrict(HttpServletRequest request) {
@@ -97,7 +99,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getDistrict Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
 		List<CodeTable> apiResponse = new ArrayList<>();
@@ -117,16 +119,16 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
 				} else {
 					logger.info("getDistrict record not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info("getDistrict System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
+				return motor_error(null);	
 			}			
 			
 		} catch (Exception e) {
 			logger.info("getDistrict System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -138,7 +140,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 404, message = "System cannot find records"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/list/areas", method = GET)
 	public ResponseEntity<List<CodeTable>> getArea(HttpServletRequest request) {
@@ -147,7 +149,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getArea Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
 		List<CodeTable> apiResponse = new ArrayList<>();
@@ -167,16 +169,16 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
 				} else {
 					logger.info("getArea record not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info("getArea System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
+				return motor_error(null);	
 			}			
 			
 		} catch (Exception e) {
 			logger.info("getArea System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -188,7 +190,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 404, message = "System cannot find records"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/list/insurers", method = GET)
 	public ResponseEntity<List<CodeTable>> getInsurer(HttpServletRequest request) {
@@ -197,7 +199,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getInsurer Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
 		List<CodeTable> apiResponse = new ArrayList<>();
@@ -217,16 +219,16 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
 				} else {
 					logger.info("getInsurer record not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info("getInsurer System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
+				return motor_error(null);	
 			}			
 			
 		} catch (Exception e) {
 			logger.info("getInsurer System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -238,7 +240,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 404, message = "System cannot find records"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/list/occupations/v2", method = GET)
 	public ResponseEntity<List<CodeTable>> getOccupationsV2(HttpServletRequest request) {
@@ -248,7 +250,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
 		List<CodeTable> apiResponse = new ArrayList<>();
@@ -268,16 +270,16 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("codeTable").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CodeTable.class));
 				} else {
 					logger.info(methodName + " record not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
+				return motor_error(null);	
 			}			
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}	
@@ -289,7 +291,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 404, message = "System cannot find bank details"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/list/bankMortgages", method = GET)
 	public ResponseEntity<List<CodeTable>> getBankMortgages(HttpServletRequest request) {
@@ -298,7 +300,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getBankMortgages Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
 		List<CodeTable> apiResponse = new ArrayList<>();
@@ -325,16 +327,16 @@ public class MotorCareController extends BaseController{
 					apiResponse.add(itemOther);
 				} else {
 					logger.info("getBankMortgages record not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info("getBankMortgages System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
+				return motor_error(null);	
 			}			
 			
 		} catch (Exception e) {
 			logger.info("getBankMortgages System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -346,7 +348,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {				
 			@ApiResponse(code = 404, message = "System cannot find the list of car brands"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/list/carMakes", method = GET)
 	public ResponseEntity<List<CarDetail>> getCarMakes(HttpServletRequest request) {
@@ -355,7 +357,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getCarMakes Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 			
 		// ******************* Valid input *******************
@@ -374,15 +376,15 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("carDetail").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CarDetail.class));
 				} else {
 					logger.info("getCarMakes carDetail not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info("getCarMakes System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);	
+				return motor_error(null);	
 			}			
 		} catch (Exception e) {
 			logger.info("getCarMakes System error:" + e.toString());
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		return Responses.ok(apiResponse);
 	}	
@@ -393,9 +395,9 @@ public class MotorCareController extends BaseController{
 			responseContainer = "List"
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid car make code"),
+			@ApiResponse(code = 422, message = "Invalid car make code"),
 			@ApiResponse(code = 404, message = "System cannot find the car details by make code"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 
     @RequestMapping(value = "/carDetails/{makeCode}", method = GET)
@@ -407,11 +409,11 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getCarDetailsByMake Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		if (isBlank(makeCode)) {
-			return Responses.badRequest(null);
+			return motor_badRequest(null);
 		}
 		
 		// ******************* Init *******************
@@ -432,16 +434,16 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("carDetail").toString(), mapper.getTypeFactory().constructCollectionType(List.class, CarDetail.class));
 				} else {
 					logger.info("getCarDetailsByMake carDetail not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}
 				
 			} else {
 				logger.info("getCarDetailsByMake System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);				
+				return motor_error(null);				
 			}
 		} catch (Exception e) {
 			logger.info("getCarDetailsByMake System error:" + e.toString());
-			return Responses.error(null);		
+			return motor_error(null);		
 		}
 		return Responses.ok(apiResponse);
 	}	
@@ -451,9 +453,9 @@ public class MotorCareController extends BaseController{
 			response = CarDetail.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid car info"),
+			@ApiResponse(code = 422, message = "Invalid car info"),
 			@ApiResponse(code = 404, message = "System cannot find the car supplement details"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/carDetails/{makeCode}/supplement", method = GET)							  
 	public ResponseEntity<CarDetail> getCarSupplementDetailsByMakeAndModel(
@@ -465,11 +467,11 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getCarSupplementDetailsByMakeAndModel Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}	
 		// ******************* Valid input *******************
 		if (isBlank(makeCode) || isBlank(carModel)) {
-			return Responses.badRequest(null);
+			return motor_badRequest(null);
 		}
 		
 		// ******************* Init *******************
@@ -491,16 +493,16 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("carDetail").toString(), CarDetail.class);
 				} else {
 					logger.info("getCarSupplementDetailsByMakeAndModel carDetail not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}
 				
 			} else {
 				logger.info("getCarSupplementDetailsByMakeAndModel System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);		
+				return motor_error(null);		
 			}
 		} catch (Exception e) {
 			logger.info("getCarSupplementDetailsByMakeAndModel System error:" + e.toString());
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -510,8 +512,8 @@ public class MotorCareController extends BaseController{
 			response = String.class	
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Email address"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 422, message = "Invalid Email address"),
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/email/promoCodes", method = POST)
 	public ResponseEntity<Map<String, String>> getPromoCodes(
@@ -522,10 +524,13 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getPromoCodes Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 			
 		// ******************* Valid input *******************
+		if (isBlank(email)) {
+			return motor_badRequest(null);
+		}
 		
 		try {			
 			Map<String, String> apiResponse = new HashMap<>();
@@ -533,14 +538,14 @@ public class MotorCareController extends BaseController{
 			if (result) {
 				apiResponse.put("result", result ? "OK" : "FAIL");
 			} else {
-				return Responses.badRequest(null);
+				return motor_badRequest(null);
 			}
 			
 			return Responses.ok(apiResponse);
 			
 		} catch (Exception e) {			
 			logger.info("getPromoCodes System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 	}
 
@@ -549,7 +554,7 @@ public class MotorCareController extends BaseController{
 			response = MotorCareDetails.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid info for quotation"),
+			@ApiResponse(code = 422, message = "Invalid info for quotation"),
 			@ApiResponse(code = 417, message = "Invalid Make/Model" ),
 			@ApiResponse(code = 414, message = "Invalid Make/Model Electronic Car" ),
 			@ApiResponse(code = 406, message = "Invalid Occupation" ),
@@ -560,7 +565,8 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 410, message = "Invalid Year of Manufacture" ),
 			@ApiResponse(code = 412, message = "Invalid Estimated Value Maximum" ),
 			@ApiResponse(code = 413, message = "Invalid Estimated Value Minimum" ),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 418, message = "Promo code is invalid" ),
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/quote"}, method = POST)
 	public ResponseEntity<MotorCareDetails> getQuote(
@@ -571,7 +577,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getQuote Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
 		// ******************* Valid input *******************
@@ -601,15 +607,19 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class);
 				} else {
 					logger.info("getQuote motorCareDetails not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
+				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "4")){
+					return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(getErrorCode(responseJsonObj.get("errMsgs").toString())));
+				} 
+				
 				logger.info("getQuote System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);				
+				return motor_error(null);				
 			}						
 		} catch (Exception e) {
 			logger.info("getQuote System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}	
@@ -619,7 +629,7 @@ public class MotorCareController extends BaseController{
 			response = MotorCareDetails.class				
 			)
 	@ApiResponses(value = {
-			@ApiResponse(code = 400, message = "Invalid info for quotation"),
+			@ApiResponse(code = 422, message = "Invalid info for quotation"),
 			@ApiResponse(code = 417, message = "Invalid Make/Model" ),
 			@ApiResponse(code = 414, message = "Invalid Make/Model Electronic Car" ),
 			@ApiResponse(code = 406, message = "Invalid Occupation" ),
@@ -630,7 +640,7 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 410, message = "Invalid Year of Manufacture" ),
 			@ApiResponse(code = 412, message = "Invalid Estimated Value Maximum" ),
 			@ApiResponse(code = 413, message = "Invalid Estimated Value Minimum" ),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			}) 
 	@RequestMapping(value = "/quote/saving", method = POST) 
 	public ResponseEntity<MotorCareDetails> saveQuote( 
@@ -642,7 +652,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("saveQuote Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		if(!motorCareValidationService.isValidPlanCode(quoteMotor.getPlanCode())){
@@ -650,12 +660,12 @@ public class MotorCareController extends BaseController{
 			if(quoteMotor.getPlanCode()!=null && quoteMotor.getPlanCode().startsWith("4")){//testing
 				try {
 					int testHttpStatus = Integer.parseInt(quoteMotor.getPlanCode());
-					if(testHttpStatus>400 && testHttpStatus<500){
+					if(testHttpStatus>400 && testHttpStatus<504){
 						return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(testHttpStatus));
 					}
 				} catch (NumberFormatException e) {}
 			}			
-			return Responses.badRequest(null);
+			return motor_badRequest(null);
 		}
 		
 		HttpStatus ifwdValidStatus = motorCareValidationService.validateMotorCareIfwd(quoteMotor);
@@ -687,15 +697,15 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class);
 				} else {
 					logger.info("saveQuote motorCareDetails not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info("saveQuote System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 		} catch (Exception e) {
 			logger.info("saveQuote System error:"+e.toString());
-			return Responses.error(null);
+			return motor_error(null);
 		}
 		return Responses.ok(apiResponse);
 	}	
@@ -705,10 +715,10 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the policy"),
 			@ApiResponse(code = 410, message = "Invalid Car Band"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/saving/carDetails"}, method = POST)
 	public ResponseEntity<Map<String, String>> savePolicyCarDetails(
@@ -720,10 +730,14 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
-				
+		if (!motorCareValidationService.passFieldCheckCarDetails(body)) {
+			logger.info(methodName + " passFieldCheckCarDetails fail");
+			return motor_badRequest(null);
+		}
+		
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
 		JSONObject responseJsonObj = new JSONObject();		
@@ -747,16 +761,19 @@ public class MotorCareController extends BaseController{
 					apiResponse.put("policyID", detail.getPolicyId());
 				} else {
 					logger.info(methodName + " motorCareDetails not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
+				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "410")){
+					return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(410));
+				} 
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -766,9 +783,9 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the policy"),			
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/saving/driverDetails"}, method = POST)
 	public ResponseEntity<Map<String, String>> savePolicyDriverDetails(
@@ -780,9 +797,13 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
+		if (!motorCareValidationService.passFieldCheckDriverDetails(body)) {
+			logger.info(methodName + " passFieldCheckDriverDetails fail");
+			return motor_badRequest(null);
+		}
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -807,16 +828,16 @@ public class MotorCareController extends BaseController{
 					apiResponse.put("policyID", detail.getPolicyId());
 				} else {
 					logger.info(methodName + " motorCareDetails not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		
 		return Responses.ok(apiResponse);
@@ -827,9 +848,9 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the policy"),			
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/saving/policyDetails"}, method = POST)
 	public ResponseEntity<Map<String, String>> savePolicyDetails(
@@ -841,10 +862,14 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
-				
+		if (!motorCareValidationService.passFieldCheckPolicyDetails(body)) {
+			logger.info(methodName + " passFieldCheckPolicyDetails fail");
+			return motor_badRequest(null);
+		}
+		
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
 		JSONObject responseJsonObj = new JSONObject();		
@@ -868,16 +893,16 @@ public class MotorCareController extends BaseController{
 					apiResponse.put("policyID", detail.getPolicyId());
 				} else {
 					logger.info(methodName + " motorCareDetails not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -887,9 +912,9 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the policy"),			
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/saving/declarations"}, method = POST)
 	public ResponseEntity<Map<String, String>> savePolicyDeclarations(
@@ -901,7 +926,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		
@@ -935,16 +960,16 @@ public class MotorCareController extends BaseController{
 					session.setAttribute("SECURITY_CHECK_" + detail.getRefNumber(), detail.getRefNumber());
 				} else {
 					logger.info(methodName + " motorCareDetails not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -954,12 +979,13 @@ public class MotorCareController extends BaseController{
 			response = PayDollar.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 422, message = "Invalid Input"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),
 			@ApiResponse(code = 410, message = "System cannot process Referral Case"),
 			@ApiResponse(code = 411, message = "There is a payment is working in process"),
-			@ApiResponse(code = 412, message = "System asked for login"),	
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 412, message = "System asked for login"),
+			@ApiResponse(code = 413, message = "The Premium is settled"),	
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/payment"}, method = POST)
 	public ResponseEntity<PayDollar> processPayment(
@@ -972,22 +998,19 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("processPayment Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
-//		if (!isUserLogin(request)) {
-//			return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(412));
-//		}
-		
+
 		logger.info("--------------------- processPayment security check: " + body.getRefNumber() );
 		
 		if (request.getSession(false) == null) {
 			logger.info( methodName + " no session data found");
-			return Responses.notFound(null);
+			return motor_notFound(null);
 		} else {
 			if (request.getSession(false).getAttribute("SECURITY_CHECK_" + body.getRefNumber()) == null) {
 				logger.info( methodName + " no valid session data found");
-				return Responses.notFound(null);
+				return motor_notFound(null);
 			}
 		}
 
@@ -1006,8 +1029,6 @@ public class MotorCareController extends BaseController{
 			
 			// incoming Path		
 			String toBasePath = getMotorBasePath(request) ;
-			// model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-			// model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 			
 			// ******************* Consume Service *******************
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
@@ -1021,6 +1042,8 @@ public class MotorCareController extends BaseController{
 					// Other payment in progress 
 					if ( StringUtils.equals(apiResponse.getErrorMsg(), "PIP") ) {
 						return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(411));
+					} else if ( StringUtils.equals(apiResponse.getErrorMsg(), "PAID") ) {
+						return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(413));
 					}
 					String successUrl = toBasePath + "payment-result" + "?refNum=" + urlEncodeInputSpace(apiResponse.getReferenceNo());
 					String failUrl = toBasePath + "application-summary" + "?paymentGatewayFlag=1&refNum=" + urlEncodeInputSpace(apiResponse.getReferenceNo());
@@ -1041,19 +1064,19 @@ public class MotorCareController extends BaseController{
 					
 				} else {
 					logger.info("processPayment record not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {				
-				if ( StringUtils.startsWith((String)responseJsonObj.get("errMsgs"), "4")){
-					return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf((String)responseJsonObj.get("errMsgs")));
+				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "4")){
+					return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(getErrorCode(responseJsonObj.get("errMsgs").toString())));
 				} 
 				logger.info("processPayment System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);				
+				return motor_error(null);				
 			}	
 
 		} catch (Exception e) {
 			logger.info("processPayment System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1063,10 +1086,10 @@ public class MotorCareController extends BaseController{
 			response = MotorCareDetails.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Input"),
+			@ApiResponse(code = 422, message = "Invalid Input"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),	
 			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/payment/summary"}, method = POST)
 	public ResponseEntity<MotorCareDetails> processFailedPayment(
@@ -1079,21 +1102,18 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info( methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
-//		if (!isUserLogin(request)) {
-//			return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(411));
-//		}		
 		
 		HttpSession session = request.getSession(false);
 		if (session == null) {
 			logger.info( methodName + " no session data found");
-			return Responses.notFound(null);
+			return motor_notFound(null);
 		} else {
 			if (session.getAttribute(body.getRefNumber()) == null) {
 				logger.info( methodName + " no valid session data found");
-				return Responses.notFound(null);
+				return motor_notFound(null);
 			}
 		}
 		
@@ -1120,20 +1140,20 @@ public class MotorCareController extends BaseController{
 					
 				} else {
 					logger.info( methodName + " record not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}	
 				*/			
 			} else {
-				if ( StringUtils.startsWith((String)responseJsonObj.get("errMsgs"), "4")){
-					return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf((String)responseJsonObj.get("errMsgs")));
+				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "4")){
+					return new ResponseEntity<MotorCareDetails>((MotorCareDetails)null, HttpStatus.valueOf(getErrorCode(responseJsonObj.get("errMsgs").toString())));
 				} 
 				logger.info( methodName + " System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);				
+				return motor_error(null);				
 			}	
 
 		} catch (Exception e) {
 			logger.info( methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1143,10 +1163,10 @@ public class MotorCareController extends BaseController{
 			response = MotorSaveForLater.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid info"),
+			@ApiResponse(code = 422, message = "Invalid info"),
 			@ApiResponse(code = 404, message = "System cannot find such info for your pervious session"),
 			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/save4Later/resume"}, method = POST)
 	public ResponseEntity<MotorSaveForLater> resumeSaveForLater(
@@ -1157,7 +1177,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("resumeSaveForLater Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
 		// ******************* Valid input *******************		
@@ -1187,16 +1207,16 @@ public class MotorCareController extends BaseController{
 					apiResponse = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class);
 				} else {
 					logger.info("resumeSaveForLater motorCareDetails not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info("resumeSaveForLater System error:" + responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);				
+				return motor_error(null);				
 			}		
 			
 		} catch (Exception e) {
 			logger.info("resumeSaveForLater System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1206,10 +1226,10 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),			
 			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/quote/save4Later"}, method = POST)
 	public ResponseEntity<Map<String, String>> save4LaterQuote(
@@ -1222,7 +1242,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		if (!isUserLogin(request)) {
@@ -1261,16 +1281,16 @@ public class MotorCareController extends BaseController{
 					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 		
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1280,11 +1300,11 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),
 			@ApiResponse(code = 410, message = "Invalid Car Band"),
 			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/save4Later/carDetails"}, method = POST)
 	public ResponseEntity<Map<String, String>> save4LaterPolicyCarDetails(
@@ -1296,12 +1316,17 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		if (!isUserLogin(request)) {
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
-		}			
+		}		
+		
+		if (!motorCareValidationService.passFieldCheckCarDetails(body)) {
+			logger.info(methodName + " passFieldCheckCarDetails fail");
+			return motor_badRequest(null);
+		}
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1335,16 +1360,16 @@ public class MotorCareController extends BaseController{
 					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1354,10 +1379,10 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),			
 			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/save4Later/driverDetails"}, method = POST)
 	public ResponseEntity<Map<String, String>> save4LaterPolicyDriverDetails(
@@ -1369,12 +1394,17 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		if (!isUserLogin(request)) {
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
 		}	
+		
+		if (!motorCareValidationService.passFieldCheckDriverDetails(body)) {
+			logger.info(methodName + " passFieldCheckDriverDetails fail");
+			return motor_badRequest(null);
+		}
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1408,16 +1438,16 @@ public class MotorCareController extends BaseController{
 					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1427,10 +1457,10 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),			
 			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/save4Later/policyDetails"}, method = POST)
 	public ResponseEntity<Map<String, String>> save4LaterPolicyDetails(
@@ -1442,12 +1472,17 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		if (!isUserLogin(request)) {
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
 		}	
+		
+		if (!motorCareValidationService.passFieldCheckPolicyDetails(body)) {
+			logger.info(methodName + " passFieldCheckPolicyDetails fail");
+			return motor_badRequest(null);
+		}
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1481,16 +1516,16 @@ public class MotorCareController extends BaseController{
 					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1500,10 +1535,10 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),			
 			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/save4Later/declarations"}, method = POST)
 	public ResponseEntity<Map<String, String>> save4LaterPolicyDeclarations(
@@ -1515,7 +1550,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		if (!isUserLogin(request)) {
@@ -1554,16 +1589,16 @@ public class MotorCareController extends BaseController{
 					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
-					return Responses.notFound(null);
+					return motor_notFound(null);
 				}				
 			} else {
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 			
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1573,9 +1608,9 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Details"),
+			@ApiResponse(code = 422, message = "Invalid Details"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),			
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/fileUpload/check"}, method = POST)
 	public ResponseEntity<Map<String, String>> verify4ResumeUploadLater(
@@ -1588,7 +1623,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info(methodName + " Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 				
@@ -1617,11 +1652,11 @@ public class MotorCareController extends BaseController{
 				}
 			} else {				
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
-				return Responses.error(null);
+				return motor_error(null);
 			}
 		} catch (Exception e) {
 			logger.info(methodName + " System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -1631,9 +1666,9 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid file(s)"),
+			@ApiResponse(code = 422, message = "Invalid file(s)"),
 			@ApiResponse(code = 411, message = "System asked for login"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/fileUpload"}, method = POST)
 	public ResponseEntity<Map<String, String>> uploadFile4Policy(MultipartHttpServletRequest request) {
@@ -1642,12 +1677,21 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("uploadFile4Policy Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
-//		if (!isUserLogin(request)) {
-//			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
-//		}	
+		String securityCheckKey = request.getParameter("refNumber");
+		logger.info("--------------------- processPayment security check: " + securityCheckKey);
+		
+		if (request.getSession(false) == null) {
+			logger.info("uploadFile4Policy no session data found");
+			return motor_badRequest(null);
+		} else {
+			if (request.getSession(false).getAttribute("SECURITY_CHECK_" + securityCheckKey) == null) {
+				logger.info("uploadFile4Policy no valid session data found");
+				return motor_badRequest(null);
+			}
+		}
 		
 		try {
 			// ******************* Init *******************
@@ -1680,7 +1724,7 @@ public class MotorCareController extends BaseController{
 					 fileDetailList.add(mf);					 
 				} catch (IOException e) {
 					logger.info("uploadFile4Policy IOException:" + e.toString());
-					return Responses.error(null);			
+					return motor_error(null);			
 				}
 			}
 			motorFileDetails.setMotorFileList(fileDetailList);
@@ -1696,7 +1740,7 @@ public class MotorCareController extends BaseController{
 			
 		} catch (Exception e) {
 			logger.info("uploadFile4Policy System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 	}	
 	
@@ -1705,19 +1749,19 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid file(s)"),
+			@ApiResponse(code = 422, message = "Invalid file(s)"),
 			@ApiResponse(code = 411, message = "Cannot pass upload check"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/fileUploadLater"}, method = POST)
 	public ResponseEntity<Map<String, String>> uploadFileLater4Policy(MultipartHttpServletRequest request) {
 		
-//		try {
-//			super.IsAuthenticate(request);
-//		} catch (RuntimeException e) {
-//			logger.info("uploadFile4Policy Autherticate error: " + e.toString() );
-//			return Responses.error(null);	
-//		}
+		try {
+			super.IsAuthenticate(request);
+		} catch (RuntimeException e) {
+			logger.info("uploadFile4Policy Autherticate error: " + e.toString() );
+			return motor_error(null);	
+		}
 
 		try {
 			// ******************* Init *******************
@@ -1778,7 +1822,7 @@ public class MotorCareController extends BaseController{
 					 fileDetailList.add(mf);					 
 				} catch (IOException e) {
 					logger.info("uploadFileLater4Policy IOException:" + e.toString());
-					return Responses.error(null);			
+					return motor_error(null);			
 				}
 			}
 			motorFileDetails.setMotorFileList(fileDetailList);
@@ -1794,7 +1838,7 @@ public class MotorCareController extends BaseController{
 			
 		} catch (Exception e) {
 			logger.info("uploadFileLater4Policy System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 	}	
 		
@@ -1803,8 +1847,8 @@ public class MotorCareController extends BaseController{
 			response = String.class			
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid info"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 422, message = "Invalid info"),
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/contactMe", method = POST)
 	public ResponseEntity<String> contactMe(
@@ -1815,10 +1859,20 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("contactMe Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
-				
+		try {
+			if (isBlank(contactMe.getFullName()) 
+				|| isBlank(contactMe.getContactNum()) 
+				|| isBlank(contactMe.getPreferredContactTime())
+				|| isBlank(contactMe.getEmail()) 
+				|| contactMe.getMotorCareDetails() == null) {
+				return motor_badRequest(null);
+			}
+		} catch (NullPointerException e) {
+			return motor_badRequest(null);
+		}		
 		
 		// ******************* Init *******************
 		JSONObject responseJsonObj = new JSONObject();
@@ -1835,7 +1889,7 @@ public class MotorCareController extends BaseController{
 			
 		} catch (Exception e) {
 			logger.info("contactMe System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}		
 	}
 	
@@ -1848,7 +1902,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 404, message = "System cannot find the list of Occupations"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/list/occupations", method = GET)
 	public ResponseEntity<List<OccupationBean>> getOccupations(HttpServletRequest request) {
@@ -1857,7 +1911,7 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getOccupations Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		// ******************* Valid input *******************
 		
@@ -1878,7 +1932,7 @@ public class MotorCareController extends BaseController{
 //					ObjectMapper mapper = new ObjectMapper();				
 //					apiResponse = mapper.readValue(responseJsonObj.get("occupationBean").toString(), mapper.getTypeFactory().constructCollectionType(List.class, OccupationBean.class));
 //				} else {
-//					return Responses.notFound(null);
+//					return motor_notFound(null);
 //				}
 //				
 //			} else {
@@ -1900,8 +1954,8 @@ public class MotorCareController extends BaseController{
 			hidden = true
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid info"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 422, message = "Invalid info"),
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = "/testUpload", method = POST)
 	public ResponseEntity<String> testUpload(			
@@ -1971,9 +2025,8 @@ public class MotorCareController extends BaseController{
 			
 		} catch (Exception e) {
 			logger.info("contactMe System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
-		
 	}
 	
 	
@@ -1984,8 +2037,8 @@ public class MotorCareController extends BaseController{
 			hidden = true
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid policy info"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 422, message = "Invalid policy info"),
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/saving/confirmation"}, method = POST)
 	public ResponseEntity<String> confirmPolicy(
@@ -1996,10 +2049,8 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("confirmPolicy Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
-		
-		
 		
 		try {
 			String apiResponse = new String();
@@ -2007,7 +2058,7 @@ public class MotorCareController extends BaseController{
 			
 		} catch (Exception e) {
 			logger.info("confirmPolicy System error:" + e.toString());
-			return Responses.error(null);			
+			return motor_error(null);			
 		}
 	}
 	
@@ -2019,9 +2070,9 @@ public class MotorCareController extends BaseController{
 			hidden = true
 			)
 	@ApiResponses(value = {			
-			@ApiResponse(code = 400, message = "Invalid Policy info"),
+			@ApiResponse(code = 422, message = "Invalid Policy info"),
 			@ApiResponse(code = 404, message = "System cannot find the record"),
-			@ApiResponse(code = 500, message = "System error")
+			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/{policyId}"}, method = GET)
 	public ResponseEntity<MotorCareDetails> getPolicy(
@@ -2032,12 +2083,12 @@ public class MotorCareController extends BaseController{
 			super.IsAuthenticate(request);
 		} catch (RuntimeException e) {
 			logger.info("getPolicy Autherticate error: " + e.toString() );
-			return Responses.error(null);	
+			return motor_error(null);	
 		}
 		
 		// ******************* Valid input *******************
 		if (isBlank(policyId)) {
-			return Responses.badRequest(null);
+			return motor_badRequest(null);
 		}
 		
 		// to be added for full
@@ -2053,20 +2104,20 @@ public class MotorCareController extends BaseController{
 			apiResponse.setPolicyId("-99999999");
 		} else if (StringUtils.equals(policyId, "-11111111")) {			
 			// 404
-			return Responses.notFound(null);
+			return motor_notFound(null);
 		} else if (StringUtils.equals(policyId, "-22222222")) {			
-			// 400
-			return Responses.badRequest(null);
+			// 422
+			return motor_badRequest(null);
 		} else {
-			// 500
-			return Responses.error(null);
+			// 504
+			return motor_error(null);
 		}
 		
 		try {
 			// To-be-updated for FULL and delete this comment when completed the coding
 		} catch (Exception e) {
 			logger.info("getPolicy System error:" + e.toString());
-			return Responses.error(null);		
+			return motor_error(null);		
 		}
 		return Responses.ok(apiResponse);
 	}
@@ -2138,9 +2189,7 @@ public class MotorCareController extends BaseController{
 			parameters = new JSONObject();			
 			// Form URL
 			String serverUrl = replace(request.getRequestURL().toString(), request.getServletPath(), "");
-			// Form JSON to send email 
-			//parameters.put("to", userDetails.getEmailAddress());
-			//parameters.put("to", "siuchung.kwok@fwd.com");
+			// Form JSON to send email
 			if (applicant != null) parameters.put("to", (String)(applicant.get("email")));
 			parameters.put("subject", "Your Motor Smart application (Upload Later) has not yet been completed!您的Motor Smart申請尚未完成!");
 				if (applicant != null) model.put("name", (String)(applicant.get("name")));				
@@ -2186,4 +2235,24 @@ public class MotorCareController extends BaseController{
 		}
 	}
 	
+	private static <T> ResponseEntity<T> motor_error(T model) {
+		return new ResponseEntity<T>(model, HttpStatus.valueOf(MOTOR_ERR_STATUS_CDE));
+	}
+	
+	private static <T> ResponseEntity<T> motor_notFound(T model) {
+		return motor_badRequest(null);
+	}
+	
+	private static <T> ResponseEntity<T> motor_badRequest(T model) {
+		return new ResponseEntity<T>(model, HttpStatus.valueOf(MOTOR_BAD_REQUEST_STATUS_CDE));
+	}
+	
+	private int getErrorCode(String input){
+		try {
+			return Integer.parseInt(replace(replace(input, "[\"", ""), "\"]", ""));
+		} catch (Exception e) {
+			// motor_error code
+			return MOTOR_ERR_STATUS_CDE;
+		}
+	}
 }

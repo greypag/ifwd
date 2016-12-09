@@ -7,8 +7,8 @@ enErr = {
 415: 'Your No Claim Discount is not eligible for an instant quote.',
 408: 'Your age is not between 25 and 70 years old.',
 409: 'Your driving experience is not eligible for an instant quote.',
-400: 'Quotation information is invalid.',
-500: 'System service is currently unavailable.',
+422: 'Quotation information is invalid.',
+504: 'System service is currently unavailable.',
 412: 'The estimated value of your car exceeds the maximum value allowed.',
 413: 'The estimated value of your car is below the minimum value allowed.',
 416: 'Your vehicle is not eligible for an instant quote.'
@@ -21,8 +21,8 @@ cnErr ={
 		415: '您的無索償折扣未能合乎即時報價的要求。', 
 		408: '您的年齡並非界乎25至70歲。',                 
 		409: '您的駕駛年資未能合乎即時報價的要求。',
-		400: '報價資料不正確。',
-		500: '系統現時未能提供服務。',
+		422: '報價資料不正確。',
+		504: '系統現時未能提供服務。',
 		412: '您輸入的座駕估計市值超出最高上限。',
 		413: '您輸入的座駕估計市值低於最低下限。',
 		416: '您的汽車未能符合即時報價的要求。'
@@ -34,6 +34,7 @@ $('#madeYearVal').prop('min', newMin);
 $('#madeYearVal').prop('max', newMax);
 
 var quote;
+var submitData;
 var carMake, $carMake, occupation, $occupation, ncd, $ncd;
 var car_details, $car_details;
 var resume = false;
@@ -516,13 +517,12 @@ $(document).ready(function(){
 					driveMoreThanTwo = $('[name="driveMoreThanTwo"]').is(':checked'),
 					validAgeGroup = $('[name="validAgeGroup"]').is(':checked');
 					
-					
 					if (isThird)
 						var carEstimatedValue = (num == 0) ? "" : num;
 					else
 						var carEstimatedValue = num;
 					
-					var submitData = {
+						submitData = {
 						"applicant": {
 							"ncb": ncd,
 							"occupation": occupation,
@@ -555,7 +555,6 @@ $(document).ready(function(){
 						submitData.planCode = "Comp";
 						submitData.compPlan = "Silver"; 
 					}
-					
 					
 			  //  console.log(num);
 						$.ajax({
@@ -623,11 +622,11 @@ $(document).ready(function(){
 							error: function(xhr, textStatus, errorThrown) {
 								$('#reason').attr('value', xhr.status);
 								e.preventDefault();
-								if (xhr.status == 400) {
+                            	if (xhr.status == 422) {
 									if(chin)
-										$("#reasonMsg").text(cnErr[400]);
+                            			$("#reasonMsg").text(cnErr[422]);
 									else
-										$("#reasonMsg").text(enErr[400]);
+                            			$("#reasonMsg").text(enErr[422]);
 									$("#contactpopup").modal('show');
 									window.location.hash = "callme=popup";
 									console.log(xhr.status, textStatus, errorThrown);
@@ -740,11 +739,11 @@ $(document).ready(function(){
 									window.location.hash = "callme=popup";
 									console.log(xhr.status, textStatus, errorThrown);
 								} 
-								else if (xhr.status == 500) {
+                            	else if (xhr.status == 504) {
 									if(chin)
-										$("#reasonMsg").text(cnErr[500]);
+                            			$("#reasonMsg").text(cnErr[504]);
 									else
-										$("#reasonMsg").text(enErr[500]);
+                            			$("#reasonMsg").text(enErr[504]);
 									$("#contactpopup").modal('show');
 									window.location.hash = "callme=popup";
 									console.log(xhr.status, textStatus, errorThrown);
