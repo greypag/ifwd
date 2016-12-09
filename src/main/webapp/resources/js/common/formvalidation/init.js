@@ -144,18 +144,21 @@ var initFVConfig = function(argCfg) {
 					// min. number of "not-empty" fields to triggers cb().
 					, 'fieldsLimitedTo': 1
 				};
-				var cb_enableFieldValidators = function() {
-					console.log('cb_enableFieldValidators() is run.');
+				var _enablingValidators = function(isEnabledBoolean) {
+					console.log('_enablingValidators() is run. isEnabledBoolean = [ '+isEnabledBoolean+' ]');
 					var arrFieldnames = dataSourceFieldInfo.fieldnamesForValidation;
 					for (var h = 0; h < arrFieldnames.length; h++) {
 						(function( k ) {
-							// in-progress >> pls refer to http://formvalidation.io/examples/toggling-validators-master-page/
-							$(dataSourceFieldInfo.formId).formValidation('enableFieldValidators', arrFieldnames[k], true)
+							// in-progress, have to test here >> pls refer to http://formvalidation.io/examples/toggling-validators-master-page/
+							$(dataSourceFieldInfo.formId).formValidation('enableFieldValidators', arrFieldnames[k], isEnabledBoolean);
 						})(h);
 					}
 				};
-				// Listener return True, run the cb(); Returns false, won't run cb()
-				argCfg.helpers.listener.isFieldsEmptied( dataSourceFieldInfo, cb_enableFieldValidators );
+				if ( argCfg.helpers.listener.isFieldsEmptied( dataSourceFieldInfo ) ) {
+					_enablingValidators(true);
+				} else {
+					_enablingValidators(false);
+				};
 
 				// Still drafting - just for reference
 				// dataSourceFieldInfo = { 'formId': formId };

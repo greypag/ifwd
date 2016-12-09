@@ -382,9 +382,8 @@ var other_rmIndexNum_onSerializedString = function(cfg, serializedString, fieldn
     return stringBuffer;
 };
 
-// Check fields is all-emptied or not
-// Listener internally returns True, run the cb(); Returns false, won't run cb()
-var listener_isFieldsEmptied= function( dInfo, cb ) {
+// Check fields is all-emptied or not, returns TRUE / FALSE
+var listener_isFieldsEmptied= function( dInfo ) {
     var arrFields   = dInfo.fieldsForValidation;
     var isNotEmptyCounter = 0;
     for (var i = 0; i < arrFields.length; i++) {
@@ -394,7 +393,9 @@ var listener_isFieldsEmptied= function( dInfo, cb ) {
                     isNotEmptyCounter = isNotEmptyCounter + 1;
                 }
                 if ( isNotEmptyCounter >= dInfo.fieldsLimitedTo ) {
-                    cb();
+                    return true;
+                } else {
+                    return false;
                 }
             });
         })(i);
