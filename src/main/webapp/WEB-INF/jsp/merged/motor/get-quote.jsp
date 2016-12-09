@@ -230,22 +230,6 @@ width: 100px !important;
                                         <br/>
                                         <br/>
                                     </div>
-                                    <!-- <div class="col-md-6 text-left">
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="the-club-member-toggle" name="clubMember"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/theclub-logo.png" > <fmt:message key="motor.getquote.promotion.clubmemeber.checkbox" bundle="${motorMsg}" /></a></label>
-                                        </div>
-                                        <span class="text-red" id="errClubMemberID"></span>
-                                        <div class="form-group hidden" >
-                                            <div class="input-group">
-                                                <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'The Club Membership Number');" onblur="placeholderOnBlur(this,'The Club Membership Number');" value="The Club Membership Number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" name="clubMemberNum" id="" class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.clubmemeber.placeholder" bundle="${motorMsg}" />' />
-                                    </div>
-                                </div>-->
                                 <div class="col-md-6 col-md-offset-3">
 			                            <div class="row">
 			                                <div class="col-xs-6">

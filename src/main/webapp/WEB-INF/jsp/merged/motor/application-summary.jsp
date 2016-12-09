@@ -1621,14 +1621,14 @@ function BackMe() {
 								+ ", "
 								+ quote.applicant.correspondenceAddress.building
 								+ ", "
-								+ quote.applicant.correspondenceAddress.streetName
-								+ ", "
-								+ quote.applicant.correspondenceAddress.streetNo
-								+ ", "
+								//+ quote.applicant.correspondenceAddress.streetName
+								//+ ", "
+								//+ quote.applicant.correspondenceAddress.streetNo
+								//+ ", "
+								+ quote.applicant.correspondenceAddress.estate
+								+ ","
 								+ quote.applicant.correspondenceAddress.district
 								+ ", "
-								+ quote.applicant.correspondenceAddress.estate
-								+ " "
 								+ quote.applicant.correspondenceAddress.hkKlNt;
 						$(".address").html(address);
 						$(".policyend").html(quote.applicant.modelDesc);
