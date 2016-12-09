@@ -10,6 +10,7 @@
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
 var customerId ="<%=session.getAttribute("customerId")%>";
+//customerId = "16883035";
 </script>
 <%!
 	boolean isSaleActiveClass = false;
@@ -925,8 +926,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									</div>
 									<div class="ew_pol_info">	
 										<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-											<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.tngExpiry" bundle="${msg}" /></span>
-											<span class="ew_pol_info_fieldValue ew_pol_tngExp"></span>
+											
 										</p>
 									</div>
 									<div class="col-xs-12 col-sm-4 ew_pol_wd_linkup_action">
@@ -1190,8 +1190,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 										<span class="ew_pol_info_fieldValue ew_tngId"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.withdraw.linkdate" bundle="${msg}" /></span>
-										<span class="ew_pol_info_fieldValue ew_tngExp"></span>
+										
 									</p>
 								</div>
 							</div>

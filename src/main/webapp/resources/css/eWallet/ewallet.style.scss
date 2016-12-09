@@ -52,10 +52,6 @@ $txt-hint-color: #999999;
 }
 %ew_base_tngId{
 	color: #fc610b;
-	&:before{
-		content: "•";
-		margin: 0 .3em;
-	}
 }
 %ew_base_dropdown{
 	-webkit-appearance: none;
@@ -651,4 +647,8 @@ $txt-hint-color: #999999;
 @keyframes spin_loading {
 	0%   { transform: rotate(0deg); }
 	100% { transform: rotate(359deg); }
+}
+
+#note{
+	padding-left: 10px;
 }

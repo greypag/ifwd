@@ -40,9 +40,6 @@
 
 .ew_pol_list .ew_pol_wd_linkup_tngId, .ew_popup_withdraw .ew_tngId {
   color: #fc610b; }
-  .ew_pol_list .ew_pol_wd_linkup_tngId:before, .ew_popup_withdraw .ew_tngId:before {
-    content: "•";
-    margin: 0 .3em; }
 
 .ew_pol_log .ew_pol_selector select, #dt_log_from, #dt_log_to {
   -webkit-appearance: none;
@@ -400,5 +397,7 @@
     transform: rotate(0deg); }
   100% {
     transform: rotate(359deg); } }
+#note {
+  padding-left: 10px; }
 
 /*# sourceMappingURL=ewallet.style.css.map */
