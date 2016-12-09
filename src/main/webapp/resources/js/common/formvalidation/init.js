@@ -234,7 +234,7 @@ var runFV = function(argCfg) {
 			    }
 				var temp2 = fvConfig.helpers.other.removeIndexNum_onSerializedString( fvConfig['flightJSPcbInfo'], temp, fieldnameToRemoveIndex );
 				console.log(temp2);
-
+				// var flight_click = false;
 				$.ajax({
 		            type: "POST",
 		            url: fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy",
@@ -243,16 +243,16 @@ var runFV = function(argCfg) {
 		            success: function(data) {
 		                var result = data['result'];
 		                var errMsg = data['errMsgs']
-						console.log(result);
-						console.log(errMsg);
-		                flight_click = false;
+		                // flight_click = false;
 		                if (result == 'success') {
 		                    $('#errorMessages').hide();
-		                    flag = true;
-		                    form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
+		                    // flag = true;
+		                    // form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
+							window.location.href(fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation");
+							// $('#' + fcArgs.formId).attr("action", ");
 		                } else {
 		                    console.log(data);
-		                    flag = false;
+		                    // flag = false;
 		                    $('#errorMessages').removeClass('hide');
 		                    $('#errorMessages').html(errMsg);
 		                }
