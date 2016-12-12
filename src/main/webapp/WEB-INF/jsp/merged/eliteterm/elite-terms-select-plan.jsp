@@ -177,15 +177,8 @@ var home_url = "<%=request.getContextPath()%>";
 							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
 						</label>
 					</div>
-					<div class="clearfix hidden" id="et-before-yes-03-checkbox">
-						<div class="checkbox">
-							<input type="checkbox" name="et-before-yes-03-01" id="et-before-yes-03-01" value="">
-							<label for="et-before-yes-03-01"><fmt:message key="eliteTerms.selectPlan.Do.you.have.an.3.01" bundle="${msg}" /></label>
-						</div>
-						<div class="checkbox">
-							<input type="checkbox" name="et-before-yes-03-02" id="et-before-yes-03-02" value="">
-							<label for="et-before-yes-03-02"><fmt:message key="eliteTerms.selectPlan.Do.you.have.an.3.02" bundle="${msg}" /></label>
-						</div>
+					<div class="clearfix" id="et-before-yes-03-checkbox">
+						<label class="et-before-yes-03-01 small"><fmt:message key="eliteTerms.selectPlan.Do.you.have.an.3.01" bundle="${msg}" /></label>
 					</div>
 
 				</div>
@@ -2469,7 +2462,62 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div>
 					<span id="chk1" class="text-red"></span> <br />
-
+					
+					<h4 class="application"><fmt:message key="eliteTerms.declaration.automatic.exchange" bundle="${msg}" /></h4>
+					<div class="clearfix declaration automatic-exchange sub-header">
+						<div class="pull-left cancellation-check">
+							<input type="checkbox" value="autoExchDeclaration" id="automatic-exchange" name="autoExchDeclaration" />
+							<label for="automatic-exchange"></label>
+						</div>
+						<div class="pull-left cancellation-desc checkbox-description">
+							<h5 class="declare-agree">
+								<fmt:message key="eliteTerms.declaration.automatic.exchange.tnc.agree" bundle="${msg}" />
+							</h5>
+						</div>
+					</div>
+					<span id="chk8" class="text-red"></span> <br />
+					<label for="automatic-exchange">
+						<div class="clearfix declaration automatic-exchange">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">i</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.declaration.automatic.exchange.tnc.statement.01" bundle="${msg}" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix declaration automatic-exchange">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">ii</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.declaration.automatic.exchange.tnc.statement.02" bundle="${msg}" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix declaration automatic-exchange">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">*</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.declaration.automatic.exchange.tnc.statement.03" bundle="${msg}" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</label>
+					
 					<h4 class="policy-replace">
 						<fmt:message
 							key="eliteTerms.selectPlan.Policy.replacement.declarations"
@@ -4210,40 +4258,21 @@ var home_url = "<%=request.getContextPath()%>";
 		var et_before_01_is_yes = false;
 		var et_before_02_is_yes = false;
 		var et_before_03_is_yes = false;
-		var et_before_03_01_is_yes = false;
-		var et_before_03_02_is_yes = false;
 		$('#et-before-yes').on('click', function(){
 			et_before_01_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes);
 		});
 		$('#et-before-yes-02').on('click', function(){
 			et_before_02_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes);
 		});
 		$('#et-before-yes-03').on('click', function(){
-			$('#et-before-yes-03-checkbox').removeClass('hidden');
 			et_before_03_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
-		});
-		$('#et-before-yes-03-01').change(function(){
-			if($('#et-before-yes-03-01').is(':checked')){
-				et_before_03_01_is_yes = true;
-			}else{
-				et_before_03_01_is_yes = false;
-			}
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
-		});
-		$('#et-before-yes-03-02').change(function(){
-			if($('#et-before-yes-03-02').is(':checked')){
-				et_before_03_02_is_yes = true;
-			}else{
-				et_before_03_02_is_yes = false;
-			}
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes, et_before_03_01_is_yes, et_before_03_02_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes);
 		});
 		
-		function isDisplayNext(yes_01, yes_02, yes_03, yes_03_01, yes_03_02){
-			if(yes_01==true && yes_02==true && yes_03==true && yes_03_01==true && yes_03_02==true){
+		function isDisplayNext(yes_01, yes_02, yes_03){
+			if(yes_01==true && yes_02==true && yes_03==true){
 				$('#et-btn-before-start').removeClass('hidden');
 			}else{
 				$('#et-btn-before-start').addClass('hidden');

@@ -6415,11 +6415,13 @@ fatca-page #fatca-content-03 h3 {
 	border-bottom: 3px solid #676f70;
 }
 
-#fatca-page #fatca-content-03 #agreement-03-checkbox .checkbox input {
-	display: none;
-}
-#fatca-page #fatca-content-03 #agreement-03-checkbox .checkbox label {
+#fatca-page #fatca-content-03 #agreement-03-checkbox label {
 	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#declaration-page .declaration-content-wrapper .cstm-panel #chkAutoExchErMsg+nav ol{
+	margin-bottom: 15px;
 }
 
 /* line 4, ../sass/partials/savie/_unemployed.scss */

@@ -648,6 +648,14 @@
           $("#chk7").html(getBundle(getBundleLanguage, "et.option.notSelected"));
           result = false;
         }
+
+        if(!$('#automatic-exchange').is(':checked')) {
+          $("#chk8").html(getBundle(getBundleLanguage, "et.tnc.notChecked"));
+          result = false;
+        }else {
+          $("#chk8").html("");
+        }
+
         return result;
       }
 

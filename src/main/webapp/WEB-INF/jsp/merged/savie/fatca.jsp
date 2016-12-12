@@ -113,15 +113,8 @@ var languageP = "${language}";
 						<div id="condition-holder-03" class="clearfix pull-right hidden">
 							<p id="no-btn-call-hotline-03"><fmt:message key="decleration.fatca.copy1.03.no" bundle="${msg}" /></p>
 						</div>
-						<div class="clearfix hidden" id="agreement-03-checkbox">
-							<div class="checkbox">
-								<input type="checkbox" name="agreement-03-01" id="agreement-03-01" value="">
-								<label for="agreement-03-01"><fmt:message key="decleration.fatca.copy1.03.01" bundle="${msg}" /></label>
-							</div>
-							<div class="checkbox">
-								<input type="checkbox" name="agreement-03-02" id="agreement-03-02" value="">
-								<label for="agreement-03-02"><fmt:message key="decleration.fatca.copy1.03.02" bundle="${msg}" /></label>
-							</div>
+						<div class="clearfix" id="agreement-03-checkbox">
+							<label class="agreement-03-01 small"><fmt:message key="decleration.fatca.copy1.03.01" bundle="${msg}" /></label>
 						</div>
 					</div>
 				</div>
@@ -164,8 +157,6 @@ var languageP = "${language}";
 			var clicked_yes_01 = false;
 			var clicked_yes_02 = false;
 			var clicked_yes_03 = false;
-			var clicked_yes_03_01 = false;
-			var clicked_yes_03_02 = false;
 			
 			$('#yes-btn').click(function(){
 				clicked_yes_01 = true;
@@ -173,7 +164,7 @@ var languageP = "${language}";
 				$('#no-btn').addClass('btn-not-clicked');
 				
 				$('#condition-holder').addClass('hidden');
-				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03, clicked_yes_03_01, clicked_yes_03_02);
+				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03);
 			});
 			$('#no-btn').click(function(){
 				clicked_yes_01 = false;
@@ -181,7 +172,7 @@ var languageP = "${language}";
 				$('#no-btn').removeClass('btn-not-clicked');
 				
 				$('#condition-holder').removeClass('hidden');
-				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03, clicked_yes_03_01, clicked_yes_03_02);
+				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03);
 			});
 			$('#yes-btn-02').click(function(){
 				clicked_yes_02 = true;
@@ -189,7 +180,7 @@ var languageP = "${language}";
 				$('#no-btn-02').addClass('btn-not-clicked');
 				
 				$('#condition-holder-02').addClass('hidden');
-				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03, clicked_yes_03_01, clicked_yes_03_02);
+				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03);
 			});
 			$('#no-btn-02').click(function(){
 				clicked_yes_02 = false;
@@ -197,7 +188,7 @@ var languageP = "${language}";
 				$('#no-btn-02').removeClass('btn-not-clicked');
 				
 				$('#condition-holder-02').removeClass('hidden');
-				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03, clicked_yes_03_01, clicked_yes_03_02);
+				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03);
 			});
 			$('#yes-btn-03').click(function(){
 				clicked_yes_03 = true;
@@ -206,8 +197,7 @@ var languageP = "${language}";
 				
 				$('#condition-holder-03').addClass('hidden');
 				
-				$('#agreement-03-checkbox').removeClass('hidden');
-				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03, clicked_yes_03_01, clicked_yes_03_02);
+				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03);
 			});
 			$('#no-btn-03').click(function(){
 				clicked_yes_03 = false;
@@ -216,24 +206,7 @@ var languageP = "${language}";
 				
 				$('#condition-holder-03').removeClass('hidden');
 				
-				$('#agreement-03-checkbox').addClass('hidden');
-				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03, clicked_yes_03_01, clicked_yes_03_02);
-			});
-			$('#agreement-03-01').change(function(){
-				if($('#agreement-03-01').is(':checked')){
-					clicked_yes_03_01 = true;
-				}else{
-					clicked_yes_03_01 = false;
-				}
-				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03, clicked_yes_03_01, clicked_yes_03_02);
-			});
-			$('#agreement-03-02').change(function(){
-				if($('#agreement-03-02').is(':checked')){
-					clicked_yes_03_02 = true;
-				}else{
-					clicked_yes_03_02 = false;
-				}
-				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03, clicked_yes_03_01, clicked_yes_03_02);
+				isEnableNext(clicked_yes_01, clicked_yes_02, clicked_yes_03);
 			});
 			
 			$('#next-btn').click(function(){
@@ -242,8 +215,8 @@ var languageP = "${language}";
 				}
 			});
 			
-			function isEnableNext(yes_01, yes_02, yes_03, yes_03_01, yes_03_02){
-				if(yes_01==true && yes_02==true && yes_03==true && yes_03_01==true && yes_03_02==true){
+			function isEnableNext(yes_01, yes_02, yes_03){
+				if(yes_01==true && yes_02==true && yes_03==true){
 					$('#next-btn').removeClass('disabled-gray-btn');
 				}else{
 					$('#next-btn').addClass('disabled-gray-btn');

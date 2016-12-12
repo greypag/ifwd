@@ -111,6 +111,24 @@ var languageP = "${language}";
 					</div>
 					
 					<div class="cstm-panel">
+						<p><b><fmt:message key="savie.declaration.automatic.exchange" bundle="${msg}" /></b></p>
+						<hr>
+						<div class="form-group checkbox-wrapper">
+							<input type="checkbox" id="hasReadAndAcceptAutoExch" name="hasReadAndAcceptAutoExch" value="true">
+							<label for="hasReadAndAcceptAutoExch"></label>
+							<p class="chkboxText"><fmt:message key="savie.declaration.automatic.exchange.tnc.agree" bundle="${msg}" /></p>
+						</div>
+						<p id="chkAutoExchErMsg" class="err-msg hidden"><fmt:message key="savie.declaration.automatic.exchange.error.not.checked" bundle="${msg}" /></p>
+						<nav>
+							<ol type="i">
+								<li><fmt:message key="savie.declaration.automatic.exchange.tnc.statement.01" bundle="${msg}" /></li>
+								<li><fmt:message key="savie.declaration.automatic.exchange.tnc.statement.02" bundle="${msg}" /></li>
+							</ol>
+							<p>* <fmt:message key="savie.declaration.automatic.exchange.tnc.statement.03" bundle="${msg}" /></p>
+						</nav>
+					</div>
+					
+					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.pics" bundle="${msg}" /></b></p>
 						<!-- <p class="desktop-inline"><b>Declaration - </b></p>
 						<p class="desktop-inline"><b>Personal Information Collection Statement</b></p>-->
@@ -446,6 +464,7 @@ var languageP = "${language}";
 				isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
 			}
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptAutoExch', 'chkAutoExchErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
 			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
@@ -509,6 +528,7 @@ var languageP = "${language}";
 			// validation
 			isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptAutoExch', 'chkAutoExchErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
 			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');			
