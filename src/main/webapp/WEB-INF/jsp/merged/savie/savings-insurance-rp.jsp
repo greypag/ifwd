@@ -19,6 +19,7 @@ var context = "${pageContext.request.contextPath}";
 var language = "${language}";
 var affiliate = "${affiliate}";
 var home_url = "<%=request.getContextPath()%>";
+console.log("bbb");
 </script>
 
 <script type="application/ld+json">
