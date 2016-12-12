@@ -72,6 +72,11 @@
     	}
     }
 	boolean showNotification = (notificationMsg.equals(""))?false:true;
+
+	/* Temporarily set the msg for motor maintenance */
+	long maintenanceStartDate = cformat.parse("2016-12-09 07:00:00").getTime();
+	long maintenanceEndDate = cformat.parse("2016-12-09 15:00:00").getTime();
+	boolean showMotorMaintenance = (currentDate >= maintenanceStartDate && currentDate <= maintenanceEndDate);
 %>
 
 <script type="text/javascript">
@@ -107,27 +112,45 @@
 				'ios_chrome': {
 			        'mobile': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />'
+			    },
+				'motor_insurance': {
+			        'mobile': '<fmt:message key="header.notification.msg.motor" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.motor" bundle="${msg}" />'
 			    }
-
 			}
 	    }
 	};
-
 // Default value
 var isChromeIOS = navigator.userAgent.match('CriOS') ? true : false;
+var isMotorMaintenance = (<%=showMotorMaintenance%> == false ) ? false : true;
 var contentIndexArr = [];
+var nBarConfig = {};
+var showNotification = ( <%=showNotification%> == false ) ? false : true;
 
 <% if(request.getRequestURI().indexOf("/travel-insurance")>0) { %>
 
-var nBarConfig = {
+nBarConfig = {
 	'contentIndex': contentIndexArr,
 	'isVisible': ( <%=showNotification%> == false ) ? false : true
 }
 
+<% }else if(request.getRequestURI().indexOf("/motor-insurance")>0 ) { %>
+
+if( isMotorMaintenance ){
+	contentIndexArr.push("motor_insurance");
+	nBarConfig = {
+		'contentIndex': contentIndexArr,
+		'isVisible': true
+	}
+}
+
 <% } else { %>
 
-if ( isChromeIOS ) { contentIndexArr.push('ios_chrome'); }
-var nBarConfig = {
+if ( isChromeIOS ) { 
+	contentIndexArr.push('ios_chrome');
+}
+
+nBarConfig = {
 	'contentIndex': contentIndexArr,
 	'isVisible': ( <%=showNotification%> == false && isChromeIOS == false ) ? false : true
 }
