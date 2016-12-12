@@ -109,6 +109,7 @@ public class OverseaController extends BaseController{
 		if (quoteDetails != null) {
 			request.setAttribute("quoteDetails", quoteDetails);
 			model.addAttribute("quoteDetails", quoteDetails);
+            model.addAttribute("selectedRegion", request.getParameter("region")!=null&&request.getParameter("region").equals("Worldwide")?"0":"1");			
 		} else {
 			model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)

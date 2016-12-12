@@ -20,6 +20,8 @@ var fwdApi = {
 var isLogged = false;
 var userName = "";
 var IMG_DIR = context + "/resources/images";
+
+var allCentreObj = {};
 //var planCode = "<%= (String) request.getParameter('planCode')%>";
 
 
@@ -675,16 +677,17 @@ $(document).ready(function(){
 			    			
 			    		}
 			    		
-			    		$("#centre").change();
+			    		//$("#centre").change();
+			    		checkAllServiceCenterAvailable();
 		    		}else{
 		    			$("#fullyBooked").modal('show');
 		    		}
 		    	}
 
-		    	$("#loading-overlay").modal("hide");
+		    	//$("#loading-overlay").modal("hide");
 		    },
 		    complete:function(){
-		    	$("#loading-overlay").modal("hide");
+		    	//$("#loading-overlay").modal("hide");
 		    }
 		});
 	}
@@ -725,6 +728,78 @@ $(document).ready(function(){
 		
 	}
 });
+
+function checkAllServiceCenterAvailable(){
+	allCentreObj.ttl = $("#centre option").length;
+	allCentreObj.current = 0;
+
+	checkServiceCenterAvailable();
+
+
+
+}
+
+function checkServiceCenterAvailable(){
+
+	var d = $($("#centre option").get(allCentreObj.current)).data();
+
+	 	$.ajax({
+			
+			url:fwdApi.url.findAvailableDateByCentre,
+			type:"get",
+			contentType: "application/json",
+			data:{type:typeId,centreCode:d.serviceCentreCode,date:""},
+			cache:false,
+			async:false,
+			error:function(xhr, textStatus, errorThrown){
+
+				allCentreObj.current++;
+
+				if(allCentreObj.current == allCentreObj.ttl){
+		    		
+		    	}
+
+		    },
+		    success:function(response){
+
+		    	allCentreObj.current++;
+		    	var haveSlot = false;
+
+
+
+		    	if(response){
+		    		if(response.length > 0){
+		    			//Select it
+		    			haveSlot = true;
+		    		}
+		    	}
+
+
+				if(allCentreObj.current == allCentreObj.ttl){
+					$("#loading-overlay").modal("hide");
+		    		if(haveSlot){
+		    			//Select it
+		    			$('#centre option').eq(allCentreObj.current - 1).prop('selected', true);
+		    			$('#centre').change();
+
+		    		}else{
+		    			$("#fullyBooked").modal('show');
+		    		}
+		    	}else{
+		    		if(haveSlot){
+		    			$("#loading-overlay").modal("hide");
+		    			//Select it
+		    			$('#centre option').eq(allCentreObj.current - 1).prop('selected', true);
+		    			$('#centre').change();
+
+		    		}else{
+		    			//Check Next
+		    			checkServiceCenterAvailable();
+		    		}
+		    	}		    	
+		    }
+	});
+}
 //Get Service Center Name - begin
 function getServiceCenterName(SelCenterCode){
 	//Get Availabe Service Center
