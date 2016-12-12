@@ -655,7 +655,7 @@ function BaseOtpHelper() {
 		that.popupDom.find(".ew_sentOtp").show();
 
 		this.resendLockTimeout = setTimeout(function() {
-			resendDom ();
+            resendDom.show();
 			that.popupDom.find(".ew_sentOtp").hide();
 		}, this.resendTimeoutMs);
 	};
