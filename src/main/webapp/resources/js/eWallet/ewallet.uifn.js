@@ -44,6 +44,8 @@ var eWalletCtr = {
 		policyDom.find(".ew_pol_id").html(info.policyId);
 		//policy balance
 		policyDom.find(".ew_pol_blance").html(eWalletCtr.toPriceStr(info.policyPrincipal));
+		//policy principal date
+		policyDom.find(".ew_pol_principal_date").html(info.principalAsOfDate.slice(0,10).split('-').reverse());
 	},
 	showGenericMsg: function(title, msg, btnTxt) {
 		var dom = $(".ew_popup_error");
@@ -653,7 +655,7 @@ function BaseOtpHelper() {
 		that.popupDom.find(".ew_sentOtp").show();
 
 		this.resendLockTimeout = setTimeout(function() {
-			resendDom.show();
+			resendDom ();
 			that.popupDom.find(".ew_sentOtp").hide();
 		}, this.resendTimeoutMs);
 	};
