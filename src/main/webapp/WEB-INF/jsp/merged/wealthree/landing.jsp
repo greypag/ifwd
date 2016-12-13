@@ -141,8 +141,8 @@ var home_url = "<%=request.getContextPath()%>";
 	            				<fmt:message key="wealthree.landing.fixrate.table.text0" bundle="${wealthreeMsg}" />
 	            			</p>
 	            			<div class="wh_p_btns-gp text-center">
-	            				<a id="dlProductBrochure" class="" href="<%=request.getContextPath()%>/resources/pdf/wealthree/Wealthree_${language}_factsheet.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" /></a>
-	            				<a id="dlProductBrochure" class="" href="<%=request.getContextPath()%>/resources/pdf/wealthree/Wealthree_${language}_Provision.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" /></a>
+	            				<a id="dlProductBrochure" class="" href="<%=request.getContextPath()%>/resources/pdf/wealthree/<fmt:message key="wealthree.landing.fixrate.table.pdf.factsheet" bundle="${wealthreeMsg}" />" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" /></a>
+	            				<a id="dlProductBrochure" class="" href="<%=request.getContextPath()%>/resources/pdf/wealthree/<fmt:message key="wealthree.landing.fixrate.table.pdf.provision" bundle="${wealthreeMsg}" />" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" /></a>
 	            			</div>
 	            		</div>
 	            	</div>
