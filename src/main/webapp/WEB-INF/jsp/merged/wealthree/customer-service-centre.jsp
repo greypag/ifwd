@@ -413,13 +413,11 @@ function stickToHeader() {
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
 						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-						<h2>Sorry, no available timeslot at Customer Service Centres at the moment.</h2>
+						<h2><fmt:message key="wealthree.appoint.popup.prefered.time.slot.null.title" bundle="${wealthreeMsg}" /></h2>
 					</div>
-					<div class="modal-body teaserSurvey">
-						<p class="registered">You may wish to consider the online application for Savie One-off premium plan. Please note that you are required to complete an online Financial Needs Analysis to assess your suitability for Savie prior to the application.</p>
-						
+					<div class="modal-body teaserSurvey">	
 						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-						<button type="button" class="btn btn-orange" id="fullyBooked-button">Go to Financial Needs Analysis</button>
+						<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="wealthree.appoint.popup.prefered.time.slot.null.btn" bundle="${wealthreeMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -525,7 +523,7 @@ function stickToHeader() {
 		});
 		$('#fullyBooked-button').click(function(){
 			$('#fullyBooked').modal('hide');
-			window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+			<%-- window.location = '<%=request.getContextPath()%>/${language}/FNA/review'; --%>
 		});
 		$('#moreThan2Tries-button').click(function(){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/wealthree';
