@@ -285,7 +285,7 @@ var nextPage = "${nextPageFlow}";
     <section class="yourQuote">
     <div class="container">
         <div class="row" >
-           <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
+            <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
                 <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
@@ -294,7 +294,7 @@ var nextPage = "${nextPageFlow}";
                         <span class="ci"> Comprehensive Insurance </span>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />4,230.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
+                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-12">
                         <br/>
@@ -302,25 +302,34 @@ var nextPage = "${nextPageFlow}";
                     <div class="col-xs-12">
                     <strong><fmt:message key="motor.label.addon" bundle="${motorMsg}" />:</strong> 
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-6 paa-box">
                         <span>Personal Accident</span>
                     </div>
-                    <div class="col-xs-6 text-right">
-                        <span>300.00</span>
+                    <div class="col-xs-6 text-right paa-box">
+                        <span><span class="paa"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></span>
                     </div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 paa-box">
+                        <br/>
+                    </div>
+                     <div class="col-xs-6 cia-box">
+                        <span>Personal Accidents</span>
+                    </div>
+                    <div class="col-xs-6 text-right cia-box">
+                        <span><span class="cia"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></span>
+                    </div>
+                    <div class="col-xs-12 cia-box">
                         <br/>
                     </div>
                     <div class="col-xs-6">
                         <span><fmt:message key="motor.label.subtotal" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <span>3400.00</span>
+                        <span class="subprice"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" style="display:none">
                         <span><fmt:message key="motor.label.discounts" bundle="${motorMsg}" /></span>
                     </div>
-                    <div class="col-xs-6 text-right">
+                    <div class="col-xs-6 text-right" style="display:none">
                         <span>300.00</span>
                     </div>
                     <div class="col-xs-12">
@@ -732,74 +741,88 @@ $(document).ready(function(){
 	      async: false,
 	      url:context + "/api/iMotor/quote",
 		  success: function(data){
-			  console.dir(data);
+
 			  $('.price').html(formatCurrency(data.amountDueAmount));
+			  $('.subprice').html(formatCurrency(data.subTotalAmount));
+			
+			  if(data.personalAccident ==true)
+			  	$('.paa').html(formatCurrency(data.personalAccidentAmount));
+			  else
+				$('.paa-box').hide();	 
+			  if(data.thirdPartyPropertyDamage ==true)
+			  	$('.cia').html(formatCurrency(data.compInsuranceAmount));
+			  else
+				  $('.cia-box').hide();	
 		  },error: function(error) {
 			
 		  }
 		});
-	$('#declaration').submit(function(event){
-	
-
-		 if($('#a1yes').is(":checked") ==true || $('#a2yes').is(":checked")==true || $('#a3yes').is(":checked") ==true){
-	            $("#reasonMsg").text("choice 3");
-	            $("#contactpopup").modal('show');
-	            return false;
-	     }else
-	        	{
-		var submitData = { 		
-			   "policyId": quote.policyId,		
-			   "motorCareDeclaration":[  		
-			      {  		
-			         "declarationAns":$("input[name=answer1]:checked").val(),		
-			         "declarationNo":"q1"		
-			      },		
-			      {  		
-			         "declarationAns":$("input[name=answer2]:checked").val(),		
-			         "declarationNo":"q2"		
-			      },		
-			      {  		
-			         "declarationAns":$("input[name=answer3]:checked").val(),		
-			         "declarationNo":"q3"		
-			      }		
-			   ],		
-			   "psNoDM":$('input[name=psNoDM]').val(),		
-			   "psNoProvidePersonalData":$('input[name=psNoProvidePersonalData]').val(),		
-			   "psPICS":$('input[name=psPICS]').val()	
-	   			};
-		console.dir(submitData);
-	
-		$.ajax({
-		  beforeSend: function(){
-	          	$('#loading-overlay').modal("show");
-          },
-		  type: "POST",
-		  data: JSON.stringify(submitData),
-		  dataType: "json",
-          contentType : "application/json",
-          cache: false,
-          async: false,
-		  url: context + "/api/iMotor/policy/saving/declarations",
-		  success: function(data){
-			  var $form = $("<form id='quote-form' />");
-			  if(getUrlParameter("edit")=="yes")
-			  	$form.attr("action", "application-summary?edit=yes");
-			  else
-				$form.attr("action", "application-summary");
-              $form.attr("method", "post");
-              var $quote = $("<input type='hidden' name='data' />");
-	          var opts = {};
-	          quote.refNumber = data.refNumber;	          
-	          opts = $.extend(opts,quote, submitData);
-              $quote.attr("value", JSON.stringify(opts));
-              $form.append($quote);
-              $("body").append($form);
-              $('#quote-form').submit();         
-		  },error: function(error) {
-			  console.dir(error);
-			  return false;
+	$('#declaration').validator().on('submit', function (e) {
+		  if (e.isDefaultPrevented()) {
+		  	
 		  }
-		});
+		  else
+		  {
+			 if($('#a1yes').is(":checked") ==true || $('#a2yes').is(":checked")==true || $('#a3yes').is(":checked") ==true){
+		            $("#reasonMsg").text("choice 3");
+		            $("#contactpopup").modal('show');
+		            return false;
+		     }else
+		        	{
+			var submitData = { 		
+				   "policyId": quote.policyId,		
+				   "motorCareDeclaration":[  		
+				      {  		
+				         "declarationAns":$("input[name=answer1]:checked").val(),		
+				         "declarationNo":"q1"		
+				      },		
+				      {  		
+				         "declarationAns":$("input[name=answer2]:checked").val(),		
+				         "declarationNo":"q2"		
+				      },		
+				      {  		
+				         "declarationAns":$("input[name=answer3]:checked").val(),		
+				         "declarationNo":"q3"		
+				      }		
+				   ],		
+				   "psNoDM":$('input[name=psNoDM]').val(),		
+				   "psNoProvidePersonalData":$('input[name=psNoProvidePersonalData]').val(),		
+				   "psPICS":$('input[name=psPICS]').val()	
+		   			};
+			console.dir(submitData);
+		
+			$.ajax({
+			  beforeSend: function(){
+		          	$('#loading-overlay').modal("show");
+	          },
+			  type: "POST",
+			  data: JSON.stringify(submitData),
+			  dataType: "json",
+	          contentType : "application/json",
+	          cache: false,
+	          async: false,
+			  url: context + "/api/iMotor/policy/saving/declarations",
+			  success: function(data){
+				  var $form = $("<form id='quote-form' />");
+				  if(getUrlParameter("edit")=="yes")
+				  	$form.attr("action", "application-summary?edit=yes");
+				  else
+					$form.attr("action", "application-summary");
+	              $form.attr("method", "post");
+	              var $quote = $("<input type='hidden' name='data' />");
+		          var opts = {};
+		          quote.refNumber = data.refNumber;	          
+		          opts = $.extend(opts,quote, submitData);
+	              $quote.attr("value", JSON.stringify(opts));
+	              $form.append($quote);
+	              $("body").append($form);
+	              $('#quote-form').submit();         
+			  },error: function(error) {
+				  console.dir(error);
+				  return false;
+			  }
+			});
+		  }
 		return false;
 	        	}
 	});

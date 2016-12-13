@@ -226,7 +226,7 @@ var nextPage = "${nextPageFlow}";
                         <span class="ci"> Comprehensive Insurance </span>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />4,230.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
+                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-12">
                         <br/>
@@ -234,25 +234,34 @@ var nextPage = "${nextPageFlow}";
                     <div class="col-xs-12">
                     <strong><fmt:message key="motor.label.addon" bundle="${motorMsg}" />:</strong> 
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-6 paa-box">
                         <span>Personal Accident</span>
                     </div>
-                    <div class="col-xs-6 text-right">
-                        <span>300.00</span>
+                    <div class="col-xs-6 text-right paa-box">
+                        <span><span class="paa"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></span>
                     </div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 paa-box">
+                        <br/>
+                    </div>
+                     <div class="col-xs-6 cia-box">
+                        <span>Personal Accidents</span>
+                    </div>
+                    <div class="col-xs-6 text-right cia-box">
+                        <span><span class="cia"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></span>
+                    </div>
+                    <div class="col-xs-12 cia-box">
                         <br/>
                     </div>
                     <div class="col-xs-6">
                         <span><fmt:message key="motor.label.subtotal" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <span>3400.00</span>
+                        <span class="subprice"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" style="display:none">
                         <span><fmt:message key="motor.label.discounts" bundle="${motorMsg}" /></span>
                     </div>
-                    <div class="col-xs-6 text-right">
+                    <div class="col-xs-6 text-right" style="display:none">
                         <span>300.00</span>
                     </div>
                     <div class="col-xs-12">
@@ -551,14 +560,25 @@ $(document).ready(function(){
 	      async: false,
 	      url:context + "/api/iMotor/quote",
 		  success: function(data){
-			  console.dir(data);
+			  
 			  $('.price').html(formatCurrency(data.amountDueAmount));
+			  $('.subprice').html(formatCurrency(data.subTotalAmount));
+			
+			  if(data.personalAccident ==true)
+			  	$('.paa').html(formatCurrency(data.personalAccidentAmount));
+			  else
+				$('.paa-box').hide();	 
+			  if(data.thirdPartyPropertyDamage ==true)
+			  	$('.cia').html(formatCurrency(data.compInsuranceAmount));
+			  else
+				  $('.cia-box').hide();	
 		  },error: function(error) {
 			
 		  }
 		});
      
 	$('#carDetails').submit(function(event){
+		console.dir($('#carDetails').validator('validate'));
 		if($('input[name=bankMortgage]:checked').length>0)
 			checkbox = true;
 	   var submitData = {"carDetail": {   	

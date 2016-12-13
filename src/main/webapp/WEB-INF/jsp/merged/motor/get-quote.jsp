@@ -228,16 +228,20 @@ width: 100px !important;
                                             <a href="javascript:;" id="findPromo" ><fmt:message key="motor.getquote.promotion.how.text" bundle="${motorMsg}" /></a>
                                         </label>
                                         <br/>
-                                        <br/>
+                                   		  <br/>
+										<div id="promo-errors" class="color-red heading-h5"
+											role="alert"></div>
+
+                                      
                                     </div>
                                 <div class="col-md-6 col-md-offset-3">
 			                            <div class="row">
 			                                <div class="col-xs-6">
-			                                    <a href="javascript:;" class="finalsubmitGetQuote" data="go" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.skip" bundle="${motorMsg}" /></a>
+			                                    <a href="javascript:;" data="go" class="finalsubmitGetQuote bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.skip" bundle="${motorMsg}" /></a>
 			                                    <br />
 			                                </div>
 			                                <div class="col-xs-6">
-			                                    <a href="javascript:;" class="finalsubmitGetQuote" data="check" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.next" bundle="${motorMsg}" /></a>
+			                                    <a href="javascript:;" data="check" class="finalsubmitGetQuote bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.next" bundle="${motorMsg}" /></a>
 			                                    <br />
 			                                </div>
 			                            </div>
