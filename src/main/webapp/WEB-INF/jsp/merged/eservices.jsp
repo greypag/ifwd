@@ -688,7 +688,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<div id="member-details">	
 							<div class="row member-data-holder">
 								<div class="text-bold col-xs-6 col-md-4 member-data-label">
-									<fmt:message key="label.fullname" bundle="${msg}" />
+									<fmt:message key="member.account.details.label.fullName" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
 									${userDetails.getFullName() }
@@ -696,7 +696,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 							</div>
 							<div class="row member-data-holder">
 								<div class="text-bold col-xs-6 col-md-4 member-data-label">
-									<fmt:message key="label.mobile.no." bundle="${msg}" />
+									<fmt:message key="member.account.details.label.mobileNo" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
 									${userDetails.getMobileNo() }
@@ -710,16 +710,16 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									${userDetails.getEmailAddress() }
 								</div>
 							</div>
-							<div class="row member-data-holder">
+							<%-- <div class="row member-data-holder">
 								<div class="text-bold col-xs-6 col-md-4 member-data-label">
 									<fmt:message key="label.username" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
 									${username }
 								</div>
-							</div>
+							</div> --%>
 						</div>
-						<p class="member-account-details-footer"><fmt:message key="member.account.details.footer1" bundle="${msg}" /> <a href="<fmt:message key="member.account.details.footer2.link" bundle="${msg}"/>" target="_blank"><fmt:message key="member.account.details.footer2" bundle="${msg}" /></a> <fmt:message key="member.account.details.footer3" bundle="${msg}" /></p>
+						<p class="member-account-details-footer"><fmt:message key="member.account.details.footer1" bundle="${msg}" /> <a href="<fmt:message key="member.account.details.footer2.link" bundle="${msg}"/>" target="_blank"><fmt:message key="member.account.details.footer2" bundle="${msg}" /></a> <fmt:message key="member.account.details.footer3" bundle="${msg}" /> <br><b><fmt:message key="member.account.details.remark" bundle="${msg}" /></b></p>
 						<c:if test='${fnaLastUpdate.length() > 0}'>
 						<h3 class="heading-title"><fmt:message key="label.fna" bundle="${msg}" /></h3>	
 						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> '${fnaLastUpdate }' <fmt:message key="label.complete.fna2" bundle="${msg}" /> <a class="bold text-bold" href="javascript:void(0);" onclick="goFna();" ><fmt:message key="button.review.fna" bundle="${msg}" /></a></p>
@@ -901,7 +901,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 										<span class="ew_pol_info_fieldValue ew_pol_id"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /><span class="ew_pol_principal_date"></span>)</span>
 										<span class="ew_pol_info_fieldValue ew_pol_blance"></span>
 									</p>
 								</div>
@@ -967,7 +967,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<span class="ew_pol_info_fieldValue ew_pol_id"></span>
 											</p>
 											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
+												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /><span class="ew_pol_principal_date"></span>)</span>
 												<span class="ew_pol_info_fieldValue ew_pol_blance"></span>
 											</p>
 										</div> 
@@ -1006,6 +1006,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<ol>
 						<li><fmt:message key="ewallet.remark.line1" bundle="${msg}" /></li>
 						<li><fmt:message key="ewallet.remark.line2" bundle="${msg}" /></li> 
+						<li><fmt:message key="ewallet.remark.line3" bundle="${msg}" /></li> 
 						</ol>
 						</div>
 					</div>
@@ -1075,7 +1076,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 										<span class="ew_pol_info_fieldValue ew_pol_id"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /><span class="ew_pol_principal_date"></span>)</span>
 										<span class="ew_pol_info_fieldValue ew_pol_blance"></span>
 									</p>
 								</div>
@@ -1182,7 +1183,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 										<span class="ew_pol_info_fieldValue ew_pol_id"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
-										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /></span>
+										<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /><span class="ew_pol_principal_date"></span>)</span>
 										<span class="ew_pol_info_fieldValue ew_pol_blance"></span>
 									</p>
 									<p class="col-xs-12 col-sm-4 ew_pol_info_data">
@@ -1228,9 +1229,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									</div> -->
 								</div>
 							</div>
-							<div class="col-xs-12 ew_remark">
+							<%-- <div class="col-xs-12 ew_remark">
 								<p><sup>^</sup><fmt:message key="ewallet.popup.remark" bundle="${msg}" /></p>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 					<div class="row ew_step_2">
@@ -1275,9 +1276,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									</div>
 								</div>
 							</div>
-							<div class="col-xs-12 ew_remark">
+							<%-- <div class="col-xs-12 ew_remark">
 								<p><sup>^</sup><fmt:message key="ewallet.popup.remark" bundle="${msg}"/></p>
-							</div>
+							</div> --%>
 						</div>
 					</div>
 					<div class="row ew_step_3">
