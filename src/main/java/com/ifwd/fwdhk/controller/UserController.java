@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -267,7 +268,65 @@ public class UserController {
 		
 		return null;
 	}
+	private Map<String,String> getPhwPolicyUiName(HttpServletRequest request){
+		String methodName = "getPhwPolicyUiName";
+		String url = UserRestURIConstants.ONLINE_WITHDRAWAL_PHW_POLICY_UI_NAME+ "?itemTable=phw_policy_name";
+		
+		Map<String,String> header = Maps.newHashMap();
+		header.put("token", (String)request.getSession().getAttribute("token"));
+		header.put("username", (String)request.getSession().getAttribute("username"));
+		header.put("Content-Type","application/json");
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, url, header, null);
+		if (responseJsonObj.get("errMsgs") == null) {
+			JSONArray jsonOptionItemDescs = (JSONArray) responseJsonObj.get("optionItemDesc");
+			Map<String,String> codePNameMap = Maps.newHashMap();
+			if(jsonOptionItemDescs!=null){
+				for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+					JSONObject catObj=(JSONObject)jsonOptionItemDescs.get(i);
+					codePNameMap.put((String)catObj.get("itemCode"), (String)catObj.get("itemDesc"));
+				}
+			}
+			return codePNameMap;
+		}else{
+			logger.warn(methodName+" errMsgs:"+responseJsonObj.get("errMsgs"));
+		}
+		
+		return null;
+	}
 	
+	private void supplementPhwPolicyName(HttpServletRequest request, Model model){
+		
+		List<String> policyKeyList = Arrays.asList(
+				"active_life",
+				"active_saving",
+				"active_house",
+				"active_travel",
+				"past_life",
+				"past_saving",
+				"past_house",
+				"past_travel"
+				);
+		
+		Map<String,String> phwPolicyUiName = this.getPhwPolicyUiName(request);
+		if(phwPolicyUiName==null || phwPolicyUiName.isEmpty()){return;}
+		
+		Map<String, Object> modelMap = model.asMap();
+		for(String pkey:policyKeyList){
+			List<PurchaseHistoryPolicies> policys = (List<PurchaseHistoryPolicies>)modelMap.get(pkey);
+			if(policys!=null && !policys.isEmpty()){
+				for(PurchaseHistoryPolicies p:policys){
+					String name = phwPolicyUiName.get(p.getPlanCode());
+					if(!StringUtils.isEmpty(name)){
+						p.setPlanName(name);
+					}
+				}
+			}
+		}
+	}
 
 	private void processPhwPolicyCategory(HttpServletRequest request, Model model, PurchaseHistoryResponse phwPurchaseHistory) {
 		if(request==null||model==null||phwPurchaseHistory==null){return;}
@@ -478,6 +537,7 @@ public class UserController {
 							PurchaseHistoryResponse phwPurchaseHistory = this.getPolicyListFromPhw(request, usernameInSession, customerId, tokenInSession);
 							this.processPhwPolicyCategory(request, model, phwPurchaseHistory);
 							this.supplementPhwPolicyBalance(request, model);
+							this.supplementPhwPolicyName(request, model);
 						} catch (Exception e) {
 							logger.warn("getPolicyListFromPhw Exception",e);
 						}
