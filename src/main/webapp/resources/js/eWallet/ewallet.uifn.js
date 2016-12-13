@@ -948,10 +948,10 @@ var apiErrMsg = {
 	getPolicyListByCustomer:{  
 		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_MP"),
 		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_IP"),
-		c_200_TPW001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW001"),
+		// c_200_TPW001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW001"),
 		c_200_TPW002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW002"),
 		c_200_TPW003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW003"),
-		c_200_TPW004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW004"),
+		c_200_TPW004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW004")
    },	
     unlinkTngPolicy:{  
 		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.unlinkTngPolicy.c_400_MP"),
@@ -961,11 +961,11 @@ var apiErrMsg = {
    },
     getPolicyInfo:{  
 		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_400_MP"),
-		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_400_IP"),
-		c_411_GPE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE001"),
-		c_411_GPE002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE002"),
-		c_411_GPE003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE003"),
-		c_411_GPE004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE004")
+		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_400_IP")
+		// c_411_GPE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE001"),
+		// c_411_GPE002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE002"),
+		// c_411_GPE003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE003"),
+		// c_411_GPE004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyInfo.c_411_GPE004")
    },
     authTngOtp:{  
 		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.authTngOtp.c_400_MP"),
