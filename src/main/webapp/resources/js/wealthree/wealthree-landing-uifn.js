@@ -5,8 +5,8 @@ var currencyRate = {
 		y2:878.04,
 		y3:1000,
 		s:"$",
-		min:48000,
-		max:4800000,
+		min:94006,
+		max:9400600,
 		g3:0.47003,
 		g1:0.41915,
 		g2:0.87804
@@ -17,8 +17,8 @@ var currencyRate = {
 		y2:865.38,
 		y3:1000,
 		s:"¥",
-		min:37000,
-		max:3700000,
+		min:72514,
+		max:7251360,
 		g3: 0.45321,
 		g1: 0.41006,
 		g2: 0.86538
@@ -97,7 +97,7 @@ $(document).ready(function(){
 
 
  	$(".btn-calculate").click(function(){
- 		var amount = parseInt($("#txt_amount").val().replace(/,/ig,""),10) / 2;
+ 		var amount = parseInt($("#txt_amount").val().replace(/,/ig,""),10) ;
  		var errMsg = "";
  		if(!isNaN(amount)){
  			
@@ -182,24 +182,6 @@ $(document).ready(function(){
  	$(".col-data-control.left").on("click",function(){
  		$(".col-data").animate({scrollLeft:0},300);
  	});
-
-
-//What is that???
-/*$(".col-data-control.left").click(function(){
-	//scroll left function here
-	var crt = 0;
-	//var offset = 10;
-	var scrollInterval = setInterval(function(){
-		if(crt < 10){
-			offset += 10;
-			$("div.col-data").scrollLeft(offset);
-			crt++;
-		}else{
-			clearInterval(scrollInterval);
-		}
-	}, 20);
-});*/
-
 });
 
 function recalibrateTable(){
@@ -247,19 +229,20 @@ function showCalculatedRate(_amount,_currency){
 	$(".y2-c3").text(formatDollar(Math.floor(guaranteedCash_2nd),symbol));
 
 	$(".y3-c1").text(formatDollar(_amount * 2,symbol));
-	$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
+	//$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
+	//the third year of the Death Benefit should take the highest value out of Death Benefit and Guaranteed Cash
+	if (_amount * 2 * 1.1 > guaranteedCash_3rd){
+		$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
+	}
+	else{
+		$(".y3-c2").text(formatDollar(Math.ceil(guaranteedCash_3rd),symbol));
+	}
 	//$(".y3-c3").text(formatDollar(thirdYear * currencyRate[_currency].y3 / 1000,symbol));
 	$(".y3-c3").text(formatDollar( Math.ceil(guaranteedCash_3rd),symbol));
 	
 	$(".box-result .over-bubble").addClass("hide");
  	$(".box-result ." + _currency).removeClass("hide");
  	
- 	//huh???
- 	/*setTimeout(function(){
- 		var far = $('.col-data').width()+50;
- 	    var pos = $('.col-data').scrollLeft() + far;
- 	    $(".col-data").animate( { scrollLeft: pos }, 1000, 'easeOutQuad' )
- 	}, 500);*/
  }
 
 function formatDollar(_amount, _symbol){
