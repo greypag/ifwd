@@ -1125,16 +1125,20 @@ $("#et-personal-info-next, #btn-back").click(function () {
 						invalidTaxResident = true;
 					} else {
 						$('#tax-resident-modal').modal('show');
+						$(window).scrollTop(0);
 					}
 				}else{
 					$('#tax-resident-modal').modal('show');
+					$(window).scrollTop(0);
 				}
 			},
 			fail: function(){
 				$('#tax-resident-modal').modal('show');
+				$(window).scrollTop(0);
 			},
 			error:function(){
 				$('#tax-resident-modal').modal('show');
+				$(window).scrollTop(0);
 			}
 		});
 		
