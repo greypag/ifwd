@@ -230,12 +230,17 @@ function showCalculatedRate(_amount,_currency){
 
 	$(".y3-c1").text(formatDollar(_amount * 2,symbol));
 	//$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
-	//the third year of the Death Benefit should take the highest value out of Death Benefit and Guaranteed Cash
-	if (_amount * 2 * 1.1 > guaranteedCash_3rd){
+	//For RMB, the third year of the Death Benefit should take the highest value out of Death Benefit and Guaranteed Cash
+	if (_currency == "hkd"){
 		$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
 	}
-	else{
-		$(".y3-c2").text(formatDollar(Math.ceil(guaranteedCash_3rd),symbol));
+	else {
+		if (_amount * 2 * 1.1 > guaranteedCash_3rd){
+		$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
+		}
+		else{
+			$(".y3-c2").text(formatDollar(Math.ceil(guaranteedCash_3rd),symbol));
+		}
 	}
 	//$(".y3-c3").text(formatDollar(thirdYear * currencyRate[_currency].y3 / 1000,symbol));
 	$(".y3-c3").text(formatDollar( Math.ceil(guaranteedCash_3rd),symbol));
