@@ -324,7 +324,7 @@ function LinkupClass() {
 
 		});
 
-		this.bindResendOtpEvent();
+		this.initOtpHelper();
 	};
 
 	this.startLinkup = function(pid) {
@@ -499,7 +499,7 @@ function WithdrawClass(){
 			}
 		});
 
-		this.bindResendOtpEvent();
+		this.initOtpHelper();
 	};
 
 	this.restrictAmountInput = function (){
@@ -670,10 +670,16 @@ function BaseOtpHelper() {
 		this.popupDom.find(".ew_otp_input").val("");
 		this.popupDom.find("input[type=checkbox]").prop('checked', false);
 	};
-	this.bindResendOtpEvent = function(){
+	this.initOtpHelper = function(){
 		var that = this;
 		this.popupDom.find(".ew_link_resendOTP").on("click", function() {
 			that.resendOtp();
+		});
+
+		// click edge of input box (underline) will focus on text box
+		// underline is not part of input box.
+		this.popupDom.find(".ew_otp_wrapper").on("click", function (){
+			that.popupDom.find(".ew_otp_input").focus();
 		});
 	};
 }
