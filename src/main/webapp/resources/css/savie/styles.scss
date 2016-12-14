@@ -12531,7 +12531,7 @@ body.chin .fwd-savie-wrapper p.additional.top {
   background: #bbbbbb;
 }
  
-.fwd-savie-wrapper. savie-overlay-container {
+.fwd-savie-wrapper .savie-overlay-container {
   padding: 0 0 26px 0;
 }
 
@@ -17428,4 +17428,11 @@ body.chin #header .dot-font{
     .login-info-savie .upper-overlay{
     
     }   
+}
+
+//override pop-up-temp.css to fix application popup
+@media screen and (max-width: 992px){
+  .modal .modal-dialog{
+    width: initial;
+}
 }
