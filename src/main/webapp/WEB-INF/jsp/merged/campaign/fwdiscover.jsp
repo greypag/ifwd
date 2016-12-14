@@ -40,7 +40,7 @@
     //hotel monthly campiagn display end time
     long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
-    long cStart = cformat.parse("2016-12-31 14:59:59").getTime();
+    long cStart = cformat.parse("2017-01-31 14:59:59").getTime();
     //cCurrent =  cformat.parse("2016-09-30 15:59:59").getTime();
     /* For Debug and test the campaign switching logic
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
@@ -53,8 +53,8 @@
     String countDownDD = "";
     String countDownMM = "";
     String countDownDate_special = "2016-05-21 14:59:59";
-    String countDownDate_regular = "2016-11-30 14:59:59";
-    String countDownDate_regular_after = "2016-12-31 14:59:59";
+    String countDownDate_regular = "2016-12-31 14:59:59";
+    String countDownDate_regular_after = "2017-01-31 14:59:59";
     String countDownDate_regular2 = "2016-06-30 14:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
@@ -97,14 +97,14 @@
     } else {
         //Regular Offer Period Before Start
         countDownDate = countDownDate_regular;
-        countDownDD = "30";
-        countDownMM = "Nov";
+        countDownDD = "31";
+        countDownMM = "Dec";
 
         //Regular Offer Period Start
         if(cCurrent >= cformat.parse(countDownDate_regular).getTime() ){
             countDownDate = countDownDate_regular_after;
             countDownDD = "31";
-            countDownMM = "Dec";
+            countDownMM = "Jan";
         }
 
         //Special Offer Period
@@ -450,7 +450,7 @@
 
 	                    <div class="promo-code-holder">
 	                        <p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
-	                        <p class="code">FWD987654321</p>
+	                        <p class="code"></p>
 	                        <p class="note"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle2" bundle="${msg}" /></p>
 	                    </div>
 
