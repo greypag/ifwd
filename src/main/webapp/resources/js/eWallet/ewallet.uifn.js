@@ -223,7 +223,9 @@ var policyHelper = {
 			
 				for( var wi = 0; wi < warns.length; wi++){
 					var wranItem = $("<li/>");
-					wranItem.html(apiErrMsg.getPolicyListByCustomer["c_200_"+warns[wi].code]);
+					var txt = apiErrMsg.getPolicyListByCustomer["c_200_"+warns[wi].code];
+					if(!txt) continue;
+					wranItem.html(txt);
 					policyDom.find(".ew_pol_warns .ew_pol_warnList").append(wranItem);	
 				}
 			}			
