@@ -181,7 +181,6 @@ var home_url = "<%=request.getContextPath()%>";
 									<span class="error-msg" id="ehUnderWriting3ErrMsg"></span>
 								</div>
 							</div>
-
 							<div class="tnc-row form-group">
 								<div class="checkbox">
 									<input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="underwriting.declaration" bundle="${msg}" /></label>

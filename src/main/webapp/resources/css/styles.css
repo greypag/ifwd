@@ -12595,7 +12595,8 @@ span.dup-error-msg {
 	font-family: 'Calibri-Bold';
 }
 /* line 124, ../sass/partials/_declaration-authorization.scss */
-.fwd-savie-wrapper .declare-authorize .agreement-description .clearfix.declaration.application-declaration.sub-header
+.fwd-savie-wrapper .declare-authorize .agreement-description .clearfix.declaration.application-declaration.sub-header,
+.fwd-savie-wrapper .declare-authorize .agreement-description .clearfix.declaration.automatic-exchange.sub-header
 	{
 	padding-bottom: 0;
 }

@@ -12799,3 +12799,26 @@ button[disabled].btn.btn-default--vc {
 .img_1111:hover{
 	cursor : pointer;
 }
+
+/* 20161124 - #tax-resident-modal --start-- */
+.modal#tax-resident-modal .modal-dialog .modal-content .modal-body .row .modal-body__right {
+	text-align: center;
+}
+.modal#tax-resident-modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__title h3 {
+	color: #ff8200;
+	font-size: 20px;
+}
+.modal#tax-resident-modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__content p {
+	font-size: 16px;
+	margin-top: 16px;
+}
+.modal#tax-resident-modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__button button {
+	font-size: 16px;
+}
+
+@media screen and (min-width: 992px) {
+	.modal#tax-resident-modal .modal-dialog {
+		width: 600px;
+	}
+}
+/* 20161124 - #tax-resident-modal --end-- */

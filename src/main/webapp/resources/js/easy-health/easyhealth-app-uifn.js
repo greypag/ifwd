@@ -102,7 +102,7 @@ $(document).ready(function(){
 		
 		var allNo = $('input[name="ehUnderWriting1"]').prop('checked')
 			 		&& $('input[name="ehUnderWriting2"]').prop('checked')
-			 		&& $('input[name="ehUnderWriting3"]').prop('checked')
+			 		&& $('input[name="ehUnderWriting3"]').prop('checked');
 
 		if(radio){
 			 if($('input[name="'+ radio+'"]:checked').val() == "Yes"){
