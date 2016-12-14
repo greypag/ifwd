@@ -359,7 +359,7 @@ $(document).ready(function(){
 					    		}
 				    			$("#preferred-time").val($("#preferred-time option:first").val());
 				    		}else{
-				    			 $("#preferedTimeIsNull").modal("show");
+				    			 $("#perferredTimeIsNull").modal("show");
 				    		}
 				    		$("#loading-overlay").modal("hide");
 				    	}
@@ -538,7 +538,7 @@ $(document).ready(function(){
 					error:function(xhr, textStatus, errorThrown){
 
 						if(xhr.status == 404){
-							$("#preferedTimeIsNull").modal("show");
+							$("#perferredTimeIsNull").modal("show");
 						} else if(xhr.status == 500){
 							console.log('System error.');
 						} else {
@@ -548,7 +548,7 @@ $(document).ready(function(){
 				    },
 				    success:function(response){
 				    	
-				    	$("#preferedTimeIsNull").modal("show");
+				    	$("#perferredTimeIsNull").modal("show");
 				    	if(response){
 				    		
 				    		if(response.length > 0){
@@ -581,7 +581,7 @@ $(document).ready(function(){
 
 					    		
 				    		}else{
-				    			$("#preferedTimeIsNull").modal("show");
+				    			$("#perferredTimeIsNull").modal("show");
 								changeAppointmentDate_dateEmpty('#app-date');
 				    		}
 				    		$("#loading-overlay").modal("hide");
