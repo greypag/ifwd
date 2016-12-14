@@ -290,6 +290,11 @@ $txt-hint-color: #999999;
 }
 .ew_pol_list .ew_pol_btnMore{
 	font-size: 30px;
+	.txt{
+		font-size: 12px;
+		line-height: 30px;
+		vertical-align: top;
+	}
 }
 .ew_pol_list .ew_pol_warnList{
 	color: #970707;

@@ -935,7 +935,10 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									</div>
 								</div>
 								<div class="col-xs-12 ew_pol_warns">
-									<a class="ew_pol_btnMore" role="button" data-toggle="collapse"><span class="glyphicon glyphicon-exclamation-sign"></span></a>
+									<a class="ew_pol_btnMore" role="button" data-toggle="collapse">
+										<span class="glyphicon glyphicon-exclamation-sign"></span>
+										<span class="txt"><fmt:message key="ewallet.planList.pol.info.warningTitle" bundle="${msg}" /></span>
+									</a>
 									<ul class="collapse ew_pol_warnList">
 									</ul>
 								</div>
