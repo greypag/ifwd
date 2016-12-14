@@ -124,6 +124,7 @@ fvConfig['applicant'] = function() {
                 	'regexp': new RegExp(fwdConstant.regex.person.email)
                     , 'message': getBundle(getBundleLanguage, 'applicant.email.notValid.message')
                 }
+                , 'duplicated': {}
             }
         }
         , 'checkbox1': {
@@ -174,11 +175,25 @@ fvConfig['applicant'] = function() {
                     , 'max': 50
                     , 'min': 6
                 }
+                , 'duplicated':{}
             }
         }
         , 'password': {
-            'selector': '#Password'
-            , 'container': '#PasswordError'
+            'container': '#PasswordError'
+            , 'trigger': 'blur'
+            , 'enabled': false
+            , 'validators': {
+                'notEmpty': {
+                    'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message') // Msg content not confirmed yet
+                }
+	        , 'stringLength': {
+	            'message': getBundle(getBundleLanguage, 'form.password.invalid')
+	            , 'min': 8
+	        	}
+            }        
+        }
+        , 'passwordConfirm': {
+            'container': '#Confirm-PasswordError'
             , 'trigger': 'blur'
             , 'enabled': false
             , 'validators': {
@@ -189,21 +204,10 @@ fvConfig['applicant'] = function() {
                     'field': 'password',
                     'message': getBundle(getBundleLanguage, 'member.confirmPassword.notMatch.message')
                 }
-            }
-        }
-        , 'password': {
-            'selector': '#Confirm-Password'
-            , 'container': '#Confirm-PasswordError'
-            , 'trigger': 'blur'
-            , 'enabled': false
-            , 'validators': {
-                'notEmpty': {
-                    'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message') // Msg content not confirmed yet
-                }
-                , 'identical': {
-                    'field': 'password',
-                    'message': getBundle(getBundleLanguage, 'member.confirmPassword.notMatch.message')
-                }
+    	        , 'stringLength': {
+    	            'message': getBundle(getBundleLanguage, 'form.password.invalid')
+    	            , 'min': 8
+    	        }                
             }
         }
     };

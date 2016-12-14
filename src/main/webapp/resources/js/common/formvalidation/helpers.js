@@ -381,13 +381,21 @@ var other_rmIndexNum_onSerializedString = function(cfg, serializedString, fieldn
     }
     return stringBuffer;
 };
-
 // Check fields is all-emptied or not, returns TRUE / FALSE
 var listener_isFieldsEmptied= function( dInfo ) {
     var arrFields   = dInfo.fieldsForValidation;
-    var isNotEmptyCounter = 0;
+    var isNotEmpty = false;
     for (var i = 0; i < arrFields.length; i++) {
-        (function( w ) {
+            if ( $.trim( $(arrFields[i]).val() ) !== '' ) {
+                isNotEmpty = true;
+            }else{
+            	if(i > 0 && isNotEmpty==true){
+            		isNotEmpty == true;
+            	}else{
+            		isNotEmpty = false;
+            	}            	
+            }	
+        /*(function( w ) {
             $(document).on('change', arrFields[w], function() {
                 if ( $.trim( $(arrFields[w]).val() ) !== '' ) {
                     isNotEmptyCounter = isNotEmptyCounter + 1;
@@ -398,8 +406,9 @@ var listener_isFieldsEmptied= function( dInfo ) {
                     return false;
                 }
             });
-        })(i);
+        })(i);*/
     }
+    return isNotEmpty;
 };
 /*
  * Export modules to "fvConfig" object

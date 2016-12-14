@@ -281,7 +281,7 @@ perventRedirect = true;
                                    </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                   <input type="password" class="form-control full-control input-white" name="password" id="Confirm-Password">
+                                   <input type="password" class="form-control full-control input-white" name="passwordConfirm" id="Confirm-Password">
                                    <span id="Confirm-PasswordError" class="text-red"></span>
                                </div>
                             </div>
@@ -1270,7 +1270,6 @@ $(function() {
 
     fwdUtility.ux.floatingBox();
     // fwdUtility.temp.flightCare(); // Phase 2 may required
-
     // JSP values "landing-place"
     fvConfig['flightJSPcbInfo'] = {
         'counter': {
@@ -1286,12 +1285,10 @@ $(function() {
             , 'contextPath':    '<%=request.getContextPath()%>'
         }
         , 'plannedDays':    ${planDetailsForm.days}
-        , 'authenticated':  ( ${authenticate.equals("false")} || ${authenticate.equals("direct")} )
+        , 'authenticated':  ${!(authenticate.equals("direct") || authenticate.equals("false"))}
 
     };
-
     var flightCfg = initFVConfig(fvConfig).flightCare();
-    runFV(flightCfg).flightCare(fvConfig, { 'formId': 'freeFlightForm'});
-
+    runFV(flightCfg).flightCare(fvConfig, { 'formId': 'freeFlightForm'});  
 });
 </script>
