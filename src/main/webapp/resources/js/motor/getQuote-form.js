@@ -469,6 +469,12 @@ $(document).ready(function(){
 			{
 				promo=true;
 				$("#testimonials").removeClass('hidden');
+				setTimeout(function(){ 
+					$('html, body').animate({
+						scrollTop: $("#testimonials").offset().top
+					}, 500);	
+				},500);
+				$('#promoCode').prop('required',true);
 				return false;
 			}
 		});
@@ -779,8 +785,151 @@ $(document).ready(function(){
 						});
 							
 						  },error: function(xhr, textStatus, errorThrown) {
+							$('#reason').attr('value', xhr.status);
+							e.preventDefault();
 							if (xhr.status == 418)
 								$("#promo-errors").html("Wrong Promo Code");
+							else if (xhr.status == 422) {
+									if(chin)
+                            			$("#reasonMsg").text(cnErr[422]);
+									else
+                            			$("#reasonMsg").text(enErr[422]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								if (xhr.status == 405) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 417) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								}/*
+								else if (xhr.status == 418) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[418]);
+									else
+										$("#reasonMsg").text(enErr[418]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								}*/ 								
+								else if (xhr.status == 406) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[406]);
+									else
+										$("#reasonMsg").text(enErr[406]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 408) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[408]);
+									else
+										$("#reasonMsg").text(enErr[408]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 409) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[409]);
+									else
+										$("#reasonMsg").text(enErr[409]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 412) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[412]);
+									else
+										$("#reasonMsg").text(enErr[412]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 413) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[413]);
+									else
+										$("#reasonMsg").text(enErr[413]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 414) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[414]);
+									else
+										$("#reasonMsg").text(enErr[414]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 415) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[415]);
+									else
+										$("#reasonMsg").text(enErr[415]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 416) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[416]);
+									else
+										$("#reasonMsg").text(enErr[416]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+                            	else if (xhr.status == 504) {
+									if(chin)
+                            			$("#reasonMsg").text(cnErr[504]);
+									else
+                            			$("#reasonMsg").text(enErr[504]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+									
+								} else {
+									$("#reasonMsg").text('System error');
+									console.log(xhr.status, textStatus, errorThrown);
+								 
+								}
+								$("#loading-overlay").modal("hide");
 						  }
 						});
 			}

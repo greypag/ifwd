@@ -223,16 +223,14 @@ width: 100px !important;
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" name="promoCode" id="" class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
+                                        <input type="text" name="promoCode" id="promoCode" data-required-error='Input Promo-code' class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
                                         <label>
                                             <a href="javascript:;" id="findPromo" ><fmt:message key="motor.getquote.promotion.how.text" bundle="${motorMsg}" /></a>
                                         </label>
                                         <br/>
                                    		  <br/>
-										<div id="promo-errors" class="color-red heading-h5"
-											role="alert"></div>
-
-                                      
+										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
+											role="alert" style="position:static"></div>                                      
                                     </div>
                                 <div class="col-md-6 col-md-offset-3">
 			                            <div class="row">
