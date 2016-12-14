@@ -1571,7 +1571,7 @@ var ehPro = '${pro }';
                                                             <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.1.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.2.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.3.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.4.content" bundle="${msg}" />
+                                                            <p><b id="remarks-3"><fmt:message key="easyhealth.plandetails.remarks.3.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.4.content" bundle="${msg}" />
                                                             </p>
                                                             <ul>
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.5.content" bundle="${msg}" /></li>
