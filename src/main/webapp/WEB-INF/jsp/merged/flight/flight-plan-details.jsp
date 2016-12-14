@@ -704,7 +704,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtChldInsuHkid${inx}" name="childHKID{inx}" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                               <input id="txtChldInsuHkid${inx}" name="childHKID${inx}" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                   <span id="errtxtChldInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>

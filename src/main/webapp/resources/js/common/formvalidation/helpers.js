@@ -361,10 +361,24 @@ var other_rmIndexNum_onSerializedString = function(cfg, serializedString, fieldn
 
     var _removeIndex = function( stringInput, travellerCounter, fieldnameToRemoveIndex ) {
         var temp = stringInput;
-        for (var i = 0; i < fieldnameToRemoveIndex.length; i++) {
-            for (var w = 1; w < travellerCounter+1; w++) {
-                temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
+        if(typeof travellerCounter==="object"){
+            for (var i = 0; i < fieldnameToRemoveIndex.length; i++) {
+                for (var w = 1; w < travellerCounter.adult+1; w++) {
+                    temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
+                }
+                for (var w = 1; w < travellerCounter.child+1; w++) {
+                    temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
+                }
+                for (var w = 1; w < travellerCounter.other+1; w++) {
+                    temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
+                }                
             }
+        }else {
+	        for (var i = 0; i < fieldnameToRemoveIndex.length; i++) {
+	            for (var w = 1; w < travellerCounter+1; w++) {
+	                temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
+	            }
+	        }
         }
         return temp;
     };
@@ -372,7 +386,7 @@ var other_rmIndexNum_onSerializedString = function(cfg, serializedString, fieldn
     // Core
     var stringBuffer = serializedString;
     if ( cfg.counter.personalPlan === 0 ) {
-
+    	stringBuffer = _removeIndex( stringBuffer, cfg.counter.familyPlan, fieldnameToRemoveIndex );
         console.log('Family Plan');
         // ... have to develop it later
 
