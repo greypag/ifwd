@@ -58,7 +58,7 @@ $(document).ready(function(){
     });
 	
 	
-
+	/*
     $('#district').selectize({
         valueField: '',
         labelField: '',
@@ -88,7 +88,7 @@ $(document).ready(function(){
         load: function(query, callback) {
             $('#area-selectized').data('required-error', $('#area').data('required-error'));
         }
-    });
+    });*/
 	
 	
     $('[name="bankMortgage"]').bootstrapSwitch({

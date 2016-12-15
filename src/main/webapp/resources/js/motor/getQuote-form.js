@@ -474,17 +474,30 @@ $(document).ready(function(){
 						scrollTop: $("#testimonials").offset().top
 					}, 500);	
 				},500);
-				$('#promoCode').prop('required',true);
+				//$('#promoCode').prop('required',true);
+				//$('#motor_registerForm').validator('update');
 				return false;
 			}
 		});
 		
-		$('.finalsubmitGetQuote').on('click', function(e){
-
-		
-			e.preventDefault();
+		$('.finalsubmitGetQuote').validator().on('click', function(e){
 			
-				  $('#get-quote-form').validator('validate');
+			e.preventDefault();
+			if($(this).attr('data')=="check")
+			{
+				$('#promoCode').prop('required',true);
+				$('#motor_registerForm').validator('update');
+				$('#get-quote-form').validator('validate');
+			}else
+			{
+				$("#promo-errors").html("");
+				$('#promoCode').prop('required',false);
+				$('#motor_registerForm').validator('update');
+				$('#get-quote-form').validator('validate');
+				$("#loading-overlay").modal("show");
+			}
+				
+				 
 				  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
 				if($('#carValue').prop('required')){
 					if(num < 50000){
@@ -563,6 +576,7 @@ $(document).ready(function(){
 					}
 			if($(this).attr('data')=="check")
 			{
+				$("#promo-errors").html("");
 				submitData.promoCode = promoCode;
 					 $.ajax({
 						  type: "POST",
@@ -934,7 +948,8 @@ $(document).ready(function(){
 						});
 			}
 			else if($(this).attr('data')=="go")
-			{
+			{	
+				
 				submitData.promoCode =null;
 					
 			  //  console.log(num);

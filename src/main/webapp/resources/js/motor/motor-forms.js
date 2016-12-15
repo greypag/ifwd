@@ -174,48 +174,6 @@ $(document).ready(function(){
         }
     });
 	
-	$motor_district = $('#district').selectize({
-        valueField: 'code',
-        labelField: 'desc',
-        searchField: 'desc',
-        create: false,
-        preload: true,
-        load: function(query, callback) {
-            $('#district-selectized').data('required-error', $('#district').data('required-error'));
-            $.ajax({
-                url: context + '/api/iMotor/list/districts',
-                type: 'GET',
-                dataType: 'json',
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-                    	console.dir(res);
-						var newres= new Array();
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang==motorlanguage) 
-                    		newres.push(res[i]);
-                    	});
-						console.dir(newres);
-                        callback(newres);
-						if(quote.applicant.correspondenceAddress != null)
-							$.each(res, function(i, item) {
-								if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
-								{
-									if(item.desc == quote.applicant.correspondenceAddress.district )
-									{
-										$motor_district[0].selectize.setValue(item.code);	
-									}
-								}
-							});
-                    }
-            });
-        },
-        onChange: function(value){
-        }
-    });
-	
 	$motor_area = $('#area').selectize({
         valueField: 'code',
         labelField: 'desc',
@@ -257,7 +215,53 @@ $(document).ready(function(){
         },
         onChange: function(value){
         }
-    });$motor_area = $('#area').selectize({
+    });
+	
+	$motor_district = $('#district').selectize({
+        valueField: 'code',
+        labelField: 'desc',
+        searchField: 'desc',
+        create: false,
+        preload: true,
+        load: function(query, callback) {
+            $('#district-selectized').data('required-error', $('#district').data('required-error'));
+            $.ajax({
+                url: context + '/api/iMotor/list/districts',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	console.dir(res);
+						var newres= new Array();
+                    	var total = res.length;
+                    	$.each(res, function(i, item) {
+                    		if(item.lang==motorlanguage) 
+                    		newres.push(res[i]);
+                    	});
+						console.dir(newres);
+                        callback(newres);
+						if(quote.applicant.correspondenceAddress != null)
+							$.each(res, function(i, item) {
+								if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
+								{
+									if(item.desc == quote.applicant.correspondenceAddress.district )
+									{
+										$motor_district[0].selectize.setValue(item.code);	
+									}
+								}
+							});
+                    }
+            });
+        },
+        onChange: function(value){
+			//$motor_area[0].selectize.setValue("HONG KONG");	
+        }
+    });
+	
+	
+	/*$motor_area = $('#area').selectize({
         valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',
@@ -296,7 +300,7 @@ $(document).ready(function(){
         },
         onChange: function(value){
         }
-    });
+    });*/
 	
     var $custom_checkbox = $('.custom-checkbox .checkbox').not('.disabled');
     var $custom_radio = $('.custom-radio .radio');

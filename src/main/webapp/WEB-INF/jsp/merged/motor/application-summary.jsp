@@ -722,7 +722,7 @@ var nextPage = "${nextPageFlow}";
 								<h3 class="finalPremium-title">
 									<fmt:message key="motor.label.currency.front"
 										bundle="${motorMsg}" />
-									<span class="price">4,230.00</span>
+									<span class="price"></span>
 									<fmt:message key="motor.label.currency.behind"
 										bundle="${motorMsg}" />
 								</h3>
@@ -742,13 +742,22 @@ var nextPage = "${nextPageFlow}";
 								<strong><fmt:message key="motor.summary.plan.type"
 										bundle="${motorMsg}" /></strong>
 							</div>
-							<div class="col-xs-6">
+							<div class="col-xs-6 paa-box"">
 								<span>Comprehensive Insurance</span>
 							</div>
-							<div class="col-xs-6 text-right">
-								<span>300.00</span>
+							<div class="col-xs-6 text-right paa-box"">
+								<fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="paa"></span>
 							</div>
-							<div class="col-xs-12">
+							<div class="col-xs-12 paa-box"">
+								<br>
+							</div>
+							<div class="col-xs-6 cia-box"">
+								<span>Comprehensive Insurance</span>
+							</div>
+							<div class="col-xs-6 text-right cia-box"">
+								<fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="cia"></span>
+							</div>
+							<div class="col-xs-12 cia-box"">
 								<br>
 							</div>
 							<div class="col-xs-6">
@@ -756,13 +765,13 @@ var nextPage = "${nextPageFlow}";
 										bundle="${motorMsg}" /></span>
 							</div>
 							<div class="col-xs-6 text-right">
-								<span>3400.00</span>
-							</div>
-							<div class="col-xs-6">
+								<fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="subprice"></span>
+                   			</div>
+							<div class="col-xs-6" style="display:none">
 								<span><fmt:message key="motor.summary.plan.discounts"
 										bundle="${motorMsg}" /></span>
 							</div>
-							<div class="col-xs-6 text-right">
+							<div class="col-xs-6 text-right" style="display:none">
 								<span>300.00</span>
 							</div>
 							<div class="col-xs-12">
@@ -776,9 +785,9 @@ var nextPage = "${nextPageFlow}";
 								<h2 class="finalPremium-title orange">
 									<fmt:message key="motor.label.currency.front"
 										bundle="${motorMsg}" />
-									<span>4,300.00</span>
 									<fmt:message key="motor.label.currency.behind"
 										bundle="${motorMsg}" />
+									<span class="amountDue"></span>
 								</h2>
 							</div>
 							<div class="clearfix"></div>
@@ -976,7 +985,7 @@ var nextPage = "${nextPageFlow}";
 											<div class="checkbox">
 												<div class="form-group">
 													<div class="help-block-wrap">
-														<input id="checkbox3" type="checkbox"> <label
+														<input id="checkbox3" type="checkbox" required> <label
 															class="text-left"><small> <fmt:message
 																	key="motor.summary.payment.tnc" bundle="${motorMsg}" /></small>
 														</label>
@@ -1048,7 +1057,7 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.username.forget"
 																bundle="${motorMsg}" /></a>
 													</div>
-													<span class="error-msg userNameErrMsg"></span>
+													<span class="text-left error-msg userNameErrMsg"></span>
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-6">
@@ -1074,12 +1083,14 @@ var nextPage = "${nextPageFlow}";
 											</div>
 
 											<div class="login-button-group text-center">
-												<button type="button"
+												<!-- <button type="button"
 													class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit"
 													id="btn-motor-login">
 													<fmt:message key="motor.summary.member.logincta"
 														bundle="${motorMsg}" />
-												</button>
+												</button>-->
+												<a style="width:250px;padding: 10px 2px !important;" class="bdr-curve btn btn-primary btn-submit"id="btn-motor-login"><fmt:message key="motor.summary.member.logincta"
+																bundle="${motorMsg}" /> </a>
 												<div class="login-error-wrapper">
 													<div id="login-err-msg" class="color-red heading-h5"
 														role="alert"></div>
@@ -1356,12 +1367,14 @@ var nextPage = "${nextPageFlow}";
 												</div>
 											</div>
 											<div class="login-button-group text-center">
-												<button type="button"
+											<!-- 	<button type="button"
 													class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit"
 													id="btn-motor-register">
 													<fmt:message key="motor.summary.member.regcta"
 														bundle="${motorMsg}" />
-												</button>
+												</button>-->
+												<a style="width:250px;padding: 10px 2px !important;" class="bdr-curve btn btn-primary btn-submit"id="btn-motor-register"><fmt:message key="motor.summary.member.regcta"
+																bundle="${motorMsg}" /> </a>
 												<div class="login-error-wrapper">
 													<div id="login-err-msg" class="color-red heading-h5"
 														role="alert"></div>
@@ -1451,6 +1464,31 @@ function BackMe() {
 	$(document)
 			.ready(
 					function() {
+						$.ajax({
+							  type: "POST",
+							  data: JSON.stringify(quote),
+							  dataType: "json",
+						      contentType : "application/json",
+						      cache: false,
+						      async: false,
+						      url:context + "/api/iMotor/quote",
+							  success: function(data){
+								  $('.amountDue').html(formatCurrency(data.amountDueAmount));
+								  $('.price').html(formatCurrency(data.amountDueAmount));
+								  $('.subprice').html(formatCurrency(data.subTotalAmount));
+								
+								  if(data.personalAccident ==true)
+								  	$('.paa').html(formatCurrency(data.personalAccidentAmount));
+								  else
+									$('.paa-box').hide();	 
+								  if(data.thirdPartyPropertyDamage ==true)
+								  	$('.cia').html(formatCurrency(data.compInsuranceAmount));
+								  else
+									  $('.cia-box').hide();	
+							  },error: function(error) {
+								
+							  }
+							});
 
 						$('.edit_quote')
 								.on(
@@ -1602,8 +1640,9 @@ function BackMe() {
 						$(".carchasis").html(quote.carDetail.chassisNumber);
 						$(".carcubic").html(quote.carDetail.engineCapacity);
 						$(".carmodeldocument").html(quote.carDetail.modelDesc);
-
-						if(quote.carDetail.bankMortgageName.length=="")
+							
+					
+						if(quote.carDetail.bankMortgageName==null)
 							$(".carbankmortgageField").hide();
 						
 						//applicant detail
@@ -1621,12 +1660,12 @@ function BackMe() {
 								+ ", "
 								+ quote.applicant.correspondenceAddress.building
 								+ ", "
-								//+ quote.applicant.correspondenceAddress.streetName
-								//+ ", "
-								//+ quote.applicant.correspondenceAddress.streetNo
-								//+ ", "
+								+ quote.applicant.correspondenceAddress.streetName
+								+ ", "
+								+ quote.applicant.correspondenceAddress.streetNo
+								+ ", "
 								+ quote.applicant.correspondenceAddress.estate
-								+ ","
+								+ ", "
 								+ quote.applicant.correspondenceAddress.district
 								+ ", "
 								+ quote.applicant.correspondenceAddress.hkKlNt;
@@ -1719,8 +1758,23 @@ function BackMe() {
 						}
 
 						//no claim discount
-						$(".nameofprevinsurance").html(
-								quote.nameOfPreviousInusrancer);
+						$.ajax({
+			                url: context + '/api/iMotor/list/insurers',
+			                type: 'GET',
+			                dataType: 'json',
+			                error: function() {
+			                        callback();
+			                    },
+			                    success: function(res) {
+			                          			                            
+			                            $.each(res, function(i, item) {
+											
+											if(item.code == quote.nameOfPreviousInusrancer)
+												$(".nameofprevinsurance").html(item.desc);
+										});			    							
+			                    }
+			            });
+						
 						$(".regofdocument").html(quote.regNoofPreviousPolicy);
 						$(".previnsuranceexpirydate").html(
 								quote.expDateOfPreviousInsurance);

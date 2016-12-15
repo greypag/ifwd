@@ -286,7 +286,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
-                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
+                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="price"></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                 <div class="row">
@@ -294,7 +294,7 @@ var nextPage = "${nextPageFlow}";
                         <span class="ci"> Comprehensive Insurance </span>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
+                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="price"></span>
                     </div>
                     <div class="col-xs-12">
                         <br/>
@@ -306,7 +306,7 @@ var nextPage = "${nextPageFlow}";
                         <span>Personal Accident</span>
                     </div>
                     <div class="col-xs-6 text-right paa-box">
-                        <span><span class="paa"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></span>
+                       <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="paa"></span>
                     </div>
                     <div class="col-xs-12 paa-box">
                         <br/>
@@ -315,7 +315,7 @@ var nextPage = "${nextPageFlow}";
                         <span>Personal Accidents</span>
                     </div>
                     <div class="col-xs-6 text-right cia-box">
-                        <span><span class="cia"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></span>
+                        <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="cia"></span>
                     </div>
                     <div class="col-xs-12 cia-box">
                         <br/>
@@ -324,7 +324,7 @@ var nextPage = "${nextPageFlow}";
                         <span><fmt:message key="motor.label.subtotal" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <span class="subprice"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
+                        <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="subprice"></span>
                     </div>
                     <div class="col-xs-6" style="display:none">
                         <span><fmt:message key="motor.label.discounts" bundle="${motorMsg}" /></span>
@@ -339,7 +339,7 @@ var nextPage = "${nextPageFlow}";
                         <strong><fmt:message key="motor.label.amountdue" bundle="${motorMsg}" />:</strong>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <strong><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />300.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></strong>
+                        <strong><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="amountDue"></span></strong>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -741,7 +741,7 @@ $(document).ready(function(){
 	      async: false,
 	      url:context + "/api/iMotor/quote",
 		  success: function(data){
-
+			  $('.amountDue').html(formatCurrency(data.amountDueAmount));
 			  $('.price').html(formatCurrency(data.amountDueAmount));
 			  $('.subprice').html(formatCurrency(data.subTotalAmount));
 			

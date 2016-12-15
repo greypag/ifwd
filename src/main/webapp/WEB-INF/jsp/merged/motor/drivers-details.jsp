@@ -126,7 +126,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="mobileno" pattern="^\d{8}$" maxlength="8" class="form-control input--grey check-emp login-input mdl-textfield__input" id="mobileno" data-error='<fmt:message key="motor.error.msg.carowner.mobile.format" bundle="${motorMsg}" />' data-required-error='<fmt:message key="motor.error.msg.carowner.mobile.empty" bundle="${motorMsg}" />'  required>
+	                                                <input type="text" name="mobileno" pattern="^[2|3|5|6|8|9]{1}\d{7}$" maxlength="8" class="form-control input--grey check-emp login-input mdl-textfield__input" id="mobileno" data-error='<fmt:message key="motor.error.msg.carowner.mobile.format" bundle="${motorMsg}" />' data-required-error='<fmt:message key="motor.error.msg.carowner.mobile.empty" bundle="${motorMsg}" />'  required>
 	                                                <label class="mdl-textfield__label" for="mobileno"><fmt:message key="motor.driversdetails.driver.contactno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -210,13 +210,12 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>
 	                                    </div>
 	                                </div>
-	                                <!--
 	                                <div class="clearfix"></div>
 	                                <div class="col-sm-6">
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="streetno" >
+	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="streetno" >
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -227,14 +226,13 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="streetname">
+	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="streetname">
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetname" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
 	                                </div>
-	                                -->
 	                                <div class="clearfix"></div>
 	                                <div class="col-sm-6">
 	                                    <div class="form-group">
@@ -334,7 +332,7 @@ var nextPage = "${nextPageFlow}";
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
-                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></h3>
+                <h3><span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="price"></span></h3>
             </a>
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
                 <div class="row">
@@ -342,7 +340,7 @@ var nextPage = "${nextPageFlow}";
                         <span class="ci"> Comprehensive Insurance </span>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><span class="price"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
+                        <small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="price"></span>
                     </div>
                     <div class="col-xs-12">
                         <br/>
@@ -354,7 +352,7 @@ var nextPage = "${nextPageFlow}";
                         <span>Personal Accident</span>
                     </div>
                     <div class="col-xs-6 text-right paa-box">
-                        <span><span class="paa"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></span>
+                       <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="paa"></span>
                     </div>
                     <div class="col-xs-12 paa-box">
                         <br/>
@@ -363,7 +361,7 @@ var nextPage = "${nextPageFlow}";
                         <span>Personal Accidents</span>
                     </div>
                     <div class="col-xs-6 text-right cia-box">
-                        <span><span class="cia"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span></span>
+                        <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="cia"></span>
                     </div>
                     <div class="col-xs-12 cia-box">
                         <br/>
@@ -372,7 +370,7 @@ var nextPage = "${nextPageFlow}";
                         <span><fmt:message key="motor.label.subtotal" bundle="${motorMsg}" /></span>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <span class="subprice"><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></span>
+                        <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="subprice"></span>
                     </div>
                     <div class="col-xs-6" style="display:none">
                         <span><fmt:message key="motor.label.discounts" bundle="${motorMsg}" /></span>
@@ -387,7 +385,7 @@ var nextPage = "${nextPageFlow}";
                         <strong><fmt:message key="motor.label.amountdue" bundle="${motorMsg}" />:</strong>
                     </div>
                     <div class="col-xs-6 text-right">
-                        <strong><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />300.00<fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /></strong>
+                        <strong><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="amountDue"></span></strong>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -478,6 +476,9 @@ function callback_motor_LoginSuccess(){
 function SaveAndExit()
 {
 	$(document).ready(function(){
+		
+		alert(IsHKID($('input[name=driverID]').val()));
+		
 		 var submitData = {
 				    "policyId": quote.policyId,		
 				   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
@@ -491,8 +492,8 @@ function SaveAndExit()
 				    "flat":  $('input[name=flat]').val(),		
 				    "floor":  $('input[name=floor]').val(),		
 				    "hkKlNt": $('[name="area"]').val(),//$("#area option:selected").text(),		
-				    "streetName": null,		
-				    "streetNo": null		
+				    "streetName":  $('[name="streetname').val(),		
+				    "streetNo":  $('[name="streetno').val()		
 				  },		
 				  "dateOfBirth": $('input[name=driverDob]').val(),  		
 				  "email": $('input[name=email]').val() ,		
@@ -576,6 +577,8 @@ $(document).ready(function(){
 			$('input[name=building]').val(quote.applicant.correspondenceAddress.building);
 			$('input[name=estate]').val(quote.applicant.correspondenceAddress.estate);
 			$('input[name=district]').val(quote.applicant.correspondenceAddress.district);
+			$('input[name="streetname]').val(quote.applicant.correspondenceAddress.streetname),		
+		    $('input[name="streetno]').val(quote.applicant.correspondenceAddress.streetno)		
 		}
     }
 	
@@ -626,46 +629,6 @@ $(document).ready(function(){
 	    }
 	});
 	
-	$motor_district = $('#district').selectize({
-        valueField: 'code',
-        labelField: 'desc',
-        searchField: 'desc',
-        create: false,
-        preload: true,
-        load: function(query, callback) {
-            $('#district-selectized').data('required-error', $('#district').data('required-error'));
-            $.ajax({
-                url: context + '/api/iMotor/list/districts',
-                type: 'GET',
-                dataType: 'json',
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-                    	console.dir(res);
-						var newres= new Array();
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang==motorlanguage) 
-                    		newres.push(res[i]);
-                    	});
-						console.dir(newres);
-                        callback(newres);
-						$.each(res, function(i, item) {
-							if(getUrlParameter("edit")=="yes")
-							{
-								if(item.desc == quote.applicant.correspondenceAddress.district )
-								{
-									$motor_district[0].selectize.setValue(item.code);	
-								}
-							}
-						});
-                    }
-            });
-        },
-        onChange: function(value){
-        }
-    });
 	
 	 $(".continue").on("click",function(){	
 		  $('#saveModal').modal("hide");
@@ -687,7 +650,7 @@ $(document).ready(function(){
 	      async: false,
 	      url:context + "/api/iMotor/quote",
 		  success: function(data){
-
+			  $('.amountDue').html(formatCurrency(data.amountDueAmount));
 			  $('.price').html(formatCurrency(data.amountDueAmount));
 			  $('.subprice').html(formatCurrency(data.subTotalAmount));
 			
@@ -719,8 +682,8 @@ $(document).ready(function(){
 			    "flat":  $('input[name=flat]').val(),		
 			    "floor":  $('input[name=floor]').val(),		
 			    "hkKlNt": $('[name="area"]').val(),//$("#area option:selected").text(),		
-			    "streetName": null,		
-			    "streetNo": null		
+			    "streetName":  $('[name="streetname').val(),		
+			    "streetNo":  $('[name="streetno').val()				
 			  },		
 			  "dateOfBirth": $('input[name=driverDob]').val(),  		
 			  "email": $('input[name=email]').val() ,		
