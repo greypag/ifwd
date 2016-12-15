@@ -216,34 +216,34 @@ function showCalculatedRate(_amount,_currency){
 	var guaranteedCash_1st = guaranteedCash_3rd * currencyRate[_currency].g1;
 	var guaranteedCash_2nd = guaranteedCash_3rd * currencyRate[_currency].g2;
 
-	$(".ttl_pay_amount").text(formatDollar(_amount * 2,symbol));
+	$(".ttl_pay_amount").text(formatDollar(_amount ,symbol));
 	$(".yrs3_return").text(formatDollar(thirdYear,symbol));
 
 
-	$(".y1-c1").text(formatDollar(_amount,symbol));
-	$(".y1-c2").text(formatDollar(_amount * 1.1,symbol));
+	$(".y1-c1").text(formatDollar(_amount / 2,symbol));
+	$(".y1-c2").text(formatDollar(_amount / 2 * 1.1,symbol));
 	$(".y1-c3").text(formatDollar(Math.floor(guaranteedCash_1st),symbol));
 
-	$(".y2-c1").text(formatDollar(_amount * 2,symbol));
-	$(".y2-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
+	$(".y2-c1").text(formatDollar(_amount,symbol));
+	$(".y2-c2").text(formatDollar(_amount * 1.1,symbol));
 	$(".y2-c3").text(formatDollar(Math.floor(guaranteedCash_2nd),symbol));
 
-	$(".y3-c1").text(formatDollar(_amount * 2,symbol));
+	$(".y3-c1").text(formatDollar(_amount,symbol));
 	//$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
 	//For RMB, the third year of the Death Benefit should take the highest value out of Death Benefit and Guaranteed Cash
 	if (_currency == "hkd"){
-		$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
+		$(".y3-c2").text(formatDollar(_amount * 1.1,symbol));
 	}
 	else {
 		if (_amount * 2 * 1.1 > guaranteedCash_3rd){
-		$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
+		$(".y3-c2").text(formatDollar(_amount * 1.1,symbol));
 		}
 		else{
-			$(".y3-c2").text(formatDollar(Math.ceil(guaranteedCash_3rd),symbol));
+			$(".y3-c2").text(formatDollar(thirdYear,symbol),symbol);
 		}
 	}
-	//$(".y3-c3").text(formatDollar(thirdYear * currencyRate[_currency].y3 / 1000,symbol));
-	$(".y3-c3").text(formatDollar( Math.ceil(guaranteedCash_3rd),symbol));
+	//$(".y3-c3").text(formatDollar( Math.ceil(uaranteedCash_3rd),symbol));
+	$(".y3-c3").text(formatDollar(thirdYear,symbol));
 	
 	$(".box-result .over-bubble").addClass("hide");
  	$(".box-result ." + _currency).removeClass("hide");
