@@ -452,7 +452,7 @@ var fwdUtility = (function() {
 		/* END- For Benefitiary Dive active and Inactive */
 	};
 
-	var _pages_flightCare_userLoginAjax = function() {
+	var _pages_flightCare_userLoginAjax = function(contextPath) {
 		console.log('fwdUtility.temp.flightCareUserLoginAjax() is loaded.');
 		/* UserLogin ajax function */
 		var _userLoginFnc = function() {
@@ -461,7 +461,7 @@ var fwdUtility = (function() {
 		    console.log($("#popUploginform input").serialize());
 		    $.ajax({
 		        type: "POST",
-		        url: "<%=request.getContextPath()%>/userLogin",
+		        url: contextPath + "/userLogin",
 		        data: $("#popUploginform input").serialize(),
 		        async: false,
 		        success: function(data) {
@@ -517,7 +517,7 @@ var fwdUtility = (function() {
 		    }
 
 		    if (flag) {
-		        $('#loading-overlay').modal({backdrop: 'static', keyboard: false})
+		        $('#loading-overlay').modal({backdrop: 'static', keyboard: false});
 		    } else {
 		        $('#loading-overlay').modal('hide');
 		    }

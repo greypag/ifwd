@@ -31,6 +31,14 @@ fvConfig['customValidatingRules'] = function() {
     			return true;
     		}
     	}
+        // , 'duplicated': function(validator, $field, options) {
+        //     var value = $field.val();
+        //     return {
+        //         'valid': false,
+        //         'message': getBundle(getBundleLanguage, "applicant.hkId.notValid.message")
+        //     }
+        //     // return true;
+        // }
     	/*isValidDob : {
     		validate: function(validator, $field, options) {
     			$field.datepicker().on('changeDate', function (ev) {

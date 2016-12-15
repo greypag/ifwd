@@ -5,7 +5,6 @@ var _bindingValFromA2B = function(insureBoolean, dataSourceFieldInfo, insureFiel
     var conditionalId = 'applicantRelationship';        //  oversea-plan-details.jsp >>> $('#applicantRelationship')
     var fullname = $("#"+dataSourceFieldInfo.inputId).val();
 
-    console.log( 'insureBoolean = ' + insureBoolean );
     if (insureBoolean) {
         if (document.getElementById(conditionalId) != null) {
             if (document.getElementById(conditionalId).value == 'SE') {
@@ -133,7 +132,6 @@ var event_applicantName2InsuredPerson = function( insureBoolean, dataSourceField
         insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
     }
     $( '#'+dataSourceFieldInfo.inputId).blur(function() {
-        console.log(' $(#'+dataSourceFieldInfo.inputId+') - onBlur JS detected -');
         _bindingValFromA2B(insureBoolean, dataSourceFieldInfo, insureFieldInfo);
         $('#'+dataSourceFieldInfo.formId).formValidation( 'revalidateField', dataSourceFieldInfo.revalidateFieldName );
     });
@@ -154,7 +152,6 @@ var event_applicantHkid2InsuredPerson = function( insureBoolean, dataSourceField
         insureFieldInfo = { 'inputBoxId': 'txtInsuHkid1' , 'errMsgDOMId': 'errtxtInsuHkid1' };
     }
     $( '#'+dataSourceFieldInfo.inputId).blur(function() {
-        console.log(' $(#'+dataSourceFieldInfo.inputId+') - onBlur JS detected -');
         _bindingValFromA2B(insureBoolean, dataSourceFieldInfo, insureFieldInfo);
         $('#'+dataSourceFieldInfo.formId).formValidation( 'revalidateField', dataSourceFieldInfo.revalidateFieldName );
     });
@@ -178,42 +175,36 @@ var event_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, ins
         insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1', 'errMsgDOMId': 'errtxtPersonalFullName1' };
     }
     $( '#'+dataSourceFieldId+i).blur(function() {
-        console.log(' $(#'+dataSourceFieldId+i+') - onBlur JS detected -');
 
     });
 };
 
 var event_returnEngSpaceOnly = function(o) {
     $( '#'+ o.inputId ).keypress(function(evt) {
-        console.log(' $(#' + o.inputId + ') - keypress JS detected -');
         return fwdValidator.eventHandler.returnEngSpaceOnly(evt);
     });
 };
 
 var event_returnHkidLegalCharOnly = function(o) {
     $( '#'+ o.inputId ).keypress(function(evt) {
-        console.log(' $(#' + o.inputId + ') - keypress JS detected -');
         return fwdValidator.eventHandler.returnHkidLegalCharOnly(evt);
     });
 };
 
 var event_returnValidUsernameChar = function(o) {
     $( '#'+ o.inputId ).keypress(function(evt) {
-        console.log(' $(#' + o.inputId + ') - keypress JS detected -');
         return fwdValidator.eventHandler.returnValidUsernameChar(evt);
     });
 };
 
 var event_returnValidEmailChar = function(o) {
     $( '#'+ o.inputId ).keypress(function(evt) {
-        console.log(' $(#' + o.inputId + ') - keypress JS detected -');
         return fwdValidator.eventHandler.returnValidEmailChar(evt);
     });
 };
 
 var event_hideMembershipError = function (o) {
     $( '#'+ o.inputId ).focus(function(evt) {
-        console.log(' $(#' + o.inputId + ') - onfocus JS detected -');
     	$(".error-hide").hide();
     });
 };
@@ -371,7 +362,7 @@ var other_rmIndexNum_onSerializedString = function(cfg, serializedString, fieldn
                 }
                 for (var w = 1; w < travellerCounter.other+1; w++) {
                     temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
-                }                
+                }
             }
         }else {
 	        for (var i = 0; i < fieldnameToRemoveIndex.length; i++) {
@@ -400,16 +391,17 @@ var listener_isFieldsEmptied= function( dInfo ) {
     var arrFields   = dInfo.fieldsForValidation;
     var isNotEmpty = false;
     for (var i = 0; i < arrFields.length; i++) {
-            if ( $.trim( $(arrFields[i]).val() ) !== '' ) {
-                isNotEmpty = true;
-            }else{
-            	if(i > 0 && isNotEmpty==true){
-            		isNotEmpty == true;
-            	}else{
-            		isNotEmpty = false;
-            	}            	
-            }	
-        /*(function( w ) {
+        if ( $.trim( $(arrFields[i]).val() ) !== '' ) {
+            isNotEmpty = true;
+        } else {
+        	if (i > 0 && isNotEmpty==true) {
+        		isNotEmpty == true;
+        	} else {
+        		isNotEmpty = false;
+        	}
+        }
+        /*
+        (function( w ) {
             $(document).on('change', arrFields[w], function() {
                 if ( $.trim( $(arrFields[w]).val() ) !== '' ) {
                     isNotEmptyCounter = isNotEmptyCounter + 1;
@@ -420,22 +412,197 @@ var listener_isFieldsEmptied= function( dInfo ) {
                     return false;
                 }
             });
-        })(i);*/
+        })(i);
+        */
     }
     return isNotEmpty;
 };
+
+var fv_successForm_flightCare = function( argObj ) {
+
+    var e =         argObj.e;
+    var data =      argObj.data;
+    var fvConfig =  argObj.fvConfig;
+    var fcArgs =    argObj.fcArgs;
+    var fvCfgs =    argObj.fvCfgs;
+
+    // Prevent form submission
+    e.preventDefault();
+
+    // Some instances you can use
+    var $form	                   = $(e.target);
+    var fv  	                   = $form.data('formValidation');
+    var flagForAccCreated          = ( $.trim( $("#Username").val())!="" && $.trim( $("#Password").val())!="" && $.trim( $("#Confirm-Password").val())!="" ) ? true : false;
+    var serializedString_withIndex = $('#'+ fcArgs.formId).serialize();
+
+    // Washing ${inx} out from VAR serializedString_withIndex
+    var fieldnameToRemoveIndex = [];
+    if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // IF Family-plan, THEN fvConfig.flightJSPcbInfo.counter.personalPlan === 0
+        fieldnameToRemoveIndex = [
+            'adultName', 'adultHKID', 'adultAgeRange', 'adultBeneficiary'
+            , 'childName', 'childHKID', 'childAgeRange', 'childBeneficiary'
+            , 'otherName', 'otherHKID', 'otherAgeRange', 'otherBeneficiary'
+        ];
+    } else {
+        fieldnameToRemoveIndex = [ 'personalName', 'personalHKID', 'personalAgeRange', 'personalBeneficiary' ];
+    }
+    var serializedString_withoutIndex = fvConfig.helpers.other.removeIndexNum_onSerializedString(
+        fvConfig.flightJSPcbInfo
+        , serializedString_withIndex
+        , fieldnameToRemoveIndex
+    );
+
+    // IF member account is going to be created ...
+    if ( flagForAccCreated ) {
+
+        var exportAJAXdata = {
+            'optIn1': ( $('#checkbox4').is(':checked') ? true : false )
+            , 'optIn2': ( $('#checkbox3').is(':checked') ? true : false )
+            , 'password': $('#Password').val()
+            , 'mobile': $('#inputMobileNo').val()
+            , 'name': $('#inputMobileNo').val()
+            , 'userName': $('#Username').val()
+            , 'email': $('#inputEmailId').val()
+            , 'ajax': "true"
+        };
+
+        // Defines the URL for below.
+        var pagesURL = {
+            'joinus': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/joinus"
+            , 'conformPolicy': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy"
+            , 'confirmation': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation"
+        };
+
+        var pagesAJAX = {
+            'joinus': function() {
+                $.ajax({
+                    'type': "POST",
+                    'url': pagesURL.conformPolicy,
+                    'data': serializedString_withoutIndex,
+                    'async': false,
+                    'success': function(data) {
+                        if (data.result == 'success') {
+
+                            $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+                            $('#errorMessages').hide();
+
+                            $('#' + fcArgs.formId).attr("action", pagesURL.confirmation);
+                            // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
+                            fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
+                                return true;
+                            });
+
+                        } else {
+                            // Exception, mostly not related
+                            $('#loading-overlay').modal('hide');
+                            $('#errorMessages').removeClass('hide');
+                            $('#errorMessages').html(data.errMsgs);
+
+                            console.log(data);
+                            fv.defaultSubmit(function(e) {
+                                return false;
+                            });
+                        }
+                    }
+                });
+            }
+            , 'confirmation' : function() {
+                $.ajax({
+                    'type': "POST",
+                    'url': pagesURL.conformPolicy,
+                    'data': serializedString_withoutIndex,
+                    'async': false,
+                    'success': function(data) {
+                        if (data.result == 'success') {
+
+                            $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+                            $('#errorMessages').hide();
+
+                            $('#' + fcArgs.formId).attr("action", pagesURL.confirmation);
+                            // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
+                            fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
+                                return true;
+                            });
+
+                        } else {
+                            // Exception, mostly not related
+                            $('#loading-overlay').modal('hide');
+                            $('#errorMessages').removeClass('hide');
+                            $('#errorMessages').html(data.errMsgs);
+
+                            console.log(data);
+                            fv.defaultSubmit(function(e) {
+                                return false;
+                            });
+                        }
+                    }
+                });
+            }
+        };
+
+        // Core
+        $.ajax({
+            'type': 'POST',
+            'url': pagesURL.joinus,
+            'data': exportAJAXdata,
+            'async': false,
+            'success': function(res) {
+
+                var expectedServerRes = {
+                    'success': 			'success'
+                    , 'dupUsername': 	'This username already in use, please try again'
+                    , 'dupEmailMob': 	'email address and mobile no. already registered'
+                };
+                console.log(fv);
+                switch (res) {
+                    case expectedServerRes.success:
+                        pagesAJAX.joinus();
+                        break;
+                    case expectedServerRes.dupUsername:
+                        fv
+                            .updateMessage('userName', null, getBundle(getBundleLanguage, 'member.registration.fail.username.registered'))
+                            .updateStatus('userName', 'INVALID', null);
+
+                        $('#loading-overlay').modal('hide');
+                        $(".error-hide").css("display", "block");
+                        $('.error-hide').html( getBundle(getBundleLanguage, 'member.registration.fail.username.registered') );
+                        break;
+                    case expectedServerRes.dupEmailMob:
+                        fv
+                            .updateMessage('emailAddress', null, getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'))
+                            .updateStatus('emailAddress', 'INVALID', null);
+                        fv
+                            .updateMessage('mobileNo', null, getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'))
+                            .updateStatus('mobileNo', 'INVALID', null);
+
+                        $('#loading-overlay').modal('hide');
+                        $(".error-hide").css("display", "block");
+                        $('.error-hide').html( getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered') );
+                        break;
+                    default:
+                        $('#loading-overlay').modal('hide');
+                        $(".error-hide").css("display", "block");
+                        $('.error-hide').html(res);
+                }
+                console.log(fv);
+            },
+            'error': function(xhr, status, error) {
+                $('#loading-overlay').modal('hide');
+            }
+        });
+
+    } else {
+        pagesAJAX.confirmation();
+    }
+
+};
+
 /*
  * Export modules to "fvConfig" object
  */
 var fvConfig = {};
 fvConfig['helpers'] = {
-    'generateConfig': {
-        'flightCare':            gen_configFlightCare
-    }
-    , 'initDatePicker': {
-        'changeDate_trigger_selectBoxValueChange':    initDatePicker_changeDate_trigger_selectBoxValueChange
-    }
-    , 'attr': {
+    'attr': {
         'onblur': {
             'binding': {
                 'applicantName2InsuredPerson':      event_applicantName2InsuredPerson
@@ -453,18 +620,31 @@ fvConfig['helpers'] = {
             'checkBox_tooltipFadeInOut':                    event_checkBox_tooltipFadeInOut
         }
         , 'onfocus': {
-            'hideMembershipError':                         event_hideMembershipError         // replaced emptyMembershipError()
+            'hideMembershipError':                          event_hideMembershipError         // replaced emptyMembershipError()
         }
         // , 'onsubmit':                       event_onsubmit
     }
-    , 'ux': {}
+    , 'fv': {
+        'successForm': {
+            'flightCare':                       fv_successForm_flightCare
+        }
+        , 'errValidator':                {}
+        , 'errField':                    {}
+    }
     , 'fvCallback': {
         'hkidUniqueValidation':                 cb_hkidUniqueValidation
     }
+    , 'generateConfig': {
+        'flightCare':                           gen_configFlightCare
+    }
+    , 'initDatePicker': {
+        'changeDate_trigger_selectBoxValueChange':    initDatePicker_changeDate_trigger_selectBoxValueChange
+    }
     , 'listener': {
-        'isFieldsEmptied':                     listener_isFieldsEmptied
+        'isFieldsEmptied':                      listener_isFieldsEmptied
     }
     , 'other': {
         'removeIndexNum_onSerializedString':    other_rmIndexNum_onSerializedString
     }
+    , 'ux': {}
 };

@@ -1285,10 +1285,10 @@ $(function() {
             , 'contextPath':    '<%=request.getContextPath()%>'
         }
         , 'plannedDays':    ${planDetailsForm.days}
-        , 'authenticated':  ${!(authenticate.equals("direct") || authenticate.equals("false"))}
+        , 'isAuthenticated':  ${!(authenticate.equals("direct") || authenticate.equals("false"))}
 
     };
     var flightCfg = initFVConfig(fvConfig).flightCare();
-    runFV(flightCfg).flightCare(fvConfig, { 'formId': 'freeFlightForm'});  
+    runFV(flightCfg).flightCare(fvConfig, { 'formId': 'freeFlightForm'});
 });
 </script>

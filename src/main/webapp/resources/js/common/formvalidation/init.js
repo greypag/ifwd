@@ -51,32 +51,27 @@ var initFVConfig = function(argCfg) {
 			var dataSourceFieldInfo = {};
 			var datepickerConfig = {};
 
-			// MUST - Multi-fields applied attr 'readonly'
-			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
+			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']); // Multi-fields applied attr 'readonly'
 			// *Developer* if 'disabled' is true, the AJAX serialize will not pass the fieldname to backend. That may cause a bug.
 			// argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
 
-			// MUST - DOM [id="inputFullName"] is plugged extra JS behaviour
+			// DOM [id="inputFullName"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
-			// MUST - Value-binding & field revalidation
-			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );
-			// MUST - Field Input control : alpha + space only
-			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo );
+			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );	// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo );							// Field Input control : alpha + space only
 
-			// MUST - DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
+			// DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
-			// MUST - Value-binding & field revalidation
-			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );
-			// MUST - Field control : general HKID valid chars only
-			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo );
+			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );	// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo );						// Field Input control : general HKID valid chars only
 
-			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
+			// DOM [id="applicantDob"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
 			datepickerConfig = {
 		        'startView': 'decade',
 		        'autoclose': true,
 		        'format': 'dd-mm-yyyy',
-		        'startDate': fwdConstant.date.dob_start_date, // Note: not UTC / GMT, should be "Wed Dec 02 1998 14:48:41 GMT+0800 (HKT)"
+		        'startDate': fwdConstant.date.dob_start_date, 		// Note: not UTC / GMT, should be "Wed Dec 02 1998 14:48:41 GMT+0800 (HKT)"
 		        'endDate': fwdConstant.date.dob_end_date
 		        // /*'language': getBundleLanguage*/
 		    };
@@ -107,27 +102,24 @@ var initFVConfig = function(argCfg) {
 			// End >>> Under Developing - the tooltip behaviour
 
 			// MUST - Login Authenticate Username & Password
-			if ( !argCfg.flightJSPcbInfo.authenticated ) {
-
-				// Scenario for Authenticated case
-				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
+			if ( !argCfg.flightJSPcbInfo.isAuthenticated ) {
 
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
 
-				// MUST - DOM [id="Username"] is plugged extra JS behaviour
+				// DOM [id="Username"] is plugged extra JS behaviour
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Username' };
 				argCfg.helpers.attr.onkeypress.returnValidUsernameChar( dataSourceFieldInfo );
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
-				// MUST - DOM [id="Password"] is plugged extra JS behaviour
+				// DOM [id="Password"] is plugged extra JS behaviour
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Password' };
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
-				// MUST - DOM [id="Confirm-Password"] is plugged extra JS behaviour
+				// DOM [id="Confirm-Password"] is plugged extra JS behaviour
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
-				// MUST - Check fields is all-emptied or not. #Username, #Password, #Confirm-Password (Not-authenticated-case only)
+				// Check fields is all-emptied or not. #Username, #Password, #Confirm-Password (Not-authenticated-case only)
 				dataSourceFieldInfo = {
 					'formId': formId
 					// Should be a selector (ID / CLASSNAME) in distinct for targeted field(s)
@@ -145,18 +137,18 @@ var initFVConfig = function(argCfg) {
 					, 'fieldsLimitedTo': 1
 				};
 				var _enablingValidators = function(isEnabledBoolean) {
-					console.log('_enablingValidators() is run. isEnabledBoolean = [ '+isEnabledBoolean+' ]');					
+					console.log('_enablingValidators() is run. isEnabledBoolean = [ '+isEnabledBoolean+' ]');
 					var arrFieldnames = dataSourceFieldInfo.fieldnamesForValidation;
 					for (var h = 0; h < arrFieldnames.length; h++) {
 						(function( k ) {
-							// in-progress, have to test here >> pls refer to http://formvalidation.io/examples/toggling-validators-master-page/
 							$("#"+dataSourceFieldInfo.formId).formValidation('enableFieldValidators', arrFieldnames[k], isEnabledBoolean);
 						})(h);
 					}
 				};
-				$.each(dataSourceFieldInfo.fieldnamesForValidation, function(index, value){
-					$("input[name="+value+"]").on("blur", function(){												
-						if ( argCfg.helpers.listener.isFieldsEmptied( dataSourceFieldInfo ) ) {					
+
+				$.each(dataSourceFieldInfo.fieldnamesForValidation, function(i, v) {
+					$("input[name=" + v + "]").on("blur", function() {
+						if ( argCfg.helpers.listener.isFieldsEmptied( dataSourceFieldInfo ) ) {
 							_enablingValidators(true);
 							$("#"+dataSourceFieldInfo.formId).formValidation('revalidateField', $(this).attr("name"));
 						} else {
@@ -164,6 +156,7 @@ var initFVConfig = function(argCfg) {
 						};
 					});
 				});
+
 				// Still drafting - just for reference
 				// dataSourceFieldInfo = { 'formId': formId };
 				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( dataSourceFieldInfo );
@@ -179,14 +172,13 @@ var initFVConfig = function(argCfg) {
 
 			}
 
-			// MUST - Submit Form
+			// Submit Form
 			$(formId).onsubmit = function() {
-				console.log(fwdUtility.pages.flightCare.userLoginAjax);
-				console.log('laksjdfklaksjflkasj');
+				console.log( fwdUtility.pages.flightCare.userLoginAjax.userLoginFnc() );
 		        fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);
 		    };
 
-			// MUST - DOM [id="applicantDob"] is plugged extra JS behaviour
+			// DOM [id="applicantDob"] is plugged extra JS behaviour
 			// dataSourceFieldInfo = { 'inputId': 'applicantDob', 'errorId': 'fullnameinvalid' };
 			// argCfg.helpers.attr.isValidBeneDob( false, dataSourceFieldInfo, null );
         });
@@ -251,145 +243,13 @@ var runFV = function(argCfg) {
 		// MUST - Trigger the FormValidation.io library here.
 		$('#' + fcArgs.formId).formValidation(argCfg)
 			.on('success.form.fv', function(e, data) {
-				console.log();
-				// Prevent form submission
-				e.preventDefault();
-
-	            // Some instances you can use
-	            var $form	= $(e.target);
-				var fv  	= $form.data('formValidation');
-				var isCreatedAcc = false;
-				var needCreateAcc = false;
-				var serializedString_withIndex = $('#'+ fcArgs.formId).serialize();
-
-				// Washing ${inx} out from VAR serializedString_withIndex
-				var fieldnameToRemoveIndex = [];
-				if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {
-					fieldnameToRemoveIndex = [
-						'adultName', 'adultHKID', 'adultAgeRange', 'adultBeneficiary'
-						, 'childName', 'childHKID', 'childAgeRange', 'childBeneficiary'
-						, 'otherName', 'otherHKID', 'otherAgeRange', 'otherBeneficiary'
-					];
-			    } else {
-					fieldnameToRemoveIndex = [
-						'personalName', 'personalHKID', 'personalAgeRange', 'personalBeneficiary'
-					];
-			    }
-				var serializedString_withoutIndex = fvConfig.helpers.other.removeIndexNum_onSerializedString(
-					fvConfig['flightJSPcbInfo']
-					, serializedString_withIndex
-					, fieldnameToRemoveIndex
-				);
-				//console.log(fieldCreateAccIndex.length);
-				if($.trim( $("#Username").val())!="" && $.trim( $("#Password").val())!="" && $.trim( $("#Confirm-Password").val())!=""){
-					needCreateAcc = true;
-				}else{
-					needCreateAcc = false;
-				}
-				if(needCreateAcc){
-					if($('#checkbox4').is(':checked')) {
-						var optIn2 = "true";
-					}
-					if($('#checkbox3').is(':checked')) {
-						var optIn1 = "true";
-					}
-					var password = $('#Password').val();
-					var mobile = $('#inputMobileNo').val();
-					var name = $('#inputMobileNo').val();
-					var userName = $('#Username').val();
-					var email = $('#inputEmailId').val();
-				   $.ajax({
-						type : 'POST',
-						url : fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/joinus",
-						data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
-						async : false,
-						success : function(data) {
-							if (data == 'success') {
-								$.ajax({
-						            type: "POST",
-						            url: fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy",
-						            data: serializedString_withoutIndex,
-						            async: false,
-						            success: function(data) {
-						                if (data.result == 'success') {
-				
-						                    $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
-											$('#errorMessages').hide();
-				
-											$('#' + fcArgs.formId).attr("action", fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation");
-											// Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
-											// Don't use general form.submit(function(e) {...}); etc...
-											fv.defaultSubmit(function(e) {
-												return true;
-											});
-				
-						                } else {
-											// Exception, mostly not related
-											$('#loading-overlay').modal('hide');
-											$('#errorMessages').removeClass('hide');
-						                    $('#errorMessages').html(data.errMsgs);
-				
-											console.log(data);
-											fv.defaultSubmit(function(e) {
-												return false;
-											});
-						                }
-						            }
-						        });
-							} else {
-								$(".error-hide").html();
-								$(".error-hide").css("display", "block");
-								$('#loading-overlay').modal('hide');
-								if (data == 'This username already in use, please try again') {
-									console.log(fv);
-									fv.updateMessage(userName, 'duplicated', getBundle(getBundleLanguage, 'member.registration.fail.username.registered')).updateStatus(userName, 'INVALID','duplicated');
-									$('.error-hide').html( getBundle(getBundleLanguage, 'member.registration.fail.username.registered'));
-								} else if (data == 'email address and mobile no. already registered') {
-									fv.updateMessage(email, 'duplicated', getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered')).updateStatus(email, 'INVALID','duplicated');
-									$('.error-hide').html(getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'));
-								} else {
-									$('.error-hide').html(data);
-								}
-							}
-						},
-						error : function(xhr, status, error) {
-							$('#loading-overlay').modal('hide');
-						}
-					});					
-				}
-				else{
-					$.ajax({
-			            type: "POST",
-			            url: fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy",
-			            data: serializedString_withoutIndex,
-			            async: false,
-			            success: function(data) {
-			                if (data.result == 'success') {
-	
-			                    $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
-								$('#errorMessages').hide();
-	
-								$('#' + fcArgs.formId).attr("action", fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation");
-								// Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
-								// Don't use general form.submit(function(e) {...}); etc...
-								fv.defaultSubmit(function(e) {
-									return true;
-								});
-	
-			                } else {
-								// Exception, mostly not related
-								$('#loading-overlay').modal('hide');
-								$('#errorMessages').removeClass('hide');
-			                    $('#errorMessages').html(data.errMsgs);
-	
-								console.log(data);
-								fv.defaultSubmit(function(e) {
-									return false;
-								});
-			                }
-			            }
-			        });
-				}
+				fvCfgs.helpers.fv.successForm.flightCare({
+					'e': 			e
+					, 'data': 		data
+					, 'fvConfig':	fvConfig
+					, 'fcArgs':		fcArgs
+					, 'fvCfgs':		fvCfgs
+				});
 	        })
 	        .on('err.validator.fv', function(e, data) {
 	            /**
@@ -399,7 +259,7 @@ var runFV = function(argCfg) {
 	            *   data.element   --> The field element
 	            *   data.validator --> The current validator name
 	            **/
-	        	console.log(data.fv);
+	        	console.log( data.fv );
 	            data.element
 	                .data('fv.messages')
 	                .find('.help-block[data-fv-for="' + data.field + '"]').hide()       // Hide all the messages
@@ -425,8 +285,6 @@ var runFV = function(argCfg) {
 	            // console.log( data.fv.getOptions(data.element) );
 	        });
 
-		// Second Form -
-		// $('#' + fcArgs.formId).formValidation(argCfg)
 	};
 
 	var travelCare	= function() { return null; };
