@@ -20,6 +20,7 @@ public class WealthreePageFlowControl {
 		
 		UserRestURIConstants.setController("Provie");
 		request.setAttribute("controller", UserRestURIConstants.getController());
+*/
 
 		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
 				UserRestURIConstants.getLanaguage(request));
@@ -58,9 +59,10 @@ public class WealthreePageFlowControl {
 		model.addAttribute("scriptChildName", scriptChildName);
 		model.addAttribute("scriptImg", scriptImg);
 
-		model.addAttribute("planIndex", plan); //Plan Name
+		model.addAttribute("planIndex", "wealthree"); //Plan Name
 		model.addAttribute("pageIndex", key); // Page Index
 
+/*
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
