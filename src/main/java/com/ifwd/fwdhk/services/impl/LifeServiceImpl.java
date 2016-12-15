@@ -118,6 +118,12 @@ public class LifeServiceImpl implements LifeService {
 		request.getSession().setAttribute("planDetailData", apiResponse);
 		
 		if(apiResponse.hasError()){
+			String[] errMsgs=apiResponse.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiResponse.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}else{
 			//jsonObject.put("planDetails0Rate", apiResponse.getPlanDetails0Rate());
@@ -206,10 +212,16 @@ public class LifeServiceImpl implements LifeService {
 				else{
 					resultJsonObject.accumulate("result", "fail");
 					resultJsonObject.accumulate("errMsgs", "Data exception");
+					logger.error("getSavieOnlinePlandetails Data exception!");
 					throw new ECOMMAPIException("Data exception!");
 				}
 			}
 			else{
+				String[] errMsgs=apiResponse.getErrMsgs();
+				for(int l=0;l<errMsgs.length;l++)
+				{
+					logger.error(errMsgs[l].toString());
+				}
 				resultJsonObject.accumulate("result", "fail");
 				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
 			}
@@ -256,6 +268,12 @@ public class LifeServiceImpl implements LifeService {
 				proviePlanDetails.getInsuredAmount(), proviePlanDetails.getPromoCode(), proviePlanDetails.getPaymentType(), proviePlanDetails.getCurrency());
 		
 		if(apiResponse.hasError()){
+			String[] errMsgs=apiResponse.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiResponse.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		} else{
 			net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
@@ -376,10 +394,16 @@ public class LifeServiceImpl implements LifeService {
 				else{
 					resultJsonObject.accumulate("result", "fail");
 					resultJsonObject.accumulate("errMsgs", "Data exception");
+					logger.error("getProvieRiderPlan Data exception!");
 					throw new ECOMMAPIException("Data exception!");
 				}
 			}
 			else{
+				String[] errMsgs=apiResponse.getErrMsgs();
+				for(int l=0;l<errMsgs.length;l++)
+				{
+					logger.error(errMsgs[l].toString());
+				}
 				resultJsonObject.accumulate("result", "fail");
 				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
 			}
@@ -429,7 +453,7 @@ public class LifeServiceImpl implements LifeService {
 			
 			int issueAge = Integer.valueOf(planDetailData.getIssueAge());
 			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject( planDetailData );  
-			System.out.println(json);
+			logger.info(json.toString());
 			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
 				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getType().substring(1));
 				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
@@ -472,7 +496,23 @@ public class LifeServiceImpl implements LifeService {
 					}
 				}
 				else if(issueAge < 67){
-					if(age == 65){
+					if(age>=65&&age%5==0){
+						if("tc".equals(lang)){
+							showAge = (age+1)+"歲";
+						}else{
+							showAge = "Age "+(age+1);
+						}
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+(age+1),totalPremium));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_"+(age+1),showAge));
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+(age+1),totalPremium));
+						attributeList.add(new PdfAttribute("Accountvalue_"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
+						attributeList.add(new PdfAttribute("DeathBenefit_"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
+					}
+					/*if(age == 65){
 						if("tc".equals(lang)){
 							showAge = "66歲";
 						}else{
@@ -487,7 +527,8 @@ public class LifeServiceImpl implements LifeService {
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
 						attributeList.add(new PdfAttribute("DeathBenefit_66",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
-					}
+					}*/
+					
 					if(policyYear == 100){
 						if("tc".equals(lang)){
 							showAge = "100歲";
@@ -569,7 +610,23 @@ public class LifeServiceImpl implements LifeService {
 					}
 				}
 				else if(issueAge < 67){
-					if(age == 65){
+					if(age>=65&&age%5==0){
+						if("tc".equals(lang)){
+							showAge = (age+1)+"歲";
+						}else{
+							showAge = "Age "+(age+1);
+						}
+						
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+(age+1),totalPremium));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_"+(age+1),showAge));
+						attributeList.add(new PdfAttribute("Accountvalue_a"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
+						attributeList.add(new PdfAttribute("DeathBenefit_a"+(age+1),NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
+					}
+					/*if(age == 65){
 						if("tc".equals(lang)){
 							showAge = "66歲";
 						}else{
@@ -583,7 +640,7 @@ public class LifeServiceImpl implements LifeService {
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
 						attributeList.add(new PdfAttribute("DeathBenefit_a66",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
-					}
+					}*/
 					if(policyYear == 100){
 						if("tc".equals(lang)){
 							showAge = "100歲";
@@ -639,7 +696,13 @@ public class LifeServiceImpl implements LifeService {
 			String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 			logger.info("file path:"+pdfTemplatePath);
 			logger.info("data:"+attributeList);
-			String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
+			String name="";
+			try {
+				name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+				e.printStackTrace();
+			}
 			logger.info("file name:"+name);
 			
 			request.getSession().setAttribute("pdfName", name);
@@ -647,12 +710,18 @@ public class LifeServiceImpl implements LifeService {
 			
 			String salesIllustrationJpgName = name.split("\\.")[0]+".jpg";
 			logger.info("salesIllustrationJpgName:"+salesIllustrationJpgName);
-			PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, salesIllustrationJpgName);
+			try {
+				PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, salesIllustrationJpgName);
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+				e.printStackTrace();
+			}
 			String userName = (String)request.getSession().getAttribute("username");
 			request.getSession().setAttribute("salesIllustrationJpgName", name.split("\\.")[0]+"-"+userName);
 			logger.info("salesIllustrationPdf to Jpg successfully");
 		}
 		else{
+			logger.error("createSalesIllustrationPdf api data error");
 			throw new Exception("errorMsg: api data error");
 		}
 	}
@@ -936,14 +1005,24 @@ public class LifeServiceImpl implements LifeService {
 			
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+ pdfName +".pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
-		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
-		
+		String name ="";
+		try {
+			  name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}
 		request.getSession().setAttribute("applicationFormPdf", name);
 		logger.info("applicationFormPdf create successfully");
 		
 		String applicationFormJpgName = name.split("\\.")[0]+".jpg";
 		logger.info("applicationFormJpgName:"+applicationFormJpgName);
-		PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, applicationFormJpgName);
+		try {
+			PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, applicationFormJpgName);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}
 		String userName = (String)request.getSession().getAttribute("username");
 		request.getSession().setAttribute("applicationFormJpgName", name.split("\\.")[0]+"-"+userName);
 		logger.info("applicationFormPdf to Jpg successfully");
@@ -1318,6 +1397,7 @@ public class LifeServiceImpl implements LifeService {
 							productName = products.get(b).get("name").toString();
 							productCode = products.get(b).get("product_code").toString();
 						} catch (Exception e) {
+							logger.info(e.getMessage());
 							e.printStackTrace();
 						}
 						attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced"+i, productName));
@@ -1491,14 +1571,26 @@ public class LifeServiceImpl implements LifeService {
 		}*/
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
-		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
+		
+		String name = "";
+		try {
+			name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}
 		
 		request.getSession().setAttribute("fnaPdfName", name);
 		logger.info("fnaFormPdf create successfully");
 		
 		String fnaFormJpgName = name.split("\\.")[0]+".jpg";
 		logger.info("fnaFormJpgName:"+fnaFormJpgName);
-		PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, fnaFormJpgName);
+		try {
+			PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, fnaFormJpgName);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}
 		String userName = (String)request.getSession().getAttribute("username");
 		request.getSession().setAttribute("fnaFormJpgName", name.split("\\.")[0]+"-"+userName);
 		logger.info("fnaFormPdf to Jpg successfully");
@@ -1741,10 +1833,11 @@ public class LifeServiceImpl implements LifeService {
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		if(responseJsonObj==null){
-			logger.info("api error");
+			logger.error("contactCs api error:responseJsonObj=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(responseJsonObj.get("errMsgs")!=null && responseJsonObj.get("errMsgs")!="") {
+			logger.error(responseJsonObj.get("errMsgs").toString());
 			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 		}
 		else{
@@ -1797,11 +1890,16 @@ public class LifeServiceImpl implements LifeService {
 			final Map<String,String> header1 = headerUtil.getHeader1(request);
 			apiReturn = connector.sendTemplateEmail(parameters, header1);
 			if(apiReturn==null){
-				logger.info("api error");
+				logger.error("contactCs api error: aipReturn=null");
 				throw new ECOMMAPIException("api error");
 			}
 			else if(apiReturn.hasError()) {
-				logger.info(apiReturn.getErrMsgs()[0]);
+				String[] errMsgs=apiReturn.getErrMsgs();
+				for(int l=0;l<errMsgs.length;l++)
+				{
+					logger.error(errMsgs[l].toString());
+				}
+				//logger.info(apiReturn.getErrMsgs()[0]);
 				throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 			}
 		}
@@ -2032,13 +2130,19 @@ public class LifeServiceImpl implements LifeService {
 							params.put("agentEmail", saviePlanDetails.getPromoCode());
 							apiReturn = connector.setEliteTermPolicyAgentEmail(params, header);
 						}catch(Exception e){
-							logger.info("EliteTermServiceImpl setEliteTermPolicyAgentEmail occurs an exception!");
-							logger.info(e.getMessage());
+							logger.error("EliteTermServiceImpl setEliteTermPolicyAgentEmail occurs an exception!");
+							logger.error(e.getMessage());
 							e.printStackTrace();
 						}
 				}
 			}
 			else{
+				String[] errMsgs=lifePolicy.getErrMsgs();
+				for(int l=0;l<errMsgs.length;l++)
+				{
+					logger.error(errMsgs[l].toString());
+				}
+				//logger.info(lifePolicy.getErrMsgs()[0]);
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
 			}
 		//}
@@ -2075,6 +2179,12 @@ public class LifeServiceImpl implements LifeService {
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		apiReturn = connector.finalizeLifePolicy(parameters, header);
 		if(apiReturn.hasError()){
+			String[] errMsgs=apiReturn.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiReturn.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		}
 		return apiReturn;
@@ -2092,6 +2202,7 @@ public class LifeServiceImpl implements LifeService {
 		logger.info("***********responseJsonObj****************:"+responseJsonObj);
 		
 		if(responseJsonObj==null){
+			logger.error("getBranchCode data error: responseJsonObj=null");
 			throw new ECOMMAPIException("data error");
 		}
 		else{
@@ -2114,6 +2225,7 @@ public class LifeServiceImpl implements LifeService {
 				
 			}
 			else{
+				logger.error(responseJsonObj.get("errMsgs").toString());
 				throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 			}
 		}
@@ -2175,7 +2287,7 @@ public class LifeServiceImpl implements LifeService {
 					|| lifePersonalDetails.getResidentialAddressDistrict().length()==0				
 					|| lifePersonalDetails.getCorrespondenceAddress1().length()==0
 					|| lifePersonalDetails.getCorrespondenceAddressDistrict().length()==0)) {
-			logger.info("Not enough data for save_for_later (personal details)");
+			logger.error("lifePersonalDetailsSaveforLater Not enough data for save_for_later (personal details)");
 			throw new ECOMMAPIException("Not enough data for save_for_later (personal details)");
 		}		
 		
@@ -2200,11 +2312,16 @@ public class LifeServiceImpl implements LifeService {
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
-			logger.info("api error");
+			logger.error("lifePersonalDetailsSaveforLater api error: apiResponse=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(apiResponse.hasError()) {
-			logger.info(apiResponse.getErrMsgs()[0]);
+			String[] errMsgs=apiResponse.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiResponse.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}
 	}
@@ -2247,7 +2364,7 @@ public class LifeServiceImpl implements LifeService {
 							|| lifeEmploymentInfo.getAmountOfLiquidAssets().length()==0)
 						)
 					|| lifeEmploymentInfo.getEducation().length()==0)) {
-			logger.info("Not enough data for save_for_later (employment info)");
+			logger.error("lifeEmploymentInfoSaveforLater Not enough data for save_for_later (employment info)");
 			throw new ECOMMAPIException("Not enough data for save_for_later (employment info)");
 		}		
 		
@@ -2273,11 +2390,16 @@ public class LifeServiceImpl implements LifeService {
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
-			logger.info("api error");
+			logger.info("lifeEmploymentInfoSaveforLater api error: apiResponse=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(apiResponse.hasError()) {
-			logger.info(apiResponse.getErrMsgs()[0]);
+			String[] errMsgs=apiResponse.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiResponse.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}
 	}
@@ -2353,7 +2475,7 @@ public class LifeServiceImpl implements LifeService {
 							|| lifeBeneficaryInfo.getBeneficaryGender1().length()==0
 							|| lifeBeneficaryInfo.getBeneficaryRelation1().length()==0
 							|| lifeBeneficaryInfo.getBeneficaryWeight1().length()==0)) {
-					logger.info("Not enough data for save_for_later (beneficiary info 1)");
+					logger.error("lifeBeneficaryInfoSaveforLater Not enough data for save_for_later (beneficiary info 1)");
 					throw new ECOMMAPIException("Not enough data for save_for_later (beneficiary info 1)");
 				}
 
@@ -2364,7 +2486,7 @@ public class LifeServiceImpl implements LifeService {
 						|| lifeBeneficaryInfo.getBeneficaryGender2().length()==0
 						|| lifeBeneficaryInfo.getBeneficaryRelation2().length()==0
 						|| lifeBeneficaryInfo.getBeneficaryWeight2().length()==0)) {
-					logger.info("Not enough data for save_for_later (beneficiary info 2)");
+					logger.error("lifeBeneficaryInfoSaveforLater Not enough data for save_for_later (beneficiary info 2)");
 					throw new ECOMMAPIException("Not enough data for save_for_later (beneficiary info 2)");
 				}
 
@@ -2375,7 +2497,7 @@ public class LifeServiceImpl implements LifeService {
 						|| lifeBeneficaryInfo.getBeneficaryGender3().length()==0
 						|| lifeBeneficaryInfo.getBeneficaryRelation3().length()==0
 						|| lifeBeneficaryInfo.getBeneficaryWeight3().length()==0)) {
-					logger.info("Not enough data for save_for_later (beneficiary info 3)");
+					logger.error("lifeBeneficaryInfoSaveforLater Not enough data for save_for_later (beneficiary info 3)");
 					throw new ECOMMAPIException("Not enough data for save_for_later (beneficiary info 3)");
 				}
 		}
@@ -2405,11 +2527,16 @@ public class LifeServiceImpl implements LifeService {
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
-			logger.info("api error");
+			logger.error("lifeBeneficaryInfoSaveforLater api error:apiResponse=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(apiResponse.hasError()) {
-			logger.info(apiResponse.getErrMsgs()[0]);
+			String[] errMsgs=apiResponse.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiResponse.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}
 	}
@@ -2430,7 +2557,7 @@ public class LifeServiceImpl implements LifeService {
 					|| lifePayment.getBranchCode().length()==0
 				)
 			) {
-			logger.info("Not enough data for save_for_later (payment info)");
+			logger.error("lifePaymentSaveforLater Not enough data for save_for_later (payment info)");
 			throw new ECOMMAPIException("Not enough data for save_for_later (payment info)");
 		}		
 		
@@ -2461,11 +2588,16 @@ public class LifeServiceImpl implements LifeService {
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
-			logger.info("api error");
+			logger.error("lifePaymentSaveforLater api error: apiResponse=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(apiResponse.hasError()) {
-			logger.info(apiResponse.getErrMsgs()[0]);
+			String[] errMsgs=apiResponse.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiResponse.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}
 	}
@@ -2521,11 +2653,16 @@ public class LifeServiceImpl implements LifeService {
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
-			logger.info("api error");
+			logger.error("lifeDeclarationSaveforLater api error: apiResponse=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(apiResponse.hasError()) {
-			logger.info(apiResponse.getErrMsgs()[0]);
+			String[] errMsgs=apiResponse.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiResponse.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}
 	}
@@ -2571,6 +2708,12 @@ public class LifeServiceImpl implements LifeService {
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
 		BaseResponse br = connector.uploadDocuments(parameters, header);
 		if(br.getErrMsgs()!=null){
+			String[] errMsgs=br.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.debug(br.getErrMsgs()[0]);
 			throw new ECOMMAPIException(br.getErrMsgs()[0]);
 		}
 	}
@@ -2580,6 +2723,12 @@ public class LifeServiceImpl implements LifeService {
 		GetPolicyApplicationResponse apiResponse = connector.getPolicyApplication(header);
 		
 		if(apiResponse!=null&&apiResponse.hasError()) {
+			String[] errMsgs=apiResponse.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiResponse.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}
 		else if(apiResponse!=null&&apiResponse.getPolicyApplication()!=null){
@@ -3034,6 +3183,12 @@ public class LifeServiceImpl implements LifeService {
 			parameters.put("base64", fileToUploadImageBase64);
 			br = connector.uploadDocuments(parameters, header);
 			if(br.getErrMsgs()!=null){
+				String[] errMsgs=br.getErrMsgs();
+				for(int l=0;l<errMsgs.length;l++)
+				{
+					logger.error(errMsgs[l].toString());
+				}
+				//logger.info(br.getErrMsgs().toString());
 				throw new ECOMMAPIException("system error");
 			}
 			if("true".equals(passportFlage)){
@@ -3058,6 +3213,12 @@ public class LifeServiceImpl implements LifeService {
 				parameters.put("base64", passportFileToUploadImageBase64);
 				br = connector.uploadDocuments(parameters, header);
 				if(br.getErrMsgs()!=null){
+					String[] errMsgs=br.getErrMsgs();
+					for(int l=0;l<errMsgs.length;l++)
+					{
+						logger.error(errMsgs[l].toString());
+					}
+					//logger.info(br.getErrMsgs().toString());
 					throw new ECOMMAPIException("system error");
 				}
 			}
@@ -3078,6 +3239,12 @@ public class LifeServiceImpl implements LifeService {
 			parameters.put("base64", hkidFileToUploadImageBase64);
 			br = connector.uploadDocuments(parameters, header);
 			if(br.getErrMsgs()!=null){
+				String[] errMsgs=br.getErrMsgs();
+				for(int l=0;l<errMsgs.length;l++)
+				{
+					logger.error(errMsgs[l].toString());
+				}
+				//logger.info(br.getErrMsgs().toString());
 				throw new ECOMMAPIException("system error");
 			}
 	        FileUtil.deletFile(uploadDir);
@@ -3088,14 +3255,14 @@ public class LifeServiceImpl implements LifeService {
 	        request.getSession().removeAttribute("passportFileToUploadType");
 	        request.getSession().removeAttribute("hkidFileToUploadType");
 		}catch(ECOMMAPIException e){
-			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("EliteTermServiceImpl sendImage occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			apiReturn.setErrMsg(e.getMessage());
 			return apiReturn;
 		}catch(Exception e){
-			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("EliteTermServiceImpl sendImage occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 			apiReturn.setErrMsg("system error");
 			return apiReturn;
@@ -3145,12 +3312,12 @@ public class LifeServiceImpl implements LifeService {
 			parameters.put("policyNo", lifePolicy.getPolicyNo());
 			br = connector.uploadSignature(parameters, header);
 		} catch (ECOMMAPIException e) {
-			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		} catch (Exception e) {
-			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		return br;
@@ -3219,7 +3386,7 @@ public class LifeServiceImpl implements LifeService {
 			
 			responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 			if(responseJsonObj.get("timeSlots") == null || responseJsonObj.get("timeSlots") == ""){
-				logger.info(responseJsonObj.toString());
+				logger.error(responseJsonObj.toString());
 			}
 		}
 		else{
@@ -3305,6 +3472,7 @@ public class LifeServiceImpl implements LifeService {
 				response.getWriter().print(makeJsonObj.toString());
 			}catch(Exception e) {  
 				e.printStackTrace();
+				logger.error(e.toString());
 				response.getWriter().print("application error!");
 			}
 		}else {
@@ -3535,11 +3703,16 @@ public class LifeServiceImpl implements LifeService {
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		apiReturn = connector.clearFna(parameters, header);
 		if(apiReturn==null){
-			logger.info("api error");
+			logger.error("clearFna api error: apiReturn==null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(apiReturn.hasError()) {
-			logger.info(apiReturn.getErrMsgs()[0]);
+			String[] errMsgs=apiReturn.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiReturn.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		}
 	}
@@ -3569,11 +3742,16 @@ public class LifeServiceImpl implements LifeService {
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		apiReturn = connector.sendTemplateEmail(parameters, header);
 		if(apiReturn==null){
-			logger.info("api error");
+			logger.error("sendEmailForSaveLater api error:apiReturn=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(apiReturn.hasError()) {
-			logger.info(apiReturn.getErrMsgs()[0]);
+			String[] errMsgs=apiReturn.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiReturn.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		}
 	}
@@ -3674,11 +3852,16 @@ public class LifeServiceImpl implements LifeService {
 		logger.info("remove savie online session");
 		
 		if(apiReturn==null){
-			logger.info("api error");
+			logger.error("clearPolicyApplication api error:apiReturn=null");
 			throw new ECOMMAPIException("api error");
 		}
 		else if(apiReturn.hasError()) {
-			logger.info(apiReturn.getErrMsgs()[0]);
+			String[] errMsgs=apiReturn.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiReturn.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		}
 	}
@@ -3742,10 +3925,10 @@ public class LifeServiceImpl implements LifeService {
 		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf";
 	    File file = new File(pdfPath);
 	    if(!file.exists()){
-	    	logger.info("file not exist");
+	    	logger.error("file not exist"+pdfPath);
 	    }
 	    else if(!file.isDirectory()){
-	    	logger.info("file error");
+	    	logger.error("file error"+pdfPath);
 	    }
 	    else{
 	    	String[] tempList = file.list();
@@ -3785,11 +3968,11 @@ public class LifeServiceImpl implements LifeService {
 		models.put("uploadLink", url);
 		JSONObject responseJsonObj = this.sendEmails(request, "uploadDocument", models);
 		if(responseJsonObj==null){
-			logger.info("api error");
+			logger.error("sendEmailForDocumentUploadLater api error:responseJsonObj=null");
 			throw new ECOMMAPIException("api error");
 		}
 		if(responseJsonObj.get("errMsgs") != null){
-			logger.info(responseJsonObj.get("errMsgs").toString());
+			logger.error(responseJsonObj.get("errMsgs").toString());
 			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 		}
 	}
@@ -3809,7 +3992,12 @@ public class LifeServiceImpl implements LifeService {
 		BaseResponse apiReturn = connector.partnerRegister(parameters, header);
 		
 		if(apiReturn!=null && apiReturn.hasError()) {
-			logger.info(apiReturn.getErrMsgs()[0]);
+			String[] errMsgs=apiReturn.getErrMsgs();
+			for(int l=0;l<errMsgs.length;l++)
+			{
+				logger.error(errMsgs[l].toString());
+			}
+			//logger.info(apiReturn.getErrMsgs()[0]);
 			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		} else {
 			sendMailToNewPartner(partnerRegisterDetails, request);
@@ -4064,8 +4252,8 @@ public class LifeServiceImpl implements LifeService {
 				connector.sendEmail(parametersEmail,headerEmail);
 			}	
 		} catch (Exception e) {
-			logger.info("SavieOnlineServiceImpl sendEmailToNewPartner occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("SavieOnlineServiceImpl sendEmailToNewPartner occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}				
 	}
@@ -4105,6 +4293,7 @@ public class LifeServiceImpl implements LifeService {
 		logger.info("***********responseJsonObj****************:"+responseJsonObj);
 		
 		if(responseJsonObj==null){
+			logger.error("getSavieApplicationByHkId data error: responseJsonObj=null");
 			throw new ECOMMAPIException("data error");
 		}
 		else{
@@ -4115,6 +4304,7 @@ public class LifeServiceImpl implements LifeService {
 				}
 			}
 			else{
+				logger.error(responseJsonObj.get("errMsgs").toString());
 				throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 			}
 		}

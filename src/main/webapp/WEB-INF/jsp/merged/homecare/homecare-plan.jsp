@@ -33,7 +33,6 @@
 
 
 <script>
-
 var promoCodePlaceholder="<fmt:message key="home.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
 
 //bmg inline variable
@@ -81,6 +80,8 @@ function chkClubMember() {
                 flag = false;
             }
         }
+    }else{
+    	document.getElementById("theClubMembershipNo").value = null;
     }
     return flag;
 }

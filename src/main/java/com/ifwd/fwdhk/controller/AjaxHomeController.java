@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,6 +51,7 @@ public class AjaxHomeController extends BaseController{
 			}
 			
 		} catch (Exception e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 		ajaxReturn(response, result);
@@ -66,6 +68,7 @@ public class AjaxHomeController extends BaseController{
 		try {
 			result = homeService.SubmitPolicy(plan, referenceNo, response, request, session);
 		} catch (Exception e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 		ajaxReturn(response, result);
@@ -81,6 +84,7 @@ public class AjaxHomeController extends BaseController{
 			jsonObject = homeService.getHomeCareQuote(plan, request, session);
 		}
 		catch (ECOMMAPIException e) {
+			logger.error(ExceptionUtils.getStackTrace(e));
 			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());

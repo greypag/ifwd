@@ -1402,6 +1402,9 @@ var ehPro = '${pro }';
                                                             <p><b><fmt:message key="easyhealth.plandetails.risk.1.content" bundle="${msg}" /></b></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.2.content" bundle="${msg}" /></p>
                                                             <br>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.risk.19.content" bundle="${msg}" /></b></p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.20.content" bundle="${msg}" /></p>
+                                                            <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.risk.3.content" bundle="${msg}" /></b></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.4.content" bundle="${msg}" /></p>
                                                             <br>
@@ -1562,20 +1565,20 @@ var ehPro = '${pro }';
                                                         <div class="panel-body">
                                                         	<c:choose>
                                                         	<c:when test="${language =='en'}">
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
+                                                            <br>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
+                                                            <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.1.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.2.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.3.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.4.content" bundle="${msg}" />
+                                                            <p><b id="remarks-3"><fmt:message key="easyhealth.plandetails.remarks.3.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.4.content" bundle="${msg}" />
                                                             </p>
                                                             <ul>
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.5.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.6.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.7.content" bundle="${msg}" /></li>
                                                             </ul>
-                                                            <br> 
-                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
-                                                            <br>
-                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
-                                                            <br>                                                            	
+                                                            <br>                                                        	
                                                             </c:when>
                                                             <c:when test="${language =='tc'}">
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>

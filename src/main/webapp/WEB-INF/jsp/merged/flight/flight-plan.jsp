@@ -104,7 +104,9 @@
                     flag = false;
                 }
             }
-	    }
+	    }else{
+        	document.getElementById("theClubMembershipNo").value = null;
+        }
 	    return flag;
 	}
 

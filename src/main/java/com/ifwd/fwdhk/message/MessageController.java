@@ -116,6 +116,7 @@ public class MessageController {
 			application.setAttribute("allMessages", allMessages);
 			model.addAttribute("refreshResult", "I18N Refresh Success.");
 		} catch (Exception e) {
+			logger.error(e.getMessage());
 			model.addAttribute("refreshResult", "I18N Refresh Fail.");
 		}
 		

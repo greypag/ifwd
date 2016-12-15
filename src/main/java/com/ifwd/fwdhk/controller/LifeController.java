@@ -223,8 +223,8 @@ public class LifeController extends BaseController{
 				
 				
 			} catch (ECOMMAPIException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 			/*if (request.getSession().getAttribute("saviePlanDetails")!=null){
 				model.addAttribute("promoCode", saviePlanDetails.getPromoCode());

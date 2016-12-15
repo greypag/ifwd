@@ -606,6 +606,15 @@ var home_url = "<%=request.getContextPath()%>";
 											bundle="${msg}" />
 									</p>
 									<p class="et-accrdion-txt-bold accordion-title">
+										<fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t7"
+											bundle="${msg}" />
+									</p>
+									<p class="et-accrdion-txt-normal accordion-copy">
+										<fmt:message
+											key="eliteTerms.selectPlan.Key.Product.Risks.t7.copy"
+											bundle="${msg}" />
+									</p>
+									<p class="et-accrdion-txt-bold accordion-title">
 										<fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t2"
 											bundle="${msg}" />
 									</p>
