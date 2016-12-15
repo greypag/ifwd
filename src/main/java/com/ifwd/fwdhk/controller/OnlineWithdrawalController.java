@@ -598,7 +598,8 @@ public class OnlineWithdrawalController extends BaseController{
                     + "<br/>TWE001 Withdrawal amount minimum"
                     + "<br/>TWE002 Annual withdrawal limit exceeded"
                     + "<br/>TWE003 Daily withdrawal limit exceeded"
-                    + "<br/>TWE004 Daily withdrawal count limit exceeded"),
+                    + "<br/>TWE004 Daily withdrawal count limit exceeded"
+                    + "<br/>TWE005 The principal of the policy will be less than the minimum requirement"),
             @ApiResponse(code = 416, message = "SMS gateway send message failed")
 			})
 	@RequestMapping(value = "/requestTngPolicyWithdraw", method = POST)
