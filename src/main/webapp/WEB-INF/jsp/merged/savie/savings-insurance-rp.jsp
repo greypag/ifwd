@@ -67,7 +67,7 @@ var home_url = "<%=request.getContextPath()%>";
 				</a> --%>
 				<div class="fwd-container-limit">
             		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
-    	        		<%--
+    	        		
 						<div class="img-banner-text savie-landing">
     	        			<div id="clearfix-height-rp">
     	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
@@ -76,7 +76,7 @@ var home_url = "<%=request.getContextPath()%>";
     						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
     					</div>
     	        		</div>
-						--%>
+						
     	        	</form>
 	        	</div>
         	</div>
