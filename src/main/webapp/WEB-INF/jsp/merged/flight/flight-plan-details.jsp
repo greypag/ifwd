@@ -1193,11 +1193,11 @@ perventRedirect = true;
                                         class="bdr-curve btn btn-primary nxt-btn"/><fmt:message key="flight.details.action.next" bundle="${msg}" />
                                     </button>
                                    </c:when>
-                                   <c:otherwise>
+                                   <%-- <c:otherwise>
                                     <button type="submit" onclick="javascript:kenshoo_conv('Registration_Step2','','','Regis_Flight_Step2 ZH','USD');"
                                         class="bdr-curve btn btn-primary nxt-btn"/><fmt:message key="flight.details.action.next" bundle="${msg}" />
                                     </button>
-                            	   </c:otherwise>
+                                </c:otherwise> --%>
                                </c:choose>
                             </div>
                         </div>

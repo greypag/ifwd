@@ -250,7 +250,13 @@ var runFV = function(argCfg) {
 					, 'fcArgs':		fcArgs
 					, 'fvCfgs':		fvCfgs
 				});
+				if (data.fv.getSubmitButton()) {
+	                data.fv.disableSubmitButtons(false);
+	            }
 	        })
+			.on('status.field.fv', function(e, data) {
+				data.fv.disableSubmitButtons(false);
+			})
 	        .on('err.validator.fv', function(e, data) {
 	            /**
 	            *   $(e.target)    --> The field element
@@ -264,6 +270,9 @@ var runFV = function(argCfg) {
 	                .data('fv.messages')
 	                .find('.help-block[data-fv-for="' + data.field + '"]').hide()       // Hide all the messages
 	                .filter('[data-fv-validator="' + data.validator + '"]').show();     // Show only message associated with current validator
+				if (data.fv.getSubmitButton()) {
+	                data.fv.disableSubmitButtons(false);
+	            }
 	        })
 	        .on('err.field.fv', function(e, data) {
 	            /*
@@ -275,6 +284,9 @@ var runFV = function(argCfg) {
 	             * Each pair of field and label are placed inside a .form-group element
 	             */
 	            data.element.next(".help-block").addClass("text-red");
+				if (data.fv.getSubmitButton()) {
+	                data.fv.disableSubmitButtons(false);
+	            }
 
 				// Get the first invalid field
 	            var $invalidFields = data.fv.getInvalidFields();

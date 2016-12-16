@@ -353,16 +353,16 @@ var other_rmIndexNum_onSerializedString = function(cfg, serializedString, fieldn
     var _removeIndex = function( stringInput, travellerCounter, fieldnameToRemoveIndex ) {
         var temp = stringInput;
         for (var i = 0; i < fieldnameToRemoveIndex.length; i++) {
-        	if(typeof travellerCounter==="object"){
+        	if (typeof travellerCounter==="object") {
         		$.each( travellerCounter, function( key, value ) {
                     for (var w = 1; w < value+1; w++) {
                         temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
-                    } 
-        		});	        		
-            }else{
+                    }
+        		});
+            } else {
 	            for (var w = 1; w < travellerCounter+1; w++) {
 	                temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
-	            }	            	
+	            }
             }
         }
         return temp;
@@ -542,6 +542,9 @@ var fv_successForm_flightCare = function( argObj ) {
             'async': false,
             'success': function(res) {
 
+                $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+                $('#errorMessages').hide();
+                
                 var expectedServerRes = {
                     'success': 			'success'
                     , 'dupUsername': 	'This username already in use, please try again'
