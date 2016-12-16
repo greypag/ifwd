@@ -39,6 +39,7 @@ public class MotorCareDetails {
 	private CarDetail carDetail;
 	private List<Driver> driver = new ArrayList<>();	
 	private String policyStartDate;
+	private String policyEndDate;
 	private String nameOfPreviousInusrancer;
 	private String regNoofPreviousPolicy;
 	private String expDateOfPreviousInsurance;
@@ -385,4 +386,11 @@ public class MotorCareDetails {
 	public void setRiderDiscountAmt(Double riderDiscountAmt) {
 		this.riderDiscountAmt = riderDiscountAmt;
 	}
+	public String getPolicyEndDate() {
+		return policyEndDate;
+	}
+	public void setPolicyEndDate(String policyEndDate) {
+		this.policyEndDate = policyEndDate;
+	}
+	
 }

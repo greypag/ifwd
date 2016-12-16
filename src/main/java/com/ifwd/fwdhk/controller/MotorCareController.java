@@ -1323,10 +1323,10 @@ public class MotorCareController extends BaseController{
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
 		}		
 		
-		if (!motorCareValidationService.passFieldCheckCarDetails(body)) {
-			logger.info(methodName + " passFieldCheckCarDetails fail");
-			return motor_badRequest(null);
-		}
+//		if (!motorCareValidationService.passFieldCheckCarDetails(body)) {
+//			logger.info(methodName + " passFieldCheckCarDetails fail");
+//			return motor_badRequest(null);
+//		}
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1401,10 +1401,10 @@ public class MotorCareController extends BaseController{
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
 		}	
 		
-		if (!motorCareValidationService.passFieldCheckDriverDetails(body)) {
-			logger.info(methodName + " passFieldCheckDriverDetails fail");
-			return motor_badRequest(null);
-		}
+//		if (!motorCareValidationService.passFieldCheckDriverDetails(body)) {
+//			logger.info(methodName + " passFieldCheckDriverDetails fail");
+//			return motor_badRequest(null);
+//		}
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
@@ -1479,10 +1479,10 @@ public class MotorCareController extends BaseController{
 			return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
 		}	
 		
-		if (!motorCareValidationService.passFieldCheckPolicyDetails(body)) {
-			logger.info(methodName + " passFieldCheckPolicyDetails fail");
-			return motor_badRequest(null);
-		}
+//		if (!motorCareValidationService.passFieldCheckPolicyDetails(body)) {
+//			logger.info(methodName + " passFieldCheckPolicyDetails fail");
+//			return motor_badRequest(null);
+//		}
 				
 		// ******************* Init *******************
 		Map<String, String> apiResponse = new HashMap<>();	
