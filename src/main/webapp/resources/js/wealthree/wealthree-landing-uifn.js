@@ -235,7 +235,7 @@ function showCalculatedRate(_amount,_currency){
 		$(".y3-c2").text(formatDollar(_amount * 1.1,symbol));
 	}
 	else {
-		if (_amount * 2 * 1.1 > guaranteedCash_3rd){
+		if (_amount * 1.1 > guaranteedCash_3rd){
 		$(".y3-c2").text(formatDollar(_amount * 1.1,symbol));
 		}
 		else{
