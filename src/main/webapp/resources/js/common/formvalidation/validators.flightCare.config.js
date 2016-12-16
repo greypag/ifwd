@@ -166,7 +166,6 @@ fvConfig['applicant'] = function() {
         //     }
         // }
 
-        // Under-development - Member Account Form - Opinion #B
         , 'userName': {
             'container': '#UsernameError'
             , 'trigger': 'blur'
@@ -337,7 +336,7 @@ fvConfig['insuredChild'] = function() {
             }
         },
         'childHKID': {
-            'container': '#txtChldInsuHkid'
+            'container': '#errtxtChldInsuHkid'
             , 'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {

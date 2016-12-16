@@ -20,7 +20,6 @@ fvConfig['customValidatingRules'] = function() {
     		'validate': function(validator, $field, options) {
     			var value = $field.val();
     			if (value.length > 0) {
-    				// if ( !IsHKID(value) ) {                                  // IsHKID(), refer to "js/fwd.js"
                     if ( !fwdValidator.personalInfo.isValidHkid(value) ) {      // refer to fwd-validator.js
     					return {
     		                'valid': false,
@@ -34,7 +33,6 @@ fvConfig['customValidatingRules'] = function() {
         , 'alreadyRegistered': {
             'validate': function(validator, $field, options) {
                 var value = $field.val();
-                console.log(value);
                 return true;
             }
         }

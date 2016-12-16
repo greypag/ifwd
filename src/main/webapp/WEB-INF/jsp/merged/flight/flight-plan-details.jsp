@@ -545,8 +545,8 @@ perventRedirect = true;
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <!-- onkeyup="value=value.replace(/[\W]/g,'')" -->
                                                <input id="txtInsuHkid${inx}" name="adultHKID${inx}"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
-                                                    <span id="errtxtInsuHkid${inx}"class="text-red"> </span>
+                                                    class="form-control textUpper full-control js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                                    <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
                                        <!-- id card end -->
@@ -610,7 +610,7 @@ perventRedirect = true;
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text" name="adultBenificiaryFullName"
-                                                        id="adultBenefitiaryId${inx}" class="form-control full-control textUpper js__input_hkid"
+                                                        id="adultBenefitiaryId${inx}" class="form-control full-control textUpper"
                                                         placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />" />
                                                     <span id="erradultBenefitiaryId${inx}" class="text-red"> </span>
                                                </div>
@@ -651,7 +651,7 @@ perventRedirect = true;
                                                   <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                  <input id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid" class="form-control textUpper full-control js__input_hkid"
+                                                  <input id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid" class="form-control textUpper full-control"
                                                     placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="erradultBenefitiaryHKId${inx}" class="text-red"> </span>
                                                </div>
@@ -700,8 +700,9 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtChldInsuHkid${inx}" name="childHKID${inx}" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
-                                                  <span id="errtxtChldInsuHkid${inx}" class="text-red"> </span>
+                                               <input id="txtChldInsuHkid${inx}" name="childHKID${inx}" class="form-control textUpper full-control js__input_hkid"
+                                               placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                               <span id="errtxtChldInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
                                        <!-- id card end -->
@@ -856,7 +857,8 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID${inx}" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID${inx}" class="form-control textUpper full-control js__input_hkid"
+                                               placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                <span id="errtxtOtherInsuHkid${inx}" class="text-red"></span>
                                            </div>
                                        </div>

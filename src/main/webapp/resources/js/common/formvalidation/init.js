@@ -55,15 +55,21 @@ var initFVConfig = function(argCfg) {
 			// *Developer* if 'disabled' is true, the AJAX serialize will not pass the fieldname to backend. That may cause a bug.
 			// argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
 
-			// DOM [id="inputFullName"] is plugged extra JS behaviour
-			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
-			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo, null );	// Value-binding & field revalidation
-			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo );							// Field Input control : alpha + space only
 
+			if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
+				var dataSourceFieldInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'adultName1' };
+				var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
+			} else {                                                            // Do Personal-plan below
+				var dataSourceFieldInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
+				var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
+			}
+			// DOM [id="inputFullName"] is plugged extra JS behaviour
+			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo_fullname, null );	// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo_fullname );							// Field Input control : alpha + space only
 			// DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
-			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
-			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo, null );	// Value-binding & field revalidation
-			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo );						// Field Input control : general HKID valid chars only
+			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo_hkid, null );	// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo_hkid );						// Field Input control : general HKID valid chars only
+
 
 			// DOM [id="applicantDob"] is plugged extra JS behaviour
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
@@ -101,7 +107,7 @@ var initFVConfig = function(argCfg) {
                 // (this part may solve in phase 2 revamp)
 			// End >>> Under Developing - the tooltip behaviour
 
-			// Login Authenticate Username & Password
+			// Login Authenticate ( i.e. Username & Password )
 			if ( !argCfg.flightJSPcbInfo.isAuthenticated ) {
 
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
