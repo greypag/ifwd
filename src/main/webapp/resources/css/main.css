@@ -12661,3 +12661,8 @@ button[disabled].btn.btn-default--vc {
   width: 42px !important;
   height: 42px !important;
 }
+
+
+.btn-primary.disabled, .btn-primary[disabled] {
+	background-color: #f68a1d;
+}

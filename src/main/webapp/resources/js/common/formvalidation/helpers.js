@@ -446,93 +446,93 @@ var fv_successForm_flightCare = function( argObj ) {
         , fieldnameToRemoveIndex
     );
 
+    var pagesAJAX = {
+        'joinus': function() {
+            $.ajax({
+                'type': "POST",
+                'url': pagesURL.conformPolicy,
+                'data': serializedString_withoutIndex,
+                'async': false,
+                'success': function(data) {
+                    if (data.result == 'success') {
+
+                        $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+                        $('#errorMessages').hide();
+
+                        $('#' + fcArgs.formId).attr("action", pagesURL.confirmation);
+                        // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
+                        fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
+                            return true;
+                        });
+
+                    } else {
+                        // Exception, mostly not related
+                        $('#loading-overlay').modal('hide');
+                        $('#errorMessages').removeClass('hide');
+                        $('#errorMessages').html(data.errMsgs);
+
+                        console.log(data);
+                        fv.defaultSubmit(function(e) {
+                            return false;
+                        });
+                    }
+                }
+            });
+        }
+        , 'confirmation': function() {
+            $.ajax({
+                'type': "POST",
+                'url': pagesURL.conformPolicy,
+                'data': serializedString_withoutIndex,
+                'async': false,
+                'success': function(data) {
+                    if (data.result == 'success') {
+
+                        $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+                        $('#errorMessages').hide();
+
+                        $('#' + fcArgs.formId).attr("action", pagesURL.confirmation);
+                        // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
+                        fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
+                            return true;
+                        });
+
+                    } else {
+                        // Exception, mostly not related
+                        $('#loading-overlay').modal('hide');
+                        $('#errorMessages').removeClass('hide');
+                        $('#errorMessages').html(data.errMsgs);
+
+                        console.log(data);
+                        fv.defaultSubmit(function(e) {
+                            return false;
+                        });
+                    }
+                }
+            });
+        }
+    };
+
+    var exportAJAXdata = {
+        'optIn1': ( $('#checkbox4').is(':checked') ? true : false )
+        , 'optIn2': ( $('#checkbox3').is(':checked') ? true : false )
+        , 'password': $('#Password').val()
+        , 'mobile': $('#inputMobileNo').val()
+        , 'name': $('#inputMobileNo').val()
+        , 'userName': $('#Username').val()
+        , 'email': $('#inputEmailId').val()
+        , 'ajax': "true"
+    };
+
+    // Defines the URL for below.
+    var pagesURL = {
+        'joinus': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/joinus"
+        , 'conformPolicy': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy"
+        , 'confirmation': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation"
+    };
+
     // IF member account is going to be created ...
     if ( flagForAccCreated ) {
-
-        var exportAJAXdata = {
-            'optIn1': ( $('#checkbox4').is(':checked') ? true : false )
-            , 'optIn2': ( $('#checkbox3').is(':checked') ? true : false )
-            , 'password': $('#Password').val()
-            , 'mobile': $('#inputMobileNo').val()
-            , 'name': $('#inputMobileNo').val()
-            , 'userName': $('#Username').val()
-            , 'email': $('#inputEmailId').val()
-            , 'ajax': "true"
-        };
-
-        // Defines the URL for below.
-        var pagesURL = {
-            'joinus': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/joinus"
-            , 'conformPolicy': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy"
-            , 'confirmation': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation"
-        };
-
-        var pagesAJAX = {
-            'joinus': function() {
-                $.ajax({
-                    'type': "POST",
-                    'url': pagesURL.conformPolicy,
-                    'data': serializedString_withoutIndex,
-                    'async': false,
-                    'success': function(data) {
-                        if (data.result == 'success') {
-
-                            $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
-                            $('#errorMessages').hide();
-
-                            $('#' + fcArgs.formId).attr("action", pagesURL.confirmation);
-                            // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
-                            fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
-                                return true;
-                            });
-
-                        } else {
-                            // Exception, mostly not related
-                            $('#loading-overlay').modal('hide');
-                            $('#errorMessages').removeClass('hide');
-                            $('#errorMessages').html(data.errMsgs);
-
-                            console.log(data);
-                            fv.defaultSubmit(function(e) {
-                                return false;
-                            });
-                        }
-                    }
-                });
-            }
-            , 'confirmation' : function() {
-                $.ajax({
-                    'type': "POST",
-                    'url': pagesURL.conformPolicy,
-                    'data': serializedString_withoutIndex,
-                    'async': false,
-                    'success': function(data) {
-                        if (data.result == 'success') {
-
-                            $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
-                            $('#errorMessages').hide();
-
-                            $('#' + fcArgs.formId).attr("action", pagesURL.confirmation);
-                            // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
-                            fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
-                                return true;
-                            });
-
-                        } else {
-                            // Exception, mostly not related
-                            $('#loading-overlay').modal('hide');
-                            $('#errorMessages').removeClass('hide');
-                            $('#errorMessages').html(data.errMsgs);
-
-                            console.log(data);
-                            fv.defaultSubmit(function(e) {
-                                return false;
-                            });
-                        }
-                    }
-                });
-            }
-        };
 
         // Core
         $.ajax({
@@ -586,6 +586,7 @@ var fv_successForm_flightCare = function( argObj ) {
         });
 
     } else {
+        console.log(pagesAJAX);
         pagesAJAX.confirmation();
     }
 
