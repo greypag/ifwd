@@ -201,7 +201,7 @@ function showCalculatedRate(_amount,_currency){
 	
 
 	var rate = currencyRate[_currency].r;
-	var thirdYear = (((_amount * rate) + _amount) * rate) * rate;
+	var thirdYear = (((_amount / 2 * rate) + _amount / 2) * rate) * rate;
 	var symbol = currencyRate[_currency].s;
 
 	if (_currency == "hkd"){
@@ -212,7 +212,7 @@ function showCalculatedRate(_amount,_currency){
 		$(".calTableTitleHKD").css("display","none");
 	}
 	
-	var guaranteedCash_3rd =_amount / currencyRate[_currency].g3;
+	var guaranteedCash_3rd =_amount / 2 / currencyRate[_currency].g3;
 	var guaranteedCash_1st = guaranteedCash_3rd * currencyRate[_currency].g1;
 	var guaranteedCash_2nd = guaranteedCash_3rd * currencyRate[_currency].g2;
 
