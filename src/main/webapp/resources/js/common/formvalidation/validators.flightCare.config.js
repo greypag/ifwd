@@ -111,6 +111,9 @@ fvConfig['applicant'] = function() {
                     'regexp': new RegExp(fwdConstant.regex.person.hkTel.mob)
                     , 'message': getBundle(getBundleLanguage, 'applicant.mobileNo.notValid.message')
                 }
+                , 'alreadyRegistered': {
+                    'message': getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered')
+                }
             }
         }
         , 'emailAddress': {
@@ -124,7 +127,9 @@ fvConfig['applicant'] = function() {
                 	'regexp': new RegExp(fwdConstant.regex.person.email)
                     , 'message': getBundle(getBundleLanguage, 'applicant.email.notValid.message')
                 }
-                , 'duplicated': {}
+                , 'alreadyRegistered': {
+                    'message': getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered')
+                }
             }
         }
         , 'checkbox1': {
@@ -175,7 +180,9 @@ fvConfig['applicant'] = function() {
                     , 'max': 50
                     , 'min': 6
                 }
-                , 'duplicated':{}
+                , 'alreadyRegistered': {
+                    'message': getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered')
+                }
             }
         }
         , 'password': {
@@ -190,7 +197,7 @@ fvConfig['applicant'] = function() {
 	            'message': getBundle(getBundleLanguage, 'form.password.invalid')
 	            , 'min': 8
 	        	}
-            }        
+            }
         }
         , 'passwordConfirm': {
             'container': '#Confirm-PasswordError'
@@ -207,7 +214,7 @@ fvConfig['applicant'] = function() {
     	        , 'stringLength': {
     	            'message': getBundle(getBundleLanguage, 'form.password.invalid')
     	            , 'min': 8
-    	        }                
+    	        }
             }
         }
     };

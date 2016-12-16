@@ -5,16 +5,16 @@ var initFVConfig = function(argCfg) {
 
 	// VALIDATION - prerequistite << start >>
 	try {
-        // MUST - Check "fvConfig" is passed into initFVConfig() or not, HERE is named as "argCfg" argument.
+        // Check "fvConfig" is passed into initFVConfig() or not, HERE is named as "argCfg" argument.
         if ( typeof argCfg === "undefined" && argCfg === null ) { throw new Error('No "fvConfig" is loaded . Please check external JS links, esp. "validators.XXX.config.js" & "helpers.js"'); }
 
-		// MUST - Check FV customed-made helpers
+		// Check FV customed-made helpers
 		if ( !_.has(argCfg, 'helpers') ) { throw new Error('No Helpers is loaded [ helpers.js ] . Please check'); }
 
-		// MUST - Check validating config schema
+		// Check validating config schema
 		if ( !_.has(argCfg, 'schema') ) { throw new Error('No Schema is loaded [ validators.XXX.config.js ]. Please check '); }
 
-		// SHOULD - Assign the customed validating rules into FV << RUN "validators.custom-rule.config.js" HERE
+		// Assign the customed validating rules into FV << RUN "validators.custom-rule.config.js" HERE
 		if ( _.has(argCfg, 'customValidatingRules') ) {
 			_.assign(FormValidation.Validator, argCfg.customValidatingRules);
 			console.log('FV Customed-validating rules are added.')
@@ -31,7 +31,7 @@ var initFVConfig = function(argCfg) {
 
 	var flightCare = function() {
 
-        // MUST - flightCare() prerequistite variables validating
+        // flightCare() prerequistite variables validating
         try {
             if ( !_.has(argCfg, 'flightJSPcbInfo.counter') ) { throw new Error('The "flightJSPcbInfo.counter" js object is missing, please check the JSP variables is passed or not.'); }
         } catch (e) {
@@ -39,7 +39,7 @@ var initFVConfig = function(argCfg) {
             console.error(e.toString());
         }
 
-		// MUST - other deticated js code before running FV
+		// other deticated js code before running FV
         $(function() {
 
 			// placeholder.min.js
@@ -101,7 +101,7 @@ var initFVConfig = function(argCfg) {
                 // (this part may solve in phase 2 revamp)
 			// End >>> Under Developing - the tooltip behaviour
 
-			// MUST - Login Authenticate Username & Password
+			// Login Authenticate Username & Password
 			if ( !argCfg.flightJSPcbInfo.isAuthenticated ) {
 
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
@@ -231,7 +231,7 @@ var runFV = function(argCfg) {
 
 	var flightCare = function(fvCfgs, fcArgs) {
 
-		// MUST - flightCare() prerequistite variables validating
+		// flightCare() prerequistite variables validating
         try {
 			if ( Object.prototype.toString.call(fcArgs) !== '[object Object]' ) { throw new Error('The param for "runFV()" is an {Object}'); }
             if ( typeof fcArgs.formId !== 'string' && fcArgsformId !== null ) { throw new Error('The "runFV()" requires a form id {String}'); }
@@ -239,8 +239,8 @@ var runFV = function(argCfg) {
 			console.error('runFV().flightCare() got error, will not run.');
             console.error( e.toString() );
         }
-
-		// MUST - Trigger the FormValidation.io library here.
+		console.log( getBundle(getBundleLanguage, 'member.registration.fail.username.registered') );
+		// Trigger the FormValidation.io library here.
 		$('#' + fcArgs.formId).formValidation(argCfg)
 			.on('success.form.fv', function(e, data) {
 				fvCfgs.helpers.fv.successForm.flightCare({
@@ -250,12 +250,10 @@ var runFV = function(argCfg) {
 					, 'fcArgs':		fcArgs
 					, 'fvCfgs':		fvCfgs
 				});
-				if (data.fv.getSubmitButton()) {
-	                data.fv.disableSubmitButtons(false);
-	            }
+				if ( data.fv ) { data.fv.disableSubmitButtons(false); }
 	        })
 			.on('status.field.fv', function(e, data) {
-				data.fv.disableSubmitButtons(false);
+				if ( data.fv ) { data.fv.disableSubmitButtons(false); }
 			})
 	        .on('err.validator.fv', function(e, data) {
 	            /**
@@ -265,14 +263,12 @@ var runFV = function(argCfg) {
 	            *   data.element   --> The field element
 	            *   data.validator --> The current validator name
 	            **/
-	        	console.log( data.fv );
+	        	// console.log( data.fv );
 	            data.element
 	                .data('fv.messages')
 	                .find('.help-block[data-fv-for="' + data.field + '"]').hide()       // Hide all the messages
 	                .filter('[data-fv-validator="' + data.validator + '"]').show();     // Show only message associated with current validator
-				if (data.fv.getSubmitButton()) {
-	                data.fv.disableSubmitButtons(false);
-	            }
+				if ( data.fv ) { data.fv.disableSubmitButtons(false); }
 	        })
 	        .on('err.field.fv', function(e, data) {
 	            /*
@@ -284,14 +280,11 @@ var runFV = function(argCfg) {
 	             * Each pair of field and label are placed inside a .form-group element
 	             */
 	            data.element.next(".help-block").addClass("text-red");
-				if (data.fv.getSubmitButton()) {
-	                data.fv.disableSubmitButtons(false);
-	            }
+				if ( data.fv ) { data.fv.disableSubmitButtons(false); }
 
 				// Get the first invalid field
-	            var $invalidFields = data.fv.getInvalidFields();
-
-	            console.log( $invalidFields );
+	            // var $invalidFields = data.fv.getInvalidFields();
+	            // console.log( $invalidFields );
 				// console.log(data.element.next());
 	            // console.log(data.element);
 	            // console.log( data.fv.getOptions(data.element) );

@@ -439,12 +439,9 @@ perventRedirect = true;
 	                                                </label>
 		                                       </div>
 		                                       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-		                                           <input type="text"
-                                                        name="personalBenificiaryFullName"
-                                                        id="personalBenefitiaryId${inx}" class="form-control full-control textUpper bmg_custom_placeholder"
-                                                        placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
-                                                        maxlength="100" />
-                                                    <span id="errpersonalBenefitiaryId${inx}" class="text-red"> </span>
+                                                   <input type="text" name="personalBenificiaryFullName" id="personalBenefitiaryId${inx}" class="form-control full-control textUpper"
+                                                   placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />" />
+                                                   <span id="errpersonalBenefitiaryId${inx}" class="text-red"> </span>
 		                                       </div>
 		                                       <div class="clearfix"></div>
 		                                   </div>
@@ -464,7 +461,7 @@ perventRedirect = true;
 		                                       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 		                                          <div class="styled-select">
                                                     <select id="selectPersonalBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalBenefitiaryHkidPass"
-                                                        onchange="togglePlaceholder(this,'personalBenefitiaryHKId${inx}','<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                        placeholder='<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'>
                                                         <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                         <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                     </select>
@@ -483,10 +480,9 @@ perventRedirect = true;
 		                                          <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
 		                                       </div>
 		                                       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-		                                          <input id="personalBenefitiaryHKId${inx}"
-                                                    name="personalBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder"
-                                                    placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"/>
-                                                    <span id="errpersonalBenefitiaryHKId${inx}" class="text-red"> </span>
+                                                   <input id="personalBenefitiaryHKId${inx}" name="personalBenificiaryHkid" class="form-control textUpper full-control"
+                                                   placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"/>
+                                                   <span id="errpersonalBenefitiaryHKId${inx}" class="text-red"> </span>
 		                                       </div>
 		                                   </div>
 		                               </div>
@@ -614,8 +610,8 @@ perventRedirect = true;
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text" name="adultBenificiaryFullName"
-                                                        id="adultBenefitiaryId${inx}" class="form-control full-control textUpper bmg_custom_placeholder js__input_hkid"
-                                                        value="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />" />
+                                                        id="adultBenefitiaryId${inx}" class="form-control full-control textUpper js__input_hkid"
+                                                        placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />" />
                                                     <span id="erradultBenefitiaryId${inx}" class="text-red"> </span>
                                                </div>
                                                <div class="clearfix"></div>
@@ -635,7 +631,8 @@ perventRedirect = true;
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <div class="styled-select">
-                                                    <select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedAdBenefitiaryHkidPass" onchange="togglePlaceholder(this,'adultBenefitiaryHKId${inx}','<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                    <select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedAdBenefitiaryHkidPass"
+                                                    placeholder='<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'>
                                                         <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                         <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                     </select>
@@ -654,9 +651,8 @@ perventRedirect = true;
                                                   <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                  <input id="adultBenefitiaryHKId${inx}"
-                                                    name="adultBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder js__input_hkid"
-                                                    value="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" />
+                                                  <input id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid" class="form-control textUpper full-control js__input_hkid"
+                                                    placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="erradultBenefitiaryHKId${inx}" class="text-red"> </span>
                                                </div>
                                            </div>
@@ -771,12 +767,9 @@ perventRedirect = true;
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                   <input type="text"
-                                                        name="childBenificiaryFullName"
-                                                        id="childBenefitiaryName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder"
-                                                        value="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />" />
-                                                    <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
+                                                   <input type="text" name="childBenificiaryFullName" id="childBenefitiaryName${inx}" class="form-control full-control textUpper"
+                                                   placeholder="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />" />
+                                                   <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
                                                </div>
                                                <div class="clearfix"></div>
                                            </div>
@@ -795,7 +788,8 @@ perventRedirect = true;
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <div class="styled-select">
-                                                    <select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="SelectedChldBenefitiaryHkidPass" onchange="togglePlaceholder(this,'txtchildInsuHkid${inx}','<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                    <select id="selectChldBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="SelectedChldBenefitiaryHkidPass"
+                                                    placeholder='<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'>
                                                         <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                         <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                     </select>
@@ -814,11 +808,9 @@ perventRedirect = true;
                                                   <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                  <input id="txtchildInsuHkid${inx}"
-                                                name="childBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder"
-                                                value="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" />
-                                                <span id="errtxtchildInsuHkid${inx}"
-                                                class="text-red"> </span>
+                                                   <input id="txtchildInsuHkid${inx}" name="childBenificiaryHkid" class="form-control textUpper full-control"
+                                                   placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" />
+                                                   <span id="errtxtchildInsuHkid${inx}" class="text-red"> </span>
                                                </div>
                                            </div>
                                        </div>
@@ -925,14 +917,11 @@ perventRedirect = true;
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
                                                     <label class="field-label bold-500">
-                                                      <fmt:message key="flight.details.insured.beneficiary.name" bundle="${msg}" />
+                                                        <fmt:message key="flight.details.insured.beneficiary.name" bundle="${msg}" />
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                   <input type="text"
-                                                   name="otherBenificiaryFullName"
-                                                   id="otherBenefitiaryName${inx}"
-                                                   class="form-control full-control textUpper bmg_custom_placeholder" />
+                                                   <input type="text" name="otherBenificiaryFullName" id="otherBenefitiaryName${inx}" class="form-control full-control textUpper" />
                                                <span id="errotherBenefitiaryName${inx}" class="text-red"></span>
                                                </div>
                                                <div class="clearfix"></div>
@@ -952,7 +941,8 @@ perventRedirect = true;
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <div class="styled-select">
-                                                    <select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedOtherBenefitiaryHkidPass" onchange="togglePlaceholder(this,'txtOtherBenInsuHkid${inx}','<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                    <select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedOtherBenefitiaryHkidPass"
+                                                    placeholder='<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'>
                                                         <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
                                                         <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
                                                     </select>
@@ -971,9 +961,9 @@ perventRedirect = true;
                                                   <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                  <input id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder"
-                                                    value="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" />
-                                                    <span id="errtxtOtherBenInsuHkid${inx}" class="text-red"> </span>
+                                                   <input id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid" class="form-control textUpper full-control"
+                                                   placeholder="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" />
+                                                   <span id="errtxtOtherBenInsuHkid${inx}" class="text-red"> </span>
                                                </div>
                                            </div>
                                        </div>

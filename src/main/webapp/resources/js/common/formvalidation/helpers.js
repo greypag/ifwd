@@ -544,44 +544,36 @@ var fv_successForm_flightCare = function( argObj ) {
 
                 $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
                 $('#errorMessages').hide();
-                
+
                 var expectedServerRes = {
                     'success': 			'success'
                     , 'dupUsername': 	'This username already in use, please try again'
                     , 'dupEmailMob': 	'email address and mobile no. already registered'
                 };
-                console.log(fv);
                 switch (res) {
                     case expectedServerRes.success:
                         pagesAJAX.joinus();
                         break;
                     case expectedServerRes.dupUsername:
                         fv
-                            .updateMessage('userName', null, getBundle(getBundleLanguage, 'member.registration.fail.username.registered'))
-                            .updateStatus('userName', 'INVALID', null);
-
+                            .updateMessage('userName', 'alreadyRegistered', getBundle(getBundleLanguage, 'member.registration.fail.username.registered'))
+                            .updateStatus('userName', 'INVALID', 'alreadyRegistered');
                         $('#loading-overlay').modal('hide');
-                        $(".error-hide").css("display", "block");
-                        $('.error-hide').html( getBundle(getBundleLanguage, 'member.registration.fail.username.registered') );
                         break;
                     case expectedServerRes.dupEmailMob:
                         fv
-                            .updateMessage('emailAddress', null, getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'))
-                            .updateStatus('emailAddress', 'INVALID', null);
+                            .updateMessage('emailAddress', 'alreadyRegistered', getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'))
+                            .updateStatus('emailAddress', 'INVALID', 'alreadyRegistered');
                         fv
-                            .updateMessage('mobileNo', null, getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'))
-                            .updateStatus('mobileNo', 'INVALID', null);
-
+                            .updateMessage('mobileNo', 'alreadyRegistered', getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'))
+                            .updateStatus('mobileNo', 'INVALID', 'alreadyRegistered');
                         $('#loading-overlay').modal('hide');
-                        $(".error-hide").css("display", "block");
-                        $('.error-hide').html( getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered') );
                         break;
                     default:
                         $('#loading-overlay').modal('hide');
                         $(".error-hide").css("display", "block");
                         $('.error-hide').html(res);
                 }
-                console.log(fv);
             },
             'error': function(xhr, status, error) {
                 $('#loading-overlay').modal('hide');
