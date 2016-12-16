@@ -102,7 +102,7 @@ var home_url = "<%=request.getContextPath()%>";
                         </div>
                     </div>
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title3.easyhealthh" bundle="${msg}" /></h5>
+                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title3.easyhealth" bundle="${msg}" /></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-save.png" class="">
                         <div class="item-desc">
                             <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title3.easyhealth" bundle="${msg}" /></h5>
