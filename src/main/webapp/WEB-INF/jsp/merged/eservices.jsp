@@ -1259,14 +1259,6 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 											<input type="text" class="ew_otp_input" maxlength="6">
 										</div>
 									</div>
-									<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 ew_agreeBox">
-										<input id="chk_amount" type="checkbox" name="chk_tnc">
-										<label for="chk_amount">
-											<span>
-												<fmt:message key="ewallet.popup.checkbox.agreement" bundle="${msg}"/>
-											</span>
-										</label>
-									</div>
 									<div class="col-xs-12">
 										<a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText" bundle="${msg}"/></a>
 									</div>

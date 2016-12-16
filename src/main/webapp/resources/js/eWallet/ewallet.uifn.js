@@ -451,6 +451,8 @@ function WithdrawClass(){
 	BaseErrMsgHelper.apply(this);
 	BaseOtpHelper.apply(this);
 
+	var _productName = "";
+
 	this.popupDom = $(".ew_popup_withdraw");
 	this.policyId = null;
 	this.amountWithdraw = 0;
@@ -485,18 +487,12 @@ function WithdrawClass(){
 		this.popupDom.find(".ew_step_2 .ew_btn_confirm").on("click", function (){
 			that.clearErrMsg();
 
-			var isCheckTnc = $("#chk_amount:checked").length > 0;
 			var haveOtp = that.getOtpInput().length == 6;
 
-			if(isCheckTnc && haveOtp){
+			if(haveOtp){
 				that.performWithdraw();
 				return;
-			}
-
-			if(!isCheckTnc){
-				that.appendErrMsg(msgCtr.linkup.notCheckTnc);
-			}
-			if(!haveOtp){
+			}else{
 				that.appendErrMsg(msgCtr.linkup.invalidOtpInput);
 			}
 		});
@@ -561,6 +557,8 @@ function WithdrawClass(){
 	};
 
 	this.showPanel = function(data) {
+		_productName = data.policy["product_" + this.langMapping[languageP]];
+
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
 		this.popupDom.find(".ew_mobile").html(data.mobile);
 		this.popupDom.find(".ew_tngId").html(data.policy.tngAccountId);
@@ -590,7 +588,7 @@ function WithdrawClass(){
 				that.popupDom.modal("hide");
 
 				var msg = eWalletCtr.getApiErrorMsg("requestWithdraw", xhr.status, response.code);
-				eWalletCtr.showGenericMsg("", msg);
+				eWalletCtr.showGenericMsg("", msg.replace("%productName%", _productName));
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -1001,6 +999,7 @@ var apiErrMsg = {
 		c_415_TWE002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_415_TWE002"),
 		c_415_TWE003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_415_TWE003"),
 		c_415_TWE004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_415_TWE004"),
+		c_415_TWE005:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_415_TWE005"),
 		c_416_SYE001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.requestWithdraw.c_416_SYE001")
    },
     performWithdraw:{  
@@ -1020,4 +1019,4 @@ var apiErrMsg = {
 		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.withdrawLog.c_400_MP"),
 		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.withdrawLog.c_400_IP")
    }
-}
+};
