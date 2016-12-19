@@ -314,12 +314,12 @@ var currentPath = "<%=request.getContextPath()%>";
 				   <div class="bp-divider"></div>
 				   <div id="business-partners">
 					   <div class="row">
-						   <div class="col-xs-1">&nbsp;</div>
-						   <div id="bp-hk3" class="col-xs-12 col-md-2 text-center">
+						   <div class="col-xs-1 col-md-2">&nbsp;</div>
+						   <%-- <div id="bp-hk3" class="col-xs-12 col-md-2 text-center">
 							   <div class="desktop-center clearfix">
 								   <img class="hk3_logo" src="<%=request.getContextPath()%>/resources/images/partner_3hk.png">
 							   </div>
- 	 					  </div>
+ 	 					  </div> --%>
 						  <div id="bp-7eleven" class="col-xs-12 col-md-3 text-center">
 							  <div class="desktop-center clearfix">
 								  <img class="seven_eleven_logo" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png">
@@ -340,7 +340,7 @@ var currentPath = "<%=request.getContextPath()%>";
 	 				<div class="col-xs-1">&nbsp;</div>
 				</div> <!-- end of row -->
 				<div class="row">
-					<div class="col-xs-1">&nbsp;</div>
+					<div class="col-xs-1 col-md-2">&nbsp;</div>
 					<div id="bp-cfucome" class="col-xs-12 col-md-2 text-center">
 						<div class="desktop-center clearfix">
 							<img class="cfucome_logo" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png">
@@ -353,12 +353,12 @@ var currentPath = "<%=request.getContextPath()%>";
 <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
 						</div>
 					</div>
-					<div id="bp-sony" class="col-xs-12 col-md-3 text-center">
+					<%-- <div id="bp-sony" class="col-xs-12 col-md-3 text-center">
 						<div class="desktop-center clearfix">
 							<img class="sony_logo" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png">
 						</div>
-					</div>
-					<div id="bp-club" class="col-xs-12 col-md-3 text-center">
+					</div> --%>
+					<div id="bp-club" class="col-xs-12 col-md-4 text-center">
 						<div class="desktop-center clearfix">
  							<img class="club_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
  <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>

@@ -33,7 +33,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_container">
 
 					<%-- 3HK --%>
-                    <div id="3HK_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="3HK">
+                    <%-- <div id="3HK_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="3HK">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image--3hk partner_image" src="<%=request.getContextPath()%>/resources/images/partner_3hk.png"/>
                         </div>
@@ -75,7 +75,7 @@
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-
+					--%>
 					<%-- 7-Eleven --%>
                 	<hr class="partner_hr"/>
                     <div id="7eleven_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="7eleven">
@@ -317,7 +317,7 @@
 
 					<%-- Sony --%>
                 	<hr class="partner_hr"/>
-                    <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
+                    <%-- <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image--sony partner_image" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png"/>
                         </div>
@@ -358,7 +358,7 @@
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-
+					--%>
 					<%-- the Club --%>
                 	<hr class="partner_hr"/>
                     <div id="theclub_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="theclub">
