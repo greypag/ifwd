@@ -530,18 +530,23 @@ var fwdUtility = (function() {
 		};
 	}();
 
+	var _sort_arrObj_byProp = function(arrayElem, propInObj) {
+		var result = [];
+		result = Object.values(arrayElem).sort(function(a,b) {
+			return (a[propInObj] < b[propInObj]) ? 1 : ((b[propInObj] < a[propInObj]) ? -1 : 0);
+		});
+		return result;
+	};
+
 	return {
 		'counter': {
 			'dateDiffInDaysFromNow':	_dateDiffInDaysFromNow
 			, 'dateDiffInDays':			_dateDiffInDays
 		}
-		, 'ux': {
-			'floatingBox':				_floatingBox
-			, 'scrollToElement':		_scrollToElement
-		}
-		, 'temp': {
-			'flightCare':						_temp_flightCare
-			, 'flightCareBenefitiaryIsActive':	_temp_flightCare_benefitiary_isActive
+		, 'sort': {
+			'arrObj': {
+				'byProperty':			_sort_arrObj_byProp
+			}
 		}
 		, 'pages': {
 			'flightCare': {
@@ -553,6 +558,14 @@ var fwdUtility = (function() {
 			}
 			, 'travelCare': {}
 
+		}
+		, 'temp': {
+			'flightCare':						_temp_flightCare
+			, 'flightCareBenefitiaryIsActive':	_temp_flightCare_benefitiary_isActive
+		}
+		, 'ux': {
+			'floatingBox':				_floatingBox
+			, 'scrollToElement':		_scrollToElement
 		}
 		// , 'data': {} // role familiar with lodash, underscore, but some are dedicated to FWD
 	};

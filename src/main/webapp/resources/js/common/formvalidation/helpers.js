@@ -254,7 +254,7 @@ var event_modifiedDOM = function(switchOption, action, fieldIdInfo) {
 };
 
 /*
- * Shorthand json object for xxx.config.js calling
+ * Generate the json callback() function for validation calling in "xxx.config.js"
  *
  * @method  [Public] cb_hkidUniqueValidation
  * @param   Nil
@@ -263,46 +263,110 @@ var event_modifiedDOM = function(switchOption, action, fieldIdInfo) {
 var cb_hkidUniqueValidation = function() {
     return {
         'callback': function(value, validator, $field) {
-            var $elem               = $('.js__input_hkid');
-            var obj                 = {};
-            var notEmptyCount       = 0;
-            var duplicateRemoved    = [];
 
-            for (var i = 0; i < $elem.length; i++) {
-                var v = $elem.eq(i).val();
-                if (v !== '') {
-                    obj[v] = 0;
-                    notEmptyCount++;
-                }
-            }
-            for (i in obj) {
-                duplicateRemoved.push(obj[i]);
-            }
-
-            // Conditions
-            if (duplicateRemoved.length === 0 || _.isEmpty(value) ) {
-                return {
-                    valid: false,
-                    message: getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+            // Private function declars
+            var _frequencyAnalysing = function(arrayElem, propInObj) {
+                var current = null;
+                var buffCount = 0;
+                var buffElem = [];
+                var templateItem = {
+                    'time': 0
+                    , 'value': null
+                    , '$elem': []
                 };
-            } else if ( !fwdValidator.personalInfo.isValidHkid(value) ) {
-                return {
+                var results = [];
+                // Sorting the Object by particular property
+                var sortedArrayElem = fwdUtility.sort.arrObj.byProperty(arrayElem, propInObj);
+                // Analysing the Frequency
+                for (var i = 0; i < sortedArrayElem.length; i++) {
+                    if (sortedArrayElem[i][propInObj] != ( _.has(current, propInObj) ? current[propInObj] : null ) ) {
+                        if (buffCount > 0) {
+                            templateItem = {
+                                'time': buffCount
+                                , 'value': ( _.has(current, propInObj) ? current[propInObj] : null )
+                                , '$elem': buffElem
+                            };
+                            results.push(templateItem);
+                        }
+                        current = sortedArrayElem[i];
+                        buffCount = 1;
+                        buffElem = sortedArrayElem[i]['$elem'];
+                    } else {
+                        buffCount++;
+                        buffElem.push( sortedArrayElem[i]['$elem'][0] );
+                    }
+                }
+                if (buffCount > 0) {
+                    templateItem = {
+                        'value': ( _.has(current, propInObj) ? current[propInObj] : null )
+                        , 'time': buffCount
+                        , '$elem': current['$elem']
+                    };
+                    results.push(templateItem);
+                }
+                return results;
+            };
+
+            // Variables declars
+            var resultConfig = {
+                'empty': {
+                    'valid': false,
+                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
+                }
+                , 'invalid': {
                     'valid': false,
                     'message': getBundle(getBundleLanguage, "applicant.hkId.notValid.message")
                 }
-            } else if ( duplicateRemoved.length !== notEmptyCount ) {
-                return {
-                    valid: false,
-                    // message: getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
-                    message: getBundle(getBundleLanguage, 'duplicate_hkid_no.message')
-                };
+                , 'duplicated': {
+                    'valid': false,
+                    'message': getBundle(getBundleLanguage, 'duplicate_hkid_no.message') + ' [' + value.toUpperCase() + ']'
+                    // OR getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
+                }
+                , 'passed': true
+            };
+            var $elem               = $('.js__input_hkid');
+            var composedElem        = [];
+            var indicator           = null;
+
+            // Core Codes
+            for (var i = 0; i < $elem.length; i++) {
+                var v = $elem.eq(i).val().toUpperCase();
+                composedElem.push({
+                    'value': v
+                    , '$elem': $elem.eq(i)
+                    , '$allElem': $elem
+                });
+            }
+            var analysedElemGrp = _frequencyAnalysing(composedElem, 'value');
+            if ( analysedElemGrp.length === composedElem.length ) {
+                // Gary: Still have space to fine-tune here, hardcode
+                if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
+                    var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
+                } else {
+                    var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
+                }
+                validator.updateStatus(dataSourceFieldInfo_hkid.revalidateFieldName, validator.STATUS_VALID, 'callback');
+                indicator = 'passed';
+            } else {
+                var isFieldValueDuplicatedFound = false;
+                for (var i = 0; i < analysedElemGrp.length; i++) {
+                    if ( isFieldValueDuplicatedFound === false ) {
+                        isFieldValueDuplicatedFound = ( analysedElemGrp[i].value === value.toUpperCase() && analysedElemGrp[i]['$elem'].length > 1 ) ? true : false;
+                    }
+                }
+                if ( _.isEmpty(value) ) {
+                    indicator = 'empty';
+                } else if ( !fwdValidator.personalInfo.isValidHkid(value) ) {
+                    indicator = 'invalid';
+                } else if ( isFieldValueDuplicatedFound ) {
+                    indicator = 'duplicated';
+                }
             }
 
-            // console.log($field);
-            // console.log(validator.STATUS_VALID);
-            validator.updateStatus('personalHKID', validator.STATUS_VALID, 'callback');
-            return true;
-        }
+            return resultConfig[indicator];
+
+
+        } // End of Function >>> callback(value, validator, $field)
     };
 }();
 
@@ -431,13 +495,13 @@ var fv_successForm_flightCare = function( argObj ) {
 
     // Washing ${inx} out from VAR serializedString_withIndex
     var fieldnameToRemoveIndex = [];
-    if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // IF Family-plan, THEN fvConfig.flightJSPcbInfo.counter.personalPlan === 0
+    if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
         fieldnameToRemoveIndex = [
             'adultName', 'adultHKID', 'adultAgeRange', 'adultBeneficiary'
             , 'childName', 'childHKID', 'childAgeRange', 'childBeneficiary'
             , 'otherName', 'otherHKID', 'otherAgeRange', 'otherBeneficiary'
         ];
-    } else {
+    } else {                                                            // Do Personal-plan below
         fieldnameToRemoveIndex = [ 'personalName', 'personalHKID', 'personalAgeRange', 'personalBeneficiary' ];
     }
     var serializedString_withoutIndex = fvConfig.helpers.other.removeIndexNum_onSerializedString(

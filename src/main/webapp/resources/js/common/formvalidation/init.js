@@ -3,28 +3,20 @@
 // function initBSVConfig(errMsgHandler) {
 var initFVConfig = function(argCfg) {
 
-	// VALIDATION - prerequistite << start >>
 	try {
         // Check "fvConfig" is passed into initFVConfig() or not, HERE is named as "argCfg" argument.
         if ( typeof argCfg === "undefined" && argCfg === null ) { throw new Error('No "fvConfig" is loaded . Please check external JS links, esp. "validators.XXX.config.js" & "helpers.js"'); }
-
-		// Check FV customed-made helpers
 		if ( !_.has(argCfg, 'helpers') ) { throw new Error('No Helpers is loaded [ helpers.js ] . Please check'); }
-
-		// Check validating config schema
 		if ( !_.has(argCfg, 'schema') ) { throw new Error('No Schema is loaded [ validators.XXX.config.js ]. Please check '); }
-
 		// Assign the customed validating rules into FV << RUN "validators.custom-rule.config.js" HERE
 		if ( _.has(argCfg, 'customValidatingRules') ) {
 			_.assign(FormValidation.Validator, argCfg.customValidatingRules);
 			console.log('FV Customed-validating rules are added.')
 		}
-
 	} catch (e) {
 		// console.error(e.name.toString() + ' >>> ' + e.message);
 		console.error( e.toString() );
 	}
-    // VALIDATION - prerequistite << end >>
 
 
 
@@ -42,19 +34,18 @@ var initFVConfig = function(argCfg) {
 		// other deticated js code before running FV
         $(function() {
 
-			// placeholder.min.js
+			// Run placeholder.min.js
 			$('input, textarea').placeholder();
 
 			// Defaulted here
 			var formId = 'freeFlightForm';
-			// For helpers.attr.xxx
+			// For argCfg.helpers.attr.xxx
 			var dataSourceFieldInfo = {};
 			var datepickerConfig = {};
 
-			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']); // Multi-fields applied attr 'readonly'
-			// *Developer* if 'disabled' is true, the AJAX serialize will not pass the fieldname to backend. That may cause a bug.
+			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
+			// *Developer* if 'disabled' is assigned in DOM, the serialize string (for AJAX export) will not pass the fieldname to backend. That may cause a bug.
 			// argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
-
 
 			if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
 				var dataSourceFieldInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'adultName1' };
@@ -63,15 +54,15 @@ var initFVConfig = function(argCfg) {
 				var dataSourceFieldInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
 				var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
 			}
-			// DOM [id="inputFullName"] is plugged extra JS behaviour
+			// DOM FROM [id="inputFullName"] TO [id="adultName1"] OR  [id="personalName1"]
 			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo_fullname, null );	// Value-binding & field revalidation
 			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo_fullname );							// Field Input control : alpha + space only
-			// DOM [id="inputTxtAppHkid"] is plugged extra JS behaviour
-			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo_hkid, null );	// Value-binding & field revalidation
-			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo_hkid );						// Field Input control : general HKID valid chars only
+			// DOM FROM [id="inputTxtAppHkid"] TO [id="adultHKID1"] OR  [id="personalHKID1"]
+			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo_hkid, null );		// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo_hkid );							// Field Input control : general HKID valid chars only
 
 
-			// DOM [id="applicantDob"] is plugged extra JS behaviour
+			// DOM [id="applicantDob"]
 			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
 			datepickerConfig = {
 		        'startView': 'decade',
@@ -112,16 +103,16 @@ var initFVConfig = function(argCfg) {
 
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
 
-				// DOM [id="Username"] is plugged extra JS behaviour
+				// DOM [id="Username"]
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Username' };
 				argCfg.helpers.attr.onkeypress.returnValidUsernameChar( dataSourceFieldInfo );
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
-				// DOM [id="Password"] is plugged extra JS behaviour
+				// DOM [id="Password"]
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Password' };
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
-				// DOM [id="Confirm-Password"] is plugged extra JS behaviour
+				// DOM [id="Confirm-Password"]
 				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
 				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
 
@@ -168,10 +159,8 @@ var initFVConfig = function(argCfg) {
 				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( dataSourceFieldInfo );
 
 			} else {
-
 				// Scenario for Non-Authenticated case
 				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
-
 				// Still drafting - just for reference
 				// dataSourceFieldInfo = { 'formId': formId };
 				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( dataSourceFieldInfo );
@@ -184,13 +173,13 @@ var initFVConfig = function(argCfg) {
 		        fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);
 		    };
 
-			// DOM [id="applicantDob"] is plugged extra JS behaviour
+			// DOM [id="applicantDob"]
 			// dataSourceFieldInfo = { 'inputId': 'applicantDob', 'errorId': 'fullnameinvalid' };
 			// argCfg.helpers.attr.isValidBeneDob( false, dataSourceFieldInfo, null );
         });
 
 
-		// Merge all FV configs together, !!! caution we only targeted to result['fields']
+		// Merge all FV configs together, !!! caution we targeted to result['fields'] only.
 		var result = argCfg.schema;
 
 		result.fields = $.extend(
@@ -245,7 +234,7 @@ var runFV = function(argCfg) {
 			console.error('runFV().flightCare() got error, will not run.');
             console.error( e.toString() );
         }
-		console.log( getBundle(getBundleLanguage, 'member.registration.fail.username.registered') );
+
 		// Trigger the FormValidation.io library here.
 		$('#' + fcArgs.formId).formValidation(argCfg)
 			.on('success.form.fv', function(e, data) {
