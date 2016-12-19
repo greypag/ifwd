@@ -229,7 +229,6 @@ function showCalculatedRate(_amount,_currency){
 	$(".y2-c3").text(formatDollar(Math.floor(guaranteedCash_2nd),symbol));
 
 	$(".y3-c1").text(formatDollar(_amount,symbol));
-	//$(".y3-c2").text(formatDollar(_amount * 2 * 1.1,symbol));
 	//For RMB, the third year of the Death Benefit should take the highest value out of Death Benefit and Guaranteed Cash
 	if (_currency == "hkd"){
 		$(".y3-c2").text(formatDollar(_amount * 1.1,symbol));

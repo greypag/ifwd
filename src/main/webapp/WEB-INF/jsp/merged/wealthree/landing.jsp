@@ -89,7 +89,7 @@ var home_url = "<%=request.getContextPath()%>";
 
                             <div class="img-banner-text savie-landing">
                                 <div id="clearfix-height-rp">
-                                    <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
+                                    <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn" data-category="CTA" data-action="Go To Calculator" data-label="<fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
                                 </div>
                             </div>
 
@@ -101,7 +101,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 						<div class="img-banner-text savie-landing">
 							<div id="clearfix-height-rp">
-								<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
+								<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn" data-category="CTA" data-action="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree-customer-service-centre/" data-label="<fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
 							</div>
 							<!-- <div class="savie-product text-bold hidden-xs">
 								<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" />
@@ -202,7 +202,7 @@ var home_url = "<%=request.getContextPath()%>";
 										</div>
 										<div id="box-input-msg"></div>
 										<div class="text-center">
-											<a href="javascript:void(0);" class="btn-calculate"><fmt:message key="wealthree.landing.calculation.cta.calculate" bundle="${wealthreeMsg}" /></a>
+											<a href="javascript:void(0);" class="btn-calculate" data-category="CTA" data-action="<fmt:message key="wealthree.landing.calculation.cta.calculate" bundle="${wealthreeMsg}" /> Wealthree" data-label="<fmt:message key="wealthree.landing.calculation.cta.calculate" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.calculation.cta.calculate" bundle="${wealthreeMsg}" /></a>
 										</div>
 									</div>
 								</div>
@@ -454,7 +454,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>	
 							<div class="col-xs-12">
 								<div class="text-center btm-btn">
-									<button class="btn-savenow"><fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" /></button><br><br>
+									<button class="btn-savenow" data-category="CTA" data-action="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree-customer-service-centre/" data-label="<fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" /></button><br><br>
 									<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.save.now.remark" bundle="${wealthreeMsg}" /></span></p>
 								</div>
 							</div>	
@@ -1102,7 +1102,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="col-xs-12">
 							<div class="text-center btm-btn">
 								<br>
-								<button class="btn-savenow"><fmt:message key="wealthree.landing.table.save.now" bundle="${wealthreeMsg}" /></button>
+								<button class="btn-savenow" data-category="CTA" data-action="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree-customer-service-centre/" data-label="<fmt:message key="wealthree.landing.table.save.now" bundle="${wealthreeMsg}" />"><fmt:message key="wealthree.landing.table.save.now" bundle="${wealthreeMsg}" /></button>
 							</div>
 						</div>
 					</div>
@@ -1157,7 +1157,7 @@ var home_url = "<%=request.getContextPath()%>";
     						<p class="pv_desc"><fmt:message key="wealthree.landing.share.text1" bundle="${wealthreeMsg}" /></p>
     					</div>
     					<div class="col-xs-12 text-center">
-							<a href="javascript:void(0);" class="btn-spd-share"><img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s8_fb.png" alt="Facebook"></a>
+							<a href="javascript:void(0);" class="btn-spd-share" data-category="Social Share Btn" data-action="Share Wealthree to Facebook" data-label="Facebook icon" ><img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s8_fb.png" alt="Facebook"></a>
     					</div>
     				</div>
     			</div>
