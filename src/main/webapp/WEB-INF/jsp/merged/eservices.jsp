@@ -54,8 +54,8 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 				<div class="col-xs-12 col-md-9 right-side-content">
 					<div id="purchase-history-tab-contents" class="hidden content">
 						<ul class="nav nav-tabs nav-justified">
-							<li class="active"><a href="#pending" data-toggle="tab"><fmt:message key="tab.member.top.pending" bundle="${msg}" /></a></li>
-							<li><a href="#active" data-toggle="tab"><fmt:message key="tab.member.top.active" bundle="${msg}" /></a></li>
+							<li><a href="#pending" data-toggle="tab"><fmt:message key="tab.member.top.pending" bundle="${msg}" /></a></li>
+							<li class="active"><a href="#active" data-toggle="tab"><fmt:message key="tab.member.top.active" bundle="${msg}" /></a></li>
 							<li id="past-tab"><a href="#past" data-toggle="tab"><fmt:message key="tab.member.top.past" bundle="${msg}" /></a></li>
 						</ul>
 						<div class="tab-content">
@@ -132,7 +132,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.principal" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -353,7 +353,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.principal" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
