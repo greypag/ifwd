@@ -48,17 +48,21 @@ $(document).ready(function () {
     }
 
     if($('#expiry-datepicker').length){
+    	var now = new Date(),
+        min = new Date(now.getFullYear()-1, now.getMonth(), now.getDate()-1),
+        max = new Date(now.getFullYear(), now.getMonth(), now.getDate()-1);
+
         var dob_end_date = new Date();
 
-        $('#expiry-datepicker').val(dob_end_date.getDate() + '-' + (dob_end_date.getMonth() + 1) + '-' + dob_end_date.getFullYear());
-        var maxdate = new Date();
-        var mindate = new Date();
-        mindate.setDate(mindate.getDate()-180);
+        $('#expiry-datepicker').val(dob_end_date.getDate()-1 + '-' + (dob_end_date.getMonth() + 1) + '-' + dob_end_date.getFullYear());
+       // var maxdate = new Date();
+      //  var mindate = new Date();
+      //  mindate.setDate(mindate.getDate()-180);
 
         $('#expiry-datepicker').mobiscroll().calendar({
             controls: ['date'],
-            minDate: mindate,
-            maxDate: maxdate,
+            minDate: min,
+            maxDate: max,
             showLabel: true,
             dateOrder: 'ddmmyy',
             dateFormat: 'dd-mm-yyyy',
@@ -77,16 +81,18 @@ $(document).ready(function () {
     }
 
     if($('#policy-datepicker').length){
-        var dob_end_date = new Date();
-
+        var now = new Date(),
+        dob_end_date = now,
+        max = new Date(now.getFullYear(), now.getMonth() + 3, now.getDate());
+        
         $('#policy-datepicker').val(dob_end_date.getDate() + '-' + (dob_end_date.getMonth() + 1) + '-' + dob_end_date.getFullYear());
 
         $('.policy-end-date').html((dob_end_date.getDate()-1) + '-' + (dob_end_date.getMonth() + 1) + '-' + (dob_end_date.getFullYear()+1));
-
+		
         $('#policy-datepicker').mobiscroll().calendar({
             controls: ['date'],
-            // minDate:dob_start_date,
-            // maxDate:dob_end_date,
+             minDate:dob_end_date,
+             maxDate: max,
             showLabel: true,
             dateOrder: 'ddmmyy',
             dateFormat: 'dd-mm-yyyy',

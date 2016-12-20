@@ -81,7 +81,7 @@ var nextPage = "${nextPageFlow}";
                 </div>
             </div>
             <div id="motor_registerForm">
-	        <form class="form-inline" id="declaration" method="post" data-toggle="validator">
+	        <form class="form-inline" id="declaration" method="post">
 	            <div class="container">
 	                <div class="row">
 	                    <div class="col-xs-12 qusetion1">
@@ -633,6 +633,17 @@ function BackMe() {
      $('#quote-form').submit();
 }
 $(document).ready(function(){
+		//enable the Next Button
+   $('#declaration').validator({
+	   custom: {
+	   equals: function($el) {
+		   
+		  }
+	   },
+	   disable: false
+   });
+	   
+	
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),

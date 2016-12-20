@@ -87,8 +87,8 @@ var nextPage = "${nextPageFlow}";
                 <!--end mobile--> 
             </div>
         </div>
-            <div id="motor_registerForm">
-            <form id="carDetails" name="" method="post" data-toggle="validator" >
+            <!--  <div id="motor_registerForm">-->
+            <form id="carDetails" name="" method="post">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 col-sm-12">
@@ -114,7 +114,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="cubicCapacity" minlength="3" maxlength="5" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error='<fmt:message key="motor.error.msg.cc.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.cc.format" bundle="${motorMsg}" />'>
+	                                                <input type="number" name="cubicCapacity" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error='<fmt:message key="motor.error.msg.cc.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.cc.format" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="cubicCapacity"><fmt:message key="motor.cardetails.car.cubiccap" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -212,7 +212,7 @@ var nextPage = "${nextPageFlow}";
 	                </div>
 	            </div>
 	        </form>
-        </div>
+       <!-- </div> --> 
     </section>
     <section class="yourQuote">
     <div class="container">
@@ -443,7 +443,32 @@ function BackMe() {
 }
 
 $(document).ready(function(){
-	
+	//enable the Next Button
+	/*
+	   $('#carDetails').validator({
+		   custom: {
+		   equals: function($el) {
+			   
+			  }
+		   },
+		   disable: false
+	   });*/
+	 /*start cc validation*/
+	var min_a = quote.carDetail.engineCapacity;
+	console.log(min_a);
+	if(min_a <= 1650){
+		$('#cubicCapacity').attr("max",1650);
+	}
+	else
+	if(min_a > 3500){
+		$('#cubicCapacity').attr("min",3501);
+	}
+	else
+		{
+		$('#cubicCapacity').attr("min",1651);
+		$('#cubicCapacity').attr("max",3500);
+		}
+	/*end cc validation*/
     $('[data-toggle="tooltip"]').tooltip(); 
  
     
@@ -577,93 +602,91 @@ $(document).ready(function(){
 		  }
 		});
      
-	$('#carDetails').submit(function(event){
-		console.dir($('#carDetails').validator('validate'));
-		if($('input[name=bankMortgage]:checked').length>0)
-			checkbox = true;
-	   var submitData = {"carDetail": {   	
-				   "bankMortgage": checkbox,	
-				   "bankMortgageName": $('[name="mortgageBank"]').val()!="OTHER"?$('[name="mortgageBank"]').val():$('input[name=bankName]').val(),//$("#mortgageBank option:selected").val(),	
-				   "chassisNumber": $('input[name=chassisNumber]').val(),    	
-				   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
-				   "modelDesc": $('input[name=registedModel]').val()    	
-					}, 	
-					"policyId": quote.policyId
-					};
-
-		$.ajax({
-          beforeSend: function(){
-          	$('#loading-overlay').modal("show");
-          },
-		  type: "POST",
-		  data: JSON.stringify(submitData),
-		  dataType: "json",
-          contentType : "application/json",
-          cache: false,
-          async: false,
-          url:context + "/api/iMotor/policy/saving/carDetails",
-		  success: function(data){
-			  var $form = $("<form id='quote-form' />");
-			  if(getUrlParameter("edit")=="yes")
-              	$form.attr("action", "drivers-details?edit=yes");
-			  else
-				  $form.attr("action", "drivers-details");  
-              $form.attr("method", "post");
-              var $quote = $("<input type='hidden' name='data' />");
-              var opts = {};
-              opts = $.extend(opts,quote, submitData);
-              opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
-              $quote.attr("value", JSON.stringify(opts));
-              $form.append($quote);
-              $("body").append($form);
-              $('#quote-form').submit();             
-		  },error: function(error) {
-			  /*$('#reason').attr('value', xhr.status);
-          		e.preventDefault();
-              if (xhr.status == 404) {
-              	if(chin)
-              		$("#reasonMsg").text(cnErr[404]);
-              	else
-              		$("#reasonMsg").text(enErr[404]);
-                  $("#contactpopup").modal('show');
-                  console.log(xhr.status, textStatus, errorThrown);
-              } 
-              if (xhr.status == 504) {
-              	if(chin)
-              		$("#reasonMsg").text(cnErr[504]);
-              	else
-              		$("#reasonMsg").text(enErr[504]);
-                  $("#contactpopup").modal('show');
-                  console.log(xhr.status, textStatus, errorThrown);
-              } 
-              else if (xhr.status == 422) {
-              	if(chin)
-              		$("#reasonMsg").text(cnErr[422]);
-              	else
-              		$("#reasonMsg").text(enErr[422]);
-                  $("#contactpopup").modal('show');
-                  console.log(xhr.status, textStatus, errorThrown);
-              } 
-              else if (xhr.status == 410) {
-              	if(chin)
-              		$("#reasonMsg").text(cnErr[410]);
-              	else
-              		$("#reasonMsg").text(enErr[410]);
-                  $("#contactpopup").modal('show');
-                  console.log(xhr.status, textStatus, errorThrown);
-              }*/
-			  console.dir(error);				
-			  alert("error");
-	          $("#loading-overlay").modal("hide");
-	          return false;
-		  }
-		});
+	$('#carDetails').validator({disable: false}).on('submit', function (e) {
+		if (!e.isDefaultPrevented()) {
+			if($('input[name=bankMortgage]:checked').length>0)
+				checkbox = true;
+		   var submitData = {"carDetail": {   	
+					   "bankMortgage": checkbox,	
+					   "bankMortgageName": $('[name="mortgageBank"]').val()!="OTHER"?$('[name="mortgageBank"]').val():$('input[name=bankName]').val(),//$("#mortgageBank option:selected").val(),	
+					   "chassisNumber": $('input[name=chassisNumber]').val(),    	
+					   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
+					   "modelDesc": $('input[name=registedModel]').val()    	
+						}, 	
+						"policyId": quote.policyId
+						};
+	
+			$.ajax({
+	          beforeSend: function(){
+	          	$('#loading-overlay').modal("show");
+	          },
+			  type: "POST",
+			  data: JSON.stringify(submitData),
+			  dataType: "json",
+	          contentType : "application/json",
+	          cache: false,
+	          async: false,
+	          url:context + "/api/iMotor/policy/saving/carDetails",
+			  success: function(data){
+				  var $form = $("<form id='quote-form' />");
+				  if(getUrlParameter("edit")=="yes")
+	              	$form.attr("action", "drivers-details?edit=yes");
+				  else
+					  $form.attr("action", "drivers-details");  
+	              $form.attr("method", "post");
+	              var $quote = $("<input type='hidden' name='data' />");
+	              var opts = {};
+	              opts = $.extend(opts,quote, submitData);
+	              opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+	              $quote.attr("value", JSON.stringify(opts));
+	              $form.append($quote);
+	              $("body").append($form);
+	              $('#quote-form').submit();             
+			  },error: function(error) {
+				  /*$('#reason').attr('value', xhr.status);
+	          		e.preventDefault();
+	              if (xhr.status == 404) {
+	              	if(chin)
+	              		$("#reasonMsg").text(cnErr[404]);
+	              	else
+	              		$("#reasonMsg").text(enErr[404]);
+	                  $("#contactpopup").modal('show');
+	                  console.log(xhr.status, textStatus, errorThrown);
+	              } 
+	              if (xhr.status == 504) {
+	              	if(chin)
+	              		$("#reasonMsg").text(cnErr[504]);
+	              	else
+	              		$("#reasonMsg").text(enErr[504]);
+	                  $("#contactpopup").modal('show');
+	                  console.log(xhr.status, textStatus, errorThrown);
+	              } 
+	              else if (xhr.status == 422) {
+	              	if(chin)
+	              		$("#reasonMsg").text(cnErr[422]);
+	              	else
+	              		$("#reasonMsg").text(enErr[422]);
+	                  $("#contactpopup").modal('show');
+	                  console.log(xhr.status, textStatus, errorThrown);
+	              } 
+	              else if (xhr.status == 410) {
+	              	if(chin)
+	              		$("#reasonMsg").text(cnErr[410]);
+	              	else
+	              		$("#reasonMsg").text(enErr[410]);
+	                  $("#contactpopup").modal('show');
+	                  console.log(xhr.status, textStatus, errorThrown);
+	              }*/
+				  console.dir(error);				
+				  alert("error");
+		          $("#loading-overlay").modal("hide");
+		          return false;
+			  }
+			});
+		}
 		return false;
 	});
-	
-	
-	
-	
+
 });
 </script>
        

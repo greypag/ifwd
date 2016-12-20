@@ -72,7 +72,8 @@ function getMotorQuotePrice(planType, quote){
             "planCode": _planCode,
             "compPlan": _compPlan,
             "personalAccident": quote.personalAccident,
-            "thirdPartyPropertyDamage": quote.thirdPartyPropertyDamage
+            "thirdPartyPropertyDamage": quote.thirdPartyPropertyDamage,
+            "promoCode":quote.promoCode
         }),
         error: function() {
             motorPrice[planType]['valid'] = false;

@@ -173,7 +173,7 @@ $(document).ready(function(){
 			}	
         }
     });
-	
+	/*
 	$motor_area = $('#area').selectize({
         valueField: 'code',
         labelField: 'desc',
@@ -215,7 +215,7 @@ $(document).ready(function(){
         },
         onChange: function(value){
         }
-    });
+    });*/
 	
 	$motor_district = $('#district').selectize({
         valueField: 'code',
@@ -248,7 +248,20 @@ $(document).ready(function(){
 								{
 									if(item.desc == quote.applicant.correspondenceAddress.district )
 									{
-										$motor_district[0].selectize.setValue(item.code);	
+										$motor_district[0].selectize.setValue(item.code);
+										
+										if(motorlanguage == "ZH")
+										{
+											console.log(item.remark);
+											if(item.remark == "NEW TERRITORIES")
+												$("#area").val("新界");
+											else if(item.remark == "HONG KONG")
+												$("#area").val("香港");
+											else if(item.remark == "KOWLOON")
+												$("#area").val("九龍");
+										}	
+										else
+											$("#area").val(item.remark);
 									}
 								}
 							});
@@ -256,7 +269,37 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
-			//$motor_area[0].selectize.setValue("HONG KONG");	
+			//$motor_area[0].selectize.setValue("HONG KONG");
+			$.ajax({
+                url: context + '/api/iMotor/list/districts',
+                type: 'GET',
+                dataType: 'json',
+                error: function() {
+                        callback();
+                    },
+                    success: function(res) {
+                    	
+							$.each(res, function(i, item) {
+									
+									if(item.code == value)
+									{
+										if(motorlanguage == "ZH")
+										{
+											if(item.remark == "NEW TERRITORIES")
+												$("#area").val("新界");
+											else if(item.remark == "HONG KONG")
+												$("#area").val("香港");
+											else if(item.remark == "KOWLOON")
+												$("#area").val("九龍");
+										}	
+										else
+											$("#area").val(item.remark);
+									}
+							
+							});
+                    }
+            });
+			
         }
     });
 	

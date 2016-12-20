@@ -77,6 +77,10 @@ var nextPage = "${nextPageFlow}";
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	word-wrap: break-word; 
+}
+.summary .panel-body .detail-row>div span{
+	
 }
 
 .summary, .summary .panel-heading {
@@ -146,8 +150,13 @@ var nextPage = "${nextPageFlow}";
 .payment-detail .panel-body .detail-row select {
 	font-size: 16px;
 }
-
+@media ( max-width : 768px) {
+	.col-sm-6{
+		width:50% !important;
+	}
+}
 @media ( min-width : 768px) {
+	
 	.payment-detail .panel-body .detail-row>div {
 		height: 100px;
 	}
@@ -195,7 +204,6 @@ var nextPage = "${nextPageFlow}";
 			<!--Mobile-->
 			<h1 class="landing_h2 hidden-lg hidden-md motor-ttl">
 				<fmt:message key="motor.summary.page.heading" bundle="${motorMsg}" />
-				y
 			</h1>
 			<!--end mobile-->
 		</div>
@@ -860,8 +868,8 @@ var nextPage = "${nextPageFlow}";
 											</div>
 											<div class="col-xs-8 col-sm-10 text-left">
 												<span> <img
-													src="https://dummyimage.com/80x45/ccc/000.png" alt="" /> <img
-													src="https://dummyimage.com/80x45/ccc/000.png" alt="" />
+													src="/fwdhk/resources/images/motor/master_logo.jpg" alt="" /> <img
+													src="/fwdhk/resources/images/motor/visa_logo.jpg" alt="" />
 												</span>
 											</div>
 											<div class="col-xs-12 col-sm-6 text-left">
@@ -975,7 +983,7 @@ var nextPage = "${nextPageFlow}";
 											</div>
 											<div class="col-xs-6 col-sm-3 text-left">
 												<span> <img
-													src="https://dummyimage.com/80x45/ccc/000.png" alt="" />
+													src="/fwdhk/resources/images/motor/Payment_secruity_code.jpg" alt="" />
 												</span>
 											</div>
 										</div>
@@ -1464,6 +1472,18 @@ function BackMe() {
 	$(document)
 			.ready(
 					function() {
+						
+						$("#headingOne").on("click",function(){
+							$("#collapseTwo").removeClass();
+							$("#collapseTwo").addClass("panel-collapse collapse");
+						});
+						$("#headingTwo").on("click",function(){
+							$("#collapseOne").removeClass();
+							$("#collapseOne").addClass("panel-collapse collapse");
+						});
+						
+						
+						
 						$.ajax({
 							  type: "POST",
 							  data: JSON.stringify(quote),

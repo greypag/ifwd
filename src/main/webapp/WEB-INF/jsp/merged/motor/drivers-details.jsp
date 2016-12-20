@@ -82,7 +82,7 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
             <div id="motor_registerForm">
-	            <form id="driverDetails"  method="post" data-toggle="validator">
+	            <form id="driverDetails"  method="post" >
 	                <div class="container">
 	                    <div class="row">
 	                        <div class="col-md-8 col-md-offset-2 col-sm-12">
@@ -115,7 +115,9 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="driverID" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' required>
+	                                                <!-- <input type="text" name="driverID" minlength="8" maxlength="8" data-bv-callback-callback="checkHKID" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' required>-->
+	                                                <input type="text" name="driverID" data-equals="hkid error" data-fv-callback="true" data-fv-callback-callback="checkHKID"
+                data-fv-callback-message='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.driversdetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -215,7 +217,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="streetno" >
+	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" >
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -226,7 +228,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="streetname">
+	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input">
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetname" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -253,9 +255,11 @@ var nextPage = "${nextPageFlow}";
 	                                                <option value="Kowloon"><fmt:message key="motor.driversdetails.address.area.kln" bundle="${motorMsg}" /></option>
 	                                                <option value="New Territories"><fmt:message key="motor.driversdetails.address.area.nt" bundle="${motorMsg}" /></option>
 	                                            </select>-->
-	                                            <select class="form-control" id="area" name="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
+	                                            <!-- <select class="form-control" id="area" name="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.driversdetails.address.area" bundle="${motorMsg}" /></option>
-	                                            </select>
+	                                            </select>-->
+	                                            <input type="text" name="area" id="area" maxlength="20" class="form-control input--grey mdl-textfield__input">
+	                                               
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
 	                                    </div>
@@ -491,9 +495,9 @@ function SaveAndExit()
 				    "estate":  $('input[name=estate]').val(),		
 				    "flat":  $('input[name=flat]').val(),		
 				    "floor":  $('input[name=floor]').val(),		
-				    "hkKlNt": $('[name="area"]').val(),//$("#area option:selected").text(),		
-				    "streetName":  $('[name="streetname').val(),		
-				    "streetNo":  $('[name="streetno').val()		
+				    "hkKlNt": $('input[name=area]').val(),//$("#area option:selected").text(),		
+				    "streetName":  $('input[name=streetname').val(),		
+				    "streetNo":  $('input[name=streetno').val()		
 				  },		
 				  "dateOfBirth": $('input[name=driverDob]').val(),  		
 				  "email": $('input[name=email]').val() ,		
@@ -544,8 +548,28 @@ function BackMe() {
      $("body").append($form);
      $('#quote-form').submit();
 }
+
+function checkHKID(value, validator, $field) {
+    // Determine the numbers which are generated in captchaOperation
+   return false;//IsHKID(value);
+}
+
 $(document).ready(function(){
-        
+	/*custom validate for HKID*/
+	   $('#driverDetails').validator({
+		   custom: {
+		   equals: function($el) {
+			    if(!IsHKID($el.val())){
+			    	return $el.data("equals");
+			    }
+			  }
+		   },
+		   disable: false
+	   });
+	   /*custom validate for HKID*/
+	 //$('#contactForm').formValidation();    
+	//alert(IsHKID("z1133333") );
+	
 	 var getUrlParameter = function getUrlParameter(sParam) {
 	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
 	            sURLVariables = sPageURL.split('&'),
@@ -577,8 +601,8 @@ $(document).ready(function(){
 			$('input[name=building]').val(quote.applicant.correspondenceAddress.building);
 			$('input[name=estate]').val(quote.applicant.correspondenceAddress.estate);
 			$('input[name=district]').val(quote.applicant.correspondenceAddress.district);
-			$('input[name="streetname]').val(quote.applicant.correspondenceAddress.streetname),		
-		    $('input[name="streetno]').val(quote.applicant.correspondenceAddress.streetno)		
+			$('input[name=streetname]').val(quote.applicant.correspondenceAddress.streetName);	
+		    $('input[name=streetno]').val(quote.applicant.correspondenceAddress.streetNo);
 		}
     }
 	
@@ -667,70 +691,71 @@ $(document).ready(function(){
 		  }
 		});
     
-	$('#driverDetails').submit(function(event){
+	$('#driverDetails').validator().on('submit', function (e) {
+		if (!e.isDefaultPrevented()) {
+		   var submitData = {
+				    "policyId": quote.policyId,		
+				   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
+				  	"applicant": {		
+				  	"contactNo": $('input[name=mobileno]').val(),		
+				  	"correspondenceAddress": {    		
+				    "block":  $('input[name=block]').val(),		
+				    "building":  $('input[name=building]').val(),		
+				    "district":  $('[name="district"]').val(),//$("#district option:selected").text(),		
+				    "estate":  $('input[name=estate]').val(),		
+				    "flat":  $('input[name=flat]').val(),		
+				    "floor":  $('input[name=floor]').val(),		
+				    "hkKlNt": $('[name=area]').val(),//$("#area option:selected").text(),		
+				    "streetName":  $('[name=streetname').val(),		
+				    "streetNo":  $('[name=streetno').val()				
+				  },		
+				  "dateOfBirth": $('input[name=driverDob]').val(),  		
+				  "email": $('input[name=email]').val() ,		
+				  "hkid": $('input[name=driverID]').val(),		
+				  "name": $('input[name=fullName]').val() 		
+				  }		
+				};
+		   
+		   	console.dir(submitData);
+		   	console.log(JSON.stringify(submitData));
+		   	
+			$.ajax({
+			  beforeSend: function(){
+	          	$('#loading-overlay').modal("show");
+	          },
+			  type: "POST",
+			  data: JSON.stringify(submitData),
+			  dataType: "json",
+	          contentType : "application/json",
+	          cache: false,
+	          async: false,
+			  url: context + "/api/iMotor/policy/saving/driverDetails",
+			  success: function(data){
 		
-	   var submitData = {
-			    "policyId": quote.policyId,		
-			   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
-			  	"applicant": {		
-			  	"contactNo": $('input[name=mobileno]').val(),		
-			  	"correspondenceAddress": {    		
-			    "block":  $('input[name=block]').val(),		
-			    "building":  $('input[name=building]').val(),		
-			    "district":  $('[name="district"]').val(),//$("#district option:selected").text(),		
-			    "estate":  $('input[name=estate]').val(),		
-			    "flat":  $('input[name=flat]').val(),		
-			    "floor":  $('input[name=floor]').val(),		
-			    "hkKlNt": $('[name="area"]').val(),//$("#area option:selected").text(),		
-			    "streetName":  $('[name="streetname').val(),		
-			    "streetNo":  $('[name="streetno').val()				
-			  },		
-			  "dateOfBirth": $('input[name=driverDob]').val(),  		
-			  "email": $('input[name=email]').val() ,		
-			  "hkid": $('input[name=driverID]').val(),		
-			  "name": $('input[name=fullName]').val() 		
-			  }		
-			};
-	   
-	   	console.dir(submitData);
-	   	console.log(JSON.stringify(submitData));
-	   	
-		$.ajax({
-		  beforeSend: function(){
-          	$('#loading-overlay').modal("show");
-          },
-		  type: "POST",
-		  data: JSON.stringify(submitData),
-		  dataType: "json",
-          contentType : "application/json",
-          cache: false,
-          async: false,
-		  url: context + "/api/iMotor/policy/saving/driverDetails",
-		  success: function(data){
-	
-			  var $form = $("<form id='quote-form' />");
-			  if(getUrlParameter("edit")=="yes")
-             	 $form.attr("action", "policy-details?edit=yes");
-			  else
-				 $form.attr("action", "policy-details");
-              $form.attr("method", "post");
-              var $quote = $("<input type='hidden' name='data' />");
-              var opts = {};
-              opts = $.extend(opts,quote, submitData);
-              opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
-              $quote.attr("value", JSON.stringify(opts));
-              $form.append($quote);
-              $("body").append($form);
-              $('#quote-form').submit();
-              
-		  },error: function(error) {
-			 console.dir(error);				
-			 alert("error");
-             $("#loading-overlay").modal("hide");
-             return false;
-              
-		  }
-		});
+				  var $form = $("<form id='quote-form' />");
+				  if(getUrlParameter("edit")=="yes")
+	             	 $form.attr("action", "policy-details?edit=yes");
+				  else
+					 $form.attr("action", "policy-details");
+	              $form.attr("method", "post");
+	              var $quote = $("<input type='hidden' name='data' />");
+	              var opts = {};
+	              opts = $.extend(opts,quote, submitData);
+	              opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+	              $quote.attr("value", JSON.stringify(opts));
+	              $form.append($quote);
+	              $("body").append($form);
+	              $('#quote-form').submit();
+	              
+			  },error: function(error) {
+				 console.dir(error);				
+				 alert("error");
+	             $("#loading-overlay").modal("hide");
+	             return false;
+	              
+			  }
+			});
+		}
 		return false;
 	});
 });

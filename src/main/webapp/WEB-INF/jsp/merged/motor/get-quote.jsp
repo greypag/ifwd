@@ -224,13 +224,13 @@ width: 100px !important;
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <input type="text" name="promoCode" id="promoCode" data-required-error='Input Promo-code' class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
+                                                                      		  <br/>
+										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
+											role="alert" style="position:static"></div>     
                                         <label>
                                             <a href="javascript:;" id="findPromo" ><fmt:message key="motor.getquote.promotion.how.text" bundle="${motorMsg}" /></a>
                                         </label>
-                                        <br/>
-                                   		  <br/>
-										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
-											role="alert" style="position:static"></div>                                      
+                                                                        
                                     </div>
                                 <div class="col-md-6 col-md-offset-3">
 			                            <div class="row">
@@ -444,7 +444,7 @@ width: 100px !important;
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder=""
                                 name="emailToSendPromoCode" id="emailToSendPromoCode" style="background-color:#f2f2f2">
-                            <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">
+                            <!-- <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">-->
                         </div>
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
@@ -514,9 +514,9 @@ function sendEmail() {
     $('.proSuccess').addClass('hide');
     if (get_promo_val()) {
     	//console.log($("#sendmailofpromocode form").serialize());
-        /*$.ajax({
+        $.ajax({
             type : "POST",
-            url : "/sendEmail",
+            url : context + "/api/iMotor/email/promoCodes",
             data : $("#sendmailofpromocode form").serialize(),
             async : false,
             success : function(data) {
@@ -529,8 +529,7 @@ function sendEmail() {
             },
             error : function() {
             }
-        });*/
-        alert("Email");
+        });
     }
     return false;
 }
@@ -550,6 +549,11 @@ $(document).ready(function(){
             }
         }
     };
+    
+    if(getUrlParameter("type")=="3")
+    {
+    	$('#loginpopup').modal("show");
+    }
     
     if(getUrlParameter("edit")=="yes")
     {   

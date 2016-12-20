@@ -82,7 +82,7 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
         <div id="motor_registerForm">
-	        <form id="policyDetails" name="" method="post" data-toggle="validator" >
+	        <form id="policyDetails" name="" method="post">
 	            <div class="container">
 	                <div class="center" > 
 	                    <!--desktop-->
@@ -124,7 +124,8 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap calendar"> 
 	                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                <input type="text" readonly name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' required>
+	                                                <!--  <input type="text" readonly name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' required>-->
+	                                                <input style="cursor:not-allowed" type="text" readonly name="driverDob" id="driverDob" maxlength="20" class="form-control input--grey mdl-textfield__input" required>
 	                                                <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -135,7 +136,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text"  name="driverID" value="" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
+	                                                <input type="text" readonly  name="driverID" value="" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
 	                                                <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -536,7 +537,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <!--<input type="text" name="prev_ic" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' minlength="3" maxlength="3" class="form-control input--grey mdl-textfield__input" id="prev_ic" required data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>-->
-	                                                <select class="form-control" id="prev_ic" name="prev_ic" data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />'>
+	                                                <select class="form-control" id="prev_ic" name="prev_ic" data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' >
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></option>
 	                                            	</select>
 													<div class="help-block with-errors"></div>
@@ -748,7 +749,6 @@ function callback_motor_LoginSuccess(){
 		        //alert("error");
 		    },
 		    success:function(response){
-		    	console.dir(response);
 		    	tempquote = response.motorCareDetails;
 		    	$('#saveModal').modal("show");
 		    }
@@ -866,6 +866,19 @@ function BackMe() {
      $('#quote-form').submit();
 }
 $(document).ready(function(){
+	 
+	/*custom validate for HKID*/
+	   $('#policyDetails').validator({
+		   custom: {
+		   equals: function($el) {
+			    if(!IsHKID($el.val())){
+			    	return $el.data("equals");
+			    }
+			  }
+		   },
+		   disable: false
+	   });
+	   /*custom validate for HKID*/
 	
 	var term = $('#term');
 	var d2term = $('#d2term');
@@ -889,7 +902,9 @@ $(document).ready(function(){
             }
         }
     };
-	$("input[name=fullName]").val(quote.applicant.name);
+	
+    $("input[name=fullName]").val(quote.applicant.name);
+	$("input[name=driverDob]").val(quote.applicant.dateOfBirth);
     $("input[name=driverID]").val(quote.applicant.hkid);
     
 	if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
@@ -969,6 +984,8 @@ $(document).ready(function(){
         preload: true,
         load: function(query, callback) {
             $('#prev_ic-selectized').data('required-error', $('#prev_ic').data('required-error'));
+            $("#prev_ic-selectized").prop('required',true);
+            $('#policyDetails').validator('update'); 
             $.ajax({
                 url: context + '/api/iMotor/list/insurers',
                 type: 'GET',
@@ -991,6 +1008,7 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
+        	$("#prev_ic-selectized").val(value);
         }
     });
 	
@@ -1002,6 +1020,7 @@ $(document).ready(function(){
         preload: true,
         load: function(query, callback) {
             $('#occupation-selectized').data('required-error', $('#occupation').data('required-error'));
+           
             $.ajax({
                 url: context + '/api/iMotor/list/occupations/v2',
                 type: 'GET',
@@ -1206,13 +1225,25 @@ $(document).ready(function(){
 	    $('#addDriver').on('click', function(e){
 	        e.preventDefault();
 
-			$('#motor_registerForm [type="submit"]').addClass('disabled');
+			//$('#motor_registerForm [type="submit"]').addClass('disabled');
 	        if(current < totalDriver){
 	            $('.added-driver').eq(current).removeClass('hidden');
 				$('.added-driver').eq(current).find('select').prop('required',true);
 				$('.added-driver').eq(current).find('input').prop('required',true);
 				$('.added-driver').eq(current).find('.selectize-input > input').prop('required',false);
-				$('.added-driver').eq(current).find('input').val(''); 	
+				$('.added-driver').eq(current).find('input').val(''); 
+				
+				if(current == 1)
+					$("#d2occupation-selectized,#d2dob").prop('required',true);
+				if(current == 2)
+					$("#d3occupation-selectized,#d3dob").prop('required',true);
+				if(current == 3)
+					$("#d4occupation-selectized,#d4dob").prop('required',true);
+				if(current == 4)
+					$("#d5occupation-selectized,#d5dob").prop('required',true);
+				
+				
+		  
 	            if(current > 0){
 	                $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
 	            }
@@ -1236,13 +1267,25 @@ $(document).ready(function(){
 	        $(this).parents('.added-driver').find('option').removeAttr('selected');
 			//$occSelect[0].selectize.clear();
 			if(current == 1)
-			$motor_d2occupation[0].selectize.clear();
+			{
+				$motor_d2occupation[0].selectize.clear();
+				$("#d2occupation-selectized").prop('required',false);
+			}
 			if(current == 2)
-			$motor_d3occupation[0].selectize.clear();
+			{
+				$motor_d3occupation[0].selectize.clear();
+				$("#d3occupation-selectized").prop('required',false);
+			}
 			if(current == 3)
-			$motor_d4occupation[0].selectize.clear();
+			{
+				$motor_d4occupation[0].selectize.clear();
+				$("#d4occupation-selectized").prop('required',false);
+			}
 			if(current == 4)
-			$motor_d5occupation[0].selectize.clear();
+			{
+				$motor_d5occupation[0].selectize.clear();
+				$("#d5occupation-selectized").prop('required',false);
+			}
 			
 	        $(this).parents('.added-driver').addClass('hidden');
 	        $(this).parents('.added-driver').prev().find('.removeDriver').removeClass('hidden');
@@ -1337,109 +1380,110 @@ $(document).ready(function(){
 				
 			  }
 			});
-	$('#policyDetails').submit(function(event){
-   	
-       var driverMoreThanTwo = false;
-	   if($('input[name=d3name]').val()!="")
-	   {
-		   driverMoreThanTwo = true;
-	   }
-	   var submitData = { 		
-			   "policyId": quote.policyId,		
-			   "policyStartDate": quote.policyStartDate,
-			   "driver": [		
-			   {		
-			     "dateOfBirth": $('input[name=driverDob]').val(),		
-			     "driveMoreThanTwo": $('input[name=term]').val(),		
-			     "hkid": $('input[name=driverID]').val(),		
-			     "name": $('input[name=fullName]').val(),		
-			     "occupation": $('[name="occupation"]').val(),//$("#occupation option:selected").text(),	
-			     "validAgeGroup": $('input[name=term]').val()		
-			   }, 		
-			   {		
-			     "dateOfBirth": $('input[name=d2dob]').val(),		
-			     "driveMoreThanTwo": $('input[name=d2term]').val(),		
-			     "hkid": $('input[name=d2id]').val(),		
-			     "name": $('input[name=d2name]').val(),		
-			     "occupation": $('[name="d2occupation"]').val(),//$("#d2occupation option:selected").text(),		
-			     "validAgeGroup":  $('input[name=d2term]').val()			
-			   }, 		
-			   {		
-				 "dateOfBirth": $('input[name=d3dob]').val(),		
-				 "driveMoreThanTwo": $('input[name=d3term]').val(),		
-				 "hkid": $('input[name=d3id]').val(),		
-				 "name": $('input[name=d3name]').val(),		
-				 "occupation": $('[name="d3occupation"]').val(),//$("#d3occupation option:selected").text(),		
-				 "validAgeGroup": $('input[name=d3term]').val()		
-			   }, 		
-			   {		
-				 "dateOfBirth": $('input[name=d4dob]').val(),		
-				 "driveMoreThanTwo": $('input[name=d4term]').val(),		
-				 "hkid": $('input[name=d4id]').val(),		
-				 "name": $('input[name=d4name]').val(),		
-				 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
-				 "validAgeGroup":  $('input[name=d4term]').val()			
-			   }, 		
-			   {		
-				 "dateOfBirth": $('input[name=d5dob]').val(),		
-				 "driveMoreThanTwo": $('input[name=d5term]').val()	,		
-				 "hkid": $('input[name=d5id]').val(),		
-				 "name": $('input[name=d5name]').val(),		
-				 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		
-				 "validAgeGroup": $('input[name=d5term]').val()		
-			   }		
-			   ], 		
-			     "nameOfPreviousInusrancer": $('[name=prev_ic]').val(),		
-			     "regNoofPreviousPolicy": $('input[name=prev_regNo]').val(),		
-			     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
-			     "previousPolicyNo": $('[name="prev_policyNo"]').val()//$("#prev_ic option:selected").val()//$('input[name=prev_policyNo]').val()	
-			 };
+	$('#policyDetails').validator().on('submit', function (e) {
+		if (!e.isDefaultPrevented()) {
+	       var driverMoreThanTwo = false;
+		   if($('input[name=d3name]').val()!="")
+		   {
+			   driverMoreThanTwo = true;
+		   }
+		   var submitData = { 		
+				   "policyId": quote.policyId,		
+				   "policyStartDate": quote.policyStartDate,
+				   "driver": [		
+				   {		
+				     "dateOfBirth": $('input[name=driverDob]').val(),		
+				     "driveMoreThanTwo": $('input[name=term]').val(),		
+				     "hkid": $('input[name=driverID]').val(),		
+				     "name": $('input[name=fullName]').val(),		
+				     "occupation": $('[name="occupation"]').val(),//$("#occupation option:selected").text(),	
+				     "validAgeGroup": $('input[name=term]').val()		
+				   }, 		
+				   {		
+				     "dateOfBirth": $('input[name=d2dob]').val(),		
+				     "driveMoreThanTwo": $('input[name=d2term]').val(),		
+				     "hkid": $('input[name=d2id]').val(),		
+				     "name": $('input[name=d2name]').val(),		
+				     "occupation": $('[name="d2occupation"]').val(),//$("#d2occupation option:selected").text(),		
+				     "validAgeGroup":  $('input[name=d2term]').val()			
+				   }, 		
+				   {		
+					 "dateOfBirth": $('input[name=d3dob]').val(),		
+					 "driveMoreThanTwo": $('input[name=d3term]').val(),		
+					 "hkid": $('input[name=d3id]').val(),		
+					 "name": $('input[name=d3name]').val(),		
+					 "occupation": $('[name="d3occupation"]').val(),//$("#d3occupation option:selected").text(),		
+					 "validAgeGroup": $('input[name=d3term]').val()		
+				   }, 		
+				   {		
+					 "dateOfBirth": $('input[name=d4dob]').val(),		
+					 "driveMoreThanTwo": $('input[name=d4term]').val(),		
+					 "hkid": $('input[name=d4id]').val(),		
+					 "name": $('input[name=d4name]').val(),		
+					 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
+					 "validAgeGroup":  $('input[name=d4term]').val()			
+				   }, 		
+				   {		
+					 "dateOfBirth": $('input[name=d5dob]').val(),		
+					 "driveMoreThanTwo": $('input[name=d5term]').val()	,		
+					 "hkid": $('input[name=d5id]').val(),		
+					 "name": $('input[name=d5name]').val(),		
+					 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		
+					 "validAgeGroup": $('input[name=d5term]').val()		
+				   }		
+				   ], 		
+				     "nameOfPreviousInusrancer": $('[name=prev_ic]').val(),		
+				     "regNoofPreviousPolicy": $('input[name=prev_regNo]').val(),		
+				     "expDateOfPreviousInsurance": $('input[name=expiry-datepicker]').val(),		
+				     "previousPolicyNo": $('[name="prev_policyNo"]').val()//$("#prev_ic option:selected").val()//$('input[name=prev_policyNo]').val()	
+				 };
+			
+			if($('input[name=d2name]').val()=="")
+				delete submitData.driver[1]
+			if($('input[name=d3name]').val()=="")
+				delete submitData.driver[2]
+			if($('input[name=d4name]').val()=="")
+				delete submitData.driver[3]
+			if($('input[name=d5name]').val()=="")
+				delete submitData.driver[4]
 		
-		if($('input[name=d2name]').val()=="")
-			delete submitData.driver[1]
-		if($('input[name=d3name]').val()=="")
-			delete submitData.driver[2]
-		if($('input[name=d4name]').val()=="")
-			delete submitData.driver[3]
-		if($('input[name=d5name]').val()=="")
-			delete submitData.driver[4]
-	
-		console.dir(submitData);
-	
-		submitData.driver = submitData.driver.filter(function(x){return x !== null});
-		$.ajax({
-			  beforeSend: function(){
-	          	$('#loading-overlay').modal("show");
-	          },
-			  type: "POST",
-			  data: JSON.stringify(submitData),
-			  dataType: "json",
-	          contentType : "application/json",
-	          cache: false,
-	          async: false,
-			  url: context + "/api/iMotor/policy/saving/policyDetails",
-			  success: function(data){
-				  var $form = $("<form id='quote-form' />");
-				  if(getUrlParameter("edit")=="yes")
-				  	  $form.attr("action", "declarations?edit=yes");
-				  else
-					  $form.attr("action", "declarations");
-	              $form.attr("method", "post");
-	              var $quote = $("<input type='hidden' name='data' />");
-		          var opts = {};
-		          opts = $.extend(opts,quote, submitData);
-	              opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
-	              $quote.attr("value", JSON.stringify(opts));
-	              $form.append($quote);
-	              $("body").append($form);
-	              $('#quote-form').submit();
-			  },error: function(error) {
-				  console.dir(error);				
-					 alert("error");
-		             $("#loading-overlay").modal("hide");
-		             return false;
-			  }
-			});
+			console.dir(submitData);
+		
+			submitData.driver = submitData.driver.filter(function(x){return x !== null});
+			$.ajax({
+				  beforeSend: function(){
+		          	$('#loading-overlay').modal("show");
+		          },
+				  type: "POST",
+				  data: JSON.stringify(submitData),
+				  dataType: "json",
+		          contentType : "application/json",
+		          cache: false,
+		          async: false,
+				  url: context + "/api/iMotor/policy/saving/policyDetails",
+				  success: function(data){
+					  var $form = $("<form id='quote-form' />");
+					  if(getUrlParameter("edit")=="yes")
+					  	  $form.attr("action", "declarations?edit=yes");
+					  else
+						  $form.attr("action", "declarations");
+		              $form.attr("method", "post");
+		              var $quote = $("<input type='hidden' name='data' />");
+			          var opts = {};
+			          opts = $.extend(opts,quote, submitData);
+		              opts=  $.extend(opts,{"driver": $.extend(quote.driver, submitData.driver)});
+		              $quote.attr("value", JSON.stringify(opts));
+		              $form.append($quote);
+		              $("body").append($form);
+		              $('#quote-form').submit();
+				  },error: function(error) {
+					  console.dir(error);				
+						 alert("error");
+			             $("#loading-overlay").modal("hide");
+			             return false;
+				  }
+				});
+		}
 		return false;
 	});
 });
