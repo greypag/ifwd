@@ -557,7 +557,7 @@ function WithdrawClass(){
 	};
 
 	this.showPanel = function(data) {
-		_productName = data.policy["product_" + this.langMapping[languageP]];
+		_productName = data.policy["product_" + eWalletCtr.langMapping[languageP]];
 
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
 		this.popupDom.find(".ew_mobile").html(data.mobile);
