@@ -518,7 +518,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -538,7 +538,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 													</div>
@@ -562,7 +562,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -582,7 +582,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
 															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 													</div>
@@ -606,7 +606,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
 											</div>
 										</div>				
 										<c:choose>
@@ -626,7 +626,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 													</div>
@@ -650,7 +650,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
 											</div>
 										</div>				
 										<c:choose>
@@ -670,7 +670,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 															<p class="info-data">${list.commencementDateDesc}~${list.expiryDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 													</div>
