@@ -1,5 +1,7 @@
 .modal{
-	.modal-dialog{
-		width: 600px;
+	&.pop-up-temp{
+		.modal-dialog{
+			width: 600px;
+		}
 	}
 }

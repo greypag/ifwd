@@ -3,7 +3,7 @@
 <script>
 function imgModal(modal_id, img, title, content, button){
 	var modal_html = '';
-	modal_html += '<div class="modal fade" id="'+modal_id+'">';
+	modal_html += '<div class="modal fade pop-up-temp" id="'+modal_id+'">';
 	modal_html += '	<div class="modal-dialog" role="document">';
 	modal_html += '		<div class="modal-content">';
 	modal_html += '			<div class="modal-body">';
@@ -48,7 +48,7 @@ function imgModal(modal_id, img, title, content, button){
 
 function imgModal_noImg(modal_id, title, content, button){
 	var modal_html = '';
-	modal_html += '<div class="modal fade" id="'+modal_id+'">';
+	modal_html += '<div class="modal fade pop-up-temp" id="'+modal_id+'">';
 	modal_html += '	<div class="modal-dialog" role="document">';
 	modal_html += '		<div class="modal-content">';
 	modal_html += '			<div class="modal-body">';
@@ -81,7 +81,7 @@ function imgModal_noImg(modal_id, title, content, button){
 
 function imgModal_noImg_notClose(modal_id, title, content){
 	var modal_html = '';
-	modal_html += '<div class="modal fade" id="'+modal_id+'" data-backdrop="static" data-keyboard="false">';
+	modal_html += '<div class="modal fade pop-up-temp" id="'+modal_id+'" data-backdrop="static" data-keyboard="false">';
 	modal_html += '	<div class="modal-dialog" role="document">';
 	modal_html += '		<div class="modal-content">';
 	modal_html += '			<div class="modal-body">';
