@@ -21,6 +21,9 @@ public class PurchaseHistoryPolicies{
 	private String claimFormUrl;
 	private String documentUploaded;
 	
+	private String productDescEn;
+	private String productDescZh;
+	
 	public String getPlanName() {
 		return planName;
 	}
@@ -134,6 +137,18 @@ public class PurchaseHistoryPolicies{
 	}
 	public void setPolicyNumberBase64(String policyNumberBase64) {
 		this.policyNumberBase64 = policyNumberBase64;
+	}
+	public String getProductDescEn() {
+		return productDescEn;
+	}
+	public void setProductDescEn(String productDescEn) {
+		this.productDescEn = productDescEn;
+	}
+	public String getProductDescZh() {
+		return productDescZh;
+	}
+	public void setProductDescZh(String productDescZh) {
+		this.productDescZh = productDescZh;
 	}
 	
 	
