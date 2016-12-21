@@ -316,8 +316,8 @@
                 	</div>
 
 					<%-- Sony --%>
-                	<hr class="partner_hr"/>
-                    <%-- <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
+                	<%--<hr class="partner_hr"/>
+                     <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image--sony partner_image" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png"/>
                         </div>
