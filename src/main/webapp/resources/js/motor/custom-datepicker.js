@@ -49,7 +49,7 @@ $(document).ready(function () {
 
     if($('#expiry-datepicker').length){
     	var now = new Date(),
-        min = new Date(now.getFullYear()-1, now.getMonth(), now.getDate()-1),
+        min = new Date(now.getFullYear()-1, now.getMonth(), now.getDate()),
         max = new Date(now.getFullYear(), now.getMonth(), now.getDate()-1);
 
         var dob_end_date = new Date();

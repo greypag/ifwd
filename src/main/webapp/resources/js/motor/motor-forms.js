@@ -157,6 +157,7 @@ $(document).ready(function(){
 		},
         onChange: function(value){
 			
+			$("#mortgageBank-selectized").val(value);
 			if(value=="OTHER")
 			{	
 				$("#bankNameHandle").removeClass("hidden");
@@ -165,6 +166,7 @@ $(document).ready(function(){
 				$('#motor_registerForm').validator('update');
 			}else 
 			{
+				
 				$("#bankNameHandle").addClass("hidden");
 				$('#bankName').val("");
 				$("input[name=bankName]").prop('required',false);

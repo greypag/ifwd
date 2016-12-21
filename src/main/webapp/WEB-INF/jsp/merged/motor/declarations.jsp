@@ -106,13 +106,13 @@ var nextPage = "${nextPageFlow}";
 		                                    <div class="form-group">
 	                                            <div class="help-block-wrap">
 	                                        <div class="radio text-center a1yes">
-	                                            <input type="radio" name="answer1" id="a1yes" value="true">
+	                                            <input type="radio" name="answer1" id="a1yes" value="true" required data-required-error='<fmt:message key="motor.error.msg.declarationq.error.empty" bundle="${motorMsg}" />'>
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center a1no">
-	                                            <input type="radio" name="answer1" id="a1no" value="false">
+	                                            <input type="radio" name="answer1" id="a1no" value="false" required data-required-error='<fmt:message key="motor.error.msg.declarationq.error.empty" bundle="${motorMsg}" />'>
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
@@ -141,13 +141,13 @@ var nextPage = "${nextPageFlow}";
 		                                    <div class="form-group">
 	                                            <div class="help-block-wrap">
 	                                        <div class="radio text-center a2yes">
-	                                            <input type="radio" name="answer2" id="a2yes" value="true">
+	                                            <input type="radio" name="answer2" id="a2yes" value="true" required data-required-error='<fmt:message key="motor.error.msg.declarationq.error.empty" bundle="${motorMsg}" />'>
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center a2no">
-	                                            <input type="radio" name="answer2" id="a2no" value="false">
+	                                            <input type="radio" name="answer2" id="a2no" value="false" required data-required-error='<fmt:message key="motor.error.msg.declarationq.error.empty" bundle="${motorMsg}" />'>
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
@@ -176,13 +176,13 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
                                             <div class="help-block-wrap">
 	                                        <div class="radio text-center a3yes">
-	                                            <input type="radio" name="answer3" id="a3yes" value="true">
+	                                            <input type="radio" name="answer3" id="a3yes" value="true" required data-required-error='<fmt:message key="motor.error.msg.declarationq.error.empty" bundle="${motorMsg}" />'>
 	                                            <label class="" for="yes">
 	                                                <span class=""><fmt:message key="motor.button.yes" bundle="${motorMsg}" /></span>
 	                                            </label>
 	                                        </div>
 	                                        <div class="radio text-center a3no">
-	                                            <input type="radio" name="answer3" id="a3no" value="false">
+	                                            <input type="radio" name="answer3" id="a3no" value="false" required data-required-error='<fmt:message key="motor.error.msg.declarationq.error.empty" bundle="${motorMsg}" />'> 
 	                                            <label class="" for="no">
 	                                                <span class=""><fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
 	                                            </label>
@@ -796,9 +796,9 @@ $(document).ready(function(){
 				         "declarationNo":"q3"		
 				      }		
 				   ],		
-				   "psNoDM":$('input[name=psNoDM]').val(),		
-				   "psNoProvidePersonalData":$('input[name=psNoProvidePersonalData]').val(),		
-				   "psPICS":$('input[name=psPICS]').val()	
+				   "psNoDM":true,//$('input[name=psNoDM]').val(),		
+				   "psNoProvidePersonalData":true,//$('input[name=psNoProvidePersonalData]').val(),		
+				   "psPICS":true,//$('input[name=psPICS]').val()	
 		   			};
 			console.dir(submitData);
 		

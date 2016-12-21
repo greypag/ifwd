@@ -160,7 +160,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="flat" maxlength="10" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="flat">
+	                                                <input type="text" name="flat" maxlength="10" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="flat"  data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.flat" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -171,7 +171,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap"> 
-	                                                <input type="text" name="floor" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="floor">
+	                                                <input type="text" name="floor" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="floor"  data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.floor" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -182,7 +182,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap"> 
-	                                                <input type="text" name="block" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="block" >
+	                                                <input type="text" name="block" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="block" data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.block" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -194,7 +194,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="building" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="building" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="building" id="building" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="building" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.building" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -205,7 +205,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="estate" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="estate" required>
+	                                                <input type="text" name="estate" id="estate" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="estate" required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.estate" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -217,7 +217,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" >
+	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -228,7 +228,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input">
+	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetname" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -485,7 +485,8 @@ function SaveAndExit()
 		
 		 var submitData = {
 				    "policyId": quote.policyId,		
-				   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
+				   	"policyStartDate":$('input[name=policy-datepicker]').val(),
+					"policyEndDate":$('.policy-end-date').html(),
 				  	"applicant": {		
 				  	"contactNo": $('input[name=mobileno]').val(),		
 				  	"correspondenceAddress": {    		
@@ -555,6 +556,31 @@ function checkHKID(value, validator, $field) {
 }
 
 $(document).ready(function(){
+	$("#building").change(function(e) {
+		if($("#building").length > 0)
+		{
+			$("#estate").prop('required',false);
+			$('#driverDetails').validator('update'); 
+		}else if($("#streetno").length == 0)
+		{
+			$("#estate").prop('required',true);
+			$('#driverDetails').validator('update'); 
+		}
+			
+	});
+	
+	$("#estate").change(function(e) {
+		if($("#estate").length > 0)
+		{
+			$("#building").prop('required',false);
+			$('#driverDetails').validator('update'); 
+		}else if($("#streetno").length == 0)
+		{
+			$("#building").prop('required',true);
+			$('#driverDetails').validator('update'); 
+		}
+	});
+	
 	/*custom validate for HKID*/
 	   $('#driverDetails').validator({
 		   custom: {
@@ -695,7 +721,8 @@ $(document).ready(function(){
 		if (!e.isDefaultPrevented()) {
 		   var submitData = {
 				    "policyId": quote.policyId,		
-				   	"policyStartDate":$('input[name=policy-datepicker]').val(),		
+				   	"policyStartDate":$('input[name=policy-datepicker]').val(),
+				   	"policyEndDate":$('.policy-end-date').html(),
 				  	"applicant": {		
 				  	"contactNo": $('input[name=mobileno]').val(),		
 				  	"correspondenceAddress": {    		

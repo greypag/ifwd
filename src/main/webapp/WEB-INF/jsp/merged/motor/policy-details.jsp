@@ -149,7 +149,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="checkbox">
 	                                            <div class="form-group">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="term" name="term" value="true" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' required>
+	                                                    <input checked type="checkbox" id="term" name="term" value="true" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' required>
 	                                                    <label><small>
 	                                                            <fmt:message key="motor.policydetails.driver.validlicense" bundle="${motorMsg}" /></small>
 	                                                    </label>
@@ -211,10 +211,11 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                    <input type="text" name="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" >
+	                                                    <input type="text" name="d2dob" id="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' >
+	                                                    <span style="display:none"><input type="text" name="d2dob" id="d2dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
-	                                                    <div class="help-block with-errors"></div>
-	                                                </div>
+	                                                  </div>
+	                                                  <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -222,7 +223,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d2id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d2id" data-equals="hkid error" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -297,10 +298,12 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
+	                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <span style="display:none"><input type="text" name="d3dob" id="d3dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
+	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
-	                                                    <div class="help-block with-errors"></div>
-	                                                </div>
+										                 </div>                                   
+										                 <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -308,7 +311,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d3id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d3id" data-equals="hkid error" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -383,10 +386,12 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
+	                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <span style="display:none"><input type="text" name="d3dob" id="d3dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
+	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
+	                                                    </div>
 	                                                    <div class="help-block with-errors"></div>
-	                                                </div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -394,7 +399,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d4id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d4id" data-equals="hkid error" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -469,18 +474,21 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
-	                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input"  >
+	                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <span style="display:none"><input type="text" name="d3dob" id="d3dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
+	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
+	                                                    </div>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
-	                                            </div>
+	                                            
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d5id" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d5id" data-equals="hkid error" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -765,6 +773,7 @@ function SaveAndExit()
 		   var submitData = { 		
 				   "policyId": quote.policyId,
 				   "policyStartDate": quote.policyStartDate,
+				   "policyEndDate":  quote.policyEndDate,	
 				   "driver": [		
 				   {		
 				     "dateOfBirth": $('input[name=driverDob]').val(),		
@@ -879,7 +888,19 @@ $(document).ready(function(){
 		   disable: false
 	   });
 	   /*custom validate for HKID*/
-	
+	$("#d2dob").change(function(){
+		$("#d2dob-hidden").prop('required',false);
+	});
+	$("#d3dob").change(function(){
+		$("#d3dob-hidden").prop('required',false);
+	});
+	$("#d4dob").change(function(){
+		$("#d4dob-hidden").prop('required',false);
+	});
+	$("#d5dob").change(function(){
+		$("#d5dob-hidden").prop('required',false);
+	});
+	   
 	var term = $('#term');
 	var d2term = $('#d2term');
 	var d3term = $('#d3term');
@@ -1052,6 +1073,7 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
+        	$("#occupation-selectized").val(value);
         }
     });
 	$motor_d2occupation = $('#d2occupation').selectize({
@@ -1093,6 +1115,7 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
+        	$("#d2occupation-selectized").val(value);
         }
     });
 	$motor_d3occupation = $('#d3occupation').selectize({
@@ -1134,6 +1157,7 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
+        	$("#d3occupation-selectized").val(value);
         }
     });
 	$motor_d4occupation = $('#d4occupation').selectize({
@@ -1175,6 +1199,7 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
+        	$("#d4occupation-selectized").val(value);
         }
     });
 	$motor_d5occupation = $('#d5occupation').selectize({
@@ -1202,20 +1227,17 @@ $(document).ready(function(){
                     	});
 						console.dir(newres);
                               callback(newres);  
-                              //$.each(res, function(i, item) {
-      							//if(getUrlParameter("edit")=="yes")
-      							{
-      								//if(item.desc == quote.driver[4].occupation)
-      								if(quote.driver.length > 4)
-      								{
-      									$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);	
-      								}
-      							}
-      						//});	
+                              //if(item.desc == quote.driver[4].occupation)
+      						  if(quote.driver.length > 4)
+      					      {
+      							$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);	
+      					      }
+      								
                     }
             });
         },
         onChange: function(value){
+        	$("#d5occupation-selectized").val(value);
         }
     });
 	 if (current == totalDriver) {
@@ -1232,22 +1254,21 @@ $(document).ready(function(){
 				$('.added-driver').eq(current).find('input').prop('required',true);
 				$('.added-driver').eq(current).find('.selectize-input > input').prop('required',false);
 				$('.added-driver').eq(current).find('input').val(''); 
+			
 				
-				if(current == 1)
-					$("#d2occupation-selectized,#d2dob").prop('required',true);
-				if(current == 2)
-					$("#d3occupation-selectized,#d3dob").prop('required',true);
-				if(current == 3)
-					$("#d4occupation-selectized,#d4dob").prop('required',true);
-				if(current == 4)
-					$("#d5occupation-selectized,#d5dob").prop('required',true);
-				
-				
-		  
 	            if(current > 0){
 	                $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
 	            }
 	            current += 1;
+	            
+	            if(current == 1)
+				    $("#d2occupation-selectized,#d2dob-hidden").prop('required',true);
+				if(current == 2)
+					$("#d3occupation-selectized,#d3dob-hidden").prop('required',true);
+				if(current == 3)
+					$("#d4occupation-selectized,#d4dob-hidden").prop('required',true);
+				if(current == 4)
+					$("#d5occupation-selectized,#d5dob-hidden").prop('required',true);
 				
 	            if (current == totalDriver) {
 	                $(this).addClass('hidden');
@@ -1269,22 +1290,22 @@ $(document).ready(function(){
 			if(current == 1)
 			{
 				$motor_d2occupation[0].selectize.clear();
-				$("#d2occupation-selectized").prop('required',false);
+				$("#d2occupation-selectized,#d2dob-hidden").prop('required',false);
 			}
 			if(current == 2)
 			{
 				$motor_d3occupation[0].selectize.clear();
-				$("#d3occupation-selectized").prop('required',false);
+				$("#d3occupation-selectized,#d3dob-hidden").prop('required',false);
 			}
 			if(current == 3)
 			{
 				$motor_d4occupation[0].selectize.clear();
-				$("#d4occupation-selectized").prop('required',false);
+				$("#d4occupation-selectized,#d4dob-hidden").prop('required',false);
 			}
 			if(current == 4)
 			{
 				$motor_d5occupation[0].selectize.clear();
-				$("#d5occupation-selectized").prop('required',false);
+				$("#d5occupation-selectized,#d5dob-hidden").prop('required',false);
 			}
 			
 	        $(this).parents('.added-driver').addClass('hidden');
@@ -1390,6 +1411,7 @@ $(document).ready(function(){
 		   var submitData = { 		
 				   "policyId": quote.policyId,		
 				   "policyStartDate": quote.policyStartDate,
+				   "policyEndDate":  quote.policyEndDate,	
 				   "driver": [		
 				   {		
 				     "dateOfBirth": $('input[name=driverDob]').val(),		

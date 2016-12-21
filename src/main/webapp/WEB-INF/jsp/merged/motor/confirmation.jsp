@@ -97,7 +97,7 @@ console.dir(jsonQuote);
         <div class="content">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
-                    <p>
+                    <!-- <p>
                         <fmt:message key="motor.confirmation.page.copy.part1" bundle="${motorMsg}" /><strong><fmt:message key="motor.confirmation.page.copy.part2" bundle="${motorMsg}" /></strong><fmt:message key="motor.confirmation.page.copy.part3" bundle="${motorMsg}" />
                         <br/>
                         <fmt:message key="motor.confirmation.covernote.copy.part1" bundle="${motorMsg}" /><a href='mailto:<fmt:message key="motor.confirmation.covernote.email" bundle="${motorMsg}" />'><fmt:message key="motor.confirmation.covernote.email" bundle="${motorMsg}" /></a><fmt:message key="motor.confirmation.covernote.copy.part2" bundle="${motorMsg}" />
@@ -107,6 +107,17 @@ console.dir(jsonQuote);
                         <h3 id="motorRef" class="heading-h3 color-orange ref-number">
                          
                         </h3>
+                    </p>-->
+                    <p>
+                        <fmt:message key="motor.uploadconfirm.page.copy.part1" bundle="${motorMsg}" /><strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong><fmt:message key="motor.uploadconfirm.page.copy.part3" bundle="${motorMsg}" />
+                        <br/>
+                        <fmt:message key="motor.uploadconfirm.covernote.copy.part1" bundle="${motorMsg}" />
+                        <span id="sendMail"></span>
+                        <fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" />
+                    </p>
+                    <p>
+                        <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
+                        <h3 id="motorRef" class="heading-h3 color-orange ref-number"></h3>
                     </p>
                 </div>
             </div>
@@ -136,8 +147,8 @@ console.dir(jsonQuote);
                 <div class="row">
                     <div class="col-sm-4 upload">
                         <div class="table-cell">
-                            <div class="thumbnail">
-                                <img src="../resources/images/motor/dummy.png" alt="" />
+                            <div class="">
+                                <img src="/fwdhk/resources/images/motor/HKID_upload_confirm.png" alt="" width="150" />
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
@@ -146,8 +157,8 @@ console.dir(jsonQuote);
                     </div>
                     <div class="col-sm-4 upload">
                         <div class="table-cell">
-                            <div class="thumbnail">
-                                <img src="../resources/images/motor/dummy.png" alt="" />
+                            <div class="">
+                                <img src="/fwdhk/resources/images/motor/Driver_License_upload_confirm.png" alt="" width="150"  />
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
@@ -156,8 +167,8 @@ console.dir(jsonQuote);
                     </div>
                     <div class="col-sm-4 upload">
                         <div class="table-cell">
-                            <div class="thumbnail">
-                                <img src="../resources/images/motor/dummy.png" alt="" />
+                            <div class="">
+                                <img src="/fwdhk/resources/images/motor/vehicle_registeration_Confirm_upload.png" alt="" width="150"  />
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
@@ -208,10 +219,10 @@ console.dir(jsonQuote);
                         <br />
                         <a class="" href="#"><fmt:message key="motor.confirmation.discount.downloadnow" bundle="${motorMsg}" /></a>
                         <br />
-                        <img src="https://dummyimage.com/100x50/000/fff.png" alt="" />
+                        <img src="/fwdhk/resources/images/motor/Apple_icon.png" alt="" />
                         &nbsp;
                         &nbsp;
-                        <img src="https://dummyimage.com/100x50/000/fff.png" alt="" />
+                        <img src="/fwdhk/resources/images/motor/Andriod_icon.png" alt="" />
                     </p>
                     <p class="small-print">
                         <br/>

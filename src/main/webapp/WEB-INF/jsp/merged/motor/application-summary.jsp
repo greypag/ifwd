@@ -1469,6 +1469,9 @@ function BackMe() {
 	var ApiPayment = new Array();
 	var enablePayment = true;
 	var clicked = false;
+	var motorlanguage=UILANGUAGE;
+	if(motorlanguage == "TC")
+		motorlanguage = "ZH";
 	$(document)
 			.ready(
 					function() {
@@ -1481,8 +1484,6 @@ function BackMe() {
 							$("#collapseOne").removeClass();
 							$("#collapseOne").addClass("panel-collapse collapse");
 						});
-						
-						
 						
 						$.ajax({
 							  type: "POST",
@@ -1672,6 +1673,7 @@ function BackMe() {
 						$(".email").html(quote.applicant.email);
 						$(".hkid").html(quote.applicant.hkid);
 						$(".policystart").html(quote.policyStartDate);
+						$(".policyend").html(quote.policyEndDate);
 						var address = quote.applicant.correspondenceAddress.flat
 								+ ", "
 								+ quote.applicant.correspondenceAddress.floor
@@ -1686,7 +1688,7 @@ function BackMe() {
 								+ ", "
 								+ quote.applicant.correspondenceAddress.estate
 								+ ", "
-								+ quote.applicant.correspondenceAddress.district
+								+ "<span class='add_dis'>"+quote.applicant.correspondenceAddress.district +"</span>"
 								+ ", "
 								+ quote.applicant.correspondenceAddress.hkKlNt;
 						$(".address").html(address);
@@ -1715,7 +1717,39 @@ function BackMe() {
 															
 				                    }
 				            });
-						
+						$.ajax({
+			                url: context + '/api/iMotor/list/districts',
+			                type: 'GET',
+			                dataType: 'json',
+			                error: function() {
+			                       
+			                    },
+			                    success: function(res) {
+
+			                    	$.each(res, function(i, item) {
+										
+											if(item.desc == quote.applicant.correspondenceAddress.district )
+											{
+												$(".add_dis").html(item.code);
+												
+												if(motorlanguage == "ZH")
+												{
+													console.log(item.remark);
+													if(item.remark == "NEW TERRITORIES")
+														$("#area").val("新界");
+													else if(item.remark == "HONG KONG")
+														$("#area").val("香港");
+													else if(item.remark == "KOWLOON")
+														$("#area").val("九龍");
+												}	
+												else
+													$("#area").val(item.remark);
+											}
+										
+									});
+			                    	
+			                    }
+						});
 						$.ajax({
 			                url: context + '/api/iMotor/list/occupations/v2',
 			                type: 'GET',

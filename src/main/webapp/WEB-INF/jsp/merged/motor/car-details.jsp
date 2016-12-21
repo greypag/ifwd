@@ -97,7 +97,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
+	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='/fwdhk/resources/images/motor/Car_details_registration_demo.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
 	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="17" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
@@ -111,7 +111,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
+	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='/fwdhk/resources/images/motor/Car_details_registration_demo.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
 	                                                <input type="number" name="cubicCapacity" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error='<fmt:message key="motor.error.msg.cc.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.cc.format" bundle="${motorMsg}" />'>
@@ -128,7 +128,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='http://dummyimage.com/600x200/fff/555.png' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="10" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="30" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="registedModel"><fmt:message key="motor.cardetails.car.model" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
