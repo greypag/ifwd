@@ -86,7 +86,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</a>--%>
 						<div class="fwd-container-limit hidden-sm hidden-xs">
                       		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
-              	        		
+              	        		<%--
 									<div class="img-banner-text savie-landing">
               	        			<!--h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2-->
               	        			<div id="clearfix-height-rp">
@@ -96,7 +96,7 @@ var home_url = "<%=request.getContextPath()%>";
               						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
               					</div>
               	        		</div>
-									
+									--%>
               	        	</form>
           	        	</div>
                   	</div>
@@ -104,7 +104,7 @@ var home_url = "<%=request.getContextPath()%>";
                 <div class="savie_mobile_middle_buttons hidden-lg hidden-md">
                     <div class="fwd-container-limit">
                         <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
-                            
+                            <%--
 									 <div class="img-banner-text savie-landing">
                                 <!--h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2-->
                                 <div id="clearfix-height-rp">
@@ -114,7 +114,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
                             </div>
                             </div>
-									 
+									 --%>
                         </form>
                     </div>
                 </div>
@@ -879,11 +879,11 @@ var home_url = "<%=request.getContextPath()%>";
 				//$(".fna-carousel .carousel-inner").swipe("disable");
 				
 				/* generate non-close-modal */
-				// var modal_id = 'non-close-modal';
-				// var title = '<fmt:message key="savie.suspension.modal.title" bundle="${msg}" />';
-				// var content = '<fmt:message key="savie.suspension.modal.content" bundle="${msg}" />';
-				// imgModal_noImg_notClose(modal_id, title, content);
-				// $('#non-close-modal').modal('show');
+				var modal_id = 'non-close-modal';
+				var title = '<fmt:message key="savie.suspension.modal.title" bundle="${msg}" />';
+				var content = '<fmt:message key="savie.suspension.modal.content" bundle="${msg}" />';
+				imgModal_noImg_notClose(modal_id, title, content);
+				$('#non-close-modal').modal('show');
 			});
 			$("#one-off-button").click(function(){
 				$("#one-off-button").addClass('clicked-button');
