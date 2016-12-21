@@ -110,7 +110,8 @@ var currentPath = "<%=request.getContextPath()%>";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.fwdiscover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<%-- <li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.fwdiscover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li> --%>
+									<li><a href='<fmt:message key="footer.product.type3.link" bundle="${msg}" />'><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner.offer" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<fmt:message key="link.blog" bundle="${msg}" />" target="_blank"><fmt:message key="navbar.category3.group3.item3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>

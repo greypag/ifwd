@@ -146,7 +146,7 @@ if( isMotorMaintenance ){
 
 <% } else { %>
 
-if ( isChromeIOS ) { 
+if ( isChromeIOS ) {
 	contentIndexArr.push('ios_chrome');
 }
 
@@ -297,7 +297,8 @@ nBarConfig = {
                               <ul class="col-lg-12 col-md-12 pad-0">
                                   <li class="menu-link">
                                       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                      <a class="menu-link" href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a>
+									  <%-- <a class="menu-link" href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a> --%>
+									  <a class="menu-link" href='<fmt:message key="footer.product.type3.link" bundle="${msg}" />'><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a>
                                   </li>
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
@@ -445,7 +446,8 @@ nBarConfig = {
 				<li class="pad-0 col-sm-12 dropdown link-btn border-bottom link-grp fwd-header-navgation-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
 					<ul class="col-sm-12 dropdown-menu">
-						<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a></li>
+						<%--<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a></li>--%>
+						<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href='<fmt:message key="footer.product.type3.link" bundle="${msg}" />'><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a></li>
 						<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a></li>
 						<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<fmt:message key="link.blog" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a></li>
 					</ul>
