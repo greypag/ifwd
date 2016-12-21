@@ -913,7 +913,8 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 422, message = "Invalid Details"),
-			@ApiResponse(code = 404, message = "System cannot find the policy"),			
+			@ApiResponse(code = 404, message = "System cannot find the policy"),	
+			@ApiResponse(code = 410, message = "System cannot process Referral Case"),
 			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/saving/declarations"}, method = POST)
@@ -963,6 +964,10 @@ public class MotorCareController extends BaseController{
 					return motor_notFound(null);
 				}				
 			} else {
+				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "4")){
+					return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(getErrorCode(responseJsonObj.get("errMsgs").toString())));
+				} 
+				
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
 				return motor_error(null);
 			}
@@ -980,8 +985,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 422, message = "Invalid Input"),
-			@ApiResponse(code = 404, message = "System cannot find the record"),
-			@ApiResponse(code = 410, message = "System cannot process Referral Case"),
+			@ApiResponse(code = 404, message = "System cannot find the record"),			
 			@ApiResponse(code = 411, message = "There is a payment is working in process"),
 			@ApiResponse(code = 412, message = "System asked for login"),
 			@ApiResponse(code = 413, message = "The Premium is settled"),	
