@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -446,7 +447,11 @@ public class UserController {
 				String amountAsOfDate = (String)jo.get(amountAsOfDateKey);
 				if(amount!=null && amountAsOfDate!=null){
 					p.setAmount(amount.toString());
-					p.setAmountAsOfDate(amountAsOfDate);
+					String formatedAmountAsOfDate = amountAsOfDate;
+					try {
+						formatedAmountAsOfDate = (new SimpleDateFormat("dd-MM-yyyy")).format((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse(amountAsOfDate));
+					} catch (Exception e) {}
+					p.setAmountAsOfDate(formatedAmountAsOfDate);
 				}
 //				logger.debug(methodName+" "+policyNo+"/"+amount+"/"+amountAsOfDate);
 			}
@@ -460,7 +465,11 @@ public class UserController {
 				String amountAsOfDate = (String)jo.get(amountAsOfDateKey);
 				if(amount!=null && amountAsOfDate!=null){
 					p.setAmount(amount.toString());
-					p.setAmountAsOfDate(amountAsOfDate);
+					String formatedAmountAsOfDate = amountAsOfDate;
+					try {
+						formatedAmountAsOfDate = (new SimpleDateFormat("dd-MM-yyyy")).format((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse(amountAsOfDate));
+					} catch (Exception e) {}
+					p.setAmountAsOfDate(formatedAmountAsOfDate);
 				}
 //				logger.debug(methodName+" "+policyNo+"/"+amount+"/"+amountAsOfDate);
 			}
