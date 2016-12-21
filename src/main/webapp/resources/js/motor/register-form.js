@@ -110,6 +110,7 @@ $(document).ready(function(){
 				}
 			}
 		};
+		
 			{
 				$(".switch-light").removeClass("orange");
 				if(state){

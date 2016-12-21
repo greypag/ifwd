@@ -161,8 +161,8 @@ var nextPage = "${nextPageFlow}";
                     <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
                             <div class="panel-body text-center">
-                                <div class="thumbnail">
-                                    <img src="../resources/images/motor/dummy.png" alt="" />
+                                <div class="">
+                                     <img src="/fwdhk/resources/images/motor/Driver_License_upload_confirm.png" alt="" width="150" />
                                 </div>
                                 <h4 class="title">
                                     <fmt:message key="motor.docupload.upload.1.copy" bundle="${motorMsg}" />
@@ -189,8 +189,8 @@ var nextPage = "${nextPageFlow}";
                     <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
                             <div class="panel-body text-center">
-                                <div class="thumbnail">
-                                    <img src="../resources/images/motor/dummy.png" alt="" />
+                                <div class="">
+                                   <img src="/fwdhk/resources/images/motor/vehicle_registeration_Confirm_upload.png" alt="" width="150"  />
                                 </div>
                                 <h4 class="title">
                                     <fmt:message key="motor.docupload.upload.2.copy" bundle="${motorMsg}" />
@@ -216,8 +216,8 @@ var nextPage = "${nextPageFlow}";
                     <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
                             <div class="panel-body text-center">
-                                <div class="thumbnail">
-                                    <img src="../resources/images/motor/dummy.png" alt="" />
+                                <div class="">
+                                   <img src="/fwdhk/resources/images/motor/HKID_upload_confirm.png" alt="" width="150"  />
                                 </div>
                                 <h4 class="title">
                                     <fmt:message key="motor.docupload.upload.3.copy" bundle="${motorMsg}" />

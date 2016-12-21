@@ -478,6 +478,17 @@ $(document).ready(function(){
 		$('input[name=cubicCapacity]').val(quote.carDetail.engineCapacity);
 		$('input[name=registedModel]').val(quote.carDetail.modelDesc);
 		$("#bankNameHandle").addClass("hidden");
+		/*if(quote.carDetail.bankMortgage ==false)
+			$('[name="bankMortgage"]').bootstrapSwitch('state',false);
+		else
+		{	
+			$('[name="bankMortgage"]').bootstrapSwitch('state',true);
+			$mortgageBank[0].selectize.setValue("OTHER");
+			$('#motor_registerForm').validator('update');
+			$("input[name=bankName]").prop('required',false);
+			$("#bankNameHandle").removeClass("hidden");
+			$('#bankName').val(quote.carDetail.bankMortgageName);
+		}*/
 	}
     else
    	 if($('[name="mortgageBank"]').val()!="others")

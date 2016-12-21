@@ -235,7 +235,7 @@ console.dir(jsonQuote);
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="display:none">
         <div class="row bottom">
             <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <h3><fmt:message key="motor.confirmation.share.title" bundle="${motorMsg}" /></h3>

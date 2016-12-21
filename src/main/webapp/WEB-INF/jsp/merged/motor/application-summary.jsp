@@ -318,11 +318,11 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="carmodeldocument"></span>
 								</div>
-								<div class="col-xs-6 text-left odd carbankmortgageField">
-									<span><fmt:message key="motor.summary.cardetails.other"
+								<div class="col-xs-6 text-left odd carbankmortgageBox" style="display:none">
+									<span class="carbankmortgageOther"><fmt:message key="motor.summary.cardetails.other"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right odd carbankmortgageField">
+								<div class="col-xs-6 text-right odd carbankmortgageBox" style="display:none">
 									<span class="carotherbankmortgage"></span>
 								</div>
 							</div>
@@ -336,15 +336,15 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right odd">
 									<span class="carcubic"></span>
 								</div>
-								<div class="col-xs-6 text-left even">
-									<span class=" carbankmortgageField"><fmt:message
+								<div class="col-xs-6 text-left even carbankmortgageBox">
+									<span class=" carbankmortgageNormal"><fmt:message
 											key="motor.summary.cardetails.mortgage" bundle="${motorMsg}" /></span>
 								</div>
 								<div class="col-xs-6 text-right even">
 									<span class="carbankmortgage carbankmortgageField"></span>
 								</div>
-								<div class="col-xs-6 text-left odd hidden-xs carbankmortgageField"></div>
-								<div class="col-xs-6 text-right odd hidden-xs carbankmortgageField"></div>
+								<div class="col-xs-6 text-left odd hidden-xs carbankmortgageBox" style="display:none"></div>
+								<div class="col-xs-6 text-right odd hidden-xs carbankmortgageBox" style="display:none"></div>
 							</div>
 						</div>
 					</div>
@@ -1664,7 +1664,7 @@ function BackMe() {
 							
 					
 						if(quote.carDetail.bankMortgageName==null)
-							$(".carbankmortgageField").hide();
+							$(".carbankmortgageBox").hide();
 						
 						//applicant detail
 						$(".fullname").html(quote.applicant.name);
@@ -1708,15 +1708,20 @@ function BackMe() {
 				                        callback();
 				                    },
 				                    success: function(res) {
-
+										var checked=false;
 				                        $.each(res, function(i, item) {
 								
 											if(item.code == quote.carDetail.bankMortgageName)
-												$(".carbankmortgage").html(item.desc);
+											{	$(".carbankmortgage").html(item.desc);checked=true;}
 										});
-															
+										if(checked==false)
+										{	$(".carbankmortgageNormal").html($(".carbankmortgageOther").html());
+											$(".carbankmortgage").html(quote.carDetail.bankMortgageName)}
 				                    }
 				            });
+						  if(quote.carDetail.bankMortgage == false)
+							  $(".carbankmortgageBox").hide();
+						  
 						$.ajax({
 			                url: context + '/api/iMotor/list/districts',
 			                type: 'GET',

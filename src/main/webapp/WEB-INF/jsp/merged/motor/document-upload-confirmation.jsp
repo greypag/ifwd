@@ -133,10 +133,10 @@ var nextPage = "${nextPageFlow}";
                         <br />
                         <a class="" href="#"><fmt:message key="motor.uploadconfirm.discount.downloadnow" bundle="${motorMsg}" /></a>
                         <br />
-                        <img src="https://dummyimage.com/100x50/000/fff.png" alt="" />
+                        <img src="/fwdhk/resources/images/motor/Apple_icon.png" alt="" />
                         &nbsp;
                         &nbsp;
-                        <img src="https://dummyimage.com/100x50/000/fff.png" alt="" />
+                        <img src="/fwdhk/resources/images/motor/Andriod_icon.png" alt="" />
                     </p>
                     <p class="small-print">
                         <br/>
@@ -149,7 +149,7 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="display:none">
         <div class="row bottom">
             <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <h3><fmt:message key="motor.uploadconfirm.share.title" bundle="${motorMsg}" /></h3>
@@ -158,7 +158,7 @@ var nextPage = "${nextPageFlow}";
                         <input type="text" name="shareUrl" id="" value="https://i.fwd......." class="form-control" disabled/>
                     </div>
 
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2" >
                         <div class="social-link-wrapper">
                             <div class="social-link">
                                 <a id="fb-dialog-share" href="javascript:void(0);" onclick="return false;" target="_blank"><i class="fa fa-share-alt"></i></a>
