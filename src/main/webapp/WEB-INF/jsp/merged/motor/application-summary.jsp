@@ -1475,7 +1475,7 @@ function BackMe() {
 	$(document)
 			.ready(
 					function() {
-						
+						$('#loading-overlay').modal("show");
 						$("#headingOne").on("click",function(){
 							$("#collapseTwo").removeClass();
 							$("#collapseTwo").addClass("panel-collapse collapse");
@@ -1518,7 +1518,7 @@ function BackMe() {
 											var $form = $("<form id='quote-form' />");
 											$form
 													.attr("action",
-															"get-quote?plan=third&edit=yes");
+															"get-quote?plan="+quote.planCode+"&edit=yes");
 											$form.attr("method", "post");
 											var $quote = $("<input type='hidden' name='data' />");
 											$quote.attr("value", JSON
@@ -1851,6 +1851,7 @@ function BackMe() {
 								console.dir(data);
 								$('.price').html(
 										formatCurrency(data.amountDueAmount));
+								$('#loading-overlay').modal("hide");
 							},
 							error : function(error) {
 

@@ -126,8 +126,8 @@ var nextPage = "${nextPageFlow}";
                         <br />
                     </p>
                     <p>
-                        <h3><fmt:message key="motor.uploadconfirm.discount.original.copy" bundle="${motorMsg}" /> <strike><fmt:message key="motor.uploadconfirm.discount.original.amount" bundle="${motorMsg}" /></strike></h3>
-                        <h2 class="orange"><fmt:message key="motor.uploadconfirm.discount.save.copy" bundle="${motorMsg}" />400</h2>
+                        <h3><fmt:message key="motor.confirmation.discount.original.copy" bundle="${motorMsg}" /> <strike class="amountDueAmount"></strike></h3>
+                        <h2 class="orange"><fmt:message key="motor.confirmation.discount.save.copy" bundle="${motorMsg}" /><span class="amountSave"></span></h2>
                     </p>
                     <p>
                         <br />
@@ -149,12 +149,12 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
     </div>
-    <div class="container" style="display:none">
+    <div class="container">
         <div class="row bottom">
             <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <h3><fmt:message key="motor.uploadconfirm.share.title" bundle="${motorMsg}" /></h3>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2" style="display:none">
                         <input type="text" name="shareUrl" id="" value="https://i.fwd......." class="form-control" disabled/>
                     </div>
 
@@ -236,8 +236,12 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/landing.js"></script>
 <script type="text/javascript" charset="utf-8">
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+if(typeof quote.policyId == "undefined")
+	window.location="/fwdhk/en/motor-insurance/";
 
 $(document).ready(function(){
+	$(".amountDueAmount").html("$"+quote.amountDueAmount);
+	$(".amountSave").html((parseInt(quote.amountDueAmount)*0.3).toFixed(2));
 	$("#sendMail").html("<a href='mailto:"+quote.applicant.email+"'>"+quote.applicant.email+"</a>");
 	$(".ref-number").html(quote.refNumber);
 });

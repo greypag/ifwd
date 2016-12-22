@@ -184,7 +184,9 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                             </div>
                         </div>
-                        <label class="error-msg" id="vehicleReg-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.vehicle.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
+                        <div class="text-center">
+                        <label class="error-msg vehicleReg-dz-error-message" id="vehicleReg-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.vehicle.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
+                    	</div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
@@ -210,8 +212,9 @@ var nextPage = "${nextPageFlow}";
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <label class="error-msg" id="hkid-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.idcard.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
+                        </div><div class="text-center">
+                        <label class="error-msg hkid-dz-error-message" id="hkid-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.idcard.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
+                    	</div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
@@ -238,19 +241,22 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                             </div>
                         </div>
-                        <label class="error-msg" id="license-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.drive.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
+                            <div class="text-center">
+                       		 <label class="error-msg license-dz-error-message" id="license-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.drive.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
+                    		</div>
                     </div>
                 </div>
+                <!-- <div class="error-message error-msg-overall text-center" style="color:#a94442"></div>-->
             </div>
             
 	            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
 	                <div class="content text-center">
-	                    <button id="submitDoc" class="bdr-curve btn btn-primary nxt-btn disabled" style="white-space: initial;"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>
+	                    <button id="submitDoc" class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>
 	                </div>
 	            </div>
-	            <div class="col-sm-12 col-sm-10 col-sm-offset-1 text-center">
+	            <!-- <div class="col-sm-12 col-sm-10 col-sm-offset-1 text-center">
 					<div class="error-message error-msg-overall"></div>
-				</div>
+				</div>-->
             </form>
         </div>
     </div>
@@ -261,7 +267,9 @@ var total_vehicleReg_dz = 0;
 var total_hkid_dz = 0;
 var total_license_dz = 0;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):""%>');
-
+if(typeof quote.policyId == "undefined")
+	window.location="/fwdhk/en/motor-insurance/";
+	
     $(document).ready(function(){
     	$vehicleReg_dz = $('#vehicleReg-dz');
     	$hkid_dz = $('#hkid-dz');
@@ -276,8 +284,11 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 
     	function submit_enable(){
     		if(total_vehicleReg_dz > 0 && total_hkid_dz > 0 && total_license_dz >0)
+    		{	
     			$("#submitDoc").removeClass('disabled');
-    		else
+    			$(".error-msg-overall").html('');
+    		}
+    		/*else
     			$("#submitDoc").addClass('disabled');
     		
     		if(total_vehicleReg_dz > 1 )
@@ -285,7 +296,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
     		if(total_hkid_dz > 4 )
     			$("#submitDoc").addClass('disabled');
     		if(total_license_dz > 4 )
-    			$("#submitDoc").addClass('disabled');
+    			$("#submitDoc").addClass('disabled');*/
     	}
     	
     	if($vehicleReg_dz!=null && $hkid_dz!=null && $license_dz!=null){
@@ -417,15 +428,36 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
     	}
     	
     	 $('#submitDoc').click(function(e){
-             e.preventDefault();
-             var $form = $("<form id='quote-form' />");
-             $form.attr("action", "document-upload-confirmation");
-             $form.attr("method", "post");
-             var $quote = $("<input type='hidden' name='data' />");
-             $quote.attr("value", JSON.stringify(quote));
-             $form.append($quote);
-             $("body").append($form);
-             $('#quote-form').submit();  
+
+    		 if(total_vehicleReg_dz > 0 && total_hkid_dz > 0  && total_license_dz > 0)
+    		 {
+	             e.preventDefault();
+	             var $form = $("<form id='quote-form' />");
+	             $form.attr("action", "document-upload-confirmation");
+	             $form.attr("method", "post");
+	             var $quote = $("<input type='hidden' name='data' />");
+	             $quote.attr("value", JSON.stringify(quote));
+	             $form.append($quote);
+	             $("body").append($form);
+	             $('#quote-form').submit();  
+    		 }else
+    		 {
+    			 if(total_vehicleReg_dz ==0)
+    			 	response2div("Please select a file", "class", "vehicleReg-dz-error-message");
+    			 else
+    				response2div("", "class", "vehicleReg-dz-error-message");
+    			 
+    			 if(total_hkid_dz ==0)
+        			 response2div("Please select a file", "class", "hkid-dz-error-message");
+    			 else
+     				response2div("", "class", "hkid-dz-error-message");
+    			 
+    			 if(total_license_dz ==0)
+        			 response2div("Please select a file", "class", "license-dz-error-message");
+    			 else
+     				response2div("", "class", "license-dz-error-message");
+    			 return false;
+    		 }
              //checkForm();
     	 });
     	

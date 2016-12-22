@@ -212,7 +212,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 	                                                    <input type="text" name="d2dob" id="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' >
-	                                                    <span style="display:none"><input type="text" name="d2dob" id="d2dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
+	                                                    <span style="display:none"><input type="text" id="d2dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
 	                                                  </div>
 	                                                  <div class="help-block with-errors"></div>
@@ -298,8 +298,8 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                    <input type="text" name="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
-	                                                    <span style="display:none"><input type="text" name="d3dob" id="d3dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
+	                                                    <input type="text" name="d3dob" id="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <span style="display:none"><input type="text" id="d3dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
 										                 </div>                                   
@@ -386,8 +386,8 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                    <input type="text" name="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
-	                                                    <span style="display:none"><input type="text" name="d3dob" id="d3dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
+	                                                    <input type="text" name="d4dob" id="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <span style="display:none"><input type="text" id="d4dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
 	                                                    </div>
@@ -474,8 +474,8 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
-	                                                    <input type="text" name="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
-	                                                    <span style="display:none"><input type="text" name="d3dob" id="d3dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
+	                                                    <input type="text" name="d5dob" id="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <span style="display:none"><input type="text" id="d5dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
 	                                                    </div>
@@ -900,7 +900,7 @@ $(document).ready(function(){
 	$("#d5dob").change(function(){
 		$("#d5dob-hidden").prop('required',false);
 	});
-	   
+	
 	var term = $('#term');
 	var d2term = $('#d2term');
 	var d3term = $('#d3term');
@@ -940,7 +940,8 @@ $(document).ready(function(){
 	    if(quote.driver.length > 1){
 	    	current =1;
 	    	$('#driver2').removeClass('hidden');
-		    $('input[name=d2dob]').val(quote.driver[1].dateOfBirth);	
+		    $('input[name=d2dob]').val(quote.driver[1].dateOfBirth);
+		    $('#d2dob-hidden').val(quote.driver[1].dateOfBirth);
 		    $('input[name=d2id]').val(quote.driver[1].hkid);
 		    $('input[name=d2name]').val(quote.driver[1].name);	
 		    $('input[name=d2term]').attr("checked",quote.driver[1].validAgeGroup);
@@ -952,7 +953,8 @@ $(document).ready(function(){
 	    if(quote.driver.length > 2){
 	    	current =2;
 	    	$('#driver3').removeClass('hidden');
-			$('input[name=d3dob]').val(quote.driver[2].dateOfBirth);	
+			$('input[name=d3dob]').val(quote.driver[2].dateOfBirth);
+			$('#d3dob-hidden').val(quote.driver[2].dateOfBirth);
 			$('input[name=d3id]').val(quote.driver[2].hkid);	
 			$('input[name=d3name]').val(quote.driver[2].name);	
 			$('input[name=d3term]').attr("checked",quote.driver[2].validAgeGroup);	
@@ -964,7 +966,8 @@ $(document).ready(function(){
 	    if(quote.driver.length > 3){
 	    	current =3;
 	    	$('#driver4').removeClass('hidden');
-			$('input[name=d4dob]').val(quote.driver[3].dateOfBirth);		
+			$('input[name=d4dob]').val(quote.driver[3].dateOfBirth);
+			$('#d4dob-hidden').val(quote.driver[3].dateOfBirth);
 			$('input[name=d4id]').val(quote.driver[3].hkid);	
 			$('input[name=d4name]').val(quote.driver[3].name);
 			$('input[name=d4term]').attr("checked",quote.driver[3].validAgeGroup);
@@ -976,7 +979,8 @@ $(document).ready(function(){
 	    if(quote.driver.length > 4){
 	    	current =4;
 	    	$('#driver5').removeClass('hidden');
-			$('input[name=d5dob]').val(quote.driver[4].dateOfBirth);			
+			$('input[name=d5dob]').val(quote.driver[4].dateOfBirth);
+			$('#d5dob-hidden').val(quote.driver[4].dateOfBirth);
 			$('input[name=d5id]').val(quote.driver[4].hkid);		
 			$('input[name=d5name]').val(quote.driver[4].name);
 			$('input[name=d5term]').attr("checked",quote.driver[4].validAgeGroup);

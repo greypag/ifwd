@@ -10,9 +10,12 @@ var language = "${language}";
 var nextPage = "${nextPageFlow}";
 var quote = '${quote}';
 //var quote = '{"addOnTppdAmt":"309","addOnPaBenefit":"500000","discountAmount":null,"theClubMemberNum":null,"addOnPaAmt":"100","personalAccidentAmount":null,"expDateOfPreviousInsurance":null,"motorCareDeclaration":[{"declarationDesc":null,"langCode":null,"declarationNo":"q1","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q2","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q3","declarationAns":false}],"tPPDExcess":null,"amtFromThirdPartyToCompGold":null,"compInsuranceAmount":null,"regNoofPreviousPolicy":null,"psNoProvidePersonalData":true,"youngDriverExcess":null,"inexperiencedDriverExcess":null,"promoCode":null,"id":0,"addOnTppdIncrease":"5000000","carDetail":{"yearOfManufacture":"2016","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null,"electricCar":false,"engineCapacity":2599,"chassisNumber":"1HGCM82633A004352","estimatedValue":200000,"typeOfBody":null,"alarm":null,"makeCode":"BMW","model":"120I","modelDesc":"MODELZ","id":null,"carGroup":null},"thirdPartyPropertyDamage":false,"theftExcess":null,"amountDueAmount":"1614.53","previousPolicyNo":null,"unnamedDriverExcess":null,"compPlan":null,"subTotalAmount":null,"amtFromThirdPartyToCompSilver":null,"ownDamageExcess":null,"coverNoteNum":"CVVPE16-000257","parkingExcess":null,"policyStartDate":"2016-11-25T10:54:02","planCode":"Third","applicant":{"occupation":"A1","name":null,"dateOfBirth":null,"ncb":40.0,"validAgeGroup":true,"hkid":null,"email":null,"driveMoreThanTwo":true,"contactNo":null,"correspondenceAddress":null},"personalAccident":false,"policyId":"26655406","driver":[{"occupation":"A1","name":null,"dateOfBirth":null,"ncb":null,"validAgeGroup":true,"hkid":null,"email":null,"driveMoreThanTwo":true,"contactNo":null}],"psPICS":false,"refNumber":"QFVPE16-001608","psNoDM":true,"grossPremium":null,"nameOfPreviousInusrancer":null}';
-
-var jsonQuote = jQuery.parseJSON('${quote}');
-console.dir(jsonQuote);
+var jsonQuote ="";
+try{
+	jsonQuote = jQuery.parseJSON('${quote}');
+}catch(err) {
+	//window.location="/fwdhk/en/motor-insurance/";
+}
 </script>
 
 <!--Body-->
@@ -212,8 +215,8 @@ console.dir(jsonQuote);
                         <br />
                     </p>
                     <p>
-                        <h3><fmt:message key="motor.confirmation.discount.original.copy" bundle="${motorMsg}" /> <strike><fmt:message key="motor.confirmation.discount.original.amount" bundle="${motorMsg}" /></strike></h3>
-                        <h2 class="orange"><fmt:message key="motor.confirmation.discount.save.copy" bundle="${motorMsg}" />400</h2>
+                        <h3><fmt:message key="motor.confirmation.discount.original.copy" bundle="${motorMsg}" /> <strike class="amountDueAmount"></strike></h3>
+                        <h2 class="orange"><fmt:message key="motor.confirmation.discount.save.copy" bundle="${motorMsg}" /><span class="amountSave"></span></h2>
                     </p>
                     <p>
                         <br />
@@ -235,12 +238,12 @@ console.dir(jsonQuote);
             </div>
         </div>
     </div>
-    <div class="container" style="display:none">
+    <div class="container">
         <div class="row bottom">
             <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <h3><fmt:message key="motor.confirmation.share.title" bundle="${motorMsg}" /></h3>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2" style="display:none">
                         <input type="text" name="shareUrl" id="" value="https://i.fwd......." class="form-control" disabled/>
                     </div>
 
@@ -324,6 +327,11 @@ console.dir(jsonQuote);
 //var quote = jQuery.parseJSON('{"policyId":"26336399","refNumber":"QFVPE16-001548","applicant":{"ncb":"40","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true,"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"ddd","district":"鴨脷洲","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"23-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"chan chan chan"},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2599","model":"120I","yearOfManufacture":"2016","bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","modelDesc":"MODELZ"},"driver":[{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"a1234567","name":"chan chan chan","occupation":"銀行/金融/保險/投資","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"b1234567","name":"bb bb bb","occupation":"會計","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"c1234567","name":"ccc ccc ccc","occupation":"廣告","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"d1234567","name":"dd dd  ddd","occupation":"演藝娛樂界 (例如：演藝人員/化妝師/髪型師等等)","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"e1234567","name":"ee ee ee","occupation":"航空業","validAgeGroup":"true"}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false,"policyStartDate":"23-11-2016","nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"11233588","expDateOfPreviousInsurance":"27-05-2016","previousPolicyNo":"P122345","motorCareDeclaration":[{"declarationAns":true,"declarationNo":"q1"},{"declarationAns":true,"declarationNo":"q2"},{"declarationAns":true,"declarationNo":"q3"}],"psNoDM":"true","psNoProvidePersonalData":"true","psPICS":"true"}');
 
 $(document).ready(function(){
+	//jsonQuote = jQuery.parseJSON('{"addOnTppdAmt":"309","addOnPaBenefit":"500000","discountAmount":null,"theClubMemberNum":null,"addOnPaAmt":"100","personalAccidentAmount":null,"expDateOfPreviousInsurance":"21-12-2016","motorCareDeclaration":[{"declarationDesc":null,"langCode":null,"declarationNo":"q1","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q2","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q3","declarationAns":false}],"tPPDExcess":null,"amtFromThirdPartyToCompGold":null,"compInsuranceAmount":null,"regNoofPreviousPolicy":"3321321","psNoProvidePersonalData":true,"youngDriverExcess":null,"inexperiencedDriverExcess":null,"promoCode":null,"id":0,"addOnTppdIncrease":"5000000","carDetail":{"yearOfManufacture":"2015","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null,"electricCar":false,"engineCapacity":2599,"chassisNumber":"1HGCM82633A004352","estimatedValue":200000,"typeOfBody":null,"alarm":null,"makeCode":"BMW","model":"120I","modelDesc":"MODELZ","id":null,"carGroup":null},"thirdPartyPropertyDamage":true,"theftExcess":null,"amountDueAmount":"4510.59","previousPolicyNo":"3321","unnamedDriverExcess":null,"compPlan":"Gold","subTotalAmount":null,"amtFromThirdPartyToCompSilver":null,"ownDamageExcess":null,"coverNoteNum":"CVVPE16-000366","parkingExcess":null,"policyEndDate":"21-12-2017","policyStartDate":"22-12-2016","planCode":"Comp","applicant":{"occupation":"A1","name":"chan chan chan","dateOfBirth":"22-12-1991","ncb":40.0,"validAgeGroup":true,"hkid":"a1234563","email":"kevin.chan@isobar.com","driveMoreThanTwo":true,"contactNo":"28515450","correspondenceAddress":{"streetName":"dsdsadsa","streetNo":"33213","hkKlNt":"??","addressType":null,"flat":"aa","district":"TIN HAU","estate":"ddsa","block":"cccc","floor":"bbbb","building":"ddd"}},"personalAccident":true,"policyId":"27034429","driver":[{"occupation":"A1","name":"chan chan chan","dateOfBirth":"22-12-1991","ncb":null,"validAgeGroup":true,"hkid":"a1234563","email":null,"driveMoreThanTwo":true,"contactNo":null}],"psPICS":false,"psNoDM":true,"refNumber":"gOgQXchfS4B9UnUmSD1hnQ==","grossPremium":null,"nameOfPreviousInusrancer":"AXAChinaRegionInsuranceCompanyLimited","riderDiscountAmt":null}');
+	
+	$(".amountDueAmount").html("$"+jsonQuote.amountDueAmount);
+	
+	$(".amountSave").html((parseInt(jsonQuote.amountDueAmount)*0.3).toFixed(2));
 	$("#sendMail").html("<a href='mailto:"+jsonQuote.applicant.email+"'>"+jsonQuote.applicant.email+"</a>");
 	$(".ref-number").html(jsonQuote.coverNoteNum);
 	$("#uploadDoc").on('click',function(){

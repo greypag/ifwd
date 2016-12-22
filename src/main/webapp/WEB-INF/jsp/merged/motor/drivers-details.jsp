@@ -103,10 +103,11 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap calendar"> 
 	                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" required data-required-error='<fmt:message key="motor.error.msg.carowner.dob.empty" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.dob.empty" bundle="${motorMsg}" />'>
+	                                                <span style="display:none"><input type="text" id="driverDob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' required/></span>
 	                                                <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.driversdetails.driver.birthdate" bundle="${motorMsg}" /></label>
+	                                                 </div>
 	                                                <div class="help-block with-errors"></div>
-	                                            </div>
 	                                       </div>
 	                                    </div>
 	                                </div>
@@ -194,9 +195,9 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="building" id="building" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="building" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="building" id="building" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.building" bundle="${motorMsg}" /></label>
-	                                                <div class="help-block with-errors"></div>
+	                                                <div class="help-block with-errors building"></div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -205,9 +206,9 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="estate" id="estate" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="estate" required>
+	                                                <input type="text" name="estate" id="estate" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.estate" bundle="${motorMsg}" /></label>
-	                                                <div class="help-block with-errors"></div>
+	                                                <div class="help-block with-errors estate"></div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -556,26 +557,35 @@ function checkHKID(value, validator, $field) {
 }
 
 $(document).ready(function(){
-	$("#building").change(function(e) {
-		if($("#building").length > 0)
+	$("#driverDob").val('');
+	$("#driverDob").change(function(){
+		$("#driverDob-hidden").prop('required',false);
+	});
+	
+	$("#building").bind("change paste keyup", function() {
+		if($(this).val().length > 0)
 		{
 			$("#estate").prop('required',false);
+			$(".estate").html('');
 			$('#driverDetails').validator('update'); 
-		}else if($("#streetno").length == 0)
+		}else if($(this).val().length == 0)
 		{
 			$("#estate").prop('required',true);
+			$("#building").prop('required',true);
 			$('#driverDetails').validator('update'); 
 		}
 			
 	});
 	
-	$("#estate").change(function(e) {
-		if($("#estate").length > 0)
+	$("#estate").bind("change paste keyup", function() {
+		if($(this).val().length > 0)
 		{
 			$("#building").prop('required',false);
+			$(".building").html('');
 			$('#driverDetails').validator('update'); 
-		}else if($("#streetno").length == 0)
+		}else if($(this).val().length == 0)
 		{
+			$("#estate").prop('required',true);
 			$("#building").prop('required',true);
 			$('#driverDetails').validator('update'); 
 		}
@@ -615,6 +625,7 @@ $(document).ready(function(){
     {
 	    $('input[name=fullName]').val(quote.applicant.name);    
 		$('input[name=driverDob]').val(quote.applicant.dateOfBirth);
+		$('#driverDob-hidden').val(quote.applicant.dateOfBirth);
 		$('input[name=driverID]').val(quote.applicant.hkid);
 		$('input[name=mobileno]').val(quote.applicant.contactNo);
 		$('input[name=email]').val(quote.applicant.email);
