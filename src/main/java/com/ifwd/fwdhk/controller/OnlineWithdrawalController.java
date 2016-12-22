@@ -185,6 +185,7 @@ public class OnlineWithdrawalController extends BaseController{
 			                if(item.containsKey("msg")){
 			                	  item.put("warnMsg",item.get("msg"));
 								  item.remove("msg");
+								if(item.get("warnMsg")!=null && ((JSONArray) item.get("warnMsg")).size()>0){
 								msgObject=(JSONObject)((JSONArray) item.get("warnMsg")).get(0);
 								  if(msgObject.get("refCode")!=null){
 									String refCode = (String) msgObject.get("refCode");
@@ -195,6 +196,7 @@ public class OnlineWithdrawalController extends BaseController{
 								  msgObject.remove("resultCode");
 								  msgObject.remove("refCode");
 								}
+			                	}
 			            }  
 					}
 					if(responseJsonObj.get(key) instanceof JSONObject ){
