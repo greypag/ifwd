@@ -45,10 +45,10 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 				</div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
 					<ul class="nav nav-pills nav-stacked">
-						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
-						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
-						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
-						<li class="left-side-tab-menu e-wallet" id="e-wallet-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="e-wallet"></span><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#profile-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#insurance-plan-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#promo-offers-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu e-wallet" id="e-wallet-tab-link"><a href="#e-wallet-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="e-wallet"></span><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-9 right-side-content">

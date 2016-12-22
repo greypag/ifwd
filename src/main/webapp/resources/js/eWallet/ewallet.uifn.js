@@ -17,6 +17,8 @@ var eWalletCtr = {
 		logViewer.init();
 
 		this.tryDisplayLinkupSuccess();
+
+		this.initHashChange();
 	},
 	tryDisplayLinkupSuccess: function (){
 		var flag = this.getQueryStringByName("statusFlag");
@@ -30,6 +32,14 @@ var eWalletCtr = {
 		} else {
 			eWalletCtr.showGenericMsg("", msgCtr.linkup.tngLinkupFail);
 		}
+	},
+	initHashChange: function (){
+		window.addEventListener("hashchange", function(e) {
+
+			var targetTab = e.newURL.match(/(#[\w-]+)/g);
+			console.log(targetTab);
+			$(targetTab).trigger("click");
+		});
 	},
 	//Common Function Begin
 	langMapping: {
@@ -478,6 +488,7 @@ function WithdrawClass(){
 			var amount = parseInt(inputDom.val(), 10);
 			if(inputDom.val().length < 3 || amount < 500 || amount > 3000){
 				inputDom.addClass("ew_err_input");
+				eWalletCtr.showGenericMsg("", msgCtr.withdrawal.invalidAmount);
 				return;
 			}
 			that.amountWithdraw = amount;
@@ -940,6 +951,9 @@ var msgCtr = {
 		noMobileNum: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.noMobile"),
 		policyLocked: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyLocked"),
 		policyEmpty: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyEmpty"),
+	},
+	withdrawal:{
+		invalidAmount: getBundle(getBundleLanguage,"ewallet.msgctr.withdrawal.error.invalidAmount")
 	},
 	unlink: {
 		confirmMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.confirmmsg")
