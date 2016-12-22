@@ -286,7 +286,8 @@ var event_modifiedDOM = function(switchOption, action, fieldIdInfo) {
 var cb_hkidUniqueValidation = function(pageConfigInfo) {
     var formId          = pageConfigInfo.form[0].id;
     return {
-        'callback': function(value, validator, $field) {
+        'message': 'lkjfaklsdjfla'
+        , 'callback': function(value, validator, $field) {
             // Private function declars
             var _frequencyAnalysing = function(arrayElem, propInObj) {
                 var current         = null;
@@ -340,7 +341,8 @@ var cb_hkidUniqueValidation = function(pageConfigInfo) {
                     'message': getBundle(getBundleLanguage, 'duplicate_hkid_no.message') + ' [' + value.toUpperCase() + ']'
                     // OR getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
                 }
-                , 'passed': true
+                , 'validCurrentField_and_allFields_matched_numberOf_duplicatorTorlerance': true
+                , 'validCurrentField_but_allFields_notMatched_numberOf_duplicatorTorlerance': true
             };
             var $elem                   = $('.js__fv__input_hkid');
             var composedElem            = [];
@@ -365,7 +367,7 @@ var cb_hkidUniqueValidation = function(pageConfigInfo) {
                     var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
                 }
                 validator.updateStatus(formInfo_hkid.revalidateFieldName, validator.STATUS_VALID, 'callback');
-                indicator = 'passed';
+                indicator = 'validCurrentField_and_allFields_matched_numberOf_duplicatorTorlerance';
             } else {
                 var isFieldValueDuplicatedFound = false;
                 for (var i = 0; i < analysedElemGrp.length; i++) {
@@ -379,6 +381,8 @@ var cb_hkidUniqueValidation = function(pageConfigInfo) {
                     indicator = 'invalid';
                 } else if ( isFieldValueDuplicatedFound ) {
                     indicator = 'duplicated';
+                } else {
+                    indicator = 'validCurrentField_but_allFields_notMatched_numberOf_duplicatorTorlerance';
                 }
             }
             return resultConfig[indicator];
