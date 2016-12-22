@@ -899,7 +899,7 @@ function generate_common_validate_fields_member(form){
 			validators: {
 				/*callback: {
 					enabled: false,
-					message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
+					message: '<fmt:message key="member.registration.error.hkid.invalid" bundle="${msg}" />',
 					callback: function (value, validator) {
 						if(IsHKID(value)){
 							if(typeof getSavieReferralDiscount != 'function'){
@@ -918,10 +918,10 @@ function generate_common_validate_fields_member(form){
 				},
 				regexp: {
 					regexp: /^[a-zA-Z0-9\-]*$/,
-					message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
+					message: '<fmt:message key="member.registration.error.hkid.special.chars" bundle="${msg}" />'
 				},*/
 				notEmpty: {
-					message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
+					message: '<fmt:message key="member.registration.error.hkid.empty" bundle="${msg}" />'
 
 				},
 			}
@@ -1002,6 +1002,17 @@ function generate_validate(form,fields){
 					.formValidation('revalidateField', 'Hkid');
 			}
 		})
+		.on('input keyup', '[name="PolicyNumber"]', function() {
+			if ($(this).val().length >= 8 && $(this).val().length <= 14) {
+				$(form)
+					.formValidation('enableFieldValidators', 'PolicyNumber', true, 'regexp')
+					.formValidation('revalidateField', 'PolicyNumber');
+			}else{
+				$(form)
+					.formValidation('enableFieldValidators', 'PolicyNumber', false, 'regexp')
+					.formValidation('revalidateField', 'PolicyNumber');
+			}
+		})
         .on('err.validator.fv', function(e, data) {
             // $(e.target)    --> The field element
             // data.fv        --> The FormValidation instance
@@ -1027,15 +1038,17 @@ function bootstrapvalidate(){
 		container: form_1 + ' #errorEmptyPolicyNumberJoinUs',
 		validators: {
 			notEmpty: {
-				message: '<fmt:message key="error.policyno.empty" bundle="${msg}" />'
+				message: '<fmt:message key="member.registration.error.policyno.empty" bundle="${msg}" />'
 			},
 			stringLength: {
+				min: 8,
 				max: 14,
-				message: getBundle(getBundleLanguage, "error.policyno.length.message")
+				message: '<fmt:message key="member.registration.error.policyno.length.message" bundle="${msg}" />'
 			},
 			regexp:{
+				enabled: false,
 				regexp: /^[a-zA-Z0-9]*$/,
-				message: '<fmt:message key="error.policyno.special.chars" bundle="${msg}" />'
+				message: '<fmt:message key="member.registration.error.policyno.special.chars" bundle="${msg}" />'
 			}
 		}
 	};

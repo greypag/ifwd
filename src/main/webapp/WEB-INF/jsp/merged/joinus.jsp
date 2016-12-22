@@ -220,310 +220,6 @@
 		$("#errorDeclaration").html("");
 	});
 
-//--------------------------------------------------------------------------------------------------------------------
-//join us page validation (but not using)
-/*function validateJoinUsForm() {
-	var valid = true;
-
-	var fullName = $("#txtFullName").val();
-	var mobileNo = $("#txtMobileNo").val();
-	var emailId = $("#txtEmailId").val();
-	var userName = $("#txtUserName1").val();
-	var password = $("#txtPass1").val();
-	var confirmPassword = $("#txtConfPass").val();
-
-	document.getElementById("errorEmptyName").innerHTML = "";
-	document.getElementById("errorEmptyMob").innerHTML = "";
-	document.getElementById("errorEmptyEmailId").innerHTML= "";
-	document.getElementById("errorEmptyUName").innerHTML = "";
-	document.getElementById("errorJoinUsPassword").innerHTML = "";
-	document.getElementById("errorEmptyConfPass").innerHTML= "";
-	document.getElementById("chk1").innerHTML = "";
-	document.getElementById("chk2").innerHTML = "";
-
-	// FULL NAME VALIDATION
-	if (fullName.trim() == "") {
-		document.getElementById("errorEmptyName").innerHTML = getBundle(getBundleLanguage, "memeber.name.notNull.message"); // "Please enter your Name in English.";
-		$('#txtFullName').addClass('invalid-field');
-		valid = false;
-	} 
-	// Mobile Number Validation
-	if (mobileNo.trim() == "") {
-		document.getElementById("errorEmptyMob").innerHTML = getBundle(getBundleLanguage, "memeber.mobileNo.notNull.message"); // "Please enter your Mobile No.";
-		$('#txtMobileNo').addClass('invalid-field');
-		valid = false;
-	} else {
-		if (mobile_pattern.test(mobileNo) == false) {
-			document.getElementById("errorEmptyMob").innerHTML = getBundle(getBundleLanguage, "memeber.mobileNo.notValid.message"); // "Please enter an 8-digit Mobile No.";
-			$('#txtMobileNo').addClass('invalid-field');
-			valid = false;
-		}
-	}
-
-	// Email Address Validation
-	if (emailId.trim() == "") {
-		document.getElementById("errorEmptyEmailId").innerHTML = getBundle(getBundleLanguage, "memeber.email.notNull.message"); // "Please enter your Email Address.";
-		$('#txtEmailId').addClass('invalid-field');
-		valid = false;
-	} else {
-		if (emailreg.test(emailId) == false) {
-			document.getElementById("errorEmptyEmailId").innerHTML = getBundle(getBundleLanguage, "memeber.email.notValid.message"); // "Please enter a valid Email Address.";
-			$('#txtEmailId').addClass('invalid-field');
-			valid = false;
-		}
-	}
-	var reg_user = /^[a-zA-Z0-9!??@%&??)*\+,.\/;\[\\\]\^_`{|}~-]{6,50}$/;
-	
-	// UserName Validation
-	if (userName.trim() == "") {
-		document.getElementById("errorEmptyUName").innerHTML = getBundle(getBundleLanguage, "memeber.username.notNull.message"); // "Please enter your Username.";
-		$('#txtUserName1').addClass('invalid-field');
-		valid = false;
-
-	} else {
-		if (reg_user.test(userName) == false) {
-			document.getElementById("errorEmptyUName").innerHTML= getBundle(getBundleLanguage, "memeber.username.notValidLength.message"); // "Username must be between 6 and 50 characters.";
-			$('#txtUserName1').addClass('invalid-field');
-			valid = false;
-		}
-		
-	}
-
-	// validation for Passsword
-	var passWordPttrn = "[a-zA-Z0-9]{8,}";
-	var specialChar = "\\W";
-	var rg = new RegExp(passWordPttrn);
-	var spChar = new RegExp(specialChar);
-	var message = "";
-	if (password.trim() == ""){
-		message  = getBundle(getBundleLanguage, "memeber.password.notNull.message"); // "Please enter your Password.";
-		$('#txtPass1').addClass('invalid-field');
-		valid = false;
-	} else if(!rg.test(password)) {  
-		message += getBundle(getBundleLanguage, "memeber.password.notValidLength.message"); // "Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
-		$('#txtPass1').addClass('invalid-field');
-		valid = false;
-	} else if(spChar.test(password)){
-		message += getBundle(getBundleLanguage, "memeber.password.notValid.message"); // "\n Password must be at least 8 characters and alphanumeric (both upper AND lower cases).";
-		$('#txtPass1').addClass('invalid-field');
-		valid = false;
-	}
-	document.getElementById("errorJoinUsPassword").innerHTML = message;
-
-
-	if (confirmPassword.trim() == "") {
-		document.getElementById("errorEmptyConfPass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notNull.message"); // "Please Confirm Password.";
-		$('#txtConfPass').addClass('invalid-field');
-		valid = false;
-	} else {
-		if (confirmPassword !== password) {
-			document.getElementById("errorEmptyConfPass").innerHTML = getBundle(getBundleLanguage, "memeber.confirmPassword.notMatch.message"); // "Passwords you entered do not match. Please enter the same Password in both fields.";
-			$('#txtConfPass').addClass('invalid-field');
-			valid = false;
-		}
-	}
-	if (document.getElementById("checkbox1").checked == false)
-	{
-		document.getElementById("chk1").innerHTML = getBundle(getBundleLanguage, "memeber.declaration.tnc.notChecked.message"); // "Please read and accept the Declaration, Terms & Conditions before submitting the application.";
-
-		valid = false;
-	}
-	if (document.getElementById("checkbox2").checked == false)
-	{
-		document.getElementById("chk2").innerHTML = getBundle(getBundleLanguage, "memeber.declaration.pics.notChecked.message"); // "Please read and accept the Personal Information Collection Statement before submitting the application.";
-
-		valid = false;
-	}
-	return valid;
-}*/
-
-//--------------------------------------------------------------------------------------------------------------------
-//Join Us Page
-//Full Name
-
-/*if($('#txtFullName').length){
-	$('#txtFullName').on('blur', function(){
-		if($(this).val() == ''){
-			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
-			$('#txtFullName').addClass('invalid-field');
-		}
-		else{
-			$('#errorEmptyName').text('');
-		}
-	})
-}
-//Mobile
-if($('#txtMobileNo').length){
-	$('#txtMobileNo').on('blur', function(){
-		var value = $(this).val();
-		if(isMobileNo(value) != true){
-			$('#errorEmptyMobJoinUs').text(isMobileNo(value));
-			$('#txtMobileNo').addClass('invalid-field');
-		}
-		else{
-			$('#errorEmptyMobJoinUs').text('');
-		}
-	})
-}
-//Email
-if($('#txtEmailId').length){
-	$('#txtEmailId').on('blur', function(){
-		var value = $(this).val();
-		if(isEmail(value) != true){
-			$('#errorEmptyEmailIdJoinUs').text(isEmail(value));
-			$('#txtEmailId').addClass('invalid-field');
-		}
-		else{
-			$('#errorEmptyEmailIdJoinUs').text('');
-		}
-	})
-}
-//Username
-if($('#txtUserName1').length){
-	$cur = $('#txtUserName1');
-	$cur.on('blur', function(){
-		value = $(this).val();
-		if(isValidUsername(value) !== true){
-			$('#errorEmptyUNameJoinUs').text(isValidUsername(value));
-			$('#txtUserName1').addClass('invalid-field');
-		}else
-			$('#errorEmptyUNameJoinUs').text('');
-	})
-}
-
-//Password
-if($('#txtPass1').length){
-	$cur = $('#txtPass1');
-	$cur.on('blur', function(){
-		value = $(this).val();
-		if(isValidPassword(value) !== true){
-			$('#errorJoinUsPassword').text(isValidPassword(value));
-			$('#txtPass1').addClass('invalid-field');
-		}else if(value == $("#txtUserName1").val().trim()){
-			$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
-			$('#txtPass1').addClass('invalid-field');
-		}else $('#errorJoinUsPassword').text('');
-	})
-}
-
-//Confirm Password
-if($('#txtConfPass').length && $('#txtPass1').length){
-	$cur = $('#txtConfPass');
-	
-	$cur.on('blur', function(){
-		var passwordToMatch = $('#txtPass1').val();
-		value = $(this).val();	
-		if(passMatch(passwordToMatch, value) !== true){
-			$('#errorEmptyConfPass').text(passMatch(passwordToMatch, value));
-			$('#txtConfPass').addClass('invalid-field');
-		} else $('#errorEmptyConfPass').text('');
-	})
-}*/
-
-
-/*function activateUserAccount(){
-	var check = true;
-	var name = $('#txtFullName').val();
-	var mobile = $('#txtMobileNo').val();
-	var email = $('#txtEmailId').val();
-	var userName = $('#txtUserName1').val();
-	var password = $('#txtPass1').val();
-	var checkPassword = $('#txtConfPass').val();
-	var declaration = $('#checkbox1').is(':checked');
-	
-	//first error element
-	var firstErrorElementId="";
-	
-	if(name == ''){
-		$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.empty.message"));
-		$("#txtFullName").addClass("invalid-field");
-		
-		if(firstErrorElementId==""){
-			firstErrorElementId="txtFullName";
-		}
-		check = false;
-	} else {
-		if(name == password){
-			$('#errorEmptyName').text(getBundle(getBundleLanguage, "membership.fullName.equal.password.message"));
-			$("#txtFullName").addClass("invalid-field");
-			if(firstErrorElementId==""){
-				firstErrorElementId="txtFullName";
-			}
-			check = false;
-		}
-	}
-	
-	var mobileValidateResult = isMobileNo(mobile);
-	
-	if(mobileValidateResult != true){
-		$('#errorEmptyMobJoinUs').text(mobileValidateResult);
-		$("#txtMobileNo").addClass("invalid-field");
-		if(firstErrorElementId==""){
-			firstErrorElementId="txtMobileNo";
-		}
-		check = false;
-	}
-	
-	if(isEmail(email) !== true){
-		$('#errorEmptyEmailIdJoinUs').text(isEmail(email));
-		$("#txtEmailId").addClass("invalid-field");
-		if(firstErrorElementId==""){
-			firstErrorElementId="txtEmailId";
-		}
-		check = false;
-	}
-	
-	if(isValidUsername(userName) !== true){
-		$('#errorEmptyUNameJoinUs').text(isValidUsername(userName));
-		$("#txtUserName1").addClass("invalid-field");
-		if(firstErrorElementId==""){
-			firstErrorElementId="txtUserName1";
-		}
-		check = false;
-	};
-	
-	if(isValidPassword(password) !== true){
-		$('#errorJoinUsPassword').text(isValidPassword(password));
-		$("#txtPass1").addClass("invalid-field");
-		if(firstErrorElementId==""){
-			firstErrorElementId="txtPass1";
-		}
-		check = false;
-	};
-	
-	if(password != "" && userName == password){
-		$('#errorJoinUsPassword').text(getBundle(getBundleLanguage, "user.password.same.message"));
-		$("#txtPass1").addClass("invalid-field");
-		if(firstErrorElementId==""){
-			firstErrorElementId="txtPass1";
-		}
-		check = false;
-	}
-	
-	if(passMatch(password, checkPassword) !== true){
-		$('#errorEmptyConfPass').text(passMatch(password, checkPassword));
-		$("#txtConfPass").addClass("invalid-field");
-		if(firstErrorElementId==""){
-			firstErrorElementId="txtConfPass";
-		}
-		check = false;
-	};
-	
-	if(!declaration){
-		$('#errorDeclaration').text(getBundle(getBundleLanguage, "membership.declaration.notChecked.message"));
-		if(firstErrorElementId==""){
-			firstErrorElementId="checkbox1";
-		}
-		check = false;
-	}
-	
-	if(firstErrorElementId!=""){
-		scrollToElement(firstErrorElementId);
-	}
-	
-	return check;
-}*/
-
 function generate_common_validate_fields(form){
 	return {
 		'fullName': {
@@ -718,6 +414,17 @@ function generate_validate(form,fields){
 					.formValidation('enableFieldValidators', 'Hkid', false, 'callback')
 					.formValidation('revalidateField', 'Hkid');
 			}
+		})
+		.on('input keyup', '[name="PolicyNumber"]', function() {
+			if ($(this).val().length >= 8 && $(this).val().length <= 14) {
+				$(form)
+					.formValidation('enableFieldValidators', 'PolicyNumber', true, 'regexp')
+					.formValidation('revalidateField', 'PolicyNumber');
+			}else{
+				$(form)
+					.formValidation('enableFieldValidators', 'PolicyNumber', false, 'regexp')
+					.formValidation('revalidateField', 'PolicyNumber');
+			}
 		});
 }
 function bootstrapvalidate_joinus(){
@@ -737,7 +444,7 @@ function bootstrapvalidate_joinus(){
 						validators: {
 							callback: {
 								enabled: false,
-								message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
+								message: '<fmt:message key="member.registration.error.hkid.invalid" bundle="${msg}" />',
 								callback: function (value, validator) {
 									if(IsHKID(value)){
 										if(typeof getSavieReferralDiscount != 'function'){
@@ -755,11 +462,11 @@ function bootstrapvalidate_joinus(){
 								}
 							},
 							notEmpty: {
-								message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
+								message: '<fmt:message key="member.registration.error.hkid.empty" bundle="${msg}" />'
 							},
 							regexp: {
 								regexp: /^[a-zA-Z0-9\-]*$/,
-								message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
+								message: '<fmt:message key="member.registration.error.hkid.special.chars" bundle="${msg}" />'
 							}
 						}
 					};
@@ -767,15 +474,17 @@ function bootstrapvalidate_joinus(){
 								container: form_1 + ' #errorEmptyPolicyNumberJoinUs',
 								validators: {
 									notEmpty: {
-										message: '<fmt:message key="error.policyno.empty" bundle="${msg}" />'
+										message: '<fmt:message key="member.registration.error.policyno.empty" bundle="${msg}" />'
 									},
 									stringLength: {
+										min: 8,
 										max: 14,
-										message: getBundle(getBundleLanguage, "error.policyno.length.message")
+										message: '<fmt:message key="member.registration.error.policyno.length.message" bundle="${msg}" />'
 									},
 									regexp:{
+										enabled: false,
 										regexp: /^[a-zA-Z0-9]*$/,
-										message: '<fmt:message key="error.policyno.special.chars" bundle="${msg}" />'
+										message: '<fmt:message key="member.registration.error.policyno.special.chars" bundle="${msg}" />'
 									}
 								}
 							}; 
