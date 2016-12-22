@@ -164,9 +164,10 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="mortgageBank hidden">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <select class="form-control" id="mortgageBank" name="mortgageBank" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.empty" bundle="${motorMsg}"/>'>
+	                                            <select class="form-control input--grey mdl-textfield__input" id="mortgageBank" name="mortgageBank" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.empty" bundle="${motorMsg}"/>'>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.cardetails.mortgage.hire" bundle="${motorMsg}" /></option>
 	                                            </select>
+	                                            <label class="mdl-textfield__label" for="mortgageBank"><fmt:message key="motor.cardetails.mortgage.hire" bundle="${motorMsg}" /></label>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
 	                                    </div>
@@ -343,7 +344,7 @@ var checkbox=false;
 
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
 if(typeof quote.policyId == "undefined")
-	window.location="/fwdhk/en/motor-insurance/";
+	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
 
 /* 
  *  Define motor success login callback

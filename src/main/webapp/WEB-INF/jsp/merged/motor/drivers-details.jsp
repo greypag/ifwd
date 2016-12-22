@@ -447,7 +447,7 @@ var nextPage = "${nextPageFlow}";
 var checkbox=true;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
 if(typeof quote.policyId == "undefined")
-	window.location="/fwdhk/en/motor-insurance/";
+	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
 /* 
  *  Define motor success login callback
  */

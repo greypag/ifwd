@@ -14,7 +14,7 @@ var jsonQuote ="";
 try{
 	jsonQuote = jQuery.parseJSON('${quote}');
 }catch(err) {
-	//window.location="/fwdhk/en/motor-insurance/";
+	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
 }
 </script>
 
@@ -151,7 +151,7 @@ try{
                     <div class="col-sm-4 upload">
                         <div class="table-cell">
                             <div class="">
-                                <img src="/fwdhk/resources/images/motor/HKID_upload_confirm.png" alt="" width="150" />
+                                <img src="<%=request.getContextPath()%>/resources/images/motor/HKID_upload_confirm.png" alt="" width="150" />
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
@@ -161,7 +161,7 @@ try{
                     <div class="col-sm-4 upload">
                         <div class="table-cell">
                             <div class="">
-                                <img src="/fwdhk/resources/images/motor/Driver_License_upload_confirm.png" alt="" width="150"  />
+                                <img src="<%=request.getContextPath()%>/resources/images/motor/Driver_License_upload_confirm.png" alt="" width="150"  />
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
@@ -171,7 +171,7 @@ try{
                     <div class="col-sm-4 upload">
                         <div class="table-cell">
                             <div class="">
-                                <img src="/fwdhk/resources/images/motor/vehicle_registeration_Confirm_upload.png" alt="" width="150"  />
+                                <img src="<%=request.getContextPath()%>/resources/images/motor/vehicle_registeration_Confirm_upload.png" alt="" width="150"  />
                             </div>
                         </div>
                         <h4 class="table-cell text-left">
@@ -222,10 +222,10 @@ try{
                         <br />
                         <a class="" href="#"><fmt:message key="motor.confirmation.discount.downloadnow" bundle="${motorMsg}" /></a>
                         <br />
-                        <img src="/fwdhk/resources/images/motor/Apple_icon.png" alt="" />
+                        <img src="<%=request.getContextPath()%>/resources/images/motor/Apple_icon.png" alt="" />
                         &nbsp;
                         &nbsp;
-                        <img src="/fwdhk/resources/images/motor/Andriod_icon.png" alt="" />
+                        <img src="<%=request.getContextPath()%>/resources/images/motor/Andriod_icon.png" alt="" />
                     </p>
                     <p class="small-print">
                         <br/>

@@ -133,10 +133,10 @@ var nextPage = "${nextPageFlow}";
                         <br />
                         <a class="" href="#"><fmt:message key="motor.uploadconfirm.discount.downloadnow" bundle="${motorMsg}" /></a>
                         <br />
-                        <img src="/fwdhk/resources/images/motor/Apple_icon.png" alt="" />
+                        <img src="<%=request.getContextPath()%>/resources/images/motor/Apple_icon.png" alt="" />
                         &nbsp;
                         &nbsp;
-                        <img src="/fwdhk/resources/images/motor/Andriod_icon.png" alt="" />
+                        <img src="<%=request.getContextPath()%>/resources/images/motor/Andriod_icon.png" alt="" />
                     </p>
                     <p class="small-print">
                         <br/>
@@ -237,7 +237,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8">
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
 if(typeof quote.policyId == "undefined")
-	window.location="/fwdhk/en/motor-insurance/";
+	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
 
 $(document).ready(function(){
 	$(".amountDueAmount").html("$"+quote.amountDueAmount);
