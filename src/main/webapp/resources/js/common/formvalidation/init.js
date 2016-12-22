@@ -37,33 +37,32 @@ var initFVConfig = function(argCfg) {
 			// Run placeholder.min.js
 			$('input, textarea').placeholder();
 
-			// Defaulted here
-			var formId = 'freeFlightForm';
-			// For argCfg.helpers.attr.xxx
-			var dataSourceFieldInfo = {};
-			var datepickerConfig = {};
+			// Declaration
+			var formId = argCfg.pageAutoConfig.form[0].id;
+			var formInfo = {};				// For argCfg.helpers.attr.xxx
+			var datepickerConfig = {};		// For argCfg.helpers.attr.xxx
 
 			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
 			// *Developer* if 'disabled' is assigned in DOM, the serialize string (for AJAX export) will not pass the fieldname to backend. That may cause a bug.
 			// argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
 
 			if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
-				var dataSourceFieldInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'adultName1' };
-				var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
+				var formInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'adultName1' };
+				var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
 			} else {                                                            // Do Personal-plan below
-				var dataSourceFieldInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
-				var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
+				var formInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
+				var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
 			}
 			// DOM FROM [id="inputFullName"] TO [id="adultName1"] OR  [id="personalName1"]
-			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, dataSourceFieldInfo_fullname, null );	// Value-binding & field revalidation
-			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( dataSourceFieldInfo_fullname );							// Field Input control : alpha + space only
+			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, formInfo_fullname, null );	// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( formInfo_fullname );							// Field Input control : alpha + space only
 			// DOM FROM [id="inputTxtAppHkid"] TO [id="adultHKID1"] OR  [id="personalHKID1"]
-			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, dataSourceFieldInfo_hkid, null );		// Value-binding & field revalidation
-			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( dataSourceFieldInfo_hkid );							// Field Input control : general HKID valid chars only
+			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, formInfo_hkid, null );		// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( formInfo_hkid );							// Field Input control : general HKID valid chars only
 
 
 			// DOM [id="applicantDob"]
-			dataSourceFieldInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
+			formInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
 			datepickerConfig = {
 		        'startView': 'decade',
 		        'autoclose': true,
@@ -72,7 +71,7 @@ var initFVConfig = function(argCfg) {
 		        'endDate': fwdConstant.date.dob_end_date
 		        // /*'language': getBundleLanguage*/
 		    };
-			argCfg.helpers.initDatePicker.changeDate_trigger_selectBoxValueChange( dataSourceFieldInfo, datepickerConfig );
+			argCfg.helpers.initDatePicker.changeDate_trigger_selectBoxValueChange( formInfo, datepickerConfig );
 
 			// Start >>> Under Developing - the tooltip behaviour
 			// [opinion #1 = most simply, but not modulized]
@@ -104,20 +103,20 @@ var initFVConfig = function(argCfg) {
 				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
 
 				// DOM [id="Username"]
-				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Username' };
-				argCfg.helpers.attr.onkeypress.returnValidUsernameChar( dataSourceFieldInfo );
-				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
+				formInfo = { 'formId': formId, 'inputId': 'Username' };
+				argCfg.helpers.attr.onkeypress.returnValidUsernameChar( formInfo );
+				argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
 
 				// DOM [id="Password"]
-				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Password' };
-				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
+				formInfo = { 'formId': formId, 'inputId': 'Password' };
+				argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
 
 				// DOM [id="Confirm-Password"]
-				dataSourceFieldInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
-				argCfg.helpers.attr.onfocus.hideMembershipError( dataSourceFieldInfo );
+				formInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
+				argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
 
 				// Check fields is all-emptied or not. #Username, #Password, #Confirm-Password (Not-authenticated-case only)
-				dataSourceFieldInfo = {
+				formInfo = {
 					'formId': formId
 					// Should be a selector (ID / CLASSNAME) in distinct for targeted field(s)
 					, 'fieldsForValidation': [
@@ -135,19 +134,19 @@ var initFVConfig = function(argCfg) {
 				};
 				var _enablingValidators = function(isEnabledBoolean) {
 					console.log('_enablingValidators() is run. isEnabledBoolean = [ '+isEnabledBoolean+' ]');
-					var arrFieldnames = dataSourceFieldInfo.fieldnamesForValidation;
+					var arrFieldnames = formInfo.fieldnamesForValidation;
 					for (var h = 0; h < arrFieldnames.length; h++) {
 						(function( k ) {
-							$("#"+dataSourceFieldInfo.formId).formValidation('enableFieldValidators', arrFieldnames[k], isEnabledBoolean);
+							$("#"+formInfo.formId).formValidation('enableFieldValidators', arrFieldnames[k], isEnabledBoolean);
 						})(h);
 					}
 				};
 
-				$.each(dataSourceFieldInfo.fieldnamesForValidation, function(i, v) {
+				$.each(formInfo.fieldnamesForValidation, function(i, v) {
 					$("input[name=" + v + "]").on("blur", function() {
-						if ( argCfg.helpers.listener.isFieldsEmptied( dataSourceFieldInfo ) ) {
+						if ( argCfg.helpers.listener.isFieldsEmptied( formInfo ) ) {
 							_enablingValidators(true);
-							$("#"+dataSourceFieldInfo.formId).formValidation('revalidateField', $(this).attr("name"));
+							$("#"+formInfo.formId).formValidation('revalidateField', $(this).attr("name"));
 						} else {
 							_enablingValidators(false);
 						};
@@ -155,27 +154,25 @@ var initFVConfig = function(argCfg) {
 				});
 
 				// Still drafting - just for reference
-				// dataSourceFieldInfo = { 'formId': formId };
-				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( dataSourceFieldInfo );
+				// formInfo = { 'formId': formId };
+				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( formInfo );
 
 			} else {
 				// Scenario for Non-Authenticated case
 				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
 				// Still drafting - just for reference
-				// dataSourceFieldInfo = { 'formId': formId };
-				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( dataSourceFieldInfo );
+				// formInfo = { 'formId': formId };
+				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( formInfo );
 
 			}
 
 			// Submit Form
 			$(formId).onsubmit = function() {
-				console.log( fwdUtility.pages.flightCare.userLoginAjax.userLoginFnc() );
-		        fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);
+				$('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+				// fwdUtility.pages.flightCare.userLoginAjax.userLoginFnc();
+		        // fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);
 		    };
 
-			// DOM [id="applicantDob"]
-			// dataSourceFieldInfo = { 'inputId': 'applicantDob', 'errorId': 'fullnameinvalid' };
-			// argCfg.helpers.attr.isValidBeneDob( false, dataSourceFieldInfo, null );
         });
 
 
@@ -199,8 +196,8 @@ var initFVConfig = function(argCfg) {
 		//
 		// 	// WON'T - Note & Demo only, because these are hidden fields
 		// 	// DOM [id="personalBeneficiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
-		// 	dataSourceFieldInfo = { 'inputId': 'personalBeneficiaryId'+i, 'errorId': 'err'+'personalBeneficiaryId'+i };
-		// 	argCfg.helpers.event.isValidBeneFullName( true, dataSourceFieldInfo, null);
+		// 	formInfo = { 'inputId': 'personalBeneficiaryId'+i, 'errorId': 'err'+'personalBeneficiaryId'+i };
+		// 	argCfg.helpers.event.isValidBeneFullName( true, formInfo, null);
 		//
 		// })(i);
 		return null;
@@ -224,25 +221,30 @@ var initFVConfig = function(argCfg) {
  */
 var runFV = function(argCfg) {
 
-	var flightCare = function(fvCfgs, fcArgs) {
+	var flightCare = function(fvCfgs) {
 
-		// flightCare() prerequistite variables validating
         try {
-			if ( Object.prototype.toString.call(fcArgs) !== '[object Object]' ) { throw new Error('The param for "runFV()" is an {Object}'); }
-            if ( typeof fcArgs.formId !== 'string' && fcArgsformId !== null ) { throw new Error('The "runFV()" requires a form id {String}'); }
+			if ( Object.prototype.toString.call(fvCfgs) !== '[object Object]' ) { throw new TypeError('The param for "runFV()" is an {Object}'); }
+            // if ( typeof fvCfgs.pageAutoConfig.form[0].id !== 'string' && fvCfgs.pageAutoConfig.form[0].id !== null ) { throw new Error('The "runFV()" requires a form id {String}'); }
         } catch (e) {
-			console.error('runFV().flightCare() got error, will not run.');
-            console.error( e.toString() );
+			console.group('runFV().flightCare() got error, will not be run.');
+			if (e.name.toString() == "TypeError") {
+				console.error(e.name+": "+e.message);
+		    } else {
+				console.error(e);
+			}
+			console.groupEnd();
         }
 
+		var formId = fvCfgs.pageAutoConfig.form[0].id;
+
 		// Trigger the FormValidation.io library here.
-		$('#' + fcArgs.formId).formValidation(argCfg)
+		$('#' + formId).formValidation(argCfg)
 			.on('success.form.fv', function(e, data) {
 				fvCfgs.helpers.fv.successForm.flightCare({
 					'e': 			e
 					, 'data': 		data
 					, 'fvConfig':	fvConfig
-					, 'fcArgs':		fcArgs
 					, 'fvCfgs':		fvCfgs
 				});
 				if ( data.fv ) { data.fv.disableSubmitButtons(false); }
@@ -258,7 +260,7 @@ var runFV = function(argCfg) {
 	            *   data.element   --> The field element
 	            *   data.validator --> The current validator name
 	            **/
-	        	// console.log( data.fv );
+				// http://formvalidation.io/examples/showing-one-message/
 	            data.element
 	                .data('fv.messages')
 	                .find('.help-block[data-fv-for="' + data.field + '"]').hide()       // Hide all the messages
@@ -275,14 +277,17 @@ var runFV = function(argCfg) {
 	             * Each pair of field and label are placed inside a .form-group element
 	             */
 	            data.element.next(".help-block").addClass("text-red");
-				if ( data.fv ) { data.fv.disableSubmitButtons(false); }
-
-				// Get the first invalid field
-	            // var $invalidFields = data.fv.getInvalidFields();
-	            // console.log( $invalidFields );
+				if ( data.fv ) {
+					data.fv.disableSubmitButtons(false);
+					// Get the first invalid field, and then scroll to that element by #id
+		            var $firstInvalidField = ( data.fv.getInvalidFields().length > 1 ? data.fv.getInvalidFields().eq(0) : data.fv.getInvalidFields() )[0];
+					$('#loading-overlay').modal('hide');
+					console.log( $firstInvalidField.id );
+					fwdUtility.ux.scrollToElement( $firstInvalidField.id );
+				}
 				// console.log(data.element.next());
 	            // console.log(data.element);
-	            // console.log( data.fv.getOptions(data.element) );
+				// console.log( data.fv.getOptions(data.element) );
 	        });
 
 	};

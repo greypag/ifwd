@@ -25,19 +25,7 @@ var fwdUtility = (function() {
 		var _decimal = (typeof(n)==='number')?n:2;
 		return (isNaN(parseFloat(a)))?0:parseFloat(a).toFixed(_decimal);
 	};
-	//
-	// /*
-	//  * Process each element in an object with callback function
-	//  *
-	//  * @method forEachObject
-	//  * @param {Object} obj Object to be loop through
-	//  * @param {Function} cb Callback function for each object key pairs
-	//  * @return {Object} Return a processed object
-	//  */
-	// function forEachObject(obj, cb) {
-	// 	// To Be
-	// }
-	//
+
 	// /*
 	//  * Process each item in an array with callback function
 	//  *
@@ -52,7 +40,7 @@ var fwdUtility = (function() {
 
 	var _scrollToElement = function(elementId) {
 		$('html, body').animate({
-	        scrollTop: $("#"+elementId).offset().top - 100
+	        'scrollTop': $("#"+elementId).offset().top - 100
 	    }, 1000);
 	};
 
@@ -452,83 +440,81 @@ var fwdUtility = (function() {
 		/* END- For Benefitiary Dive active and Inactive */
 	};
 
-	var _pages_flightCare_userLoginAjax = function(contextPath) {
-		console.log('fwdUtility.temp.flightCareUserLoginAjax() is loaded.');
-		/* UserLogin ajax function */
-		var _userLoginFnc = function() {
-
-		    $('#ajax-loading').show();
-		    console.log($("#popUploginform input").serialize());
-		    $.ajax({
-		        type: "POST",
-		        url: contextPath + "/userLogin",
-		        data: $("#popUploginform input").serialize(),
-		        async: false,
-		        success: function(data) {
-		            $('#ajax-loading').hide();
-		            if (data == 'success') {
-		                window.location.reload();
-		                /* window.location.href = "getAccByUsernaneAndPassword"; */
-		            } else if (data == 'fail') {
-		                console.log(data);
-		                $('#ajax-loading').hide();
-		                $('#login-err-msg').show();
-		                $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
-		            }
-
-		        }
-		    });
-		    return false;
-		}
-		/* Function for create flight policy */
-
-		var flight_click = false;
-
-		var _createFlightFnc = function(form) {
-		    var flag = false;
-
-		    if ( !flight_click) {
-		        flight_click = true;
-		        console.log($("#freeFlightForm").serialize());
-		        $.ajax({
-		            type: "POST",
-		            url: "<%=request.getContextPath()%>/${language}/flight-insurance/confirm-policy",
-		            data: $("#freeFlightForm").serialize(),
-		            async: false,
-		            success: function(data) {
-		                var result = data['result'];
-		                var errMsg = data['errMsgs']
-		                flight_click = false;
-		                if (result == 'success') {
-		                    $('#errorMessages').hide();
-		                    flag = true;
-		                    form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
-		                } else {
-		                    console.log(data);
-		                    flag = false;
-		                    $('#errorMessages').removeClass('hide');
-		                    $('#errorMessages').html(errMsg);
-		                }
-		            }
-		        });
-		    } else {
-		        flight_click = false;
-		        flag = false;
-		    }
-
-		    if (flag) {
-		        $('#loading-overlay').modal({backdrop: 'static', keyboard: false});
-		    } else {
-		        $('#loading-overlay').modal('hide');
-		    }
-		    return flag;
-		};
-
-		return {
-			'userLoginFnc': 		_userLoginFnc
-			, 'createFlightFnc': 	_createFlightFnc
-		};
-	}();
+	// var _pages_flightCare_userLoginAjax = function(contextPath) {
+	// 	console.log('fwdUtility.temp.flightCareUserLoginAjax() is loaded.');
+	// 	/* UserLogin ajax function */
+	// 	var _userLoginFnc = function() {
+	//
+	// 	    $('#ajax-loading').show();
+	// 	    console.log($("#popUploginform input").serialize());
+	// 	    $.ajax({
+	// 	        type: "POST",
+	// 	        url: contextPath + "/userLogin",
+	// 	        data: $("#popUploginform input").serialize(),
+	// 	        async: false,
+	// 	        success: function(data) {
+	// 	            $('#ajax-loading').hide();
+	// 	            if (data == 'success') {
+	// 	                window.location.reload();
+	// 	                /* window.location.href = "getAccByUsernaneAndPassword"; */
+	// 	            } else if (data == 'fail') {
+	// 	                console.log(data);
+	// 	                $('#ajax-loading').hide();
+	// 	                $('#login-err-msg').show();
+	// 	                $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+	// 	            }
+	//
+	// 	        }
+	// 	    });
+	// 	    return false;
+	// 	}
+	// 	/* Function for create flight policy */
+	//
+	// 	var flight_click = false;
+	//
+	// 	var _createFlightFnc = function(form) {
+	// 	    var flag = false;
+	//
+	// 	    if ( !flight_click) {
+	// 	        flight_click = true;
+	// 	        $.ajax({
+	// 	            type: "POST",
+	// 	            url: contextPath + "/${language}/flight-insurance/confirm-policy",
+	// 	            data: $("#freeFlightForm").serialize(),
+	// 	            async: false,
+	// 	            success: function(data) {
+	// 	                var result = data['result'];
+	// 	                var errMsg = data['errMsgs']
+	// 	                flight_click = false;
+	// 	                if (result == 'success') {
+	// 	                    $('#errorMessages').hide();
+	// 	                    flag = true;
+	// 	                    form.action = contextPath + "/${language}/flight-insurance/confirmation";
+	// 	                } else {
+	// 	                    flag = false;
+	// 	                    $('#errorMessages').removeClass('hide');
+	// 	                    $('#errorMessages').html(errMsg);
+	// 	                }
+	// 	            }
+	// 	        });
+	// 	    } else {
+	// 	        flight_click = false;
+	// 	        flag = false;
+	// 	    }
+	//
+	// 	    if (flag) {
+	// 	        $('#loading-overlay').modal({backdrop: 'static', keyboard: false});
+	// 	    } else {
+	// 	        $('#loading-overlay').modal('hide');
+	// 	    }
+	// 	    return flag;
+	// 	};
+	//
+	// 	return {
+	// 		'userLoginFnc': 		_userLoginFnc
+	// 		, 'createFlightFnc': 	_createFlightFnc
+	// 	};
+	// }();
 
 	var _sort_arrObj_byProp = function(arrayElem, propInObj) {
 		var result = [];
@@ -550,8 +536,8 @@ var fwdUtility = (function() {
 		}
 		, 'pages': {
 			'flightCare': {
-				'userLoginAjax': 						_pages_flightCare_userLoginAjax
-				, 'activateUserAccountJoinUs_non_auth':	_pages_activateUserAccountJoinUs_non_auth
+				// 'userLoginAjax': 						_pages_flightCare_userLoginAjax
+				'activateUserAccountJoinUs_non_auth':	_pages_activateUserAccountJoinUs_non_auth
 				, 'activateUserAccountJoinUs_auth':		_pages_activateUserAccountJoinUs_auth
 				, 'fPlanValid':							_pages_fPlanValid
 				// , 'fncCheckBoxTooltip':			_pages_flightCare_fncCheckBoxTooltip

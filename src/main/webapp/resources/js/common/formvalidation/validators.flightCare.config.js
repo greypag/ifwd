@@ -4,10 +4,8 @@
 try {
     // MUST - Check 'fvConfig'
     if ( typeof fvConfig === 'undefined' && fvConfig === null ) { var fvConfig = {}; }
-
-    // COULD - Check FV customed-made helpers, calling example: fvConfig.helpers.xxxx
+    // MUST - Check FV customed-made helpers, calling example: fvConfig.helpers.xxxx
     if ( !_.has(fvConfig, 'helpers') ) { throw new Error('No Helpers is loaded [ helpers.js ] . Please check'); }
-
     // MUST - Check fwdConstant : RegExp etc. , calling example: fvConfig.regex.xxxx
     if ( typeof fwdConstant !== 'object' && fwdConstant !== null ) { throw ('No fwd-constant.js are loaded. Please check again.'); }
 
@@ -21,47 +19,15 @@ try {
 
 // MUST - Schema pass to FormValidation main object - 'fvConfig'
 fvConfig['schema'] = {
-    framework: 'bootstrap',
-    'row': {
+    'framework': 'bootstrap'
+    , 'excluded': [':disabled']
+    , 'row': {
         'valid': 'has-success'
         , 'invalid': 'has-error'
         // , 'validating': 'glyphicon glyphicon-resh'
-    },
-    'fields': {}
+    }
+    , 'fields': {}
 };
-
-// Under-development - Member Account Form - Opinion #A
-// fvConfig['memberAccount'] = function() {
-//     return {
-//         'userName': {
-//             'container': '#UsernameError'
-//             , 'trigger': 'blur'
-//             , 'validators': {
-//                 'notEmpty': {
-//                     'message': getBundle(getBundleLanguage, 'user.username.length.message')
-//                 }
-//             }
-//         }
-//         , 'password': {
-//             'container': '#PasswordError'
-//             , 'trigger': 'blur'
-//             , 'validators': {
-//                 'notEmpty': {
-//                     'message': getBundle(getBundleLanguage, 'member.password.notValidLength.message')
-//                 }
-//             }
-//         }
-//         , 'password': {
-//             'container': '#Confirm-PasswordError'
-//             , 'trigger': 'blur'
-//             , 'validators': {
-//                 'notMatch': {
-//                     'message': getBundle(getBundleLanguage, 'member.confirmPassword.notMatch.message')
-//                 }
-//             }
-//         }
-//     };
-// };
 
 // MUST
 fvConfig['applicant'] = function() {
@@ -246,7 +212,7 @@ fvConfig['insuredPerson'] = function() {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
                 // Handles the unique field-value validation among multi-fields
-                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation
+                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation(fvConfig.pageAutoConfig)
             }
         },
         'personalAgeRange': {
@@ -296,7 +262,7 @@ fvConfig['insuredAdult'] = function() {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
                 // Handles the unique field-value validation among multi-fields
-                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation
+                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation(fvConfig.pageAutoConfig)
             }
         },
         'adultAgeRange': {
@@ -346,7 +312,7 @@ fvConfig['insuredChild'] = function() {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
                 // Handles the unique field-value validation among multi-fields
-                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation
+                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation(fvConfig.pageAutoConfig)
             }
         },
         'childAgeRange': {
@@ -396,7 +362,7 @@ fvConfig['insuredOther'] = function() {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
                 // Handles the unique field-value validation among multi-fields
-                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation
+                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation(fvConfig.pageAutoConfig)
             }
         },
         'otherAgeRange': {

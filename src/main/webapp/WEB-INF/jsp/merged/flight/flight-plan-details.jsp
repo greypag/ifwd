@@ -74,7 +74,7 @@ perventRedirect = true;
         <div class="row">
             <%-- <form:form name="freeFlight" method="post" action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
             <%-- <form:form name="freeFlightForm" id="freeFlightForm" modelAttribute="createFlightPolicy" method="post" onsubmit="return fwdUtility.pages.flightCare.userLoginAjax.createFlightFnc(this);"> --%>
-            <form:form name="freeFlightForm" id="freeFlightForm" modelAttribute="createFlightPolicy" method="post">
+            <form:form name="freeFlightForm" id="freeFlightForm" class="js__fv" modelAttribute="createFlightPolicy" method="post">
                 <input type="hidden" name="planSelected" value="${planDetailsForm.planSelected}">
                 <div class="container ">
                     <div id="tr-steps"
@@ -353,7 +353,7 @@ perventRedirect = true;
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                     id="txtInsuHkid${inx}" name="personalHKID${inx}"
-                                                    class="form-control textUpper full-control js__input_hkid"
+                                                    class="form-control textUpper full-control js__fv__input_hkid"
                                                     placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="errtxtInsuHkid${inx}"
                                                     class="text-red"> </span>
@@ -528,7 +528,7 @@ perventRedirect = true;
                                                </c:if>
                                                <c:if test="${inx > 1}">
                                                         <input type="text" name="adultName${inx}" id="txtInsuFullName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        class="form-control full-control textUpper"
                                                         value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" />
                                                     </c:if>
                                                     <span id="errtxtAdFullName${inx}" class="text-red"> </span>
@@ -545,7 +545,7 @@ perventRedirect = true;
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <!-- onkeyup="value=value.replace(/[\W]/g,'')" -->
                                                <input id="txtInsuHkid${inx}" name="adultHKID${inx}"
-                                                    class="form-control textUpper full-control js__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
+                                                    class="form-control textUpper full-control js__fv__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
                                        </div>
@@ -686,7 +686,7 @@ perventRedirect = true;
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                    type="text" name="childName${inx}" id="txtChldFullName${inx}"
-                                                   class="form-control full-control textUpper bmg_custom_placeholder"
+                                                   class="form-control full-control textUpper"
                                                    value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" />
                                                <span id="errtxtChldFullName${inx}" class="text-red"></span>
                                            </div>
@@ -700,7 +700,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtChldInsuHkid${inx}" name="childHKID${inx}" class="form-control textUpper full-control js__input_hkid"
+                                               <input id="txtChldInsuHkid${inx}" name="childHKID${inx}" class="form-control textUpper full-control js__fv__input_hkid"
                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                <span id="errtxtChldInsuHkid${inx}" class="text-red"> </span>
                                            </div>
@@ -842,7 +842,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" name="otherName${inx}" id="txtOtherFullName${inx}"
-                                                    class="form-control full-control textUpper bmg_custom_placeholder"
+                                                    class="form-control full-control textUpper"
                                                     value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />" />
                                                     <span id="errtxtOtherFullName${inx}" class="text-red"></span>
                                            </div>
@@ -857,7 +857,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID${inx}" class="form-control textUpper full-control js__input_hkid"
+                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID${inx}" class="form-control textUpper full-control js__fv__input_hkid"
                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                <span id="errtxtOtherInsuHkid${inx}" class="text-red"></span>
                                            </div>
@@ -1262,6 +1262,7 @@ $(function() {
 
     fwdUtility.ux.floatingBox();
     // fwdUtility.temp.flightCare(); // Phase 2 may required
+
     // JSP values "landing-place"
     fvConfig['flightJSPcbInfo'] = {
         'counter': {
@@ -1278,9 +1279,8 @@ $(function() {
         }
         , 'plannedDays':    ${planDetailsForm.days}
         , 'isAuthenticated':  ${!(authenticate.equals("direct") || authenticate.equals("false"))}
-
     };
     var flightCfg = initFVConfig(fvConfig).flightCare();
-    runFV(flightCfg).flightCare(fvConfig, { 'formId': 'freeFlightForm'});
+    runFV(flightCfg).flightCare(fvConfig);
 });
 </script>

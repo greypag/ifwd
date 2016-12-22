@@ -1,9 +1,20 @@
 'use strict';
 
 // Global Private Function
-var _bindingValFromA2B = function(insureBoolean, dataSourceFieldInfo, insureFieldInfo) {
+
+/*
+ * Binding value from "input field A" to "input field B"
+ *
+ * @method [Private]    _bindingValFromA2B
+ * @param  {Boolean}    insureBoolean
+ * @param  {Object}     formInfo
+ * @param  {Object}     insureFieldInfo
+ * @return {Array}      Pattern >>> [{ 'id': 'xxx' }, ...]  [success]
+ * @return {Boolean}    false   [failure]
+ */
+var _bindingValFromA2B = function(insureBoolean, formInfo, insureFieldInfo) {
     var conditionalId = 'applicantRelationship';        //  oversea-plan-details.jsp >>> $('#applicantRelationship')
-    var fullname = $("#"+dataSourceFieldInfo.inputId).val();
+    var fullname = $("#"+formInfo.inputId).val();
 
     if (insureBoolean) {
         if (document.getElementById(conditionalId) != null) {
@@ -15,6 +26,33 @@ var _bindingValFromA2B = function(insureBoolean, dataSourceFieldInfo, insureFiel
         }
     }
 };
+/*
+ * Auto grapping the <form class="js__fv"> element
+ *
+ * @method [Private]    _grap_formIdArray
+ * @param  nil
+ * @return {Array}      Pattern >>> [{ 'id': 'xxx' }, ...]  [success]
+ * @return {Boolean}    false   [failure]
+ */
+var _grap_formIdArray = function() {
+    var relatedFormElem = $(document).find('form.js__fv');
+    var result = [];
+    if ( relatedFormElem.length === 0 ) {
+        console.error('Please apply the class ".js__fv" within <form> element');
+        return false;
+    } else {
+        for (var i = 0; i < relatedFormElem.length; i++) {
+            result.push( {
+                'body': relatedFormElem[i]
+                , 'id': relatedFormElem[i].id
+                , 'name': relatedFormElem[i].name
+            } );
+        }
+        console.log(result);
+        // result = _.uniqBy();
+    }
+    return result;
+}();
 
 // ------------------------------------------------------------------------------
 
@@ -122,18 +160,18 @@ var gen_configFlightCare = function(obj) {
  *
  * @method  [Public] event_applicantName2InsuredPerson
  * @param   {Boolean}           insureBoolean
- * @param   {String}          dataSourceFieldId
+ * @param   {String}          formInfo
  * @param   {Null or Object}  insureFieldInfo [ defaulted: Null ]
  * @return Nil
  */
-var event_applicantName2InsuredPerson = function( insureBoolean, dataSourceFieldInfo, insureFieldInfo ) {
+var event_applicantName2InsuredPerson = function( insureBoolean, formInfo, insureFieldInfo ) {
     // Defined what DOM will be binded to, i.e. Insured Person inputbox
     if ( insureFieldInfo == null ) {
         insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
     }
-    $( '#'+dataSourceFieldInfo.inputId).blur(function() {
-        _bindingValFromA2B(insureBoolean, dataSourceFieldInfo, insureFieldInfo);
-        $('#'+dataSourceFieldInfo.formId).formValidation( 'revalidateField', dataSourceFieldInfo.revalidateFieldName );
+    $( '#'+formInfo.inputId).blur(function() {
+        _bindingValFromA2B(insureBoolean, formInfo, insureFieldInfo);
+        $('#'+formInfo.formId).formValidation( 'revalidateField', formInfo.revalidateFieldName );
     });
 };
 
@@ -142,40 +180,25 @@ var event_applicantName2InsuredPerson = function( insureBoolean, dataSourceField
  *
  * @method  [Public] event_applicantHkid2InsuredPerson
  * @param   {Boolean} insureBoolean
- * @param   {String} dataSourceFieldId
+ * @param   {String} formInfo
  * @param   {Null or Object} insureFieldInfo [ defaulted: Null ]
  * @return Nil
  */
-var event_applicantHkid2InsuredPerson = function( insureBoolean, dataSourceFieldInfo, insureFieldInfo ) {
+var event_applicantHkid2InsuredPerson = function( insureBoolean, formInfo, insureFieldInfo ) {
     // Defined what DOM will be binded to, i.e. Insured Person inputbox
     if ( insureFieldInfo == null ) {
         insureFieldInfo = { 'inputBoxId': 'txtInsuHkid1' , 'errMsgDOMId': 'errtxtInsuHkid1' };
     }
-    $( '#'+dataSourceFieldInfo.inputId).blur(function() {
-        _bindingValFromA2B(insureBoolean, dataSourceFieldInfo, insureFieldInfo);
-        $('#'+dataSourceFieldInfo.formId).formValidation( 'revalidateField', dataSourceFieldInfo.revalidateFieldName );
-    });
-};
-
-/*
- * Binds "onBlur" JS behaviour to targeted DOM <input> inputBox and <span> errMsg field
- *
- * @method add_isValidBeneDob
- * @param   {Integer} index
- * @param   {Boolean} insureBoolean
- * @param   {String} dataSourceFieldId
- * @param   {Null or Object} insureFieldInfo [ defaulted: Null ]
- * @return Nil
- */
-var event_isValidBeneDob = function(index, insureBoolean, dataSourceFieldId, insureFieldInfo) {
-
-    // IF NULL, applied the defaulted value
-    if ( insureFieldInfo === null ) {
-        // Defined what DOM will be binded to, i.e. Insured Person inputbox
-        insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1', 'errMsgDOMId': 'errtxtPersonalFullName1' };
-    }
-    $( '#'+dataSourceFieldId+i).blur(function() {
-
+    $( '#'+formInfo.inputId).blur(function() {
+        _bindingValFromA2B(insureBoolean, formInfo, insureFieldInfo);
+        console.log( formInfo.revalidateFieldName );
+        $('#'+formInfo.formId)
+            // Show the custom message
+            // .updateMessage( field, 'blank', response.fields[field] )
+            // Set the field as invalid
+            // .updateStatus(field, 'INVALID', 'blank');
+            // .formValidation( 'updateOption', formInfo.revalidateFieldName, 'file', 'extension', extension )
+            .formValidation( 'revalidateField', formInfo.revalidateFieldName );
     });
 };
 
@@ -260,21 +283,18 @@ var event_modifiedDOM = function(switchOption, action, fieldIdInfo) {
  * @param   Nil
  * @return  {Object} 1D object with callback(), dedicated for FV library
  */
-var cb_hkidUniqueValidation = function() {
+var cb_hkidUniqueValidation = function(pageConfigInfo) {
+    var formId          = pageConfigInfo.form[0].id;
     return {
         'callback': function(value, validator, $field) {
-
             // Private function declars
             var _frequencyAnalysing = function(arrayElem, propInObj) {
-                var current = null;
-                var buffCount = 0;
-                var buffElem = [];
-                var templateItem = {
-                    'time': 0
-                    , 'value': null
-                    , '$elem': []
-                };
-                var results = [];
+                var current         = null;
+                var buffCount       = 0;
+                var buffElem        = [];
+                var templateItem    = { 'value': null , '$elem': [] }; // 'time': 0,
+                var results         = [];
+
                 // Sorting the Object by particular property
                 var sortedArrayElem = fwdUtility.sort.arrObj.byProperty(arrayElem, propInObj);
                 // Analysing the Frequency
@@ -282,8 +302,7 @@ var cb_hkidUniqueValidation = function() {
                     if (sortedArrayElem[i][propInObj] != ( _.has(current, propInObj) ? current[propInObj] : null ) ) {
                         if (buffCount > 0) {
                             templateItem = {
-                                'time': buffCount
-                                , 'value': ( _.has(current, propInObj) ? current[propInObj] : null )
+                                'value': ( _.has(current, propInObj) ? current[propInObj] : null ) // , 'time': buffCount
                                 , '$elem': buffElem
                             };
                             results.push(templateItem);
@@ -298,14 +317,13 @@ var cb_hkidUniqueValidation = function() {
                 }
                 if (buffCount > 0) {
                     templateItem = {
-                        'value': ( _.has(current, propInObj) ? current[propInObj] : null )
-                        , 'time': buffCount
+                        'value': ( _.has(current, propInObj) ? current[propInObj] : null ) // , 'time': buffCount
                         , '$elem': current['$elem']
                     };
                     results.push(templateItem);
                 }
                 return results;
-            };
+            }; // End Private Function >>> _frequencyAnalysing()
 
             // Variables declars
             var resultConfig = {
@@ -324,9 +342,10 @@ var cb_hkidUniqueValidation = function() {
                 }
                 , 'passed': true
             };
-            var $elem               = $('.js__input_hkid');
-            var composedElem        = [];
-            var indicator           = null;
+            var $elem                   = $('.js__fv__input_hkid');
+            var composedElem            = [];
+            var duplicatorTorlerance    = 1; // Defaulted 1, only unique value is allowed
+            var indicator               = null;
 
             // Core Codes
             for (var i = 0; i < $elem.length; i++) {
@@ -341,17 +360,17 @@ var cb_hkidUniqueValidation = function() {
             if ( analysedElemGrp.length === composedElem.length ) {
                 // Gary: Still have space to fine-tune here, hardcode
                 if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
-                    var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
+                    var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
                 } else {
-                    var dataSourceFieldInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
+                    var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
                 }
-                validator.updateStatus(dataSourceFieldInfo_hkid.revalidateFieldName, validator.STATUS_VALID, 'callback');
+                validator.updateStatus(formInfo_hkid.revalidateFieldName, validator.STATUS_VALID, 'callback');
                 indicator = 'passed';
             } else {
                 var isFieldValueDuplicatedFound = false;
                 for (var i = 0; i < analysedElemGrp.length; i++) {
                     if ( isFieldValueDuplicatedFound === false ) {
-                        isFieldValueDuplicatedFound = ( analysedElemGrp[i].value === value.toUpperCase() && analysedElemGrp[i]['$elem'].length > 1 ) ? true : false;
+                        isFieldValueDuplicatedFound = ( analysedElemGrp[i].value === value.toUpperCase() && analysedElemGrp[i]['$elem'].length > duplicatorTorlerance ) ? true : false;
                     }
                 }
                 if ( _.isEmpty(value) ) {
@@ -362,13 +381,11 @@ var cb_hkidUniqueValidation = function() {
                     indicator = 'duplicated';
                 }
             }
-
             return resultConfig[indicator];
-
 
         } // End of Function >>> callback(value, validator, $field)
     };
-}();
+};
 
 var event_checkBox_tooltipFadeInOut = function(opt1, opt2) {
 	var _showBubbleTooltip = function () {
@@ -478,11 +495,14 @@ var listener_isFieldsEmptied= function( dInfo ) {
 
 var fv_successForm_flightCare = function( argObj ) {
 
-    var e =         argObj.e;
-    var data =      argObj.data;
-    var fvConfig =  argObj.fvConfig;
-    var fcArgs =    argObj.fcArgs;
-    var fvCfgs =    argObj.fvCfgs;
+    var e           = argObj.e;
+    var data        = argObj.data;
+    var fvConfig    = argObj.fvConfig;
+    var fvCfgs      = argObj.fvCfgs;
+    var formId      = fvArgs.pageAutoConfig.form[0].id;
+
+    var $form = $(e.target);
+    var fv    = $form.data('formValidation');
 
     // Prevent form submission
     e.preventDefault();
@@ -491,7 +511,7 @@ var fv_successForm_flightCare = function( argObj ) {
     var $form	                   = $(e.target);
     var fv  	                   = $form.data('formValidation');
     var flagForAccCreated          = ( $.trim( $("#Username").val())!="" && $.trim( $("#Password").val())!="" && $.trim( $("#Confirm-Password").val())!="" ) ? true : false;
-    var serializedString_withIndex = $('#'+ fcArgs.formId).serialize();
+    var serializedString_withIndex = $('#'+ formId).serialize();
 
     // Washing ${inx} out from VAR serializedString_withIndex
     var fieldnameToRemoveIndex = [];
@@ -523,7 +543,7 @@ var fv_successForm_flightCare = function( argObj ) {
                         $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
                         $('#errorMessages').hide();
 
-                        $('#' + fcArgs.formId).attr("action", pagesURL.confirmation);
+                        $('#' + formId).attr("action", pagesURL.confirmation);
                         // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
                         fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
                             return true;
@@ -555,7 +575,7 @@ var fv_successForm_flightCare = function( argObj ) {
                         $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
                         $('#errorMessages').hide();
 
-                        $('#' + fcArgs.formId).attr("action", pagesURL.confirmation);
+                        $('#' + formId).attr("action", pagesURL.confirmation);
                         // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
                         fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
                             return true;
@@ -645,16 +665,19 @@ var fv_successForm_flightCare = function( argObj ) {
         });
 
     } else {
-        console.log(pagesAJAX);
         pagesAJAX.confirmation();
     }
-
 };
 
 /*
  * Export modules to "fvConfig" object
  */
 var fvConfig = {};
+// private function _grap_formIdArray(), grapping the <form class="js__fv"> element
+fvConfig['pageAutoConfig'] = {
+    'form': _grap_formIdArray
+};
+
 fvConfig['helpers'] = {
     'attr': {
         'onblur': {
@@ -682,8 +705,8 @@ fvConfig['helpers'] = {
         'successForm': {
             'flightCare':                       fv_successForm_flightCare
         }
-        , 'errValidator':                {}
-        , 'errField':                    {}
+        , 'errValidator':                       {}
+        , 'errField':                           {}
     }
     , 'fvCallback': {
         'hkidUniqueValidation':                 cb_hkidUniqueValidation
