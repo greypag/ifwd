@@ -37,10 +37,10 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<i class="fa fa-angle-down"></i>
 					</button>
 					<ul class="dropdown-menu" role="menu">
-						<li class="mobile-dropdown dropdown-profile active"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
-						<li class="mobile-dropdown dropdown-insurance-plan"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
-						<li class="mobile-dropdown dropdown-promo-offers"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
-						<li class="mobile-dropdown dropdown-e-wallet"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-profile active"><a href="#profile-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-insurance-plan"><a href="#insurance-plan-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-promo-offers"><a href="#promo-offers-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-e-wallet"><a href="#e-wallet-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
@@ -54,12 +54,12 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 				<div class="col-xs-12 col-md-9 right-side-content">
 					<div id="purchase-history-tab-contents" class="hidden content">
 						<ul class="nav nav-tabs nav-justified">
-							<li><a href="#pending" data-toggle="tab"><fmt:message key="tab.member.top.pending" bundle="${msg}" /></a></li>
-							<li class="active"><a href="#active" data-toggle="tab"><fmt:message key="tab.member.top.active" bundle="${msg}" /></a></li>
+							<li><a id="pending-tab" href="#pending" data-toggle="tab"><fmt:message key="tab.member.top.pending" bundle="${msg}" /></a></li>
+							<li id="active-tab" class="active"><a href="#active" data-toggle="tab"><fmt:message key="tab.member.top.active" bundle="${msg}" /></a></li>
 							<li id="past-tab"><a href="#past" data-toggle="tab"><fmt:message key="tab.member.top.past" bundle="${msg}" /></a></li>
 						</ul>
 						<div class="tab-content">
-							<div class="tab-pane active" id="pending">
+							<div class="tab-pane" id="pending">
 								<div class="life-and-health-container">
 									<div class="category-holder">
 										<h4 class="category-title"><fmt:message key="label.life&health" bundle="${msg}" /></h4>
@@ -280,7 +280,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="active">
+							<div class="tab-pane active" id="active">
 								<div class="life-and-health-container">
 									<div class="category-holder">
 										<h4 class="category-title"><fmt:message key="label.life&health" bundle="${msg}" /></h4>
@@ -1091,9 +1091,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									<p class="ew_desc">
 										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile"></span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
 										<p class="ew_sentOtp"><fmt:message key="ewallet.sent" bundle="${msg}" /></p>
-										<p class="ew_resendOtp">							
-										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="javascript:void(0);" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
-									</p>
+										
 									<div class="ew_pol_info">
 
 										<div class="ew_otp_wrapper">
@@ -1110,6 +1108,11 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									</div>
 									<div class="col-xs-12">
 										<a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText" bundle="${msg}" /></a>
+									</div>
+									<div class="col-xs-12">
+										<p class="ew_resendOtp">							
+											<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="javascript:void(0);" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
+										</p>
 									</div>
 									<div class="col-xs-12">
 										<p class="ew_desc_opt"></p>
@@ -1249,9 +1252,6 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									<p class="ew_desc">
 										<fmt:message key="ewallet.popup.sec.content.text1" bundle="${msg}" /><span class="ew_mobile">9876 ****</span>.<br><fmt:message key="ewallet.popup.sec.content.text2" bundle="${msg}" /></p>
 									<p class="ew_sentOtp"><fmt:message key="ewallet.sent" bundle="${msg}" /></p>
-									<p class="ew_resendOtp">
-										<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="javascript:void(0);" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
-									</p>
 									<div class="ew_pol_info">
 
 										<div class="ew_otp_wrapper">
@@ -1260,6 +1260,11 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									</div>
 									<div class="col-xs-12">
 										<a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.popup.checkbox.confirmBtnText" bundle="${msg}"/></a>
+									</div>
+									<div class="col-xs-12">
+										<p class="ew_resendOtp">
+											<fmt:message key="ewallet.resendOTP.please" bundle="${msg}" /> <a href="javascript:void(0);" class="ew_link_resendOTP"><fmt:message key="ewallet.popup.btn.selecthere" bundle="${msg}" /> </a><fmt:message key="ewallet.resendOTP.resentPW" bundle="${msg}" />
+										</p>
 									</div>
 									<div class="col-xs-12">
 										<p class="ew_desc_opt"></p>
@@ -1348,6 +1353,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 			$('#eservices-tab-contents').removeClass('hidden');
 			$('#promo-offers-tab-contents').addClass('hidden');
 			$('#e-wallet-tab-contents').addClass('hidden');
+			window.location.hash = 'profile-tab-link';
 		  } else if($(this).parent('li').hasClass('dropdown-insurance-plan')) {
 		  	$('.eservices').addClass('insurance-active-page');
 			$('.eservices').removeClass('profile-active-page promo-active-page');
@@ -1357,6 +1363,8 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 			$('#eservices-tab-contents').addClass('hidden');
 			$('#promo-offers-tab-contents').addClass('hidden');
 			$('#e-wallet-tab-contents').addClass('hidden');
+			window.location.hash = 'insurance-plan-tab-link';
+			$("#active-tab a").trigger("click");
 		  } else if($(this).parent('li').hasClass('dropdown-promo-offers')) {
 		  	$('.eservices').addClass('promo-active-page');
 			$('.eservices').removeClass('profile-active-page insurance-active-page');
@@ -1367,6 +1375,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 			$('#purchase-history-tab-contents').addClass('hidden');
 			$('#eservices-tab-contents').addClass('hidden');
 			$('#e-wallet-tab-contents').addClass('hidden');
+			window.location.hash = 'promo-offers-tab-link';
 			alignMobilePromoNavtab();
 		  } else if($(this).parent('li').hasClass('dropdown-e-wallet')) {
 		  	$('.eservices').addClass('insurance-active-page');
@@ -1379,6 +1388,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 			$('#eservices-tab-contents').addClass('hidden');
 			$('#promo-offers-tab-contents').addClass('hidden');
 			alignMobilePromoNavtab();
+			window.location.hash = 'e-wallet-tab-link';
 			policyHelper.reloadPolicy();
 		  }
 
@@ -1409,6 +1419,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 				$('.dropdown-insurance-plan').addClass('active');
 				var selText = '<fmt:message key="tab.insurance.plan" bundle="${msg}" />'; //'Insurance Plan';
 		  		$('.dropdown-menu li a').parents('.btn-group').find('.dropdown-toggle').html(selText+' <i class="fa fa-angle-down"></i>');
+		  		$("#active-tab a").trigger("click");
 			} else if ($(this).hasClass('promo-offers')) {
 				$('.eservices').addClass('promo-active-page');
 				$('.eservices').removeClass('profile-active-page insurance-active-page');

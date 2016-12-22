@@ -34,13 +34,13 @@ var eWalletCtr = {
 		}
 	},
 	initHashChange: function (){
-		window.addEventListener("hashchange", function(e) {
-
+    	window.addEventListener("hashchange", function(e) {
+    		if(e.oldURL == e.newURL) return;
 			var targetTab = e.newURL.match(/(#[\w-]+)/g);
 			console.log(targetTab);
 			$(targetTab).trigger("click");
 		});
-	},
+    },
 	//Common Function Begin
 	langMapping: {
 		tc: "zh", 
@@ -221,7 +221,7 @@ var policyHelper = {
 					statusWrapper.addClass("isLocked");
 					break;
 			}
-			
+
 			// add wraning msg
 			var warns = info.warnMsg;
 
@@ -238,12 +238,11 @@ var policyHelper = {
 					wranItem.html(txt);
 					policyDom.find(".ew_pol_warns .ew_pol_warnList").append(wranItem);	
 				}
-			}			
+			}
 
 			$(".ew_pol_list .ew-tab-title").after(policyDom);
 
 			logViewer.addPolicyNum(info.policyId);
-			
 		}
 
 		// get first policy info in log view
