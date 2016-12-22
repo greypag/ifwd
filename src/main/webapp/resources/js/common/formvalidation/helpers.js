@@ -191,13 +191,7 @@ var event_applicantHkid2InsuredPerson = function( insureBoolean, formInfo, insur
     }
     $( '#'+formInfo.inputId).blur(function() {
         _bindingValFromA2B(insureBoolean, formInfo, insureFieldInfo);
-        console.log( formInfo.revalidateFieldName );
         $('#'+formInfo.formId)
-            // Show the custom message
-            // .updateMessage( field, 'blank', response.fields[field] )
-            // Set the field as invalid
-            // .updateStatus(field, 'INVALID', 'blank');
-            // .formValidation( 'updateOption', formInfo.revalidateFieldName, 'file', 'extension', extension )
             .formValidation( 'revalidateField', formInfo.revalidateFieldName );
     });
 };

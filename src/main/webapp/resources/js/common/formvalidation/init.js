@@ -282,7 +282,6 @@ var runFV = function(argCfg) {
 					// Get the first invalid field, and then scroll to that element by #id
 		            var $firstInvalidField = ( data.fv.getInvalidFields().length > 1 ? data.fv.getInvalidFields().eq(0) : data.fv.getInvalidFields() )[0];
 					$('#loading-overlay').modal('hide');
-					console.log( $firstInvalidField.id );
 					fwdUtility.ux.scrollToElement( $firstInvalidField.id );
 				}
 				// console.log(data.element.next());
