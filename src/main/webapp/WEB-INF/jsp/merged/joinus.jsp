@@ -298,7 +298,7 @@ function generate_common_validate_fields(form){
 						var passwordPattern3 = "[a-z]";
 						var passwordPattern4 = "[0-9]";
 						var specialChar = "\\W";
-						if (value.search(/[a-zA-Z0-9]{8,}/) < 0) {
+						if (value.search(/[a-zA-Z0-9\W]{8,}/) < 0) {
 							return {
 								valid: false,
 							};
@@ -318,13 +318,13 @@ function generate_common_validate_fields(form){
 								valid: false,
 							};
 						}
-						if (value.search(/\W/) > 0) {
-							return {
-								valid: false,
-							};
-						}
+						// if (value.search(/\W/) > 0) {
+							// return {
+								// valid: false,
+							// };
+						// }
 						return true;
-					}               
+					}
 
 				},
 				notEmpty: {
