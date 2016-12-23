@@ -12716,7 +12716,10 @@ button[disabled].btn.btn-default--vc {
   color: #fdb714;
   border: 1px #fdb714 solid;
 }
-
+/* line 39, ../sass/desktop/_landing.scss */
+#business-partners-container img.bp-klook {
+	margin: 30px 0 0 0;
+}
 @media screen and (max-width: 991px) {
 	#business-partners-container img.hk3_logo {
 		height: 12%;
@@ -12741,8 +12744,12 @@ button[disabled].btn.btn-default--vc {
 		height: 35%;
 		width: 35%;
 	}
+	#business-partners-container img.bp-klook{
+		margin-top: 0;
+		height: 50%;
+		width: 50%;		
+	}
 }
-
 /* 3976 partnership content updated */
 @media screen and (min-width: 992px) {
 	.partner_image.partner_image--3hk {
@@ -12765,6 +12772,11 @@ button[disabled].btn.btn-default--vc {
 		width: 80%;
 		height: 80%;
 	}
+	.partner_image.partner_image--klook {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}	
 }
 @media screen and (max-width: 991px) {
 	.partner_image.partner_image--3hk {
@@ -12787,6 +12799,11 @@ button[disabled].btn.btn-default--vc {
 		width: 80%;
 		height: 80%;
 	}
+	.partner_image.partner_image--klook {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}	
 }
 
 .img_1111{

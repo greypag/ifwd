@@ -341,12 +341,16 @@ var currentPath = "<%=request.getContextPath()%>";
 	 				<div class="col-xs-1">&nbsp;</div>
 				</div> <!-- end of row -->
 				<div class="row">
-					<div class="col-xs-1 col-md-2">&nbsp;</div>
 					<div id="bp-cfucome" class="col-xs-12 col-md-2 text-center">
 						<div class="desktop-center clearfix">
 							<img class="cfucome_logo" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png">
 						</div>
 					</div>
+					<div id="bp-klook" class="col-xs-12 col-md-3 text-center">
+						<div class="desktop-center clearfix">
+							<img class="bp-klook" src="<%=request.getContextPath()%>/resources/images/KLOOK_LOGO_HK_MKT.png">
+						</div>
+					</div>					
 					<div id="bp-csl" class="col-xs-12 col-md-3 text-center">
 						<div class="desktop-center clearfix">
 						<img class="csl_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png">
