@@ -413,11 +413,11 @@ function stickToHeader() {
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
 						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-						<h2><fmt:message key="wealthree.appoint.popup.prefered.time.slot.null.title" bundle="${wealthreeMsg}" /></h2>
+						<h2><fmt:message key="wealthree.appoint.popup.fully.booked.title" bundle="${wealthreeMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">	
 						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-						<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="wealthree.appoint.popup.prefered.time.slot.null.btn" bundle="${wealthreeMsg}" /></button>
+						<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="wealthree.appoint.popup.fully.booked.btn" bundle="${wealthreeMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
