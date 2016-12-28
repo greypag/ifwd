@@ -215,9 +215,10 @@ function showCalculatedRate(_amount,_currency){
 	var guaranteedCash_3rd =_amount / 2 / currencyRate[_currency].g3;
 	var guaranteedCash_1st = guaranteedCash_3rd * currencyRate[_currency].g1;
 	var guaranteedCash_2nd = guaranteedCash_3rd * currencyRate[_currency].g2;
+	
 
 	$(".ttl_pay_amount").text(formatDollar(_amount ,symbol));
-	$(".yrs3_return").text(formatDollar(thirdYear,symbol));
+	$(".yrs3_return").text(formatDollar(guaranteedCash_3rd,symbol));
 
 
 	$(".y1-c1").text(formatDollar(_amount / 2,symbol));
@@ -238,11 +239,11 @@ function showCalculatedRate(_amount,_currency){
 		$(".y3-c2").text(formatDollar(_amount * 1.1,symbol));
 		}
 		else{
-			$(".y3-c2").text(formatDollar(thirdYear,symbol),symbol);
+			$(".y3-c2").text(formatDollar(guaranteedCash_3rd,symbol),symbol);
 		}
 	}
 	//$(".y3-c3").text(formatDollar( Math.ceil(uaranteedCash_3rd),symbol));
-	$(".y3-c3").text(formatDollar(thirdYear,symbol));
+	$(".y3-c3").text(formatDollar(guaranteedCash_3rd,symbol));
 	
 	$(".box-result .over-bubble").addClass("hide");
  	$(".box-result ." + _currency).removeClass("hide");
