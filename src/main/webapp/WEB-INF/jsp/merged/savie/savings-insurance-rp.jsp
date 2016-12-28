@@ -67,7 +67,7 @@ var home_url = "<%=request.getContextPath()%>";
 				</a> --%>
 				<div class="fwd-container-limit">
             		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
-    	        		<%--
+    	        		
 						<div class="img-banner-text savie-landing">
     	        			<div id="clearfix-height-rp">
     	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
@@ -76,7 +76,7 @@ var home_url = "<%=request.getContextPath()%>";
     						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
     					</div>
     	        		</div>
-						--%>
+						
     	        	</form>
 	        	</div>
         	</div>
@@ -84,7 +84,7 @@ var home_url = "<%=request.getContextPath()%>";
         <div class="savie_mobile_middle_buttons hidden-lg hidden-md">
             <div class="fwd-container-limit hidden-sm hidden-xs">
                 <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
-                    <%--
+                    
 						  <div class="img-banner-text savie-landing">
                         <div id="clearfix-height-rp">
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
@@ -93,7 +93,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
                     </div>
                     </div>
-						  --%>
+						  
                 </form>
             </div>
         </div>
@@ -856,23 +856,23 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){
 	/* generate stop-rp-modal */
-	// var modal_id = 'stop-rp-modal';
-	// var img_path = '<fmt:message key="savie.stop.rp.modal.img" bundle="${msg}" />';
-	// var title = '<fmt:message key="savie.stop.rp.modal.title" bundle="${msg}" />';
-	// var content = '<fmt:message key="savie.stop.rp.modal.content" bundle="${msg}" />';
-	// var button = '<fmt:message key="savie.stop.rp.modal.btn" bundle="${msg}" />';
-	// imgModal_noImg(modal_id, title, content, button);
-	// $('#stop-rp-modal').modal('show');
+	var modal_id = 'stop-rp-modal';
+	var img_path = '<fmt:message key="savie.stop.rp.modal.img" bundle="${msg}" />';
+	var title = '<fmt:message key="savie.stop.rp.modal.title" bundle="${msg}" />';
+	var content = '<fmt:message key="savie.stop.rp.modal.content" bundle="${msg}" />';
+	var button = '<fmt:message key="savie.stop.rp.modal.btn" bundle="${msg}" />';
+	imgModal_noImg(modal_id, title, content, button);
+	$('#stop-rp-modal').modal('show');
 	
-	// $('#stop-rp-modal').on('hide.bs.modal',function(){
-		// window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/single-premium";
-	// });
+	$('#stop-rp-modal').on('hide.bs.modal',function(){
+		window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/single-premium";
+	});
 	
 	/* generate non-close-modal */
-	var modal_id = 'non-close-modal';
-	var title = '<fmt:message key="savie.suspension.modal.title" bundle="${msg}" />';
-	var content = '<fmt:message key="savie.suspension.modal.content" bundle="${msg}" />';
-	imgModal_noImg_notClose(modal_id, title, content);
-	$('#non-close-modal').modal('show');
+	// var modal_id = 'non-close-modal';
+	// var title = '<fmt:message key="savie.suspension.modal.title" bundle="${msg}" />';
+	// var content = '<fmt:message key="savie.suspension.modal.content" bundle="${msg}" />';
+	// imgModal_noImg_notClose(modal_id, title, content);
+	// $('#non-close-modal').modal('show');
 });
 </script>
