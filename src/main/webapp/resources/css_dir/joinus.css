@@ -134,39 +134,56 @@
   border-bottom: 0;
   border-width: 1px !important;
 }
-/* line 137, ../sass/common_screen/_joinus.scss */
+/* line 136, ../sass/common_screen/_joinus.scss */
+.container--regform .row .regform__right .fwd-acc {
+  margin-top: 0;
+}
+/* line 139, ../sass/common_screen/_joinus.scss */
+.container--regform .row .regform__right .icon_wrapper {
+  margin-bottom: 10px;
+}
+/* line 141, ../sass/common_screen/_joinus.scss */
+.container--regform .row .regform__right .icon_wrapper .icon_size {
+  width: 60px;
+}
+/* line 147, ../sass/common_screen/_joinus.scss */
 .container--regform .row .declaration-content {
   padding-left: 40px;
   margin: auto;
 }
-/* line 143, ../sass/common_screen/_joinus.scss */
+/* line 153, ../sass/common_screen/_joinus.scss */
 .container--regform .row .declaration-content .checkbox label .move-left {
   margin-left: -30px;
 }
-/* line 150, ../sass/common_screen/_joinus.scss */
+/* line 160, ../sass/common_screen/_joinus.scss */
 .container--regform .row .act {
   text-align: center;
   margin-bottom: 30px;
 }
-/* line 156, ../sass/common_screen/_joinus.scss */
+/* line 166, ../sass/common_screen/_joinus.scss */
 .container--regform .row span .help-block {
   color: red;
 }
 
-/* line 164, ../sass/common_screen/_joinus.scss */
+/* line 174, ../sass/common_screen/_joinus.scss */
 .dw-bubble.mbsc-mobiscroll .dwl {
   color: #333;
   font-size: 18px;
   text-transform: capitalize;
 }
-/* line 169, ../sass/common_screen/_joinus.scss */
+/* line 179, ../sass/common_screen/_joinus.scss */
 .dw-bubble.mbsc-mobiscroll .dwb {
   color: #f99502;
 }
-/* line 172, ../sass/common_screen/_joinus.scss */
+/* line 182, ../sass/common_screen/_joinus.scss */
 .dw-bubble.mbsc-mobiscroll .dwwol {
   border-top: 1px solid #f99502;
   border-bottom: 1px solid #f99502;
+}
+
+/* line 188, ../sass/common_screen/_joinus.scss */
+.container--icons {
+  display: none;
 }
 
 @media screen and (max-width: 991px) {
@@ -174,6 +191,21 @@
   .container--regform {
     margin-left: 0;
     padding-left: 30px;
+  }
+
+  /* line 5, ../sass/mobile/_joinus.scss */
+  .container--icons {
+    display: block;
+    margin-left: 0;
+    padding-left: 45px;
+  }
+  /* line 9, ../sass/mobile/_joinus.scss */
+  .container--icons .row {
+    margin-right: auto;
+  }
+  /* line 11, ../sass/mobile/_joinus.scss */
+  .container--icons .row ul {
+    padding-left: 15px;
   }
 }
 @media screen and (min-width: 992px) {

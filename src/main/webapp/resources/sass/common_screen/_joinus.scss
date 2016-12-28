@@ -132,7 +132,17 @@
 				}
 			}
 		}
-		.regform__right{}
+		.regform__right{
+			.fwd-acc{
+				margin-top : 0;
+			}
+			.icon_wrapper{
+				margin-bottom:10px;
+				.icon_size{
+					width:60px;
+				}
+			}
+		}
 		
 		.declaration-content{
 			padding-left: 40px;
@@ -174,4 +184,7 @@
     		border-bottom: 1px solid #f99502;
 		}
 	}
+}
+.container--icons{
+	display:none;
 }

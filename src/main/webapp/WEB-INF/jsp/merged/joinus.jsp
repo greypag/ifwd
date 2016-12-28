@@ -15,7 +15,11 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/joinus.css" type="text/css">
-
+<style>
+.temp_img{
+width:60px;
+}
+</style>
 <script>
 	$('document').ready(function(){
 		bootstrapvalidate_joinus();
@@ -822,7 +826,18 @@ function tooltipPlacement(){
 			</jsp:include>
 		</div>
 		<!-- Breadcrumb Component End-->
-
+		<div class="container container-fluid container--icons">
+			<div class="row"><fmt:message key="reason.item1.title" bundle="${msg}" /></div>
+			<div class="row">
+				<ul>
+					<li><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></li>
+					<li><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></li>
+					<li><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></li>
+					<li><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></li>
+					<li><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></li>
+				</ul>
+			</div>
+		</div>
 		<div class="container container-fluid container--regform" id="joinus_form">
 			<div class="row padding-15">
 				<h3 class="black-bold"><fmt:message key="member.registration.details.header" bundle="${msg}" /></h3>
@@ -927,11 +942,33 @@ function tooltipPlacement(){
 					</div>
 					
 					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs regform__right">
+					<!--
 						<div>
 							<img src="<%=request.getContextPath()%>/resources/images/user.jpg" alt="" />
 						</div>
+					 -->
 						<h2 class="h2-1 fwd-acc"><fmt:message key="reason.item1.title" bundle="${msg}" /></h2>
 						<h4 class="h4-1"><fmt:message key="reason.item1.copy" bundle="${msg}" /></h4>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon1" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon2" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon3" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon4" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon5" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></span>
+						</div>
 					</div>
 
 					<div class="clearfix"></div>
@@ -1042,11 +1079,33 @@ function tooltipPlacement(){
 					</div>
 					
 					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs regform__right">
+					<!-- 
 						<div>
 							<img src="<%=request.getContextPath()%>/resources/images/user.jpg" alt="" />
 						</div>
+					 -->
 						<h2 class="h2-1 fwd-acc"><fmt:message key="reason.item1.title" bundle="${msg}" /></h2>
 						<h4 class="h4-1"><fmt:message key="reason.item1.copy" bundle="${msg}" /></h4>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon1" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon2" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon3" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon4" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon5" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></span>
+						</div>
 					</div>
 
 					<div class="clearfix"></div>
