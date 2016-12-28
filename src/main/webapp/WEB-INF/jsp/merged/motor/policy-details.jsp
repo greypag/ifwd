@@ -114,6 +114,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <select class="form-control selectized" name="occupation" id="occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' required>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
 	                                            </select>
+	                                            <label class="mdl-textfield__label label-occupation hidden" for="occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
 	                                    </div>
@@ -136,7 +137,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" readonly  name="driverID" value="" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
+	                                                <input type="text" readonly style="text-transform:uppercase" name="driverID" value="" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
 	                                                <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -201,6 +202,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <select class="form-control selectized " name="d2occupation" id="d2occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' >
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
 	                                            </select>
+	                                            	<label class="mdl-textfield__label label-d2occupation hidden" for="d2occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -223,7 +225,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d2id" data-equals="hkid error" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" style="text-transform:uppercase" name="d2id" data-equals="<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />" maxlength="8" class="form-control input--grey mdl-textfield__input" id="driverID" >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -288,6 +290,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <select class="form-control selectized" name="d3occupation" id="d3occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' >
 	                                                    <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
 	                                                </select>
+	                                                <label class="mdl-textfield__label label-d3occupation hidden" for="d3occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -311,7 +314,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d3id" data-equals="hkid error" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" style="text-transform:uppercase" name="d3id" data-equals="<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />" maxlength="8" class="form-control input--grey mdl-textfield__input" id="driverID"  >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -376,6 +379,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <select class="form-control selectized" name="d4occupation" id="d4occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' >
 	                                                    <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
 	                                                </select>
+	                                                <label class="mdl-textfield__label label-d4occupation hidden" for="d4occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -399,7 +403,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d4id" data-equals="hkid error" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" style="text-transform:uppercase" name="d4id" data-equals="<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />" maxlength="8" class="form-control input--grey mdl-textfield__input" id="driverID" >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -464,6 +468,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <select class="form-control selectized" name="d5occupation" id="d5occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' >
 	                                                    <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
 	                                                </select>
+	                                                <label class="mdl-textfield__label label-d5occupation hidden" for="d5occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -488,7 +493,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d5id" data-equals="hkid error" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" style="text-transform:uppercase" name="d5id" data-equals="<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />" maxlength="8" class="form-control input--grey mdl-textfield__input" id="driverID" >
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -548,6 +553,8 @@ var nextPage = "${nextPageFlow}";
 	                                                <select class="form-control" id="prev_ic" name="prev_ic" data-required-error='<fmt:message key="motor.error.msg.policy.preinsurance.empty" bundle="${motorMsg}" />' >
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></option>
 	                                            	</select>
+	                                            	<label class="mdl-textfield__label label-prev_ic hidden" for="prev_ic" ><fmt:message key="motor.policydetails.policy.prev.insurer" bundle="${motorMsg}" /></label>
+	                                                
 													<div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -617,7 +624,7 @@ var nextPage = "${nextPageFlow}";
 	        </form>
 	   	</div>
     </section>
-    <section class="yourQuote">
+    <!-- <section class="yourQuote">
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
@@ -682,7 +689,99 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
     
-</section>
+</section>-->
+<section class="yourQuote">
+        <div class="container">
+            <div class="row" >
+                <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
+                    <h3>
+                        <span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span>
+                        <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                        <span id="yourQuotePrice"></span>
+                        <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                    </h3>
+                </a>
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span class="ci" id="yourQuoteTitle"></span>
+                        </div>
+                        
+                        <div class="col-sm-6 text-right">
+                       	 <strong><small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><span class="yourQuoteAmmount"></span><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /> </strong>
+                   		</div>
+                        <div class="col-xs-12">
+                            <br/>
+                        </div>
+                        <div class="col-xs-12 summary__addOn hidden">
+                            <strong><fmt:message key="motor.label.addontable" bundle="${motorMsg}" /></strong> 
+                        </div>
+                        <div class="col-xs-6 summary__addOn1 hidden">
+                           
+                                <span id="addOn1Title"><fmt:message key="motor.quickquote.addon.1.title" bundle="${motorMsg}" /></span>
+                           </div>
+                            <div class="col-xs-6 text-right">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="paa"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                          <div class="clearfix"></div>
+                        <div class="col-xs-6 summary__addOn2 hidden">                          
+                                <span id="addOn2Title"><fmt:message key="motor.quickquote.addon.2.title" bundle="${motorMsg}" /></span>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="cia"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                        <div class="col-xs-12">
+                            <br/>
+                        </div>
+                        <div class="col-xs-6 summary__subtotal hidden">
+                           
+                                <span id="subtitleTitle"><fmt:message key="motor.quickquote.summary.subtotal.title" bundle="${motorMsg}" /></span>
+                           </div>
+                            <div class="col-xs-6 text-right hidden">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="subtotalAmount"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                          <div class="clearfix"></div>
+                        <div class="col-xs-6 summary__Discounts hidden">                          
+                                <span id="discountsTitle"><fmt:message key="motor.quickquote.summary.discounts.title" bundle="${motorMsg}" /></span>
+                            </div>
+                            <div class="col-xs-6 text-right hidden">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="discountsAmount"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                        <div class="col-xs-12">
+                            <hr/>
+                        </div>
+                        <div class="col-xs-6">
+                            <strong><fmt:message key="motor.label.amountdue" bundle="${motorMsg}" />:</strong>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="yourQuoteAmmount"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 <!-- SaveForm Modal -->
 <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -725,6 +824,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-api.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
@@ -1033,7 +1133,15 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
-        	$("#prev_ic-selectized").val(value);
+        	$(".label-prev_ic").removeClass("hidden");
+			$(".label-prev_ic").css({
+				"font-size": "12px",
+				"top": "2px",
+				"left":"0px",
+				"visibility": "visible",
+				"z-index": "100"
+				});
+        	$("#prev_ic-selectized").prop('required',false);
         }
     });
 	
@@ -1077,7 +1185,15 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
-        	$("#occupation-selectized").val(value);
+        	$(".label-occupation").removeClass("hidden");
+			$(".label-occupation").css({
+				"font-size": "12px",
+				"top": "2px",
+				"left":"16px",
+				"visibility": "visible",
+				"z-index": "100"
+				});
+        	$("#occupation-selectized").prop('required',false);
         }
     });
 	$motor_d2occupation = $('#d2occupation').selectize({
@@ -1119,7 +1235,15 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
-        	$("#d2occupation-selectized").val(value);
+        	$(".label-d2occupation").removeClass("hidden");
+			$(".label-d2occupation").css({
+				"font-size": "12px",
+				"top": "2px",
+				"left":"16px",
+				"visibility": "visible",
+				"z-index": "100"
+				});
+        	$("#d2occupation-selectized").prop('required',false);
         }
     });
 	$motor_d3occupation = $('#d3occupation').selectize({
@@ -1161,7 +1285,15 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
-        	$("#d3occupation-selectized").val(value);
+        	$(".label-d3occupation").removeClass("hidden");
+			$(".label-d3occupation").css({
+				"font-size": "12px",
+				"top": "2px",
+				"left":"16px",
+				"visibility": "visible",
+				"z-index": "100"
+				});
+        	$("#d3occupation-selectized").prop('required',false);
         }
     });
 	$motor_d4occupation = $('#d4occupation').selectize({
@@ -1203,7 +1335,15 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
-        	$("#d4occupation-selectized").val(value);
+        	$(".label-d4occupation").removeClass("hidden");
+			$(".label-d4occupation").css({
+				"font-size": "12px",
+				"top": "2px",
+				"left":"16px",
+				"visibility": "visible",
+				"z-index": "100"
+				});
+        	$("#d4occupation-selectized").prop('required',false);
         }
     });
 	$motor_d5occupation = $('#d5occupation').selectize({
@@ -1241,7 +1381,15 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
-        	$("#d5occupation-selectized").val(value);
+        	$(".label-d5occupation").removeClass("hidden");
+			$(".label-d5occupation").css({
+				"font-size": "12px",
+				"top": "2px",
+				"left":"16px",
+				"visibility": "visible",
+				"z-index": "100"
+				});
+        	$("#d5occupation-selectized").prop('required',false);
         }
     });
 	 if (current == totalDriver) {
@@ -1379,7 +1527,52 @@ $(document).ready(function(){
 			    else  if(loginStatus==true)
 			    $('#saveModal').modal("show");
 		  });
-	    
+		  var planType = (quote.planCode=='Third')?'third':quote.compPlan.toLowerCase();
+		     $.when(getMotorQuotePrice(planType, quote)).then(function(){
+				
+				            totalDue = parseFloat(motorPrice[planType].amountDueAmount);
+				            addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
+				            addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+				            if($('body').hasClass('chin')){
+								if(quote.planCode=="Comp"){
+								 if(quote.compPlan=="Gold")
+								 $('#yourQuoteTitle').html('綜合保險(金)');
+								else
+								 $('#yourQuoteTitle').html('綜合保險(銀)');
+								}
+								else
+								$('#yourQuoteTitle').html('第三者保險');
+								}
+								else{
+								if(quote.planCode=="Comp"){
+								 if(quote.compPlan=="Gold")
+								 $('#yourQuoteTitle').html('Comprehensive Gold');
+								else
+								 $('#yourQuoteTitle').html('Comprehensive Silver');
+								}
+								else
+								$('#yourQuoteTitle').html('Third Party');
+								}
+				            $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
+				            $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
+				         
+				            if(quote.personalAccident == true)
+				            {
+				            	$('.summary__addOn1').removeClass('hidden');
+				            	$('.summary__addOn').removeClass('hidden');
+				             	$('#paa').html(formatCurrency(addOnPaQuote));
+				            }
+				            	
+				            if(quote.thirdPartyPropertyDamage == true)
+				            {	
+				            	$('.summary__addOn2').removeClass('hidden');
+				            	$('.summary__addOn').removeClass('hidden');
+				            	$('#cia').html(formatCurrency(addOnTppdQuote));
+				            }
+				         	updateTotalDue(totalDue);
+				         	$(".yourQuoteAmmount").html ($("#yourQuoteAmmount").html());
+		     });
+		  /*
 	    $.ajax({
 			  type: "POST",
 			  data: JSON.stringify(quote),
@@ -1404,7 +1597,7 @@ $(document).ready(function(){
 			  },error: function(error) {
 				
 			  }
-			});
+			});*/
 	$('#policyDetails').validator().on('submit', function (e) {
 		if (!e.isDefaultPrevented()) {
 	       var driverMoreThanTwo = false;
@@ -1512,5 +1705,9 @@ $(document).ready(function(){
 		}
 		return false;
 	});
+	 function updateTotalDue(amt){
+	        $('#yourQuotePrice').html(formatCurrency(amt));
+	        $('#yourQuoteAmmount').html(formatCurrency(amt));
+	    }
 });
 </script>

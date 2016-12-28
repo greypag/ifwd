@@ -239,11 +239,11 @@ $(document).ready(function(){
                         success: function(res) {
                             callback(res);
 							
-                            var sessionCarMake = sessionStorage.getItem('carMake');
+                            /*var sessionCarMake = sessionStorage.getItem('carMake');
                             if(sessionCarMake){
                             	$carMake[0].selectize.setValue(sessionCarMake);
                             	$('.q1, .q2, .q3, .q4, .q5').removeClass('hidden');
-                            }
+                            }*/
 							//$.each(res, function(i, item) {
 								if(getUrlParameter("edit")=="yes")
 								{

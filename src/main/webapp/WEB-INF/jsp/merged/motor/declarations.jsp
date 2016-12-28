@@ -282,7 +282,7 @@ var nextPage = "${nextPageFlow}";
 	        </form>
         </div>
     </section>
-    <section class="yourQuote">
+    <!--<section class="yourQuote">
     <div class="container">
         <div class="row" >
             <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
@@ -347,8 +347,99 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
     
-</section>
-
+</section>-->
+<section class="yourQuote">
+        <div class="container">
+            <div class="row" >
+                <a class="orange-color col-xs-12 collapse-addon center" role="button" data-toggle="collapse" href="#yourQuote" aria-expanded="false" aria-controls="yourQuote">
+                    <h3>
+                        <span class="small title"><fmt:message key="motor.label.yourquote" bundle="${motorMsg}" /></span>
+                        <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                        <span id="yourQuotePrice"></span>
+                        <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                    </h3>
+                </a>
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 collapse" id="yourQuote">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span class="ci" id="yourQuoteTitle"></span>
+                        </div>
+                        
+                        <div class="col-sm-6 text-right">
+                       	 <strong><small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><span class="yourQuoteAmmount"></span><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /> </strong>
+                   		</div>
+                        <div class="col-xs-12">
+                            <br/>
+                        </div>
+                        <div class="col-xs-12 summary__addOn hidden">
+                            <strong><fmt:message key="motor.label.addontable" bundle="${motorMsg}" /></strong> 
+                        </div>
+                        <div class="col-xs-6 summary__addOn1 hidden">
+                           
+                                <span id="addOn1Title"><fmt:message key="motor.quickquote.addon.1.title" bundle="${motorMsg}" /></span>
+                           </div>
+                            <div class="col-xs-6 text-right">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="paa"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                          <div class="clearfix"></div>
+                        <div class="col-xs-6 summary__addOn2 hidden">                          
+                                <span id="addOn2Title"><fmt:message key="motor.quickquote.addon.2.title" bundle="${motorMsg}" /></span>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="cia"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                        <div class="col-xs-12">
+                            <br/>
+                        </div>
+                        <div class="col-xs-6 summary__subtotal hidden">
+                           
+                                <span id="subtitleTitle"><fmt:message key="motor.quickquote.summary.subtotal.title" bundle="${motorMsg}" /></span>
+                           </div>
+                            <div class="col-xs-6 text-right hidden">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="subtotalAmount"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                          <div class="clearfix"></div>
+                        <div class="col-xs-6 summary__Discounts hidden">                          
+                                <span id="discountsTitle"><fmt:message key="motor.quickquote.summary.discounts.title" bundle="${motorMsg}" /></span>
+                            </div>
+                            <div class="col-xs-6 text-right hidden">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="discountsAmount"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                        <div class="col-xs-12">
+                            <hr/>
+                        </div>
+                        <div class="col-xs-6">
+                            <strong><fmt:message key="motor.label.amountdue" bundle="${motorMsg}" />:</strong>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="yourQuoteAmmount"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="contactpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -529,6 +620,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-api.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
@@ -743,6 +835,52 @@ $(document).ready(function(){
 		    else  if(loginStatus==true)
 		    $('#saveModal').modal("show");
 	  });
+	  var planType = (quote.planCode=='Third')?'third':quote.compPlan.toLowerCase();
+	     $.when(getMotorQuotePrice(planType, quote)).then(function(){
+			
+			            totalDue = parseFloat(motorPrice[planType].amountDueAmount);
+			            addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
+			            addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+			            if($('body').hasClass('chin')){
+							if(quote.planCode=="Comp"){
+							 if(quote.compPlan=="Gold")
+							 $('#yourQuoteTitle').html('綜合保險(金)');
+							else
+							 $('#yourQuoteTitle').html('綜合保險(銀)');
+							}
+							else
+							$('#yourQuoteTitle').html('第三者保險');
+							}
+							else{
+							if(quote.planCode=="Comp"){
+							 if(quote.compPlan=="Gold")
+							 $('#yourQuoteTitle').html('Comprehensive Gold');
+							else
+							 $('#yourQuoteTitle').html('Comprehensive Silver');
+							}
+							else
+							$('#yourQuoteTitle').html('Third Party');
+							}
+			            $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
+			            $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
+			         
+			            if(quote.personalAccident == true)
+			            {
+			            	$('.summary__addOn1').removeClass('hidden');
+			            	$('.summary__addOn').removeClass('hidden');
+			             	$('#paa').html(formatCurrency(addOnPaQuote));
+			            }
+			            	
+			            if(quote.thirdPartyPropertyDamage == true)
+			            {	
+			            	$('.summary__addOn2').removeClass('hidden');
+			            	$('.summary__addOn').removeClass('hidden');
+			            	$('#cia').html(formatCurrency(addOnTppdQuote));
+			            }
+			         	updateTotalDue(totalDue);
+			         	$(".yourQuoteAmmount").html ($("#yourQuoteAmmount").html());
+	     });
+	  /*
 	  $.ajax({
 		  type: "POST",
 		  data: JSON.stringify(quote),
@@ -767,7 +905,7 @@ $(document).ready(function(){
 		  },error: function(error) {
 			
 		  }
-		});
+		});*/
 	$('#declaration').validator().on('submit', function (e) {
 		  if (e.isDefaultPrevented()) {
 		  	
@@ -837,7 +975,10 @@ $(document).ready(function(){
 		return false;
 	        	}
 	});
-	
+	 function updateTotalDue(amt){
+	        $('#yourQuotePrice').html(formatCurrency(amt));
+	        $('#yourQuoteAmmount').html(formatCurrency(amt));
+	    }
 });
 </script>
        

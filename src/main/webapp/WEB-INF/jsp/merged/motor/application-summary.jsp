@@ -730,7 +730,7 @@ var nextPage = "${nextPageFlow}";
 								<h3 class="finalPremium-title">
 									<fmt:message key="motor.label.currency.front"
 										bundle="${motorMsg}" />
-									<span class="price"></span>
+									<span id="yourQuotePrice"></span>
 									<fmt:message key="motor.label.currency.behind"
 										bundle="${motorMsg}" />
 								</h3>
@@ -750,38 +750,63 @@ var nextPage = "${nextPageFlow}";
 								<strong><fmt:message key="motor.summary.plan.type"
 										bundle="${motorMsg}" /></strong>
 							</div>
-							<div class="col-xs-6 paa-box"">
-								<span>Comprehensive Insurance</span>
-							</div>
-							<div class="col-xs-6 text-right paa-box"">
-								<fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="paa"></span>
-							</div>
-							<div class="col-xs-12 paa-box"">
-								<br>
-							</div>
-							<div class="col-xs-6 cia-box"">
-								<span>Comprehensive Insurance</span>
-							</div>
-							<div class="col-xs-6 text-right cia-box"">
-								<fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="cia"></span>
-							</div>
-							<div class="col-xs-12 cia-box"">
-								<br>
-							</div>
+							
 							<div class="col-xs-6">
-								<span><fmt:message key="motor.summary.plan.subtitle"
-										bundle="${motorMsg}" /></span>
-							</div>
-							<div class="col-xs-6 text-right">
-								<fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /><span class="subprice"></span>
-                   			</div>
-							<div class="col-xs-6" style="display:none">
-								<span><fmt:message key="motor.summary.plan.discounts"
-										bundle="${motorMsg}" /></span>
-							</div>
-							<div class="col-xs-6 text-right" style="display:none">
-								<span>300.00</span>
-							</div>
+                            <span class="ci" id="yourQuoteTitle"></span>
+                        	</div>
+                        	<div class="col-xs-12">
+                            <br/>
+                       		</div>
+							<div class="col-xs-12 summary__addOn hidden">
+                            <strong><fmt:message key="motor.label.addontable" bundle="${motorMsg}" /></strong> 
+                        </div>
+                        <div class="col-xs-6 summary__addOn1 hidden">
+                           
+                                <span id="addOn1Title"><fmt:message key="motor.quickquote.addon.1.title" bundle="${motorMsg}" /></span>
+                           </div>
+                            <div class="col-xs-6 text-right hidden">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="paa"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                          <div class="clearfix"></div>
+                        <div class="col-xs-6 summary__addOn2 hidden">                          
+                                <span id="addOn2Title"><fmt:message key="motor.quickquote.addon.2.title" bundle="${motorMsg}" /></span>
+                            </div>
+                            <div class="col-xs-6 text-right hidden">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="cia"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                        <div class="col-xs-12">
+                            <br/>
+                       	</div>
+                        <div class="col-xs-6 summary__subtotal hidden">
+                           
+                                <span id="subtitleTitle"><fmt:message key="motor.quickquote.summary.subtotal.title" bundle="${motorMsg}" /></span>
+                           </div>
+                            <div class="col-xs-6 text-right hidden">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="subtotalAmount"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
+                          <div class="clearfix"></div>
+                        <div class="col-xs-6 summary__Discounts hidden">                          
+                                <span id="discountsTitle"><fmt:message key="motor.quickquote.summary.discounts.title" bundle="${motorMsg}" /></span>
+                            </div>
+                            <div class="col-xs-6 text-right hidden">
+                            <strong>
+                                <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+                                <span id="discountsAmount"></span>
+                                <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
+                            </strong>
+                        </div>
 							<div class="col-xs-12">
 								<hr>
 							</div>
@@ -791,11 +816,9 @@ var nextPage = "${nextPageFlow}";
 							</div>
 							<div class="col-xs-6 text-right">
 								<h2 class="finalPremium-title orange">
-									<fmt:message key="motor.label.currency.front"
-										bundle="${motorMsg}" />
-									<fmt:message key="motor.label.currency.behind"
-										bundle="${motorMsg}" />
-									<span class="amountDue"></span>
+									 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
+		                             <span id="yourQuoteAmmount"></span>
+		                             <fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" />
 								</h2>
 							</div>
 							<div class="clearfix"></div>
@@ -1439,6 +1462,8 @@ var nextPage = "${nextPageFlow}";
 	src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8"
 	src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
+<script type="text/javascript" charset="utf-8" 
+	src="<%=request.getContextPath()%>/resources/js/motor/motor-api.js"></script>
 <script type="text/javascript" charset="utf-8"
 	src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8"
@@ -1487,7 +1512,54 @@ function BackMe() {
 							$("#collapseOne").addClass("panel-collapse collapse");
 						});
 						
-						$.ajax({
+						
+						var planType = (quote.planCode=='Third')?'third':quote.compPlan.toLowerCase();
+					     $.when(getMotorQuotePrice(planType, quote)).then(function(){
+							
+							            totalDue = parseFloat(motorPrice[planType].amountDueAmount);
+							            addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
+							            addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+							            if($('body').hasClass('chin')){
+											if(quote.planCode=="Comp"){
+											 if(quote.compPlan=="Gold")
+											 $('#yourQuoteTitle').html('綜合保險(金)');
+											else
+											 $('#yourQuoteTitle').html('綜合保險(銀)');
+											}
+											else
+											$('#yourQuoteTitle').html('第三者保險');
+											}
+											else{
+											if(quote.planCode=="Comp"){
+											 if(quote.compPlan=="Gold")
+											 $('#yourQuoteTitle').html('Comprehensive Gold');
+											else
+											 $('#yourQuoteTitle').html('Comprehensive Silver');
+											}
+											else
+											$('#yourQuoteTitle').html('Third Party');
+											}
+							            $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
+							            $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
+							         
+							            if(quote.personalAccident == true)
+							            {
+							            	$('.summary__addOn1').removeClass('hidden');
+							            	$('.summary__addOn').removeClass('hidden');
+							             	$('#paa').html(formatCurrency(addOnPaQuote));
+							            }
+							            	
+							            if(quote.thirdPartyPropertyDamage == true)
+							            {	
+							            	$('.summary__addOn2').removeClass('hidden');
+							            	$('.summary__addOn').removeClass('hidden');
+							            	$('#cia').html(formatCurrency(addOnTppdQuote));
+							            }
+							         	updateTotalDue(totalDue);
+							         	$(".yourQuoteAmmount").html ($("#yourQuoteAmmount").html());
+							         	$('#loading-overlay').modal("hide");
+					     });
+						/*$.ajax({
 							  type: "POST",
 							  data: JSON.stringify(quote),
 							  dataType: "json",
@@ -1511,7 +1583,7 @@ function BackMe() {
 							  },error: function(error) {
 								
 							  }
-							});
+							});*/
 
 						$('.edit_quote')
 								.on(
@@ -1673,34 +1745,18 @@ function BackMe() {
 						$(".contactno").html(quote.applicant.contactNo);
 						$(".birth").html(quote.applicant.dateOfBirth);
 						$(".email").html(quote.applicant.email);
-						$(".hkid").html(quote.applicant.hkid);
+						var hkid = quote.applicant.hkid; 
+						$(".hkid").html(hkid.toString().toUpperCase());
 						$(".policystart").html(quote.policyStartDate);
 						$(".policyend").html(quote.policyEndDate);
-						var address = quote.applicant.correspondenceAddress.flat
-								+ ", "
-								+ quote.applicant.correspondenceAddress.floor
-								+ ", "
-								+ quote.applicant.correspondenceAddress.block
-								+ ", "
-								+ quote.applicant.correspondenceAddress.building
-								+ ", "
-								+ quote.applicant.correspondenceAddress.streetName
-								+ ", "
-								+ quote.applicant.correspondenceAddress.streetNo
-								+ ", "
-								+ quote.applicant.correspondenceAddress.estate
-								+ ", "
-								+ "<span class='add_dis'>"+quote.applicant.correspondenceAddress.district +"</span>"
-								+ ", "
-								+ quote.applicant.correspondenceAddress.hkKlNt;
-						$(".address").html(address);
 						$(".policyend").html(quote.applicant.modelDesc);
 
 						//drivers
 						$(".driver1fullname").html(quote.driver[0].name);
 						
 						$(".driver1birth").html(quote.driver[0].dateOfBirth);
-						$(".driver1hkid").html(quote.driver[0].hkid);
+						hkid = quote.driver[0].hkid; 
+						$(".driver1hkid").html(hkid.toString().toUpperCase());
 
 						  $.ajax({
 				                url: context + '/api/iMotor/list/bankMortgages',
@@ -1735,22 +1791,51 @@ function BackMe() {
 
 			                    	$.each(res, function(i, item) {
 										
-											if(item.desc == quote.applicant.correspondenceAddress.district )
+											if(item.code == quote.applicant.correspondenceAddress.district )
 											{
-												$(".add_dis").html(item.code);
 												
-												if(motorlanguage == "ZH")
+												if(motorlanguage == item.lang)
 												{
-													console.log(item.remark);
-													if(item.remark == "NEW TERRITORIES")
-														$("#area").val("新界");
+						
+													/*if(item.remark == "NEW TERRITORIES")
+														item.remark = "新界";
 													else if(item.remark == "HONG KONG")
-														$("#area").val("香港");
+														item.remark = "香港";
 													else if(item.remark == "KOWLOON")
-														$("#area").val("九龍");
+														item.remark = "九龍";
+													*/
+													if(item.remark == "新界")
+														item.remark = "New Territories";
+													else if(item.remark == "香港")
+														item.remark = "Hong Kong";
+													else if(item.remark == "九龍")
+														item.remark = "Kowloon";
+													
+													//item.desc = item.desc;
 												}	
-												else
-													$("#area").val(item.remark);
+												
+												var desc = item.desc;
+												var remark = item.remark;
+												var address = quote.applicant.correspondenceAddress.flat
+												+ ","
+												+ quote.applicant.correspondenceAddress.floor
+												+ ","
+												+ quote.applicant.correspondenceAddress.block
+												+ ","
+												+ quote.applicant.correspondenceAddress.building
+												+ ","
+												+ quote.applicant.correspondenceAddress.streetName
+												+ ","
+												+ quote.applicant.correspondenceAddress.streetNo
+												+ ","
+												+ quote.applicant.correspondenceAddress.estate
+												+ ","
+												+ desc.toString().toLowerCase()
+												+ ","
+												+ remark.toString().toLowerCase();
+												$(".address").html(address);
+												
+												return false;
 											}
 										
 									});
@@ -1809,8 +1894,9 @@ function BackMe() {
 											quote.driver[i].name);
 									$(".driver" + (i + 1) + "birth").html(
 											quote.driver[i].dateOfBirth);
+									var hkid =quote.driver[i].hkid; 
 									$(".driver" + (i + 1) + "hkid").html(
-											quote.driver[i].hkid);
+											hkid.toString().toUpperCase());
 									cur_item++;
 								});
 
@@ -1841,7 +1927,7 @@ function BackMe() {
 								quote.expDateOfPreviousInsurance);
 						$(".previouspolicyno").html(quote.previousPolicyNo);
 
-						$.ajax({
+						/*$.ajax({
 							type : "POST",
 							data : JSON.stringify(quote),
 							dataType : "json",
@@ -1858,7 +1944,7 @@ function BackMe() {
 							error : function(error) {
 
 							}
-						});
+						});*/
 						//Check UserLogin
 						$.ajax({
 							url : fwdApi.url.session,
@@ -2008,5 +2094,9 @@ function BackMe() {
 								return false;
 							}
 						}
+						function updateTotalDue(amt){
+					        $('#yourQuotePrice').html(formatCurrency(amt));
+					        $('#yourQuoteAmmount').html(formatCurrency(amt));
+					    }
 					});
 </script>

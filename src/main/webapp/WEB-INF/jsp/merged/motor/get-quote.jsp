@@ -223,7 +223,7 @@ width: 100px !important;
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" name="promoCode" id="promoCode" data-required-error='Input Promo-code' class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
+                                        <input type="text" name="promoCode" id="promoCode" data-required-error='<fmt:message key="motor.error.msg.getquote.promote.empty" bundle="${motorMsg}" />' class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
                                                                       		  <br/>
 										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
 											role="alert" style="position:static"></div>     
@@ -524,7 +524,7 @@ function sendEmail() {
                     $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
                 } else {
                 	//console.log(data);
-                    $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+                    $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "motor.error.msg.getquote.promote.format"))
                 }
             },
             error : function() {

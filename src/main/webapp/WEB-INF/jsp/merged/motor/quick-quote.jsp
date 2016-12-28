@@ -578,9 +578,54 @@ function SaveAndExit()
 		compPlan = quote.compPlan;
 		 if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 		 {  
-			 $("[name=addon1]").attr("checked", quote.personalAccident);
-			 $("[name=addon2]").attr("checked", quote.thirdPartyPropertyDamage);
+			
+			 var planType = (quote.planCode=='Third')?'third':quote.compPlan.toLowerCase();
+		     if(quote.personalAccident == true)
+		     {
+		    	$("[name=addon1]").attr("checked", quote.personalAccident);
+			 	var $this1 = $('#addOnPaAmtClick').find('[type="checkbox"]');
+					quote.personalAccident = $this1.is(':checked');
+					$.when(getMotorQuotePrice(planType, quote)).then(function(){				
+					    totalDue = parseFloat(motorPrice[planType].amountDueAmount);
+					    updateTotalDue(totalDue);
+					});
+				
+		            if($this1.is(':checked')){
+		            	
+		                $('.summary__addOn1').removeClass('hidden');
+						$('.summary__addOn').removeClass('hidden');
+		            }
+		            else{
+		                $('.summary__addOn1').addClass('hidden');
+		                if($('.summary__addOn2').hasClass('hidden'))
+		     				$('.summary__addOn').addClass('hidden');
+		            }
+		     }
+		     if(quote.thirdPartyPropertyDamage == true)
+		     {
+		    	
+		    	 $("[name=addon2]").attr("checked", quote.thirdPartyPropertyDamage);
+		            var $this2 = $('#addOnTppdAmtClick').find('[type="checkbox"]');
+					quote.thirdPartyPropertyDamage = $this2.is(':checked');
+					$.when(getMotorQuotePrice(planType, quote)).then(function(){
+					    totalDue = parseFloat(motorPrice[planType].amountDueAmount);
+					    updateTotalDue(totalDue);
+					});
+					
+		            if($this2.is(':checked')){
+		            	
+		                $('.summary__addOn2').removeClass('hidden');
+						$('.summary__addOn').removeClass('hidden');
+		            }
+		            else{
+		            	$('.summary__addOn2').addClass('hidden');
+		               	if($('.summary__addOn1').hasClass('hidden'))
+		     				$('.summary__addOn').addClass('hidden');
+		            }
+		     }
 		 }
+			 
+			 
         var totalDue = 0;
         var addOnPaQuote = 0;
         var addOnTppdQuote = 0;
@@ -590,38 +635,42 @@ function SaveAndExit()
          */
         var planType = (quote.planCode=='Third')?'third':quote.compPlan.toLowerCase();
         $.when(getMotorQuotePrice(planType, quote)).then(function(){
-
-            totalDue = parseFloat(motorPrice[planType].amountDueAmount);
-            addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
-            addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
-console.log(motorPrice);
-console.log(quote);
-if($('body').hasClass('chin')){
-if(quote.planCode=="Comp"){
- if(quote.compPlan=="Gold")
- $('#yourQuoteTitle').html('綜合保險(金)');
-else
- $('#yourQuoteTitle').html('綜合保險(銀)');
-}
-else
-$('#yourQuoteTitle').html('第三者保險');
-}
-else{
-if(quote.planCode=="Comp"){
- if(quote.compPlan=="Gold")
- $('#yourQuoteTitle').html('Comprehensive Gold');
-else
- $('#yourQuoteTitle').html('Comprehensive Silver');
-}
-else
-$('#yourQuoteTitle').html('Third Party');
-}
-            $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
-            $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
-         //   $('#yourQuotefromPrice').html(formatCurrency(totalDue));
-            updateTotalDue(totalDue);
-        });
-
+		
+		            totalDue = parseFloat(motorPrice[planType].amountDueAmount);
+		            addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
+		            addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+					console.log(motorPrice);
+					console.log(quote);
+					if($('body').hasClass('chin')){
+					if(quote.planCode=="Comp"){
+					 if(quote.compPlan=="Gold")
+					 $('#yourQuoteTitle').html('綜合保險(金)');
+					else
+					 $('#yourQuoteTitle').html('綜合保險(銀)');
+					}
+					else
+					$('#yourQuoteTitle').html('第三者保險');
+					}
+					else{
+					if(quote.planCode=="Comp"){
+					 if(quote.compPlan=="Gold")
+					 $('#yourQuoteTitle').html('Comprehensive Gold');
+					else
+					 $('#yourQuoteTitle').html('Comprehensive Silver');
+					}
+					else
+					$('#yourQuoteTitle').html('Third Party');
+					}
+			
+		            $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
+		            $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
+		            
+		         //   $('#yourQuotefromPrice').html(formatCurrency(totalDue));
+		         if(getUrlParameter("edit")!="yes" && getUrlParameter("back")!="yes")
+		         	updateTotalDue(totalDue);
+			
+		        });
+			
 		/*
          * Check / Uncheck Add-On
          */

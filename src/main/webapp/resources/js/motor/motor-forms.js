@@ -95,7 +95,6 @@ $(document).ready(function(){
         preload: true,
         load: function(query, callback) {
         	
-			
             $('#mortgageBank-selectized').data('required-error', $('#mortgageBank').data('required-error'));
             $.ajax({
                 url: context + '/api/iMotor/list/bankMortgages',
@@ -130,8 +129,8 @@ $(document).ready(function(){
 								}
 							}
 						});
-						
-								if(match == false &&  quote.carDetail.bankMortgageName != "" && (getUrlParameter("edit")=="yes"  || getUrlParameter("back")=="yes" ))
+								
+								if(match == false &&  quote.carDetail.bankMortgageName != "" && typeof quote.carDetail.bankMortgageName != "undefined" && (getUrlParameter("edit")=="yes"  || getUrlParameter("back")=="yes" ))
 								{		
 										$(".switch-light").removeClass("orange");
 										//$('[name="bankMortgage"]').bootstrapSwitch('setState',true);
@@ -153,12 +152,16 @@ $(document).ready(function(){
                     }
             });
         },
-		onInitialize: function(value) {
-			
-		},
         onChange: function(value){
-			
-			$("#mortgageBank-selectized").val(value);
+			$(".label-mortgageBank").removeClass("hidden");
+			$(".label-mortgageBank").css({
+				"font-size": "12px",
+				"top": "52px",
+				"left":"16px",
+				"visibility": "visible",
+				"z-index": "100"
+				});
+			$("#mortgageBank-selectized").prop('required',false);
 			if(value=="OTHER")
 			{	
 				$("#bankNameHandle").removeClass("hidden");
@@ -272,6 +275,14 @@ $(document).ready(function(){
             });
         },
         onChange: function(value){
+			$(".label-district, .label-area").removeClass("hidden");
+			$(".label-district, .label-area").css({
+				"font-size": "12px",
+				"top": "2px",
+				"left":"16px",
+				"visibility": "visible",
+				"z-index": "100"
+				});
 			//$motor_area[0].selectize.setValue("HONG KONG");
 			$.ajax({
                 url: context + '/api/iMotor/list/districts',
