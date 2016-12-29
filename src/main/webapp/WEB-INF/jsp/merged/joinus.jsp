@@ -827,7 +827,7 @@ function tooltipPlacement(){
 		</div>
 		<!-- Breadcrumb Component End-->
 		<div class="container container-fluid container--icons">
-			<div class="row"><fmt:message key="reason.item1.title" bundle="${msg}" /></div>
+			<div class="row"><fmt:message key="reason.item1.copy" bundle="${msg}" /></div>
 			<div class="row">
 				<ul>
 					<li><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></li>
