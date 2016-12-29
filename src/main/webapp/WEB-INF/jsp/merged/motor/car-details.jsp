@@ -100,7 +100,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='/fwdhk/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="17" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="chassisNumber"><fmt:message key="motor.cardetails.car.chassisno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -430,7 +430,6 @@ cnErr ={
 };*/
 
 var checkbox=false;
-
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
 if(typeof quote.policyId == "undefined")
 	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
@@ -515,13 +514,8 @@ function SaveAndExit()
 				});
 	});
 }
+
 function BackMe() {
-	
-	/*if(getUrlParameter("edit")=="yes")
-		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
-	else
-		window.location="/fwdhk/en/motor-insurance/rider-options";*/
-	//window.history.back();
 	 var $form = $("<form id='quote-form' />");
     	 $form.attr("action", "rider-options?back=yes");
      $form.attr("method", "post");
@@ -531,19 +525,14 @@ function BackMe() {
      $("body").append($form);
      $('#quote-form').submit();
 }
-
+$(window).load(function(){
+    $('body').backDetect(function(){
+    	 BackMe();
+    	 return false;
+    });
+});
 $(document).ready(function(){
-	//enable the Next Button
-	/*
-	   $('#carDetails').validator({
-		   custom: {
-		   equals: function($el) {
-			   
-			  }
-		   },
-		   disable: false
-	   });*/
-	 /*start cc validation*/
+	
 	var min_a = quote.carDetail.engineCapacity;
 	console.log(min_a);
 	if(min_a <= 1650){
@@ -559,6 +548,16 @@ $(document).ready(function(){
 		$('#cubicCapacity').attr("max",3500);
 		}
 	/*end cc validation*/
+	
+	  $('#cubicCapacity').keyup(function(e){
+    	
+    	if($(this).val() > parseInt($(this).prop('max'))){
+        	console.log($(this).val());
+        	$(this).val(parseInt($(this).prop('max')));
+      	  $(this).blur().focus();
+    	}
+    	});
+	
     $('[data-toggle="tooltip"]').tooltip(); 
  
     

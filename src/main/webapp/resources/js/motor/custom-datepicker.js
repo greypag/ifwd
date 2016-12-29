@@ -46,6 +46,33 @@ $(document).ready(function () {
         //     $(this).parents('.mdl-textfield--floating-label').removeClass('is-invalid').addClass('is-dirty');
         // });
     }
+    
+    if($('.driverDob-dp').length){
+        // 18 year ago date
+        var dob_end_date = new Date();
+        dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+        // 60 year ago date
+        var dob_start_date = new Date();
+        dob_start_date.setFullYear(dob_start_date.getFullYear()-100);
+        dob_start_date.setDate(dob_start_date.getDate()+1);
+        //alert(dob_end_date);
+        $('.driverDob-dp').val(dob_end_date.getDate() + '-' + (dob_end_date.getMonth() + 1) + '-' + dob_end_date.getFullYear());
+        $('.driverDob-dp').mobiscroll().calendar({
+            controls: ['date'],
+            minDate: dob_start_date,
+            maxDate: dob_end_date,
+            showLabel: true,
+            dateOrder: 'ddmmyy',
+            dateFormat: 'dd-mm-yyyy',
+            theme: "mobiscroll",     // Specify theme like: theme: 'ios' or omit setting to use default 
+            mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+            display: "bubble", // Specify display mode like: display: 'bottom' or omit setting to use default 
+            //	onClosed:onClosed,
+            lang: UILANGUAGE  == "EN" ? "en_fwd" : "zh_fwd"
+        }).change(function(e){
+            $(this).parents('.mdl-textfield--floating-label').removeClass('is-invalid').addClass('is-dirty');
+        });
+    }
 
     if($('#expiry-datepicker').length){
     	var now = new Date(),

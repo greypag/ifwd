@@ -439,10 +439,10 @@ width: 100px !important;
                 <form>
                     <div class="form-container">
                         <h2>Don't have a promotion code? Enter your email address and we'll send you one.</h2>
-                        <div class="alert alert-success hide proSuccess"></div>
+                        <div class="alert alert-success proSuccess hide">Thank you. Your promotion code has been emailed to you.</div>
                         <h4>Email address</h4>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder=""
+                        	<input type="email" class="form-control" placeholder=""
                                 name="emailToSendPromoCode" id="emailToSendPromoCode" style="background-color:#f2f2f2">
                             <!-- <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">-->
                         </div>
@@ -520,12 +520,13 @@ function sendEmail() {
             data : $("#sendmailofpromocode form").serialize(),
             async : false,
             success : function(data) {
-                if (data == 'success') {
-                    $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+            	 $('.proSuccess').removeClass('hide').html("Thank you. Your promotion code has been emailed to you.");
+                /*if (data == 'success') {
+                    $('.proSuccess').removeClass('hide').html("Thank you. Your promotion code has been emailed to you.");
                 } else {
                 	//console.log(data);
                     $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "motor.error.msg.getquote.promote.format"))
-                }
+                }*/
             },
             error : function() {
             }
@@ -535,6 +536,7 @@ function sendEmail() {
 }
 
 $(document).ready(function(){
+	
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
@@ -555,12 +557,10 @@ $(document).ready(function(){
     	$('#loginpopup').modal("show");
     }
     
-    if(getUrlParameter("edit")=="yes")
+    if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
     {   
     	$(".q2,.q3,.q4,.q5").removeClass("hidden");//q5 for promo
-		//$carMake[0].selectize.setValue(quote.carDetail.makeCode);
-		//$occupation[0].selectize.setValue(quote.driver[0].occupation);
-		//$car_details[0].selectize.setValue(quote.carDetail.model);	
+    	
 		$('input[name=cc]').val(quote.carDetail.engineCapacity)
 		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
 		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
@@ -636,7 +636,7 @@ $(document).ready(function(){
 	    		
 	    		$('input[name=validAgeGroup]').attr("checked",true);	
 	    		$('input[name=driveMoreThanTwo]').attr("checked",true);	
-	    		$carMake[0].selectize.setValue("BMW");
+	    		$carMake[0].selectize.setValue(quote.carDetail.makeCode);
 	    		$occupation[0].selectize.setValue(quote.driver[0].occupation);
 	    		$car_details[0].selectize.setValue(quote.carDetail.model);	
 	    		  var $q3 = $('.get-quote-field').find('.q3');

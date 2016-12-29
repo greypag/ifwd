@@ -634,12 +634,7 @@ function SaveAndExit()
 	});
 }
 function BackMe() {
-	
-	/*if(getUrlParameter("edit")=="yes")
-		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
-	else
-		window.location="/fwdhk/en/motor-insurance/rider-options";*/
-	//window.history.back();
+
 	 var $form = $("<form id='quote-form' />");
     	 $form.attr("action", "car-details?back=yes");
      $form.attr("method", "post");
@@ -649,7 +644,12 @@ function BackMe() {
      $("body").append($form);
      $('#quote-form').submit();
 }
-
+$(window).load(function(){
+    $('body').backDetect(function(){
+    	 BackMe();
+    	 return false;
+    });
+});
 
 $(document).ready(function(){
 	$("#driverDob").val('');

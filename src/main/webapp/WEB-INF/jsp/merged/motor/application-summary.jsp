@@ -1477,12 +1477,6 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 if(typeof quote.policyId == "undefined")
 	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
 function BackMe() {
-	
-	/*if(getUrlParameter("edit")=="yes")
-		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
-	else
-		window.location="/fwdhk/en/motor-insurance/rider-options";*/
-	//window.history.back();
 	 var $form = $("<form id='quote-form' />");
     	 $form.attr("action", "declarations?back=yes");
      $form.attr("method", "post");
@@ -1492,7 +1486,12 @@ function BackMe() {
      $("body").append($form);
      $('#quote-form').submit();
 }	
-
+$(window).load(function(){
+    $('body').backDetect(function(){
+    	 BackMe();
+    	 return false;
+    });
+});
 	var ApiPayment = new Array();
 	var enablePayment = true;
 	var clicked = false;
@@ -1590,9 +1589,7 @@ function BackMe() {
 										'click',
 										function(event) {
 											var $form = $("<form id='quote-form' />");
-											$form
-													.attr("action",
-															"get-quote?plan="+quote.planCode+"&edit=yes");
+											$form.attr("action","get-quote?plan="+quote.planCode+"&edit=yes");
 											$form.attr("method", "post");
 											var $quote = $("<input type='hidden' name='data' />");
 											$quote.attr("value", JSON

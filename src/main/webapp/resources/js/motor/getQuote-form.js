@@ -245,7 +245,7 @@ $(document).ready(function(){
                             	$('.q1, .q2, .q3, .q4, .q5').removeClass('hidden');
                             }*/
 							//$.each(res, function(i, item) {
-								if(getUrlParameter("edit")=="yes")
+								if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 								{
 									//console.log(item.makeCode+"-"+quote.carDetail.makeCode);
 									//if(item.makeCode == quote.carDetail.makeCode)
@@ -253,6 +253,7 @@ $(document).ready(function(){
 										$carMake[0].selectize.setValue(quote.carDetail.makeCode);	
 									}
 								}
+								
 							//});
                         }
                 });
@@ -279,7 +280,7 @@ $(document).ready(function(){
                             var i = 0, eCar;
                            
                             carMakeApi = context + '/api/iMotor/carDetails/'+value;
-                           
+                            
                             var sessionCarModel = sessionStorage.getItem('carModel');
                             if(sessionCarModel){
                             	$car_details[0].selectize.setValue(sessionCarModel);
@@ -287,7 +288,7 @@ $(document).ready(function(){
                             		sessionStorage.clear();
                             		}, 500);
                             }
-							else if(getUrlParameter("edit")=="yes")
+							else if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 							{
 								$car_details[0].selectize.setValue(quote.carDetail.model);	
 							}
@@ -415,7 +416,7 @@ $(document).ready(function(){
                             if(sessionOccupation){
                             	$occupation[0].selectize.setValue(sessionOccupation);
                             }
-							if(getUrlParameter("edit")=="yes")
+							if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 							{
 								$.each(res, function(i, item) {
 								//console.log(item.code+"-"+quote.applicant.occupation);
@@ -434,7 +435,7 @@ $(document).ready(function(){
         	preload: true,
             load: function(query, callback) {
             	 $('#ncd-selectized').data('required-error', $('#ncd').data('required-error'));
-				if(getUrlParameter("edit")=="yes")
+				if(getUrlParameter("edit")=="yes"|| getUrlParameter("back")=="yes")
 				{
 						$ncd[0].selectize.setValue(quote.applicant.ncb);	
 				}
@@ -802,7 +803,12 @@ $(document).ready(function(){
 							$('#reason').attr('value', xhr.status);
 							e.preventDefault();
 							if (xhr.status == 418)
-								$("#promo-errors").html("Wrong Promo Code");
+							{	
+								if(motorlanguage == "EN")						
+									$("#promo-errors").html("Promotion Code is invalid or has already been used.");
+								else
+									$("#promo-errors").html("推廣編號不正確或已被使用。");
+							}
 							else if (xhr.status == 422) {
 									if(chin)
                             			$("#reasonMsg").text(cnErr[422]);

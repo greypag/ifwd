@@ -213,7 +213,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                    <input type="text" name="d2dob" id="d2dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' >
+	                                                    <input type="text" name="d2dob" id="d2dob" class="driverDob-dp form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' >
 	                                                    <span style="display:none"><input type="text" id="d2dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
 	                                                  </div>
@@ -301,7 +301,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                    <input type="text" name="d3dob" id="d3dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <input type="text" name="d3dob" id="d3dob" class="driverDob-dp form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
 	                                                    <span style="display:none"><input type="text" id="d3dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
@@ -390,7 +390,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                    <input type="text" name="d4dob" id="d4dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <input type="text" name="d4dob" id="d4dob" class="driverDob-dp form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
 	                                                    <span style="display:none"><input type="text" id="d4dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
@@ -479,7 +479,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap calendar"> 
                                                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
-	                                                    <input type="text" name="d5dob" id="d5dob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
+	                                                    <input type="text" name="d5dob" id="d5dob" class="driverDob-dp form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
 	                                                    <span style="display:none"><input type="text" id="d5dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
 	                                                   
 	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
@@ -959,12 +959,6 @@ function SaveAndExit()
 	});
 }
 function BackMe() {
-	
-	/*if(getUrlParameter("edit")=="yes")
-		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
-	else
-		window.location="/fwdhk/en/motor-insurance/rider-options";*/
-	//window.history.back();
 	 var $form = $("<form id='quote-form' />");
     	 $form.attr("action", "drivers-details?back=yes");
      $form.attr("method", "post");
@@ -974,6 +968,12 @@ function BackMe() {
      $("body").append($form);
      $('#quote-form').submit();
 }
+$(window).load(function(){
+    $('body').backDetect(function(){
+    	 BackMe();
+    	 return false;
+    });
+});
 $(document).ready(function(){
 	 
 	/*custom validate for HKID*/

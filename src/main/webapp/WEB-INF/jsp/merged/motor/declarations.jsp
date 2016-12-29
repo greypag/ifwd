@@ -709,12 +709,6 @@ function SaveAndExit()
 	    	}
 }
 function BackMe() {
-	
-	/*if(getUrlParameter("edit")=="yes")
-		window.location="/fwdhk/en/motor-insurance/rider-options?edit=yes";
-	else
-		window.location="/fwdhk/en/motor-insurance/rider-options";*/
-	//window.history.back();
 	 var $form = $("<form id='quote-form' />");
     	 $form.attr("action", "policy-details?back=yes");
      $form.attr("method", "post");
@@ -724,17 +718,13 @@ function BackMe() {
      $("body").append($form);
      $('#quote-form').submit();
 }
+$(window).load(function(){
+    $('body').backDetect(function(){
+    	 BackMe();
+    	 return false;
+    });
+});
 $(document).ready(function(){
-		//enable the Next Button
-   $('#declaration').validator({
-	   custom: {
-	   equals: function($el) {
-		   
-		  }
-	   },
-	   disable: false
-   });
-	   
 	
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -880,32 +870,7 @@ $(document).ready(function(){
 			         	updateTotalDue(totalDue);
 			         	$(".yourQuoteAmmount").html ($("#yourQuoteAmmount").html());
 	     });
-	  /*
-	  $.ajax({
-		  type: "POST",
-		  data: JSON.stringify(quote),
-		  dataType: "json",
-	      contentType : "application/json",
-	      cache: false,
-	      async: false,
-	      url:context + "/api/iMotor/quote",
-		  success: function(data){
-			  $('.amountDue').html(formatCurrency(data.amountDueAmount));
-			  $('.price').html(formatCurrency(data.amountDueAmount));
-			  $('.subprice').html(formatCurrency(data.subTotalAmount));
-			
-			  if(data.personalAccident ==true)
-			  	$('.paa').html(formatCurrency(data.personalAccidentAmount));
-			  else
-				$('.paa-box').hide();	 
-			  if(data.thirdPartyPropertyDamage ==true)
-			  	$('.cia').html(formatCurrency(data.compInsuranceAmount));
-			  else
-				  $('.cia-box').hide();	
-		  },error: function(error) {
-			
-		  }
-		});*/
+	     
 	$('#declaration').validator().on('submit', function (e) {
 		  if (e.isDefaultPrevented()) {
 		  	
@@ -934,9 +899,9 @@ $(document).ready(function(){
 				         "declarationNo":"q3"		
 				      }		
 				   ],		
-				   "psNoDM":true,//$('input[name=psNoDM]').val(),		
-				   "psNoProvidePersonalData":true,//$('input[name=psNoProvidePersonalData]').val(),		
-				   "psPICS":true,//$('input[name=psPICS]').val()	
+				   "psNoDM":$('input[name=psNoDM]').val(),		
+				   "psNoProvidePersonalData":$('input[name=psNoProvidePersonalData]').val(),		
+				   "psPICS":$('input[name=psPICS]').val()	
 		   			};
 			console.dir(submitData);
 		

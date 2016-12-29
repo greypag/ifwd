@@ -573,6 +573,7 @@ function SaveAndExit()
 				});
 	});
 }
+
 	$(document).ready(function () {
 		planCode = quote.planCode;
 		compPlan = quote.compPlan;
