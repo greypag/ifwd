@@ -531,7 +531,7 @@ public class UserRestURIConstants {
 	public static final String URL_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "document-upload-confirmation";
 	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER = "document-upload-later";
 	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "document-upload-later-confirmation";
-	public static final String URL_MOTOR_PAYMENT_RESULT = "payment-result";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER_CHECK = "start-upload-later-check";
 
 	public static final String FILE_MOTOR_LANDING = "landing";
 	public static final String FILE_MOTOR_GET_QUOTE = "get-quote";
@@ -550,6 +550,7 @@ public class UserRestURIConstants {
 	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "document-upload-confirmation";
 	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER = "document-upload-later";
 	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "document-upload-later-confirmation";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER_CHECK = "start-upload-later-check";
 
 	public static final String PAGE_PROPERTIES_MOTOR_LANDING = "motor.landing";
 	public static final String PAGE_PROPERTIES_MOTOR_GET_QUOTE = "motor.get-quote";
@@ -569,6 +570,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "motor.document-upload-confirmation";
 	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER = "motor.document-upload-later";
 	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "motor.document-upload-later-confirmation";
+	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CHECK = "motor.start-upload-later-check";
 	
 	
 	/*API For easy health*/

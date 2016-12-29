@@ -443,7 +443,7 @@ width: 100px !important;
                         <h4>Email address</h4>
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder=""
-                                name="emailToSendPromoCode" id="emailToSendPromoCode" style="background-color:#f2f2f2">
+                                name="email" id="email" style="background-color:#f2f2f2">
                             <!-- <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">-->
                         </div>
                         <span id="errPromoEmail" class="text-red"></span> <br>

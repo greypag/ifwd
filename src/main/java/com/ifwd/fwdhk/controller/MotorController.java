@@ -122,6 +122,12 @@ public class MotorController extends BaseController{
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION);
 	}
 	
+	@RequestMapping(value = {"/{lang}/motor-insurance/start-upload-later-check"})
+	public ModelAndView documentuploadlatercheck(Model model, HttpServletRequest request) {
+		handleLangFromPath(request);
+		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CHECK);
+	}
+	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/{lang}/motor-insurance/payment-result"})
 	public ModelAndView paymentResult(Model model, HttpServletRequest request, RedirectAttributes ra) {
@@ -202,7 +208,7 @@ public class MotorController extends BaseController{
 		String methodName = "uploadDocLater";
 		handleLangFromPath(request);
 			
-		ModelAndView passView = new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/confirmation");
+		ModelAndView passView = new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/start-upload-later-check");
 		ModelAndView failView = new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/motor-insurance/");
 		
 		try {

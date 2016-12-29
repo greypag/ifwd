@@ -1769,7 +1769,7 @@ function BackMe() {
 										var checked=false;
 				                        $.each(res, function(i, item) {
 								
-											if(item.code == quote.carDetail.bankMortgageName)
+											if(item.desc == quote.carDetail.bankMortgageName)
 											{	$(".carbankmortgage").html(item.desc);checked=true;}
 										});
 										if(checked==false)
@@ -1791,7 +1791,7 @@ function BackMe() {
 
 			                    	$.each(res, function(i, item) {
 										
-											if(item.code == quote.applicant.correspondenceAddress.district )
+											if(item.desc == quote.applicant.correspondenceAddress.district )
 											{
 												
 												if(motorlanguage == item.lang)
