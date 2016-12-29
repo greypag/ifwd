@@ -119,6 +119,7 @@ var eWalletCtr = {
 var policyHelper = {
 	htmlTemplate: null,
 	isOccupied: false,
+	isInvalidMobile: false,
 	setTemplate: function() {
 		this.htmlTemplate = $(".ew_pol_template").clone();
 		this.htmlTemplate.removeClass("ew_pol_template");
@@ -142,11 +143,16 @@ var policyHelper = {
 				customerId: window.customerId
 			},
 			successFn: function(response) {
-				that.composePolicyList(response.policies);
-
 				//check mobile number
 				if(response.mobile.length != 8){
-					eWalletCtr.showGenericMsg("", msgCtr.policyList.noMobileNum);
+					// eWalletCtr.showGenericMsg("", msgCtr.policyList.noMobileNum);
+					that.isInvalidMobile = true;
+				}
+
+				if(that.isAllPolicyLocked(response.policies)){
+					eWalletCtr.showGenericMsg("", msgCtr.policyList.policyAllLocked);
+				}else{
+					that.composePolicyList(response.policies);	
 				}
 			},
 			failFn: function(response, xhr) {
@@ -157,6 +163,17 @@ var policyHelper = {
 				that.hideLoading();
 			}
 		});
+	},
+	isAllPolicyLocked: function (policyAry){
+		var lockedCount = 0;
+		for (var pi = 0; pi < policyAry.length; pi++) {
+			if(policyAry[pi].tngPolicyStatus.toLowerCase() == "locked"){
+				lockedCount++;
+				continue;
+			}
+		}
+
+		return lockedCount == policyAry.length;
 	},
 	composePolicyList: function(policyAry) {
 		var that = this;
@@ -169,8 +186,17 @@ var policyHelper = {
 			return;
 		}
 
+		// show msg if no mobile number
+		if(that.isInvalidMobile){
+			eWalletCtr.showGenericMsg("", msgCtr.policyList.noMobileNum);
+			return;
+		}
+
 		for (var pi = 0; pi < policyAry.length; pi++) {
 			var info = policyAry[pi];
+			// add wraning msg
+			var warns = info.warnMsg;
+
 			//clone template and fill policy info
 			var policyDom = this.htmlTemplate.clone();
 
@@ -185,36 +211,44 @@ var policyHelper = {
 				case "eligible":
 					statusWrapper.addClass("isEmpty");
 
-					(function(pid) {
-						policyDom.find(".ew_pol_wd_linkupBtn").on("click", function() {
-							if(that.isOccupied) return;
+					if(warns.length > 0){
+						statusWrapper.addClass("isDisabled");
+					}else{
+						(function(pid) {
+							policyDom.find(".ew_pol_wd_linkupBtn").on("click", function() {
+								if(that.isOccupied) return;
 
-							that.isOccupied = true;
-							$(this).addClass("isLoading");
-							linkupHelper.startLinkup(pid);
-						});
-					})(info.policyId);
+								that.isOccupied = true;
+								$(this).addClass("isLoading");
+								linkupHelper.startLinkup(pid);
+							});
+						})(info.policyId);
+					}
 
 					break;
 				case "linked":
 					statusWrapper.addClass("isConnected");
 
-					policyDom.find(".ew_pol_wd_linkup_tngId").html(info.tngAccountId);
-					(function(pid, tid) {
-						policyDom.find(".ew_pol_wd_linkup_unlink").on("click", function() {
-							if(confirm( msgCtr.unlink.confirmMsg + "(Policy Id" + pid +")") == true){
-								that.unlinkTng(pid, tid);
-							}							
-						});
+					if(warns.length > 0){
+						statusWrapper.addClass("isDisabled");
+					}else{
+						policyDom.find(".ew_pol_wd_linkup_tngId").html(info.tngAccountId);
+						(function(pid, tid) {
+							policyDom.find(".ew_pol_wd_linkup_unlink").on("click", function() {
+								if(confirm( msgCtr.unlink.confirmMsg + "(Policy Id" + pid +")") == true){
+									that.unlinkTng(pid, tid);
+								}							
+							});
 
-						policyDom.find(".ew_pol_wd_withdrawBtn").on("click", function() {
-							if(that.isOccupied) return;
+							policyDom.find(".ew_pol_wd_withdrawBtn").on("click", function() {
+								if(that.isOccupied) return;
 
-							that.isOccupied = true;
-							$(this).addClass("isLoading");
-							withdrawHelper.startWithdraw(pid);
-						});
-					})(info.policyId, info.tngAccountId);
+								that.isOccupied = true;
+								$(this).addClass("isLoading");
+								withdrawHelper.startWithdraw(pid);
+							});
+						})(info.policyId, info.tngAccountId);	
+					}					
 
 					break;
 				case "locked":
@@ -222,15 +256,19 @@ var policyHelper = {
 					break;
 			}
 
-			// add wraning msg
-			var warns = info.warnMsg;
+			
 
-			if(warns.length == 0){
+			if(warns.length == 0 && !that.isInvalidMobile){
 				policyDom.find(".ew_pol_warns .ew_pol_btnMore").hide();
 			}else{
 				policyDom.find(".ew_pol_warns .ew_pol_btnMore").attr("href", "#p" + info.policyId);
 				policyDom.find(".ew_pol_warns .ew_pol_warnList").attr("id", "p" + info.policyId);	
-			
+				
+				var invalidMobileItem = $("<li/>");
+				var invalidMobileTxt = msgCtr.policyList.noMobileNum;
+				invalidMobileItem.html(invalidMobileTxt);
+				policyDom.find(".ew_pol_warns .ew_pol_warnList").append(invalidMobileItem);
+
 				for( var wi = 0; wi < warns.length; wi++){
 					var wranItem = $("<li/>");
 					var txt = apiErrMsg.getPolicyListByCustomer["c_200_"+warns[wi].code];
@@ -630,6 +668,7 @@ function WithdrawClass(){
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("performWithdraw", xhr.status, response.code);
 				eWalletCtr.showGenericMsg("", msg);
+				that.popupDom.modal("hide");
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -950,12 +989,15 @@ var msgCtr = {
 		noMobileNum: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.noMobile"),
 		policyLocked: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyLocked"),
 		policyEmpty: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyEmpty"),
+		policyAllLocked: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyAllLocked")
 	},
 	withdrawal:{
 		invalidAmount: getBundle(getBundleLanguage,"ewallet.msgctr.withdrawal.error.invalidAmount")
 	},
 	unlink: {
-		confirmMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.confirmmsg")
+		confirmMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.confirmmsg"),
+		successMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.successMsg"),
+		failMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.failMsg"),
 	}
 };
 

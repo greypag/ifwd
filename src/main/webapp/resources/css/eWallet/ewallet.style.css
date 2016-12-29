@@ -179,6 +179,8 @@
     display: inline-block; }
   .ew_pol_list .ew_pol_wd_linkup.isLocked .ew_pol_wd_linkup_locked {
     display: block; }
+  .ew_pol_list .ew_pol_wd_linkup.isDisabled .ew_pol_wd_linkupBtn, .ew_pol_list .ew_pol_wd_linkup.isDisabled .ew_pol_wd_withdrawBtn {
+    background-color: gray; }
 
 .ew_pol_list .ew_pol_wd_linkup_icon,
 .ew_pol_list .ew_pol_wd_linkup_detail {

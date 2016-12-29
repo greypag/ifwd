@@ -10,7 +10,6 @@
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
 var customerId ="<%=session.getAttribute("customerId")%>";
-//customerId = "16883035";
 </script>
 <%!
 	boolean isSaleActiveClass = false;
@@ -882,7 +881,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 
 									
 									<div class="col-xs-12 ew_pol_wd_form">
-										<a href="#" class="ew_pol_wd_formBtn"><fmt:message key="ewallet.downloadFormBtnText" bundle="${msg}" /></a>
+										<a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/support-claims/forms/life/policy-services-request-form.pdf" class="ew_pol_wd_formBtn"><fmt:message key="ewallet.downloadFormBtnText" bundle="${msg}" /></a>
 									</div>
 								</div>
 
