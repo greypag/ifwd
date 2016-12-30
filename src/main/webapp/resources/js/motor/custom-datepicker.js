@@ -75,16 +75,15 @@ $(document).ready(function () {
     }
 
     if($('#expiry-datepicker').length){
-    	var now = new Date(),
-        min = new Date(now.getFullYear()-1, now.getMonth(), now.getDate()),
-        max = new Date(now.getFullYear(), now.getMonth(), now.getDate()-1);
+    	var qdate = quote.policyStartDate,
+    	dsplit = qdate.split("-"),
+    	startDate = new Date(dsplit[2],dsplit[1]-1,dsplit[0]),
+        min = new Date(startDate.getFullYear()-1, startDate.getMonth(), startDate.getDate()),
+        max = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()-1);
 
         var dob_end_date = new Date();
 
-        $('#expiry-datepicker').val(dob_end_date.getDate()-1 + '-' + (dob_end_date.getMonth() + 1) + '-' + dob_end_date.getFullYear());
-       // var maxdate = new Date();
-      //  var mindate = new Date();
-      //  mindate.setDate(mindate.getDate()-180);
+        $('#expiry-datepicker').val(max.getDate() + '-' + (max.getMonth() + 1) + '-' + max.getFullYear());
 
         $('#expiry-datepicker').mobiscroll().calendar({
             controls: ['date'],
@@ -96,16 +95,12 @@ $(document).ready(function () {
             theme: "mobiscroll",     // Specify theme like: theme: 'ios' or omit setting to use default 
             mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
             display: "bubble", // Specify display mode like: display: 'bottom' or omit setting to use default 
-            //	onClosed:onClosed,
-            // onShow: function (html, valueText, inst) {
-            // $('#expiry-datepicker-group').removeClass('has-error has-danger');
-            // $('#expiry-datepicker-error').html('');
-            // },
             lang: UILANGUAGE  == "EN" ? "en_fwd" : "zh_fwd"
         }).change(function(e){
             $(this).parents('.mdl-textfield--floating-label').removeClass('is-invalid').addClass('is-dirty');
         });
     }
+	
 
     if($('#policy-datepicker').length){
         var now = new Date(),

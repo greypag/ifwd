@@ -378,8 +378,8 @@ $(document).ready(function(){
 			else{
 				$this.prop('checked', true);
 				$this.val('true');
-				
-				if($('.custom-checkbox').find(':input[required]:checked').length == $('.custom-checkbox:visible').length){
+				//alert($('.custom-checkbox').find(':input[required]:checked').length + " | " + $('.custom-checkbox:visible').length);
+				if($('.custom-checkbox').find(':input[required]:checked').length <= $('.custom-checkbox:visible').length){
 					//if(window.location.search.indexOf('policy-details')!= -1)
 						//$(this).parents('form').validator('validate');
 					$this.prop('checked', true);

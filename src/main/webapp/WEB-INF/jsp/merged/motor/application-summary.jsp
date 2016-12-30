@@ -397,7 +397,7 @@ var nextPage = "${nextPageFlow}";
 											bundle="${motorMsg}" /></span>
 								</div>
 								<div class="col-xs-6 text-right even"
-									style="height: 120px; text-align: justify;">
+									style="height: 120px; text-align: left;">
 									<span class="address"></span>
 								</div>
 							</div>
@@ -989,7 +989,6 @@ var nextPage = "${nextPageFlow}";
 													<div
 														class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<div class="help-block-wrap" style="margin-top: 5px;">
-															<!--<input type="text" name="securityCode" maxlength="100" class="form-control mdl-textfield__input" id="fullName" required>-->
 															<input id="seccode" type="password" name="securityCode"
 																class="form-control mdl-textfield__input"
 																autocomplete="off" maxlength="3" title=""
@@ -1016,11 +1015,11 @@ var nextPage = "${nextPageFlow}";
 											<div class="checkbox">
 												<div class="form-group">
 													<div class="help-block-wrap">
-														<input id="checkbox3" type="checkbox" required> <label
+														<input id="checkbox-agree" type="checkbox" data-required-error='<fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" />' required> <label
 															class="text-left"><small> <fmt:message
 																	key="motor.summary.payment.tnc" bundle="${motorMsg}" /></small>
 														</label>
-														<div class="help-block with-errors text-left"></div>
+														<div class="help-block with-errors checkbox-agree error-msg hide"><fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" /></div>
 													</div>
 												</div>
 
@@ -1813,13 +1812,17 @@ $(window).load(function(){
 												
 												var desc = item.desc;
 												var remark = item.remark;
-												var address = quote.applicant.correspondenceAddress.flat
-												+ ","
-												+ quote.applicant.correspondenceAddress.floor
-												+ ","
-												+ quote.applicant.correspondenceAddress.block
-												+ ","
-												+ quote.applicant.correspondenceAddress.building
+												var address="";
+												if(quote.applicant.correspondenceAddress.flat !="")
+													address = quote.applicant.correspondenceAddress.flat +","
+												
+												if(quote.applicant.correspondenceAddress.floor !="")
+													address += quote.applicant.correspondenceAddress.floor +","
+													
+												if(quote.applicant.correspondenceAddress.block !="")
+														address += quote.applicant.correspondenceAddress.block +","
+														
+												address += quote.applicant.correspondenceAddress.building
 												+ ","
 												+ quote.applicant.correspondenceAddress.streetName
 												+ ","
@@ -1978,18 +1981,27 @@ $(window).load(function(){
 							switchPayment($(this));
 						});
 						$("#button_confirm").on("click", function(e) {
+							
 							confrimPayment('no-claim', 'gateway', 'no-claim');
 						});
 
 						function confrimPayment(form, gatewayUrlId,
 								paymentFormId) {
+							
+							if($("#checkbox-agree").val()!="true")
+							{	$(".checkbox-agree").removeClass('hide');
+								return false;
+							}
+							else
+								$(".checkbox-agree").addClass('hide');
+							
 							var selectedPaymentType = $(
 									"input:radio[name=paymentGroup]:checked")
 									.val();
 							clicked = false;
 							console.log(enablePayment);
 
-							if (payValid(selectedPaymentType) && enablePayment) {
+							if (enablePayment) {
 								console.log("enablePayment");
 								enablePayment = false;
 								var gatewayUrlId = '#' + gatewayUrlId;
@@ -2002,8 +2014,7 @@ $(window).load(function(){
 									"input:radio[name=paymentGroup]:checked")
 									.val();
 							clicked = false;
-							if (payValid(selectedPaymentType)
-									&& clicked === false
+							if (clicked === false
 									&& selectedPaymentType == "cc") {
 
 								clicked = true;

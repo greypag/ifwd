@@ -412,6 +412,7 @@ $(document).ready(function(){
                         },
                         success: function(res) {
                             callback(res);
+							$('#loading-overlay').modal("hide");
                             var sessionOccupation = sessionStorage.getItem('occupation');
                             if(sessionOccupation){
                             	$occupation[0].selectize.setValue(sessionOccupation);
@@ -575,6 +576,16 @@ $(document).ready(function(){
 						submitData.planCode = "Comp";
 						submitData.compPlan = "Silver"; 
 					}
+					
+					if(getUrlParameter("edit")=="yes"|| getUrlParameter("back")=="yes")
+					{
+						submitData.personalAccident = quote.personalAccident;
+						submitData.thirdPartyPropertyDamage = quote.thirdPartyPropertyDamage;
+						submitData.planCode = quote.planCode;
+						submitData.compPlan = quote.compPlan;
+					
+					}
+					
 			if($(this).attr('data')=="check")
 			{
 				$("#promo-errors").html("");

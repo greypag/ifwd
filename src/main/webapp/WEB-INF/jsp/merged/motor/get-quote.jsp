@@ -217,18 +217,19 @@ width: 100px !important;
                     </div>
                     <div id="testimonials" class="q5 fadeInUp animated hidden">
                         <div class="center">
-                            <h2><fmt:message key="motor.getquote.promotion.heading" bundle="${motorMsg}" /></h2>
+                            <h2><fmt:message key="motor.Promotecode.title" bundle="${motorMsg}" /></h2>
                         </div>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" name="promoCode" id="promoCode" data-required-error='<fmt:message key="motor.error.msg.getquote.promote.empty" bundle="${motorMsg}" />' class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
+                                        <input type="text" name="promoCode" id="promoCode" data-required-error='<fmt:message key="motor.error.msg.getquote.promote.empty" bundle="${motorMsg}" />' class="form-control" value="" placeholder='<fmt:message key="motor.promotecode.fieldlabel" bundle="${motorMsg}" />	' />
                                                                       		  <br/>
 										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
-											role="alert" style="position:static"></div>     
+											role="alert" style="position:static"></div> 
+											<br/>    
                                         <label>
-                                            <a href="javascript:;" id="findPromo" ><fmt:message key="motor.getquote.promotion.how.text" bundle="${motorMsg}" /></a>
+                                            <a href="javascript:;" id="findPromo"><fmt:message key="motor.promotecode.get.promotecode" bundle="${motorMsg}" /></a>
                                         </label>
                                                                         
                                     </div>
@@ -438,22 +439,22 @@ width: 100px !important;
                 </div>
                 <form>
                     <div class="form-container">
-                        <h2>Don't have a promotion code? Enter your email address and we'll send you one.</h2>
+                        <h2><fmt:message key="motor.promotecode.get.promotecode.title" bundle="${motorMsg}" /></h2>
                         <div class="alert alert-success proSuccess hide">Thank you. Your promotion code has been emailed to you.</div>
-                        <h4>Email address</h4>
+                        <h4><fmt:message key="motor.promotecode.get.promotecode.email" bundle="${motorMsg}" /></h4>
                         <div class="form-group">
-                        	<input type="email" class="form-control" placeholder=""
+                        	<input type="email" class="form-control" data-required-error='<fmt:message key="motor.error.msg.getquote.email.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.getquote.email.empty" bundle="${motorMsg}" />' placeholder=""
                                 name="emailToSendPromoCode" id="emailToSendPromoCode" style="background-color:#f2f2f2">
-                            <!-- <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">-->
+                     
                         </div>
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <!-- <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();">Submit</a> -->
-
+                               
                                 <button type="submit" onclick="return sendEmail()"
                                                             class="bdr-curve btn btn-primary btn-lg wd5">
-                                                            Submit
+                                                            <fmt:message key="motor.button.submit"
+																bundle="${motorMsg}" />
                                 </button>
                             </div>
                             <div class="col-md-2">
@@ -464,7 +465,7 @@ width: 100px !important;
                             </div>
                             <br> <br>
                             <div class="col-lg-12 col-md-12">
-                                <p>By submitting my email address I agree to receive FWD's promotion code and other offers in the future.</p>
+                                <p><fmt:message key="motor.promotecode.get.promotecode.footer" bundle="${motorMsg}" />	</p>
                             </div>
                         </div>
                     </div>
@@ -536,7 +537,7 @@ function sendEmail() {
 }
 
 $(document).ready(function(){
-	
+	$('#loading-overlay').modal("show");
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),

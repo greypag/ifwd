@@ -210,7 +210,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <input type="checkbox" id="psNoDM" name="psNoDM" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error1" bundle="${motorMsg}" />'>
+	                                            <input checked type="checkbox" id="psNoDM" name="psNoDM" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error1" bundle="${motorMsg}" />'>
 	                                            <label><small>
 	                                                    <fmt:message key="motor.declarations.privacy.policy.q1" bundle="${motorMsg}" /></small>
 	                                            </label>
@@ -225,7 +225,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <input type="checkbox" id="psNoProvidePersonalData" name="psNoProvidePersonalData" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error2" bundle="${motorMsg}" />'>
+	                                            <input checked type="checkbox" id="psNoProvidePersonalData" name="psNoProvidePersonalData" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error2" bundle="${motorMsg}" />'>
 	                                            <label><small>
 	                                                    <fmt:message key="motor.declarations.privacy.policy.q2" bundle="${motorMsg}" /></small>
 	                                            </label>
@@ -240,7 +240,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <input type="checkbox" id="psPICS" name="psPICS" value=""  required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error3" bundle="${motorMsg}" />'>
+	                                            <input checked type="checkbox" id="psPICS" name="psPICS" value=""  required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error3" bundle="${motorMsg}" />'>
 	                                            <label><small>
 	                                                    <fmt:message key="motor.declarations.privacy.policy.q3" bundle="${motorMsg}" /></small>
 	                                            </label>
@@ -725,7 +725,15 @@ $(window).load(function(){
     });
 });
 $(document).ready(function(){
-	
+	//enable the Next Button
+	   $('#declaration').validator({
+		   custom: {
+		   equals: function($el) {
+			   
+			  }
+		   },
+		   disable: false
+	   });
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),

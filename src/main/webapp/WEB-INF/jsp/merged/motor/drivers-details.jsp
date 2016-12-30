@@ -105,7 +105,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 	                                                <input type="text" name="driverDob" id="driverDob" class="driverDob-datepicker form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.dob.empty" bundle="${motorMsg}" />'>
 	                                                <span style="display:none"><input type="text" id="driverDob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' required/></span>
-	                                                <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.driversdetails.driver.birthdate" bundle="${motorMsg}" /></label>
+	                                                <label class="mdl-textfield__label" for="driverDob" style="font-size:12px"><fmt:message key="motor.driversdetails.driver.birthdate" bundle="${motorMsg}" /></label>
 	                                                 </div>
 	                                                <div class="help-block with-errors"></div>
 	                                       </div>
@@ -161,7 +161,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
 	                                                <input type="text" name="flat" maxlength="10" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="flat"  data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
-	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.flat" bundle="${motorMsg}" /></label>
+	                                                <label class="mdl-textfield__label" style="font-size:12px"><fmt:message key="motor.driversdetails.address.flat" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -172,7 +172,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap"> 
 	                                                <input type="text" name="floor" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="floor"  data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
-	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.floor" bundle="${motorMsg}" /></label>
+	                                                <label class="mdl-textfield__label" style="font-size:12px"><fmt:message key="motor.driversdetails.address.floor" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -183,7 +183,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap"> 
 	                                                <input type="text" name="block" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="block" data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
-	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.block" bundle="${motorMsg}" /></label>
+	                                                <label class="mdl-textfield__label" style="font-size:12px"><fmt:message key="motor.driversdetails.address.block" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
 	                                        </div>
@@ -205,7 +205,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="estate" id="estate" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" required>
+	                                                <input type="text" name="estate" id="estate" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.estate" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors estate"></div>
 	                                            </div>
@@ -217,7 +217,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" required>
+	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -228,7 +228,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" required>
+	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetname" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -259,7 +259,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <!-- <select class="form-control" id="area" name="area" data-required-error='<fmt:message key="motor.error.msg.carowner.address.district.general" bundle="${motorMsg}" />' required>
 	                                                <option value="" disabled selected hidden><fmt:message key="motor.driversdetails.address.area" bundle="${motorMsg}" /></option>
 	                                            </select>-->
-	                                            <input type="text" name="area" id="area" maxlength="20" class="form-control input--grey mdl-textfield__input" readonly>
+	                                            <input type="text" style="background-color: #f2f2f2;color: #bbb;font-size: 12px;" name="area" id="area" maxlength="20" class="form-control input--grey mdl-textfield__input" readonly value="<fmt:message key="motor.driversdetails.address.area" bundle="${motorMsg}" />">
 	                                            <label class="mdl-textfield__label label-area hidden" for="area" ><fmt:message key="motor.driversdetails.address.area" bundle="${motorMsg}" /></label>
 	                                   
 	                                            <div class="help-block with-errors"></div>
