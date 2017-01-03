@@ -111,11 +111,14 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="col-sm-6">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <select class="form-control selectized" name="occupation" id="occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' required>
-	                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
-	                                            </select>
-	                                            <label class="mdl-textfield__label label-occupation hidden" for="occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
-	                                            <div class="help-block with-errors"></div>
+	                                        	 <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		                                            <!-- <select style="cursor:not-allowed" readonly class="form-control selectized" name="occupation" id="occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' required>
+		                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
+		                                            </select>-->
+		                                            <input type="text" readonly name="occupation" value="" class="form-control input--grey mdl-textfield__input" id="occupation" pattern="^[a-zA-Z\s]+$" data-required-error='<fmt:message key="motor.error.msg.policy.fullname.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.policy.driver.name.format" bundle="${motorMsg}" />' required>  
+		                                            <label class="mdl-textfield__label" for="occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
+		                                            <div class="help-block with-errors"></div>
+		                                         </div>
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -1034,6 +1037,7 @@ $(document).ready(function(){
 	{
 		
 		$("#fullName").attr("value",quote.applicant.name);
+		$('#occupation').val(quote.driver[0].occupation);
 		$('input[name=driverDob]').val(quote.applicant.dateOfBirth);	
 	    $('input[name=driverID]').val(quote.applicant.hkid);		
 	    $('input[name=fullName]').val(quote.applicant.name);
@@ -1147,6 +1151,32 @@ $(document).ready(function(){
         }
     });
 	
+	$.ajax({
+        url: context + '/api/iMotor/list/occupations/v2',
+        type: 'GET',
+        dataType: 'json',
+        error: function() {
+                callback();
+            },
+            success: function(res) {
+				console.dir(res);
+				var newres= new Array();
+            	var total = res.length;
+            	$.each(res, function(i, item) {
+            		if(item.lang==motorlanguage) 
+            		newres.push(res[i]);
+            	});
+				console.dir(newres);
+                       
+				$.each(newres, function(i, item) {
+						
+						if(item.code == quote.driver[0].occupation)
+							$("#occupation").val(item.desc);
+						
+				});
+            }
+    });
+	/*
 	$motor_occupation = $('#occupation').selectize({
         valueField: 'code',
         labelField: 'desc',
@@ -1171,8 +1201,7 @@ $(document).ready(function(){
                     		if(item.lang==motorlanguage) 
                     		newres.push(res[i]);
                     	});
-						console.dir(newres);
-                              callback(newres); 
+					          callback(newres); 
 						//$.each(res, function(i, item) {
 							//if(getUrlParameter("edit")=="yes")
 							{
@@ -1197,7 +1226,7 @@ $(document).ready(function(){
 				});
         	$("#occupation-selectized").prop('required',false);
         }
-    });
+    });*/
 	$motor_d2occupation = $('#d2occupation').selectize({
         valueField: 'code',
         labelField: 'desc',

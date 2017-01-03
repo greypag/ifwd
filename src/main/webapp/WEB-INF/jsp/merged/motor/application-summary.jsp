@@ -1019,7 +1019,7 @@ var nextPage = "${nextPageFlow}";
 															class="text-left"><small> <fmt:message
 																	key="motor.summary.payment.tnc" bundle="${motorMsg}" /></small>
 														</label>
-														<div class="help-block with-errors checkbox-agree error-msg hide"><fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" /></div>
+														<div class="help-block with-errors checkbox-agree error-msg hide"></div>
 													</div>
 												</div>
 
@@ -1306,9 +1306,9 @@ var nextPage = "${nextPageFlow}";
 										-->
 													<input type="tel" name="mobileNo"
 														class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input"
-														id="motorRegisterMobileNo" data-keyblock-num="true">
+														id="motorRegisterMobilerNo" data-keyblock-num="true">
 													<label class="mdl-textfield__label"
-														for="motorRegisterMobileNo"><fmt:message
+														for="mobileNo-forgotpassowrd"><fmt:message
 															key="motor.summary.member.mobile" bundle="${motorMsg}" /></label>
 												</div>
 												<span class="error-msg mobileNoErrMsg"></span>
@@ -1738,9 +1738,12 @@ $(window).load(function(){
 						
 						//applicant detail
 						$(".fullname").html(quote.applicant.name);
+						$("input[name=fullName]").val(quote.applicant.name);
 						$(".contactno").html(quote.applicant.contactNo);
+						$("input[name=mobileNo]").val(quote.applicant.contactNo);
 						$(".birth").html(quote.applicant.dateOfBirth);
 						$(".email").html(quote.applicant.email);
+						$("input[name=EmailAddress]").val(quote.applicant.email);
 						var hkid = quote.applicant.hkid; 
 						$(".hkid").html(hkid.toString().toUpperCase());
 						$(".policystart").html(quote.policyStartDate);

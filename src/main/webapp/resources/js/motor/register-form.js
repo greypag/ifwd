@@ -85,6 +85,20 @@ $(document).ready(function(){
 	bsvFormForgotPwd($('#form-motor-forgot-pwd'));
 	bsvFormRegister($('#form-motor-register'));
 	
+	/*$("input[name=checkbox3]").on('click', function() {
+		
+		var $this = $(this).find('[name=checkbox3]');
+		if($this.is(':checked'))
+		{	
+			$(this).val('false');
+			$this.prop('checked', false);
+		}else
+		{
+			$(this).val('true');
+			$this.prop('checked', true);
+		}
+			alert($(this).val());
+	});*/
 	
 	
 	/* $('#sendDriverDetail').on('click', function(e){

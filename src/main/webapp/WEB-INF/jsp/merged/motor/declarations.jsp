@@ -767,9 +767,9 @@ $(document).ready(function(){
 	    	else
 	    	{$(".a3yes").addClass("active");$('input[name=answer3]').prop("checked",true);	}
 	    	
-	    	$('input[name=psNoDM]').attr("checked",quote.psNoDM);	
-			$('input[name=psNoProvidePersonalData]').attr("checked",quote.psNoProvidePersonalData);	
-			$('input[name=psPICS]').attr("checked",quote.psPICS);	
+	    	$('input[name=psNoDM]').attr("checked",false);	
+			$('input[name=psNoProvidePersonalData]').attr("checked",false);	
+			$('input[name=psPICS]').attr("checked",false);	
     	}
     }
    

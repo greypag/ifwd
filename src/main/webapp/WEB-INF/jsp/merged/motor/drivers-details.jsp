@@ -219,7 +219,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="help-block-wrap">
 	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetno" bundle="${motorMsg}" /></label>
-	                                                <div class="help-block with-errors"></div>
+	                                                <div class="help-block with-errors streetno"></div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -230,7 +230,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <div class="help-block-wrap">
 	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetname" bundle="${motorMsg}" /></label>
-	                                                <div class="help-block with-errors"></div>
+	                                                <div class="help-block with-errors streetname"></div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -659,14 +659,23 @@ $(document).ready(function(){
 	
 	$("#building").bind("change paste keyup", function() {
 		if($(this).val().length > 0)
-		{
+		{	
 			$("#estate").prop('required',false);
+			$("#streetno").prop('required',false);
+			$("#streetname").prop('required',false);
 			$(".estate").html('');
+			$(".streetno").html('');
+			$(".streetname").html('');
 			$('#driverDetails').validator('update'); 
 		}else if($(this).val().length == 0)
 		{
-			$("#estate").prop('required',true);
-			$("#building").prop('required',true);
+			if($("#estate").val().length == 0 && $("#building").val().length == 0 && $("#streetname").val().length == 0 && $("#streetno").val().length == 0)
+			{	
+				$("#estate").prop('required',true);
+				$("#building").prop('required',true);
+				$("#streetname").prop('required',true);
+				$("#streetno").prop('required',true);
+			}
 			$('#driverDetails').validator('update'); 
 		}
 			
@@ -676,12 +685,67 @@ $(document).ready(function(){
 		if($(this).val().length > 0)
 		{
 			$("#building").prop('required',false);
+			$("#streetno").prop('required',false);
+			$("#streetname").prop('required',false);
 			$(".building").html('');
+			$(".streetno").html('');
+			$(".streetname").html('');
 			$('#driverDetails').validator('update'); 
 		}else if($(this).val().length == 0)
 		{
-			$("#estate").prop('required',true);
-			$("#building").prop('required',true);
+			if($("#estate").val().length == 0 && $("#building").val().length == 0 && $("#streetname").val().length == 0 && $("#streetno").val().length == 0)
+			{	
+				$("#estate").prop('required',true);
+				$("#building").prop('required',true);
+				$("#streetname").prop('required',true);
+				$("#streetno").prop('required',true);
+			}
+			$('#driverDetails').validator('update'); 
+		}
+	});
+	
+	$("#streetname").bind("change paste keyup", function() {
+		if($(this).val().length > 0)
+		{
+			$("#building").prop('required',false);
+			$("#estate").prop('required',false);
+			$("#streetno").prop('required',false);
+			$(".building").html('');
+			$(".estate").html('');
+			$(".streetno").html('');
+			$('#driverDetails').validator('update'); 
+		}else if($(this).val().length == 0)
+		{
+			if($("#estate").val().length == 0 && $("#building").val().length == 0 && $("#streetname").val().length == 0 && $("#streetno").val().length == 0)
+			{	
+				$("#estate").prop('required',true);
+				$("#building").prop('required',true);
+				$("#streetname").prop('required',true);
+				$("#streetno").prop('required',true);
+			}
+			$('#driverDetails').validator('update'); 
+		}
+	});
+	
+	$("#streetno").bind("change paste keyup", function() {
+		if($(this).val().length > 0)
+		{
+			$("#building").prop('required',false);
+			$("#estate").prop('required',false);
+			$("#streetname").prop('required',false);
+			$(".building").html('');
+			$(".estate").html('');
+			$(".streetname").html('');
+			$('#driverDetails').validator('update'); 
+		}else if($(this).val().length == 0)
+		{
+			if($("#estate").val().length == 0 && $("#building").val().length == 0 && $("#streetname").val().length == 0 && $("#streetno").val().length == 0)
+			{	
+				$("#estate").prop('required',true);
+				$("#building").prop('required',true);
+				$("#streetname").prop('required',true);
+				$("#streetno").prop('required',true);
+			}
 			$('#driverDetails').validator('update'); 
 		}
 	});
