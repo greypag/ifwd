@@ -15,7 +15,11 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/joinus.css" type="text/css">
-
+<style>
+.temp_img{
+width:60px;
+}
+</style>
 <script>
 	$('document').ready(function(){
 		bootstrapvalidate_joinus();
@@ -531,7 +535,18 @@ function tooltipPlacement(){
 			</jsp:include>
 		</div>
 		<!-- Breadcrumb Component End-->
-
+		<div class="container container-fluid container--icons">
+			<div class="row"><fmt:message key="reason.item1.copy" bundle="${msg}" /></div>
+			<div class="row">
+				<ul>
+					<li><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></li>
+					<li><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></li>
+					<li><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></li>
+					<li><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></li>
+					<li><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></li>
+				</ul>
+			</div>
+		</div>
 		<div class="container container-fluid container--regform" id="joinus_form">
 			<div class="row padding-15">
 				<h3 class="black-bold"><fmt:message key="member.registration.details.header" bundle="${msg}" /></h3>
@@ -557,7 +572,7 @@ function tooltipPlacement(){
 						<P id="error1">
 					</div>
 
-					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 regform__left">
+					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 regform__left">
 						<div
 							style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 							id="ajax-loading">
@@ -566,7 +581,7 @@ function tooltipPlacement(){
 								src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 						</div>
 
-						<div class="registration col-lg-10 col-md-10">
+						<div class="registration col-lg-11 col-md-11">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
 								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
@@ -635,12 +650,34 @@ function tooltipPlacement(){
 						</div>
 					</div>
 					
-					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs regform__right">
+					<div class="col-lg-5 col-md-5 hidden-sm hidden-xs regform__right">
+					<!--
 						<div>
 							<img src="<%=request.getContextPath()%>/resources/images/user.jpg" alt="" />
 						</div>
+					 -->
 						<h2 class="h2-1 fwd-acc"><fmt:message key="reason.item1.title" bundle="${msg}" /></h2>
 						<h4 class="h4-1"><fmt:message key="reason.item1.copy" bundle="${msg}" /></h4>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon1" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon2" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon3" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon4" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon5" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></span>
+						</div>
 					</div>
 
 					<div class="clearfix"></div>
@@ -695,7 +732,7 @@ function tooltipPlacement(){
 						<P id="error1">
 					</div>
 
-					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 regform__left">
+					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 regform__left">
 						<div
 							style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 							id="ajax-loading">
@@ -704,7 +741,7 @@ function tooltipPlacement(){
 								src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 						</div>
 
-						<div class="registration col-lg-10 col-md-10">
+						<div class="registration col-lg-11 col-md-11">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
 								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
@@ -750,12 +787,34 @@ function tooltipPlacement(){
 						</div>
 					</div>
 					
-					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs regform__right">
+					<div class="col-lg-5 col-md-5 hidden-sm hidden-xs regform__right">
+					<!-- 
 						<div>
 							<img src="<%=request.getContextPath()%>/resources/images/user.jpg" alt="" />
 						</div>
+					 -->
 						<h2 class="h2-1 fwd-acc"><fmt:message key="reason.item1.title" bundle="${msg}" /></h2>
 						<h4 class="h4-1"><fmt:message key="reason.item1.copy" bundle="${msg}" /></h4>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon1" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon2" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon3" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon4" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></span>
+						</div>
+						<div class="icon_wrapper">
+							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon5" bundle="${msg}" />" alt="" />
+							<span><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></span>
+						</div>
 					</div>
 
 					<div class="clearfix"></div>

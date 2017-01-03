@@ -2,3 +2,14 @@
 	margin-left: 0;
 	padding-left: 30px;
 }
+.container--icons{
+	display:block;
+	margin-left: 0;
+	padding-left: 45px;
+	.row{
+		margin-right: auto;
+		ul{
+			padding-left: 15px;
+		}
+	}
+}

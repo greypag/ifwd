@@ -726,7 +726,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 					<div id="promo-offers-tab-contents" class="hidden content">
 						<ul class="nav nav-tabs nav-justified visible-xs visible-sm mobile-promo-navtab">
 							<li class="active"><a href="#promo-code" data-toggle="tab"><fmt:message key="label.personnal.promotion.code" bundle="${msg}" /></a></li>
-							<li><a href="#ref-program" data-toggle="tab"><fmt:message key="label.refferal.program" bundle="${msg}" /></a></li>
+							<%--<li><a href="#ref-program" data-toggle="tab"><fmt:message key="label.refferal.program" bundle="${msg}" /></a></li>--%>
 							<li class="last"><a href="#fwd-partner" data-toggle="tab"><fmt:message key="label.member.top.active" bundle="${msg}" /></a></li>
 						</ul>
 						<div class="tab-content">
@@ -770,6 +770,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 								</div>
 							</div>	
 							<!--referral program code-->
+							<%--
 							<div class="tab-pane" id="ref-program">
 								<div class="referral-program-container">
 									<h3 class="heading-title hidden-xs hidden-sm"><fmt:message key="label.refferal.program1" bundle="${msg}" /></h3>
@@ -818,7 +819,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									</table>
 									<p class="referral-notes visible-xs visible-sm"><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
 								</div>
-							</div>	
+							</div>
 							<!--fwd partner code-->	
 							<div class="tab-pane" id="fwd-partner">
 								<div class="fwd-partner-container">
@@ -858,7 +859,8 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									<p class="referral-notes hidden-xs hidden-sm "><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
 									<p class="referral-notes"><sup>2</sup> <fmt:message key="note.refferal.program3.1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.csl_simcard" bundle="${msg}" />" target="_blank"><fmt:message key="note.refferal.program3.2" bundle="${msg}" /></a><fmt:message key="note.refferal.program3.3" bundle="${msg}" /></p>
 								</div>
-							</div>		
+							</div>
+							--%>	
 						</div>		
 					</div>
 					<!-- e-wallet Begin-->
