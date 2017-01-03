@@ -3,7 +3,7 @@
 <script>
 function imgModal(modal_id, img, title, content, button){
 	var modal_html = '';
-	modal_html += '<div class="modal fade" id="'+modal_id+'">';
+	modal_html += '<div class="modal fade pop-up-temp" id="'+modal_id+'">';
 	modal_html += '	<div class="modal-dialog" role="document">';
 	modal_html += '		<div class="modal-content">';
 	modal_html += '			<div class="modal-body">';
@@ -48,7 +48,7 @@ function imgModal(modal_id, img, title, content, button){
 
 function imgModal_noImg(modal_id, title, content, button){
 	var modal_html = '';
-	modal_html += '<div class="modal fade" id="'+modal_id+'">';
+	modal_html += '<div class="modal fade pop-up-temp" id="'+modal_id+'">';
 	modal_html += '	<div class="modal-dialog" role="document">';
 	modal_html += '		<div class="modal-content">';
 	modal_html += '			<div class="modal-body">';
@@ -67,6 +67,31 @@ function imgModal_noImg(modal_id, title, content, button){
 	modal_html += '						</div>';
 	modal_html += '						<div class="modal-body__button">';
 	modal_html += '							<button type="button" class="btn btn-primary" data-dismiss="modal">'+button+'</button>';
+	modal_html += '						</div>';
+	modal_html += '					</div>';
+	modal_html += '				</div>';
+	modal_html += '			</div>';
+	modal_html += '		</div>';
+	modal_html += '	</div>';
+	modal_html += '</div>';
+	
+	// add to body
+	$('body').append(modal_html);
+}
+
+function imgModal_noImg_notClose(modal_id, title, content){
+	var modal_html = '';
+	modal_html += '<div class="modal fade pop-up-temp" id="'+modal_id+'" data-backdrop="static" data-keyboard="false">';
+	modal_html += '	<div class="modal-dialog" role="document">';
+	modal_html += '		<div class="modal-content">';
+	modal_html += '			<div class="modal-body">';
+	modal_html += '				<div class="row">';
+	modal_html += '					<div class="modal-body__right col-xs-12 col-sm-12 col-md-12 col-lg-12">';
+	modal_html += '						<div class="modal-body__title">';
+	modal_html += '							<h3 class="modal-title">'+title+'</h3>';
+	modal_html += '						</div>';
+	modal_html += '						<div class="modal-body__content">';
+	modal_html += '							'+content;
 	modal_html += '						</div>';
 	modal_html += '					</div>';
 	modal_html += '				</div>';

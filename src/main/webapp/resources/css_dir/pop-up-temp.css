@@ -22,8 +22,8 @@
 }
 
 @media screen and (min-width: 992px) {
-  /* line 2, ../sass/desktop/_pop-up-temp.scss */
-  .modal .modal-dialog {
+  /* line 3, ../sass/desktop/_pop-up-temp.scss */
+  .modal.pop-up-temp .modal-dialog {
     width: 600px;
   }
 }

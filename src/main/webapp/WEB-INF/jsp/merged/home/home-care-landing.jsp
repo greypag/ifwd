@@ -200,7 +200,7 @@ var lang1 = "${language}";
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="container">
         <div class="row">
             <div class="container eh_sec_color_wraping eh_theclub_container">

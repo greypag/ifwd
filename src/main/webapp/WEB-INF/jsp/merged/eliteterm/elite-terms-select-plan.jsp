@@ -162,6 +162,24 @@ var home_url = "<%=request.getContextPath()%>";
 							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
 						</label>
 					</div>
+					
+					<div class="et-broken-line et-padding"></div>
+					<p class="et-bfr-start-txt bottom">
+						<fmt:message key="eliteTerms.selectPlan.Do.you.have.an.3" bundle="${msg}" />
+					</p>
+					<div class="clearfix">
+						<input type="radio" id="et-before-yes-03" name="et-before-03" value="et-before-yes">
+						<label class="et-before-we-start-yes pull-left elterm-btn-default" for="et-before-yes-03">
+							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></span>
+						</label>
+						<input type="radio" id="et-before-no-03" name="et-before-03" value="et-before-no">
+						<label class="et-before-we-start-no no pull-right elterm-btn-default" for="et-before-no-03" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ET2M');">
+							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
+						</label>
+					</div>
+					<div class="clearfix" id="et-before-yes-03-checkbox">
+						<label class="et-before-yes-03-01 small"><fmt:message key="eliteTerms.selectPlan.Do.you.have.an.3.01" bundle="${msg}" /></label>
+					</div>
 
 				</div>
 
@@ -2453,7 +2471,62 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div>
 					<span id="chk1" class="text-red"></span> <br />
-
+					
+					<h4 class="application"><fmt:message key="eliteTerms.declaration.automatic.exchange" bundle="${msg}" /></h4>
+					<div class="clearfix declaration automatic-exchange sub-header">
+						<div class="pull-left cancellation-check">
+							<input type="checkbox" value="autoExchDeclaration" id="automatic-exchange" name="autoExchDeclaration" />
+							<label for="automatic-exchange"></label>
+						</div>
+						<div class="pull-left cancellation-desc checkbox-description">
+							<h5 class="declare-agree">
+								<fmt:message key="eliteTerms.declaration.automatic.exchange.tnc.agree" bundle="${msg}" />
+							</h5>
+						</div>
+					</div>
+					<span id="chk8" class="text-red"></span> <br />
+					<label for="automatic-exchange">
+						<div class="clearfix declaration automatic-exchange">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">i</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.declaration.automatic.exchange.tnc.statement.01" bundle="${msg}" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix declaration automatic-exchange">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">ii</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.declaration.automatic.exchange.tnc.statement.02" bundle="${msg}" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix declaration automatic-exchange">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">*</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.declaration.automatic.exchange.tnc.statement.03" bundle="${msg}" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</label>
+					
 					<h4 class="policy-replace">
 						<fmt:message
 							key="eliteTerms.selectPlan.Policy.replacement.declarations"
@@ -3931,6 +4004,35 @@ var home_url = "<%=request.getContextPath()%>";
 </div>
 <!-- END OF DOB ATTENTION -->
 
+<!-- tax resident modal -->
+<div class="modal fade" id="tax-resident-modal">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="row">
+					<div class="modal-body__right col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="modal-body__close">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body__content">
+							<fmt:message key="savie.tax.resident.modal.content_1" bundle="${msg}" />
+						</div>
+						<div class="modal-body__content">
+							<fmt:message key="savie.tax.resident.modal.content_2" bundle="${msg}" />
+						</div>
+						<div class="modal-body__button">
+							<button type="button" class="btn btn-primary" data-dismiss="modal"><fmt:message key="savie.tax.resident.modal.btn" bundle="${msg}" /></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <%-- <!--CUSTOMER SERVICE MODAL-->
 			<div class="modal et-modal fade" role="dialog" aria-labelledby="cantapply" id="customer-service-modal">
 				<div class="container-fluid modal-dialog" role="document">
@@ -4184,16 +4286,22 @@ var home_url = "<%=request.getContextPath()%>";
 */
 		var et_before_01_is_yes = false;
 		var et_before_02_is_yes = false;
+		var et_before_03_is_yes = false;
 		$('#et-before-yes').on('click', function(){
 			et_before_01_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes);
 		});
 		$('#et-before-yes-02').on('click', function(){
 			et_before_02_is_yes = true;
-			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes);
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes);
 		});
-		function isDisplayNext(yes_01, yes_02){
-			if(yes_01==true && yes_02==true){
+		$('#et-before-yes-03').on('click', function(){
+			et_before_03_is_yes = true;
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes, et_before_03_is_yes);
+		});
+		
+		function isDisplayNext(yes_01, yes_02, yes_03){
+			if(yes_01==true && yes_02==true && yes_03==true){
 				$('#et-btn-before-start').removeClass('hidden');
 			}else{
 				$('#et-btn-before-start').addClass('hidden');

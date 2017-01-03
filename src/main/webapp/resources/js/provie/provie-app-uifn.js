@@ -547,8 +547,7 @@ $(document).ready(function(){
 						$("#loading-overlay").modal("hide");
 				    },
 				    success:function(response){
-				    	
-				    	$("#perferredTimeIsNull").modal("show");
+				    	// $("#perferredTimeIsNull").modal("show");
 				    	if(response){
 				    		
 				    		if(response.length > 0){

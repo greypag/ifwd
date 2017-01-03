@@ -12716,7 +12716,10 @@ button[disabled].btn.btn-default--vc {
   color: #fdb714;
   border: 1px #fdb714 solid;
 }
-
+/* line 39, ../sass/desktop/_landing.scss */
+#business-partners-container img.bp-klook {
+	margin: 30px 0 0 0;
+}
 @media screen and (max-width: 991px) {
 	#business-partners-container img.hk3_logo {
 		height: 12%;
@@ -12741,8 +12744,12 @@ button[disabled].btn.btn-default--vc {
 		height: 35%;
 		width: 35%;
 	}
+	#business-partners-container img.bp-klook{
+		margin-top: 0;
+		height: 50%;
+		width: 50%;		
+	}
 }
-
 /* 3976 partnership content updated */
 @media screen and (min-width: 992px) {
 	.partner_image.partner_image--3hk {
@@ -12765,6 +12772,11 @@ button[disabled].btn.btn-default--vc {
 		width: 80%;
 		height: 80%;
 	}
+	.partner_image.partner_image--klook {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}	
 }
 @media screen and (max-width: 991px) {
 	.partner_image.partner_image--3hk {
@@ -12787,6 +12799,11 @@ button[disabled].btn.btn-default--vc {
 		width: 80%;
 		height: 80%;
 	}
+	.partner_image.partner_image--klook {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}	
 }
 
 .img_1111{
@@ -12799,3 +12816,26 @@ button[disabled].btn.btn-default--vc {
 .img_1111:hover{
 	cursor : pointer;
 }
+
+/* 20161124 - #tax-resident-modal --start-- */
+.modal#tax-resident-modal .modal-dialog .modal-content .modal-body .row .modal-body__right {
+	text-align: center;
+}
+.modal#tax-resident-modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__title h3 {
+	color: #ff8200;
+	font-size: 20px;
+}
+.modal#tax-resident-modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__content p {
+	font-size: 16px;
+	margin-top: 16px;
+}
+.modal#tax-resident-modal .modal-dialog .modal-content .modal-body .row .modal-body__right .modal-body__button button {
+	font-size: 16px;
+}
+
+@media screen and (min-width: 992px) {
+	.modal#tax-resident-modal .modal-dialog {
+		width: 600px;
+	}
+}
+/* 20161124 - #tax-resident-modal --end-- */

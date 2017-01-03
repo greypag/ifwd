@@ -31,9 +31,50 @@
 					<fmt:message key="partner.heading" bundle="${msg}" />
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_container">
-
+                	<%-- KLOOK --%>
+                	<hr class="partner_hr"/>
+                    <div id="klook" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="klook">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image partner_image--klook" src="<%=request.getContextPath()%>/resources/images/KLOOK_LOGO_HK_MKT.png" alt="<fmt:message key="image.alt_63" bundle="${msg}" />"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.klook.title" bundle="${msg}" /></div>
+                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+                                        <li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.klook.desc1.part1" bundle="${msg}" />
+                                                <fmt:message key="partner.klook.desc1.link" bundle="${msg}" />
+                                                <fmt:message key="partner.klook.desc1.part2" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.klook.tnc1.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.csl.tnc2.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                            <%-- <div class="partner_link"> --%>
+	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
+	                            <%-- </div> --%>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
 					<%-- 3HK --%>
-                    <div id="3HK_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="3HK">
+                    <%-- <div id="3HK_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="3HK">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image--3hk partner_image" src="<%=request.getContextPath()%>/resources/images/partner_3hk.png"/>
                         </div>
@@ -75,7 +116,7 @@
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-
+					--%>
 					<%-- 7-Eleven --%>
                 	<hr class="partner_hr"/>
                     <div id="7eleven_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="7eleven">
@@ -316,8 +357,8 @@
                 	</div>
 
 					<%-- Sony --%>
-                	<hr class="partner_hr"/>
-                    <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
+                	<%--<hr class="partner_hr"/>
+                     <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image--sony partner_image" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png"/>
                         </div>
@@ -358,7 +399,7 @@
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-
+					--%>
 					<%-- the Club --%>
                 	<hr class="partner_hr"/>
                     <div id="theclub_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="theclub">

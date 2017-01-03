@@ -520,13 +520,15 @@ var affordabilityPremium = ${sliderMax};
 		</div>
 		<div class="next-btn text-center">
 
-			<!-- for online -->
+			<!-- for online button on top -->
 			<div class="btn__proceed_online js-display-savie-sp">
 				<button id="btn-proceed" class="btn plan-details-btn savie-common-btn white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
 			</div>
 			<a onclick="applyCentre();" class="pd-link" style="color: #ff8200;"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a>
-			<!-- for offline -->
-			<%--<div class="">
+
+			<!-- for offline button on top -->
+			<%--
+			<div class="">
 				<button onclick="applyCentre();" class="btn plan-details-btn savie-common-btn white-btn text-orange text-hover-orange"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></button>
 			</div>
 			<div class="btn__proceed_online js-display-savie-sp">
@@ -1157,13 +1159,20 @@ var affordabilityPremium = ${sliderMax};
 <jsp:include page="/WEB-INF/jsp/merged/comp/pop-up-temp.jsp"></jsp:include>
 <script>
 $(window).on('load',function(){
+	/* generate stop-rp-modal */
 	var modal_id = 'stop-rp-modal';
 	var img_path = '<fmt:message key="savie.stop.rp.modal.img" bundle="${msg}" />';
 	var title = '<fmt:message key="savie.stop.rp.modal.title" bundle="${msg}" />';
 	var content = '<fmt:message key="savie.stop.rp.modal.content" bundle="${msg}" />';
 	var button = '<fmt:message key="savie.provie.stop.rp.modal.btn.continue" bundle="${msg}" />';
-	//imgModal(modal_id, img_path, title, content, button);
 	imgModal_noImg(modal_id, title, content, button);
 	$('#stop-rp-modal').modal('show');
+	
+	/* generate non-close-modal */
+	// var modal_id = 'non-close-modal';
+	// var title = '<fmt:message key="savie.suspension.modal.title" bundle="${msg}" />';
+	// var content = '<fmt:message key="savie.suspension.modal.content" bundle="${msg}" />';
+	// imgModal_noImg_notClose(modal_id, title, content);
+	// $('#non-close-modal').modal('show');
 });
 </script>

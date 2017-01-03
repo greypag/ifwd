@@ -12595,7 +12595,8 @@ span.dup-error-msg {
 	font-family: 'Calibri-Bold';
 }
 /* line 124, ../sass/partials/_declaration-authorization.scss */
-.fwd-savie-wrapper .declare-authorize .agreement-description .clearfix.declaration.application-declaration.sub-header
+.fwd-savie-wrapper .declare-authorize .agreement-description .clearfix.declaration.application-declaration.sub-header,
+.fwd-savie-wrapper .declare-authorize .agreement-description .clearfix.declaration.automatic-exchange.sub-header
 	{
 	padding-bottom: 0;
 }
@@ -21541,7 +21542,7 @@ body.chin .fwd-savie-wrapper h1, body.chin .fwd-savie-wrapper h2, body.chin .fwd
 body.chin .fwd-savie-wrapper p,
 body.chin .fwd-savie-wrapper a,
 body.chin .fwd-savie-wrapper li,
-body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon):not(.dw-mon):not(.orange-caret):not(.icon-arrow-left2) {
+body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon):not(.dw-mon):not(.orange-caret):not(.icon-arrow-left2):not(.et-arrow-down) {
   font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
 body.chin .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li a {
