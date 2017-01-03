@@ -863,7 +863,7 @@ function tooltipPlacement(){
 						<P id="error1">
 					</div>
 
-					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 regform__left">
+					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 regform__left">
 						<div
 							style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 							id="ajax-loading">
@@ -872,7 +872,7 @@ function tooltipPlacement(){
 								src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 						</div>
 
-						<div class="registration col-lg-10 col-md-10">
+						<div class="registration col-lg-11 col-md-11">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
 								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
@@ -941,7 +941,7 @@ function tooltipPlacement(){
 						</div>
 					</div>
 					
-					<div class="col-lg-4 col-md-4 hidden-sm hidden-xs regform__right">
+					<div class="col-lg-5 col-md-5 hidden-sm hidden-xs regform__right">
 					<!--
 						<div>
 							<img src="<%=request.getContextPath()%>/resources/images/user.jpg" alt="" />
