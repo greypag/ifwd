@@ -1306,9 +1306,9 @@ var nextPage = "${nextPageFlow}";
 										-->
 													<input type="tel" name="mobileNo"
 														class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input"
-														id="motorForgotPwdMobileNo" data-keyblock-num="true">
+														id="motorRegisterMobileNo" data-keyblock-num="true">
 													<label class="mdl-textfield__label"
-														for="mobileNo-forgotpassowrd"><fmt:message
+														for="motorRegisterMobileNo"><fmt:message
 															key="motor.summary.member.mobile" bundle="${motorMsg}" /></label>
 												</div>
 												<span class="error-msg mobileNoErrMsg"></span>

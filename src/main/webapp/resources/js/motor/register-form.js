@@ -277,7 +277,8 @@ $(document).ready(function(){
 			    		$("#btn-motor-confirm").show();
 
 			    		$("#loading-overlay").modal("hide");
-			    		window.location.reload();
+			    		//window.location.reload();
+			    		switchLoginWdiget({fullName : response.fullName});
 			    	}
 			    },
 			    complete:function(){
@@ -601,8 +602,8 @@ $(document).ready(function(){
 				email:$("#motorRegisterEmailAddress").val(),
 				fullName:$("#motorRegisterFullName").val(),
 				mobileNo:$("#motorRegisterMobileNo").val(),
-				optOut1:$("#checkbox3").val(),
-				optOut2:$("#checkbox4").val(),
+				optOut1:($("#checkbox3").prop('checked'))?'true':'false',
+				optOut2:($("#checkbox4").prop('checked'))?'true':'false',
 				password:$("#motorRegisterPassword").val(),
 				userName:$("#motorRegisterUserName").val()
 			}
