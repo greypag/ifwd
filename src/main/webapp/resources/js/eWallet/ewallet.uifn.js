@@ -22,7 +22,7 @@ var eWalletCtr = {
 
 		// for internal testing only
 		var isShowEWalletTab = this.getQueryStringByName("showWallet");
-		if(!isShowEWalletTab){
+		if(!isShowEWalletTab || isShowEWalletTab != "1"){
 			$("#e-wallet-tab-link").hide();
 		}
 	},
