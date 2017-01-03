@@ -1765,7 +1765,7 @@ $(window).load(function(){
 										var checked=false;
 				                        $.each(res, function(i, item) {
 								
-											if(item.desc == quote.carDetail.bankMortgageName)
+											if(item.code == quote.carDetail.bankMortgageName)
 											{	$(".carbankmortgage").html(item.desc);checked=true;}
 										});
 										if(checked==false)
@@ -1787,7 +1787,7 @@ $(window).load(function(){
 
 			                    	$.each(res, function(i, item) {
 										
-											if(item.desc == quote.applicant.correspondenceAddress.district )
+											if(item.code == quote.applicant.correspondenceAddress.district )
 											{
 												
 												if(motorlanguage == item.lang)
@@ -2001,7 +2001,7 @@ $(window).load(function(){
 							clicked = false;
 							console.log(enablePayment);
 
-							if (payValid(selectedPaymentType) && enablePayment) {
+							if (enablePayment) {
 								console.log("enablePayment");
 								enablePayment = false;
 								var gatewayUrlId = '#' + gatewayUrlId;
@@ -2014,8 +2014,7 @@ $(window).load(function(){
 									"input:radio[name=paymentGroup]:checked")
 									.val();
 							clicked = false;
-							if (payValid(selectedPaymentType)
-									&& clicked === false
+							if (clicked === false
 									&& selectedPaymentType == "cc") {
 
 								clicked = true;
@@ -2108,5 +2107,4 @@ $(window).load(function(){
 					        $('#yourQuoteAmmount').html(formatCurrency(amt));
 					    }
 					});
-
 </script>
