@@ -308,10 +308,17 @@ public class SavieServiceImpl implements SavieService {
 				else{
 					resultJsonObject.accumulate("result", "fail");
 					resultJsonObject.accumulate("errMsgs", "Data exception");
+					logger.error("getPlanDetails Data exception");
 					throw new ECOMMAPIException("Data exception!");
 				}
 			}
 			else{
+				String[] errMsgs=apiResponse.getErrMsgs();
+				for(int i=0;i<errMsgs.length;i++)
+				{
+					logger.error(errMsgs[i].toString());
+				}
+				
 				resultJsonObject.accumulate("result", "fail");
 				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
 			}
@@ -322,12 +329,12 @@ public class SavieServiceImpl implements SavieService {
 				logger.info(resultJsonObject.toString());
 				response.getWriter().print(resultJsonObject.toString());
 			}catch(Exception e) {
-				e.printStackTrace();
+				logger.error("SavieServiceImpl getPlanDetails occurs an exception!");
+				logger.error(e.getMessage());
 			}
 		} catch (ECOMMAPIException e) {
-			logger.info("SavieServiceImpl getPlanDetails occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.error("SavieServiceImpl getPlanDetails occurs an exception!");
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -469,9 +476,8 @@ public class SavieServiceImpl implements SavieService {
 				br = connector.generateSalesIllustration(parameters, header);
 				logger.info(br+"");
 			}catch(Exception e){
-				logger.info("SavieServiceImpl createSalesIllustrationPdf occurs an exception!");
-				logger.info(e.getMessage());
-				e.printStackTrace();
+				logger.error("SavieServiceImpl createSalesIllustrationPdf occurs an exception!");
+				logger.error(e.getMessage());
 			}
 			resultJsonObject.accumulate("pdfName", name);
 			resultJsonObject.accumulate("Msgs", br);
@@ -484,7 +490,8 @@ public class SavieServiceImpl implements SavieService {
 		try {
 			response.getWriter().print(resultJsonObject.toString());
 		}catch(Exception e) {  
-			e.printStackTrace();
+			logger.error("SavieServiceImpl createSalesIllustrationPdf occurs an exception!");
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -508,8 +515,8 @@ public class SavieServiceImpl implements SavieService {
 			parameters.put("base64", base64);
 			br = connector.uploadDocuments(parameters, header);
 		}catch(Exception e) {
-			logger.info("SavieServiceImpl uploadSalesIllustrationPdf occurs an exception!");
-			logger.info(e.getMessage());
+			logger.error("SavieServiceImpl uploadSalesIllustrationPdf occurs an exception!");
+			logger.error(e.getMessage());
 			e.printStackTrace();
 		}
 		JSONObject resultJsonObject = new JSONObject();
@@ -519,7 +526,8 @@ public class SavieServiceImpl implements SavieService {
 		try {
 			response.getWriter().print(resultJsonObject.toString());
 		}catch(Exception e) {
-			e.printStackTrace();
+			logger.error("SavieServiceImpl uploadSalesIllustrationPdf occurs an exception!");
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -852,9 +860,8 @@ public class SavieServiceImpl implements SavieService {
 			br = connector.sendLead(parameters,header);
 		}catch(Exception e){
 			
-			logger.info("SavieServiceImpl sendLead occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.error("SavieServiceImpl sendLead occurs an exception!");
+			logger.error(e.getMessage());
 		}
 
 		 return br;
@@ -1036,9 +1043,8 @@ public class SavieServiceImpl implements SavieService {
 			br = connector.sendEmail(parameters,header);
 		}catch(Exception e){
 			
-			logger.info("SavieServiceImpl sendLead occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.error("SavieServiceImpl sendMessagesEmail occurs an exception!");
+			logger.error(e.getMessage());
 		}
 
 		 return br;
@@ -1091,9 +1097,8 @@ public class SavieServiceImpl implements SavieService {
 			parameters.put("base64", image);
 			br = connector.signature(parameters, header);
 		} catch (ECOMMAPIException e) {
-			logger.info("SavieServiceImpl sendLead occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.error("SavieServiceImpl signature occurs an exception!");
+			logger.error(e.getMessage());
 		}
 		
 		return br;
@@ -1126,6 +1131,9 @@ public class SavieServiceImpl implements SavieService {
 			}
 			return true;
 		} catch (Exception e) {
+			logger.error("SavieServiceImpl checkImages occurs an exception!");
+			logger.error(e.getMessage());
+			e.printStackTrace();
 			return false;
 		} 
 	}
@@ -1155,9 +1163,8 @@ public class SavieServiceImpl implements SavieService {
 			parameters.put("base64", base64);
 			br = connector.uploadDocuments(parameters, header);
 		}catch(Exception e) {
-			logger.info("SavieServiceImpl sendLead occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.error("SavieServiceImpl uploadDocuments occurs an exception!");
+			logger.error(e.getMessage());
 		}
 		
 		return br;
@@ -1380,7 +1387,8 @@ public class SavieServiceImpl implements SavieService {
 			logger.info(jsonOptionItemDescs.toString());
 			response.getWriter().print(jsonOptionItemDescs.toString());
 		}catch(Exception e) {  
-			e.printStackTrace();
+			logger.error("SavieServiceImpl getOccupation occurs an exception!");
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -1408,7 +1416,8 @@ public class SavieServiceImpl implements SavieService {
 			logger.info(responseJsonObj.toString());
 			response.getWriter().print(responseJsonObj.toString());
 		}catch(Exception e) {  
-			e.printStackTrace();
+			logger.error("SavieServiceImpl verifyAccessCode occurs an exception!");
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -1436,7 +1445,8 @@ public class SavieServiceImpl implements SavieService {
 			logger.info(responseJsonObj.toString());
 			response.getWriter().print(responseJsonObj.toString());
 		}catch(Exception e) {  
-			e.printStackTrace();
+			logger.error("SavieServiceImpl getAllAvailableTimeSlot occurs an exception!");
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -1477,7 +1487,8 @@ public class SavieServiceImpl implements SavieService {
 			logger.info(responseJsonObj.toString());
 			response.getWriter().print(responseJsonObj.toString());
 		}catch(Exception e) {  
-			e.printStackTrace();
+			logger.error("SavieServiceImpl getTimeSlot occurs an exception!");
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -1892,9 +1903,8 @@ public class SavieServiceImpl implements SavieService {
 			
 			br = connector.sendEmail(parameters,header);
 		}catch(Exception e){
-			logger.info("SavieServiceImpl sendAppointmentAcknowledgeMail occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.error("SavieServiceImpl sendAppointmentAcknowledgeMail occurs an exception!");
+			logger.error(e.getMessage());
 		}
 		return br;
 	}

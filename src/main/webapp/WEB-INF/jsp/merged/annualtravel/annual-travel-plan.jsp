@@ -113,6 +113,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                     flag = false;
                 }
             }
+        }else{
+        	document.getElementById("theClubMembershipNo").value = null;
         }
         return flag;
     }

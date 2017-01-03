@@ -55,7 +55,6 @@ if(personalTraveller>familyTraveller){
 	tempTotalTraveller=familyTraveller;
 }
 //bmg inline variable
-
 var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
 //hardcode 7-eleven variable for init
 	function chkPromoCode() {
@@ -119,6 +118,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                     flag = false;
             	}
             }
+        }else{
+        	document.getElementById("theClubMembershipNo").value = null;
         }
         return flag;
 	}

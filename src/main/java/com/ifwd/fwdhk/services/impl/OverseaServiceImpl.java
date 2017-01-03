@@ -110,6 +110,7 @@ public class OverseaServiceImpl implements OverseaService {
 		try {
 			response.getWriter().print(result);
 		} catch (Exception e) {
+			logger.error("prepareOverseaQuote api has error:"+e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -235,6 +236,7 @@ public class OverseaServiceImpl implements OverseaService {
 		try {
 			response.getWriter().print(result);
 		} catch (Exception e) {
+			logger.error("prepareOverseaDetails api has error:"+e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -458,6 +460,7 @@ public class OverseaServiceImpl implements OverseaService {
 					session.setAttribute("creditCardNo", encryptedCreditCard);
 				} catch (Exception e) {
 					session.setAttribute("creditCardNo", "");
+					logger.error("processOverseaPayment api has error:"+e.getMessage());
 					e.printStackTrace();
 				}
 				session.setAttribute(

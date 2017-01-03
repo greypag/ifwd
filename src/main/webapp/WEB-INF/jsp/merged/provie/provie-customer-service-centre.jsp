@@ -394,10 +394,10 @@ function stickToHeader() {
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
 						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-						<h2><fmt:message key="provie.appoint.popup.errormsg.text1" bundle="${provieMsg}" /></h2>
+						<h2><fmt:message key="provie.appoint.popup.errormsg.text3" bundle="${provieMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">
-						<p class="registered"><fmt:message key="provie.appoint.popup.errormsg.text2" bundle="${provieMsg}" /></p>
+						<%-- <p class="registered"><fmt:message key="provie.appoint.popup.errormsg.text2" bundle="${provieMsg}" /></p> --%>
 						
 						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
 						<button type="button" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="provie.appoint.popup.errormsg.tryagain" bundle="${provieMsg}" /></button>
@@ -412,13 +412,13 @@ function stickToHeader() {
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
 						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-						<h2>Sorry, no available timeslot at Customer Service Centres at the moment.</h2>
+						<h2><fmt:message key="provie.appoint.popup.errormsg.text3" bundle="${provieMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">
-						<p class="registered">You may wish to consider the online application for Savie One-off premium plan. Please note that you are required to complete an online Financial Needs Analysis to assess your suitability for Savie prior to the application.</p>
+						<!-- <p class="registered">You may wish to consider the online application for Savie One-off premium plan. Please note that you are required to complete an online Financial Needs Analysis to assess your suitability for Savie prior to the application.</p> -->
 						
 						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-						<button type="button" class="btn btn-orange" id="fullyBooked-button">Go to Financial Needs Analysis</button>
+						<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="provie.appoint.popup.errormsg.tryagain" bundle="${provieMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -445,13 +445,11 @@ function stickToHeader() {
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
 						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-						<h2>Sorry, the center or date/time you selected is not available.</h2>
+						<h2><fmt:message key="provie.appoint.popup.errormsg.text3" bundle="${provieMsg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">
-						<p class="registered">Please select another center or try again tomorrow.</p>
-						
 						<!--<button type="button" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-						<button type="button" class="btn btn-orange" id="perferredTimeIsNull-btn">Try again</button>
+						<button type="button" class="btn btn-orange" id="perferredTimeIsNull-btn"><fmt:message key="provie.appoint.popup.errormsg.tryagain" bundle="${provieMsg}" /></button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
@@ -509,8 +507,8 @@ function stickToHeader() {
 			$('#pickAnotherCentre').modal('hide');
 		});
 		$('#fullyBooked-button').click(function(){
-			$('#fullyBooked').modal('hide');
-			window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+			<%-- $('#fullyBooked').modal('hide');
+			window.location = '<%=request.getContextPath()%>/${language}/FNA/review';  --%>
 		});
 		$('#moreThan2Tries-button').click(function(){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie-plan-details';

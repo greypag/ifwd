@@ -758,6 +758,8 @@ function validateTheClub(){
 				isValid = true;				
 			}
 		}
+	}else{
+		$("#theClubMembershipNo").val("");
 	}
 	
 	return isValid;

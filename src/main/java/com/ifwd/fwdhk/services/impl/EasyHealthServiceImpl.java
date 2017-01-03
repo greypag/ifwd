@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.ezmorph.bean.MorphDynaBean;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -297,6 +298,11 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				//request.getSession().setAttribute("isVulnerable", false);
 			}
 			else{
+				String[] errMsgs=lifePolicy.getErrMsgs();
+				for(int l=0;l<errMsgs.length;l++)
+				{
+					logger.error(errMsgs[l].toString());
+				}
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
 			}
 		//}
@@ -310,7 +316,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			request.getSession().setAttribute("cardHolderName", request.getParameter("cardHolderName"));
 			logger.info("payment put session success");
 		}catch(Exception e){
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
+			logger.error(ExceptionUtils.getStackTrace(e));
 			e.printStackTrace();
 		}
 	}

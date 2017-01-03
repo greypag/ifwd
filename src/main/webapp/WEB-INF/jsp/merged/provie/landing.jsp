@@ -551,6 +551,8 @@ var home_url = "<%=request.getContextPath()%>";
 							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text3" bundle="${provieMsg}" /></li>
 							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text4" bundle="${provieMsg}" /></li>
 							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text5" bundle="${provieMsg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text7" bundle="${provieMsg}" /></li>
+							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text8" bundle="${provieMsg}" /></li>
 							<li class="pv_offer_remark"><fmt:message key="provie.landing.offer.text6" bundle="${provieMsg}" /></li>
 						</ul>
 	            	</div>

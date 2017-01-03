@@ -102,7 +102,8 @@ public class MotorCareValidationServiceImpl implements
 				return HttpStatus.INTERNAL_SERVER_ERROR;	
 			}
 		} catch (Exception e) {
-			logger.error("validationCarMakeMode Exception", e);
+			logger.error("validationCarMakeMode Exception", e.getMessage());
+			e.printStackTrace();
 			return HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 		return HttpStatus.OK; 
@@ -164,6 +165,7 @@ public class MotorCareValidationServiceImpl implements
 					return HttpStatus.valueOf(416);
 				}
 			} catch (NumberFormatException e) {
+				logger.error("validateMotorCareIfwd method has error:"+e.getMessage());
 				return HttpStatus.valueOf(410);
 			}
 		}
