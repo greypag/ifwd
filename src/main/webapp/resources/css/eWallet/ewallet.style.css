@@ -300,7 +300,7 @@
       background-color: #e5e5e5; }
     .ew_pol_log .ew_logTable_wrapper .ew_log_table td {
       background-color: #efefef; }
-    .ew_pol_log .ew_logTable_wrapper .ew_log_table .ew_dateMobile {
+    .ew_pol_log .ew_logTable_wrapper .ew_log_table .ew_dateMobile, .ew_pol_log .ew_logTable_wrapper .ew_log_table .ew_refNoMobile {
       color: #a7a7a7;
       display: none;
       font-size: 0.8em; }
@@ -356,9 +356,9 @@
     padding-top: 10px;
     text-align: center; }
 
-  .ew_pol_log .ew_logTable_wrapper .ew_log_table th:nth-child(2), .ew_pol_log .ew_logTable_wrapper .ew_log_table td:nth-child(2) {
+  .ew_pol_log .ew_logTable_wrapper .ew_log_table th:nth-child(2), .ew_pol_log .ew_logTable_wrapper .ew_log_table td:nth-child(2), .ew_pol_log .ew_logTable_wrapper .ew_log_table th:nth-child(3), .ew_pol_log .ew_logTable_wrapper .ew_log_table td:nth-child(3) {
     display: none; }
-  .ew_pol_log .ew_logTable_wrapper .ew_log_table .ew_dateMobile {
+  .ew_pol_log .ew_logTable_wrapper .ew_log_table .ew_dateMobile, .ew_pol_log .ew_logTable_wrapper .ew_log_table .ew_refNoMobile {
     display: block; } }
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li:last-child {
   border-right: none; }

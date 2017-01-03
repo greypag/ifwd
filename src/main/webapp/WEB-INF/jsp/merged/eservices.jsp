@@ -993,6 +993,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 										  <tr>
 										    <th><fmt:message key="ewallet.withdraw.name" bundle="${msg}"/></th>
 										    <th><fmt:message key="ewallet.withdraw.linkdate" bundle="${msg}"/></th> 
+										    <th><fmt:message key="ewallet.withdraw.refno" bundle="${msg}"/></th> 
 										    <th><fmt:message key="ewallet.withdraw.amount.text" bundle="${msg}"/></th>
 										  </tr>
 										</table>

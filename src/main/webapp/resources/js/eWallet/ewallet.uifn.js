@@ -19,6 +19,12 @@ var eWalletCtr = {
 		this.tryDisplayLinkupSuccess();
 
 		this.initHashChange();
+
+		// for internal testing only
+		var isShowEWalletTab = this.getQueryStringByName("showWallet");
+		if(!isShowEWalletTab){
+			$("#e-wallet-tab-link").hide();
+		}
 	},
 	tryDisplayLinkupSuccess: function (){
 		var flag = this.getQueryStringByName("statusFlag");
@@ -150,7 +156,7 @@ var policyHelper = {
 				}
 
 				if(that.isAllPolicyLocked(response.policies)){
-					eWalletCtr.showGenericMsg("", msgCtr.policyList.policyAllLocked);
+					eWalletCtr.showGenericMsg(msgCtr.policyList.policyAllLockedTitle, msgCtr.policyList.policyAllLocked);
 				}else{
 					that.composePolicyList(response.policies);	
 				}
@@ -776,6 +782,7 @@ var logViewer = {
 		for(var li = 0; li < logs.length; li++){
 			var logData = logs[li];
 			var logDt = logData.txnDate.split(" ")[0];
+			var tngRefNo = logData.tngRefNo;
 
 			var logRow = $("<tr/>").addClass("ew_log");
 
@@ -788,7 +795,11 @@ var logViewer = {
 
 			var date = $("<td/>").html(logDt);
 
-			logRow.append([tngId, date, withdrawAmount]);
+			var refNo = $("<td/>").html(tngRefNo);
+			var refNoMobile = $("<span/>").addClass("ew_refNoMobile").html(tngRefNo);
+			tngId.append(refNoMobile);
+
+			logRow.append([tngId, date, refNo, withdrawAmount]);
 
 			this.htmlDom.find("table").append(logRow);
 		}
@@ -989,6 +1000,7 @@ var msgCtr = {
 		noMobileNum: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.noMobile"),
 		policyLocked: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyLocked"),
 		policyEmpty: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyEmpty"),
+		policyAllLockedTitle: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyAllLockedTitle"),		
 		policyAllLocked: getBundle(getBundleLanguage,"ewallet.msgctr.policyList.error.policyAllLocked")
 	},
 	withdrawal:{

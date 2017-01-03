@@ -503,7 +503,7 @@ $txt-hint-color: #999999;
 			td{
 				background-color: #efefef;
 			}
-			.ew_dateMobile{
+			.ew_dateMobile, .ew_refNoMobile{
 				color: #a7a7a7;
 				display: none;
 				font-size: 0.8em;
@@ -600,10 +600,10 @@ $txt-hint-color: #999999;
 	}
 
 	.ew_pol_log .ew_logTable_wrapper .ew_log_table{
-		th:nth-child(2),td:nth-child(2){
+		th:nth-child(2),td:nth-child(2), th:nth-child(3),td:nth-child(3){
 			display: none;
 		}
-		.ew_dateMobile{
+		.ew_dateMobile, .ew_refNoMobile{
 			display: block;
 		}
 	}
