@@ -443,6 +443,7 @@ public class UserController {
 			for(PurchaseHistoryPolicies p:active_life){
 				String policyNo = p.getPolicyNumber();
 				JSONObject jo = policyMap.get(policyNo);
+				if(jo==null)continue;
 				Double amount = (Double)jo.get(amountKey);
 				String amountAsOfDate = (String)jo.get(amountAsOfDateKey);
 				if(amount!=null && amountAsOfDate!=null){
@@ -461,6 +462,7 @@ public class UserController {
 			for(PurchaseHistoryPolicies p:active_saving){
 				String policyNo = p.getPolicyNumber();
 				JSONObject jo = policyMap.get(policyNo);
+				if(jo==null)continue;
 				Double amount = (Double)jo.get(amountKey);
 				String amountAsOfDate = (String)jo.get(amountAsOfDateKey);
 				if(amount!=null && amountAsOfDate!=null){
@@ -541,6 +543,7 @@ public class UserController {
 					PurchaseHistoryResponse purchaseHistory = connector.getPurchaseHistory(header);
 
 					if(("FWDCUST".equalsIgnoreCase((String)session.getAttribute("memberType")))){
+						String phwPolicyListStatus = "true";
 						try {
 							String customerId = (String)session.getAttribute("customerId");
 							PurchaseHistoryResponse phwPurchaseHistory = this.getPolicyListFromPhw(request, usernameInSession, customerId, tokenInSession);
@@ -549,7 +552,9 @@ public class UserController {
 							this.supplementPhwPolicyName(request, model);
 						} catch (Exception e) {
 							logger.warn("getPolicyListFromPhw Exception",e);
+							phwPolicyListStatus = "false";
 						}
+						model.addAttribute("phw_policy_list_status", phwPolicyListStatus);
 					}else{
 					
 					/*List<PurchaseHistoryPolicies> policiesGI = new ArrayList<PurchaseHistoryPolicies>();
