@@ -212,7 +212,7 @@ public class MotorCareValidationServiceImpl implements
 			
 			// Check Model in Registration Doc
 			if (length(motorCare.getCarDetail().getModelDesc()) <4 
-					|| length(motorCare.getCarDetail().getModelDesc()) >10) {
+					|| length(motorCare.getCarDetail().getModelDesc()) >30) {
 				return false;
 			}
 				

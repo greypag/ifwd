@@ -225,7 +225,8 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" style="text-transform:uppercase" name="d2id" data-equals="<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />" maxlength="8" class="form-control input--grey mdl-textfield__input" id="driverID" >
+	                                                    <input type="text" style="text-transform:uppercase" name="d2id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />'>
+	                                               
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -314,8 +315,8 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" style="text-transform:uppercase" name="d3id" data-equals="<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />" maxlength="8" class="form-control input--grey mdl-textfield__input" id="driverID"  >
-	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
+	                                                     <input type="text" style="text-transform:uppercase" name="d3id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
+	                                                <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
 	                                            </div>
@@ -403,8 +404,8 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" style="text-transform:uppercase" name="d4id" data-equals="<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />" maxlength="8" class="form-control input--grey mdl-textfield__input" id="driverID" >
-	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
+	                                                     <input type="text" style="text-transform:uppercase" name="d4id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
+	                                               <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
 	                                            </div>
@@ -493,8 +494,8 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" style="text-transform:uppercase" name="d5id" data-equals="<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />" maxlength="8" class="form-control input--grey mdl-textfield__input" id="driverID" >
-	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
+	                                                     <input type="text" style="text-transform:uppercase" name="d5id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
+	                                               <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
 	                                            </div>

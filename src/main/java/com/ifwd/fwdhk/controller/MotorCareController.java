@@ -849,7 +849,8 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 422, message = "Invalid Details"),
-			@ApiResponse(code = 404, message = "System cannot find the policy"),			
+			@ApiResponse(code = 404, message = "System cannot find the policy"),	
+			@ApiResponse(code = 410, message = "System cannot process Referral Case"),
 			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/saving/policyDetails"}, method = POST)
@@ -896,6 +897,10 @@ public class MotorCareController extends BaseController{
 					return motor_notFound(null);
 				}				
 			} else {
+				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "4")){
+					return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(getErrorCode(responseJsonObj.get("errMsgs").toString())));
+				} 
+				
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
 				return motor_error(null);
 			}
@@ -958,7 +963,7 @@ public class MotorCareController extends BaseController{
 					// Set refNumber to session as security check 
 					logger.info("Save declarations to Session: " + " refNumber: " + detail.getRefNumber() ) ;
 					HttpSession session = request.getSession(true);
-					session.setAttribute("SECURITY_CHECK_" + detail.getRefNumber(), detail.getRefNumber());
+					session.setAttribute("MOTOR_SECURITY_CHECK_" + detail.getRefNumber(), detail.getRefNumber());
 				} else {
 					logger.info(methodName + " motorCareDetails not found");
 					return motor_notFound(null);
@@ -1012,7 +1017,7 @@ public class MotorCareController extends BaseController{
 			logger.info( methodName + " no session data found");
 			return motor_notFound(null);
 		} else {
-			if (request.getSession(false).getAttribute("SECURITY_CHECK_" + body.getRefNumber()) == null) {
+			if (request.getSession(false).getAttribute("MOTOR_SECURITY_CHECK_" + body.getRefNumber()) == null) {
 				logger.info( methodName + " no valid session data found");
 				return motor_notFound(null);
 			}
@@ -1654,7 +1659,11 @@ public class MotorCareController extends BaseController{
 				} else {
 					apiResponse.put("result", "Fail");
 				}
-			} else {				
+			} else {		
+				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "4")){
+					return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(getErrorCode(responseJsonObj.get("errMsgs").toString())));
+				} 
+				
 				logger.info(methodName + " System error:"+responseJsonObj.get("errMsgs").toString());
 				return motor_error(null);
 			}
@@ -1691,7 +1700,7 @@ public class MotorCareController extends BaseController{
 			logger.info("uploadFile4Policy no session data found");
 			return motor_badRequest(null);
 		} else {
-			if (request.getSession(false).getAttribute("SECURITY_CHECK_" + securityCheckKey) == null) {
+			if (request.getSession(false).getAttribute("MOTOR_SECURITY_CHECK_" + securityCheckKey) == null) {
 				logger.info("uploadFile4Policy no valid session data found");
 				return motor_badRequest(null);
 			}

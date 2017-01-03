@@ -88,7 +88,7 @@ $(document).ready(function(){
 	/*isobar*/
 	
 	$mortgageBank = $('#mortgageBank').selectize({
-        valueField: 'code',
+        valueField: 'desc',
         labelField: 'desc',
         searchField: 'desc',
         create: false,
