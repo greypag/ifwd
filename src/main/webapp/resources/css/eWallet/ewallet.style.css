@@ -384,6 +384,10 @@
   width: 5.541em;
   font-size: 1em; }
 
+.ew_otp_input {
+  padding-left: 0;
+  padding-right: 0; }
+
 .ew_otp_wrapper {
   display: inline-block;
   position: relative;
