@@ -5,7 +5,7 @@ var currencyRate = {
 		y2:878.04,
 		y3:1000,
 		s:"$",
-		min:94006,
+		min:94100,
 		max:9400600,
 		g3:0.47003,
 		g1:0.41915,
@@ -17,8 +17,8 @@ var currencyRate = {
 		y2:865.38,
 		y3:1000,
 		s:"¥",
-		min:72514,
-		max:7251360,
+		min:72600,
+		max:7251300,
 		g3: 0.45321,
 		g1: 0.41006,
 		g2: 0.86538
@@ -118,6 +118,8 @@ $(document).ready(function(){
  			}else if(currencyRate[currency].max < amount){
  				//Max reached
  				errMsg = getBundle(getBundleLanguage, "wealthree.input.error.invalid."+ currency+".max");
+ 			}else if(amount % 100 != 0){
+ 				errMsg = getBundle(getBundleLanguage, "wealthree.input.error.invalid.amount.multiple");
  			}else{
  				showCalculatedRate(amount,currency);
  				$(".tbl-result-wrapper").collapse("show");
