@@ -328,6 +328,46 @@ public class UserController {
 			}
 		}
 	}
+	/*
+	 *  PHW returned GI Policy# in format "74ZZ20879 000", UI display only need "74ZZ20879"
+	 */
+	private void processPhwPolicyGiNumber(HttpServletRequest request, Model model){
+		List<String> policyKeyList = Arrays.asList(
+				"active_life",
+				"active_saving",
+				"active_house",
+				"active_travel",
+				"past_life",
+				"past_saving",
+				"past_house",
+				"past_travel"
+				);
+		
+		Map<String, Object> modelMap = model.asMap();
+		for(String pkey:policyKeyList){
+			List<PurchaseHistoryPolicies> policys = (List<PurchaseHistoryPolicies>)modelMap.get(pkey);
+			if(policys!=null && !policys.isEmpty()){
+				for(PurchaseHistoryPolicies p:policys){
+					String policyType = p.getPolicyType();
+					String policyNumber = p.getPolicyNumber();
+					if("GI".equalsIgnoreCase(policyType)){
+						p.setPolicyNumber(processGiPolicyNumberForDisplay(policyNumber));
+					}
+				}
+			}
+		}
+	}
+	
+    private String processGiPolicyNumberForDisplay(String str){
+    	if(str==null)return str;
+    	String strt=str.trim();
+    	int lidx = strt.lastIndexOf(" ");
+    	if(lidx>0){
+    		return strt.substring(0, lidx);
+    	}else{
+    		return strt;
+    	}
+    }
 
 	private void processPhwPolicyCategory(HttpServletRequest request, Model model, PurchaseHistoryResponse phwPurchaseHistory) {
 		if(request==null||model==null||phwPurchaseHistory==null){return;}
@@ -547,9 +587,15 @@ public class UserController {
 						try {
 							String customerId = (String)session.getAttribute("customerId");
 							PurchaseHistoryResponse phwPurchaseHistory = this.getPolicyListFromPhw(request, usernameInSession, customerId, tokenInSession);
-							this.processPhwPolicyCategory(request, model, phwPurchaseHistory);
-							this.supplementPhwPolicyBalance(request, model);
-							this.supplementPhwPolicyName(request, model);
+							if(phwPurchaseHistory!=null && phwPurchaseHistory.getErrMsgs()!=null && phwPurchaseHistory.getErrMsgs().length>0){
+								logger.warn("getPolicyListFromPhw Exception:"+Arrays.toString(phwPurchaseHistory.getErrMsgs()));
+								phwPolicyListStatus = "false";
+							}else{
+								this.processPhwPolicyCategory(request, model, phwPurchaseHistory);
+								this.supplementPhwPolicyBalance(request, model);
+								this.supplementPhwPolicyName(request, model);
+								this.processPhwPolicyGiNumber(request, model);
+							}
 						} catch (Exception e) {
 							logger.warn("getPolicyListFromPhw Exception",e);
 							phwPolicyListStatus = "false";
