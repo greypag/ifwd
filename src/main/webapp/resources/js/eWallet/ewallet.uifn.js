@@ -61,7 +61,7 @@ var eWalletCtr = {
 		//policy balance
 		policyDom.find(".ew_pol_blance").html(eWalletCtr.toPriceStr(info.policyPrincipal));
 		//policy principal date
-		policyDom.find(".ew_pol_principal_date").html(info.principalAsOfDate.slice(0,10).split('-').reverse());
+		policyDom.find(".ew_pol_principal_date").html(info.principalAsOfDate.slice(0,10).split('-').reverse().join('-'));
 	},
 	showGenericMsg: function(title, msg, btnTxt) {
 		var dom = $(".ew_popup_error");
