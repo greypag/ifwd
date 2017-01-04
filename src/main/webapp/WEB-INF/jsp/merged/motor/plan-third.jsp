@@ -226,7 +226,7 @@ color: #fff;
                 <div class="col-sm-8 col-sm-offset-2">
                     <div class="row">
                         <div class="col-xs-6 text-center">
-                            <a href="javascript:;" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /></a>
+                            <a href="javascript:;" class="bdr-curve btn btn-primary nxt-btn" onclick="perventRedirect=false;BackPage();"><fmt:message key="motor.button.back" bundle="${motorMsg}" /></a>
                             <br />
                             <br /> <br />
                             <br />

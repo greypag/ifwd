@@ -195,8 +195,11 @@ $(document).ready(function(){
         });
         var error = $q3.find('.has-error').length;
         
+     
+        //if(!empty_select.length && !error){
         
-        if(!empty_select.length && !error){
+    	if($("#occupation").val()!="" && !$q2.hasClass('hidden'))
+    	{		
            	$q3.next().removeClass('hidden');
            	if(selValue == "")
            	ncd.open();
@@ -311,7 +314,7 @@ $(document).ready(function(){
             searchField: ['model'],
 			load: function(query, callback) {
 
-				if(getUrlParameter("edit")=="yes")
+				if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 				{
 					var eCarApi = carMakeApi + "/supplement" + "?carModel=" + value; 
             	$.ajax({
@@ -487,16 +490,17 @@ $(document).ready(function(){
 			e.preventDefault();
 			if($(this).attr('data')=="check")
 			{
-				$('#promoCode').prop('required',true);
-				$('#motor_registerForm').validator('update');
-				$('#get-quote-form').validator('validate');
+				//$('#promoCode').prop('required',true);
+				//$('#motor_registerForm').validator('update');
+				//$('#get-quote-form').validator('validate');
+				if($("#promoCode").val().length ==0)
+					return false;
 			}else
 			{
 				$("#promo-errors").html("");
 				$('#promoCode').prop('required',false);
 				$('#motor_registerForm').validator('update');
 				$('#get-quote-form').validator('validate');
-				$("#loading-overlay").modal("show");
 			}
 				
 				 
@@ -515,7 +519,7 @@ $(document).ready(function(){
 				  
 				if(!$('#get-quote-form .has-error').length){
 					var isThird;
-					if (getUrlParameter('plan')=='third') {
+					if (getUrlParameter('plan')=='third' || getUrlParameter('plan')=='Third') {
 						isThird = true;
 					} else {
 						isThird = false;
@@ -579,6 +583,7 @@ $(document).ready(function(){
 					
 					if(getUrlParameter("edit")=="yes"|| getUrlParameter("back")=="yes")
 					{
+							
 						submitData.personalAccident = quote.personalAccident;
 						submitData.thirdPartyPropertyDamage = quote.thirdPartyPropertyDamage;
 						submitData.planCode = quote.planCode;
@@ -617,7 +622,7 @@ $(document).ready(function(){
 								if (isThird) {
 									if(resume==true)
 										$form.attr("action", "third-party-quote?edit=yes");
-									else if(getUrlParameter("edit")=="yes")
+									else if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 										$form.attr("action", "third-party-quote?edit=yes");
 									else
 										$form.attr("action", "third-party-quote");
@@ -966,7 +971,7 @@ $(document).ready(function(){
 			}
 			else if($(this).attr('data')=="go")
 			{	
-				
+				$("#loading-overlay").modal("show");
 				submitData.promoCode =null;
 					
 			  //  console.log(num);

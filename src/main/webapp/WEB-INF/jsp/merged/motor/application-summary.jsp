@@ -1015,11 +1015,11 @@ var nextPage = "${nextPageFlow}";
 											<div class="checkbox">
 												<div class="form-group">
 													<div class="help-block-wrap">
-														<input id="checkbox-agree" type="checkbox" data-required-error='<fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" />' required> <label
+														<input id="checkbox3" type="checkbox" data-required-error='<fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" />' required> <label
 															class="text-left"><small> <fmt:message
 																	key="motor.summary.payment.tnc" bundle="${motorMsg}" /></small>
 														</label>
-														<div class="help-block with-errors checkbox-agree error-msg hide"></div>
+														<div class="help-block with-errors checkbox3 error-msg hide"><fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" /></div>
 													</div>
 												</div>
 
@@ -1039,7 +1039,12 @@ var nextPage = "${nextPageFlow}";
 			</div>
 		</div>
 	</div>
-
+	<style>
+	.motor-signup-form .memberLogin .registerPanel .mdl-textfield {
+	    height: 61px !important;
+	    text-align: left;
+	}
+	</style>
 	<!-- testing -->
 	<div class="container before-login">
 		<div class="center">
@@ -1079,7 +1084,8 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.username" bundle="${motorMsg}" /></label>
 
 													</div>
-
+													<span class="text-left error-msg userNameErrMsg" style="text-align:left"></span>
+												
 													<!-- 忘記使用者名 -->
 													<div class="text-left">
 														<a class="heading-h6 btn-sub-pan-trigger"
@@ -1087,8 +1093,7 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.username.forget"
 																bundle="${motorMsg}" /></a>
 													</div>
-													<span class="text-left error-msg userNameErrMsg"></span>
-												</div>
+													</div>
 											</div>
 											<div class="col-xs-12 col-sm-6">
 												<div class="form-group">
@@ -1100,7 +1105,8 @@ var nextPage = "${nextPageFlow}";
 															class="mdl-textfield__label" for="motorloginPassword"><fmt:message
 																key="motor.summary.member.password" bundle="${motorMsg}" /></label>
 													</div>
-
+													<span class="error-msg passwordErrMsg" style="text-align:left"></span>
+												
 													<div class="text-left">
 														<!--忘記密碼 -->
 														<a class="heading-h6 btn-sub-pan-trigger"
@@ -1108,8 +1114,7 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.password.forget"
 																bundle="${motorMsg}" /></a>
 													</div>
-													<span class="error-msg passwordErrMsg"></span>
-												</div>
+													</div>
 											</div>
 
 											<div class="login-button-group text-center">
@@ -1135,8 +1140,10 @@ var nextPage = "${nextPageFlow}";
 											<!-- 電話 inout -->
 											<div class="col-xs-12">
 												<div class="panel-heading">
-													<h4 class="panel-title">
-														Forgot Username<a href="#sub-pan-login"
+													<h4 class="panel-title" style="color:#ff8200">
+														<fmt:message
+																key="motor.summary.member.username.forget"
+																bundle="${motorMsg}" /><a href="#sub-pan-login"
 															class="btn-sub-pan-trigger"><i
 															class="glyphicon glyphicon-remove"></i></a>
 													</h4>
@@ -1157,7 +1164,7 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.forgot.mobile"
 																bundle="${motorMsg}" /></label>
 													</div>
-													<span class="error-msg mobileNoErrMsg"></span>
+													<span class="error-msg mobileNoErrMsg" style="text-align:left"></span>
 
 												</div>
 											</div>
@@ -1173,18 +1180,20 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.forgot.email"
 																bundle="${motorMsg}" /></label>
 													</div>
-													<span class="error-msg emailAddressErrMsg"></span>
+													<span class="error-msg emailAddressErrMsg" style="text-align:left"></span>
 												</div>
 											</div>
 											<div class="col-xs-12">
 												<div class="form-group">
 													<div class="login-button-group forgot-group text-center">
-														<button type="button"
+														<a style="width:250px;padding: 10px 2px !important;" class="bdr-curve btn btn-primary btn-submit"id="btn-motor-forgot-username"><fmt:message key="motor.button.submit"
+																bundle="${motorMsg}" /> </a>
+														<!-- <button type="button"
 															class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit"
 															id="btn-motor-forgot-username">
 															<fmt:message key="motor.button.submit"
 																bundle="${motorMsg}" />
-														</button>
+														</button>-->
 													</div>
 												</div>
 											</div>
@@ -1197,7 +1206,7 @@ var nextPage = "${nextPageFlow}";
 											method="post">
 											<div class="col-xs-12">
 												<div class="panel-heading">
-													<h4 class="panel-title">
+													<h4 class="panel-title" style="color:#ff8200">
 														<fmt:message
 															key="motor.summary.member.forgotpasword.title"
 															bundle="${motorMsg}" />
@@ -1219,7 +1228,7 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.forgot.mobile"
 																bundle="${motorMsg}" /></label>
 													</div>
-													<span class="error-msg mobileNoErrMsg"></span>
+													<span class="error-msg mobileNoErrMsg" style="text-align:left"></span>
 												</div>
 											</div>
 											<!-- 電郵 input-->
@@ -1235,7 +1244,7 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.forgot.email"
 																bundle="${motorMsg}" /></label>
 													</div>
-													<span class="error-msg emailAddressErrMsg"></span>
+													<span class="error-msg emailAddressErrMsg" style="text-align:left"></span>
 												</div>
 											</div>
 											<!-- 使用者input -->
@@ -1250,17 +1259,19 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.forgot.username"
 																bundle="${motorMsg}" /></label>
 													</div>
-													<span class="error-msg userNameErrMsg"></span>
+													<span class="error-msg userNameErrMsg" style="text-align:left"></span>
 												</div>
 											</div>
 											<div class="col-xs-12">
 												<div class="login-button-group forgot-group text-center">
-													<button type="button"
+												<a style="width:250px;padding: 10px 2px !important;" class="bdr-curve btn btn-primary btn-submit"id="btn-motor-forgot-pwd"><fmt:message key="motor.button.submit"
+																bundle="${motorMsg}" /> </a>
+													<!-- <button type="button"
 														class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit"
 														id="btn-motor-forgot-pwd">
 														<fmt:message key="motor.button.submit"
 															bundle="${motorMsg}" />
-													</button>
+													</button>-->
 												</div>
 											</div>
 										</form>
@@ -1296,7 +1307,7 @@ var nextPage = "${nextPageFlow}";
 																key="motor.summary.member.fullname.remark"
 																bundle="${motorMsg}" /></span></label>
 												</div>
-												<span class="error-msg FullNameErrMsg"></span>
+												<span class="error-msg FullNameErrMsg" style="text-align:left"></span>
 											</div>
 											<div class="form-group">
 												<div
@@ -1311,7 +1322,7 @@ var nextPage = "${nextPageFlow}";
 														for="mobileNo-forgotpassowrd"><fmt:message
 															key="motor.summary.member.mobile" bundle="${motorMsg}" /></label>
 												</div>
-												<span class="error-msg mobileNoErrMsg"></span>
+												<span class="error-msg mobileNoErrMsg" style="text-align:left"></span>
 											</div>
 											<div class="form-group" data-toggle="popover"
 												data-placement="top" data-trigger="focus"
@@ -1325,7 +1336,7 @@ var nextPage = "${nextPageFlow}";
 														for="motorRegisterEmailAddress"><fmt:message
 															key="motor.summary.member.email" bundle="${motorMsg}" /></label>
 												</div>
-												<span class="error-msg EmailAddressErrMsg"></span>
+												<span class="error-msg EmailAddressErrMsg" style="text-align:left"></span>
 											</div>
 											<div class="form-group">
 												<!--使用者名 -->
@@ -1337,7 +1348,7 @@ var nextPage = "${nextPageFlow}";
 														class="mdl-textfield__label" for="motorRegisterUserName"><fmt:message
 															key="motor.summary.member.username" bundle="${motorMsg}" /></label>
 												</div>
-												<span class="error-msg userNameErrMsg"></span>
+												<span class="error-msg userNameErrMsg" style="text-align:left"></span>
 											</div>
 											<div class="form-group">
 												<div
@@ -1348,7 +1359,7 @@ var nextPage = "${nextPageFlow}";
 														class="mdl-textfield__label" for="motorRegisterPassword"><fmt:message
 															key="motor.summary.member.password" bundle="${motorMsg}" /></label>
 												</div>
-												<span class="error-msg passwordErrMsg"></span>
+												<span class="error-msg passwordErrMsg" style="text-align:left"></span>
 											</div>
 											<div class="form-group">
 												<div
@@ -1359,7 +1370,7 @@ var nextPage = "${nextPageFlow}";
 														class="mdl-textfield__label" for="motorRegisterConfPass"><fmt:message
 															key="motor.summary.member.confirmpw" bundle="${motorMsg}" /></label>
 												</div>
-												<span class="error-msg confirmPasswordErrMsg"></span>
+												<span class="error-msg confirmPasswordErrMsg" style="text-align:left"></span>
 											</div>
 											<div class="declaration">
 												<h4>
@@ -1378,7 +1389,7 @@ var nextPage = "${nextPageFlow}";
 														<fmt:message key="motor.summary.member.tnc1.3"
 																bundle="${motorMsg}" /></label>
 													</div>
-													<span class="error-msg checkbox1ErrMsg"></span>
+													<span class="error-msg checkbox1ErrMsg" style="text-align:left"></span>
 												</div>
 												<hr>
 												<p>
@@ -1386,7 +1397,7 @@ var nextPage = "${nextPageFlow}";
 														bundle="${motorMsg}" />
 												</p>
 												<div class="checkbox">
-													<input id="checkbox3" name="checkbox3" type="checkbox"><label
+													<input id="checkbox-opt1" name="checkbox-opt1" type="checkbox"><label
 														for="checkbox3"><fmt:message
 															key="motor.summary.member.tnc2" bundle="${motorMsg}" /></label>
 												</div>
@@ -1991,20 +2002,31 @@ $(window).load(function(){
 						function confrimPayment(form, gatewayUrlId,
 								paymentFormId) {
 							
-							if($("#checkbox-agree").val()!="true")
+							/*if($("#checkbox-agree").val()!="true")
 							{	$(".checkbox-agree").removeClass('hide');
 								return false;
 							}
 							else
 								$(".checkbox-agree").addClass('hide');
-							
+							*/
 							var selectedPaymentType = $(
 									"input:radio[name=paymentGroup]:checked")
 									.val();
 							clicked = false;
 							console.log(enablePayment);
-
-							if (enablePayment) {
+							
+							if(!payValid(selectedPaymentType))
+							{
+								if($("#checkbox3").val()!="true")
+								{	
+									$(".checkbox3").removeClass('hide');
+									return false;
+								}
+								else
+									$(".checkbox3").addClass('hide');								
+							}
+							
+							if (payValid(selectedPaymentType) && enablePayment) {
 								console.log("enablePayment");
 								enablePayment = false;
 								var gatewayUrlId = '#' + gatewayUrlId;
@@ -2017,7 +2039,7 @@ $(window).load(function(){
 									"input:radio[name=paymentGroup]:checked")
 									.val();
 							clicked = false;
-							if (clicked === false
+							if (payValid(selectedPaymentType) && clicked === false
 									&& selectedPaymentType == "cc") {
 
 								clicked = true;

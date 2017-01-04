@@ -417,7 +417,7 @@ var nextPage = "${nextPageFlow}";
                             <span class="ci" id="yourQuoteTitle"></span>
                         </div>
                         
-                        <div class="col-sm-6 text-right">
+                        <div class="col-sm-6 text-right hidden">
                        	 <strong><small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><span class="yourQuoteAmmount"></span><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /> </strong>
                    		</div>
                         <div class="col-xs-12">
@@ -430,7 +430,7 @@ var nextPage = "${nextPageFlow}";
                            
                                 <span id="addOn1Title"><fmt:message key="motor.quickquote.addon.1.title" bundle="${motorMsg}" /></span>
                            </div>
-                            <div class="col-xs-6 text-right">
+                            <div class="col-xs-6 text-right hidden">
                             <strong>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
                                 <span id="paa"></span>
@@ -441,7 +441,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-6 summary__addOn2 hidden">                          
                                 <span id="addOn2Title"><fmt:message key="motor.quickquote.addon.2.title" bundle="${motorMsg}" /></span>
                             </div>
-                            <div class="col-xs-6 text-right">
+                            <div class="col-xs-6 text-right hidden">
                             <strong>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
                                 <span id="cia"></span>
@@ -656,7 +656,29 @@ $(document).ready(function(){
 	$("#driverDob").change(function(){
 		$("#driverDob-hidden").prop('required',false);
 	});
+	 var getUrlParameter = function getUrlParameter(sParam) {
+	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+	            sURLVariables = sPageURL.split('&'),
+	            sParameterName,
+	            i;
+
+	        for (i = 0; i < sURLVariables.length; i++) {
+	            sParameterName = sURLVariables[i].split('=');
+
+	            if (sParameterName[0] === sParam) {
+	                return sParameterName[1] === undefined ? true : sParameterName[1];
+	            }
+	        }
+	    };
 	
+	if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
+	{
+		$("#estate").prop('required',false);
+		$("#building").prop('required',false);
+		$("#streetname").prop('required',false);
+		$("#streetno").prop('required',false);
+	}  
+		
 	$("#building").bind("change paste keyup", function() {
 		if($(this).val().length > 0)
 		{	
@@ -765,20 +787,7 @@ $(document).ready(function(){
 	 //$('#contactForm').formValidation();    
 	//alert(IsHKID("z1133333") );
 	
-	 var getUrlParameter = function getUrlParameter(sParam) {
-	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-	            sURLVariables = sPageURL.split('&'),
-	            sParameterName,
-	            i;
-
-	        for (i = 0; i < sURLVariables.length; i++) {
-	            sParameterName = sURLVariables[i].split('=');
-
-	            if (sParameterName[0] === sParam) {
-	                return sParameterName[1] === undefined ? true : sParameterName[1];
-	            }
-	        }
-	    };
+	
     
 	if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
     {
@@ -983,7 +992,7 @@ $(document).ready(function(){
 			  success: function(data){
 		
 				  var $form = $("<form id='quote-form' />");
-				  if(getUrlParameter("edit")=="yes")
+				  if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 	             	 $form.attr("action", "policy-details?edit=yes");
 				  else
 					 $form.attr("action", "policy-details");

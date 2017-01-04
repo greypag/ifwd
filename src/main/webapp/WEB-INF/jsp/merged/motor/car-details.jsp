@@ -774,7 +774,7 @@ $(document).ready(function(){
 	          url:context + "/api/iMotor/policy/saving/carDetails",
 			  success: function(data){
 				  var $form = $("<form id='quote-form' />");
-				  if(getUrlParameter("edit")=="yes")
+				  if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 	              	$form.attr("action", "drivers-details?edit=yes");
 				  else
 					  $form.attr("action", "drivers-details");  

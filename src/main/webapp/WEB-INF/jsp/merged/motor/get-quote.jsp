@@ -223,7 +223,7 @@ width: 100px !important;
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" name="promoCode" id="promoCode" data-required-error='<fmt:message key="motor.error.msg.getquote.promote.empty" bundle="${motorMsg}" />' class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
+                                        <input type="text" name="promoCode" id="promoCode" class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
                                                                       		  <br/>
 										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
 											role="alert" style="position:static"></div> 
@@ -234,14 +234,15 @@ width: 100px !important;
                                     </div>
                                 <div class="col-md-6 col-md-offset-3">
 			                            <div class="row">
+			                            	<div class="col-xs-6">
+			                                    <a href="javascript:;" style="cursor:not-allowed" data="check" class="finalsubmitGetQuote bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></a>
+			                                    <br />
+			                                </div>
 			                                <div class="col-xs-6">
 			                                    <a href="javascript:;" data="go" class="finalsubmitGetQuote bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.skip" bundle="${motorMsg}" /></a>
 			                                    <br />
 			                                </div>
-			                                <div class="col-xs-6">
-			                                    <a href="javascript:;" data="check" class="finalsubmitGetQuote bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.next" bundle="${motorMsg}" /></a>
-			                                    <br />
-			                                </div>
+			                                
 			                            </div>
 			                        </div>
                             </div>
@@ -439,7 +440,7 @@ width: 100px !important;
                 <form>
                     <div class="form-container">
                         <h2><fmt:message key="motor.promotecode.get.promotecode.title" bundle="${motorMsg}" /></h2>
-                        <div class="alert alert-success proSuccess hide">Thank you. Your promotion code has been emailed to you.</div>
+                        <div class="alert alert-success proSuccess hide"><fmt:message key="motor.confirm.msg.getquote.email.confirm" bundle="${motorMsg}" /></div>
                         <h4><fmt:message key="motor.promotecode.get.promotecode.email" bundle="${motorMsg}" /></h4>
                         <div class="form-group">
                         	<input type="email" class="form-control" data-required-error='<fmt:message key="motor.error.msg.getquote.email.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.getquote.email.empty" bundle="${motorMsg}" />' placeholder=""

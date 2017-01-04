@@ -115,7 +115,8 @@ var nextPage = "${nextPageFlow}";
 		                                            <!-- <select style="cursor:not-allowed" readonly class="form-control selectized" name="occupation" id="occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' required>
 		                                                <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
 		                                            </select>-->
-		                                            <input type="text" readonly name="occupation" value="" class="form-control input--grey mdl-textfield__input" id="occupation" pattern="^[a-zA-Z\s]+$" data-required-error='<fmt:message key="motor.error.msg.policy.fullname.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.policy.driver.name.format" bundle="${motorMsg}" />' required>  
+		                                            <input type="text" readonly id="occupation-name" name="occupation-name" value="" class="form-control input--grey mdl-textfield__input" id="occupation" pattern="^[a-zA-Z\s]+$" data-required-error='<fmt:message key="motor.error.msg.policy.fullname.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.policy.driver.name.format" bundle="${motorMsg}" />' required>  
+		                                            <input type="hidden" readonly id="occupation" name="occupation" value="" class="form-control input--grey mdl-textfield__input" id="occupation" pattern="^[a-zA-Z\s]+$" data-required-error='<fmt:message key="motor.error.msg.policy.fullname.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.policy.driver.name.format" bundle="${motorMsg}" />' required>  
 		                                            <label class="mdl-textfield__label" for="occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
 		                                            <div class="help-block with-errors"></div>
 		                                         </div>
@@ -711,7 +712,7 @@ var nextPage = "${nextPageFlow}";
                             <span class="ci" id="yourQuoteTitle"></span>
                         </div>
                         
-                        <div class="col-sm-6 text-right">
+                        <div class="col-sm-6 text-right hidden">
                        	 <strong><small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><span class="yourQuoteAmmount"></span><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /> </strong>
                    		</div>
                         <div class="col-xs-12">
@@ -724,7 +725,7 @@ var nextPage = "${nextPageFlow}";
                            
                                 <span id="addOn1Title"><fmt:message key="motor.quickquote.addon.1.title" bundle="${motorMsg}" /></span>
                            </div>
-                            <div class="col-xs-6 text-right">
+                            <div class="col-xs-6 text-right hidden">
                             <strong>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
                                 <span id="paa"></span>
@@ -735,7 +736,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-6 summary__addOn2 hidden">                          
                                 <span id="addOn2Title"><fmt:message key="motor.quickquote.addon.2.title" bundle="${motorMsg}" /></span>
                             </div>
-                            <div class="col-xs-6 text-right">
+                            <div class="col-xs-6 text-right hidden">
                             <strong>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
                                 <span id="cia"></span>
@@ -1037,7 +1038,8 @@ $(document).ready(function(){
 	{
 		
 		$("#fullName").attr("value",quote.applicant.name);
-		$('#occupation').val(quote.driver[0].occupation);
+		
+		//$('#occupation').val(quote.driver[0].occupation);
 		$('input[name=driverDob]').val(quote.applicant.dateOfBirth);	
 	    $('input[name=driverID]').val(quote.applicant.hkid);		
 	    $('input[name=fullName]').val(quote.applicant.name);
@@ -1171,7 +1173,10 @@ $(document).ready(function(){
 				$.each(newres, function(i, item) {
 						
 						if(item.code == quote.driver[0].occupation)
-							$("#occupation").val(item.desc);
+						{	
+							$("#occupation-name").val(item.desc);
+							$("#occupation").val(quote.driver[0].occupation);
+						}
 						
 				});
             }
@@ -1713,7 +1718,7 @@ $(document).ready(function(){
 				  url: context + "/api/iMotor/policy/saving/policyDetails",
 				  success: function(data){
 					  var $form = $("<form id='quote-form' />");
-					  if(getUrlParameter("edit")=="yes")
+					  if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes"  )
 					  	  $form.attr("action", "declarations?edit=yes");
 					  else
 						  $form.attr("action", "declarations");

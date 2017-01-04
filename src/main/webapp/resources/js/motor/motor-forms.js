@@ -268,6 +268,9 @@ $(document).ready(function(){
 										}	
 										else
 											$("#area").val(item.remark);
+										$("#area").css({
+											"color": "#000",										
+									    	"font-size": "14px"});
 									}
 								}
 							});
@@ -308,6 +311,10 @@ $(document).ready(function(){
 										}	
 										else
 											$("#area").val(item.remark);
+										
+										$("#area").css({
+											"color": "#000",										
+									    	"font-size": "14px"});
 									}
 							
 							});

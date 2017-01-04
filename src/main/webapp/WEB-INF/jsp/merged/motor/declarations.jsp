@@ -365,7 +365,7 @@ var nextPage = "${nextPageFlow}";
                             <span class="ci" id="yourQuoteTitle"></span>
                         </div>
                         
-                        <div class="col-sm-6 text-right">
+                        <div class="col-sm-6 text-right hidden">
                        	 <strong><small class="from"><fmt:message key="motor.label.from" bundle="${motorMsg}" /></small><fmt:message key="motor.label.currency.front" bundle="${motorMsg}" /><span class="yourQuoteAmmount"></span><fmt:message key="motor.label.currency.behind" bundle="${motorMsg}" /> </strong>
                    		</div>
                         <div class="col-xs-12">
@@ -378,7 +378,7 @@ var nextPage = "${nextPageFlow}";
                            
                                 <span id="addOn1Title"><fmt:message key="motor.quickquote.addon.1.title" bundle="${motorMsg}" /></span>
                            </div>
-                            <div class="col-xs-6 text-right">
+                            <div class="col-xs-6 text-right hidden">
                             <strong>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
                                 <span id="paa"></span>
@@ -389,7 +389,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-6 summary__addOn2 hidden">                          
                                 <span id="addOn2Title"><fmt:message key="motor.quickquote.addon.2.title" bundle="${motorMsg}" /></span>
                             </div>
-                            <div class="col-xs-6 text-right">
+                            <div class="col-xs-6 text-right hidden">
                             <strong>
                                 <fmt:message key="motor.label.currency.front" bundle="${motorMsg}" />
                                 <span id="cia"></span>
@@ -926,7 +926,7 @@ $(document).ready(function(){
 			  url: context + "/api/iMotor/policy/saving/declarations",
 			  success: function(data){
 				  var $form = $("<form id='quote-form' />");
-				  if(getUrlParameter("edit")=="yes")
+				  if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
 				  	$form.attr("action", "application-summary?edit=yes");
 				  else
 					$form.attr("action", "application-summary");

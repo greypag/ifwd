@@ -84,22 +84,7 @@ $(document).ready(function(){
 	bsvFormForgotUsername($('#form-motor-forgot-username'));
 	bsvFormForgotPwd($('#form-motor-forgot-pwd'));
 	bsvFormRegister($('#form-motor-register'));
-	
-	/*$("input[name=checkbox3]").on('click', function() {
-		
-		var $this = $(this).find('[name=checkbox3]');
-		if($this.is(':checked'))
-		{	
-			$(this).val('false');
-			$this.prop('checked', false);
-		}else
-		{
-			$(this).val('true');
-			$this.prop('checked', true);
-		}
-			alert($(this).val());
-	});*/
-	
+
 	
 	/* $('#sendDriverDetail').on('click', function(e){
         e.preventDefault();
@@ -616,7 +601,7 @@ $(document).ready(function(){
 				email:$("#motorRegisterEmailAddress").val(),
 				fullName:$("#motorRegisterFullName").val(),
 				mobileNo:$("#motorRegisterMobileNo").val(),
-				optOut1:($("#checkbox3").prop('checked'))?'true':'false',
+				optOut1:($("#checkbox-opt1").prop('checked'))?'true':'false',
 				optOut2:($("#checkbox4").prop('checked'))?'true':'false',
 				password:$("#motorRegisterPassword").val(),
 				userName:$("#motorRegisterUserName").val()
