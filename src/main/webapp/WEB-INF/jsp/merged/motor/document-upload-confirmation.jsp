@@ -236,14 +236,11 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/landing.js"></script>
 <script type="text/javascript" charset="utf-8">
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
-if(typeof quote.policyId == "undefined")
-	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
-
 $(document).ready(function(){
 	$(".amountDueAmount").html("$"+quote.amountDueAmount);
 	$(".amountSave").html((parseInt(quote.amountDueAmount)*0.3).toFixed(2));
 	$("#sendMail").html("<a href='mailto:"+quote.applicant.email+"'>"+quote.applicant.email+"</a>");
-	$(".ref-number").html(quote.refNumber);
+	$(".ref-number").html(quote.coverNoteNum);
 });
 </script>
     }

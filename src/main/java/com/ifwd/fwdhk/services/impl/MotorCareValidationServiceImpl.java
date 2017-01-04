@@ -210,15 +210,22 @@ public class MotorCareValidationServiceImpl implements
 				return false;
 			}
 			
-			// Check Model in Registration Doc
-			if (length(motorCare.getCarDetail().getModelDesc()) <4 
-					|| length(motorCare.getCarDetail().getModelDesc()) >30) {
+			// Check Chassis Number
+			if (length(motorCare.getCarDetail().getChassisNumber()) <4 
+					|| length(motorCare.getCarDetail().getChassisNumber()) >30) {
 				return false;
 			}
 				
 			// Check Bank
-			if (motorCare.getCarDetail().isBankMortgage() && isBlank(motorCare.getCarDetail().getBankMortgageName()) ) {
-				return false;
+			if (motorCare.getCarDetail().isBankMortgage() ) {
+				if (isBlank(motorCare.getCarDetail().getBankMortgageName())) {
+					return false;
+				}
+				
+				if (length(motorCare.getCarDetail().getBankMortgageName()) <3 
+						|| length(motorCare.getCarDetail().getBankMortgageName()) >50) {
+					return false;
+				}
 			}
 		} catch (NullPointerException e) {
 			return false;
@@ -247,12 +254,12 @@ public class MotorCareValidationServiceImpl implements
 			}
 			
 			// Check Estate and building
-			if ( (!isBlank(motorCare.getApplicant().getCorrespondenceAddress().getEstate()) 
-					&& isBlank(motorCare.getApplicant().getCorrespondenceAddress().getBuilding())) || 
-				 (!isBlank(motorCare.getApplicant().getCorrespondenceAddress().getBuilding()) 
-					&& isBlank(motorCare.getApplicant().getCorrespondenceAddress().getEstate())) 
-					) {
-				return false;
+			if ( isBlank(motorCare.getApplicant().getCorrespondenceAddress().getBuilding()) &&
+				 isBlank(motorCare.getApplicant().getCorrespondenceAddress().getEstate()) &&
+				 isBlank(motorCare.getApplicant().getCorrespondenceAddress().getStreetName()) &&
+				 isBlank(motorCare.getApplicant().getCorrespondenceAddress().getStreetNo())
+				 ) {	
+					return false;
 			}
 			
 			// Check Policy Start Date
@@ -279,18 +286,10 @@ public class MotorCareValidationServiceImpl implements
 			for (Driver driver: motorCare.getDriver()){
 				if (isBlank(driver.getName())
 						|| isBlank(driver.getOccupation())				
-						|| isBlank(driver.getHkid())
-						|| !driver.isDriveMoreThanTwo()
-						|| !driver.isValidAgeGroup()				
+						|| isBlank(driver.getHkid())						
 						) {
 						return false;
-					}	
-				
-				
-				int age = getAgeUntilToday (DateUtils.parseDate(driver.getDateOfBirth(), new String[]{"dd-MM-yyyy"}));
-				if (age < 25 || age > 75) {
-					return false;
-				}
+					}					
 			}
 			
 			if (isBlank(motorCare.getNameOfPreviousInusrancer())

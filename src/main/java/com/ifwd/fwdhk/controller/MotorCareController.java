@@ -897,7 +897,7 @@ public class MotorCareController extends BaseController{
 					return motor_notFound(null);
 				}				
 			} else {
-				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "4")){
+				if ( StringUtils.contains(responseJsonObj.get("errMsgs").toString(), "410")){
 					return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(getErrorCode(responseJsonObj.get("errMsgs").toString())));
 				} 
 				
