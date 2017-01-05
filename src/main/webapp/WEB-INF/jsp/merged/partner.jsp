@@ -61,7 +61,7 @@
 	                                        </li>
 	                                        <li>
 	                                            <p class="h4-5">
-	                                                <fmt:message key="partner.csl.tnc2.part1" bundle="${msg}" />
+	                                                <fmt:message key="partner.klook.tnc2.part1" bundle="${msg}" />
 	                                            </p>
 	                                        </li>
 	                                    </ul>
@@ -220,7 +220,7 @@
 										<li>
                                             <p class="h4-5">
                                                 <fmt:message key="partner.cathay_pacific.desc1.part1" bundle="${msg}" />
-                                                <a href="<fmt:message key="partner.cathay_pacific.desc1.part2.url" bundle="${msg}" />" target="_blank">
+                                                <a href="<%=request.getContextPath()%><fmt:message key="partner.cathay_pacific.desc1.part2.url" bundle="${msg}" />" target="_blank">
 													<fmt:message key="partner.cathay_pacific.desc1.part2" bundle="${msg}" />
 												</a>
 												<fmt:message key="partner.cathay_pacific.desc1.part3" bundle="${msg}" />
