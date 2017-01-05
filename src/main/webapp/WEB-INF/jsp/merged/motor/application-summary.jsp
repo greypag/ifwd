@@ -1450,6 +1450,11 @@ var nextPage = "${nextPageFlow}";
 								style="white-space: initial;">Confirmation</button>
 							<br />
 						</div>
+						<div class="clearfix"></div>
+						<div class="text-center has-error hide" id="system-error">
+						<br/>
+						<span class="help-block"><fmt:message key="motor.error.msg.serversystem.error" bundle="${motorMsg}" /></span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -1481,11 +1486,26 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8"
 	src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
 <script type="text/javascript">
-//var quote = jQuery.parseJSON('{"policyId":"26336399","refNumber":"QFVPE16-001548","applicant":{"ncb":"40","occupation":"A1","driveMoreThanTwo":true,"validAgeGroup":true,"contactNo":"28515450","correspondenceAddress":{"block":"cc","building":"ddd","district":"鴨脷洲","estate":"ee","flat":"aa","floor":"bb","hkKlNt":"香港","streetName":null,"streetNo":null},"dateOfBirth":"23-11-1991","email":"kevin.chan@isobar.com","hkid":"a1234563","name":"chan chan chan"},"carDetail":{"estimatedValue":200000,"makeCode":"BMW","engineCapacity":"2599","model":"120I","yearOfManufacture":"2016","bankMortgage":true,"bankMortgageName":"ACB FINANCE LIMITED","chassisNumber":"1HGCM82633A004352","modelDesc":"MODELZ"},"driver":[{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"a1234567","name":"chan chan chan","occupation":"銀行/金融/保險/投資","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"b1234567","name":"bb bb bb","occupation":"會計","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"c1234567","name":"ccc ccc ccc","occupation":"廣告","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"d1234567","name":"dd dd  ddd","occupation":"演藝娛樂界 (例如：演藝人員/化妝師/髪型師等等)","validAgeGroup":"true"},{"dateOfBirth":"23-11-1991","driveMoreThanTwo":true,"hkid":"e1234567","name":"ee ee ee","occupation":"航空業","validAgeGroup":"true"}],"planCode":"Third","compPlan":null,"personalAccident":false,"thirdPartyPropertyDamage":false,"policyStartDate":"23-11-2016","nameOfPreviousInusrancer":"axa","regNoofPreviousPolicy":"11233588","expDateOfPreviousInsurance":"27-05-2016","previousPolicyNo":"P122345","motorCareDeclaration":[{"declarationAns":true,"declarationNo":"q1"},{"declarationAns":true,"declarationNo":"q2"},{"declarationAns":true,"declarationNo":"q3"}],"psNoDM":"true","psNoProvidePersonalData":"true","psPICS":"true"}');
 
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
-if(typeof quote.policyId == "undefined")
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+if(typeof quote.policyId == "undefined" && getUrlParameter("refNum")==null)
 	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
+	
 function BackMe() {
 	 var $form = $("<form id='quote-form' />");
     	 $form.attr("action", "declarations?back=yes");
@@ -1508,6 +1528,15 @@ $(window).load(function(){
 	var motorlanguage=UILANGUAGE;
 	if(motorlanguage == "TC")
 		motorlanguage = "ZH";
+	var chin = $('body').hasClass('chin'),
+	enErr = {
+			411: 'Fail to complete underwriting question(s).',
+			413: 'Fail to complete underwriting question(s).',
+			},
+	cnErr ={
+			411: '您未能通過核保問題。',               
+			413: '您未能通過核保問題。',               
+	};
 	$(document)
 			.ready(
 					function() {
@@ -2050,6 +2079,7 @@ $(window).load(function(){
 								//var quote_policyId = {"policyId":quote.policyId,"refNumber":quote.refNumber};
 								
 								//check payment
+								$("#system-error").addClass("hide");
 								$.ajax({
 									type : "POST",
 									data : JSON.stringify(quote),
@@ -2113,9 +2143,25 @@ $(window).load(function(){
 											$("#" + form).submit();
 										}, 5000);
 									},
-									error : function(error) {
-										console.dir(error);
-										alert("error");
+									error : function(xhr, textStatus, errorThrown) {
+									  	 $('#reason').attr('value', xhr.status);
+							          		e.preventDefault();
+							              if (xhr.status == 411) {
+							              	if(chin)
+							              		$("#reasonMsg").text(cnErr[411]);
+							              	else
+							              		$("#reasonMsg").text(enErr[411]);
+							                  $("#contactpopup").modal('show');
+							                  console.log(xhr.status, textStatus, errorThrown);
+							              }else	if (xhr.status == 413) {
+								              	if(chin)
+								              		$("#reasonMsg").text(cnErr[413]);
+								              	else
+								              		$("#reasonMsg").text(enErr[413]);
+								                  $("#contactpopup").modal('show');
+								                  console.log(xhr.status, textStatus, errorThrown);
+								          }else 	
+											$("#system-error").removeClass("hide");
 										$("#loading-overlay").modal("hide");
 										return false;
 									}
