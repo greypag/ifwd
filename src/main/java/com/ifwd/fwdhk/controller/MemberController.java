@@ -1,18 +1,19 @@
 package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+import static org.apache.commons.lang3.StringUtils.startsWithIgnoreCase;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
-
-import java.util.Map;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,7 +24,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -81,10 +81,13 @@ public class MemberController extends BaseController {
 
 		super.IsAuthenticate(request);
 		
+		// This part can be done inside method "loginMember"
+		/* 
 		HttpSession session = request.getSession(false);
 		if(session != null) {
 			session.invalidate();
 		}		
+		*/
 		
 		if (!member.getPassword().equals(member.getConfirmPassword())) {
 			MemberActionResult result = new MemberActionResult();	
@@ -250,7 +253,21 @@ public class MemberController extends BaseController {
 		
 	private MemberActionResult loginMemberSession(UserLogin userLogin, HttpServletRequest servletRequest) {
 		HttpSession session = servletRequest.getSession(false);
+		String sessionSecurityCheckName4Motor = "";
+		Map<String, Object> securityCheckNameMap4Motor = new HashMap<>();
+		
 		if(session != null) {
+			// Special for motor smart as use this value @session as security check
+			@SuppressWarnings("rawtypes")
+			Enumeration names = session.getAttributeNames();
+			while (names.hasMoreElements()) {
+				sessionSecurityCheckName4Motor = (String) names.nextElement();
+				if (startsWithIgnoreCase(sessionSecurityCheckName4Motor,"MOTOR_SECURITY_CHECK_"))
+					break;
+			}
+			securityCheckNameMap4Motor.put(sessionSecurityCheckName4Motor, session.getAttribute(sessionSecurityCheckName4Motor));
+			
+			// Clear the session and re-create one
 			session.invalidate();
 		}
 		
@@ -278,6 +295,11 @@ public class MemberController extends BaseController {
 					checkJsonObjNull(customer, "referralCode"));
 			session.setAttribute("myAnnualTravelReferralCode",
 					checkJsonObjNull(customer, "referralCode"));
+			
+			// Special for Motor put back to session as security check 
+			if (securityCheckNameMap4Motor.containsKey(sessionSecurityCheckName4Motor)) {
+				session.setAttribute(sessionSecurityCheckName4Motor, securityCheckNameMap4Motor.get(sessionSecurityCheckName4Motor));
+			}
 							
 			UserDetails userDetails = new UserDetails();
 			userDetails.setToken(checkJsonObjNull(apiResponse, "token"));

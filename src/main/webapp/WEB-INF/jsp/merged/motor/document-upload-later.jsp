@@ -107,7 +107,7 @@ var nextPage = "${nextPageFlow}";
         }
     }
 </style>
-<section id="" class="motor-confirmation motor-upload">
+<section id="" class="motor-confirmation motor-upload motor-signup-form">
     <!-- Breadcrumb Component Start-->
     <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
@@ -125,10 +125,10 @@ var nextPage = "${nextPageFlow}";
     <div class="">
         <div class="center wow fadeInDown animated" > 
             <!--desktop-->
-            <h1 class="landing_h1 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Confirmation Page</h1>
+            <h1 class="landing_h1 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.docupload.page.heading" bundle="${motorMsg}" /></h1>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h1 class="landing_h1 hidden-lg hidden-md motor-ttl">Confirmation Page</h1>
+            <h1 class="landing_h1 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.docupload.page.heading" bundle="${motorMsg}" /></h1>
             <!--end mobile--> 
         </div>
     </div>
@@ -137,8 +137,7 @@ var nextPage = "${nextPageFlow}";
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
-
+                        <fmt:message key="motor.docupload.page.copy" bundle="${motorMsg}" />
                         <br/>
                     </p>
                 </div>
@@ -149,166 +148,351 @@ var nextPage = "${nextPageFlow}";
     <div class="container no-border" id="uploadDocSection">
         <div class="center" > 
             <!--desktop-->
-            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs">Upload Document</h2>
+            <h2 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="motor.docupload.upload.title" bundle="${motorMsg}" /></h2>
             <!--end-desktop--> 
             <!--Mobile-->
-            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl">Upload Document</h2>
+            <h2 class="landing_h2 hidden-lg hidden-md motor-ttl"><fmt:message key="motor.docupload.upload.title" bundle="${motorMsg}" /></h2>
             <!--end mobile--> 
         </div>
         <div class="row">
+        	<form id="motor-upload-form" method="post" class="form-group" enctype="multipart/form">
             <div class="col-xs-12 col-md-10 col-md-offset-1">
                 <div class="row">
                     <div class="col-xs-12 col-sm-4">
-                        <div class="panel panel-default upload upload-id">
-                            <div class="panel-body text-center">
-                                <div class="thumbnail">
-                                    <img src="../resources/images/motor/dummy.png" alt="" />
-                                </div>
-                                <h4 class="title">
-                                    HKID for all named drivers
-                                </h4>
-                                <div class="upload__dropzone" id="vehicleReg-dz">
-                                    <div class="content">
-                                        <h4 class="dz-message">
-                                            Please select a file
-                                        </h4>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                                <label class="error-msg" id="vehicleReg-dz-error-message" data-required-error="Please upload Vehicle Registration Document." data-max-error="You cannot upload more than 4 copy."></label>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
                             <div class="panel-body text-center">
-                                <div class="thumbnail">
-                                    <img src="../resources/images/motor/dummy.png" alt="" />
+                                <div class="">
+                                     <img src="<%=request.getContextPath()%>/resources/images/motor/Driver_License_upload_confirm.png" alt="" width="150" />
                                 </div>
                                 <h4 class="title">
-                                    HKID for all named drivers
+                                    <fmt:message key="motor.docupload.upload.1.copy" bundle="${motorMsg}" />
                                 </h4>
-                                <div class="upload__dropzone" id="hkid-dz">
+           
+                                 <div class="upload__dropzone drop-zone dropzone" id="vehicleReg-dz">
                                     <div class="content">
                                         <h4 class="dz-message">
-                                            Please select a file
+                                            <fmt:message key="motor.docupload.upload.select.copy" bundle="${motorMsg}" />
                                         </h4>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="content">
                                         <p>
-                                            You can upload up to 4 documents
+                                            <fmt:message key="motor.docupload.upload.max.copy" bundle="${motorMsg}" />
                                         </p>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-                                <label class="error-msg" id="hkid-dz-error-message" data-required-error="Please upload HKID Card of Insured ." data-max-error="You cannot upload more than 4 copy."></label>
+                        <label class="error-msg" id="vehicleReg-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.vehicle.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="panel panel-default upload">
                             <div class="panel-body text-center">
-                                <div class="thumbnail">
-                                    <img src="../resources/images/motor/dummy.png" alt="" />
+                                <div class="">
+                                   <img src="<%=request.getContextPath()%>/resources/images/motor/vehicle_registeration_Confirm_upload.png" alt="" width="150"  />
                                 </div>
                                 <h4 class="title">
-                                    HKID for all named drivers HKID for all named drivers HKID for all named drivers HKID for all named drivers HKID for all named driver
+                                    <fmt:message key="motor.docupload.upload.2.copy" bundle="${motorMsg}" />
                                 </h4>
-                                <div class="upload__dropzone" id="license-dz">
+                                <div class="upload__dropzone drop-zone dropzone" id="hkid-dz">
                                     <div class="content">
                                         <h4 class="dz-message">
-                                            Please select a file
+                                            <fmt:message key="motor.docupload.upload.select.copy" bundle="${motorMsg}" />
                                         </h4>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="content">
                                         <p>
-                                            You can upload up to 4 documents
+                                            <fmt:message key="motor.docupload.upload.max.copy" bundle="${motorMsg}" />
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                <label class="error-msg" id="license-dz-error-message" data-required-error="Please upload Driving License of Insured ." data-max-error="You cannot upload more than 4 copy."></label>
+                        <label class="error-msg" id="hkid-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.idcard.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="panel panel-default upload">
+                            <div class="panel-body text-center">
+                                <div class="">
+                                   <img src="<%=request.getContextPath()%>/resources/images/motor/HKID_upload_confirm.png" alt="" width="150"  />
+                                </div>
+                                <h4 class="title">
+                                    <fmt:message key="motor.docupload.upload.3.copy" bundle="${motorMsg}" />
+                                </h4>
+                                <div class="upload__dropzone drop-zone dropzone" id="license-dz">
+                                    <div class="content">
+                                        <h4 class="dz-message">
+                                            <fmt:message key="motor.docupload.upload.select.copy" bundle="${motorMsg}" />
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="content">
+                                        <p>
+                                            <fmt:message key="motor.docupload.upload.max.copy" bundle="${motorMsg}" />
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="error-msg" id="license-dz-error-message" data-required-error='<fmt:message key="motor.error.msg.upload.drive.empty" bundle="${motorMsg}" />' data-max-error='<fmt:message key="motor.error.msg.upload.number.copy" bundle="${motorMsg}" />' data-dict-file-too-big='<fmt:message key="motor.error.msg.upload.file.size" bundle="${motorMsg}" />' data-dict-invalid-file-type='<fmt:message key="motor.error.msg.upload.file.format" bundle="${motorMsg}" />'></label>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-                <div class="content text-center">
-                    <a id="submitDoc" class="bdr-curve btn btn-primary nxt-btn" >Submit</a>
-                </div>
-            </div>
+            
+	            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+	                <div class="content text-center">
+	                    <button id="submitDoc" class="bdr-curve btn btn-primary nxt-btn disabled" style="white-space: initial;"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>
+	                </div>
+	            </div>
+	            <div class="col-sm-12 col-sm-10 col-sm-offset-1 text-center">
+					<div class="error-message error-msg-overall"></div>
+				</div>
+            </form>
         </div>
     </div>
 </section>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/vendor/dropzone.js"></script>
 <script type="text/javascript" charset="utf-8">
+var total_vehicleReg_dz = 0;
+var total_hkid_dz = 0;
+var total_license_dz = 0;
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):""%>');
+
     $(document).ready(function(){
-        var vehicleReg = $('#vehicleReg-dz').dropzone({
-            url:"/file/post",
-            maxFiles: 1,
-            acceptedFiles: 'image/jpeg,image/png', 
-            maxFilesize: 2,
-            addRemoveLinks: true,
-            init: function() {
-                this.on("addedfile", function(file) { 
-                    $('.error-msg').html('');
-                    if($('#vehicleReg-dz').hasClass('dz-max-files-reached')){
-                        $('#vehicleReg-dz').find('.dz-error-message span').html($('#vehicleReg-dz-error-message').data('max-error'));
-                    }
-                });
-            }
-        });
-        var hkid = $('#hkid-dz').dropzone({
-            url:"/file/post",
-            maxFiles: 4,
-            addRemoveLinks: true,
-            acceptedFiles: 'image/jpeg,image/png', 
-            maxFilesize: 2,
-            init: function() {
-                this.on("addedfile", function(file) { 
-                    $('.error-msg').html('');
-                    if($('#hkid-dz').hasClass('dz-max-files-reached')){
-                        $('#hkid-dz').find('.dz-error-message span').html($('#hkid-dz-error-message').data('max-error'));
-                    }
-                });
-            }
-        });
-        var license = $('#license-dz').dropzone({
-            url:"/file/post",
-            maxFiles: 4,
-            acceptedFiles: 'image/jpeg,image/png', 
-            maxFilesize: 2,
-            addRemoveLinks: true,
-            init: function() {
-                this.on("addedfile", function(file) {
-                    $('.error-msg').html('');
-                    if($('#license-dz').hasClass('dz-max-files-reached')){
-                        $('#license-dz').find('.dz-error-message span').html($('#license-dz-error-message').data('max-error'));
-                    }
-                });
-            }
-        });
+    	$vehicleReg_dz = $('#vehicleReg-dz');
+    	$hkid_dz = $('#hkid-dz');
+    	$license_dz = $('#license-dz');
+    	
+    	invalid_file = (language == 'en') ? 'Please upload document in jpg or png format only. And max file size is 2MB.' : '只接受jpg 或 png 格式 和檔案大小不可以大於2MB。';
+    	exceeded_1file = (language == 'en') ? 'You cannot upload more than 1 copy.' : '只可上載1個檔案。';
+    	exceeded_4file = (language == 'en') ? 'You cannot upload more than 4 copy.' : '只可上載4個檔案。';
+    	remove_file = (language == 'en') ? 'Remove File' : '刪除檔案';
+    	
+    	var url = context + '/api/iMotor/policy/fileUploadLater';
 
-        $('#submitDoc').click(function(e){
-            e.preventDefault();
-            
-            if(!vehicleReg[0].dropzone.files.length){
-            $('#vehicleReg-dz-error-message').html($('#vehicleReg-dz-error-message').data('required-error'));
-            }
-            if(!hkid[0].dropzone.files.length){
-            $('#hkid-dz-error-message').html($('#hkid-dz-error-message').data('required-error'));
-            }
-            if(!license[0].dropzone.files.length){
-            $('#license-dz-error-message').html($('#license-dz-error-message').data('required-error'));
-            }
-            
-        
-        });
-
+    	function submit_enable(){
+    		if(total_vehicleReg_dz > 0 && total_hkid_dz > 0 && total_license_dz >0)
+    			$("#submitDoc").removeClass('disabled');
+    		else
+    			$("#submitDoc").addClass('disabled');
+    		
+    		if(total_vehicleReg_dz > 1 )
+    			$("#submitDoc").addClass('disabled');
+    		if(total_hkid_dz > 4 )
+    			$("#submitDoc").addClass('disabled');
+    		if(total_license_dz > 4 )
+    			$("#submitDoc").addClass('disabled');
+    	}
+    	
+    	if($vehicleReg_dz!=null && $hkid_dz!=null && $license_dz!=null){
+    		Dropzone.autoDiscover = false;
+	        var vehicleReg = $('#vehicleReg-dz').dropzone({
+	        	url:url,
+	            maxFiles: 1,
+				maxFilesize: 2,
+				addRemoveLinks: true,
+				dictRemoveFile:remove_file,
+				acceptedFiles: 'image/jpeg,image/png',
+	            init: function() {
+	            	this.on("sending", function(file, xhr, formData){
+	                        formData.append("hkid", quote.applicant.hkid);
+	                        formData.append("refNumber", quote.refNumber);
+	                        formData.append("coverNote", quote.coverNoteNum);
+	                        formData.append("docType", "vehicleReg");
+	                });
+	                this.on("addedfile", function(file) { 
+	                	//total_vehicleReg_dz++;
+	                	//submit_enable();
+	  	                $('.error-msg').html('');
+	                    if($('#vehicleReg-dz').hasClass('dz-max-files-reached')){
+	                        $('#vehicleReg-dz').find('.dz-error-message span').html($('#vehicleReg-dz-error-message').data('max-error'));
+	                    }
+	                });
+	                this.on("complete", function(file) { 
+	                	total_vehicleReg_dz++;
+	                	submit_enable();
+	  	                $('.error-msg').html('');
+	                    if($('#vehicleReg-dz').hasClass('dz-max-files-reached')){
+	                        $('#vehicleReg-dz').find('.dz-error-message span').html($('#vehicleReg-dz-error-message').data('max-error'));
+	                    }
+	                });
+	            },
+	            removedfile: function(file) {
+	            	total_vehicleReg_dz--;
+	            	submit_enable();
+	                var _ref;
+	                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+	             },
+				dictInvalidFileType: invalid_file,
+				dictFileTooBig: invalid_file,
+				dictMaxFilesExceeded: exceeded_1file,
+	        });
+	        var hkid = $('#hkid-dz').dropzone({
+	            url:url,
+	            maxFiles: 4,
+				maxFilesize: 2,
+				addRemoveLinks: true,
+				dictRemoveFile:remove_file,
+				acceptedFiles: 'image/jpeg,image/png',
+				uploadMultiple: true,
+	            parallelUploads: 4,
+	            init: function() {
+	            	this.on("sending", function(file, xhr, formData){
+	            		formData.append("hkid", quote.applicant.hkid);
+                        formData.append("refNumber", quote.refNumber);
+                        formData.append("coverNote", quote.coverNoteNum);
+                        formData.append("docType", "hkid");
+                	});
+	                this.on("addedfile", function(file) { 
+	                	//total_hkid_dz++;
+	                	//submit_enable();
+	                    $('.error-msg').html('');
+	                    if($('#hkid-dz').hasClass('dz-max-files-reached')){
+	                        $('#hkid-dz').find('.dz-error-message span').html($('#hkid-dz-error-message').data('max-error'));
+	                    }
+	                });
+	                this.on("complete", function(file) { 
+	                	total_hkid_dz++;
+	                	submit_enable();
+	                    $('.error-msg').html('');
+	                    if($('#hkid-dz').hasClass('dz-max-files-reached')){
+	                        $('#hkid-dz').find('.dz-error-message span').html($('#hkid-dz-error-message').data('max-error'));
+	                    }
+	                });
+	            },
+	            removedfile: function(file) {
+	            	total_hkid_dz--;
+	            	submit_enable();
+	            	var _ref;
+		            return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+	             },
+				dictInvalidFileType: invalid_file,
+				dictFileTooBig: invalid_file,
+				dictMaxFilesExceeded: exceeded_4file,
+	        });
+	        var license = $('#license-dz').dropzone({
+	            url:url,
+	            maxFiles: 4,
+				maxFilesize: 2,
+				addRemoveLinks: true,
+				dictRemoveFile:remove_file,
+				acceptedFiles: 'image/jpeg,image/png',
+				uploadMultiple: true,
+	            parallelUploads: 4,
+	            init: function() {
+	            	this.on("sending", function(file, xhr, formData){
+	            		formData.append("hkid", quote.applicant.hkid);
+                        formData.append("refNumber", quote.refNumber);
+                        formData.append("coverNote", quote.coverNoteNum);
+                        formData.append("docType", "license");
+                	});
+	                this.on("addedfile", function(file) {
+	                	//total_license_dz++;
+	                	//submit_enable();
+	                    $('.error-msg').html('');
+	                    if($('#license-dz').hasClass('dz-max-files-reached')){
+	                        $('#license-dz').find('.dz-error-message span').html($('#license-dz-error-message').data('max-error'));
+	                    }
+	                });
+	                this.on("complete", function(file) {
+	                	total_license_dz++;
+	                	submit_enable();
+	                    $('.error-msg').html('');
+	                    if($('#license-dz').hasClass('dz-max-files-reached')){
+	                        $('#license-dz').find('.dz-error-message span').html($('#license-dz-error-message').data('max-error'));
+	                    }
+	                });
+	            },
+	            removedfile: function(file) {
+	            	total_license_dz--;
+	            	submit_enable();
+	            	var _ref;
+		            return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+	             },
+				dictInvalidFileType: invalid_file,
+				dictFileTooBig: invalid_file,
+				dictMaxFilesExceeded: exceeded_4file,
+	        });
+    	}
+    	
+    	 $('#submitDoc').click(function(e){
+             e.preventDefault();
+             var $form = $("<form id='quote-form' />");
+             $form.attr("action", "document-upload-confirmation");
+             $form.attr("method", "post");
+             var $quote = $("<input type='hidden' name='data' />");
+             $quote.attr("value", JSON.stringify(quote));
+             $form.append($quote);
+             $("body").append($form);
+             $('#quote-form').submit();  
+             //checkForm();
+    	 });
+    	
+    	//Get server side response of message(both error and success)
+	   	 function response2div(message, id_class, class_id_name){
+	   	 	if(id_class=='class'){
+	   	 		$('.'+class_id_name).show();
+	   	 		$('.'+class_id_name).text(message);
+	   	 	}else if(id_class=='id'){
+	   	 		$('#'+class_id_name).show();
+	   	 		$('#'+class_id_name).text(message);
+	   	 	}
+	   	 }
+    	 
+    	function checkForm(){
+    		
+    		response2div("", "class", "error-msg-overall");
+    		
+    		if(total_vehicleReg_dz > 1 && total_hkid_dz > 1  && total_license_dz > 1)
+    		{	
+	    		var document1Base64 = $("#vehicleReg-dz img")[0].src;
+	    		var document1Type = $("#vehicleReg-dz img")[0].alt;
+	    		var document2Base64 = $("#hkid-dz img")[0].src;
+	    		var document2Type = $("#hkid-dz img")[0].alt;
+	    		var document3Base64 = $("#license-dz img")[0].src;
+	    		var document3Type = $("#license-dz img")[0].alt;
+    			
+	    		if(document1Base64!=null && document1Base64!="" && document2Base64!=null && document2Base64!="" && document3Base64!=null && document3Base64!=""){
+	    	
+	    			$.ajax({
+	    				type: "POST",
+	    				async: false,
+	    				url: context + '/api/iMotor/policy/fileUpload',
+	    				success: function (data) {
+	    					if (data != null && data.errorMsg != null && data.errorMsg != "") {
+	    						if(data.errorMsg == "Policy not found for this HKID"){
+	    							response2div(getBundle(getBundleLanguage, "Please.enter.correct.Certificate.Number.or.HKID.number"), "class", "error-msg-overall");
+	    						}
+	    						else if(data.errorMsg == "Policy not found for this passport"){
+	    							response2div(getBundle(getBundleLanguage, "Please.enter.correct.Certificate.Number.or.Passport.number"), "class", "error-msg-overall");
+	    						}else if(data.errorMsg == "Claim cannot be more than three times"){
+	    							response2div(getBundle(getBundleLanguage, "Over.screenProtector.policy.claim.time.limitation"), "class", "error-msg-overall");
+	    						}
+	    						else{
+	    							response2div(data.errorMsg, "class", "error-msg-overall");
+	    						}
+	    						$("#submit").removeClass("disabled");
+	    					} 
+	    					else {
+	    						//window.location = '/screen-insurance/tc/claim-online-confirmation';
+	    					}
+	    				},
+	    				error: function(data){
+	    					$("#submit").removeClass("disabled");
+	    				}
+	    			});
+	    		}
+	    		else{
+	    			response2div("Please select a file", "class", "error-msg-overall");
+	    			$("#submit").removeClass("disabled");
+	    		}
+    		}	
+    		return false;
+    	}
     });
 </script>
 

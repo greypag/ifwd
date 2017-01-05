@@ -1019,7 +1019,11 @@ var nextPage = "${nextPageFlow}";
 															class="text-left"><small> <fmt:message
 																	key="motor.summary.payment.tnc" bundle="${motorMsg}" /></small>
 														</label>
+<<<<<<< HEAD
 														<div class="help-block with-errors checkbox3 error-msg hide"><fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" /></div>
+=======
+														<div class="help-block with-errors checkbox-agree error-msg hide"><fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" /></div>
+>>>>>>> 1e32400ac584c0b63d4cbcfc0380560d2a4ac048
 													</div>
 												</div>
 
@@ -1317,9 +1321,9 @@ var nextPage = "${nextPageFlow}";
 										-->
 													<input type="tel" name="mobileNo"
 														class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input"
-														id="motorRegisterMobilerNo" data-keyblock-num="true">
+														id="motorRegisterMobileNo" data-keyblock-num="true">
 													<label class="mdl-textfield__label"
-														for="mobileNo-forgotpassowrd"><fmt:message
+														for="motorRegisterMobileNo"><fmt:message
 															key="motor.summary.member.mobile" bundle="${motorMsg}" /></label>
 												</div>
 												<span class="error-msg mobileNoErrMsg" style="text-align:left"></span>
@@ -1779,7 +1783,7 @@ $(window).load(function(){
 										var checked=false;
 				                        $.each(res, function(i, item) {
 								
-											if(item.code == quote.carDetail.bankMortgageName)
+											if(item.desc == quote.carDetail.bankMortgageName)
 											{	$(".carbankmortgage").html(item.desc);checked=true;}
 										});
 										if(checked==false)
@@ -1801,7 +1805,7 @@ $(window).load(function(){
 
 			                    	$.each(res, function(i, item) {
 										
-											if(item.code == quote.applicant.correspondenceAddress.district )
+											if(item.desc == quote.applicant.correspondenceAddress.district )
 											{
 												
 												if(motorlanguage == item.lang)
