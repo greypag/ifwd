@@ -424,10 +424,6 @@ $(document).ready(function() {
     </c:if>
 });
 
-    <c:if test="${selectedRegion!=null}">
-    $('#region-btn-${selectedRegion}').click();
-    </c:if>
-});
 </script>
 
 <section class="product_header_path_container ">

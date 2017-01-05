@@ -532,6 +532,7 @@ var FNArecommendation = {
 		var unaffordable_group = []; //product groups that fall into unaffordable section
 		var affordable_type = []; //prodcut types affordable
 		var unaffordable_type = {}; //prodcut types unaffordable
+		var availableProductName = []; // Available Product names
 		var bUnaffordableIlas = false; // if ilas is not affordable, show custom msg
 		var bUnaffordableULife = false; // if ULife is not affordable
 		var bNoProducts = false;
@@ -571,7 +572,7 @@ var FNArecommendation = {
 						pNum++;
 						
 						var prod_data = gp_data.products[j];
-
+						availableProductName.push(prod_data.name); //track available product names
 						
 							var product_header = $(".fna-recommend .template .fna-product-lv-header").clone();
 
@@ -865,10 +866,10 @@ var FNArecommendation = {
 
 		//Show Only 1 product description
 		if(pNum == 1){
-			FNArecommendation.showOnly1Product(true,data.q2,fnaq4e);
+			FNArecommendation.showOnly1Product(true,FNArecommendation.fnaData.q2,fnaq4e,availableProductName);
 		}
 		else{
-			FNArecommendation.showOnly1Product(false,data.q2,fnaq4e);
+			FNArecommendation.showOnly1Product(false,FNArecommendation.fnaData.q2,fnaq4e,availableProductName);
 		}
 
 		var bShowILASsContainer = false;
@@ -985,22 +986,23 @@ var FNArecommendation = {
 		
 	},
 
-	showOnly1Product:function(display,products,year){
+	showOnly1Product:function(display,product_types,year,availableProductName){
 		if(display){
 
 			//var cont = $(".template .txt_onlyOneProduct").text();
 			var cont = getBundle(getBundleLanguage,"fna.text.only1product");
 			var sep = $(".template .txt_sep").text() + " ";
-			var products_str = "";
+			var product_type_str = "";
 
-			var arr_p = $.unique(products.split(","));
+			var arr_p = $.unique(product_types.split(","));
 			var arr_p_str = [];
 			$(arr_p).each(function(k,v){arr_p_str.push($(".template .txt_q2_" + v).text())});
-			products_str = arr_p_str.join(sep);
+			product_type_str = arr_p_str.join(sep);
 			
 			var year_str = $(".template .txt_q4e_" + year).text();
 
-			cont = cont.replace("{products}",products_str).replace("{year}",year_str);
+			cont = cont.replace("{product_types}",product_type_str).replace("{year}",year_str).replace(
+				"{product_names}", availableProductName[0]);
 
 			$(".onlyOneProduct").show();
 			$(".onlyOneProduct").text(cont);
