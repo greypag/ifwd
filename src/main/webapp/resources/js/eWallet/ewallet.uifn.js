@@ -778,6 +778,7 @@ var logViewer = {
 	composeLogTable: function (data){
 		this.clearLogTable();
 
+		var usrTngId = data.tngAccountId;
 		var logs = data.transaction;
 		for(var li = 0; li < logs.length; li++){
 			var logData = logs[li];
@@ -786,7 +787,7 @@ var logViewer = {
 
 			var logRow = $("<tr/>").addClass("ew_log");
 
-			var tngId = $("<td/>").html(logData.txnId);
+			var tngId = $("<td/>").html(usrTngId);
 
 			var dateMobile = $("<span/>").addClass("ew_dateMobile").html(logDt);
 			tngId.append(dateMobile);
