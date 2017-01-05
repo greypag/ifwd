@@ -1019,11 +1019,7 @@ var nextPage = "${nextPageFlow}";
 															class="text-left"><small> <fmt:message
 																	key="motor.summary.payment.tnc" bundle="${motorMsg}" /></small>
 														</label>
-<<<<<<< HEAD
 														<div class="help-block with-errors checkbox3 error-msg hide"><fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" /></div>
-=======
-														<div class="help-block with-errors checkbox-agree error-msg hide"><fmt:message key="motor.error.msg.payment.readandaccept" bundle="${motorMsg}" /></div>
->>>>>>> 1e32400ac584c0b63d4cbcfc0380560d2a4ac048
 													</div>
 												</div>
 
