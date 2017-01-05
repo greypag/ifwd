@@ -441,7 +441,13 @@ var currentPath = "<%=request.getContextPath()%>";
 			var language = "en";
 
             jQuery(document).ready(function($) {
-
+            	if (window.location.hash) {
+            		var hash = window.location.hash.substring(1);
+            		if (hash == "login") {
+            			$('#loginpopup').modal();
+            		}
+            	}
+            	
             	// To show review fna modal when clicking FNA CTA button
                 $('#btn-fna-cta').click(function() {
                 	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
