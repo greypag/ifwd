@@ -3802,6 +3802,9 @@ public class LifeServiceImpl implements LifeService {
 		}else if("provie-o2o-sp".equals(action)) {
 			subject = "Provie Appointment Acknowledgement from FWD | Provie真息揀理財壽險計劃申請確認";
 			template = "provie\\provie-o2o-sp.html";
+		}else if("wealthree-o2o-sp".equals(action)) {
+			subject = "Wealthree Appointment Acknowledgement from FWD | Wealthree真息揀理財壽險計劃申請確認";
+			template = "wealthree\\wealthree-appointment-sp.html";
 		}
 		
 		JSONObject parameters = new JSONObject();

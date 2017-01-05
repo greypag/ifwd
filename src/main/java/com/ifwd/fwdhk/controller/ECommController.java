@@ -143,6 +143,7 @@ public class ECommController extends BaseController {
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
 	{
 		RedirectView rv = new RedirectView("household-insurance/easy-home-care");
+		logger.error("home insurance redirect");
 		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
 		return rv;
 	}

@@ -892,6 +892,10 @@ function getStarted(){
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/savings-insurance/provie"><fmt:message key="header.product.type2.group1.linkname2" bundle="${msg}" /></a>
                                   </li>
+                                  <li class="menu-link">
+	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree"><fmt:message key="header.product.type2.group1.linkname3" bundle="${msg}" /></a>
+                                  </li>
                              </ul>
                           </li>
                          </ul>
@@ -1166,6 +1170,7 @@ function getStarted(){
 										<ul class="col-sm-12 dropdown-menu">
 											<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2.group1.linkname1" bundle="${msg}" /></a></li>
 											<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/savings-insurance/provie"><fmt:message key="header.product.type2.group1.linkname2" bundle="${msg}" /></a></li>
+											<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree"><fmt:message key="header.product.type2.group1.linkname3" bundle="${msg}" /></a></li>
 										</ul>
 	            	</li>
 							</ul>

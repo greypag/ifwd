@@ -6,7 +6,8 @@ public class AppointmentBooking {
 		SAVIE_OFFLINE(1),
 		PAY_LATER(2),
 		EASY_HEALTH_OFFLINE(3),
-		PROVIE_OFFLINE(4);
+		PROVIE_OFFLINE(4),
+		WEATHREE_OFFLINE(5);
 		
 	    public final int value;
 	    

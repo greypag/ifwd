@@ -132,9 +132,9 @@ public class OverseaServiceImpl implements OverseaService {
 		}
 
 		String promoCode = request.getParameter("promoCode");
-        if (promoCode != null) {
-            promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
-        }
+		if (promoCode != null) {
+			promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
+		}
 		String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas" + "&referralCode="
 				+ (promoCode != null ? promoCode : "");
 
