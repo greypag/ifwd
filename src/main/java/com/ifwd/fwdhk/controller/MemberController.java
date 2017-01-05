@@ -541,6 +541,9 @@ public class MemberController extends BaseController {
 				case "System error":
 					resultCode="500";
 					break;
+				case " The information you have entered is not valid, please try again":
+					resultCode="504";
+					break;
 				default:
 					resultCode="500";
 					break;
@@ -559,3 +562,4 @@ public class MemberController extends BaseController {
 		return Responses.ok(responseObject);
 	}
 }
+
