@@ -1398,7 +1398,7 @@ var nextPage = "${nextPageFlow}";
 												</p>
 												<div class="checkbox">
 													<input id="checkbox-opt1" name="checkbox-opt1" type="checkbox"><label
-														for="checkbox3"><fmt:message
+														for="checkbox-opt1"><fmt:message
 															key="motor.summary.member.tnc2" bundle="${motorMsg}" /></label>
 												</div>
 												<div class="checkbox">
