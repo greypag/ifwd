@@ -93,11 +93,11 @@ var nextPage = "${nextPageFlow}";
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 col-sm-12">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-6" id="chassisNumberDiv">
                                     <div class="form-group">
                                         <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='/fwdhk/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
+	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
 	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
@@ -107,11 +107,11 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>
 	                                    </div>
 	                                </div>
-	                                <div class="col-sm-6">
+	                                <div class="col-sm-6" id="cubicCapacityDiv">
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='/fwdhk/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
+	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
 	                                                <input type="number" name="cubicCapacity" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error='<fmt:message key="motor.error.msg.cc.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.cc.format" bundle="${motorMsg}" />'>
@@ -125,7 +125,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='/fwdhk/resources/images/motor/Car_details_registration_demo_car_make.jpg' />">
+	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_car_make.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
 	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="30" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
@@ -199,6 +199,11 @@ var nextPage = "${nextPageFlow}";
 	                                <br /> <br />
 	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value='<fmt:message key="motor.button.next" bundle="${motorMsg}" />' />
 	                                <br/>
+	                            </div>
+	                            <div class="clearfix"></div>
+	                            <div class="text-center has-error hide" id="system-error">
+	                            <br/>
+	                            <span class="help-block"><fmt:message key="motor.error.msg.serversystem.error" bundle="${motorMsg}" /></span>
 	                            </div>
 	                            <div class="clearfix"></div> 
 	                            <div class="text-center save">
@@ -431,8 +436,6 @@ cnErr ={
 
 var checkbox=false;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
-if(typeof quote.policyId == "undefined")
-	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
 
 /* 
  *  Define motor success login callback
@@ -476,7 +479,7 @@ if(typeof quote.policyId == "undefined")
 function SaveAndExit()
 {
 	$(document).ready(function(){
-
+		$("#system-error").addClass("hide");
 		if($('input[name=bankMortgage]:checked').length>0)
 			checkbox = true;
 	
@@ -507,7 +510,7 @@ function SaveAndExit()
 					  location.assign(context);
 				  },error: function(error) {
 					  console.dir(error);				
-					  alert("error");
+					 $("#system-error").removeClass("hide");
 			         $("#loading-overlay").modal("hide");
 			        // location.assign(context);
 				  }
@@ -532,9 +535,15 @@ $(window).load(function(){
     });
 });
 $(document).ready(function(){
+	//console.log(quote.carDetail);
+	 
+	if(quote.carDetail.makeCode == "Tesla"){
+		$('#cubicCapacityDiv').remove();
+		$('#chassisNumberDiv').toggleClass('col-sm-6 col-sm-12');
+	}
 	
 	var min_a = quote.carDetail.engineCapacity;
-	console.log(min_a);
+	//console.log(min_a);
 	if(min_a <= 1650){
 		$('#cubicCapacity').attr("max",1650);
 	}
@@ -551,9 +560,9 @@ $(document).ready(function(){
 	
 	  $('#cubicCapacity').keyup(function(e){
     	
-    	if($(this).val() > parseInt($(this).prop('max'))){
+    	if($(this).val() > 9999){
         	console.log($(this).val());
-        	$(this).val(parseInt($(this).prop('max')));
+        	$(this).val(9999);
       	  $(this).blur().focus();
     	}
     	});
@@ -748,14 +757,19 @@ $(document).ready(function(){
 		});*/
      
 	$('#carDetails').validator({disable: false}).on('submit', function (e) {
+		$("#system-error").addClass("hide");
 		if (!e.isDefaultPrevented()) {
 			if($('input[name=bankMortgage]:checked').length>0)
 				checkbox = true;
+		   var cccc="";
+	
+		   if(typeof $('input[name=cubicCapacity]').val()!="undefined")
+			   cccc = $('input[name=cubicCapacity]').val()
 		   var submitData = {"carDetail": {   	
 					   "bankMortgage": checkbox,	
 					   "bankMortgageName": $('[name="mortgageBank"]').val()!="OTHER"?$('[name="mortgageBank"]').val():$('input[name=bankName]').val(),//$("#mortgageBank option:selected").val(),	
 					   "chassisNumber": $('input[name=chassisNumber]').val(),    	
-					   "engineCapacity": $('input[name=cubicCapacity]').val(),   	
+					   "engineCapacity": cccc,   	
 					   "modelDesc": $('input[name=registedModel]').val()    	
 						}, 	
 						"policyId": quote.policyId
@@ -788,43 +802,8 @@ $(document).ready(function(){
 	              $("body").append($form);
 	              $('#quote-form').submit();             
 			  },error: function(error) {
-				  /*$('#reason').attr('value', xhr.status);
-	          		e.preventDefault();
-	              if (xhr.status == 404) {
-	              	if(chin)
-	              		$("#reasonMsg").text(cnErr[404]);
-	              	else
-	              		$("#reasonMsg").text(enErr[404]);
-	                  $("#contactpopup").modal('show');
-	                  console.log(xhr.status, textStatus, errorThrown);
-	              } 
-	              if (xhr.status == 504) {
-	              	if(chin)
-	              		$("#reasonMsg").text(cnErr[504]);
-	              	else
-	              		$("#reasonMsg").text(enErr[504]);
-	                  $("#contactpopup").modal('show');
-	                  console.log(xhr.status, textStatus, errorThrown);
-	              } 
-	              else if (xhr.status == 422) {
-	              	if(chin)
-	              		$("#reasonMsg").text(cnErr[422]);
-	              	else
-	              		$("#reasonMsg").text(enErr[422]);
-	                  $("#contactpopup").modal('show');
-	                  console.log(xhr.status, textStatus, errorThrown);
-	              } 
-	              else if (xhr.status == 410) {
-	              	if(chin)
-	              		$("#reasonMsg").text(cnErr[410]);
-	              	else
-	              		$("#reasonMsg").text(enErr[410]);
-	                  $("#contactpopup").modal('show');
-	                  console.log(xhr.status, textStatus, errorThrown);
-	              }*/
-				  console.dir(error);				
-				  alert("error");
-		          $("#loading-overlay").modal("hide");
+				  $("#system-error").removeClass("hide");
+			      $("#loading-overlay").modal("hide");
 		          return false;
 			  }
 			});

@@ -323,6 +323,11 @@ var nextPage = "${nextPageFlow}";
 	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value='<fmt:message key="motor.button.next" bundle="${motorMsg}" />' />
 	                                <br/>
 	                            </div>
+	                            <div class="clearfix"></div>
+	                            <div class="text-center has-error hide" id="system-error">
+	                            <br/>
+	                            <span class="help-block"><fmt:message key="motor.error.msg.serversystem.error" bundle="${motorMsg}" /></span>
+	                            </div>
 	                            <div class="clearfix"></div> 
 	                            <div class="text-center save">
 	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
@@ -540,8 +545,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript">
 var checkbox=true;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
-if(typeof quote.policyId == "undefined")
-	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
+
 /* 
  *  Define motor success login callback
  */
@@ -573,9 +577,9 @@ function callback_motor_LoginSuccess(){
 		});
 }
 function SaveAndExit()
-{
+{	
 	$(document).ready(function(){
-		
+		$("#system-error").addClass("hide");
 		var area = $('input[name=area]').val();
 		if(area== "新界")
 			area = "New Territories";
@@ -625,7 +629,7 @@ function SaveAndExit()
 				  location.assign(context);
 			  },error: function(error) {
 				 console.dir(error);				
-				 alert("error");
+				 $("#system-error").removeClass("hide");
 	             $("#loading-overlay").modal("hide");
 	             return false;
 	              
@@ -942,6 +946,7 @@ $(document).ready(function(){
 		});*/
     
 	$('#driverDetails').validator().on('submit', function (e) {
+		$("#system-error").addClass("hide");
 		if (!e.isDefaultPrevented()) {
 			
 			var area = $('input[name=area]').val();
@@ -1008,7 +1013,7 @@ $(document).ready(function(){
 	              
 			  },error: function(error) {
 				 console.dir(error);				
-				 alert("error");
+				 $("#system-error").removeClass("hide");
 	             $("#loading-overlay").modal("hide");
 	             return false;
 	              

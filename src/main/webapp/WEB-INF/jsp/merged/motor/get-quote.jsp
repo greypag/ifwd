@@ -560,7 +560,7 @@ $(document).ready(function(){
     
     if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
     {   
-    	$(".q2,.q3,.q4,.q5").removeClass("hidden");//q5 for promo
+    	$(".q2,.q3,.q4").removeClass("hidden");//q5 for promo
     	
 		$('input[name=cc]').val(quote.carDetail.engineCapacity)
 		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
@@ -629,7 +629,7 @@ $(document).ready(function(){
     		if(getUrlParameter("edit") == "yes")
     		{
     			$('#saveModal').modal("hide");
-	    		$(".q2,.q3,q4,.q5").removeClass("hidden");
+	    		$(".q2,.q3,.q4,.q5").removeClass("hidden");
 	    		
 	    		$('input[name=cc]').val(quote.carDetail.engineCapacity)
 	    		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)

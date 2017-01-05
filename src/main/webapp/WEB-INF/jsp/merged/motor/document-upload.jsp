@@ -267,8 +267,7 @@ var total_vehicleReg_dz = 0;
 var total_hkid_dz = 0;
 var total_license_dz = 0;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):""%>');
-if(typeof quote.policyId == "undefined")
-	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
+
 	
     $(document).ready(function(){
     	$vehicleReg_dz = $('#vehicleReg-dz');

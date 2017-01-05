@@ -1537,6 +1537,42 @@ $(window).load(function(){
 			411: '您未能通過核保問題。',               
 			413: '您未能通過核保問題。',               
 	};
+	$.fn.capitalise1 = function() {
+	    return this.each(function() {
+	        var $this = $(this),
+	            text = $this.text(),
+	            tokens = text.split(",").filter(function(t) {return t != ""; }),
+	            res = [],
+	            i,
+	            len,
+	            component;
+	        for (i = 0, len = tokens.length; i < len; i++) {
+	            component = tokens[i];
+	            res.push(component.substring(0, 1).toUpperCase());
+	            res.push(component.substring(1));
+	            res.push(","); // put space back in
+	        }
+	        $this.text(res.join(""));
+	    });
+	};
+	$.fn.capitalise2 = function() {
+	    return this.each(function() {
+	        var $this = $(this),
+	            text = $this.text(),
+	            tokens = text.split(" ").filter(function(t) {return t != ""; }),
+	            res = [],
+	            i,
+	            len,
+	            component;
+	        for (i = 0, len = tokens.length; i < len; i++) {
+	            component = tokens[i];
+	            res.push(component.substring(0, 1).toUpperCase());
+	            res.push(component.substring(1));
+	            res.push(" "); // put space back in
+	        }
+	        $this.text(res.join(""));
+	    });
+	};
 	$(document)
 			.ready(
 					function() {
@@ -1857,27 +1893,33 @@ $(window).load(function(){
 												var remark = item.remark;
 												var address="";
 												if(quote.applicant.correspondenceAddress.flat !="")
-													address = quote.applicant.correspondenceAddress.flat +","
+													address = "Flat "+quote.applicant.correspondenceAddress.flat +","
 												
 												if(quote.applicant.correspondenceAddress.floor !="")
-													address += quote.applicant.correspondenceAddress.floor +","
+													address += "Floor "+quote.applicant.correspondenceAddress.floor +","
 													
 												if(quote.applicant.correspondenceAddress.block !="")
-														address += quote.applicant.correspondenceAddress.block +","
+													address += "Block "+quote.applicant.correspondenceAddress.block +","
 														
-												address += quote.applicant.correspondenceAddress.building
-												+ ","
-												+ quote.applicant.correspondenceAddress.streetName
-												+ ","
-												+ quote.applicant.correspondenceAddress.streetNo
-												+ ","
-												+ quote.applicant.correspondenceAddress.estate
-												+ ","
-												+ desc.toString().toLowerCase()
+												if(quote.applicant.correspondenceAddress.building !="")
+													address += quote.applicant.correspondenceAddress.building +","
+												
+												if(quote.applicant.correspondenceAddress.streetName !="")
+													address += quote.applicant.correspondenceAddress.streetName +","
+
+												if(quote.applicant.correspondenceAddress.streetNo !="")
+													address += quote.applicant.correspondenceAddress.streetNo +","
+												
+												if(quote.applicant.correspondenceAddress.estate !="")
+													address +=quote.applicant.correspondenceAddress.estate +","
+											
+												address += desc.toString().toLowerCase()
 												+ ","
 												+ remark.toString().toLowerCase();
 												$(".address").html(address);
-												
+												$(".address").capitalise1().capitalise2();
+												var add =$(".address").html();
+												$(".address").html(add.substring(0, add.length-2));
 												return false;
 											}
 										
