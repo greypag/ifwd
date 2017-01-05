@@ -25,17 +25,20 @@
 		String template_item = "<li class=\"%s\">%s</li>";
 		String template_divider = "<li class=\"%s\"><i class=\"fa fa-angle-right\"></i></li>";
 
-		String path_to_resources[]= new String[2];
+		String path_to_resources[]= new String[3];
 		if(lang.equalsIgnoreCase("EN")){
 			path_to_resources[0] = "messages_en_US";
 			path_to_resources[1] = "provie_en_US";
+			path_to_resources[2] = "motor_en_US";
 		} else {
 			path_to_resources[0] = "messages_zh_HK";
 			path_to_resources[1] = "provie_zh_HK";
+			path_to_resources[2] = "motor_zh_HK";
 		}
 
 		ResourceBundle resource = ResourceBundle.getBundle(path_to_resources[0]);
 		ResourceBundle resource_provie = ResourceBundle.getBundle(path_to_resources[1]);
+		ResourceBundle resource_motor = ResourceBundle.getBundle(path_to_resources[2]);
 	
 		for( int i=0; i<bcList.length; i++ ){
 
@@ -66,6 +69,8 @@
 				translated_str = resource.getString(bcList[i]);	
 			} else if(resource_provie.containsKey(bcList[i])){			
 				translated_str = resource_provie.getString(bcList[i]);
+			} else if(resource_motor.containsKey(bcList[i])){			
+				translated_str = resource_motor.getString(bcList[i]);
 			}
 			output += String.format(template_item, itemCls, translated_str);
 		}

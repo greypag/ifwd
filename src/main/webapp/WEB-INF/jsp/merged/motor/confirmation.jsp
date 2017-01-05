@@ -75,7 +75,7 @@ try{
     <!-- Breadcrumb Component Start-->
     <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
-            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.get.quote
+            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.motor,breadcrumb.item.confirmation
         </c:set>
         <c:set var="breadcrumbActive">3</c:set>
         
