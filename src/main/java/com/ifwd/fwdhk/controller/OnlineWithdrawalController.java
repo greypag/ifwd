@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -114,6 +115,7 @@ public class OnlineWithdrawalController extends BaseController{
 		logger.debug(methodName+" getCustomerId:"+tplReq.getCustomerId());
 		
 		if(tplReq.getCustomerId()==null){return this.getDefaultInvalidResonseEntity();}
+		if(!this.isCustomerIdMatch(request, tplReq.getCustomerId())){return this.getDefaultInvalidResonseEntity();}
 		
 		JSONObject responseJsonObj = new JSONObject();		
 		ResponseEntity<TngPolicyInfoResponse> responseEntity = this.getDefaultErrorResonseEntity();
@@ -128,8 +130,10 @@ public class OnlineWithdrawalController extends BaseController{
 			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
 			// ******************* Makeup result *******************			
 	
+			
 			responseEntity=getResponseEntityByJsonObj(methodName,TngPolicyInfoResponse.class,responseJsonObj);
 			if(HttpStatus.OK.equals(responseEntity.getStatusCode())){
+				List<String> pNumList = new ArrayList<String>();
 				TngPolicyInfoResponse policyinfoList=  responseEntity.getBody();
 				if(policyinfoList!=null){
 					List<TngPolicyInfo> pis = policyinfoList.getPolicies();
@@ -138,8 +142,16 @@ public class OnlineWithdrawalController extends BaseController{
 							if(pi==null)continue;
 							String status = TngPolicyConstants.getTngPolicyStatusCode(pi.getTngStatus_en());
 							pi.setTngPolicyStatus(status);
+							
+							pNumList.add(pi.getPolicyId());
 						}}
 				}
+				
+				if(!pNumList.isEmpty()){
+					HttpSession session = request.getSession(true);
+					session.setAttribute("tmpPNumList", pNumList);
+				}
+				
 			}	
 			
 		} catch (Exception e) {
@@ -329,6 +341,7 @@ public class OnlineWithdrawalController extends BaseController{
 		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
 		
 		if(simple.getPolicyId()==null){return this.getDefaultInvalidResonseEntity();}
+		if(!this.isPolicyNumberMatch(request, simple.getPolicyId())){return this.getDefaultInvalidResonseEntity();}
 		
 		JSONObject responseJsonObj = new JSONObject();		
 		ResponseEntity<TngPolicyInfoByPolicyResponse> responseEntity = this.getDefaultErrorResonseEntity();
@@ -412,6 +425,7 @@ public class OnlineWithdrawalController extends BaseController{
 		String methodName="sendTngOtpSms";
 		logger.debug(methodName+" getPolicyId:"+simple.getPolicyId());
 		
+		if(!this.isPolicyNumberMatch(request, simple.getPolicyId())){return this.getDefaultInvalidResonseEntity();}
 		
 		JSONObject responseJsonObj = new JSONObject();		
 		ResponseEntity responseEntity = this.getDefaultErrorResonseEntity();
@@ -460,6 +474,7 @@ public class OnlineWithdrawalController extends BaseController{
 		String methodName="authTngOtp";
 		logger.debug(methodName+" getPolicyId:"+authOtpReq.getPolicyId());
 		
+		if(!this.isPolicyNumberMatch(request, authOtpReq.getPolicyId())){return this.getDefaultInvalidResonseEntity();}
 		
 		JSONObject responseJsonObj = new JSONObject();		
 		ResponseEntity responseEntity = this.getDefaultErrorResonseEntity();
@@ -515,6 +530,33 @@ public class OnlineWithdrawalController extends BaseController{
 		} catch (Exception e) { }
 		return null;
 	}
+	
+	private boolean isCustomerIdMatch(HttpServletRequest request, String requestCustomerId){
+		HttpSession session = request.getSession(false);
+		String customerId = (String)session.getAttribute("customerId");
+		if(customerId==null){return false;}
+		
+		boolean result = false;
+		if(requestCustomerId!=null){
+			result = customerId.equalsIgnoreCase(requestCustomerId);
+		}
+		if(!result){
+			logger.debug("CustomerId Not Match");
+		}
+		return result;
+	}
+	@SuppressWarnings("unchecked")
+	private boolean isPolicyNumberMatch(HttpServletRequest request, String requestPolicyNumber){
+		HttpSession session = request.getSession(false);
+		List<String> pNumList = (List<String>)session.getAttribute("tmpPNumList");
+		if(pNumList==null || pNumList.isEmpty()){return false;}
+		boolean result = pNumList.contains(requestPolicyNumber);
+		if(!result){
+			logger.debug("PolicyNumber Not Match");
+		}
+		return result;
+	}
+	
 	
 	@ApiIgnore
 	@RequestMapping(value = { "/linkupReturn" } , method = POST)
@@ -613,6 +655,7 @@ public class OnlineWithdrawalController extends BaseController{
 		String methodName="requestTngPolicyWithdraw";
 		logger.debug(methodName+" getPolicyId:"+withdrawReq.getPolicyId());
 		
+		if(!this.isPolicyNumberMatch(request, withdrawReq.getPolicyId())){return this.getDefaultInvalidResonseEntity();}
 		
 		JSONObject responseJsonObj = new JSONObject();
 		ResponseEntity responseEntity = this.getDefaultErrorResonseEntity();
@@ -661,6 +704,7 @@ public class OnlineWithdrawalController extends BaseController{
 		String methodName="performTngPolicyWithdraw";
 		logger.debug(methodName+" getPolicyId:"+withdrawReq.getPolicyId());
 		
+		if(!this.isPolicyNumberMatch(request, withdrawReq.getPolicyId())){return this.getDefaultInvalidResonseEntity();}
 		
 		JSONObject responseJsonObj = new JSONObject();
 		ResponseEntity responseEntity = this.getDefaultErrorResonseEntity();
@@ -707,6 +751,7 @@ public class OnlineWithdrawalController extends BaseController{
 		String methodName="unlinkTngPolicy";
 		logger.debug(methodName+" getPolicyId:"+unlinkReq.getPolicyId());
 		
+		if(!this.isPolicyNumberMatch(request, unlinkReq.getPolicyId())){return this.getDefaultInvalidResonseEntity();}
 		
 		JSONObject responseJsonObj = new JSONObject();		
 		ResponseEntity responseEntity = this.getDefaultErrorResonseEntity();
@@ -749,6 +794,7 @@ public class OnlineWithdrawalController extends BaseController{
 		String methodName="getTngPolicyHistory";
 		logger.debug(methodName+" getPolicyId:"+historyReq.getPolicyId());
 		
+		if(!this.isPolicyNumberMatch(request, historyReq.getPolicyId())){return this.getDefaultInvalidResonseEntity();}
 		
 		JSONObject responseJsonObj = new JSONObject();
 		ResponseEntity responseEntity = this.getDefaultErrorResonseEntity();
