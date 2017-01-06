@@ -462,6 +462,9 @@ $txt-hint-color: #999999;
 	}
 	.ew_pol_info{
 		@extend %ew_base_pol_info;
+		.ew_pol_tngId{
+			@extend %ew_base_tngId;
+		}
 	}
 	.ew_pol{
 		@extend %ew_base_garyBox;
@@ -600,7 +603,7 @@ $txt-hint-color: #999999;
 	}
 
 	.ew_pol_log .ew_logTable_wrapper .ew_log_table{
-		th:nth-child(2),td:nth-child(2), th:nth-child(3),td:nth-child(3){
+		th:nth-child(2),td:nth-child(2){
 			display: none;
 		}
 		.ew_dateMobile, .ew_refNoMobile{

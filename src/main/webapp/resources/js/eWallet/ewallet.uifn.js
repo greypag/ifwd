@@ -787,20 +787,16 @@ var logViewer = {
 
 			var logRow = $("<tr/>").addClass("ew_log");
 
-			var tngId = $("<td/>").html(usrTngId);
-
-			var dateMobile = $("<span/>").addClass("ew_dateMobile").html(logDt);
-			tngId.append(dateMobile);
-
 			var withdrawAmount = $("<td/>").html(eWalletCtr.toPriceStr(logData.txnAmount));
 
 			var date = $("<td/>").html(logDt);
 
 			var refNo = $("<td/>").html(tngRefNo);
 			var refNoMobile = $("<span/>").addClass("ew_refNoMobile").html(tngRefNo);
-			tngId.append(refNoMobile);
 
-			logRow.append([tngId, date, refNo, withdrawAmount]);
+			date.append([refNoMobile]);
+
+			logRow.append([date, refNo, withdrawAmount]);
 
 			this.htmlDom.find("table").append(logRow);
 		}
@@ -827,6 +823,7 @@ var logViewer = {
 				eWalletCtr.fillPolicyInfo(that.htmlDom.find(".ew_pol_info"), response.policy);
 				that.htmlDom.find(".ew_log_dt_selectWrapper").show();
 				that.htmlDom.find(".ew_loading").hide();
+				that.htmlDom.find(".ew_pol_info .ew_pol_tngId").html(response.policy.tngAccountId || "-");
 			},
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("getPolicyInfo", xhr.status, response.code);

@@ -973,6 +973,10 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.planBalanceText" bundle="${msg}" /><span class="ew_pol_principal_date"></span>)</span>
 												<span class="ew_pol_info_fieldValue ew_pol_blance"></span>
 											</p>
+											<p class="col-xs-12 col-sm-4 ew_pol_info_data">
+												<span class="ew_pol_info_fieldName"><fmt:message key="ewallet.planList.pol.info.tngId" bundle="${msg}" /></span>
+												<span class="ew_pol_info_fieldValue ew_pol_tngId"></span>
+											</p>
 										</div> 
 									</div>
 									<div class="col-xs-12 ew_log_dt_selectWrapper">
@@ -991,7 +995,6 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 									<div class="col-xs-12 ew_logTable_wrapper">
 										<table class="ew_log_table">
 										  <tr>
-										    <th><fmt:message key="ewallet.withdraw.name" bundle="${msg}"/></th>
 										    <th><fmt:message key="ewallet.withdraw.linkdate" bundle="${msg}"/></th> 
 										    <th><fmt:message key="ewallet.withdraw.refno" bundle="${msg}"/></th> 
 										    <th><fmt:message key="ewallet.withdraw.amount.text" bundle="${msg}"/></th>
