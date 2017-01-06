@@ -521,13 +521,12 @@ function sendEmail() {
             data : $("#sendmailofpromocode form").serialize(),
             async : false,
             success : function(data) {
-            	 $('.proSuccess').removeClass('hide').html("Thank you. Your promotion code has been emailed to you.");
-                /*if (data == 'success') {
-                    $('.proSuccess').removeClass('hide').html("Thank you. Your promotion code has been emailed to you.");
+                if (data == 'success') {
+                    $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
                 } else {
                 	//console.log(data);
                     $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "motor.error.msg.getquote.promote.format"))
-                }*/
+                }
             },
             error : function() {
             }

@@ -241,7 +241,7 @@ $(document).ready(function(){
 	$(".amountDueAmount").html("$"+quote.amountDueAmount);
 	$(".amountSave").html((parseInt(quote.amountDueAmount)*0.3).toFixed(2));
 	$("#sendMail").html("<a href='mailto:"+quote.applicant.email+"'>"+quote.applicant.email+"</a>");
-	$(".ref-number").html(quote.refNumber);
+	$(".ref-number").html(quote.coverNoteNum);
 });
 </script>
     }
