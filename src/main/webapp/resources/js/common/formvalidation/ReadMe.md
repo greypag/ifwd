@@ -1,3 +1,18 @@
+**2017-01-06
+    Rex     Suggested simplification:
+
+            Philosophy behind 
+            - Creating a library by abstracting another library induces unnecessary complexity
+
+            1. Dynamic fields - Use Formvalidator's Addfield and templating approach
+               http://formvalidation.io/examples/adding-dynamic-field/
+            2. UX behavior / Field value binding should be done as independent as possible
+               Trigger FV revalidate if necessary
+            3. HKID uniqueness checking can be simplified
+            4. Join Us form should be a reusable component, i.e. a seperate form instead of embedded. (This can be onhold until future revamp)
+            5. Variable and function names are too long
+
+
 **2016-12-05
     Gary    - 1) helpers.js "cb_hkidUniqueValidation()" bug is fixed, allow to  check HKID invalid, and tested on personal plan
             - 2) argCfg.helpers.attr.modifiedDOM() amended
