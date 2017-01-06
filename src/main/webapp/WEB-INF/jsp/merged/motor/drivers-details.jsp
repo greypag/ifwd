@@ -124,7 +124,7 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>
 	                                    </div>
 	                                </div>
-	                                <div class="col-sm-6">
+	                                <div class="col-sm-6">	
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
@@ -601,8 +601,8 @@ function SaveAndExit()
 				    "flat":  $('input[name=flat]').val(),		
 				    "floor":  $('input[name=floor]').val(),		
 				    "hkKlNt": area,//$("#area option:selected").text(),		
-				    "streetName":  $('input[name=streetname').val(),		
-				    "streetNo":  $('input[name=streetno').val()		
+				    "streetName":  $('input[name=streetname]').val(),		
+				    "streetNo":  $('input[name=streetno]').val()		
 				  },		
 				  "dateOfBirth": $('input[name=driverDob]').val(),  		
 				  "email": $('input[name=email]').val() ,		
