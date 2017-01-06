@@ -9,7 +9,18 @@ var context = "${pageContext.request.contextPath}";
 var language = "${language}";
 var nextPage = "${nextPageFlow}";
 </script>
+<style>
+ @media all and (-ms-high-contrast:none)
+     {
+     .quick-quote form.add-on .checkbox label::after { left: auto; } /* IE10 */
+     *::-ms-backdrop, .quick-quote form.add-on .checkbox label::after { left: auto;} /* IE11 */
+     }
 
+.quick-quote .thumbnail > img, .quick-quote .thumbnail a > img{
+max-width: 90px;
+}
+
+</style>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 

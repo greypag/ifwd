@@ -15,6 +15,7 @@ var nextPage = "${nextPageFlow}";
 
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/number-polyfill.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/bootstrap-switch.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/selectize.bootstrap3.css" type="text/css">
 <style type="text/css" media="all">
@@ -100,7 +101,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" pattern="^.{3,}$" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="chassisNumber"><fmt:message key="motor.cardetails.car.chassisno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -114,7 +115,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="number" name="cubicCapacity" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" required data-required-error='<fmt:message key="motor.error.msg.cc.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.cc.format" bundle="${motorMsg}" />'>
+	                                                <input type="number" name="cubicCapacity" class="form-control input--grey mdl-textfield__input" id="cubicCapacity" pattern="^[0-9]*$" required data-required-error='<fmt:message key="motor.error.msg.cc.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.cc.format" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="cubicCapacity"><fmt:message key="motor.cardetails.car.cubiccap" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -128,7 +129,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_car_make.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="registedModel" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="30" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="registedModel" pattern="^.{3,}$"  data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="30" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="registedModel"><fmt:message key="motor.cardetails.car.model" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -413,6 +414,7 @@ var nextPage = "${nextPageFlow}";
 </div>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/number-polyfill.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
@@ -420,19 +422,21 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/register-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
-/*var chin = $('body').hasClass('chin'),
-enErr = {
-404: 'System Cannot find the policy',
-504: 'System Error',
-422: 'Invalid Details',
-410: 'Invalid CarBand',
-},
-cnErr ={
-		404: '您的汽車類型未能合乎即時報價的要求。',   
-		504: '您的汽車類型未能合乎即時報價的要求。',      
-		422: '您的汽車車齡超過13年。',                          
-		410: '您的職業未能合乎即時報價的要求。',        
-};*/
+$('input[name=cubicCapacity]').inputNumber();
+
+var ccCheck = $('#cubicCapacityDiv').find('.left-desktop');
+var ccField= $('input[name=cubicCapacity]');
+
+ccField.keyup(function() {
+	if(ccCheck.hasClass('is-invalid')){
+		if(ccCheck.hasClass('is-dirty')){
+			
+		}
+		else{
+			$(this).val("");
+		}
+	}
+});
 
 var checkbox=false;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
@@ -534,6 +538,19 @@ $(window).load(function(){
     	 return false;
     });
 });
+var chin = $('body').hasClass('chin'),
+enErr = {
+	404: 'Invalid information (code: 404)',
+	410: 'Invalid information (code: 410)',
+	422: 'Invalid information (code: 422)',
+	504: 'Invalid information (code: 504)',
+},
+cnErr ={
+	404: '資料不正確(編號：404)',
+	410: '資料不正確(編號：410)',
+	422: '資料不正確(編號：422)',
+	504: '資料不正確(編號：504)',               
+};
 $(document).ready(function(){
 	//console.log(quote.carDetail);
 	 
@@ -801,10 +818,16 @@ $(document).ready(function(){
 	              $form.append($quote);
 	              $("body").append($form);
 	              $('#quote-form').submit();             
-			  },error: function(error) {
-				  $("#system-error").removeClass("hide");
-			      $("#loading-overlay").modal("hide");
-		          return false;
+			  },error: function(xhr, textStatus, errorThrown) {
+				  $('#reason').attr('value', xhr.status);
+	          	  	 if(chin)
+	          	  		$("#system-error").find('.help-block').html(cnErr[xhr.status]);
+	             	 else
+				  		$("#system-error").find('.help-block').html(enErr[xhr.status]);
+	            	 $("#system-error").removeClass("hide");
+	              
+	              $("#loading-overlay").modal("hide");
+		             return false;
 			  }
 			});
 		}
