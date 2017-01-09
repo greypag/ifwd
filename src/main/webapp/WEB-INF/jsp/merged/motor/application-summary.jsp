@@ -309,14 +309,14 @@ var nextPage = "${nextPageFlow}";
 											key="motor.summary.cardetail.chassisno" bundle="${motorMsg}" /></span>
 								</div>
 								<div class="col-xs-6 text-right odd">
-									<span class="carchasis"></span>
+									<span class="carchasis" style="margin: 10px 0px 10px 0px;"></span>
 								</div>
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message key="motor.summary.cardetails.regdoc"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right even">
-									<span class="carmodeldocument"></span>
+								<div class="col-xs-6 text-right even" style="height: 100%;">
+									<span class="carmodeldocument" style="margin: 10px 0px 10px 0px;"></span>
 								</div>
 								<div class="col-xs-6 text-left odd carbankmortgageBox" style="display:none">
 									<span class="carbankmortgageOther"><fmt:message key="motor.summary.cardetails.other"
@@ -397,8 +397,8 @@ var nextPage = "${nextPageFlow}";
 											bundle="${motorMsg}" /></span>
 								</div>
 								<div class="col-xs-6 text-right even"
-									style="height: 120px; text-align: left;">
-									<span class="address"></span>
+									style="height: 100%; text-align: right;">
+									<span class="address" style="margin: 10px 0px 10px 0px;"></span>
 								</div>
 							</div>
 						</div>
@@ -678,7 +678,7 @@ var nextPage = "${nextPageFlow}";
 											key="motor.summary.noclaimdis.prevname" bundle="${motorMsg}" /></span>
 								</div>
 								<div class="col-xs-6 text-right odd">
-									<span class="nameofprevinsurance"></span>
+									<span class="nameofprevinsurance" style="margin: 10px 0px 10px 0px;"></span>
 								</div>
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message

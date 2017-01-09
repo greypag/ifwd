@@ -129,7 +129,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_car_make.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="registedModel" pattern="^.{3,}$"  data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="registedModel" pattern="^.{3,}$"  data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="3" maxlength="50" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="registedModel"><fmt:message key="motor.cardetails.car.model" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
