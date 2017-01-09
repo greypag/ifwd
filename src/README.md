@@ -30,3 +30,4 @@ Branch Creation Log
 2017-01-03 - UAT Release branch R01042017-001 - Provie RP Reopen / Partner content update
 2017-01-05 - UAT Release branch R01092017-001 - Wealthree
 2017-01-05 - DEV FNA Product Recommendation Case 1 Remarks
+2017-01-05 - UAT Release branch R01042017-002 - Savie Resume / TheClub content fix / Sale illustration
