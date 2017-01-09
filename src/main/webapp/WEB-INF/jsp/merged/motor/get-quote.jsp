@@ -217,18 +217,18 @@ width: 100px !important;
                     </div>
                     <div id="testimonials" class="q5 fadeInUp animated hidden">
                         <div class="center">
-                            <h2><fmt:message key="motor.getquote.promotion.heading" bundle="${motorMsg}" /></h2>
+                            <h2><fmt:message key="motor.Promotecode.title" bundle="${motorMsg}" /></h2>
                         </div>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" name="promoCode" id="promoCode" class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
+                                        <input type="text" name="promoCode" id="promoCode" class="form-control" value="" placeholder='<fmt:message key="motor.promotecode.fieldlabel" bundle="${motorMsg}" />' />
                                                                       		  <br/>
 										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
 											role="alert" style="position:static"></div> 
                                         <label>
-                                            <a href="javascript:;" id="findPromo" ><fmt:message key="motor.getquote.promotion.how.text" bundle="${motorMsg}" /></a>
+                                            <a href="javascript:;" id="findPromo" ><fmt:message key="motor.promotecode.get.promotecode" bundle="${motorMsg}" /></a>
                                         </label>
                                                                         
                                     </div>

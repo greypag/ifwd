@@ -140,7 +140,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="email" name="email" id="email" maxlength="50" class="form-control input--grey mdl-textfield__input" data-error='<fmt:message key="motor.error.msg.carowner.email.format" bundle="${motorMsg}" />' data-required-error='<fmt:message key="motor.error.msg.carowner.email.empty" bundle="${motorMsg}" />' required>
+	                                                <input type="email" style="text-transform:none" name="email" id="email" maxlength="50" class="form-control input--grey mdl-textfield__input" data-error='<fmt:message key="motor.error.msg.carowner.email.format" bundle="${motorMsg}" />' data-required-error='<fmt:message key="motor.error.msg.carowner.email.empty" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label" for="email"><fmt:message key="motor.driversdetails.driver.email" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -654,8 +654,21 @@ $(window).load(function(){
     	 return false;
     });
 });
-
+var chin = $('body').hasClass('chin'),
+enErr = {
+	404: 'Invalid information (code: 404)',
+	410: 'Invalid information (code: 410)',
+	422: 'Invalid information (code: 422)',
+	504: 'Invalid information (code: 504)',
+},
+cnErr ={
+	404: '資料不正確(編號：404)',
+	410: '資料不正確(編號：410)',
+	422: '資料不正確(編號：422)',
+	504: '資料不正確(編號：504)',               
+};
 $(document).ready(function(){
+	$("input").css({"text-transform":"uppercase"});
 	$("#driverDob").val('');
 	$("#driverDob").change(function(){
 		$("#driverDob-hidden").prop('required',false);
@@ -919,6 +932,106 @@ $(document).ready(function(){
 			         	updateTotalDue(totalDue);
 			         	$(".yourQuoteAmmount").html ($("#yourQuoteAmmount").html());
 	     });
+	     $motor_district = $('#district').selectize({
+	         valueField: 'code',
+	         labelField: 'desc',
+	         searchField: 'desc',
+	         create: false,
+	         preload: true,
+	         load: function(query, callback) {
+	             $('#district-selectized').data('required-error', $('#district').data('required-error'));
+	             $.ajax({
+	                 url: context + '/api/iMotor/list/districts',
+	                 type: 'GET',
+	                 dataType: 'json',
+	                 error: function() {
+	                         callback();
+	                     },
+	                     success: function(res) {
+	                     	console.dir(res);
+	 						var newres= new Array();
+	                     	var total = res.length;
+	                     	$.each(res, function(i, item) {
+	                     		if(item.lang==motorlanguage) 
+	                     		newres.push(res[i]);
+	                     	});
+	 						console.dir(newres);
+	                         callback(newres);
+	 						if(typeof quote.applicant.correspondenceAddress != "undefined")
+	 							$.each(res, function(i, item) {
+	 								if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
+	 								{
+	 									if(item.desc == quote.applicant.correspondenceAddress.district )
+	 									{
+	 										$motor_district[0].selectize.setValue(item.code);
+	 										
+	 										if(motorlanguage == "ZH")
+	 										{
+	 											console.log(item.remark);
+	 											if(item.remark == "NEW TERRITORIES")
+	 												$("#area").val("新界");
+	 											else if(item.remark == "HONG KONG")
+	 												$("#area").val("香港");
+	 											else if(item.remark == "KOWLOON")
+	 												$("#area").val("九龍");
+	 										}	
+	 										else
+	 											$("#area").val(item.remark);
+	 										$("#area").css({
+	 											"color": "#000",										
+	 									    	"font-size": "14px"});
+	 									}
+	 								}
+	 							});
+	                     }
+	             });
+	         },
+	         onChange: function(value){
+	 			$(".label-district, .label-area").removeClass("hidden");
+	 			$(".label-district, .label-area").css({
+	 				"font-size": "12px",
+	 				"top": "2px",
+	 				"left":"16px",
+	 				"visibility": "visible",
+	 				"z-index": "100"
+	 				});
+	 			//$motor_area[0].selectize.setValue("HONG KONG");
+	 			$.ajax({
+	                 url: context + '/api/iMotor/list/districts',
+	                 type: 'GET',
+	                 dataType: 'json',
+	                 error: function() {
+	                         callback();
+	                     },
+	                     success: function(res) {
+	                     	
+	 							$.each(res, function(i, item) {
+	 									
+	 									if(item.code == value)
+	 									{
+	 										if(motorlanguage == "ZH")
+	 										{
+	 											if(item.remark == "NEW TERRITORIES")
+	 												$("#area").val("新界");
+	 											else if(item.remark == "HONG KONG")
+	 												$("#area").val("香港");
+	 											else if(item.remark == "KOWLOON")
+	 												$("#area").val("九龍");
+	 										}	
+	 										else
+	 											$("#area").val(item.remark);
+	 										
+	 										$("#area").css({
+	 											"color": "#000",										
+	 									    	"font-size": "14px"});
+	 									}
+	 							
+	 							});
+	                     }
+	             });
+	 			
+	         }
+	     });
 	 /*$.ajax({
 		  type: "POST",
 		  data: JSON.stringify(quote),
@@ -947,8 +1060,17 @@ $(document).ready(function(){
     
 	$('#driverDetails').validator().on('submit', function (e) {
 		$("#system-error").addClass("hide");
+		
 		if (!e.isDefaultPrevented()) {
-			
+			$("input").val(function(i,val) {
+				var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+				if(pattern.test(val)!=true)
+					return val.toUpperCase();
+				else
+					return val;
+				
+		    });
+		
 			var area = $('input[name=area]').val();
 			if(area== "新界")
 				area = "New Territories";
@@ -970,8 +1092,8 @@ $(document).ready(function(){
 				    "flat":  $('input[name=flat]').val(),		
 				    "floor":  $('input[name=floor]').val(),		
 				    "hkKlNt":area,//$("#area option:selected").text(),		
-				    "streetName":  $('[name=streetname').val(),		
-				    "streetNo":  $('[name=streetno').val()				
+				    "streetName":  $('[name=streetname]').val(),		
+				    "streetNo":  $('[name=streetno]').val()				
 				  },		
 				  "dateOfBirth": $('input[name=driverDob]').val(),  		
 				  "email": $('input[name=email]').val() ,		
@@ -1011,12 +1133,16 @@ $(document).ready(function(){
 	              $("body").append($form);
 	              $('#quote-form').submit();
 	              
-			  },error: function(error) {
-				 console.dir(error);				
-				 $("#system-error").removeClass("hide");
-	             $("#loading-overlay").modal("hide");
-	             return false;
+			  },error: function(xhr, textStatus, errorThrown) {
+				  $('#reason').attr('value', xhr.status);
+	               	 if(chin)
+	               		$("#system-error").find('.help-block').html(cnErr[xhr.status]);
+	             	 else
+				  		$("#system-error").find('.help-block').html(enErr[xhr.status]);
+	            	 $("#system-error").removeClass("hide");
 	              
+	              $("#loading-overlay").modal("hide");
+		             return false;
 			  }
 			});
 		}

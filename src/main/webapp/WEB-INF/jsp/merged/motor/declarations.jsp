@@ -266,7 +266,7 @@ var nextPage = "${nextPageFlow}";
 	                                    </div>
 	                                    <div class="text-center col-xs-6">
 	                                        <br />
-	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />
+	                                <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="<fmt:message key="motor.button.next" bundle="${motorMsg}" />" />
 	                                        <br/>
 	                                    </div>
 	                                    <div class="clearfix"></div>
@@ -869,12 +869,19 @@ $(window).load(function(){
 });
 var chin = $('body').hasClass('chin'),
 enErr = {
+		404: 'Invalid information (code: 404)',
 		410: 'Fail to complete underwriting question(s).',
-		},
-cnErr ={
-		410: '您未能通過核保問題。',                          
-};
+		422: 'Invalid information (code: 422)',
+		504: 'Invalid information (code: 504)',
+	},
+	cnErr ={
+		404: '資料不正確(編號：404)',
+		410: '您未能通過核保問題。',
+		422: '資料不正確(編號：422)',
+		504: '資料不正確(編號：504)',               
+	};
 $(document).ready(function(){
+	$("input").css({"text-transform":"uppercase"});
 	//enable the Next Button
 	   $('#declaration').validator({
 		   custom: {
@@ -918,8 +925,8 @@ $(document).ready(function(){
 	    	{$(".a3yes").addClass("active");$('input[name=answer3]').prop("checked",true);	}
 	    	
 	    	$('input[name=psNoDM]').attr("checked",false);	
-			$('input[name=psNoProvidePersonalData]').attr("checked",false);	
-			$('input[name=psPICS]').attr("checked",false);	
+			$('input[name=psNoProvidePersonalData]').attr("checked",quote.psNoProvidePersonalData);	
+			$('input[name=psPICS]').attr("checked",quote.psPICS);	
     	}
     }
    
@@ -1096,7 +1103,7 @@ $(document).ready(function(){
 			  },error: function(xhr, textStatus, errorThrown) {
 
 				  $('#reason').attr('value', xhr.status);
-	          		e.preventDefault();
+	          
 	              if (xhr.status == 410) {
 	              	if(chin)
 	              		$("#reasonMsg").text(cnErr[410]);
@@ -1105,7 +1112,13 @@ $(document).ready(function(){
 	                  $("#contactpopup").modal('show');
 	                  console.log(xhr.status, textStatus, errorThrown);
 	              }else			  
-				  	$("#system-error").removeClass("hide");
+					 {
+	            	  if(chin)
+	            		  $("#system-error").find('.help-block').html(cnErr[xhr.status]);
+		             	 else
+					  		$("#system-error").find('.help-block').html(enErr[xhr.status]);
+		            	 $("#system-error").removeClass("hide");
+				 }
 	              $("#loading-overlay").modal("hide");
 				  return false;
 			  }

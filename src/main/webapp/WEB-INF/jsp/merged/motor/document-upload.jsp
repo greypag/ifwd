@@ -267,6 +267,7 @@ var total_vehicleReg_dz = 0;
 var total_hkid_dz = 0;
 var total_license_dz = 0;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):""%>');
+ quote = jQuery.parseJSON('{"addOnTppdAmt":"309","addOnPaBenefit":"500000","discountAmount":null,"theClubMemberNum":null,"addOnPaAmt":"100","personalAccidentAmount":"100.0","expDateOfPreviousInsurance":"08-01-2017","motorCareDeclaration":[{"declarationDesc":null,"langCode":null,"declarationNo":"q1","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q2","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q3","declarationAns":false}],"tPPDExcess":"10000","amtFromThirdPartyToCompGold":null,"compInsuranceAmount":"1567.5","regNoofPreviousPolicy":"11233588","psNoProvidePersonalData":true,"youngDriverExcess":"10000","inexperiencedDriverExcess":"10000","promoCode":null,"id":0,"addOnTppdIncrease":"5000000","carDetail":{"yearOfManufacture":"2016","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null,"electricCar":false,"engineCapacity":2599,"chassisNumber":"1HGCM82633A004352","estimatedValue":200000,"typeOfBody":null,"alarm":null,"makeCode":"BMW","model":"120I","modelDesc":"MODELZ","id":null,"carGroup":null},"thirdPartyPropertyDamage":true,"theftExcess":"N/A","amountDueAmount":"2023.53","previousPolicyNo":"P122345","unnamedDriverExcess":"N/A","compPlan":null,"subTotalAmount":"1967.5","amtFromThirdPartyToCompSilver":null,"ownDamageExcess":"N/A","coverNoteNum":"CVVPE17-000080","parkingExcess":"N/A","policyEndDate":"08-01-2018","policyStartDate":"09-01-2017","planCode":"Third","applicant":{"occupation":"A1","name":"CHAN CHAN CHAN","dateOfBirth":"09-01-1983","ncb":40,"validAgeGroup":true,"hkid":"A1234563","email":"KEVIN.CHAN@ISOBAR.COM","driveMoreThanTwo":true,"contactNo":"65656565","correspondenceAddress":{"streetName":"","streetNo":"","hkKlNt":"HONG KONG","addressType":null,"flat":"AA","district":"AP LEI CHAU","estate":"","block":"","floor":"","building":"DDD"}},"personalAccident":true,"policyId":"27035032","driver":[{"occupation":"A1","name":"CHAN CHAN CHAN","dateOfBirth":"09-01-1983","ncb":null,"validAgeGroup":true,"hkid":"A1234563","email":null,"driveMoreThanTwo":true,"contactNo":null}],"psPICS":false,"psNoDM":true,"refNumber":"Zbp0B5/3bYGQE26ovBdHGg==","grossPremium":null,"nameOfPreviousInusrancer":"AXAChinaRegionInsuranceCompanyLimited","riderDiscountAmt":null}');
 
 	
     $(document).ready(function(){
@@ -306,7 +307,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 				maxFilesize: 2,
 				addRemoveLinks: true,
 				dictRemoveFile:remove_file,
-				acceptedFiles: 'image/jpeg,image/png',
+				acceptedFiles: 'image/jpeg,image/png,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint,text/plain,image/bmp,image/gif,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/tiff',
 	            init: function() {
 	            	this.on("sending", function(file, xhr, formData){
 	                        formData.append("policyId", quote.policyId);
@@ -346,7 +347,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 				maxFilesize: 2,
 				addRemoveLinks: true,
 				dictRemoveFile:remove_file,
-				acceptedFiles: 'image/jpeg,image/png',
+				acceptedFiles: 'image/jpeg,image/png,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint,text/plain,image/bmp,image/gif,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/tiff',
 				uploadMultiple: true,
 	            parallelUploads: 4,
 	            init: function() {
@@ -388,7 +389,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 				maxFilesize: 2,
 				addRemoveLinks: true,
 				dictRemoveFile:remove_file,
-				acceptedFiles: 'image/jpeg,image/png',
+				acceptedFiles: 'image/jpeg,image/png,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint,text/plain,image/bmp,image/gif,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/tiff',
 				uploadMultiple: true,
 	            parallelUploads: 4,
 	            init: function() {

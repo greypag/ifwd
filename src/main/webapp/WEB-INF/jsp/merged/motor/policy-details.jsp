@@ -149,7 +149,7 @@ var nextPage = "${nextPageFlow}";
 	                                    </div>
 	                                </div>
 	                                <div class="clearfix"></div>
-	                                <div class="col-xs-12">
+	                                <div class="col-xs-12" style="padding-left: 40px;">
 	                                    <div class="custom-checkbox">
 	                                        <div class="checkbox">
 	                                            <div class="form-group">
@@ -238,7 +238,7 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>
 	                                    </div>
 	                                    <div class="clearfix"></div>
-	                                    <div class="col-xs-12">
+	                                    <div class="col-xs-12" style="padding-left: 40px;">
 	                                        <div class="custom-checkbox">
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
@@ -327,7 +327,7 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>
 	                                    </div>
 	                                    <div class="clearfix"></div>
-	                                    <div class="col-xs-12">
+	                                    <div class="col-xs-12" style="padding-left: 40px;">
 	                                        <div class="custom-checkbox">
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
@@ -416,7 +416,7 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>
 	                                    </div>
 	                                    <div class="clearfix"></div>
-	                                    <div class="col-xs-12">
+	                                    <div class="col-xs-12" style="padding-left: 40px;">
 	                                        <div class="custom-checkbox">
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
@@ -506,7 +506,7 @@ var nextPage = "${nextPageFlow}";
 	                                        </div>
 	                                    </div>
 	                                    <div class="clearfix"></div>
-	                                    <div class="col-xs-12">
+	                                    <div class="col-xs-12" style="padding-left: 40px;">
 	                                        <div class="custom-checkbox">
 	                                            <div class="checkbox">
 	                                                <div class="form-group">
@@ -593,7 +593,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' id="prev_policyNo" required>
+	                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.format" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.empty" bundle="${motorMsg}" />' id="prev_policyNo" required>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.policyno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -1126,12 +1126,19 @@ $(window).load(function(){
 });
 var chin = $('body').hasClass('chin'),
 enErr = {
-			410: 'Fail to complete underwriting question(s).',
-		},
-cnErr ={
-			410: '您未能通過核保問題。',                  
-		};
+		404: 'Invalid information (code: 404)',
+		410: 'At least one of the named drivers is not eligible for online purchase.',
+		422: 'Invalid information (code: 422)',
+		504: 'Invalid information (code: 504)',
+	},
+	cnErr ={
+		404: '資料不正確(編號：404)',
+		410: '至少一位記名駕駛者未能合乎網上購買的要求。',
+		422: '資料不正確(編號：422)',
+		504: '資料不正確(編號：504)',               
+	};
 $(document).ready(function(){
+	$("input").css({"text-transform":"uppercase"});
 	$("#expiry-datepicker").val('');
 	$("#expiry-datepicker").change(function(){
 		$("#expiry-datepicker-hidden").prop('required',false);
@@ -1791,7 +1798,11 @@ $(document).ready(function(){
 			});*/
 	$('#policyDetails').validator().on('submit', function (e) {
 		$("#system-error").addClass("hide");
+		
 		if (!e.isDefaultPrevented()) {
+			$("input").val(function(i,val) {
+		        return val.toUpperCase();
+		    });
 	       var driverMoreThanTwo = false;
 		   if($('input[name=d3name]').val()!="")
 		   {
@@ -1804,43 +1815,43 @@ $(document).ready(function(){
 				   "driver": [		
 				   {		
 				     "dateOfBirth": $('input[name=driverDob]').val(),		
-				     "driveMoreThanTwo": $('input[name=term]').val(),		
+				     "driveMoreThanTwo": $('input[name=term]').val().toLowerCase(),		
 				     "hkid": $('input[name=driverID]').val(),		
 				     "name": $('input[name=fullName]').val(),		
 				     "occupation": $('[name="occupation"]').val(),//$("#occupation option:selected").text(),	
-				     "validAgeGroup": $('input[name=term]').val()		
+				     "validAgeGroup": $('input[name=term]').val().toLowerCase()		
 				   }, 		
 				   {		
 				     "dateOfBirth": $('input[name=d2dob]').val(),		
-				     "driveMoreThanTwo": $('input[name=d2term]').val(),		
+				     "driveMoreThanTwo": $('input[name=d2term]').val().toLowerCase(),		
 				     "hkid": $('input[name=d2id]').val(),		
 				     "name": $('input[name=d2name]').val(),		
 				     "occupation": $('[name="d2occupation"]').val(),//$("#d2occupation option:selected").text(),		
-				     "validAgeGroup":  $('input[name=d2term]').val()			
+				     "validAgeGroup":  $('input[name=d2term]').val().toLowerCase()		
 				   }, 		
 				   {		
 					 "dateOfBirth": $('input[name=d3dob]').val(),		
-					 "driveMoreThanTwo": $('input[name=d3term]').val(),		
+					 "driveMoreThanTwo": $('input[name=d3term]').val().toLowerCase(),		
 					 "hkid": $('input[name=d3id]').val(),		
 					 "name": $('input[name=d3name]').val(),		
 					 "occupation": $('[name="d3occupation"]').val(),//$("#d3occupation option:selected").text(),		
-					 "validAgeGroup": $('input[name=d3term]').val()		
+					 "validAgeGroup": $('input[name=d3term]').val().toLowerCase()		
 				   }, 		
 				   {		
 					 "dateOfBirth": $('input[name=d4dob]').val(),		
-					 "driveMoreThanTwo": $('input[name=d4term]').val(),		
+					 "driveMoreThanTwo": $('input[name=d4term]').val().toLowerCase(),		
 					 "hkid": $('input[name=d4id]').val(),		
 					 "name": $('input[name=d4name]').val(),		
 					 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
-					 "validAgeGroup":  $('input[name=d4term]').val()			
+					 "validAgeGroup":  $('input[name=d4term]').val().toLowerCase()			
 				   }, 		
 				   {		
 					 "dateOfBirth": $('input[name=d5dob]').val(),		
-					 "driveMoreThanTwo": $('input[name=d5term]').val()	,		
+					 "driveMoreThanTwo": $('input[name=d5term]').val().toLowerCase(),		
 					 "hkid": $('input[name=d5id]').val(),		
 					 "name": $('input[name=d5name]').val(),		
 					 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		
-					 "validAgeGroup": $('input[name=d5term]').val()		
+					 "validAgeGroup": $('input[name=d5term]').val().toLowerCase()	
 				   }		
 				   ], 		
 				     "nameOfPreviousInusrancer": $('[name=prev_ic]').val(),		
@@ -1890,7 +1901,7 @@ $(document).ready(function(){
 				  },error: function(xhr, textStatus, errorThrown) {
 					 
 					  $('#reason').attr('value', xhr.status);
-		          		e.preventDefault();
+		          
 		              if (xhr.status == 410) {
 		              	if(chin)
 		              		$("#reasonMsg").text(cnErr[410]);
@@ -1899,7 +1910,13 @@ $(document).ready(function(){
 		                  $("#contactpopup").modal('show');
 		                  console.log(xhr.status, textStatus, errorThrown);
 		              }else			  
-					  	$("#system-error").removeClass("hide");
+					 {
+		            	  if(chin)
+		            		  $("#system-error").find('.help-block').html(cnErr[xhr.status]);
+			             	 else
+						  		$("#system-error").find('.help-block').html(enErr[xhr.status]);
+			            	 $("#system-error").removeClass("hide");
+					 }
 			             $("#loading-overlay").modal("hide");
 			             return false;
 				  }

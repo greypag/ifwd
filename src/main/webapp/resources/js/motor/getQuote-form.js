@@ -593,6 +593,7 @@ $(document).ready(function(){
 					
 			if($(this).attr('data')=="check")
 			{
+				$(".finalsubmitGetQuote").css({"cursor":"pointer"});
 				$("#promo-errors").html("");
 				submitData.promoCode = promoCode;
 					 $.ajax({

@@ -101,7 +101,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" pattern="^.{3,}$" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="50" pattern="^.{3,}$" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="chassisNumber"><fmt:message key="motor.cardetails.car.chassisno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -129,7 +129,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_car_make.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="registedModel" pattern="^.{3,}$"  data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="4" maxlength="30" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="registedModel" pattern="^.{3,}$"  data-pattern-error='<fmt:message key="motor.error.msg.makemodel.format" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="registedModel" required data-required-error='<fmt:message key="motor.error.msg.makemodel.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.makemodel.general" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="registedModel"><fmt:message key="motor.cardetails.car.model" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -427,7 +427,16 @@ $('input[name=cubicCapacity]').inputNumber();
 var ccCheck = $('#cubicCapacityDiv').find('.left-desktop');
 var ccField= $('input[name=cubicCapacity]');
 
-ccField.keyup(function() {
+
+ccField.keyup(function(e) {
+	if ( e.which < 96 ) {
+	    if ( e.which < 48 && e.which > 57 ) { 
+	    e.preventDefault();
+	  }
+	}
+	if( e.which > 105 ) {
+	    e.preventDefault();
+	  }
 	if(ccCheck.hasClass('is-invalid')){
 		if(ccCheck.hasClass('is-dirty')){
 			
@@ -552,6 +561,7 @@ cnErr ={
 	504: '資料不正確(編號：504)',               
 };
 $(document).ready(function(){
+	$("input").css({"text-transform":"uppercase"});
 	//console.log(quote.carDetail);
 	 
 	if(quote.carDetail.makeCode == "Tesla"){
@@ -775,7 +785,11 @@ $(document).ready(function(){
      
 	$('#carDetails').validator({disable: false}).on('submit', function (e) {
 		$("#system-error").addClass("hide");
+		
 		if (!e.isDefaultPrevented()) {
+			$("input").val(function(i,val) {
+		        return val.toUpperCase();
+		    });
 			if($('input[name=bankMortgage]:checked').length>0)
 				checkbox = true;
 		   var cccc="";

@@ -152,7 +152,7 @@ var nextPage = "${nextPageFlow}";
 }
 @media ( max-width : 768px) {
 	.col-sm-6{
-		width:50% !important;
+		/*width:50% !important;*/
 	}
 }
 @media ( min-width : 768px) {
@@ -1130,6 +1130,7 @@ var nextPage = "${nextPageFlow}";
 													<div id="login-err-msg" class="color-red heading-h5"
 														role="alert"></div>
 												</div>
+												<span class="error-msg regPanErrMsg"></span>
 											</div>
 										</form>
 									</div>
@@ -1447,7 +1448,8 @@ var nextPage = "${nextPageFlow}";
 							<!-- <input type="submit" class="bdr-curve btn btn-primary nxt-btn" value="Next" />-->
 							<button id="button_confirm"
 								class="bdr-curve btn btn-primary nxt-btn"
-								style="white-space: initial;">Confirmation</button>
+								style="white-space: initial;"><fmt:message
+									key="motor.button.confirmation" bundle="${motorMsg}" /> </button>
 							<br />
 						</div>
 						<div class="clearfix"></div>
@@ -1530,13 +1532,19 @@ $(window).load(function(){
 		motorlanguage = "ZH";
 	var chin = $('body').hasClass('chin'),
 	enErr = {
-			411: 'Fail to complete underwriting question(s).',
-			413: 'Fail to complete underwriting question(s).',
-			},
-	cnErr ={
-			411: '您未能通過核保問題。',               
-			413: '您未能通過核保問題。',               
-	};
+			404: 'Invalid information (code: 404)',
+			411: 'Your payment is being processed',
+			413: 'The Premium is settled.',
+			422: 'Invalid information (code: 422)',
+			504: 'Invalid information (code: 504)',
+		},
+		cnErr ={
+			404: '資料不正確(編號：404)',
+			411: '您的款項正被處理中',               
+			413: '已繳付保金。',  
+			422: '資料不正確(編號：422)',
+			504: '資料不正確(編號：504)',               
+		};
 	$.fn.capitalise1 = function() {
 	    return this.each(function() {
 	        var $this = $(this),
@@ -1576,6 +1584,7 @@ $(window).load(function(){
 	$(document)
 			.ready(
 					function() {
+						$("input").css({"text-transform":"uppercase"});
 						$('#loading-overlay').modal("show");
 						$("#headingOne").on("click",function(){
 							$("#collapseTwo").removeClass();
@@ -2179,7 +2188,7 @@ $(window).load(function(){
 										setTimeout(function() {
 											console.dir($("#" + form)
 													.serialize());
-											alert(geteWayUrl);
+											
 											$("#" + form).attr('action',
 													geteWayUrl);
 											$("#" + form).submit();
@@ -2187,24 +2196,13 @@ $(window).load(function(){
 									},
 									error : function(xhr, textStatus, errorThrown) {
 									  	 $('#reason').attr('value', xhr.status);
-							          		e.preventDefault();
-							              if (xhr.status == 411) {
-							              	if(chin)
-							              		$("#reasonMsg").text(cnErr[411]);
-							              	else
-							              		$("#reasonMsg").text(enErr[411]);
-							                  $("#contactpopup").modal('show');
-							                  console.log(xhr.status, textStatus, errorThrown);
-							              }else	if (xhr.status == 413) {
-								              	if(chin)
-								              		$("#reasonMsg").text(cnErr[413]);
-								              	else
-								              		$("#reasonMsg").text(enErr[413]);
-								                  $("#contactpopup").modal('show');
-								                  console.log(xhr.status, textStatus, errorThrown);
-								          }else 	
-											$("#system-error").removeClass("hide");
-										$("#loading-overlay").modal("hide");
+									 	$("#PaymentingDiv").hide();
+									  	 if(chin)
+							            		$("#system-error").find('.help-block').html(cnErr[xhr.status]);
+							             	 else
+										  		$("#system-error").find('.help-block').html(enErr[xhr.status]);
+							            	 $("#system-error").removeClass("hide");
+									
 										return false;
 									}
 								});

@@ -18,7 +18,7 @@ $(document).ready(function () {
         dob_end_date.setFullYear(dob_end_date.getFullYear()-25);
         // 60 year ago date
         var dob_start_date = new Date();
-        dob_start_date.setFullYear(dob_start_date.getFullYear()-75);
+        dob_start_date.setFullYear(dob_start_date.getFullYear()-70);
         dob_start_date.setDate(dob_start_date.getDate()+1);
         //alert(dob_end_date);
         $('.driverDob-datepicker').val(dob_end_date.getDate() + '-' + (dob_end_date.getMonth() + 1) + '-' + dob_end_date.getFullYear());

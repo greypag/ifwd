@@ -2236,6 +2236,7 @@ body.chin .bold {
     left: 0;
     margin-top: 50px;
     width: 100%;
+    z-index:9999;
   }
   /* line 6, ../sass/customize_screen/motor/_your-quote.scss */
   .yourQuote .collapse-addon.orange-color {
