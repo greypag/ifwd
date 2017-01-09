@@ -240,6 +240,7 @@ public class UserController {
 		logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+//		logger.debug(methodName+" responseJsonObj:"+responseJsonObj.toString());
 		
 		PurchaseHistoryResponse purchaseHistory = (new ObjectMapper()).readValue(responseJsonObj.toString(), PurchaseHistoryResponse.class);
 
@@ -535,7 +536,7 @@ public class UserController {
 			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
 				
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
-			logger.debug(methodName+" responseJsonObj:"+responseJsonObj.toString());
+//			logger.debug(methodName+" responseJsonObj:"+responseJsonObj.toString());
 			
 			JSONObject msg=(JSONObject)responseJsonObj.get("msg");
 			if(msg!=null){
