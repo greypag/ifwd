@@ -11,10 +11,18 @@ var nextPage = "${nextPageFlow}";
 var quote = '${quote}';
 //var quote = '{"addOnTppdAmt":"309","addOnPaBenefit":"500000","discountAmount":null,"theClubMemberNum":null,"addOnPaAmt":"100","personalAccidentAmount":null,"expDateOfPreviousInsurance":null,"motorCareDeclaration":[{"declarationDesc":null,"langCode":null,"declarationNo":"q1","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q2","declarationAns":false},{"declarationDesc":null,"langCode":null,"declarationNo":"q3","declarationAns":false}],"tPPDExcess":null,"amtFromThirdPartyToCompGold":null,"compInsuranceAmount":null,"regNoofPreviousPolicy":null,"psNoProvidePersonalData":true,"youngDriverExcess":null,"inexperiencedDriverExcess":null,"promoCode":null,"id":0,"addOnTppdIncrease":"5000000","carDetail":{"yearOfManufacture":"2016","bankMortgage":false,"bankMortgageCode":null,"bankMortgageName":null,"electricCar":false,"engineCapacity":2599,"chassisNumber":"1HGCM82633A004352","estimatedValue":200000,"typeOfBody":null,"alarm":null,"makeCode":"BMW","model":"120I","modelDesc":"MODELZ","id":null,"carGroup":null},"thirdPartyPropertyDamage":false,"theftExcess":null,"amountDueAmount":"1614.53","previousPolicyNo":null,"unnamedDriverExcess":null,"compPlan":null,"subTotalAmount":null,"amtFromThirdPartyToCompSilver":null,"ownDamageExcess":null,"coverNoteNum":"CVVPE16-000257","parkingExcess":null,"policyStartDate":"2016-11-25T10:54:02","planCode":"Third","applicant":{"occupation":"A1","name":null,"dateOfBirth":null,"ncb":40.0,"validAgeGroup":true,"hkid":null,"email":null,"driveMoreThanTwo":true,"contactNo":null,"correspondenceAddress":null},"personalAccident":false,"policyId":"26655406","driver":[{"occupation":"A1","name":null,"dateOfBirth":null,"ncb":null,"validAgeGroup":true,"hkid":null,"email":null,"driveMoreThanTwo":true,"contactNo":null}],"psPICS":false,"refNumber":"QFVPE16-001608","psNoDM":true,"grossPremium":null,"nameOfPreviousInusrancer":null}';
 var jsonQuote ="";
+
+
 try{
 	jsonQuote = jQuery.parseJSON('${quote}');
+	sessionStorage.setItem('confimarionjson', '${quote}');
 }catch(err) {
+	var sessionConfirmationJson = sessionStorage.getItem('confimarionjson');
+	if(sessionConfirmationJson)
+		jsonQuote = jQuery.parseJSON(sessionConfirmationJson);
+	else
 	window.location="<%=request.getContextPath()%>/en/motor-insurance/";
+	console.dir(jsonQuote);
 }
 </script>
 
@@ -215,7 +223,7 @@ try{
                         <br />
                     </p>
                     <p>
-                        <h3><fmt:message key="motor.confirmation.discount.original.copy" bundle="${motorMsg}" /> <strike class="amountDueAmount"></strike></h3>
+                        <h3><strike class="amountDueAmount"></strike></h3>
                         <h2 class="orange"><fmt:message key="motor.confirmation.discount.save.copy" bundle="${motorMsg}" /><span class="amountSave"></span></h2>
                     </p>
                     <p>
@@ -331,7 +339,7 @@ $(document).ready(function(){
 	
 	$(".amountDueAmount").html("$"+jsonQuote.amountDueAmount);
 	
-	$(".amountSave").html((parseInt(jsonQuote.amountDueAmount)*0.3).toFixed(2));
+	$(".amountSave").html("$"+(parseInt(jsonQuote.amountDueAmount)*0.3).toFixed(2));
 	$("#sendMail").html("<a href='mailto:"+jsonQuote.applicant.email+"'>"+jsonQuote.applicant.email+"</a>");
 	$(".ref-number").html(jsonQuote.coverNoteNum);
 	$("#uploadDoc").on('click',function(){

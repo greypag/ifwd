@@ -140,7 +140,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="email" style="text-transform:none" name="email" id="email" maxlength="50" class="form-control input--grey mdl-textfield__input" data-error='<fmt:message key="motor.error.msg.carowner.email.format" bundle="${motorMsg}" />' data-required-error='<fmt:message key="motor.error.msg.carowner.email.empty" bundle="${motorMsg}" />' required>
+	                                                <input type="email" name="email" id="email" maxlength="50" class="form-control input--grey mdl-textfield__input" data-error='<fmt:message key="motor.error.msg.carowner.email.format" bundle="${motorMsg}" />' data-required-error='<fmt:message key="motor.error.msg.carowner.email.empty" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label" for="email"><fmt:message key="motor.driversdetails.driver.email" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -330,8 +330,8 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="clearfix"></div> 
 	                            <div class="text-center save">
-	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
-	                            </div>
+	                                <!-- <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                             --></div>
 	                        </div>
 	                    </div>
 	                </div>
@@ -669,6 +669,7 @@ cnErr ={
 };
 $(document).ready(function(){
 	$("input").css({"text-transform":"uppercase"});
+	$("input[name=email]").css({"text-transform":"none"});
 	$("#driverDob").val('');
 	$("#driverDob").change(function(){
 		$("#driverDob-hidden").prop('required',false);

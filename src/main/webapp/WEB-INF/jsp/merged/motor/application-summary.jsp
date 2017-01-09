@@ -329,11 +329,11 @@ var nextPage = "${nextPageFlow}";
 						</div>
 						<div class="col-xs-12 col-sm-6">
 							<div class="row detail-row">
-								<div class="col-xs-6 text-left odd">
+								<div class="col-xs-6 text-left odd carcubic-box">
 									<span><fmt:message
 											key="motor.summary.cardetails.ccvalue" bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right odd">
+								<div class="col-xs-6 text-right odd carcubic-box">
 									<span class="carcubic"></span>
 								</div>
 								<div class="col-xs-6 text-left even carbankmortgageBox">
@@ -1595,53 +1595,84 @@ $(window).load(function(){
 							$("#collapseOne").addClass("panel-collapse collapse");
 						});
 						
+						var getUrlParameter = function getUrlParameter(sParam) {
+							var sPageURL = decodeURIComponent(window.location.search
+									.substring(1)), sURLVariables = sPageURL
+									.split('&'), sParameterName, i;
+							//this loop only for the payment return with = handler
+							for (i = 0; i < sURLVariables.length; i++) {
+
+								sParameterName = sURLVariables[i].split('=');
+
+								if (sParameterName[0] === sParam) {
+									if (sParameterName[0] == "refNum") {
+										var combined_refNum = sParameterName[1];
+										var temp = "";
+										for (j = i + 1; j < sParameterName.length; j++) {
+											if (sParameterName[j] != "")
+												temp = "=" + sParameterName[j];
+											if (sParameterName[j] == "")
+												temp = "=";
+											combined_refNum += temp;
+										}
+										return sParameterName[1] === undefined ? true
+												: combined_refNum;
+									} else
+										return sParameterName[1] === undefined ? true
+												: sParameterName[1];
+								}
+							}
+						};
 						
-						var planType = (quote.planCode=='Third')?'third':quote.compPlan.toLowerCase();
-					     $.when(getMotorQuotePrice(planType, quote)).then(function(){
-							
-							            totalDue = parseFloat(motorPrice[planType].amountDueAmount);
-							            addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
-							            addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
-							            if($('body').hasClass('chin')){
-											if(quote.planCode=="Comp"){
-											 if(quote.compPlan=="Gold")
-											 $('#yourQuoteTitle').html('綜合保險(金)');
-											else
-											 $('#yourQuoteTitle').html('綜合保險(銀)');
-											}
-											else
-											$('#yourQuoteTitle').html('第三者保險');
-											}
-											else{
-											if(quote.planCode=="Comp"){
-											 if(quote.compPlan=="Gold")
-											 $('#yourQuoteTitle').html('Comprehensive Gold');
-											else
-											 $('#yourQuoteTitle').html('Comprehensive Silver');
-											}
-											else
-											$('#yourQuoteTitle').html('Third Party');
-											}
-							            $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
-							            $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
-							         
-							            if(quote.personalAccident == true)
-							            {
-							            	$('.summary__addOn1').removeClass('hidden');
-							            	$('.summary__addOn').removeClass('hidden');
-							             	$('#paa').html(formatCurrency(addOnPaQuote));
-							            }
-							            	
-							            if(quote.thirdPartyPropertyDamage == true)
-							            {	
-							            	$('.summary__addOn2').removeClass('hidden');
-							            	$('.summary__addOn').removeClass('hidden');
-							            	$('#cia').html(formatCurrency(addOnTppdQuote));
-							            }
-							         	updateTotalDue(totalDue);
-							         	$(".yourQuoteAmmount").html ($("#yourQuoteAmmount").html());
-							         	$('#loading-overlay').modal("hide");
-					     });
+						if (getUrlParameter("paymentGatewayFlag") == null)
+						{
+							var planType = (quote.planCode=='Third')?'third':quote.compPlan.toLowerCase();
+						     $.when(getMotorQuotePrice(planType, quote)).then(function(){
+								
+								            totalDue = parseFloat(motorPrice[planType].amountDueAmount);
+								            addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
+								            addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+								            if($('body').hasClass('chin')){
+												if(quote.planCode=="Comp"){
+												 if(quote.compPlan=="Gold")
+												 $('#yourQuoteTitle').html('綜合保險(金)');
+												else
+												 $('#yourQuoteTitle').html('綜合保險(銀)');
+												}
+												else
+												$('#yourQuoteTitle').html('第三者保險');
+												}
+												else{
+												if(quote.planCode=="Comp"){
+												 if(quote.compPlan=="Gold")
+												 $('#yourQuoteTitle').html('Comprehensive Gold');
+												else
+												 $('#yourQuoteTitle').html('Comprehensive Silver');
+												}
+												else
+												$('#yourQuoteTitle').html('Third Party');
+												}
+								            $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
+								            $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
+								         
+								            if(quote.personalAccident == true)
+								            {
+								            	$('.summary__addOn1').removeClass('hidden');
+								            	$('.summary__addOn').removeClass('hidden');
+								             	$('#paa').html(formatCurrency(addOnPaQuote));
+								            }
+								            	
+								            if(quote.thirdPartyPropertyDamage == true)
+								            {	
+								            	$('.summary__addOn2').removeClass('hidden');
+								            	$('.summary__addOn').removeClass('hidden');
+								            	$('#cia').html(formatCurrency(addOnTppdQuote));
+								            }
+								         	updateTotalDue(totalDue);
+								         	$(".yourQuoteAmmount").html ($("#yourQuoteAmmount").html());
+								         	$('#loading-overlay').modal("hide");
+						     });
+						}
 						/*$.ajax({
 							  type: "POST",
 							  data: JSON.stringify(quote),
@@ -1747,34 +1778,7 @@ $(window).load(function(){
 											$('#quote-form').submit();
 										});
 
-						var getUrlParameter = function getUrlParameter(sParam) {
-							var sPageURL = decodeURIComponent(window.location.search
-									.substring(1)), sURLVariables = sPageURL
-									.split('&'), sParameterName, i;
-							//this loop only for the payment return with = handler
-							for (i = 0; i < sURLVariables.length; i++) {
-
-								sParameterName = sURLVariables[i].split('=');
-
-								if (sParameterName[0] === sParam) {
-									if (sParameterName[0] == "refNum") {
-										var combined_refNum = sParameterName[1];
-										var temp = "";
-										for (j = i + 1; j < sParameterName.length; j++) {
-											if (sParameterName[j] != "")
-												temp = "=" + sParameterName[j];
-											if (sParameterName[j] == "")
-												temp = "=";
-											combined_refNum += temp;
-										}
-										return sParameterName[1] === undefined ? true
-												: combined_refNum;
-									} else
-										return sParameterName[1] === undefined ? true
-												: sParameterName[1];
-								}
-							}
-						};
+					
 
 						if (getUrlParameter("paymentGatewayFlag") == "1"
 								&& getUrlParameter("refNum") != null) {
@@ -1794,8 +1798,55 @@ $(window).load(function(){
 										success : function(data) {
 											console.dir(data);
 											quote = data;
-											$("#payment-errors").html(
-													"Payment failed");
+											console.dir(quote);
+											var planType = (quote.planCode=='Third')?'third':quote.compPlan.toLowerCase();
+										     $.when(getMotorQuotePrice(planType, quote)).then(function(){
+												
+												            totalDue = parseFloat(motorPrice[planType].amountDueAmount);
+												            addOnPaQuote = parseFloat(motorPrice[planType].addOnPaAmt);
+												            addOnTppdQuote = parseFloat(motorPrice[planType].addOnTppdAmt);
+												            if($('body').hasClass('chin')){
+																if(quote.planCode=="Comp"){
+																 if(quote.compPlan=="Gold")
+																 $('#yourQuoteTitle').html('綜合保險(金)');
+																else
+																 $('#yourQuoteTitle').html('綜合保險(銀)');
+																}
+																else
+																$('#yourQuoteTitle').html('第三者保險');
+																}
+																else{
+																if(quote.planCode=="Comp"){
+																 if(quote.compPlan=="Gold")
+																 $('#yourQuoteTitle').html('Comprehensive Gold');
+																else
+																 $('#yourQuoteTitle').html('Comprehensive Silver');
+																}
+																else
+																$('#yourQuoteTitle').html('Third Party');
+																}
+												            $('#addOnPaAmt').html(formatCurrency(addOnPaQuote));
+												            $('#addOnTppdAmt').html(formatCurrency(addOnTppdQuote));
+												         
+												            if(quote.personalAccident == true)
+												            {
+												            	$('.summary__addOn1').removeClass('hidden');
+												            	$('.summary__addOn').removeClass('hidden');
+												             	$('#paa').html(formatCurrency(addOnPaQuote));
+												            }
+												            	
+												            if(quote.thirdPartyPropertyDamage == true)
+												            {	
+												            	$('.summary__addOn2').removeClass('hidden');
+												            	$('.summary__addOn').removeClass('hidden');
+												            	$('#cia').html(formatCurrency(addOnTppdQuote));
+												            }
+												         	updateTotalDue(totalDue);
+												         	$(".yourQuoteAmmount").html ($("#yourQuoteAmmount").html());
+												         
+										     });
+											$("#payment-errors").html("Payment failed");
+											$('#loading-overlay').modal("hide");
 										},
 										error : function(error) {
 								
@@ -1814,7 +1865,10 @@ $(window).load(function(){
 
 						//car details
 						$(".carchasis").html(quote.carDetail.chassisNumber);
-						$(".carcubic").html(quote.carDetail.engineCapacity);
+						if(quote.carDetail.makeCode != "Tesla")
+							$(".carcubic").html(quote.carDetail.engineCapacity);
+						else
+							$(".carcubic-box").hide();
 						$(".carmodeldocument").html(quote.carDetail.modelDesc);
 							
 					

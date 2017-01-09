@@ -126,7 +126,7 @@ var nextPage = "${nextPageFlow}";
                         <br />
                     </p>
                     <p>
-                        <h3><fmt:message key="motor.confirmation.discount.original.copy" bundle="${motorMsg}" /> <strike class="amountDueAmount"></strike></h3>
+                        <h3><strike class="amountDueAmount"></strike></h3>
                         <h2 class="orange"><fmt:message key="motor.confirmation.discount.save.copy" bundle="${motorMsg}" /><span class="amountSave"></span></h2>
                     </p>
                     <p>
@@ -239,7 +239,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 
 $(document).ready(function(){
 	$(".amountDueAmount").html("$"+quote.amountDueAmount);
-	$(".amountSave").html((parseInt(quote.amountDueAmount)*0.3).toFixed(2));
+	$(".amountSave").html("$"+(parseInt(quote.amountDueAmount)*0.3).toFixed(2));
 	$("#sendMail").html("<a href='mailto:"+quote.applicant.email+"'>"+quote.applicant.email+"</a>");
 	$(".ref-number").html(quote.coverNoteNum);
 });

@@ -232,8 +232,8 @@ max-width: 90px;
                 </div>
                 <div class="clearfix"></div> 
 				 <div class="text-center save">
-	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
-	                            </div>
+	                                <!--<a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                            --></div>
                 <div class="clearfix"></div> 
                 <div class="text-center ">
                     <a href="javascript:;"><fmt:message key="motor.quickquote.document.save.text" bundle="${motorMsg}" /></a>

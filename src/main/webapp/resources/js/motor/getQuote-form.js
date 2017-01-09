@@ -502,7 +502,8 @@ $(document).ready(function(){
 				$('#motor_registerForm').validator('update');
 				$('#get-quote-form').validator('validate');
 			}
-				
+			$('#loading-overlay').modal("show");
+			$(".finalsubmitGetQuote").css({"cursor":"pointer"});
 				 
 				  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
 				if($('#carValue').prop('required')){
@@ -593,7 +594,7 @@ $(document).ready(function(){
 					
 			if($(this).attr('data')=="check")
 			{
-				$(".finalsubmitGetQuote").css({"cursor":"pointer"});
+				
 				$("#promo-errors").html("");
 				submitData.promoCode = promoCode;
 					 $.ajax({

@@ -276,8 +276,8 @@ var nextPage = "${nextPageFlow}";
 										</div>
 	                                    <div class="clearfix"></div > 
 	                            <div class="text-center save">
-	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
-	                            </div>
+	                                <!--<a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                             --></div>
 	                                </div>
 	                            </div>
 	                        </div>

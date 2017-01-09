@@ -208,8 +208,8 @@ var nextPage = "${nextPageFlow}";
 	                            </div>
 	                            <div class="clearfix"></div> 
 	                            <div class="text-center save">
-	                                <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
-	                            </div>
+	                                <!--  <a href="#" id="saveForm" class=""><fmt:message key="motor.link.text.savecontinuelater" bundle="${motorMsg}" /></a>
+	                            --></div>
 	                        </div>
 	                    </div>
 	                </div>
@@ -427,26 +427,55 @@ $('input[name=cubicCapacity]').inputNumber();
 var ccCheck = $('#cubicCapacityDiv').find('.left-desktop');
 var ccField= $('input[name=cubicCapacity]');
 
+ccField.keyup(function(e){
+	//  if ( e.which < 96 ) {
+		    if ( e.which < 48 || e.which > 57 ) {
+		    	//$(this).val('');
+		    	var strng = $(this).val();
+		    	$(this).val(strng.substring(0,strng.length-1));
+		    //	e.preventDefault();
+		    //	return false;
+		  }
+		    else{
+		    //	alert(e.which);
+		   // 	alert($(this).val());
+		     	if($(this).val() > 9999){
+		      //  	console.log($(this).val());
+		        	$(this).val(9999);
+		      	  $(this).blur().focus();
+		    	}
+		    	
+		    }
+		//}
+	//	if( e.which > 105 ) {
+	//		$(this).val("");
+	//	}
+	//	else
+	//		  {
+		//	alert(e.which);
+	    //	alert($(this).val());
+	//		 	if($(this).val() > 9999){
+		    //    	console.log($(this).val());
+		//        	$(this).val(9999);
+		//      	  $(this).blur().focus();
+		//    	}
+			  
+		//	  }
+		if(ccCheck.hasClass('is-invalid')){
+			if(ccCheck.hasClass('is-dirty')){
+				
+			}
+			else{
+				$(this).val("");
+			}
+		}
 
+	});
+/*
 ccField.keyup(function(e) {
-	if ( e.which < 96 ) {
-	    if ( e.which < 48 && e.which > 57 ) { 
-	    e.preventDefault();
-	  }
-	}
-	if( e.which > 105 ) {
-	    e.preventDefault();
-	  }
-	if(ccCheck.hasClass('is-invalid')){
-		if(ccCheck.hasClass('is-dirty')){
-			
-		}
-		else{
-			$(this).val("");
-		}
-	}
+	
 });
-
+*/
 var checkbox=false;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
 
@@ -585,14 +614,7 @@ $(document).ready(function(){
 		}
 	/*end cc validation*/
 	
-	  $('#cubicCapacity').keyup(function(e){
-    	
-    	if($(this).val() > 9999){
-        	console.log($(this).val());
-        	$(this).val(9999);
-      	  $(this).blur().focus();
-    	}
-    	});
+	 
 	
     $('[data-toggle="tooltip"]').tooltip(); 
  
