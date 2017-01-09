@@ -153,7 +153,7 @@ width:60px;
 										if (data == 'This username already in use, please try again') {
 											$(form_selector + ' #joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
 										} else if (data == 'email address and mobile no. already registered') {
-											$(form_selector + '# joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+											$(form_selector + ' #joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
 										} else {
 											$(form_selector + ' #joinus-err-msg').html(data);
 										}
@@ -205,7 +205,7 @@ width:60px;
 						if (data == 'This username already in use, please try again') {
 							$(form_selector + ' #joinus-err-msg').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
 						} else if (data == 'email address and mobile no. already registered') {
-							$(form_selector + '# joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+							$(form_selector + ' #joinus-err-msg').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
 						} else {
 							$(form_selector + ' #joinus-err-msg').html(data);
 						}
