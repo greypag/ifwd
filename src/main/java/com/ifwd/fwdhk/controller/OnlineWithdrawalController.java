@@ -202,7 +202,11 @@ public class OnlineWithdrawalController extends BaseController{
 								  if(msgObject.get("refCode")!=null){
 									String refCode = (String) msgObject.get("refCode");
 									String mapCode = TngPolicyConstants.getTngPolicyWarnCode(refCode);
-									msgObject.put("code",mapCode);
+									if(mapCode!=null){
+										msgObject.put("code",mapCode);
+									}else{
+										msgObject.put("code",refCode);
+									}
 								  }
 								  
 								  msgObject.remove("resultCode");
@@ -221,7 +225,11 @@ public class OnlineWithdrawalController extends BaseController{
 							if(msgObject.get("refCode")!=null){
 								String refCode = (String) msgObject.get("refCode");
 								String mapCode = TngPolicyConstants.getTngPolicyWarnCode(refCode);
-								msgObject.put("code",mapCode);
+								if(mapCode!=null){
+									msgObject.put("code",mapCode);
+								}else{
+									msgObject.put("code",refCode);
+								}
 							  }
 							  msgObject.remove("resultCode");
 							  msgObject.remove("refCode");
@@ -372,6 +380,9 @@ public class OnlineWithdrawalController extends BaseController{
 					String mapCode = TngPolicyConstants.getTngPolicyWarnCode(refCode);
 					if(mapCode!=null){
 						msgEle.put("code", mapCode);
+						warnMsg.add(msgEle);
+					}else{
+						msgEle.put("code", refCode);
 						warnMsg.add(msgEle);
 					}
 				}
