@@ -315,25 +315,25 @@ var nextPage = "${nextPageFlow}";
 									<span><fmt:message key="motor.summary.cardetails.regdoc"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right even" style="height: 100%;">
-									<span class="carmodeldocument" style="margin: 10px 0px 10px 0px;"></span>
+								<div class="col-xs-6 text-right even">
+									<span class="carmodeldocument"></span>
 								</div>
-								<div class="col-xs-6 text-left odd carbankmortgageBox" style="display:none">
+								<div class="col-xs-6 text-left odd carbankmortgageBox carcubic-box" style="display:none">
 									<span class="carbankmortgageOther"><fmt:message key="motor.summary.cardetails.other"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right odd carbankmortgageBox" style="display:none">
+								<div class="col-xs-6 text-right odd carbankmortgageBox carcubic-box" style="display:none">
 									<span class="carotherbankmortgage"></span>
 								</div>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-6">
 							<div class="row detail-row">
-								<div class="col-xs-6 text-left odd carcubic-box">
-									<span><fmt:message
+								<div class="col-xs-6 text-left odd">
+									<span class="carcubic-title"><fmt:message
 											key="motor.summary.cardetails.ccvalue" bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right odd carcubic-box">
+								<div class="col-xs-6 text-right odd">
 									<span class="carcubic"></span>
 								</div>
 								<div class="col-xs-6 text-left even carbankmortgageBox">
@@ -1135,7 +1135,7 @@ var nextPage = "${nextPageFlow}";
 										</form>
 									</div>
 									<div class="sub-pan" id="sub-pan-forgot-username"
-										style="height: 205px;">
+										style="height: 220px;">
 										<form name="form-motor-forgot-username"
 											id="form-motor-forgot-username" method="post">
 											<!-- 電話 inout -->
@@ -1273,6 +1273,9 @@ var nextPage = "${nextPageFlow}";
 														<fmt:message key="motor.button.submit"
 															bundle="${motorMsg}" />
 													</button>-->
+													<br/><br/>
+													<span class="error-msg forgotPwdPanErrMsg" style="text-align:center"></span>
+												
 												</div>
 											</div>
 										</form>
@@ -1865,10 +1868,13 @@ $(window).load(function(){
 
 						//car details
 						$(".carchasis").html(quote.carDetail.chassisNumber);
-						if(quote.carDetail.makeCode != "Tesla")
-							$(".carcubic").html(quote.carDetail.engineCapacity);
-						else
+						if(quote.carDetail.makeCode == "Tesla")
+						{	
 							$(".carcubic-box").hide();
+							$(".carcubic-title").html($(".carbankmortgageOther").html())
+							$(".carcubic").html($(".carotherbankmortgage").val())
+						}else
+							$(".carcubic").html(quote.carDetail.engineCapacity);
 						$(".carmodeldocument").html(quote.carDetail.modelDesc);
 							
 					
@@ -2053,7 +2059,7 @@ $(window).load(function(){
 						}
 
 						//no claim discount
-						$.ajax({
+						/*$.ajax({
 			                url: context + '/api/iMotor/list/insurers',
 			                type: 'GET',
 			                dataType: 'json',
@@ -2068,7 +2074,7 @@ $(window).load(function(){
 												$(".nameofprevinsurance").html(item.desc);
 										});			    							
 			                    }
-			            });
+			            });*/
 						
 						$(".regofdocument").html(quote.regNoofPreviousPolicy);
 						$(".previnsuranceexpirydate").html(

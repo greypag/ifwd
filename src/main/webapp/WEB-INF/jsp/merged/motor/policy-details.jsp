@@ -141,7 +141,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" readonly style="text-transform:uppercase" name="driverID" value="" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID" required>
+	                                                <input type="text" readonly style="text-transform:uppercase" name="driverID" value="" minlength="8" maxlength="8" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.id.empty" bundle="${motorMsg}" />'  id="driverID"  data-hkid-equals="hkid equal error" required>
 	                                                <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -229,7 +229,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                    <input type="text" style="text-transform:uppercase" name="d2id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />'>
+	                                                    <input type="text" data-hkid-equals='<fmt:message key="motor.error.msg.policy.id.repeated" bundle="${motorMsg}" />' style="text-transform:uppercase" id="d2id" name="d2id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
 	                                               
 	                                                    <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
@@ -280,7 +280,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="row">
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
-	                                            <div class="left-desktop text-box mdlhttp://localhost:3014/t8_Sign_up_page3.html-textfield mdl-js-textfield mdl-textfield--floating-label">
+	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
 	                                                    <input type="text" name="d3name" maxlength="100" class="form-control input--grey mdl-textfield__input" pattern="^[a-zA-Z\s]+$" data-required-error='<fmt:message key="motor.error.msg.policy.fullname.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.policy.driver.name.format" bundle="${motorMsg}" />' >
 	                                                    <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.driver.name" bundle="${motorMsg}" /></label>
@@ -319,7 +319,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                     <input type="text" style="text-transform:uppercase" name="d3id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
+	                                                     <input type="text" data-hkid-equals='<fmt:message key="motor.error.msg.policy.id.repeated" bundle="${motorMsg}" />' style="text-transform:uppercase" id="d3id" name="d3id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
 	                                                <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -408,7 +408,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                     <input type="text" style="text-transform:uppercase" name="d4id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
+	                                                     <input type="text" data-hkid-equals='<fmt:message key="motor.error.msg.policy.id.repeated" bundle="${motorMsg}" />' style="text-transform:uppercase" id="d4id"  name="d4id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
 	                                               <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -498,7 +498,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="form-group">
 	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                                <div class="help-block-wrap">
-	                                                     <input type="text" style="text-transform:uppercase" name="d5id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
+	                                                     <input type="text" data-hkid-equals='<fmt:message key="motor.error.msg.policy.id.repeated" bundle="${motorMsg}" />' style="text-transform:uppercase" id="d5id"  name="d5id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
 	                                               <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
 	                                                    <div class="help-block with-errors"></div>
 	                                                </div>
@@ -569,7 +569,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_regNo" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' minlength="4" maxlength="8" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="prev_regNo" pattern="^.{4,}$" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' minlength="4" maxlength="8" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.regno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -593,7 +593,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_policyNo" pattern="^[a-zA-Z\d\s]+$" data-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.format" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.empty" bundle="${motorMsg}" />' id="prev_policyNo" required>
+	                                                <input type="text" name="prev_policyNo" pattern="^.{3,}$" data-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.format" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.empty" bundle="${motorMsg}" />' id="prev_policyNo" required>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.policyno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -1006,8 +1006,8 @@ function callback_motor_LoginSuccess(){
 		        //alert("error");
 		    },
 		    success:function(response){
-		    	tempquote = response.motorCareDetails;
-		    	$('#saveModal').modal("show");
+		    	//tempquote = response.motorCareDetails;
+		    	//$('#saveModal').modal("show");
 		    }
 		});
 }
@@ -1150,6 +1150,20 @@ $(document).ready(function(){
 			    if(!IsHKID($el.val())){
 			    	return $el.data("equals");
 			    }
+			    for(var i =1; i<6; i++){  //total driver
+			    	var tempIDVal ="";
+			    	if(i==1)
+			    		tempIDVal = $('#driverID').val(); 
+			    	else
+			    		tempIDVal = $('#d' + i +"id").val();
+			    
+			    	
+					var valval = $el.val();
+					console.dir(valval.toUpperCase() + "-" + tempIDVal.toUpperCase());
+					if(valval.toUpperCase() == tempIDVal.toUpperCase() && 'd' + i + "id" != $el[0].id){                       
+							return $el.data('hkid-equals'); //return hkid error message
+					}
+				}
 			  }
 		   },
 		   disable: false

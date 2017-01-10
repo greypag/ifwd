@@ -225,7 +225,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <input  type="checkbox" id="psNoProvidePersonalData" name="psNoProvidePersonalData" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error2" bundle="${motorMsg}" />'>
+	                                            <input  type="checkbox" id="psNoProvidePersonalData" name="psNoProvidePersonalData" value="" data-required-error='<fmt:message key="motor.declarations.privacy.policy.error2" bundle="${motorMsg}" />'>
 	                                            <label><small>
 	                                                    <fmt:message key="motor.declarations.privacy.policy.q2" bundle="${motorMsg}" /></small>
 	                                            </label>
@@ -240,7 +240,7 @@ var nextPage = "${nextPageFlow}";
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
-	                                            <input  type="checkbox" id="psPICS" name="psPICS" value=""  required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error3" bundle="${motorMsg}" />'>
+	                                            <input  type="checkbox" id="psPICS" name="psPICS" value=""  data-required-error='<fmt:message key="motor.declarations.privacy.policy.error3" bundle="${motorMsg}" />'>
 	                                            <label><small>
 	                                                    <fmt:message key="motor.declarations.privacy.policy.q3" bundle="${motorMsg}" /></small>
 	                                            </label>
@@ -791,8 +791,8 @@ function callback_motor_LoginSuccess(){
 		    success:function(response){
 		    	
 		    	console.dir(response);
-		    	tempquote = response.motorCareDetails;
-		    	$('#saveModal').modal("show");
+		    	//tempquote = response.motorCareDetails;
+		    	//$('#saveModal').modal("show");
 		    }
 		});
 }

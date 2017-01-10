@@ -428,7 +428,8 @@ var ccCheck = $('#cubicCapacityDiv').find('.left-desktop');
 var ccField= $('input[name=cubicCapacity]');
 
 ccField.keyup(function(e){
-	//  if ( e.which < 96 ) {
+	
+	  if ( e.which < 96 ) {
 		    if ( e.which < 48 || e.which > 57 ) {
 		    	//$(this).val('');
 		    	var strng = $(this).val();
@@ -446,10 +447,26 @@ ccField.keyup(function(e){
 		    	}
 		    	
 		    }
-		//}
-	//	if( e.which > 105 ) {
-	//		$(this).val("");
-	//	}
+		}
+		if( e.which > 105 ) {
+			if ( e.which < 48 || e.which > 57 ) {
+		    	//$(this).val('');
+		    	var strng = $(this).val();
+		    	$(this).val(strng.substring(0,strng.length-1));
+		    //	e.preventDefault();
+		    //	return false;
+		  }
+		    else{
+		    //	alert(e.which);
+		   // 	alert($(this).val());
+		     	if($(this).val() > 9999){
+		      //  	console.log($(this).val());
+		        	$(this).val(9999);
+		      	  $(this).blur().focus();
+		    	}
+		    	
+		    }
+		}
 	//	else
 	//		  {
 		//	alert(e.which);
@@ -513,8 +530,8 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
  		    },
  		    success:function(response){
  		    	console.dir(response);
- 		    	tempquote = response.motorCareDetails;
- 		    	$('#saveModal').modal("show");
+ 		    	//tempquote = response.motorCareDetails;
+ 		    	//$('#saveModal').modal("show");
  		    }
  		});
  }

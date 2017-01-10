@@ -487,12 +487,14 @@ max-width: 90px;
 </div>
 <script type="text/javascript">
 	var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+	
 </script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-api.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8">
+
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),

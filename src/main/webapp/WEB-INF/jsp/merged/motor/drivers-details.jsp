@@ -571,8 +571,8 @@ function callback_motor_LoginSuccess(){
 		    },
 		    success:function(response){
 		    	console.dir(response);
-		    	tempquote = response.motorCareDetails;
-		    	$('#saveModal').modal("show");
+		    	//tempquote = response.motorCareDetails;
+		    	//$('#saveModal').modal("show");
 		    }
 		});
 }
@@ -638,7 +638,7 @@ function SaveAndExit()
 	});
 }
 function BackMe() {
-
+	
 	 var $form = $("<form id='quote-form' />");
     	 $form.attr("action", "car-details?back=yes");
      $form.attr("method", "post");

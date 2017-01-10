@@ -484,7 +484,9 @@ $(document).ready(function(){
 				return false;
 			}
 		});
-		
+        $('.finalsubmitGetQuote').on('click',function(e){
+        	$(".finalsubmitGetQuote").css({"cursor":"pointer"});
+        })
 		$('.finalsubmitGetQuote').validator().on('click', function(e){
 			
 			e.preventDefault();
@@ -503,7 +505,7 @@ $(document).ready(function(){
 				$('#get-quote-form').validator('validate');
 			}
 			$('#loading-overlay').modal("show");
-			$(".finalsubmitGetQuote").css({"cursor":"pointer"});
+			
 				 
 				  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
 				if($('#carValue').prop('required')){
@@ -615,9 +617,9 @@ $(document).ready(function(){
 							url: context + "/api/iMotor/quote",  //post to api
 							data: JSON.stringify(submitData),
 							success: function(){
-								sessionStorage.setItem('carMake', carMakeCode);
-								sessionStorage.setItem('carModel', carModel);
-								sessionStorage.setItem('occupation', occupation);
+								//sessionStorage.setItem('carMake', carMakeCode);
+								//sessionStorage.setItem('carModel', carModel);
+								//sessionStorage.setItem('occupation', occupation);
 							  //	e.preventDefault();
 								$('#loading-overlay').modal("hide");
 								var $form = $("<form id='quote-form' />");
@@ -985,9 +987,9 @@ $(document).ready(function(){
 							url: context + "/api/iMotor/quote",  //post to api
 							data: JSON.stringify(submitData),
 							success: function(){
-								sessionStorage.setItem('carMake', carMakeCode);
-								sessionStorage.setItem('carModel', carModel);
-								sessionStorage.setItem('occupation', occupation);
+								//sessionStorage.setItem('carMake', carMakeCode);
+								//sessionStorage.setItem('carModel', carModel);
+								//sessionStorage.setItem('occupation', occupation);
 							  //	e.preventDefault();
 								$('#loading-overlay').modal("hide");
 								var $form = $("<form id='quote-form' />");
