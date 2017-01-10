@@ -852,6 +852,7 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                             </div>
                             <div class="col-xs-7">
+                            	
                                 <h3 class="heading-h3 color-orange">
                                     <fmt:message key="motor.quickquote.contactme.heading" bundle="${motorMsg}" /> 
                                 </h3>
@@ -862,6 +863,12 @@ var nextPage = "${nextPageFlow}";
                         <p>
                         <br/>
                             <fmt:message key="motor.getquote.contanctme.copy.part1" bundle="${motorMsg}" /><br><br>
+							                        
+							<fmt:message key="motor.quickquote.contanctme.reference.title" bundle="${motorMsg}" /> 
+                                </p><h3 class="heading-h3 color-orange ref-number">
+	                                <span id="quote-num"></span>
+	                            </h3>
+	                            <br>
                             <em id="reasonMsg"></em><br><br>
                             <fmt:message key="motor.getquote.contanctme.copy.part2" bundle="${motorMsg}" />
                             <a href="tel:23123123"><fmt:message key="motor.getquote.contanctme.copy.part3" bundle="${motorMsg}" /></a> <fmt:message key="motor.getquote.contanctme.copy.part4" bundle="${motorMsg}" />
@@ -1138,6 +1145,7 @@ enErr = {
 		504: '資料不正確(編號：504)',               
 	};
 $(document).ready(function(){
+	$("#quote-num").html(quote.refNumber);
 	$("input").css({"text-transform":"uppercase"});
 	$("#expiry-datepicker").val('');
 	$("#expiry-datepicker").change(function(){

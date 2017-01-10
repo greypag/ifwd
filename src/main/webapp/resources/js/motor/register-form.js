@@ -356,7 +356,17 @@ $(document).ready(function(){
 					success:function(response){
 						if(response){
 							$(".your_username_box").removeClass("hide");
-							$("#your_username").text(getBundle(getBundleLanguage, "member.login.forgotUserName.success") + " " + response.userName);
+							if(response.userName !=null)
+								$("#your_username").text(getBundle(getBundleLanguage, "member.login.forgotUserName.success") + " " + response.userName);
+							else 
+							{	
+								var chin = $('body').hasClass('chin');
+								if($('body').hasClass('chin'))
+									$("#your_username").text(getBundle(getBundleLanguage, "輸入的資料無效，請重新輸入。"));
+								else
+									$("#your_username").text(getBundle(getBundleLanguage, "The information you have entered is not valid, please try again."));
+									
+							}	
 						}
 					},
 					complete:function(){

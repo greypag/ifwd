@@ -484,11 +484,14 @@ $(document).ready(function(){
 				return false;
 			}
 		});
-        $('.finalsubmitGetQuote').on('click',function(e){
-        	$(".finalsubmitGetQuote").css({"cursor":"pointer"});
+        $("#promoCode").keyup(function(e){
+        	if($("#promoCode").val().length ==0)
+        		$(".finalsubmitGetQuote").css({"cursor":"not-allowed"});
+        	else
+        		$(".finalsubmitGetQuote").css({"cursor":"pointer"});
         })
 		$('.finalsubmitGetQuote').validator().on('click', function(e){
-			$(".finalsubmitGetQuote").css({"cursor":"pointer"});
+			
 			e.preventDefault();
 			if($(this).attr('data')=="check")
 			{
@@ -505,7 +508,7 @@ $(document).ready(function(){
 				$('#get-quote-form').validator('validate');
 			}
 			$('#loading-overlay').modal("show");
-			$(".finalsubmitGetQuote").css({"cursor":"pointer"});
+			
 				 
 				  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
 				if($('#carValue').prop('required')){
