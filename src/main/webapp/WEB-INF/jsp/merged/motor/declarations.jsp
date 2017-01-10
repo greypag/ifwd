@@ -478,6 +478,11 @@ var nextPage = "${nextPageFlow}";
                         <p>
                         <br/>
                             <fmt:message key="motor.getquote.contanctme.copy.part1" bundle="${motorMsg}" /><br><br>
+                            <fmt:message key="motor.quickquote.contanctme.reference.title" bundle="${motorMsg}" /> 
+                                </p><h3 class="heading-h3 color-orange ref-number">
+	                                <span id="quote-num"></span>
+	                            </h3>
+	                            <br>
                             <em id="reasonMsg"></em><br><br>
                             <fmt:message key="motor.getquote.contanctme.copy.part2" bundle="${motorMsg}" />
                             <a href="tel:23123123"><fmt:message key="motor.getquote.contanctme.copy.part3" bundle="${motorMsg}" /></a> <fmt:message key="motor.getquote.contanctme.copy.part4" bundle="${motorMsg}" />
@@ -620,144 +625,6 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="contactpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div
-        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1052"
-        class="login-ajax-loading">
-        <img
-        style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-left:-50px; margin-top: -50px;"
-        src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-    </div>
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content plan-modal">
-            <div class=""><a class="close overlay__close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
-            <div class="contact-us-wrap">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3 plan-panel">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="thumbnail">
-                                    <img src="<%=request.getContextPath()%>/resources/images/motor/dummy.png" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-xs-7">
-                                <h3 class="heading-h3 color-orange">
-                                    <fmt:message key="motor.quickquote.contactme.heading" bundle="${motorMsg}" /> 
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
-                        <p>
-                        <br/>
-                            <fmt:message key="motor.getquote.contanctme.copy.part1" bundle="${motorMsg}" /><br><br>
-                            <em id="reasonMsg"></em><br><br>
-                            <fmt:message key="motor.getquote.contanctme.copy.part2" bundle="${motorMsg}" />
-                            <a href="tel:23123123"><fmt:message key="motor.getquote.contanctme.copy.part3" bundle="${motorMsg}" /></a> <fmt:message key="motor.getquote.contanctme.copy.part4" bundle="${motorMsg}" />
-                        </p>
-                        
-                    </div>
-                </div>
-            </div>
-            <div id="successMessage" class="text-center hidden contact-us-wrap">
-            	<p><br/>
-            	 <fmt:message key="motor.quickquote.contactme.form.thankyou" bundle="${motorMsg}" />
-            	<br/>
-            	            	<br/>
-            	</p>
-            </div>
-            <form role="form" data-toggle="validator" name="contactform" id="contactform-pop" >
-                <input type="hidden" name="ref_no" id="ref_no" value="RQ862541" />
-                <div class="contact-form contact-us-wrap">
-                    <div class="row">
-                        <div class="col-sm-10 col-sm-offset-1">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <div class="help-block-wrap">
-                                            <input type="text" name="fullName"
-                                            class="form-control gray-textbox mdl-textfield__input" id="fullName" maxlength="100" pattern="^[a-zA-Z\s]+$" data-pattern-error="<fmt:message key="motor.error.msg.name.format" bundle="${motorMsg}" />" data-required-error="<fmt:message key="motor.error.msg.name.empty" bundle="${motorMsg}" />" required >
-                                            <label class="mdl-textfield__label" for="fullName"><fmt:message key="motor.quickquote.contactme.form.fullname" bundle="${motorMsg}" /></label>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <div class="help-block-wrap">
-                                            <input type="email" name="email" id="contactEmail" class="form-control gray-textbox mdl-textfield__input" data-error="<fmt:message key="motor.error.msg.email.format" bundle="${motorMsg}" />" data-required-error="<fmt:message key="motor.error.msg.email.empty" bundle="${motorMsg}" />" required>
-                                            <label class="mdl-textfield__label" for="email"><fmt:message key="motor.quickquote.contactme.form.email" bundle="${motorMsg}" /></label>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <div class="help-block-wrap">
-                                            <input type="text" id="contactNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" name="contactNo" pattern="^[2|3|5|6|8|9]{1}\d{7}$" maxlength="8" data-pattern-error="<fmt:message key="motor.error.msg.mobile.format" bundle="${motorMsg}" />" data-required-error="<fmt:message key="motor.error.msg.mobile.empty" bundle="${motorMsg}" />" required>
-                                            <label class="mdl-textfield__label" for="headerUserName"><fmt:message key="motor.quickquote.contactme.form.mobile" bundle="${motorMsg}" /></label>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6" style="padding-top:5px;">
-                                <div class="form-group">
-                                    <div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
-                                          <div class="help-block-wrap">
-                                    <select class="form-control" id="perferedDate" data-required-error='<fmt:message key="motor.error.msg.calltime.empty" bundle="${motorMsg}" />' name="perferedDate" required>
-                                        <option value="anytime" disabled selected hidden><fmt:message key="motor.quickquote.contactme.form.prefereddate" bundle="${motorMsg}" /></option>
-                                        <option value="Anytime"><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.0" bundle="${motorMsg}" /></option>
-                                        <option value="Morning" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.1" bundle="${motorMsg}" /></option>
-                                         <option value="Afternoon" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.2" bundle="${motorMsg}" /></option>
-                                            <option value="Evening" ><fmt:message key="motor.quickquote.contactme.form.prefereddate.option.3" bundle="${motorMsg}" /></option>
-                                    </select>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                                  
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="custom-checkbox col-xs-12">
-                            <div class="checkbox">
-                                <div class="form-group">
-                                    <div class="help-block-wrap">
-                                        <input type="checkbox" id="agreement" name="agreement" value="" data-required-error="<fmt:message key="motor.error.msg.declaration.empty" bundle="${motorMsg}" />" required>
-                                        <label>
-                                        <small>
-                                                <fmt:message key="motor.quickquote.contactme.form.agreement.part1" bundle="${motorMsg}" /><a href='<fmt:message key="motor.quickquote.contactme.form.agreement.pics.link" bundle="${motorMsg}" />' target="_blank"><fmt:message key="motor.quickquote.contactme.form.agreement.pics.copy" bundle="${motorMsg}" /></a><fmt:message key="motor.quickquote.contactme.form.agreement.part2" bundle="${motorMsg}" />
-                                        </small>
-                                        </label>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <br/>
-                            </div>
-                        </div>
-                            <div class=" col-xs-4 col-xs-offset-4 text-center">
-                            <input type="hidden" name="reason" id="reason" />
-                            <a href="javascript:;" id="submitEnquiry" class="bdr-curve btn btn-primary nxt-btn">
-                                <fmt:message key="motor.button.submit" bundle="${motorMsg}" />  
-                            </a>
-                            <br/>
-                            <br/>
-                        </div>
-                        </div>
-                        </div>
-                        
-                   
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
@@ -881,6 +748,7 @@ enErr = {
 		504: '資料不正確(編號：504)',               
 	};
 $(document).ready(function(){
+	$("#quote-num").html(quote.refNumber);
 	$("input").css({"text-transform":"uppercase"});
 	//enable the Next Button
 	   $('#declaration').validator({

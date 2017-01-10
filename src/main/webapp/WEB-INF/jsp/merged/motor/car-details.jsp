@@ -610,10 +610,19 @@ $(document).ready(function(){
 	$("input").css({"text-transform":"uppercase"});
 	//console.log(quote.carDetail);
 	 
-	if(quote.carDetail.makeCode == "Tesla"){
-		$('#cubicCapacityDiv').remove();
-		$('#chassisNumberDiv').toggleClass('col-sm-6 col-sm-12');
-	}
+	var eCarApi = context + '/api/iMotor/carDetails/' + quote.carDetail.makeCode + "/supplement" + "?carModel=" + quote.carDetail.model; 
+        	$.ajax({
+        		  url: eCarApi,
+        		  contentType: "application/json",
+        		  type: 'GET',
+        		  dataType: "json",
+        		  success: function(data) {
+        	            if(data.electricCar){ //true
+        	            	$('#cubicCapacityDiv').remove();
+        	        		$('#chassisNumberDiv').toggleClass('col-sm-6 col-sm-12');
+        	            }
+        		  }
+        	});
 	
 	var min_a = quote.carDetail.engineCapacity;
 	//console.log(min_a);

@@ -227,9 +227,10 @@ width: 100px !important;
                                                                       		  <br/>
 										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
 											role="alert" style="position:static"></div> 
+                                        <br/>
                                         <label>
-                                            <!-- <a href="javascript:;" id="findPromo" ><fmt:message key="motor.promotecode.get.promotecode" bundle="${motorMsg}" /></a>
-                                        --></label>
+                                            <a href="javascript:;" id="findPromo" ><fmt:message key="motor.promotecode.get.promotecode" bundle="${motorMsg}" /></a>
+                                        </label>
                                                                         
                                     </div>
                                 <div class="col-md-6 col-md-offset-3">
@@ -440,7 +441,7 @@ width: 100px !important;
                 <form>
                     <div class="form-container">
                         <h2><fmt:message key="motor.promotecode.get.promotecode.title" bundle="${motorMsg}" /></h2>
-                        <div class="alert alert-success proSuccess hide"><fmt:message key="motor.confirm.msg.getquote.email.confirm" bundle="${motorMsg}" /></div>
+                        <div class="alert alert-success proSuccess hide"></div>
                         <h4><fmt:message key="motor.promotecode.get.promotecode.email" bundle="${motorMsg}" /></h4>
                         <div class="form-group">
                         	<input type="email" class="form-control" data-required-error='<fmt:message key="motor.error.msg.getquote.email.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.getquote.email.empty" bundle="${motorMsg}" />' placeholder=""
@@ -521,12 +522,17 @@ function sendEmail() {
             data : $("#sendmailofpromocode form").serialize(),
             async : false,
             success : function(data) {
-                if (data == 'success') {
-                    $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
-                } else {
+                //if (data.result == 'OK') {
+                	var chin = $('body').hasClass('chin');
+					if($('body').hasClass('chin'))
+                   		$('.proSuccess').removeClass('hide').html("謝謝！您的推廣編號已發送至到你所提交的電郵地址。");
+					else
+						$('.proSuccess').removeClass('hide').html("Thank you. Your promotion code has been emailed to you.");
+					
+               // } else {
                 	//console.log(data);
-                    $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "motor.error.msg.getquote.promote.format"))
-                }
+               //     $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "motor.error.msg.getquote.promote.format"))
+               // }
             },
             error : function() {
             }

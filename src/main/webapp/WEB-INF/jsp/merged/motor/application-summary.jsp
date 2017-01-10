@@ -1462,6 +1462,8 @@ var nextPage = "${nextPageFlow}";
 													<div id="login-err-msg" class="color-red heading-h5"
 														role="alert"></div>
 												</div>
+												<br/>
+												<span class="error-msg regPanErrMsg"></span>
 											</div>
 										</form>
 									</div>
