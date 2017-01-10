@@ -602,7 +602,7 @@
 						<!-- Doc input -->
 						<div class="form-group">
 							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<input type="text" name="Hkid"
+							<input type="text" name="Hkid" id="Hkid2"
 								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input">
 								<label class="mdl-textfield__label" for="Hkid"><fmt:message key="member.registration.details.hkid" bundle="${msg}" /></label>
 		                        <!-- 使用者ERROR -->
@@ -619,9 +619,8 @@
 						<!-- 使用者input -->
 						<div class="form-group">
 							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<input type="text" name="userName"
-								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input"
-								id="userName">
+							<input type="text" name="userName" id="forgetPass_userName"
+								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input">
 								<label class="mdl-textfield__label" for="userName"><fmt:message key="member.registration.details.label.userName" bundle="${msg}" /></label>
 		                        <!-- 使用者ERROR -->
 									<span id="errorEmptyUName" class="color-red heading-h5"></span>
