@@ -181,7 +181,17 @@ var languageP = "${language}";
 										</div>
 										<span id="errcode" class="error-msg"></span>
 									</div>
+									
+									<div class="page-content-item elite_payment_address_wrapper">
+										<label></label>
+										<div class="clearfix desktop-half">
+											<div><fmt:message key="payment.life.address.line1" bundle="${msg}" /></div>
+	                						<div><fmt:message key="payment.life.address.line2" bundle="${msg}" /></div>
+	                						<div><fmt:message key="payment.life.address.line3" bundle="${msg}" /></div>
+										</div>
+									</div>
 								</div>
+					
 								<div class="page-content-item">
 									<div class="fwd-checkbox">
 										<input type="checkbox" tabindex="6" id="personal-information-statement">

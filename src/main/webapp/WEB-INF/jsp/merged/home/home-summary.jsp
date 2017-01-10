@@ -629,6 +629,14 @@ var plan="${plan}";
 		                                </div>
 		                            </div>
 		                        </div>
+		                        
+		                        <div class="col-xs-12 col-md-12">
+		                        	<div class="form-group">
+		                        		<div><fmt:message key="payment.gi.address.line1" bundle="${msg}" /></div>
+		                        		<div><fmt:message key="payment.gi.address.line2" bundle="${msg}" /></div>
+		                        		<div><fmt:message key="payment.gi.address.line3" bundle="${msg}" /></div>
+		                        	</div>
+		                        </div>
 		                    </div>
 		
 		                    <div class="row">
