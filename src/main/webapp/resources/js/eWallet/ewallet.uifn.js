@@ -106,14 +106,22 @@ var eWalletCtr = {
 		var errMsg = msgCtr.common.errorMsg;
 		var errMsgCode = "c_" + headerCode + "_";
 
+		// errorCode
+		if(!code){
+			code = "";
+		}
 		if(headerCode == 400 || headerCode == 500){
 			errMsgCode += code.substring(0,2);
 		}else{
 			errMsgCode += code;
 		}
 
+		//s errmsg
 		if(!!apiErrMsg[apiName][errMsgCode]){
-			errMsg = apiErrMsg[apiName][errMsgCode] + " (" + code + ")";
+			errMsg = apiErrMsg[apiName][errMsgCode];
+			if(code){
+				errMsg += " (" + code + ")";
+			}
 		}
 
 		return errMsg;
@@ -441,6 +449,7 @@ function LinkupClass() {
 
 	this.requestLinkup = function() {
 		var otp = this.getOtpInput();
+		var that = this;
 
 		apiReqHelper.makeRequest({
 			link: apiLink.authTngOtp,
@@ -464,6 +473,10 @@ function LinkupClass() {
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("authTngOtp", xhr.status, response.code);
 				eWalletCtr.showGenericMsg("", msg);
+
+				if(xhr.status == 412){
+					that.popupDom.modal("hide");
+				}
 			}
 		});
 	};
@@ -674,7 +687,11 @@ function WithdrawClass(){
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("performWithdraw", xhr.status, response.code);
 				eWalletCtr.showGenericMsg("", msg);
-				that.popupDom.modal("hide");
+				console.log(response, xhr);
+
+				if(xhr.status != 413) {
+					that.popupDom.modal("hide");
+				}
 			},
 			doneFn: function (){
 				that.hideLoading();
