@@ -522,8 +522,8 @@ function stickToHeader() {
 			$('#pickAnotherCentre').modal('hide');
 		});
 		$('#fullyBooked-button').click(function(){
-			<%-- $('#fullyBooked').modal('hide');
-			window.location = '<%=request.getContextPath()%>/${language}/FNA/review';  --%>
+			//$('#fullyBooked').modal('hide');
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/wealthree';  
 		});
 		$('#moreThan2Tries-button').click(function(){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/wealthree';

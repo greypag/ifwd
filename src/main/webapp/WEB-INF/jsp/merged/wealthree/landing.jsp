@@ -446,6 +446,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="row">
 									<div class="col-xs-12 col-sm-12">
 										<span class="pv_remark">
+										<fmt:message key="wealthree.landing.calculation.save.now.remark" bundle="${wealthreeMsg}" /><br><br>
 										<fmt:message key="wealthree.landing.features.1.remarks" bundle="${wealthreeMsg}" /><br>
 										<fmt:message key="wealthree.landing.features.3.remarks" bundle="${wealthreeMsg}" /><br>
 										<fmt:message key="wealthree.landing.features.4.remarks" bundle="${wealthreeMsg}" />
@@ -454,9 +455,6 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>	
 							<div class="col-xs-12">
-								<div class="text-center btm-btn">
-									<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.save.now.remark" bundle="${wealthreeMsg}" /></span></p>									
-								</div>
 								<div class="text-center btm-btn">
 									<button class="btn-savenow" data-category="CTA" data-action="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree-customer-service-centre/" data-label="<fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" /></button><br><br>
 								</div>
