@@ -435,6 +435,7 @@ body.chin .bold {
   font-weight: 600;
   color: #fff;
   padding-bottom: 15px;
+  padding-left: 37px;
 }
 /* line 30, ../sass/common_screen/motor/_plan-panel.scss */
 .plan-panel .currency, .plan-panel .price {
@@ -2304,7 +2305,7 @@ body.chin .bold {
   /* line 34, ../sass/customize_screen/motor/_quick-quote.scss */
   .quick-quote .ready-content h3 {
     font-size: 20px;
-    padding-left: 15px;
+    padding-left: 53px;
   }
   /* line 38, ../sass/customize_screen/motor/_quick-quote.scss */
   .quick-quote .addOn-content {

@@ -507,7 +507,7 @@ $(document).ready(function(){
 				$('#motor_registerForm').validator('update');
 				$('#get-quote-form').validator('validate');
 			}
-			$('#loading-overlay').modal("show");
+			
 			
 				 
 				  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
