@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiResponses;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -517,7 +518,7 @@ public class MotorCareController extends BaseController{
 			})
 	@RequestMapping(value = "/email/promoCodes", method = POST)
 	public ResponseEntity<Map<String, String>> getPromoCodes(
-			@ApiParam(value = "Email address to get the promo code", required = true) @RequestBody String email,				
+			@ApiParam(value = "Email address to get the promo code", required = true) @RequestBody String emailToSendPromoCode,				
 			HttpServletRequest request) {
 		
 		try {
@@ -528,13 +529,15 @@ public class MotorCareController extends BaseController{
 		}
 			
 		// ******************* Valid input *******************
-		if (isBlank(email)) {
+		if (isBlank(emailToSendPromoCode)) {
 			return motor_badRequest(null);
 		}
 		
 		try {			
 			Map<String, String> apiResponse = new HashMap<>();
-			boolean result = sendEmail.sendEmail(email, "MOTORSMART", new HashMap<String, String>(headerUtil.getHeader(request)));
+			boolean result = sendEmail.sendEmail(URLDecoder.decode(replace(emailToSendPromoCode, "emailToSendPromoCode=", ""), "UTF-8"), 
+								"MOTORSMART", new HashMap<String, String>(headerUtil.getHeader(request)));
+			
 			if (result) {
 				apiResponse.put("result", result ? "OK" : "FAIL");
 			} else {
@@ -1033,8 +1036,6 @@ public class MotorCareController extends BaseController{
 			String url = UserRestURIConstants.MOTOR_CARE_PAYMENT_POST;
 			String jsonString = new ObjectMapper().writeValueAsString(body);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
-			UserRestURIConstants urc = new UserRestURIConstants();
-			urc.updateLanguage(request);		
 			
 			// incoming Path		
 			String toBasePath = getMotorBasePath(request) ;
@@ -1656,6 +1657,8 @@ public class MotorCareController extends BaseController{
 			if (responseJsonObj.get("errMsgs") == null) {
 				if (responseJsonObj.get("result") != null && StringUtils.equals("OK", (String)responseJsonObj.get("result"))) {				
 					apiResponse.put("result", (String)responseJsonObj.get("result"));
+					apiResponse.put("email", (String)responseJsonObj.get("toEmailAddress"));
+					apiResponse.put("policyPremium", (String)responseJsonObj.get("policyPremium"));
 				} else {
 					apiResponse.put("result", "Fail");
 				}
@@ -1877,8 +1880,7 @@ public class MotorCareController extends BaseController{
 		// ******************* Valid input *******************
 		try {
 			if (isBlank(contactMe.getFullName()) 
-				|| isBlank(contactMe.getContactNum()) 
-				|| isBlank(contactMe.getPreferredContactTime())
+				|| isBlank(contactMe.getContactNum())
 				|| isBlank(contactMe.getEmail()) 
 				|| contactMe.getMotorCareDetails() == null) {
 				return motor_badRequest(null);

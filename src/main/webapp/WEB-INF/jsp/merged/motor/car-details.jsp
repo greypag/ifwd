@@ -840,7 +840,9 @@ $(document).ready(function(){
 					   "bankMortgageName": $('[name="mortgageBank"]').val()!="OTHER"?$('[name="mortgageBank"]').val():$('input[name=bankName]').val(),//$("#mortgageBank option:selected").val(),	
 					   "chassisNumber": $('input[name=chassisNumber]').val(),    	
 					   "engineCapacity": cccc,   	
-					   "modelDesc": $('input[name=registedModel]').val()    	
+					   "modelDesc": $('input[name=registedModel]').val(),
+					   "makeCode": quote.carDetail.makeCode, 
+					   "model": quote.carDetail.model
 						}, 	
 						"policyId": quote.policyId
 						};

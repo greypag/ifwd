@@ -874,5 +874,5 @@ public class UserRestURIConstants {
 			session.setAttribute("language", UserRestURIConstants.LANG_TC);
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);			
 		}
-    }
+    }    
 }
