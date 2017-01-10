@@ -141,8 +141,8 @@ var home_url = "<%=request.getContextPath()%>";
 	            				<fmt:message key="wealthree.landing.fixrate.table.text0" bundle="${wealthreeMsg}" />
 	            			</p>
 	            			<div class="wh_p_btns-gp text-center">
-	            				<a id="dlProductBrochure" class="" href="<%=request.getContextPath()%>/resources/pdf/wealthree/<fmt:message key="wealthree.landing.fixrate.table.pdf.factsheet" bundle="${wealthreeMsg}" />" target="_blank" data-category="PDF Dowload" data-action="<%=request.getContextPath()%>/resources/pdf/wealthree/<fmt:message key="wealthree.landing.fixrate.table.pdf.factsheet" bundle="${wealthreeMsg}" />" data-label="<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" />" ><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" /></a>
-	            				<a id="dlProductBrochure" class="" href="<%=request.getContextPath()%>/resources/pdf/wealthree/<fmt:message key="wealthree.landing.fixrate.table.pdf.provision" bundle="${wealthreeMsg}" />" target="_blank" data-category="PDF Dowload" data-action="<%=request.getContextPath()%>/resources/pdf/wealthree/<fmt:message key="wealthree.landing.fixrate.table.pdf.provision" bundle="${wealthreeMsg}" />" data-label="<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" />" ><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" /></a>
+	            				<a id="dlProductFacesheet" class="dlProductBrochure" href="<fmt:message key="wealthree.landing.fixrate.table.pdf.factsheet" bundle="${wealthreeMsg}" />" target="_blank" data-category="PDF Dowload" data-action="<fmt:message key="wealthree.landing.fixrate.table.pdf.factsheet" bundle="${wealthreeMsg}" />" data-label="<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" />" ><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.productbrochure" bundle="${wealthreeMsg}" /></a>
+	            				<a id="dlProductProvisions" class="dlProductBrochure" href="<%=request.getContextPath()%>/resources/pdf/wealthree/<fmt:message key="wealthree.landing.fixrate.table.pdf.provision" bundle="${wealthreeMsg}" />" target="_blank" data-category="PDF Dowload" data-action="<%=request.getContextPath()%>/resources/pdf/wealthree/<fmt:message key="wealthree.landing.fixrate.table.pdf.provision" bundle="${wealthreeMsg}" />" data-label="<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" />" ><i class="fa fa-download" aria-hidden="true"></i>&nbsp;<fmt:message key="wealthree.landing.link.policyprovision" bundle="${wealthreeMsg}" /></a>
 	            			</div>
 	            		</div>
 	            	</div>
@@ -447,15 +447,18 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="col-xs-12 col-sm-12">
 										<span class="pv_remark">
 										<fmt:message key="wealthree.landing.features.1.remarks" bundle="${wealthreeMsg}" /><br>
-										<fmt:message key="wealthree.landing.features.3.remarks" bundle="${wealthreeMsg}" />
+										<fmt:message key="wealthree.landing.features.3.remarks" bundle="${wealthreeMsg}" /><br>
+										<fmt:message key="wealthree.landing.features.4.remarks" bundle="${wealthreeMsg}" />
 										</span>
 									</div>
 								</div>
 							</div>	
 							<div class="col-xs-12">
 								<div class="text-center btm-btn">
+									<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.save.now.remark" bundle="${wealthreeMsg}" /></span></p>									
+								</div>
+								<div class="text-center btm-btn">
 									<button class="btn-savenow" data-category="CTA" data-action="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree-customer-service-centre/" data-label="<fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" /></button><br><br>
-									<p><span class="pv_remark"><fmt:message key="wealthree.landing.calculation.save.now.remark" bundle="${wealthreeMsg}" /></span></p>
 								</div>
 							</div>	
 							<div class="col-xs-12">
@@ -533,6 +536,7 @@ var home_url = "<%=request.getContextPath()%>";
             			<fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" />
             		</span>
             		<span class="rider-detail">
+            			<span class="inner sw-monthly sep"><fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" /></span>
 						<span class="sub_title">
 							<fmt:message key="wealthree.landing.table.other.benefit.provie1.heading" bundle="${wealthreeMsg}" />
 						</span>
@@ -694,11 +698,11 @@ var home_url = "<%=request.getContextPath()%>";
 									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.death.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-deathbenefit"><fmt:message key="wealthree.landing.table.death.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
-								<tr> <!-- other benefit -->
+								<%-- <tr class="tbl_row_sep"> <!-- other benefit -->
 									<td colspan="2"></td>
-									<td colspan="2" class="sep highlight"><span class="inner"></span></td>
-									<td colspan="2" class="sep highlight"><span class="inner sw-monthly"><fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" /></span></td>
-								</tr>
+									<td colspan="2"><span class="inner"></span></td>
+									<td colspan="2"><span class="inner sw-monthly"><fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" /></span></td>
+								</tr> --%>
 								<tr><!-- other benefit -->
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.other.benefit" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2" class="highlight">
@@ -708,6 +712,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</td>
 									<td colspan="2">
 										<span class="inner sw-rider-detail">
+											<span class="inner sw-monthly sep"><fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" /></span>
 											<span class="sub_title">
 												<fmt:message key="wealthree.landing.table.other.benefit.provie1.heading" bundle="${wealthreeMsg}" />
 											</span>
@@ -932,13 +937,14 @@ var home_url = "<%=request.getContextPath()%>";
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.death.benefit" bundle="${wealthreeMsg}" /></span></td>
 														<td colspan="2" ><span class="inner"><fmt:message key="wealthree.landing.table.death.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 													</tr>
-													<tr>
+													<%-- <tr>
 														<td colspan="2"></td>
 														<td colspan="2" class="sep"><span class="inner"><fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" /></span></td>
-													</tr>
-<tr>
+													</tr> --%>
+													<tr>
 														<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.other.benefit" bundle="${wealthreeMsg}" /></span></td>
 														<td colspan="2"><span class="inner">
+														<span class="inner sep"><fmt:message key="wealthree.landing.table.monthly.provie" bundle="${wealthreeMsg}" /></span>
 														<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.other.benefit.provie1.heading" bundle="${wealthreeMsg}" /></span>
 														<fmt:message key="wealthree.landing.table.other.benefit.provie1" bundle="${wealthreeMsg}" /><br><br>
 														<span class="pv_sub_heading"><fmt:message key="wealthree.landing.table.other.benefit.provie2.heading" bundle="${wealthreeMsg}" /></span>
