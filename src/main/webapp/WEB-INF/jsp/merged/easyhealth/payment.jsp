@@ -193,6 +193,13 @@ var home_url = "<%=request.getContextPath()%>";
                          </div>
                      </div>
                 </div>
+                <div class="col-xs-12 easy_health_payment_address_wrapper">
+                	<div class="form-group">
+                		<div><fmt:message key="payment.life.address.line1" bundle="${msg}" /></div>
+                		<div><fmt:message key="payment.life.address.line2" bundle="${msg}" /></div>
+                		<div><fmt:message key="payment.life.address.line3" bundle="${msg}" /></div>
+					</div>
+                </div>
                 <div class="col-xs-12">
                 	<div class="form-group cbTNC-wrapper">
 	    				<div class="checkbox">
