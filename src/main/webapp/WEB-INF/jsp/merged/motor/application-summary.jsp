@@ -232,27 +232,43 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right odd">
 									<span class="carmake"></span>
 								</div>
-								<div class="col-xs-6 text-left even">
-									<span><fmt:message key="motor.summary.getquote.ccvalue"
-											bundle="${motorMsg}" /></span>
-								</div>
-								<div class="col-xs-6 text-right even">
-									<span class="carcc"></span>
-								</div>
-								<div class="col-xs-6 text-left odd">
+								<div class="col-xs-6 text-left even  elect">
 									<span><fmt:message
 											key="motor.summary.getquote.estimatevalue"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right odd">
+								<div class="col-xs-6 text-right even elect">
 									<span class="carvalue"></span>
 								</div>
-								<div class="col-xs-6 text-left even">
+								<div class="col-xs-6 text-left odd elect">
 									<span><fmt:message
 											key="motor.summary.getquote.claimdiscount"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right even">
+								<div class="col-xs-6 text-right odd elect">
+									<span class="cardiscount"></span>
+								</div>
+								<div class="col-xs-6 text-left even non-elect">
+									<span><fmt:message key="motor.summary.getquote.ccvalue"
+											bundle="${motorMsg}" /></span>
+								</div>
+								<div class="col-xs-6 text-right even non-elect">
+									<span class="carcc"></span>
+								</div>
+								<div class="col-xs-6 text-left odd  non-elect">
+									<span><fmt:message
+											key="motor.summary.getquote.estimatevalue"
+											bundle="${motorMsg}" /></span>
+								</div>
+								<div class="col-xs-6 text-right odd non-elect">
+									<span class="carvalue"></span>
+								</div>
+								<div class="col-xs-6 text-left even non-elect">
+									<span><fmt:message
+											key="motor.summary.getquote.claimdiscount"
+											bundle="${motorMsg}" /></span>
+								</div>
+								<div class="col-xs-6 text-right even non-elect">
 									<span class="cardiscount"></span>
 								</div>
 							</div>
@@ -311,13 +327,25 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right odd">
 									<span class="carchasis" style="margin: 10px 0px 10px 0px;"></span>
 								</div>
-								<div class="col-xs-6 text-left even">
+								
+								<div class="col-xs-6 text-left even non-elect">
 									<span><fmt:message key="motor.summary.cardetails.regdoc"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right even">
+								<div class="col-xs-6 text-right even non-elect">
 									<span class="carmodeldocument"></span>
 								</div>
+								
+								<div class="col-xs-6 text-left even carbankmortgageBox elect">
+									<span class=" carbankmortgageNormal"><fmt:message
+											key="motor.summary.cardetails.mortgage" bundle="${motorMsg}" /></span>
+								</div>
+								<div class="col-xs-6 text-right even elect">
+									<span class="carbankmortgage carbankmortgageField"></span>
+								</div>
+								<div class="col-xs-6 text-left odd hidden-xs carbankmortgageBox" style="display:none"></div>
+								<div class="col-xs-6 text-right odd hidden-xs carbankmortgageBox" style="display:none"></div>
+								
 								<div class="col-xs-6 text-left odd carbankmortgageBox carcubic-box" style="display:none">
 									<span class="carbankmortgageOther"><fmt:message key="motor.summary.cardetails.other"
 											bundle="${motorMsg}" /></span>
@@ -329,22 +357,32 @@ var nextPage = "${nextPageFlow}";
 						</div>
 						<div class="col-xs-12 col-sm-6">
 							<div class="row detail-row">
-								<div class="col-xs-6 text-left odd">
+								
+								<div class="col-xs-6 text-left odd elect">
+									<span><fmt:message key="motor.summary.cardetails.regdoc"
+											bundle="${motorMsg}" /></span>
+								</div>
+								<div class="col-xs-6 text-right odd elect">
+									<span class="carmodeldocument"></span>
+								</div>
+								
+								<div class="col-xs-6 text-left odd non-elect">
 									<span class="carcubic-title"><fmt:message
 											key="motor.summary.cardetails.ccvalue" bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right odd">
+								<div class="col-xs-6 text-right odd non-elect">
 									<span class="carcubic"></span>
 								</div>
-								<div class="col-xs-6 text-left even carbankmortgageBox">
+								<div class="col-xs-6 text-left even carbankmortgageBox non-elect">
 									<span class=" carbankmortgageNormal"><fmt:message
 											key="motor.summary.cardetails.mortgage" bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right even">
+								<div class="col-xs-6 text-right even non-elect">
 									<span class="carbankmortgage carbankmortgageField"></span>
 								</div>
-								<div class="col-xs-6 text-left odd hidden-xs carbankmortgageBox" style="display:none"></div>
-								<div class="col-xs-6 text-right odd hidden-xs carbankmortgageBox" style="display:none"></div>
+								<!--  <div class="col-xs-6 text-left odd hidden-xs carbankmortgageBox non-elect" style="display:none"></div>
+								<div class="col-xs-6 text-right odd hidden-xs carbankmortgageBox non-elect" style="display:none"></div>
+								-->
 							</div>
 						</div>
 					</div>
@@ -1587,6 +1625,7 @@ $(window).load(function(){
 	$(document)
 			.ready(
 					function() {
+						$(".non-elect").css({"display":"none"});
 						$("input").css({"text-transform":"uppercase"});
 						$('#loading-overlay').modal("show");
 						$("#headingOne").on("click",function(){
@@ -1868,12 +1907,12 @@ $(window).load(function(){
 
 						//car details
 						$(".carchasis").html(quote.carDetail.chassisNumber);
-						if(quote.carDetail.makeCode == "Tesla")
+						/*if(quote.carDetail.makeCode == "Tesla")
 						{	
 							$(".carcubic-box").hide();
 							$(".carcubic-title").html($(".carbankmortgageOther").html())
 							$(".carcubic").html($(".carotherbankmortgage").val())
-						}else
+						}else*/
 							$(".carcubic").html(quote.carDetail.engineCapacity);
 						$(".carmodeldocument").html(quote.carDetail.modelDesc);
 							
@@ -2057,7 +2096,24 @@ $(window).load(function(){
 						for (var i = quote.driver.length + 1; i < 6; i++) {
 							$("#driver" + i).hide();
 						}
-
+						
+						var eCarApi = context + '/api/iMotor/carDetails/' + quote.carDetail.makeCode + "/supplement" + "?carModel=" + quote.carDetail.model; 
+		            	$.ajax({
+		            		  url: eCarApi,
+		            		  contentType: "application/json",
+		            		  type: 'GET',
+		            		  dataType: "json",
+		            		  success: function(data) {
+		            	            if(data.electricCar){ //true
+		            	            	$(".elect").css({"display":"flex"});
+		            	            	$(".non-elect").css({"display":"none"});
+		            	            }else
+		            	            {
+		            	            	$(".elect").css({"display":"none"});
+		            	            	$(".non-elect").css({"display":"flex"});
+		            	            }
+		            		  }
+		            	});
 						//no claim discount
 						/*$.ajax({
 			                url: context + '/api/iMotor/list/insurers',

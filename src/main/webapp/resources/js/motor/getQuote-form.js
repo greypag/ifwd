@@ -488,7 +488,7 @@ $(document).ready(function(){
         	$(".finalsubmitGetQuote").css({"cursor":"pointer"});
         })
 		$('.finalsubmitGetQuote').validator().on('click', function(e){
-			
+			$(".finalsubmitGetQuote").css({"cursor":"pointer"});
 			e.preventDefault();
 			if($(this).attr('data')=="check")
 			{
@@ -505,7 +505,7 @@ $(document).ready(function(){
 				$('#get-quote-form').validator('validate');
 			}
 			$('#loading-overlay').modal("show");
-			
+			$(".finalsubmitGetQuote").css({"cursor":"pointer"});
 				 
 				  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
 				if($('#carValue').prop('required')){
