@@ -1146,7 +1146,7 @@ enErr = {
 	};
 $(document).ready(function(){
 	$("#quote-num").html(quote.refNumber);
-	$("input").css({"text-transform":"uppercase"});
+	$(".motor-signup-form input").css({"text-transform":"uppercase"});
 	$("#expiry-datepicker").val('');
 	$("#expiry-datepicker").change(function(){
 		$("#expiry-datepicker-hidden").prop('required',false);
@@ -1822,7 +1822,7 @@ $(document).ready(function(){
 		$("#system-error").addClass("hide");
 		
 		if (!e.isDefaultPrevented()) {
-			$("input").val(function(i,val) {
+			$(".motor-signup-form input").val(function(i,val) {
 		        return val.toUpperCase();
 		    });
 	       var driverMoreThanTwo = false;

@@ -1629,7 +1629,7 @@ $(window).load(function(){
 			.ready(
 					function() {
 						$(".non-elect").css({"display":"none"});
-						$("input").css({"text-transform":"uppercase"});
+						$(".motor-signup-form input").css({"text-transform":"uppercase"});
 						$('#loading-overlay').modal("show");
 						$("#headingOne").on("click",function(){
 							$("#collapseTwo").removeClass();

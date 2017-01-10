@@ -668,7 +668,7 @@ cnErr ={
 	504: '資料不正確(編號：504)',               
 };
 $(document).ready(function(){
-	$("input").css({"text-transform":"uppercase"});
+	$(".motor-signup-form input").css({"text-transform":"uppercase"});
 	$("input[name=email]").css({"text-transform":"none"});
 	$("#driverDob").val('');
 	$("#driverDob").change(function(){
@@ -1063,7 +1063,7 @@ $(document).ready(function(){
 		$("#system-error").addClass("hide");
 		
 		if (!e.isDefaultPrevented()) {
-			$("input").val(function(i,val) {
+			$(".motor-signup-form input").val(function(i,val) {
 				var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
 				if(pattern.test(val)!=true)
 					return val.toUpperCase();

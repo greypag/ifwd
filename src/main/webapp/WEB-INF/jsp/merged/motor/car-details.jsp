@@ -607,7 +607,7 @@ cnErr ={
 	504: '資料不正確(編號：504)',               
 };
 $(document).ready(function(){
-	$("input").css({"text-transform":"uppercase"});
+	$(".motor-signup-form input").css({"text-transform":"uppercase"});
 	//console.log(quote.carDetail);
 	 
 	var eCarApi = context + '/api/iMotor/carDetails/' + quote.carDetail.makeCode + "/supplement" + "?carModel=" + quote.carDetail.model; 
@@ -835,7 +835,7 @@ $(document).ready(function(){
 		$("#system-error").addClass("hide");
 		
 		if (!e.isDefaultPrevented()) {
-			$("input").val(function(i,val) {
+			$(".motor-signup-form input").val(function(i,val) {
 		        return val.toUpperCase();
 		    });
 			if($('input[name=bankMortgage]:checked').length>0)

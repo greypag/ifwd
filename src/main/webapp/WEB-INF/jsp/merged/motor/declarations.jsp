@@ -749,7 +749,7 @@ enErr = {
 	};
 $(document).ready(function(){
 	$("#quote-num").html(quote.refNumber);
-	$("input").css({"text-transform":"uppercase"});
+	$(".motor-signup-form input").css({"text-transform":"uppercase"});
 	//enable the Next Button
 	   $('#declaration').validator({
 		   custom: {
