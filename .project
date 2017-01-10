@@ -45,4 +45,51 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/resources/images/motor/Andriod_icon.png</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/Andriod_icon.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/images/motor/Apple_icon.png</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/Apple_icon.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/images/motor/Car_details_registration_demo.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/Car_details_registration_demo.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/images/motor/Driver_License_upload_confirm.png</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/Driver_License_upload_confirm.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/images/motor/HKID_upload_confirm.png</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/HKID_upload_confirm.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/images/motor/Payment_secruity_code.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/Payment_secruity_code.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/images/motor/master_logo.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/master_logo.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/images/motor/vehicle_registeration_Confirm_upload.png</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/vehicle_registeration_Confirm_upload.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/images/motor/visa_logo.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Users/techuser/Desktop/New%20folder/visa_logo.jpg</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

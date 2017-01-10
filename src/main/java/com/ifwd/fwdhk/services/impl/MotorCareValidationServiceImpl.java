@@ -4,6 +4,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.length;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.time.LocalDate;
@@ -197,19 +198,36 @@ public class MotorCareValidationServiceImpl implements
 	
 	public boolean passFieldCheckCarDetails(MotorCareDetails motorCare){
 		try {
-			if (isBlank(motorCare.getCarDetail().getChassisNumber()) 
-				|| motorCare.getCarDetail().getEngineCapacity() <= 0
+			if (isBlank(motorCare.getCarDetail().getChassisNumber())
 				|| isBlank(motorCare.getCarDetail().getModelDesc()) 				
 				|| isBlank(motorCare.getPolicyId()) ) {
 				return false;
 			}			
 			
-			// Check CC Length
-			if (length(motorCare.getCarDetail().getEngineCapacity().toString()) <3 
-					|| length(motorCare.getCarDetail().getEngineCapacity().toString()) >5) {
-				return false;
+			// Check the car is Electric or not 
+			boolean isElectronicCar = false;
+			String url = UserRestURIConstants.MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET 
+					+ "?makeCode=" + urlEncodeInputSpace(motorCare.getCarDetail().getMakeCode()) + "&carModel=" + urlEncodeInputSpace(motorCare.getCarDetail().getModel());
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, url, COMMON_HEADERS, null);
+			
+			if (responseJsonObj.get("errMsgs") == null && responseJsonObj.get("carDetail") != null && responseJsonObj.get("carDetail").toString().length() > 0) {
+				ObjectMapper mapper = new ObjectMapper();					
+				CarDetail carDetail = mapper.readValue(responseJsonObj.get("carDetail").toString(), CarDetail.class);
+				isElectronicCar = carDetail.isElectricCar();
 			}
 			
+			if (!isElectronicCar) {
+				if (motorCare.getCarDetail().getEngineCapacity() <= 0) {
+					return false;
+				}
+				
+				// Check CC Length
+				if (length(motorCare.getCarDetail().getEngineCapacity().toString()) <3 
+						|| length(motorCare.getCarDetail().getEngineCapacity().toString()) >4) {
+					return false;
+				}	
+			}
+				
 			// Check Chassis Number
 			if (length(motorCare.getCarDetail().getChassisNumber()) <4 
 					|| length(motorCare.getCarDetail().getChassisNumber()) >30) {
@@ -220,14 +238,13 @@ public class MotorCareValidationServiceImpl implements
 			if (motorCare.getCarDetail().isBankMortgage() ) {
 				if (isBlank(motorCare.getCarDetail().getBankMortgageName())) {
 					return false;
-				}
-				
+				}				
 				if (length(motorCare.getCarDetail().getBankMortgageName()) <3 
 						|| length(motorCare.getCarDetail().getBankMortgageName()) >50) {
 					return false;
 				}
 			}
-		} catch (NullPointerException e) {
+		} catch (NullPointerException | IOException e) {
 			return false;
 		}
 		return true;
@@ -249,7 +266,7 @@ public class MotorCareValidationServiceImpl implements
 			}	
 			
 			int age = getAgeUntilToday (DateUtils.parseDate(motorCare.getApplicant().getDateOfBirth(), new String[]{"dd-MM-yyyy"}));
-			if (age < 25 || age > 75) {
+			if (age < 25 || age > 70) {
 				return false;
 			}
 			
@@ -318,7 +335,7 @@ public class MotorCareValidationServiceImpl implements
 				return false;
 			}
 						
-			if (DateUtils.truncatedCompareTo(policyStartDte, DateUtils.addDays(expDate, 365), Calendar.DAY_OF_MONTH) <= 0) {
+			if (DateUtils.truncatedCompareTo(policyStartDte, DateUtils.addDays(expDate, 366), Calendar.DAY_OF_MONTH) <= 0) {
 				// Valid
 			} else {
 				return false;
