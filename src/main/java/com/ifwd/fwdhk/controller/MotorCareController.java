@@ -535,20 +535,15 @@ public class MotorCareController extends BaseController{
 		
 		try {			
 			Map<String, String> apiResponse = new HashMap<>();
-<<<<<<< Updated upstream
 			boolean result = sendEmail.sendEmail(URLDecoder.decode(replace(emailToSendPromoCode, "emailToSendPromoCode=", ""), "UTF-8"), 
 								"MOTORSMART", new HashMap<String, String>(headerUtil.getHeader(request)));
 			
-=======
-			/*
-			boolean result = sendEmail.sendEmail(email, "MOTORSMART", new HashMap<String, String>(headerUtil.getHeader(request)));
->>>>>>> Stashed changes
 			if (result) {
 				apiResponse.put("result", result ? "OK" : "FAIL");
 			} else {
 				return motor_badRequest(null);
 			}
-			*/
+			
 			return Responses.ok(apiResponse);
 			
 		} catch (Exception e) {			
@@ -1293,7 +1288,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					//sendEmailByType(request, "SAVE4LATER", null);
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return motor_notFound(null);
@@ -1372,7 +1367,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					//sendEmailByType(request, "SAVE4LATER", null);
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return motor_notFound(null);
@@ -1450,7 +1445,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					//sendEmailByType(request, "SAVE4LATER", null);
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return motor_notFound(null);
@@ -1528,7 +1523,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					//sendEmailByType(request, "SAVE4LATER", null);
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return motor_notFound(null);
@@ -1601,7 +1596,7 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorSaveForLater detail = mapper.readValue(responseJsonObj.get("motorSaveForLater").toString(), MotorSaveForLater.class); 
 					apiResponse.put("policyID", detail.getMotorCareDetails().getPolicyId());
-					//sendEmailByType(request, "SAVE4LATER", null);
+					sendEmailByType(request, "SAVE4LATER", null);
 				} else {
 					logger.info(methodName + " motorSaveForLater not found");
 					return motor_notFound(null);
@@ -2187,7 +2182,7 @@ public class MotorCareController extends BaseController{
 			//parameters.put("to", userDetails.getEmailAddress());
 			//parameters.put("to", "siuchung.kwok@fwd.com");
 			if (userDetails != null) parameters.put("to", userDetails.getEmailAddress());
-			parameters.put("subject", "Your Motor Smart application has not yet been completed!您的Motor Smart申請尚未完成!");
+			parameters.put("subject", "Your Motor Smart application has not yet been completed!±zªºMotor Smart¥Ó½Ð©|¥¼§¹¦¨!");
 				if (userDetails != null) model.put("name", userDetails.getFullName());				
 				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "get-quote?type=3");
 				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "get-quote?type=3");
@@ -2211,7 +2206,7 @@ public class MotorCareController extends BaseController{
 			String serverUrl = replace(request.getRequestURL().toString(), request.getServletPath(), "");
 			// Form JSON to send email
 			if (applicant != null) parameters.put("to", (String)(applicant.get("email")));
-			parameters.put("subject", "Your Motor Smart application (Upload Later) has not yet been completed!您的Motor Smart申請尚未完成!");
+			parameters.put("subject", "Your Motor Smart application (Upload Later) has not yet been completed!±zªºMotor Smart¥Ó½Ð©|¥¼§¹¦¨!");
 				if (applicant != null) model.put("name", (String)(applicant.get("name")));				
 				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "start-upload-later?refNum="+urlEncodeInputSpace((String)(data.get("refNumber"))));
 				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "start-upload-later?refNum="+urlEncodeInputSpace((String)data.get("refNumber")));

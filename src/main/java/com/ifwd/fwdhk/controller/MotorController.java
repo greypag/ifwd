@@ -179,7 +179,7 @@ public class MotorController extends BaseController{
 							mcd.put("refNumber", request.getParameter("refNum"));
 							
 							// Send doc upload later email
-							//motorCareController.sendEmailByType(request, "UPD_LATER", mcd);
+							motorCareController.sendEmailByType(request, "UPD_LATER", mcd);
 						}
 					} else {
 						return failView;
