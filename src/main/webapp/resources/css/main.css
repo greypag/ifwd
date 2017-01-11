@@ -12839,3 +12839,9 @@ button[disabled].btn.btn-default--vc {
 	}
 }
 /* 20161124 - #tax-resident-modal --end-- */
+.easy_health_payment_address_wrapper{
+	font-size:16px
+}
+.elite_payment_address_wrapper{
+	font-size:14px;
+}

@@ -1066,6 +1066,17 @@ var clicked = false;
                             </div>
                             <div class="clearfix"></div>
                         </div>
+                        
+                        <div class="form-group float">
+                        	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title"></div>
+                        	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                        		<div><fmt:message key="payment.gi.address.line1" bundle="${msg}" /></div>
+                        		<div><fmt:message key="payment.gi.address.line2" bundle="${msg}" /></div>
+                        		<div><fmt:message key="payment.gi.address.line3" bundle="${msg}" /></div>
+                        	</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        
                         <div class="clearfix"></div>
                     </div>
 
