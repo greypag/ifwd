@@ -116,7 +116,7 @@ var eWalletCtr = {
 			errMsgCode += code;
 		}
 
-		//s errmsg
+		// patch error code
 		if(!!apiErrMsg[apiName][errMsgCode]){
 			errMsg = apiErrMsg[apiName][errMsgCode];
 			if(code){
@@ -1035,7 +1035,8 @@ var apiErrMsg = {
 		// c_200_TPW001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW001"),
 		c_200_TPW002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW002"),
 		c_200_TPW003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW003"),
-		c_200_TPW004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW004")
+		c_200_TPW004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW004"),
+		c_200_GPE004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_GPE004")
    },	
     unlinkTngPolicy:{  
 		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.unlinkTngPolicy.c_400_MP"),
