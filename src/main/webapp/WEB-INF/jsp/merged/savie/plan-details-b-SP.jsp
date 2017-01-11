@@ -922,6 +922,16 @@ var affordabilityPremium = ${sliderMax};
 		apply=false;
 		//alert('plan-details-b-SP.jsp type=' + '${type}');
 		if('2'=='${type }'){
+			var planCode=$("#type-of-payment").val();
+			if (planCode=='one-off-premium'){
+				validatePromoCode();
+				//alert("promoCode=" + "${saviePlanDetails.promoCode}");
+				//alert("premium=" + "${saviePlanDetails.insuredAmount}");
+				if(promoCodeValid==false){ 
+					$('#promoCode').focus();
+					return;
+				}
+			}
 			proceedLogin('<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
 		}else {
 			//$('#offline-online-modal').modal('show');

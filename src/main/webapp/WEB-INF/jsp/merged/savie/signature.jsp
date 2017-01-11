@@ -52,6 +52,8 @@ var languageP = "${language}";
 	<div class="container-fluid fwd-full-container  headerStick" id="container-signatureoffline">
 		<div class="fwd-container-limit clearfix sidebar" id="fwd-container-signatureoffline">
 			<p><fmt:message key="label.savie.sign.title" bundle="${msg}" /></p>
+			<c:choose> 
+ 			<c:when  test="${saviePlanDetails.insuredAmountDiscount == 0  || (saviePlanDetails.insuredAmountDiscount !=0 && (saviePlanDetails.promoCode ==''||saviePlanDetails.promoCode ==null))}">
 			<div class="form-signatureoffline-info">
 				<div class="radio-group clearfix">
 					 <div class="radio-button-group">
@@ -76,6 +78,11 @@ var languageP = "${language}";
 					</div>
 				</div>
 			</div>
+			</c:when>
+			<c:otherwise>  
+			<p> </p>
+			</c:otherwise>
+			</c:choose>
 			<!-- Digital Signature -->
 			<form id="table-info" class="clearfix">
 				<p class="table-info-p"><fmt:message key="label.savie.reviewsign.title" bundle="${msg}" /></p>
