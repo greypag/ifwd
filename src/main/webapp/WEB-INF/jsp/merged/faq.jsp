@@ -52,11 +52,9 @@
 						<div class="clearfix"></div>
 			            <div class="faq-btn-wrapper-bottom">
 			            	<div id="MotorFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'motor', false);"><fmt:message key="faq.motor" bundle="${msg}" /></div>
-			            	<div id="wealthreefaq" class="faq_menu_item" onclick="faqChangeCare(this, 'wealthree', false);"><fmt:message key="faq.wealthree" bundle="${msg}" /></div>
 			            </div>
 			        </div>
-					
-					<jsp:include page="/WEB-INF/jsp/merged/faq/faq_wealthree.jsp" />
+
 			        <jsp:include page="/WEB-INF/jsp/merged/faq/faq_motor.jsp" />
 			        <jsp:include page="/WEB-INF/jsp/merged/faq/faq_driva.jsp" />
 					<jsp:include page="/WEB-INF/jsp/merged/faq/faq_provie.jsp" />
