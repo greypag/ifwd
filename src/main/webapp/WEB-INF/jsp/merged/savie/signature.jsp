@@ -678,7 +678,7 @@ var languageP = "${language}";
 		function updateSecond(second) {
 			//sec1 -= 1;
 			//console.log(interval);
-			if(second == 0) {
+			if(second <= 0) {
 				clearInterval(interval1);
 				$('#review-btn-1').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-1').hasClass('bottom')) {
@@ -697,7 +697,7 @@ var languageP = "${language}";
 		}, 1000);
 
 		function updateSecond(second) {
-			if(second == 0) {
+			if(second <= 0) {
 				clearInterval(interval2);
 				$('#review-btn-2').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-2').hasClass('bottom')) {
@@ -715,7 +715,7 @@ var languageP = "${language}";
 		}, 1000);
 
 		function updateSecond(second) {
-			if(second == 0) {
+			if(second <= 0) {
 				clearInterval(interval3);
 				$('#review-btn-3').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-3').hasClass('bottom')) {
