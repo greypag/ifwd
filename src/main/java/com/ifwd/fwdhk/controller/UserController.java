@@ -555,49 +555,6 @@ public class UserController {
 		return resultMap;
 	}
 	
-	//email alert for issue tracing
-	private void sendAlertEmail(HttpServletRequest request){
-		String methodName = "sendAlertEmail";
-		logger.debug(methodName);
-		
-		String subject = "iFWD Alert - PHW Policy List";
-		try {
-			BaseResponse br = null;
-			final Map<String,String> header = headerUtil.getHeader(request);
-
-			HttpSession session = request.getSession(false);
-			String usernameInSession = session.getAttribute("username").toString();
-			String customerId = (String)session.getAttribute("customerId");
-
-			String message = "Dear Support,"
-					+ "<br/>"
-					+ "<br/>Get PHW Policy List may meet issue, please kindly followup if keep receive alert email."
-					+ "<br/>time:"+(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date())
-					+ "<br/>username:"+usernameInSession
-					+ "<br/>"+customerId
-					+ "<br/>";
-			message = "<html><body>"+message+"</body></html>";
-
-			String attachment = "";
-			String from = UserRestURIConstants.getConfigs("innerMailFrom");
-			String to = "stephen.pf.lei@fwd.com";
-			boolean isHTML = true;
-
-			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
-			parameters.put("from", from);
-			parameters.put("to", to);
-			parameters.put("message", message);
-			parameters.put("subject", subject);
-			parameters.put("attachment", attachment);
-			parameters.put("isHtml", isHTML);
-
-			br = connector.sendEmail(parameters,header);
-		} catch (Exception e) {
-			logger.warn(methodName+" Fail to send alert email for "+subject, e);
-		}
-		
-	}
-	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = {"/getAccByUsernaneAndPassword", "/{lang}/account"}, method = RequestMethod.GET)
 	public ModelAndView getAccountDetailsByUsernameAndPassoword(HttpServletRequest request, Model model) {
@@ -647,10 +604,6 @@ public class UserController {
 							phwPolicyListStatus = "false";
 						}
 						model.addAttribute("phw_policy_list_status", phwPolicyListStatus);
-						
-						if("false".equals(phwPolicyListStatus)){
-							this.sendAlertEmail(request);
-						}
 						
 					}else{
 					

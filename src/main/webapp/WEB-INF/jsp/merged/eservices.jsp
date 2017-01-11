@@ -537,7 +537,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
-															<p class="info-data">${list.amount}</p>
+															<p class="info-data">${list.expiryDateDesc}</p>
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -626,7 +626,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
-															<p class="info-data">${list.amount}</p>
+															<p class="info-data">${list.expiryDateDesc}</p>
 														</div>
 													</div>
 	                                            </c:forEach>
