@@ -731,42 +731,42 @@ var home_url = "<%=request.getContextPath()%>";
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.maturity.benefit" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.maturity.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.maturity.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-maturity"><fmt:message key="wealthree.landing.table.maturity.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.surrender.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.surrender.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-surrender"><fmt:message key="wealthree.landing.table.surrender.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.partial.surrender.benefit" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.partial.surrender.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.partial.surrender.benefit.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-psurrender"><fmt:message key="wealthree.landing.table.partial.surrender.benefit.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.no.of.withdrawal" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.no.of.withdrawal.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.no.of.withdrawal.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-withdrawal"><fmt:message key="wealthree.landing.table.no.of.withdrawal.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.partial.surrender.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.min.partial.surrender.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-minpsurrender"><fmt:message key="wealthree.landing.table.min.partial.surrender.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.max.partial.surrender" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.max.partial.surrender.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.max.partial.surrender.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-maxpsurrender"><fmt:message key="wealthree.landing.table.max.partial.surrender.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.title.min.acc.value" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.wealthree" bundle="${wealthreeMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="wealthree.landing.table.min.acc.value.wealthree" bundle="${wealthreeMsg}" /></span></td>
 									<td colspan="2"><span class="inner sw-minacc"><fmt:message key="wealthree.landing.table.min.acc.value.provie" bundle="${wealthreeMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"><span class="inner"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></span></td>
-									<td colspan="2"><span class="inner">&nbsp;</span></td>
+									<td colspan="2" class="highlight"><span class="inner">&nbsp;</span></td>
 									<td colspan="2"><span class="inner sw-detail">
 										<a href="<%=request.getContextPath()%>/${language}/savings-insurance/provie"><fmt:message key="wealthree.landing.table.detail.title" bundle="${wealthreeMsg}" /></a>
 									</span></td>
