@@ -529,7 +529,7 @@ function callback_motor_LoginSuccess(){
 		    success:function(response){
 		    	console.dir(response);
 		    	tempquote = response.motorCareDetails;
-		    	$('#saveModal').modal("show");
+		    	//$('#saveModal').modal("show");
 		    }
 		});
 }

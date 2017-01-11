@@ -569,7 +569,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_regNo" pattern="^.{4,}$" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' minlength="4" maxlength="8" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' required>
+	                                                <input type="text" style="text-transform:uppercase" name="prev_regNo" data-error='<fmt:message key="motor.error.msg.general.alphanumeric" bundle="${motorMsg}" />' maxlength="8" class="form-control input--grey mdl-textfield__input" id="prev_regNo" data-required-error='<fmt:message key="motor.error.msg.policy.regno.empty" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.regno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -581,7 +581,7 @@ var nextPage = "${nextPageFlow}";
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap calendar" > 
 	                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-	                                                <input type="text" name="expiry-datepicker" id="expiry-datepicker" class="form-control mdl-textfield__input" required data-required-error='<fmt:message key="motor.error.msg.policy.expiry.empty" bundle="${motorMsg}" />' data-error='<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>'>
+	                                                <input type="text" style="text-transform:uppercase" name="expiry-datepicker" id="expiry-datepicker" class="form-control mdl-textfield__input" required data-required-error='<fmt:message key="motor.error.msg.policy.expiry.empty" bundle="${motorMsg}" />' data-error='<script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>'>
 	                                                <span style="display:none"><input type="text" id="expiry-datepicker-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.expiry.empty" bundle="${motorMsg}" />' required/></span>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.expdate" bundle="${motorMsg}" /></label>
 	                                            </div>
@@ -593,7 +593,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="prev_policyNo" pattern="^.{3,}$" data-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.format" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.empty" bundle="${motorMsg}" />' id="prev_policyNo" required>
+	                                                <input type="text" style="text-transform:uppercase" name="prev_policyNo" pattern="^.{3,}$" data-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.format" bundle="${motorMsg}" />' minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.prepolicy.no.empty" bundle="${motorMsg}" />' id="prev_policyNo" required>
 	                                                <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.policy.prev.policyno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -1000,7 +1000,7 @@ var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
 	//alert('Login success. Call Save later API.');
-	$('#saveModal').modal("show");
+	//$('#saveModal').modal("show");
 	var empty = {}; 
 	  $.ajax({
 			url:fwdApi.url.resume,

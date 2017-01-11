@@ -428,56 +428,28 @@ var ccCheck = $('#cubicCapacityDiv').find('.left-desktop');
 var ccField= $('input[name=cubicCapacity]');
 
 ccField.keyup(function(e){
-	
-	  if ( e.which < 96 ) {
-		    if ( e.which < 48 || e.which > 57 ) {
-		    	//$(this).val('');
-		    	var strng = $(this).val();
-		    	$(this).val(strng.substring(0,strng.length-1));
-		    //	e.preventDefault();
-		    //	return false;
-		  }
-		    else{
-		    //	alert(e.which);
-		   // 	alert($(this).val());
-		     	if($(this).val() > 9999){
-		      //  	console.log($(this).val());
-		        	$(this).val(9999);
-		      	  $(this).blur().focus();
-		    	}
-		    	
-		    }
-		}
-		if( e.which > 105 ) {
-			if ( e.which < 48 || e.which > 57 ) {
-		    	//$(this).val('');
-		    	var strng = $(this).val();
-		    	$(this).val(strng.substring(0,strng.length-1));
-		    //	e.preventDefault();
-		    //	return false;
-		  }
-		    else{
-		    //	alert(e.which);
-		   // 	alert($(this).val());
-		     	if($(this).val() > 9999){
-		      //  	console.log($(this).val());
-		        	$(this).val(9999);
-		      	  $(this).blur().focus();
-		    	}
-		    	
-		    }
-		}
-	//	else
-	//		  {
-		//	alert(e.which);
-	    //	alert($(this).val());
-	//		 	if($(this).val() > 9999){
-		    //    	console.log($(this).val());
-		//        	$(this).val(9999);
-		//      	  $(this).blur().focus();
-		//    	}
-			  
-		//	  }
+	if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1))
+	{
+		 if ( e.which < 96 ) {
+			    if ( e.which < 48 || e.which > 57 ) {
+			    	e.stopPropagation();
+			    	var strng = $(this).val();
+			    	$(this).val(strng.substring(0,strng.length-1));
+			  	
+			    }
+			    else{
+			     	if($(this).val() > 9999){
+			        	$(this).val(9999);
+			      	  $(this).blur().focus();
+			    	}
+			    }
+			}
+	}
+	if($(this).val() > 9999){
+    	$(this).val(9999);
+  	  $(this).blur().focus();
+	}
+	 
 		if(ccCheck.hasClass('is-invalid')){
 			if(ccCheck.hasClass('is-dirty')){
 				

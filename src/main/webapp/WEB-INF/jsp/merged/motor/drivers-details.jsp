@@ -160,7 +160,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="flat" maxlength="10" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="flat"  data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="flat" maxlength="20"  class="form-control input--grey mdl-textfield__input" id="flat"  data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" style="font-size:12px"><fmt:message key="motor.driversdetails.address.flat" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -171,7 +171,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap"> 
-	                                                <input type="text" name="floor" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="floor"  data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="floor" maxlength="20"  class="form-control input--grey mdl-textfield__input" id="floor"  data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" style="font-size:12px"><fmt:message key="motor.driversdetails.address.floor" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -182,7 +182,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap"> 
-	                                                <input type="text" name="block" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" id="block" data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="block" maxlength="20"  class="form-control input--grey mdl-textfield__input" id="block" data-required-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" style="font-size:12px"><fmt:message key="motor.driversdetails.address.block" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -194,7 +194,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="building" id="building" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="building" id="building" maxlength="35"  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.building" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors building"></div>
 	                                            </div>
@@ -205,7 +205,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="estate" id="estate" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="estate" id="estate" maxlength="32" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.estate" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors estate"></div>
 	                                            </div>
@@ -217,7 +217,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetno" id="streetno" maxlength="5" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="streetno" id="streetno" maxlength="20" class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors streetno"></div>
 	                                            </div>
@@ -228,7 +228,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="streetname" id="streetname" maxlength="50" pattern="^[a-zA-Z\d\s]+$" data-pattern-error='<fmt:message key="motor.error.msg.general.engcharint" bundle="${motorMsg}" />'  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
+	                                                <input type="text" name="streetname" id="streetname" maxlength="20"  class="form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.carowner.address.format" bundle="${motorMsg}" />' required>
 	                                                <label class="mdl-textfield__label"><fmt:message key="motor.driversdetails.address.streetname" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors streetname"></div>
 	                                            </div>
@@ -557,7 +557,7 @@ var tempquote="";
 var loginStatus=false;
 function callback_motor_LoginSuccess(){
 	//alert('Login success. Call Save later API.');
-	$('#saveModal').modal("show");
+	//$('#saveModal').modal("show");
 	var empty = {}; 
 	  $.ajax({
 			url:fwdApi.url.resume,

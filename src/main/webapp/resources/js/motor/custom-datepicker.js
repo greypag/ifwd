@@ -79,7 +79,7 @@ $(document).ready(function () {
     	dsplit = qdate.split("-"),
     	startDate = new Date(dsplit[2],dsplit[1]-1,dsplit[0]),
         min = new Date(startDate.getFullYear()-1, startDate.getMonth(), startDate.getDate()),
-        max = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()-1);
+        max = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
 
         var dob_end_date = new Date();
 
