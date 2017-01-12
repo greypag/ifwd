@@ -5,9 +5,11 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 import java.util.Map;
 
 import io.swagger.annotations.Api;
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
@@ -36,6 +39,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.CrsStatus;
 import com.ifwd.fwdhk.model.CrsStatusResponse;
@@ -44,6 +51,12 @@ import com.ifwd.fwdhk.model.MemberActionResult;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.model.motor.CarDetail;
+import com.ifwd.fwdhk.model.registrationrevamp.ForgetUsernameRequest;
+import com.ifwd.fwdhk.model.registrationrevamp.ForgetUsernameResponse;
+import com.ifwd.fwdhk.model.registrationrevamp.ForgotPasswordRequest;
+import com.ifwd.fwdhk.model.registrationrevamp.ForgotPasswordResponse;
+import com.ifwd.fwdhk.model.registrationrevamp.RegistrationRequest;
+import com.ifwd.fwdhk.model.registrationrevamp.RegistrationResponse;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.Methods;
@@ -401,6 +414,201 @@ public class MemberController extends BaseController {
 		}
 		
 	}	
-
 	
+	//For registration revamp
+	@SuppressWarnings("unchecked")
+	@ApiOperation(
+			value = "Register Customer User",
+			response = RegistrationResponse.class
+			)
+	@ApiResponses(value = {
+			@ApiResponse(code = 500, message = "System error"),
+			@ApiResponse(code = 400, message = "Invalid Input")
+			})
+	@RequestMapping(value = "/register/member/customer",method=POST)
+	public ResponseEntity<RegistrationResponse> registerCustomerUser(
+			@ApiParam(value = "User Name,Mobile,Password,Email,Dec No,Policy No,Dob,Opt Out1,Opt Out2", required = true) @RequestBody RegistrationRequest req,
+			HttpServletRequest request) {
+		String methodName="registerCustomerUser";
+		logger.debug(methodName+" getUserName:"+req.getUserName());
+		
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		ResponseEntity<RegistrationResponse> responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.REGISTRATION_REVAMP_REGISTER_USER;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(req);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.PUT, url, headerUtil.getHeader(request), jsonInput);
+			
+			// ******************* Makeup result *******************			
+			responseEntity=getResponseEntityByJsonObj(methodName,RegistrationResponse.class,responseJsonObj);
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
+	}
+	
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@ApiOperation(
+			value = "Forgot Customer Username ",
+			response = ForgetUsernameResponse.class
+			)
+	@ApiResponses(value = {
+			@ApiResponse(code = 500, message = "System error"),
+			@ApiResponse(code = 400, message = "Invalid Input")
+			})
+	@RequestMapping(value = "/forgotUserName/customer", method = POST)
+	public ResponseEntity<ForgetUsernameResponse> getCustomerUserName(
+			@ApiParam(value = "Policy Id, Doc No., Dob", required = true) @RequestBody ForgetUsernameRequest revampReq,
+			HttpServletRequest request) {
+
+		String methodName="getCustomerUserName";
+		logger.debug(methodName+" getPolicyId:"+revampReq.getPolicyNo());
+		
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		ResponseEntity responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.REGISTRATION_REVAMP_FORGET_USERNAME;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(revampReq);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			Map<String,String> header = Maps.newHashMap();
+			header=headerUtil.getHeader(request);
+			header.remove("username");
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, header, jsonInput);
+			
+			// ******************* Makeup result *******************			
+			responseEntity=getResponseEntityByJsonObj(methodName,ForgetUsernameResponse.class,responseJsonObj);
+			
+		} catch (Exception e) {
+			logger.error(methodName+" System error:",e);
+			return responseEntity;
+		}
+		return responseEntity;
+	}
+
+	@SuppressWarnings("unchecked")
+	@ApiOperation(
+			value = "Forgot Customer Password",
+			response = ForgotPasswordResponse.class
+			)
+	@ApiResponses(value = {
+			@ApiResponse(code = 500, message = "System error"),
+			@ApiResponse(code = 400, message = "Invalid Input")
+			})
+	@RequestMapping(value = "/forgotPassword/customer", method =POST)
+	public ResponseEntity<ForgotPasswordResponse> forgetCustomerPassword(
+			@ApiParam(value = "User Name,Doc No,Dob", required = true) @RequestBody  ForgotPasswordRequest req,
+			HttpServletRequest request) {
+
+		String methodName="forgotCustomerPassword";
+		logger.debug(methodName+" getUserName:"+req.getUserName());
+		
+		
+		JSONObject responseJsonObj = new JSONObject();		
+		ResponseEntity<ForgotPasswordResponse> responseEntity =Responses.error(null);
+		try {			
+			// ******************* Form URL *******************
+			String url = UserRestURIConstants.REGISTRATION_REVAMP_FORGET_PASSWORD;
+			
+			String jsonString = new ObjectMapper().writeValueAsString(req);			
+			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
+			logger.debug(methodName+" jsonInput:"+jsonInput.toString());
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
+			if(responseJsonObj.get("errMsgs")==null){
+				responseJsonObj.put("resp", true);
+				responseJsonObj.put("message", "");
+			}else{
+				responseJsonObj.put("resp", false);
+				responseJsonObj.put("message", "");
+			}
+			// ******************* Makeup result *******************			
+			responseEntity=getResponseEntityByJsonObj(methodName,ForgotPasswordResponse.class,responseJsonObj);
+			
+		} catch (Exception e) {
+			logger.info(methodName+" System error:",e);
+			return responseEntity;
+		}
+		
+		return responseEntity;
+	}
+	
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private <T> ResponseEntity getResponseEntityByJsonObj(String methodName,
+			Class<T> responseClass,
+			JSONObject responseJsonObj) throws JsonParseException, JsonMappingException, IOException {
+		//MessageCodeUtil messageUtil=new MessageCodeUtil();
+		if (responseJsonObj==null){
+			return Responses.error(null);
+		}
+		logger.info(methodName+" response :" + responseJsonObj.toString());
+		T responseObject=null;
+		String errMsg=null;
+		if(responseJsonObj.get("errMsgs") instanceof JSONArray){
+			errMsg=(String) ((JSONArray) responseJsonObj.get("errMsgs")).get(0);
+		}else{
+		errMsg=(String) responseJsonObj.get("errMsgs");
+		}
+		if(errMsg==null || errMsg.length()==0){
+			responseJsonObj.remove("errMsgs");
+			//mapping
+			if(responseJsonObj.toString().length() > 0) {
+				ObjectMapper mapper = new ObjectMapper();
+				responseObject= (T) mapper.readValue(responseJsonObj.toString(), responseClass);
+				logger.debug(methodName+" "+responseClass.getName()+" apiResponse: "+responseClass.toString()+" "+responseObject.toString());
+			} else {
+				logger.info(methodName+" "+responseClass.getName()+" "+"not found");
+				return Responses.notFound(null);
+			}
+				
+		}else{
+			try {
+				logger.info(methodName+" System error:" + errMsg);
+				String resultCode="";
+				switch (errMsg) {
+				case "Invalid Input":
+					resultCode="400";
+					break;
+				case "System error":
+					resultCode="500";
+					break;
+				case " The information you have entered is not valid, please try again":
+					resultCode="504";
+					break;
+				default:
+					resultCode="500";
+					break;
+				}
+				responseJsonObj.put("message", errMsg);
+				responseJsonObj.remove("errMsgs");
+				ObjectMapper mapper = new ObjectMapper();
+				responseObject= (T) mapper.readValue(responseJsonObj.toString(), responseClass);
+				return new ResponseEntity<T>(responseObject, HttpStatus.valueOf(Integer.parseInt(resultCode)));
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+				logger.error(e.getMessage());
+				return Responses.error(null);
+			}
+		}
+		return Responses.ok(responseObject);
+	}
 }
+

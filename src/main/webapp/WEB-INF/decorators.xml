@@ -54,6 +54,7 @@
 		<pattern>/*/savings-insurance/provie*</pattern>
 		<pattern>/*/motor-insurance*</pattern>
 		<pattern>/*/savings-insurance/wealthree*</pattern>
+		<pattern>/*/joinus*</pattern>
 	</decorator>
 
 	<decorator name="ngdiscover" page="template_discover_ng.jsp">

@@ -174,6 +174,25 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 			'://5198.xg4ken.com/media/getpx.php?cid=67bda50a-b010-4425-9f2b-165bf9a1d04a','" type="text/JavaScript"><\/scr'+'ipt>');
 		</script>
 
+<script>
+	var context = "${pageContext.request.contextPath}";
+	var language = "${language}";
+	var affiliate = "${affiliate}";
+	var home_url = "<%=request.getContextPath()%>";
+	<%--For Savie online 2016 JS --%>
+	var getpath = "<%=request.getContextPath()%>";
+	<%--For Savie online 2016 JS END--%>
+
+	/*
+	 * Global Site Variables
+	 */
+	var Site = {
+		'context':'${pageContext.request.contextPath}',
+		'language': '${language}',
+		'affiliate': '${affiliate}',
+	};
+
+</script>
 <dec:head />
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 </head>

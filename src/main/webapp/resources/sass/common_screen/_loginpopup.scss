@@ -7,7 +7,6 @@
   left: 0;
   right: 0;
   outline-color: transparent;
-  overflow: hidden;
   h1, h2, h3, h4, h5 {
     margin: 0;
     padding: 0;
@@ -40,7 +39,7 @@
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    width:260px;
+    //width:260px;
     height:40px;
     line-height: 14px;
     display:inline;
@@ -153,6 +152,14 @@
   .loginform2 .login-err-msg {
   	white-space: normal;
   }
+	.login_is_fwdmember_label{
+		display : block;
+		margin-bottom: 10px;
+		
+		.left-space{
+			margin-left: 12px;
+		}
+	}
 }
 
 // .btn--cta ??
@@ -382,5 +389,20 @@ a {
         }
     }
 }
-
+.dw-bubble{
+	&.mbsc-mobiscroll{
+		.dwl{
+			color: #333;
+		    font-size: 18px;
+		    text-transform: capitalize;
+		}
+		.dwb{
+			color: #f99502;
+		}
+		.dwwol{
+			border-top: 1px solid #f99502;
+    		border-bottom: 1px solid #f99502;
+		}
+	}
+}
 // ----------------------------------

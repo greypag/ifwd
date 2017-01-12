@@ -3680,6 +3680,9 @@ a.eserv-link:hover {
     float: left;
     width: 33%;
   }
+  #savie-online-purchase-history #purchase-history-page .right-side-content #promo-offers-tab-contents .nav-tabs li {
+    width: 50%;
+  }
 }
 /* line 123, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li:nth-child(1) {

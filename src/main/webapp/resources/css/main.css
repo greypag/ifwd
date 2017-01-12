@@ -10926,6 +10926,13 @@ body.chin .dot-font{
     margin-top: 10px;
     clear: both;
 }
+#loginpopup .login-form .form-group .login_is_fwdmember_label{
+	display:block;
+	margin-bottom: 10px;
+}
+#loginpopup .login-form .form-group .login_is_fwdmember_label input[type='radio']{
+	border-radius: 50%;
+}
 #loginpopup .login-input {
     border: 1px solid #ebebeb;
     color:#9ba5a7 !important;
@@ -10933,7 +10940,6 @@ body.chin .dot-font{
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    width:260px;
     height:40px;
     line-height: 14px\9;
     display:inline;
@@ -12844,4 +12850,78 @@ button[disabled].btn.btn-default--vc {
 }
 .elite_payment_address_wrapper{
 	font-size:14px;
+}
+
+.dw-bubble.mbsc-mobiscroll .dwl {
+  color: #333;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.dw-bubble.mbsc-mobiscroll .dwb {
+  color: #f99502;
+}
+.dw-bubble.mbsc-mobiscroll .dwwol {
+  border-top: 1px solid #f99502;
+  border-bottom: 1px solid #f99502;
+}
+
+
+/* line 195, ../sass/base/_button.scss */
+.cta--orange {
+  border: none;
+  border-bottom: 3px solid #cfa238;
+  color: #ffffff;
+  background-color: #ff8200;
+  border-radius: 4px;
+  outline-color: initial;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+/* line 205, ../sass/base/_button.scss */
+.cta--orange:hover {
+  outline: none;
+  box-shadow: none;
+  background: #fff;
+  color: #f6871e;
+  border: 1px solid #f6871e;
+  opacity: 1;
+}
+/* line 214, ../sass/base/_button.scss */
+.cta--orange:focus {
+  color: #ffffff;
+  background-color: #ff8200;
+  outline-color: initial;
+}
+
+/* line 221, ../sass/base/_button.scss */
+.cta--gray {
+  border: none;
+  border-bottom: 3px solid #676f70;
+  color: #ffffff;
+  background-color: #9ba5a7;
+  border-radius: 4px;
+  outline-color: initial;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+/* line 231, ../sass/base/_button.scss */
+.cta--gray:hover {
+  outline: none;
+  box-shadow: none;
+  background: #fff;
+  color: #f6871e;
+  border: 1px solid #f6871e;
+  opacity: 1;
+}
+/* line 240, ../sass/base/_button.scss */
+.cta--gray:focus {
+  color: #ffffff;
+  background-color: #9ba5a7;
+  outline-color: initial;
+}
+
+/* line 159, ../sass/common_screen/_loginpopup.scss */
+.fwd-savie-wrapper .loginpopup .login_is_fwdmember_label .left-space,
+.loginpopup .login_is_fwdmember_label .left-space {
+  margin-left: 12px;
 }

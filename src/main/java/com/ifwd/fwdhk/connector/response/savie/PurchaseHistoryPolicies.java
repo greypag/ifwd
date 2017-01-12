@@ -23,6 +23,8 @@ public class PurchaseHistoryPolicies{
 	
 	private String productDescEn;
 	private String productDescZh;
+
+	private String amountAsOfDate;
 	
 	public String getPlanName() {
 		return planName;
@@ -151,5 +153,11 @@ public class PurchaseHistoryPolicies{
 		this.productDescZh = productDescZh;
 	}
 	
+	public String getAmountAsOfDate() {
+		return amountAsOfDate;
+	}
+	public void setAmountAsOfDate(String amountAsOfDate) {
+		this.amountAsOfDate = amountAsOfDate;
+	}	
 	
 }

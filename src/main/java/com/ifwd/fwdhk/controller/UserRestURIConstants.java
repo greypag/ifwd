@@ -31,6 +31,8 @@ public class UserRestURIConstants {
 	
 	
 	public final static String SERVICE_URL = getConfigs("url");
+	
+	public final static String IFWD_PATH = getConfigs("ifwdPath");
 
 	/* validate token */
 	public static final String VALIDATE_TOKEN = "/member/token";
@@ -126,6 +128,11 @@ public class UserRestURIConstants {
 	public static final String HOMELIABILITY_CREATE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
 	public static final String HOMELIABILITY_CONFIRM_POLICY = SERVICE_URL + "/gi/home/homeLiability/payments/make";
 	public static final String HOMELIABILITY_FINALIZE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
+	
+	/*API For Registration Revamp*/
+	public static final String REGISTRATION_REVAMP_FORGET_USERNAME = SERVICE_URL + "/member/forgotUserName/customer";
+	public static final String REGISTRATION_REVAMP_FORGET_PASSWORD = SERVICE_URL + "/member/forgotPassword/customer";
+	public static final String REGISTRATION_REVAMP_REGISTER_USER = SERVICE_URL + "/member/register/member/customer";
 	
 	/*API For Savie*/
 	public static final String SAVIE_PLAN_DETAIL = "/savie/planDetails";
@@ -605,6 +612,20 @@ public class UserRestURIConstants {
     public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET = SERVICE_URL + "/iMotor/carDetails/supplement";
 	public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
 
+	/*API For (Online Withdrawal)*/
+	public static final String ONLINE_WITHDRAWAL_POLICY_BY_CUST = SERVICE_URL+"/withdrawal/getPolicyInfoByCustomer"; 
+	public static final String ONLINE_WITHDRAWAL_POLICY_BY_POLICY =SERVICE_URL+"/withdrawal/getPolicyInfoByPolicy"; 
+	public static final String ONLINE_WITHDRAWAL_SEND_TNG_OTP =SERVICE_URL+"/withdrawal/sendTngOTP";
+	public static final String ONLINE_WITHDRAWAL_AUTH_TNG_OTP =SERVICE_URL+"/withdrawal/authTngOTP";
+	public static final String ONLINE_WITHDRAWAL_SAVE_LINKUP =SERVICE_URL+"/withdrawal/saveTngLinkup";
+	public static final String ONLINE_WITHDRAWAL_REQUEST_WITHDRAWAL =SERVICE_URL+ "/withdrawal/requestTngWithdrawal";
+	public static final String ONLINE_WITHDRAWAL_PERFORM_WITHDRAWAL =SERVICE_URL+ "/withdrawal/performTngWithdrawal";
+	public static final String ONLINE_WITHDRAWAL_TNG_TRANS_HISTORY =SERVICE_URL+ "/withdrawal/getTngTransactionHistory";
+	public static final String ONLINE_WITHDRAWAL_TNG_UNLINK_POLICY =SERVICE_URL+ "/withdrawal/unlinkTngPolicy";
+	public static final String ONLINE_WITHDRAWAL_SEARCH_PHW_POLICY =SERVICE_URL+ "/withdrawal/searchPhwPolicy";
+	public static final String ONLINE_WITHDRAWAL_PHW_POLICY_UI_CATEGORY =SERVICE_URL+ "/option/itemDesc";
+	public static final String ONLINE_WITHDRAWAL_PHW_POLICY_UI_NAME =SERVICE_URL+ "/option/itemDesc";
+	
 	
 	public static final String CRS_STATUS = SERVICE_URL + "/crs/status";
 	

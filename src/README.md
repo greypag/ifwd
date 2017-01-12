@@ -14,6 +14,7 @@ Branch Creation Log
 2016-10-25 - UAT Release branch v1.26.000 - FWDiscover Oct/Savie Referral
 2016-10-27 - DEV feature_standardize_hotline
 2016-10-31 - DEV Campaign 1111
+2016-10-31 - DEV Member Registration Revamp - Add FWD Cust and Non-Cust option
 2016-11-01 - DEV Wealthree endowment
 2016-11-02 - UAT Release branch v1.26.001 - Campaign 1111 / CS Hotline Standardization
 2016-11-10 - UAT Release branch v1.27.000 - Passkit
