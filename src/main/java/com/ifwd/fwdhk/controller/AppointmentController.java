@@ -21,6 +21,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.joda.time.DateTime;
 import org.json.simple.JSONArray;
@@ -163,6 +164,21 @@ public class AppointmentController extends BaseController {
 		
 	}
 	
+	private boolean isUserNameMatch(HttpServletRequest request, String requestUserName){
+		HttpSession session = request.getSession(false);
+		String userName = (String)session.getAttribute("userName");
+		if(userName==null){return false;}
+		
+		boolean result = false;
+		if(requestUserName!=null){
+			result = userName.equalsIgnoreCase(requestUserName);
+		}
+//		if(!result){
+//			logger.debug("userName Not Match");
+//		}
+		return result;
+	}
+
 	@RequestMapping(method = POST)
 	@ApiOperation(
 		value = "Book appointment",
@@ -179,6 +195,10 @@ public class AppointmentController extends BaseController {
 		
 		super.IsAuthenticate(request);
 
+		if(!isUserNameMatch(request, booking.getUserName())){
+			return Responses.error(null); 
+		}
+		
 		String url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
 		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, url, COMMON_HEADERS, null);
 		if(responseJsonObj.get("errMsgs")!=null){

@@ -152,8 +152,18 @@ $(document).ready(function(){
  		$("#tableData").find("." + val).children().each(function(){
  			console.log($(this));
  			var key = $(this).attr("class");
-
- 			$(".pv_compareTable").find(".sw-"+key).html($(this).html());
+ 			
+ 			var field = $(".pv_compareTable").find(".sw-"+key);
+ 			field.html($(this).html());
+ 			
+ 			if(key == "monthly"){
+ 				var tdObj = field.parents("td");
+ 				if(!$(this).html().replace(/\s+/g, '')){
+ 					tdObj.removeClass("sep");
+ 				}else{
+ 					tdObj.addClass("sep");
+ 				}
+ 			}
  		});
  	});
 

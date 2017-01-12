@@ -912,7 +912,7 @@ var promoCodeInsertFlag = true;
 		<c:if test="${selectedPlan!=null}">
 	    	$('#box${selectedPlan}').click();
 		</c:if>
-		<c:if test="${referralCode!=null}">
+		<c:if test="${referralCode!=null && referralCode!=''}">
 	    	document.getElementById("promoCode").value = '${referralCode}';
 	    	applyWorkingHolidayPromoCode();
     	</c:if>
