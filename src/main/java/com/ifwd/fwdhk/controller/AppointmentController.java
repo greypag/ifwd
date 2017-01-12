@@ -52,6 +52,11 @@ import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 @RequestMapping(value = "/api/appointment", produces = {APPLICATION_JSON_VALUE})
 @Api(value = "/appointment", description = "Operations about appointment")
+
+
+
+
+
 public class AppointmentController extends BaseController {
 
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -178,8 +183,7 @@ public class AppointmentController extends BaseController {
 //		}
 		return result;
 	}
-
-	@RequestMapping(method = POST)
+	@RequestMapping(value = "/make", method = POST)
 	@ApiOperation(
 		value = "Book appointment",
 		response = AppointmentBooking.class
@@ -188,16 +192,16 @@ public class AppointmentController extends BaseController {
 							@ApiResponse(code = 406, message = "Access code has already been used"),
 							@ApiResponse(code = 409, message = "Reservation is invalid"),
 							@ApiResponse(code = 417, message = "The number of appointments must be less than 2"),
-							@ApiResponse(code = 500, message = "System error")})
+							@ApiResponse(code = 504, message = "System error")})
 	public ResponseEntity<AppointmentBooking> bookAppointment(
 			@ApiParam(value = "Appointment booking", required = true) @RequestBody AppointmentBooking booking
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
 
-		if(!isUserNameMatch(request, booking.getUserName())){
-			return Responses.error(null); 
-		}
+//		if(!isUserNameMatch(request, booking.getUserName())){
+//			return Responses.error(null); 
+//		}
 		
 		String url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
 		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, url, COMMON_HEADERS, null);
