@@ -331,7 +331,7 @@ public class CompareUtil {
 		}
 		for(int i = 0; i < beans.size(); i++) {
 			String group=beans.get(i).getGroup();
-			if(!beans.get(i).getProducts().isEmpty()&&(group.equals("有投資成份的保險產品 - 投資決定及風險由保單持有人承擔")||group.equals( "Insurance product with investment element – investment decisions and risks borne by policyholder"))){
+			if(group.equals("有投資成份的保險產品 - 投資決定及風險由保單持有人承擔")||group.equals( "Insurance product with investment element – investment decisions and risks borne by policyholder")){
 				sortedBeans.add(beans.get(i));
 			}
 		}
