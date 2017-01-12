@@ -131,12 +131,12 @@ var plan="${plan}";
             <div class="container eh_sec_color_wraping eh_sale_container">
                 <div class="col-xs-12 eh_halfbanner eh_cfucome_banner">
                     <div class="col-xs-12">
-                        <h3 class="text-center eh_sec_title"><fmt:message key="joint.pro1.jumbo" bundle="${msg}" /></h3> </div>
+                        <h3 class="text-center eh_sec_title"><fmt:message key="joint.pro1.jumbo.home.liability" bundle="${msg}" /></h3> </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-6 nopadding ah_box"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_images.jpg" alt="Cfu Come" class="img-responsive"> </div>
                         <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
                             <div class="apr_content"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_logo.png" alt="CFu Come" class="img-responsive">
-                                <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="joint.pro1.description" bundle="${msg}" /></div>
+                                <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="joint.pro1.description.home.liability" bundle="${msg}" /></div>
                                 <div class="col-xs-12 nopadding"> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />#cfucome" class="eh_btn_more_details" target="_blank"><fmt:message key="button.details.esay.home" bundle="${msg}" /></a> </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@ var plan="${plan}";
                                 <h4 class="eh_feature_box_title text-center">
                                 <fmt:message key="joint.pro1.title1" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_01.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text1.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.cfu.come.link1" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.liability.text1.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.cfu.come.link1" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate">
                                     <fmt:message key="joint.pro1.remarks.directed.out" bundle="${msg}" />
                                     <br>
@@ -169,7 +169,7 @@ var plan="${plan}";
                                 <h4 class="eh_feature_box_title text-center">
                             <fmt:message key="joint.pro1.title2" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_02.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text2.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.cfu.come.link2" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.liability.text2.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.cfu.come.link2" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate">
                                     <fmt:message key="joint.pro1.remarks.directed.out" bundle="${msg}" />
                                     <br>
@@ -182,7 +182,7 @@ var plan="${plan}";
                                 <h4 class="eh_feature_box_title text-center">
                            <fmt:message key="joint.pro1.title3" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_03.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.title3.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.cfu.come.link3" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.liability.text3.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.cfu.come.link3" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate">
                                     <fmt:message key="joint.pro1.remarks.directed.out" bundle="${msg}" />
                                     <br>
