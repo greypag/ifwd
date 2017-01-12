@@ -831,7 +831,8 @@ $(document).ready(function(){
 		   var cccc="";
 	
 		   if(typeof $('input[name=cubicCapacity]').val()!="undefined")
-			   cccc = $('input[name=cubicCapacity]').val()
+			   cccc = $('input[name=cubicCapacity]').val();
+		
 		   var submitData = {"carDetail": {   	
 					   "bankMortgage": checkbox,	
 					   "bankMortgageName": $('[name="mortgageBank"]').val()!="OTHER"?$('[name="mortgageBank"]').val():$('input[name=bankName]').val(),//$("#mortgageBank option:selected").val(),	

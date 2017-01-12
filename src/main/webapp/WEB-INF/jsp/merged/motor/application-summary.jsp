@@ -2022,6 +2022,7 @@ $(window).load(function(){
 						hkid = quote.driver[0].hkid; 
 						$(".driver1hkid").html(hkid.toString().toUpperCase());
 
+						
 						  $.ajax({
 				                url: context + '/api/iMotor/list/bankMortgages',
 				                type: 'GET',
@@ -2033,7 +2034,7 @@ $(window).load(function(){
 										var checked=false;
 				                        $.each(res, function(i, item) {
 								
-											if(item.desc == quote.carDetail.bankMortgageName)
+											if(item.code == quote.carDetail.bankMortgageName)
 											{	$(".carbankmortgage").html(item.desc);checked=true;}
 										});
 										if(checked==false)

@@ -792,9 +792,18 @@ $(document).ready(function(){
 	    	else
 	    	{$(".a3yes").addClass("active");$('input[name=answer3]').prop("checked",true);	}
 	    	
-	    	$('input[name=psNoDM]').attr("checked",quote.psNoDM);	
-			$('input[name=psNoProvidePersonalData]').attr("checked",quote.psNoProvidePersonalData);	
-			$('input[name=psPICS]').attr("checked",quote.psPICS);	
+	    	
+	    	if(quote.psNoDM == "")
+	    		$('input[name=psNoDM]').prop("checked",false);	
+	    	else
+	    		$('input[name=psNoDM]').prop("checked",true);
+	    	
+	    	if(quote.psNoProvidePersonalData == "")
+				$('input[name=psNoProvidePersonalData]').prop("checked",false);	
+	    	else
+	    		$('input[name=psNoProvidePersonalData]').prop("checked",true);	
+	    	
+			$('input[name=psPICS]').prop("checked",false);	
     	}
     }
    
@@ -920,6 +929,13 @@ $(document).ready(function(){
 		            return false;
 		     }else
 		        	{
+		    	 
+		    if(typeof $('input[name=psNoProvidePersonalData]').val() == "underfined")
+		    	$('input[name=psNoProvidePersonalData]').val() = false; 
+		    
+		    if(typeof $('input[name=psPICS]').val() == "underfined")
+		    	$('input[name=psPICS]').val() = false; 	
+		    	
 			var submitData = { 		
 				   "policyId": quote.policyId,		
 				   "motorCareDeclaration":[  		
@@ -941,7 +957,7 @@ $(document).ready(function(){
 				   "psPICS":$('input[name=psPICS]').val()	
 		   			};
 			console.dir(submitData);
-		
+			
 			$.ajax({
 			  beforeSend: function(){
 		          	$('#loading-overlay').modal("show");

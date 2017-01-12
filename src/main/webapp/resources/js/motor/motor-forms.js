@@ -88,7 +88,7 @@ $(document).ready(function(){
 	/*isobar*/
 	
 	$mortgageBank = $('#mortgageBank').selectize({
-        valueField: 'desc',
+        valueField: 'code',
         labelField: 'desc',
         searchField: 'desc',
         create: false,
@@ -110,7 +110,7 @@ $(document).ready(function(){
 						$.each(res, function(i, item) {
 							if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
 							{	
-								if(item.code == quote.carDetail.bankMortgageName)
+								if(item.code == quote.carDetail.bankMortgageName || item.desc ==quote.carDetail.bankMortgageName )
 								{	match=true;
 									
 									$(".switch-light").removeClass("orange");
