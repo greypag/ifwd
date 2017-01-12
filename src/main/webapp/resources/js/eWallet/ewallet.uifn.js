@@ -437,7 +437,7 @@ function LinkupClass() {
 
 	this.showPanel = function(data) {
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
-		this.popupDom.find(".ew_mobile").html(data.mobile);
+		this.popupDom.find(".ew_mobile").html(data.mobile.substring(0,4).concat("xxxx"));
 
 		this.popupDom.modal();
 		this.startResendCountdown();
@@ -476,6 +476,10 @@ function LinkupClass() {
 
 				if(xhr.status == 412){
 					that.popupDom.modal("hide");
+				}
+
+				if(xhr.status == 413 && response.code == "OTE005"){
+					that.resetOtpInput();
 				}
 			}
 		});
@@ -627,7 +631,7 @@ function WithdrawClass(){
 		_productName = data.policy["product_" + eWalletCtr.langMapping[languageP]];
 
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
-		this.popupDom.find(".ew_mobile").html(data.mobile);
+		this.popupDom.find(".ew_mobile").html(data.mobile.substring(0,4).concat("xxxx"));
 		this.popupDom.find(".ew_tngId").html(data.policy.tngAccountId);
 		this.popupDom.find(".ew_tngExp").html(data.policy.tngExpiryDate.split(" ")[0]);
 
@@ -691,6 +695,10 @@ function WithdrawClass(){
 
 				if(xhr.status != 413) {
 					that.popupDom.modal("hide");
+				}
+
+				if(xhr.status == 413 && response.code == "OTE005"){
+					that.resetOtpInput();
 				}
 			},
 			doneFn: function (){
