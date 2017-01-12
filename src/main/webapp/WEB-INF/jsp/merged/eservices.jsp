@@ -1304,6 +1304,27 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 	</div>
 </div>
 
+<!-- unlink confirm -->
+<div class="modal fade ew_popup_unlinkConfirm" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="container-fluid bd-example-row">
+					<div class="row">
+						<div class="col-xs-12 ew_popup_sec">
+							<p class="ew_desc">
+								<fmt:message key="ewallet.prompt.unlink.confirmMsg" bundle="${msg}" />
+							</p>
+							<a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.prompt.unlink.confirmBtn1" bundle="${msg}" /></a>
+							<a href="javascript:void(0);" class="ew_btn_cancel" data-dismiss="modal"><fmt:message key="ewallet.prompt.unlink.confirmBtn2" bundle="${msg}" /></a>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <!-- error -->
 <div class="modal fade ew_popup_error" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog" role="document">

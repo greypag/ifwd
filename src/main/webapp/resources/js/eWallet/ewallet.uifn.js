@@ -144,6 +144,20 @@ var policyHelper = {
 		$(document).on("ew_popupClose", function (){
 			that.popupClosed();
 		});
+
+		$(".ew_popup_unlinkConfirm").find(".ew_btn_confirm").on("click", function (){
+			var pid = Number($(this).attr("data-pid"));
+			var tid = Number($(this).attr("data-tid"));
+
+			if(!pid || !tid){
+				return;
+			}
+
+			that.unlinkTng(pid, tid);
+
+			$(".ew_popup_unlinkConfirm").modal("hide");
+
+		});
 	},
 	getCustomerPolicy: function() {
 		var that = this;
@@ -249,9 +263,9 @@ var policyHelper = {
 						policyDom.find(".ew_pol_wd_linkup_tngId").html(info.tngAccountId);
 						(function(pid, tid) {
 							policyDom.find(".ew_pol_wd_linkup_unlink").on("click", function() {
-								if(confirm( msgCtr.unlink.confirmMsg + "(Policy Id" + pid +")") == true){
-									that.unlinkTng(pid, tid);
-								}							
+								that.showUnlinkConfirm();
+
+								$(".ew_popup_unlinkConfirm").find(".ew_btn_confirm").attr({"data-pid": pid, "data-tid": tid});
 							});
 
 							policyDom.find(".ew_pol_wd_withdrawBtn").on("click", function() {
@@ -299,6 +313,9 @@ var policyHelper = {
 
 		// get first policy info in log view
 		logViewer.optDom.trigger("change");
+	},
+	showUnlinkConfirm: function (){
+		$(".ew_popup_unlinkConfirm").modal();
 	},
 	unlinkTng: function(pid, tid) {
 		var that = this;
