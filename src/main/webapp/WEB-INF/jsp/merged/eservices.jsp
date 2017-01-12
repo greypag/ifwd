@@ -1157,6 +1157,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 
 							<p class="ew_desc">
 								<fmt:message key="ewallet.popup.pair.success.txt2" bundle="${msg}" />
+								${userDetails.getEmailAddress()}
 							</p>
 							<a href="javascript:void(0);" data-dismiss="modal" class="ew_btn_confirm"><fmt:message key="ewallet.popup.pair.success.btn" bundle="${msg}" /></a>
 						</div>					
