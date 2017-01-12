@@ -313,7 +313,7 @@ var policyHelper = {
 				tngAccountId: tid
 			},
 			successFn: function(response) {
-				eWalletCtr.showGenericMsg("Success", "unlink policy ("+pid+")");
+				eWalletCtr.showGenericMsg(msgCtr.unlink.successMsgTitle, msgCtr.unlink.successMsg);
 				that.reloadPolicy();
 			},
 			failFn: function(response, xhr) {
@@ -1031,6 +1031,7 @@ var msgCtr = {
 	},
 	unlink: {
 		confirmMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.confirmmsg"),
+		successMsgTitle: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.successTitle"),
 		successMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.successMsg"),
 		failMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.failMsg"),
 	}
