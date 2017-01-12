@@ -131,7 +131,7 @@ var plan="${plan}";
             <div class="container eh_sec_color_wraping eh_sale_container">
                 <div class="col-xs-12 eh_halfbanner eh_cfucome_banner">
                     <div class="col-xs-12">
-                        <h3 class="text-center eh_sec_title"><fmt:message key="joint.pro1.jumbo" bundle="${msg}" /></h3> </div>
+                        <h3 class="text-center eh_sec_title"><fmt:message key="joint.pro1.jumbo.home.liability" bundle="${msg}" /></h3> </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-6 nopadding ah_box"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_images.jpg" alt="Cfu Come" class="img-responsive"> </div>
                         <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
