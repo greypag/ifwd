@@ -149,6 +149,11 @@ var nextPage = "${nextPageFlow}";
 .payment-detail .panel-body .detail-row select {
 	font-size: 16px;
 }
+	.summary .panel-body .detail-row .overflowfix.white{
+	background-color: #fff;
+	}
+	
+
 @media ( max-width : 768px) {
 	.col-sm-6{
 		/*width:50% !important;*/
@@ -158,15 +163,32 @@ var nextPage = "${nextPageFlow}";
 	height: auto;
 	min-height: 70px;
 	}
+
 	.summary .panel-body .detail-row .overflowfix .row > div{
 	height: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
     }
 }
 @media ( min-width : 768px) {
+		.summary .panel-body .detail-row .overflowfix{
+	border-right: solid 1px #ccc;
+	}
+			.summary .panel-body .detail-row .overflowfix.right{
+	border-right: none;
+	}
 	.summary .panel-body .detail-row .overflowfix{
 	background-color: #f2f2f2;
-	height: 70px;
 }
+
+.summary .panel-body .detail-row .overflowfix .row> div{
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    word-wrap: break-word;
+}
+
 	.payment-detail .panel-body .detail-row>div {
 		height: 100px;
 	}
@@ -233,7 +255,7 @@ var nextPage = "${nextPageFlow}";
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-6">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message key="motor.summary.getquote.carmake"
@@ -283,7 +305,7 @@ var nextPage = "${nextPageFlow}";
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-6">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message key="motor.summary.getquote.model"
@@ -299,7 +321,7 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="carmade"></span>
 								</div>
-								<div class="col-xs-12 overflowfix">
+								<div class="col-xs-12 overflowfix right">
 								<div class="row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
@@ -335,7 +357,7 @@ var nextPage = "${nextPageFlow}";
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-6">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
@@ -352,12 +374,11 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even non-elect">
 									<span class="carmodeldocument"></span>
 								</div>
-								
 								<div class="col-xs-6 text-left even carbankmortgageBox elect">
 									<span class=" carbankmortgageNormal"><fmt:message
 											key="motor.summary.cardetails.mortgage" bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right even elect">
+								<div class="col-xs-6 text-right even carbankmortgageBox elect">
 									<span class="carbankmortgage carbankmortgageField"></span>
 								</div>
 								<div class="col-xs-6 text-left odd hidden-xs carbankmortgageBox" style="display:none"></div>
@@ -372,7 +393,7 @@ var nextPage = "${nextPageFlow}";
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-6">
 							<div class="row detail-row">
 								
 								<div class="col-xs-6 text-left odd elect">
@@ -390,13 +411,18 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right odd non-elect">
 									<span class="carcubic"></span>
 								</div>
+									<div class="col-xs-12 overflowfix white carbankmortgageBox">
+								<div class="row">
 								<div class="col-xs-6 text-left even carbankmortgageBox non-elect">
 									<span class=" carbankmortgageNormal"><fmt:message
 											key="motor.summary.cardetails.mortgage" bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right even non-elect">
+								<div class="col-xs-6 text-right even non-elect carbankmortgageBox">
 									<span class="carbankmortgage carbankmortgageField"></span>
 								</div>
+								</div>
+								</div>
+								
 								<!--  <div class="col-xs-6 text-left odd hidden-xs carbankmortgageBox non-elect" style="display:none"></div>
 								<div class="col-xs-6 text-right odd hidden-xs carbankmortgageBox non-elect" style="display:none"></div>
 								-->
@@ -422,7 +448,7 @@ var nextPage = "${nextPageFlow}";
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-6">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
@@ -447,7 +473,7 @@ var nextPage = "${nextPageFlow}";
 									<span class="hkid"></span>
 								</div>
 								
-								<div class="col-xs-12 overflowfix">
+								<div class="col-xs-12 overflowfix white">
 								<div class="row">
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message
@@ -465,7 +491,7 @@ var nextPage = "${nextPageFlow}";
 								
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-6">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
@@ -521,7 +547,7 @@ var nextPage = "${nextPageFlow}";
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6 driver-detail" id="driver1">
+						<div class="col-xs-12 col-sm-12 col-md-6 driver-detail" id="driver1">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span class="title"><fmt:message
@@ -566,7 +592,7 @@ var nextPage = "${nextPageFlow}";
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6 driver-detail" id="driver2">
+						<div class="col-xs-12 col-sm-12 col-md-6 driver-detail" id="driver2">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span class="title"><fmt:message
@@ -609,7 +635,7 @@ var nextPage = "${nextPageFlow}";
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6 driver-detail" id="driver3">
+						<div class="col-xs-12 col-sm-12 col-md-6 driver-detail" id="driver3">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span class="title"><fmt:message
@@ -653,7 +679,7 @@ var nextPage = "${nextPageFlow}";
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6 driver-detail" id="driver4">
+						<div class="col-xs-12 col-sm-12 col-md-6 driver-detail" id="driver4">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span class="title"><fmt:message
@@ -696,7 +722,7 @@ var nextPage = "${nextPageFlow}";
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6 driver-detail" id="driver5">
+						<div class="col-xs-12 col-sm-12 col-md-6 driver-detail" id="driver5">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span class="title">Diver 5</span>
@@ -758,7 +784,7 @@ var nextPage = "${nextPageFlow}";
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-6">
 							<div class="row detail-row">
 								
 								<div class="col-xs-12 overflowfix">
@@ -781,7 +807,7 @@ var nextPage = "${nextPageFlow}";
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-6">
 							<div class="row detail-row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
@@ -976,12 +1002,12 @@ var nextPage = "${nextPageFlow}";
 
 									<div class="col-xs-12">
 										<div class="row detail-row">
-											<div class="col-xs-4 col-sm-2 text-left">
+											<div class="col-xs-4 col-sm-2 text-left" style="padding-right: 0;">
 												<span><fmt:message
 														key="motor.summary.payment.methodtitle"
 														bundle="${motorMsg}" /></span>
 											</div>
-											<div class="col-xs-8 col-sm-10 text-left">
+											<div class="col-xs-8 col-sm-10 text-left" style="padding-left: 0;">
 												<span> <img
 													src="<%=request.getContextPath()%>/resources/images/motor/master_logo.jpg" alt="" /> <img
 													src="<%=request.getContextPath()%>/resources/images/motor/visa_logo.jpg" alt="" />
@@ -1102,7 +1128,7 @@ var nextPage = "${nextPageFlow}";
 											</div>
 										</div>
 									</div>
-									<div class="col-xs-12" style="margin-top: 10px;">
+									<div class="col-xs-12" style="margin-top: 10px; padding-left: 40px;">
 										<div class="custom-checkbox">
 											<div class="checkbox">
 												<div class="form-group">
@@ -1973,8 +1999,7 @@ $(window).load(function(){
 						$(".carmodeldocument").html(quote.carDetail.modelDesc);
 							
 					
-						if(quote.carDetail.bankMortgageName==null)
-							$(".carbankmortgageBox").hide();
+					
 						
 						//applicant detail
 						$(".fullname").html(quote.applicant.name);
@@ -2016,8 +2041,7 @@ $(window).load(function(){
 											$(".carbankmortgage").html(quote.carDetail.bankMortgageName)}
 				                    }
 				            });
-						  if(quote.carDetail.bankMortgage == false)
-							  $(".carbankmortgageBox").hide();
+					
 						  
 						$.ajax({
 			                url: context + '/api/iMotor/list/districts',
@@ -2168,10 +2192,15 @@ $(window).load(function(){
 		            	            	$(".elect").css({"display":"none"});
 		            	            	$(".non-elect").css({"display":"flex"});
 		            	            }
+		            	            if(quote.carDetail.bankMortgage == false)
+		      						  $(".carbankmortgageBox").hide();
+		            	        	if(quote.carDetail.bankMortgageName==null)
+		    							$(".carbankmortgageBox").hide();
 		            		  }
 		            	});
+		          	  	
 						//no claim discount
-						/*$.ajax({
+						$.ajax({
 			                url: context + '/api/iMotor/list/insurers',
 			                type: 'GET',
 			                dataType: 'json',
@@ -2179,14 +2208,14 @@ $(window).load(function(){
 			                        callback();
 			                    },
 			                    success: function(res) {
-			                          			                            
+			                          			       			                     
 			                            $.each(res, function(i, item) {
 											
 											if(item.code == quote.nameOfPreviousInusrancer)
 												$(".nameofprevinsurance").html(item.desc);
 										});			    							
 			                    }
-			            });*/
+			            });
 						
 						$(".regofdocument").html(quote.regNoofPreviousPolicy);
 						$(".previnsuranceexpirydate").html(

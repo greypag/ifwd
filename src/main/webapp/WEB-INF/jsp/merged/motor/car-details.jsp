@@ -600,6 +600,7 @@ $(document).ready(function(){
         	            if(data.electricCar){ //true
         	            	$('#cubicCapacityDiv').remove();
         	        		$('#chassisNumberDiv').toggleClass('col-sm-6 col-sm-12');
+        	        		$('#carDetails').validator('update'); 
         	            }
         		  }
         	});
