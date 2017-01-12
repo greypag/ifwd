@@ -635,7 +635,6 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/custom-datepicker.js"></script>
 <script type="text/javascript">
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
-
 /* 
  *  Define motor success login callback
  */
@@ -793,17 +792,20 @@ $(document).ready(function(){
 	    	{$(".a3yes").addClass("active");$('input[name=answer3]').prop("checked",true);	}
 	    	
 	    	
-	    	if(quote.psNoDM == "")
-	    		$('input[name=psNoDM]').prop("checked",false);	
+	    	if(quote.psNoDM == "" || quote.psNoDM == "false")
+	    	{	$('input[name=psNoDM]').prop("checked",false);$('input[name=psNoDM]').val(false);}	
 	    	else
-	    		$('input[name=psNoDM]').prop("checked",true);
+	    	{	$('input[name=psNoDM]').prop("checked",true);$('input[name=psNoDM]').val(true);}	
 	    	
-	    	if(quote.psNoProvidePersonalData == "")
-				$('input[name=psNoProvidePersonalData]').prop("checked",false);	
+	    	if(quote.psNoProvidePersonalData == "" || quote.psNoProvidePersonalData == "false")
+	    	{	$('input[name=psNoProvidePersonalData]').prop("checked",false);	$('input[name=psNoProvidePersonalData]').val(false);}	
 	    	else
-	    		$('input[name=psNoProvidePersonalData]').prop("checked",true);	
-	    	
-			$('input[name=psPICS]').prop("checked",false);	
+	    	{	$('input[name=psNoProvidePersonalData]').prop("checked",true);	$('input[name=psNoProvidePersonalData]').val(true);}	
+	    		
+			if(quote.psPICS == "" || quote.psPICS == "false")
+			{	$('input[name=psPICS]').prop("checked",false);	$('input[name=psPICS]').val(false);}	
+	    	else
+	    	{	$('input[name=psPICS]').prop("checked",true);$('input[name=psPICS]').val(true);}	
     	}
     }
    
