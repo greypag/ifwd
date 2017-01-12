@@ -136,7 +136,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6 nopadding ah_box"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_images.jpg" alt="Cfu Come" class="img-responsive"> </div>
                         <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
                             <div class="apr_content"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_logo.png" alt="CFu Come" class="img-responsive">
-                                <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="joint.pro1.description" bundle="${msg}" /></div>
+                                <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="joint.pro1.description.home.liability" bundle="${msg}" /></div>
                                 <div class="col-xs-12 nopadding"> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />#cfucome" class="eh_btn_more_details" target="_blank"><fmt:message key="button.details.esay.home" bundle="${msg}" /></a> </div>
                             </div>
                         </div>
