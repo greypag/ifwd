@@ -228,6 +228,7 @@ body.chin .bold {
 /* line 12, ../sass/common_screen/motor/_contact-modal.scss */
 #contactpopup .heading-h3 {
   margin-top: 30px;
+  padding: 0;
 }
 /* line 15, ../sass/common_screen/motor/_contact-modal.scss */
 #contactpopup p {
@@ -2237,7 +2238,7 @@ body.chin .bold {
     left: 0;
     margin-top: 50px;
     width: 100%;
-    z-index:9999;
+    z-index:1;
   }
   /* line 6, ../sass/customize_screen/motor/_your-quote.scss */
   .yourQuote .collapse-addon.orange-color {

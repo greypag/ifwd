@@ -80,9 +80,7 @@ var nextPage = "${nextPageFlow}";
 	justify-content: center;
 	word-wrap: break-word; 
 }
-.summary .panel-body .detail-row>div span{
-	
-}
+
 
 .summary, .summary .panel-heading {
 	background-color: #fff;
@@ -155,9 +153,20 @@ var nextPage = "${nextPageFlow}";
 	.col-sm-6{
 		/*width:50% !important;*/
 	}
+	.summary .panel-body .detail-row .overflowfix{
+	background-color: #f2f2f2;
+	height: auto;
+	min-height: 70px;
+	}
+	.summary .panel-body .detail-row .overflowfix .row > div{
+	height: 100%;
+    }
 }
 @media ( min-width : 768px) {
-	
+	.summary .panel-body .detail-row .overflowfix{
+	background-color: #f2f2f2;
+	height: 70px;
+}
 	.payment-detail .panel-body .detail-row>div {
 		height: 100px;
 	}
@@ -290,6 +299,8 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="carmade"></span>
 								</div>
+								<div class="col-xs-12 overflowfix">
+								<div class="row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
 											key="motor.summary.getquote.occupation" bundle="${motorMsg}" /></span>
@@ -297,6 +308,11 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right odd">
 									<span class="useroccupation"></span>
 								</div>
+								</div>
+								
+								
+								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -430,15 +446,23 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right odd">
 									<span class="hkid"></span>
 								</div>
+								
+								<div class="col-xs-12 overflowfix">
+								<div class="row">
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message
 											key="motor.summary.applicantdetail.address"
 											bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right even"
-									style="height: 100%; text-align: right;">
-									<span class="address" style="margin: 10px 0px 10px 0px;"></span>
+								<div class="col-xs-6 text-right even">
+									<span class="address"></span>
 								</div>
+								
+								</div>
+								</div>
+								
+								
+								
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-6">
@@ -512,6 +536,9 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="driver1fullname"></span>
 								</div>
+								
+								<div class="col-xs-12 overflowfix">
+								<div class="row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
 											key="motor.summary.driverdetail.occpuation"
@@ -520,6 +547,9 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right odd">
 									<span class="driver1occupation"></span>
 								</div>
+								</div>
+								</div>
+								
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message key="motor.summary.driverdetail.dob"
 											bundle="${motorMsg}" />h</span>
@@ -551,6 +581,8 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="driver2fullname"></span>
 								</div>
+									<div class="col-xs-12 overflowfix">
+								<div class="row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
 											key="motor.summary.driverdetail.occpuation"
@@ -558,6 +590,8 @@ var nextPage = "${nextPageFlow}";
 								</div>
 								<div class="col-xs-6 text-right odd">
 									<span class="driver2occupation"></span>
+								</div>
+								</div>
 								</div>
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message key="motor.summary.driverdetail.dob"
@@ -590,6 +624,9 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="driver3fullname"></span>
 								</div>
+								
+									<div class="col-xs-12 overflowfix">
+								<div class="row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
 											key="motor.summary.driverdetail.occpuation"
@@ -597,6 +634,8 @@ var nextPage = "${nextPageFlow}";
 								</div>
 								<div class="col-xs-6 text-right odd">
 									<span class="driver3occupation"></span>
+								</div>
+								</div>
 								</div>
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message key="motor.summary.driverdetail.dob"
@@ -629,6 +668,8 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="driver4fullname"></span>
 								</div>
+									<div class="col-xs-12 overflowfix">
+								<div class="row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
 											key="motor.summary.driverdetail.occpuation"
@@ -636,6 +677,8 @@ var nextPage = "${nextPageFlow}";
 								</div>
 								<div class="col-xs-6 text-right odd">
 									<span class="driver4occupation"></span>
+								</div>
+								</div>
 								</div>
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message key="motor.summary.driverdetail.dob"
@@ -666,6 +709,9 @@ var nextPage = "${nextPageFlow}";
 								<div class="col-xs-6 text-right even">
 									<span class="driver5fullname"></span>
 								</div>
+								
+								<div class="col-xs-12 overflowfix">
+								<div class="row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
 											key="motor.summary.driverdetail.occpuation"
@@ -673,6 +719,8 @@ var nextPage = "${nextPageFlow}";
 								</div>
 								<div class="col-xs-6 text-right odd">
 									<span class="driver5occupation"></span>
+								</div>
+								</div>
 								</div>
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message key="motor.summary.driverdetail.dob"
@@ -712,12 +760,17 @@ var nextPage = "${nextPageFlow}";
 					<div class="row">
 						<div class="col-xs-12 col-sm-6">
 							<div class="row detail-row">
+								
+								<div class="col-xs-12 overflowfix">
+								<div class="row">
 								<div class="col-xs-6 text-left odd">
 									<span><fmt:message
 											key="motor.summary.noclaimdis.prevname" bundle="${motorMsg}" /></span>
 								</div>
-								<div class="col-xs-6 text-right odd">
-									<span class="nameofprevinsurance" style="margin: 10px 0px 10px 0px;"></span>
+								<div class="col-xs-6 text-right odd" >
+									<span class="nameofprevinsurance" ></span>
+								</div>
+								</div>
 								</div>
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message

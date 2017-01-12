@@ -128,7 +128,7 @@ width: 100px !important;
                             <div class="form-group custom-dollar-box">
                                 <label for=""><fmt:message key="motor.getquote.statement.part7" bundle="${motorMsg}" /></label>
                                 <div class="help-block-wrap">
-                                    <input type="text" class="form-control" id="carValue" placeholder="0" name="carEstimatedValue" data-required-error='<fmt:message key="motor.error.msg.carvalue.empty" bundle="${motorMsg}" />' data-min-error='<fmt:message key="motor.error.msg.carvalue.toohigh" bundle="${motorMsg}" />' required>
+                                    <input type="text" class="form-control" id="carValue" maxlength="8" placeholder="0" name="carEstimatedValue" data-required-error='<fmt:message key="motor.error.msg.carvalue.empty" bundle="${motorMsg}" />' data-min-error='<fmt:message key="motor.error.msg.carvalue.toohigh" bundle="${motorMsg}" />' required>
                                    <label><fmt:message key="motor.getquote.statement.part8" bundle="${motorMsg}" /> </label> 
                                    <button type="button" class="btn btn-default pull-right" data-toggle="tooltip" data-html="true" title="<fmt:message key="motor.getquote.statement.tooltips" bundle="${motorMsg}" />">
                                  <i class="fa fa-question-circle" aria-hidden="true"></i>

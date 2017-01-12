@@ -25,6 +25,14 @@ var nextPage = "${nextPageFlow}";
     .bootstrap-switch.bootstrap-switch-wrapper.bootstrap-switch-animate.bootstrap-switch-on .bootstrap-switch-label{
     border: solid 2px #ccc;
     }
+    .no-padding-left{
+    padding-left: 0;
+    font-size:90%;
+    }
+        .no-padding-right{
+      padding-right: 0;
+         font-size:90%;
+    }
 </style>
 <div class="motor-form-wrap motor__wrap--sticky-dropdown">
     <section id="" class="motor-signup-form">
@@ -153,10 +161,10 @@ var nextPage = "${nextPageFlow}";
 	                        <div class="row">
 	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
 	                                <div class="form-group row">
-	                                    <div class="col-sm-6">
+	                                    <div class="col-xs-6 col-sm-6 no-padding-right">
 	                                        <fmt:message key="motor.cardetails.mortgage.question" bundle="${motorMsg}" />
 	                                    </div>
-	                                    <div class="col-sm-6 text-right">
+	                                    <div class="col-xs-6 col-sm-6 no-padding-left text-right">
 	                                        <span class="switch-light sly"><fmt:message key="motor.button.yes" bundle="${motorMsg}" />&nbsp;</span>
 	                                        <input type="checkbox" class="toggleCheck" name="bankMortgage" style="display:none">
 	                                        <span class="switch-light sln">&nbsp;<fmt:message key="motor.button.no" bundle="${motorMsg}" /></span>
