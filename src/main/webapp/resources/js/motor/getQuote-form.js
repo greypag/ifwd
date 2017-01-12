@@ -470,7 +470,7 @@ $(document).ready(function(){
 		});
 		
         $('#submitGetQuote').on('click', function(e){
-			if(promo==false)
+			//if(promo==false)
 			{
 				promo=true;
 				$("#testimonials").removeClass('hidden');

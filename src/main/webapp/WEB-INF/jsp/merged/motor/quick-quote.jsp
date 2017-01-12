@@ -689,6 +689,7 @@ function SaveAndExit()
          * Check / Uncheck Add-On
          */
 		$('#addOnTppdAmtClick').click(function() {
+			$('#loading-overlay').modal("show");
             var $this = $(this).find('[type="checkbox"]');
 			quote.thirdPartyPropertyDamage = $this.is(':checked');
 			$.when(getMotorQuotePrice(planType, quote)).then(function(){
@@ -706,6 +707,7 @@ function SaveAndExit()
             }
 		});
 		$('#addOnPaAmtClick').click(function() {
+			$('#loading-overlay').modal("show");
             var $this = $(this).find('[type="checkbox"]');
 			quote.personalAccident = $this.is(':checked');
 			$.when(getMotorQuotePrice(planType, quote)).then(function(){				
@@ -740,6 +742,7 @@ function SaveAndExit()
         $('#apply-link').on("click", function(){
         });
         $('#form-inline').submit(function(event){
+        	$('#loading-overlay').modal("show");
         	quote.personalAccident = $('[name="addon1"]').is(':checked');
             quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
         	if(getUrlParameter("edit") == "yes" || getUrlParameter("back")=="yes")
@@ -762,7 +765,8 @@ function SaveAndExit()
 	                        $quote.attr("value", JSON.stringify(quote));
 	                        $form.append($quote);
 	                        $("body").append($form);
-	                        $('#quote-form').submit();  
+	                        $('#quote-form').submit();
+	                    	$('#loading-overlay').modal("hide");
 	                        return false;
         		                
         			  },error: function(error) {
@@ -871,6 +875,7 @@ function SaveAndExit()
     function updateTotalDue(amt){
         $('#yourQuotePrice').html(formatCurrency(amt));
         $('#yourQuoteAmmount').html(formatCurrency(amt));
+    	$('#loading-overlay').modal("hide");
     }
 
 </script>

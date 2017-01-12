@@ -587,6 +587,13 @@ cnErr ={
 	504: '資料不正確(編號：504)',               
 };
 $(document).ready(function(){
+	/*try to overwrite the fwd function
+	$('[name=bankName]').on('keyup keydown keypress',function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		alert();
+	});
+	*/
 	$(".motor-signup-form input").css({"text-transform":"uppercase"});
 	//console.log(quote.carDetail);
 	 
