@@ -1212,9 +1212,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 								<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.amountOpt.title" bundle="${msg}" /></h4>
 								<div class="col-xs-12 ew_popup_sec_content">
 									<div class="col-xs-12">
-										<p class="ew_hint">
+										<!-- <p class="ew_hint">
 											<fmt:message key="ewallet.popup.sec.amountOpt.min" bundle="${msg}" /> $500 / <fmt:message key="ewallet.popup.sec.amountOpt.max" bundle="${msg}" /> $3,000
-										</p>
+										</p> -->
 									</div>
 									<div class="col-xs-12">
 										<div class="ew_btn_grp">
