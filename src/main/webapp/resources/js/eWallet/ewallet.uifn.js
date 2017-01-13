@@ -131,6 +131,7 @@ var eWalletCtr = {
 
 // ====== Policy List Process Begin ======
 var policyHelper = {
+	isLoadingApi: false,
 	htmlTemplate: null,
 	isOccupied: false,
 	isInvalidMobile: false,
@@ -144,11 +145,26 @@ var policyHelper = {
 		$(document).on("ew_popupClose", function (){
 			that.popupClosed();
 		});
+
+		$(".ew_popup_unlinkConfirm").find(".ew_btn_confirm").on("click", function (){
+			var pid = Number($(this).attr("data-pid"));
+			var tid = Number($(this).attr("data-tid"));
+
+			if(!pid || !tid){
+				return;
+			}
+
+			that.unlinkTng(pid, tid);
+
+			$(".ew_popup_unlinkConfirm").modal("hide");
+
+		});
 	},
 	getCustomerPolicy: function() {
 		var that = this;
 
 		this.showLoading();
+		this.isLoadingApi = true;
 
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyListByCustomer,
@@ -175,6 +191,7 @@ var policyHelper = {
 			},
 			doneFn: function (){
 				that.hideLoading();
+				that.isLoadingApi = false;
 			}
 		});
 	},
@@ -249,9 +266,9 @@ var policyHelper = {
 						policyDom.find(".ew_pol_wd_linkup_tngId").html(info.tngAccountId);
 						(function(pid, tid) {
 							policyDom.find(".ew_pol_wd_linkup_unlink").on("click", function() {
-								if(confirm( msgCtr.unlink.confirmMsg + "(Policy Id" + pid +")") == true){
-									that.unlinkTng(pid, tid);
-								}							
+								that.showUnlinkConfirm();
+
+								$(".ew_popup_unlinkConfirm").find(".ew_btn_confirm").attr({"data-pid": pid, "data-tid": tid});
 							});
 
 							policyDom.find(".ew_pol_wd_withdrawBtn").on("click", function() {
@@ -300,6 +317,9 @@ var policyHelper = {
 		// get first policy info in log view
 		logViewer.optDom.trigger("change");
 	},
+	showUnlinkConfirm: function (){
+		$(".ew_popup_unlinkConfirm").modal();
+	},
 	unlinkTng: function(pid, tid) {
 		var that = this;
 
@@ -313,7 +333,7 @@ var policyHelper = {
 				tngAccountId: tid
 			},
 			successFn: function(response) {
-				eWalletCtr.showGenericMsg("Success", "unlink policy ("+pid+")");
+				eWalletCtr.showGenericMsg(msgCtr.unlink.successMsgTitle, msgCtr.unlink.successMsg);
 				that.reloadPolicy();
 			},
 			failFn: function(response, xhr) {
@@ -437,7 +457,7 @@ function LinkupClass() {
 
 	this.showPanel = function(data) {
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
-		this.popupDom.find(".ew_mobile").html(data.mobile);
+		this.popupDom.find(".ew_mobile").html(data.mobile.substring(0,4).concat("xxxx"));
 
 		this.popupDom.modal();
 		this.startResendCountdown();
@@ -476,6 +496,11 @@ function LinkupClass() {
 
 				if(xhr.status == 412){
 					that.popupDom.modal("hide");
+					policyHelper.reloadPolicy();
+				}
+
+				if(xhr.status == 413 && response.code == "OTE005"){
+					that.resetOtpInput();
 				}
 			}
 		});
@@ -627,7 +652,7 @@ function WithdrawClass(){
 		_productName = data.policy["product_" + eWalletCtr.langMapping[languageP]];
 
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
-		this.popupDom.find(".ew_mobile").html(data.mobile);
+		this.popupDom.find(".ew_mobile").html(data.mobile.substring(0,4).concat("xxxx"));
 		this.popupDom.find(".ew_tngId").html(data.policy.tngAccountId);
 		this.popupDom.find(".ew_tngExp").html(data.policy.tngExpiryDate.split(" ")[0]);
 
@@ -691,6 +716,10 @@ function WithdrawClass(){
 
 				if(xhr.status != 413) {
 					that.popupDom.modal("hide");
+				}
+
+				if(xhr.status == 413 && response.code == "OTE005"){
+					that.resetOtpInput();
 				}
 			},
 			doneFn: function (){
@@ -1023,6 +1052,7 @@ var msgCtr = {
 	},
 	unlink: {
 		confirmMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.confirmmsg"),
+		successMsgTitle: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.successTitle"),
 		successMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.successMsg"),
 		failMsg: getBundle(getBundleLanguage,"ewallet.msgctr.unlink.failMsg"),
 	}
