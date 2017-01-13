@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<c:set var="isFwdCust" value="${'FWDCUST' eq memberType}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
@@ -39,7 +40,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<li class="mobile-dropdown dropdown-profile active"><a href="#profile-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-insurance-plan"><a href="#insurance-plan-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-promo-offers"><a href="#promo-offers-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<c:if test="${isFwdCust}">
 						<li class="mobile-dropdown dropdown-e-wallet"><a href="#e-wallet-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
+						</c:if>
 					</ul>
 				</div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
@@ -47,7 +50,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#profile-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#insurance-plan-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#promo-offers-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<c:if test="${isFwdCust}">
 						<li class="left-side-tab-menu e-wallet" id="e-wallet-tab-link"><a href="#e-wallet-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="e-wallet"></span><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
+						</c:if>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-9 right-side-content">

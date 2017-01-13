@@ -331,6 +331,34 @@ public class UserController {
 			}
 		}
 	}
+
+	private void supplementPhwPolicyStatus(HttpServletRequest request, Model model){
+		List<String> policyKeyList = Arrays.asList(
+				"active_life",
+				"active_saving",
+				"active_house",
+				"active_travel"
+				);
+
+		//In force
+		String inforce = WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request));
+
+		Map<String, Object> modelMap = model.asMap();
+		for(String pkey:policyKeyList){
+			List<PurchaseHistoryPolicies> policys = (List<PurchaseHistoryPolicies>)modelMap.get(pkey);
+			if(policys!=null && !policys.isEmpty()){
+				for(PurchaseHistoryPolicies p:policys){
+					String policyType = p.getPolicyType();
+					if("Life".equalsIgnoreCase(policyType)){
+						p.setStatus(inforce);
+					}else if("GI".equalsIgnoreCase(policyType)){
+						p.setStatus(inforce);
+					}
+				}
+			}
+		}
+	}
+	
 	/*
 	 *  PHW returned GI Policy# in format "74ZZ20879 000", UI display only need "74ZZ20879"
 	 */
@@ -598,6 +626,7 @@ public class UserController {
 								this.supplementPhwPolicyBalance(request, model);
 								this.supplementPhwPolicyName(request, model);
 								this.processPhwPolicyGiNumber(request, model);
+								this.supplementPhwPolicyStatus(request, model);
 							}
 						} catch (Exception e) {
 							logger.warn("getPolicyListFromPhw Exception",e);
