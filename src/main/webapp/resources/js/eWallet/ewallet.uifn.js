@@ -131,6 +131,7 @@ var eWalletCtr = {
 
 // ====== Policy List Process Begin ======
 var policyHelper = {
+	isLoadingApi: false,
 	htmlTemplate: null,
 	isOccupied: false,
 	isInvalidMobile: false,
@@ -163,6 +164,7 @@ var policyHelper = {
 		var that = this;
 
 		this.showLoading();
+		this.isLoadingApi = true;
 
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyListByCustomer,
@@ -189,6 +191,7 @@ var policyHelper = {
 			},
 			doneFn: function (){
 				that.hideLoading();
+				that.isLoadingApi = false;
 			}
 		});
 	},
@@ -493,6 +496,7 @@ function LinkupClass() {
 
 				if(xhr.status == 412){
 					that.popupDom.modal("hide");
+					policyHelper.reloadPolicy();
 				}
 
 				if(xhr.status == 413 && response.code == "OTE005"){
