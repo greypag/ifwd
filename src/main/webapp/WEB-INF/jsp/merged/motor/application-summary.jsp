@@ -170,6 +170,13 @@ var nextPage = "${nextPageFlow}";
 	padding-bottom: 15px;
     }
 }
+@media ( max-width : 640px) {
+	.month-row,.year-row,.seccode-row{width:100% !important;}
+
+}
+@media ( min-width : 640px) {
+	.seccode-row{width:50% !important;}
+}
 @media ( min-width : 768px) {
 		.summary .panel-body .detail-row .overflowfix{
 	border-right: solid 1px #ccc;
@@ -182,8 +189,10 @@ var nextPage = "${nextPageFlow}";
 }
 
 .summary .panel-body .detail-row .overflowfix .row> div{
-    height: 70px;
+    height: auto;
     display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
     flex-direction: column;
     justify-content: center;
     word-wrap: break-word;
@@ -1007,10 +1016,10 @@ var nextPage = "${nextPageFlow}";
 														key="motor.summary.payment.methodtitle"
 														bundle="${motorMsg}" /></span>
 											</div>
-											<div class="col-xs-8 col-sm-10 text-left" style="padding-left: 0;">
+											<div class="col-xs-8 col-sm-10 text-left" style="padding-left: 0;margin-bottom:10px;">
 												<span> <img
-													src="<%=request.getContextPath()%>/resources/images/motor/master_logo.jpg" alt="" /> <img
-													src="<%=request.getContextPath()%>/resources/images/motor/visa_logo.jpg" alt="" />
+													src="<%=request.getContextPath()%>/resources/images/motor/master_logo.jpg" alt="" width="70" /> <img
+													src="<%=request.getContextPath()%>/resources/images/motor/visa_logo.jpg" alt="" width="70" />
 												</span>
 											</div>
 											<div class="col-xs-12 col-sm-6 text-left">
@@ -1055,7 +1064,7 @@ var nextPage = "${nextPageFlow}";
 													</div>
 												</div>
 											</div>
-											<div class="col-xs-6 col-sm-3 text-left">
+											<div class="col-xs-6 col-sm-3 text-left month-row">
 												<label><fmt:message
 														key="motor.summary.payment.expirydate"
 														bundle="${motorMsg}" /></label> <select class="form-control"
@@ -1077,7 +1086,7 @@ var nextPage = "${nextPageFlow}";
 													<option value="12">12</option>
 												</select> <span id="errmonth" class="error-msg" style="height: 0px"></span>
 											</div>
-											<div class="col-xs-6 col-sm-3 text-left"
+											<div class="col-xs-6 col-sm-3 text-left year-row"
 												style="margin-top: 5px;">
 												<label></label> <select class="form-control" name="epYear"
 													id="year"
@@ -1101,12 +1110,11 @@ var nextPage = "${nextPageFlow}";
 				                                    </c:forEach>-->
 												</select> <span id="erryear" class="error-msg" style="height: 0px"></span>
 											</div>
-											<div class="col-xs-6 col-sm-3 text-left">
+											<div class="col-xs-6 col-sm-3 text-left seccode-row">
 												<label></label>
 												<div class="form-group">
-													<div
-														class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-														<div class="help-block-wrap" style="margin-top: 5px;">
+													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+														<div class="help-block-wrap" style="margin-top: 5px;display: inline-block;width:50%">
 															<input id="seccode" type="password" name="securityCode"
 																class="form-control mdl-textfield__input"
 																autocomplete="off" maxlength="3" title=""
@@ -1118,17 +1126,24 @@ var nextPage = "${nextPageFlow}";
 																	bundle="${motorMsg}" /></label>
 															<div class="help-block with-errors"></div>
 														</div>
-													</div>
+														<div style="display: inline-block;margin-left:10px;" class="sec-mobdesk"><img src="/fwdhk/resources/images/motor/Payment_secruity_code.jpg" alt=""></div>
+													
 												</div>
 											</div>
-											<div class="col-xs-6 col-sm-3 text-left">
+											<div class="col-xs-6 col-sm-3 text-left" style="display:none">
 												<span> <img
 													src="<%=request.getContextPath()%>/resources/images/motor/Payment_secruity_code.jpg" alt="" />
 												</span>
 											</div>
 										</div>
 									</div>
-									<div class="col-xs-12" style="margin-top: 10px; padding-left: 40px;">
+									<div class="col-xs-12" style="margin-top: 10px;text-align:left">
+									
+									<label><fmt:message key="motor.summary.merchant.statement.line1" bundle="${motorMsg}" /></label><br/>
+									<label><fmt:message key="motor.summary.merchant.statement.line2" bundle="${motorMsg}" /></label><br/>
+									<label><fmt:message key="motor.summary.merchant.statement.line3" bundle="${motorMsg}" /></label><br/>
+									</div>
+									<div class="col-xs-12" style="margin-top: 10px; padding-left: 40px;text-align:left">
 										<div class="custom-checkbox">
 											<div class="checkbox">
 												<div class="form-group">
@@ -2093,15 +2108,15 @@ $(window).load(function(){
 												if(quote.applicant.correspondenceAddress.building !="")
 													address += quote.applicant.correspondenceAddress.building +","
 												
+												if(quote.applicant.correspondenceAddress.estate !="")
+														address +=quote.applicant.correspondenceAddress.estate +","	
+												
+												if(quote.applicant.correspondenceAddress.streetNo !="")
+															address += quote.applicant.correspondenceAddress.streetNo +","		
+														
 												if(quote.applicant.correspondenceAddress.streetName !="")
 													address += quote.applicant.correspondenceAddress.streetName +","
 
-												if(quote.applicant.correspondenceAddress.streetNo !="")
-													address += quote.applicant.correspondenceAddress.streetNo +","
-												
-												if(quote.applicant.correspondenceAddress.estate !="")
-													address +=quote.applicant.correspondenceAddress.estate +","
-											
 												address += desc.toString().toLowerCase()
 												+ ","
 												+ remark.toString().toLowerCase();

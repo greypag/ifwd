@@ -88,7 +88,7 @@ $(document).ready(function(){
 	/*isobar*/
 	
 	$mortgageBank = $('#mortgageBank').selectize({
-        valueField: 'code',
+        valueField: 'desc',
         labelField: 'desc',
         searchField: 'desc',
         create: false,
@@ -110,9 +110,10 @@ $(document).ready(function(){
 						$.each(res, function(i, item) {
 							if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes" )
 							{	
-								if(item.code == quote.carDetail.bankMortgageName || item.desc ==quote.carDetail.bankMortgageName )
+								
+								if(item.desc == quote.carDetail.bankMortgageName || item.desc ==quote.carDetail.bankMortgageName )
 								{	match=true;
-									
+							
 									$(".switch-light").removeClass("orange");
 									//$('[name="bankMortgage"]').bootstrapSwitch('setState',true);
 									$('[name="bankMortgage"]').bootstrapSwitch('state',true);
@@ -124,7 +125,7 @@ $(document).ready(function(){
 									$('#mortgageBank').find('.selectize-input > input').prop('required',false);
 									//$mortgageBankSelect[0].selectize.clear();
 								
-									$mortgageBank[0].selectize.setValue(item.code);
+									$mortgageBank[0].selectize.setValue(item.desc);
 									
 								}
 							}
