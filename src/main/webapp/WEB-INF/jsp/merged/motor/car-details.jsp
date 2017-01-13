@@ -109,7 +109,7 @@ var nextPage = "${nextPageFlow}";
 	                                                <a class="motor-tooltip" data-toggle="tooltip" data-html="true" title="<img src='<%=request.getContextPath()%>/resources/images/motor/Car_details_registration_demo_chasis_no_Cc.jpg' />">
 	                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 	                                                </a>
-	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="50" pattern="^.{3,}$" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="chassisNumber" minlength="3" maxlength="30" pattern="^.{3,}$" class="form-control input--grey mdl-textfield__input" id="chassisNumber" required data-required-error='<fmt:message key="motor.error.msg.chassis.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.chassis.format" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="chassisNumber"><fmt:message key="motor.cardetails.car.chassisno" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>
@@ -183,7 +183,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <div class="form-group" id="bankNameHandle">
 	                                        <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                            <div class="help-block-wrap">
-	                                                <input type="text" name="bankName" minlength="3" maxlength="30" class="form-control input--grey mdl-textfield__input" id="bankName" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.mortgagebank.invalid" bundle="${motorMsg}" />'>
+	                                                <input type="text" name="bankName" minlength="3" maxlength="50" class="form-control input--grey mdl-textfield__input" id="bankName" data-required-error='<fmt:message key="motor.error.msg.mortgagebank.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.mortgagebank.invalid" bundle="${motorMsg}" />'>
 	                                                <label class="mdl-textfield__label" for="bankName"><fmt:message key="motor.cardetails.mortgage.bank" bundle="${motorMsg}" /></label>
 	                                                <div class="help-block with-errors"></div>
 	                                            </div>

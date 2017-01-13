@@ -228,10 +228,11 @@ width: 100px !important;
 										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
 											role="alert" style="position:static"></div> 
                                         <br/>
+                                        <%-- 
                                         <label>
                                             <a href="javascript:;" id="findPromo" ><fmt:message key="motor.promotecode.get.promotecode" bundle="${motorMsg}" /></a>
                                         </label>
-                                                                        
+                                        --%>                           
                                     </div>
                                 <div class="col-md-6 col-md-offset-3">
 			                            <div class="row">

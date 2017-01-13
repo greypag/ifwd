@@ -186,7 +186,7 @@ public class MotorCareValidationServiceImpl implements
 //		Estimated Value
 		Integer estVal = motorCare.getCarDetail().getEstimatedValue();
 		if(estVal !=null){
-			if(estVal > 2000000){
+			if(estVal > 999999){
 				return HttpStatus.valueOf(412);
 			}else if(estVal < 50000){
 				return HttpStatus.valueOf(413);
@@ -229,7 +229,7 @@ public class MotorCareValidationServiceImpl implements
 			}
 				
 			// Check Chassis Number
-			if (length(motorCare.getCarDetail().getChassisNumber()) <4 
+			if (length(motorCare.getCarDetail().getChassisNumber()) <3 
 					|| length(motorCare.getCarDetail().getChassisNumber()) >30) {
 				return false;
 			}
@@ -328,8 +328,8 @@ public class MotorCareValidationServiceImpl implements
 			Date expDate = DateUtils.parseDate(motorCare.getExpDateOfPreviousInsurance(), new String[]{"dd-MM-yyyy"});
 			Date policyStartDte = DateUtils.parseDate(motorCare.getPolicyStartDate(), new String[]{"dd-MM-yyyy"});
 			
-			// need Expiry date < Start Date
-			if (DateUtils.truncatedCompareTo(expDate, policyStartDte, Calendar.DAY_OF_MONTH) < 0) {
+			// need Expiry date <= Start Date
+			if (DateUtils.truncatedCompareTo(expDate, policyStartDte, Calendar.DAY_OF_MONTH) <= 0) {
 				// Valid
 			} else {
 				return false;

@@ -273,7 +273,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
     	$hkid_dz = $('#hkid-dz');
     	$license_dz = $('#license-dz');
     	
-    	invalid_file = (language == 'en') ? 'Please upload document in jpg or png format only. And max file size is 2MB.' : '只接受jpg 或 png 格式 和檔案大小不可以大於2MB。';
+    	invalid_file = (language == 'en') ? 'Please upload document in jpg or png or pdf or tiff format only. And max file size is 2MB.' : '只接受jpg 或 png 或 pdf 或tiff 格式 和檔案大小不可以大於2MB。';
     	exceeded_1file = (language == 'en') ? 'You cannot upload more than 1 copy.' : '只可上載1個檔案。';
     	exceeded_4file = (language == 'en') ? 'You cannot upload more than 4 copy.' : '只可上載4個檔案。';
     	remove_file = (language == 'en') ? 'Remove File' : '刪除檔案';
@@ -301,31 +301,48 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
     		Dropzone.autoDiscover = false;
 	        var vehicleReg = $('#vehicleReg-dz').dropzone({
 	        	url:url,
-	            maxFiles: 1,
+	            maxFiles: 4,
 				maxFilesize: 2,
 				addRemoveLinks: true,
 				dictRemoveFile:remove_file,
-				acceptedFiles: 'image/jpeg,image/png,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint,text/plain,image/bmp,image/gif,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/tiff',
+				acceptedFiles: 'image/jpeg,image/png,image/tiff,application/pdf',
+				uploadMultiple: true,
+	            parallelUploads: 4,
 	            init: function() {
 	            	this.on("sending", function(file, xhr, formData){
 	                        formData.append("policyId", quote.policyId);
 	                        formData.append("refNumber", quote.refNumber);
 	                        formData.append("docType", "vehicleReg");
 	                });
+						this.on("maxfilesreached", function(file) {
+							$('.error-msg').html('');
+							$('#vehicleReg-dz .content').appendTo('#vehicleReg-dz');
+							$('#vehicleReg-dz .content .dz-message').css('display','none');
+						});
+						this.on("removedfile", function(file) {
+							$('.error-msg').html('');
+							if($('#vehicleReg-dz').hasClass('dz-max-files-reached')){
+								$('#vehicleReg-dz').removeClass('dz-max-files-reached');
+							}
+							$('#vehicleReg-dz .content').appendTo('#vehicleReg-dz');
+							$('#vehicleReg-dz .content .dz-message').css('display','block');
+						});
 	                this.on("addedfile", function(file) { 
 	                	//total_vehicleReg_dz++;
 	                	//submit_enable();
 	  	                $('.error-msg').html('');
-	                    if($('#vehicleReg-dz').hasClass('dz-max-files-reached')){
-	                        $('#vehicleReg-dz').find('.dz-error-message span').html($('#vehicleReg-dz-error-message').data('max-error'));
+								if(!$('#vehicleReg-dz').hasClass('dz-max-files-reached')){
+									$('#vehicleReg-dz .content').appendTo('#vehicleReg-dz');
+									$('#vehicleReg-dz .content .dz-message').css('display','block');
 	                    }
 	                });
 	                this.on("complete", function(file) { 
 	                	total_vehicleReg_dz++;
 	                	submit_enable();
 	  	                $('.error-msg').html('');
-	                    if($('#vehicleReg-dz').hasClass('dz-max-files-reached')){
-	                        $('#vehicleReg-dz').find('.dz-error-message span').html($('#vehicleReg-dz-error-message').data('max-error'));
+							 if(!$('#vehicleReg-dz').hasClass('dz-max-files-reached')){
+									$('#vehicleReg-dz .content').appendTo('#vehicleReg-dz');
+									$('#vehicleReg-dz .content .dz-message').css('display','block');
 	                    }
 	                });
 	            },
@@ -337,7 +354,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 	             },
 				dictInvalidFileType: invalid_file,
 				dictFileTooBig: invalid_file,
-				dictMaxFilesExceeded: exceeded_1file,
+				dictMaxFilesExceeded: exceeded_4file,
 	        });
 	        var hkid = $('#hkid-dz').dropzone({
 	            url:url,
@@ -345,7 +362,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 				maxFilesize: 2,
 				addRemoveLinks: true,
 				dictRemoveFile:remove_file,
-				acceptedFiles: 'image/jpeg,image/png,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint,text/plain,image/bmp,image/gif,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/tiff',
+				acceptedFiles: 'image/jpeg,image/png,image/tiff,application/pdf',
 				uploadMultiple: true,
 	            parallelUploads: 4,
 	            init: function() {
@@ -354,20 +371,35 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
                         formData.append("refNumber", quote.refNumber);
                         formData.append("docType", "hkid");
                 	});
+						this.on("maxfilesreached", function(file) {
+							$('.error-msg').html('');
+							$('#hkid-dz .content').appendTo('#hkid-dz');
+							$('#hkid-dz .content .dz-message').css('display','none');
+						});
+						this.on("removedfile", function(file) {
+							$('.error-msg').html('');
+							if($('#hkid-dz').hasClass('dz-max-files-reached')){
+								$('#hkid-dz').removeClass('dz-max-files-reached');
+							}
+							$('#hkid-dz .content').appendTo('#hkid-dz');
+							$('#hkid-dz .content .dz-message').css('display','block');
+						});
 	                this.on("addedfile", function(file) { 
 	                	//total_hkid_dz++;
 	                	//submit_enable();
 	                    $('.error-msg').html('');
-	                    if($('#hkid-dz').hasClass('dz-max-files-reached')){
-	                        $('#hkid-dz').find('.dz-error-message span').html($('#hkid-dz-error-message').data('max-error'));
+								if(!$('#hkid-dz').hasClass('dz-max-files-reached')){
+									$('#hkid-dz .content').appendTo('#hkid-dz');
+									$('#hkid-dz .content .dz-message').css('display','block');
 	                    }
 	                });
 	                this.on("complete", function(file) { 
 	                	total_hkid_dz++;
 	                	submit_enable();
 	                    $('.error-msg').html('');
-	                    if($('#hkid-dz').hasClass('dz-max-files-reached')){
-	                        $('#hkid-dz').find('.dz-error-message span').html($('#hkid-dz-error-message').data('max-error'));
+								if(!$('#hkid-dz').hasClass('dz-max-files-reached')){
+									$('#hkid-dz .content').appendTo('#hkid-dz');
+									$('#hkid-dz .content .dz-message').css('display','block');
 	                    }
 	                });
 	            },
@@ -387,7 +419,7 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 				maxFilesize: 2,
 				addRemoveLinks: true,
 				dictRemoveFile:remove_file,
-				acceptedFiles: 'image/jpeg,image/png,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint,text/plain,image/bmp,image/gif,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/tiff',
+				acceptedFiles: 'image/jpeg,image/png,image/tiff,application/pdf',
 				uploadMultiple: true,
 	            parallelUploads: 4,
 	            init: function() {
@@ -396,20 +428,35 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
                         formData.append("refNumber", quote.refNumber);
                         formData.append("docType", "license");
                 	});
+						this.on("maxfilesreached", function(file) {
+							$('.error-msg').html('');
+							$('#license-dz .content').appendTo('#license-dz');
+							$('#license-dz .content .dz-message').css('display','none');
+						});
+						this.on("removedfile", function(file) {
+							$('.error-msg').html('');
+							if($('#license-dz').hasClass('dz-max-files-reached')){
+								$('#license-dz').removeClass('dz-max-files-reached');
+							}
+							$('#license-dz .content').appendTo('#license-dz');
+							$('#license-dz .content .dz-message').css('display','block');
+						});
 	                this.on("addedfile", function(file) {
 	                	//total_license_dz++;
 	                	//submit_enable();
 	                    $('.error-msg').html('');
-	                    if($('#license-dz').hasClass('dz-max-files-reached')){
-	                        $('#license-dz').find('.dz-error-message span').html($('#license-dz-error-message').data('max-error'));
+								if(!$('#license-dz').hasClass('dz-max-files-reached')){
+									$('#license-dz .content').appendTo('#license-dz');
+									$('#license-dz .content .dz-message').css('display','block');
 	                    }
 	                });
 	                this.on("complete", function(file) {
 	                	total_license_dz++;
 	                	submit_enable();
 	                    $('.error-msg').html('');
-	                    if($('#license-dz').hasClass('dz-max-files-reached')){
-	                        $('#license-dz').find('.dz-error-message span').html($('#license-dz-error-message').data('max-error'));
+								if(!$('#license-dz').hasClass('dz-max-files-reached')){
+									$('#license-dz .content').appendTo('#license-dz');
+									$('#license-dz .content .dz-message').css('display','block');
 	                    }
 	                });
 	            },

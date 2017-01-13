@@ -1182,6 +1182,7 @@ var nextPage = "${nextPageFlow}";
 	}
 	</style>
 	<!-- testing -->
+	<%--
 	<div class="container before-login">
 		<div class="center">
 			<div class="panel panel-default memberLogin" id="accordion">
@@ -1573,6 +1574,7 @@ var nextPage = "${nextPageFlow}";
 			</div>
 		</div>
 	</div>
+	--%>
 	<!-- testing -->
 	<div class="container">
 		<div class="col-xs-12">

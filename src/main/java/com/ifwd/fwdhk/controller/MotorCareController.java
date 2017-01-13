@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.controller;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.replace;
+import static org.apache.commons.lang3.StringUtils.upperCase;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -20,6 +21,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -1657,7 +1659,9 @@ public class MotorCareController extends BaseController{
 			if (responseJsonObj.get("errMsgs") == null) {
 				if (responseJsonObj.get("result") != null && StringUtils.equals("OK", (String)responseJsonObj.get("result"))) {				
 					apiResponse.put("result", (String)responseJsonObj.get("result"));
-					apiResponse.put("email", (String)responseJsonObj.get("toEmailAddress"));
+					// Email will be obsoleted @20170112
+					// apiResponse.put("email", (String)responseJsonObj.get("toEmailAddress"));
+					apiResponse.put("email", null);
 					apiResponse.put("policyPremium", (String)responseJsonObj.get("policyPremium"));
 				} else {
 					apiResponse.put("result", "Fail");
@@ -1683,7 +1687,7 @@ public class MotorCareController extends BaseController{
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 422, message = "Invalid file(s)"),
-			@ApiResponse(code = 411, message = "System asked for login"),
+			@ApiResponse(code = 411, message = "Cannot pass upload check"),
 			@ApiResponse(code = 504, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/fileUpload"}, method = POST)
@@ -1714,13 +1718,35 @@ public class MotorCareController extends BaseController{
 			Map<String, String> apiResponse = new HashMap<>();
 			List<MotorFile> fileDetailList = new ArrayList<> (); 
 			MotorFileDetails motorFileDetails = new MotorFileDetails();
+			JSONObject responseJsonObj = new JSONObject();
 			
 			Iterator<String> itr =  request.getFileNames();
 			String policyId = request.getParameter("policyId");
 			String docType = request.getParameter("docType");
 			
 			logger.info("policyId:" + policyId);
-			logger.info("docType:" + docType);			
+			logger.info("docType:" + docType);	
+			
+			// Valid upload count
+			String url = replace(UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_CHECK_GET,"{type}", "4");
+			url = url + "?refNum=" + MotorCareController.urlEncodeInputSpace(securityCheckKey) 
+					+ "&hkid=" + null + "&coverNote=" + null;
+			
+			// ******************* Consume Service *******************
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, headerUtil.getHeader(request), null);
+				
+			// ******************* Makeup result *******************
+			if (responseJsonObj.get("errMsgs") == null) {
+				if (responseJsonObj.get("result") != null && StringUtils.equals("OK", (String)responseJsonObj.get("result"))) {				
+					// Can upload 					
+				} else {
+					logger.info("uploadFile4Policy" + " - cannot pass the upload check");
+					return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));					
+				}
+			} else {				
+				logger.info("uploadFile4Policy" + " - cannot pass the upload check");
+				return new ResponseEntity<Map<String, String>>((Map<String, String>)null, HttpStatus.valueOf(411));
+			}
 			
 			MultipartFile mpf = null;
 			while(itr.hasNext()){
@@ -1728,6 +1754,9 @@ public class MotorCareController extends BaseController{
 				 MotorFile mf = new MotorFile();
 				 
 				 try {
+					 if (!isValidUploadFormat(FilenameUtils.getExtension(mpf.getOriginalFilename()))) {
+						 throw new Exception("Invalid File Ext");
+					 }
 					 System.out.println(mpf.getOriginalFilename() +" uploaded! "+ mpf.getContentType());
 					 System.out.println(FilenameUtils.getExtension(mpf.getOriginalFilename()));
 					 System.out.println(Base64.getEncoder().encodeToString(mpf.getBytes()));
@@ -1746,7 +1775,7 @@ public class MotorCareController extends BaseController{
 			motorFileDetails.setMotorFileList(fileDetailList);
 			
 			// ******************* Consume Service *******************
-			String url = UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_POST;
+			url = UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_POST;
 			String jsonString = new ObjectMapper().writeValueAsString(motorFileDetails);			
 			JSONObject jsonInput = (JSONObject) new JSONParser().parse(jsonString);
 			restService.consumeApi(HttpMethod.POST, url, headerUtil.getHeader(request), jsonInput);
@@ -1798,7 +1827,7 @@ public class MotorCareController extends BaseController{
 			logger.info("docType:" + docType);			
 			
 			// Valid First
-			String url = replace(UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_CHECK_GET,"{type}", "2");
+			String url = replace(UserRestURIConstants.MOTOR_CARE_FILE_UPLOAD_CHECK_GET,"{type}", "3");
 			url = url + "?refNum=" + MotorCareController.urlEncodeInputSpace(refNum) 
 					+ "&hkid=" + hkid + "&coverNote=" + coverNote;
 			
@@ -1826,6 +1855,9 @@ public class MotorCareController extends BaseController{
 				 MotorFile mf = new MotorFile();
 				 
 				 try {
+					 if (!isValidUploadFormat(FilenameUtils.getExtension(mpf.getOriginalFilename()))) {
+						 throw new Exception("Invalid File Ext");
+					 }
 					 System.out.println(mpf.getOriginalFilename() +" uploaded! "+ mpf.getContentType());
 					 System.out.println(FilenameUtils.getExtension(mpf.getOriginalFilename()));
 					 System.out.println(Base64.getEncoder().encodeToString(mpf.getBytes()));
@@ -2182,12 +2214,12 @@ public class MotorCareController extends BaseController{
 			//parameters.put("to", userDetails.getEmailAddress());
 			//parameters.put("to", "siuchung.kwok@fwd.com");
 			if (userDetails != null) parameters.put("to", userDetails.getEmailAddress());
-			parameters.put("subject", "Your Motor Smart application has not yet been completed!±zªºMotor Smart¥Ó½Ð©|¥¼§¹¦¨!");
+			parameters.put("subject", "Your Motor Smart application has not yet been completed!");
 				if (userDetails != null) model.put("name", userDetails.getFullName());				
 				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "get-quote?type=3");
 				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "get-quote?type=3");
 			parameters.put("model", model);
-			parameters.put("template", "savie\\saveLater.html");
+			parameters.put("template", "motor\\motor-saveLater.html");
 			logger.info(parameters.toString());			
 		}
 		return parameters;
@@ -2206,12 +2238,12 @@ public class MotorCareController extends BaseController{
 			String serverUrl = replace(request.getRequestURL().toString(), request.getServletPath(), "");
 			// Form JSON to send email
 			if (applicant != null) parameters.put("to", (String)(applicant.get("email")));
-			parameters.put("subject", "Your Motor Smart application (Upload Later) has not yet been completed!±zªºMotor Smart¥Ó½Ð©|¥¼§¹¦¨!");
+			parameters.put("subject", "Your Motor Smart application (Upload Later) has not yet been completed!");
 				if (applicant != null) model.put("name", (String)(applicant.get("name")));				
 				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "start-upload-later?refNum="+urlEncodeInputSpace((String)(data.get("refNumber"))));
 				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "start-upload-later?refNum="+urlEncodeInputSpace((String)data.get("refNumber")));
 			parameters.put("model", model);
-			parameters.put("template", "savie\\saveLater.html");
+			parameters.put("template", "motor\\motor-uploadLater.html");
 			logger.info(parameters.toString());			
 		}
 		return parameters;
@@ -2269,5 +2301,23 @@ public class MotorCareController extends BaseController{
 			// motor_error code
 			return MOTOR_ERR_STATUS_CDE;
 		}
+	}
+	
+	private Hashtable<String,String> getUploadFileExtWhiteList () {
+		Hashtable<String, String> hashtable = new Hashtable<String, String>();
+		hashtable.put("PNG","PNG");
+		hashtable.put("JPG","JPG");
+		hashtable.put("JPEG","JPEG");
+		hashtable.put("TIF","TIF");
+		hashtable.put("TIFF","TIFF");
+		hashtable.put("PDF","PDF");
+	   return hashtable;
+	}
+	
+	private boolean isValidUploadFormat(String ext) {
+		if ( !isBlank(ext) && getUploadFileExtWhiteList().containsKey(upperCase(ext))) {
+			return true;
+		} 
+		return false; 
 	}
 }

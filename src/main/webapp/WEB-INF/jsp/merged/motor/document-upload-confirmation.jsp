@@ -95,9 +95,11 @@ var nextPage = "${nextPageFlow}";
                     <p>
                         <fmt:message key="motor.uploadconfirm.page.copy.part1" bundle="${motorMsg}" /><strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong><fmt:message key="motor.uploadconfirm.page.copy.part3" bundle="${motorMsg}" />
                         <br/>
+                        <%-- 
                         <fmt:message key="motor.uploadconfirm.covernote.copy.part1" bundle="${motorMsg}" />
                         <span id="sendMail"></span>
                         <fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" />
+                        --%>
                     </p>
                     <p>
                         <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
@@ -240,7 +242,9 @@ var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getP
 $(document).ready(function(){
 	$(".amountDueAmount").html("$"+quote.amountDueAmount);
 	$(".amountSave").html("$"+(parseInt(quote.amountDueAmount)*0.3).toFixed(2));
+	<%--
 	$("#sendMail").html("<a href='mailto:"+quote.applicant.email+"'>"+quote.applicant.email+"</a>");
+	--%>
 	$(".ref-number").html(quote.coverNoteNum);
 });
 </script>
