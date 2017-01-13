@@ -4,6 +4,11 @@
 		{"Category":"LIFE","Name":"Elite Term","Link":"elite","Group":1},
 		{"Category":"SAVING","Name":"Provie Insurance Plan","Link":"provie","Group":1},
 		{"Category":"SAVING","Name":"Savie Insurance Plan","Link":"savie","Group":1},
-		{"Category":"SAVING","Name":"Wealthree Insurance Plan","Link":"wealthree","Group":1}
+		{"Category":"SAVING","Name":"Wealthree Insurance Plan","Link":"wealthree","Group":1},
+		{"Category":"HEALTH","Name":"Hospital Cash","Link":"hospital","Group":1},
+		{"Category":"TRAVEL","Name":"FlightCare(Free)","Link":"Flight","Group":2},
+		{"Category":"TRAVEL","Name":"Overseas StudyCare","Link":"Oversea","Group":2},
+		{"Category":"TRAVEL","Name":"TravelCare Insurance","Link":"Travel","Group":2},
+		{"Category":"TRAVEL","Name":"Working HolidayCare","Link":"WorkingHoliday","Group":2}		
 	]
 }
