@@ -7,7 +7,7 @@ var fwdApi = {
 			getAvailableCentre			: APIServer + context + "/api/appointment/centre",
 			findAvailableDateByCentre	: APIServer + context + "/api/appointment/timeSlotEntity",
 			findAvailableTimeByCentre 	: APIServer + context + "/api/appointment/timeSlotEntity",
-			appointment					: APIServer + context + "/api/appointment/make",
+			appointment					: APIServer + context + "/api/appointment",
 			session						: APIServer + context + "/api/member/session",
 			login						: APIServer + context + "/api/member/login",
 			member						: APIServer + context + "/api/member",

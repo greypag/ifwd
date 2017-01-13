@@ -183,7 +183,7 @@ public class AppointmentController extends BaseController {
 //		}
 		return result;
 	}
-	@RequestMapping(value = "/make", method = POST)
+	@RequestMapping(method = POST)
 	@ApiOperation(
 		value = "Book appointment",
 		response = AppointmentBooking.class
