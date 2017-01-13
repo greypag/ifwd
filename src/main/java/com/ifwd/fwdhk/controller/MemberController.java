@@ -21,6 +21,7 @@ import io.swagger.annotations.ApiResponses;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.http.HttpStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -53,7 +54,6 @@ import com.ifwd.fwdhk.model.Member;
 import com.ifwd.fwdhk.model.MemberActionResult;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
-import com.ifwd.fwdhk.model.motor.CarDetail;
 import com.ifwd.fwdhk.model.registrationrevamp.ForgetUsernameRequest;
 import com.ifwd.fwdhk.model.registrationrevamp.ForgetUsernameResponse;
 import com.ifwd.fwdhk.model.registrationrevamp.ForgotPasswordRequest;

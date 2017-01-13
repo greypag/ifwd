@@ -25,7 +25,7 @@
 		String template_item = "<li class=\"%s\">%s</li>";
 		String template_divider = "<li class=\"%s\"><i class=\"fa fa-angle-right\"></i></li>";
 
-		String path_to_resources[]= new String[3];
+		String path_to_resources[]= new String[4];
 		if(lang.equalsIgnoreCase("EN")){
 			path_to_resources[0] = "messages_en_US";
 			path_to_resources[1] = "provie_en_US";
