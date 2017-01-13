@@ -127,6 +127,8 @@ width:60px;
 								async : false,
 								success : function(data) {
 									if (data == 'success') {
+										$('#loadingDiv').toggle();
+										
 										$(form_selector + ' #success-message').show();
 										$(form_selector + ' #joinus-err-msg').hide();
 										window.location.hash = form_selector+ ' #success-message';
@@ -179,6 +181,8 @@ width:60px;
 				async : false,
 				success : function(data) {
 					if (data == 'success') {
+						$('#loadingDiv').toggle();
+						
 						$(form_selector + ' #success-message').show();
 						$(form_selector + ' #joinus-err-msg').hide();
 						window.location.hash = form_selector+ ' #success-message';
@@ -861,4 +865,8 @@ function tooltipPlacement(){
 		</div>
 		<!--/.container-->
 	</section>
+	
+<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+	<img style="width: 300px; height: 300px;" src="<%=request.getContextPath()%>/resources/images/loading.gif">
+</div>
 </body>
