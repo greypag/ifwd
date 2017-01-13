@@ -24,7 +24,7 @@
 		&&!(requestUri.endsWith("/en/home") || requestUri.endsWith("/en/home/") 
 			|| requestUri.endsWith("/en") || requestUri.endsWith("/en/"))
 		&& !requestUri.endsWith("/offers") 
-		&& !requestUri.endsWith("/faq")) && !(requestUri.endsWith("/provie")) ) { 
+		&& !requestUri.endsWith("/faq")) && !requestUri.endsWith("/provie") && !requestUri.endsWith("/wealthree") ) { 
 %>
 <meta name="robots" content="noindex">
 <% }
