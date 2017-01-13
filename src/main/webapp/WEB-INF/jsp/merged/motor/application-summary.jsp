@@ -186,6 +186,8 @@ var nextPage = "${nextPageFlow}";
 	}
 	.summary .panel-body .detail-row .overflowfix{
 	background-color: #f2f2f2;
+	  height: auto;
+	  min-height: 93px;
 }
 
 .summary .panel-body .detail-row .overflowfix .row> div{
@@ -214,6 +216,7 @@ var nextPage = "${nextPageFlow}";
 	.summary .panel-body .detail-row>div {
 		padding-left: 40px;
 		padding-right: 40px;
+		min-height:93px;
 	}
 	.summary .panel-body .row>div:nth-of-type(odd)>.detail-row>.text-right {
 		border-right: solid 1px #ccc;
@@ -587,7 +590,7 @@ var nextPage = "${nextPageFlow}";
 								
 								<div class="col-xs-6 text-left even">
 									<span><fmt:message key="motor.summary.driverdetail.dob"
-											bundle="${motorMsg}" />h</span>
+											bundle="${motorMsg}" /></span>
 								</div>
 								<div class="col-xs-6 text-right even">
 									<span class="driver1birth"></span>
