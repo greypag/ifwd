@@ -536,12 +536,38 @@ public class UserRestURIConstants {
 	public static final String URL_MOTOR_PLAN_THIRD = "third-party-quote";
 	public static final String URL_MOTOR_PLAN_COMP = "comprehensive-quote";
 
+	//public static final String URL_MOTOR_RIDER_OPTIONS = "rider-options";	
+	public static final String URL_MOTOR_CAR_DETAILS = "car-details";
+	public static final String URL_MOTOR_DRIVERS_DETAILS = "drivers-details";
+	public static final String URL_MOTOR_POLICY_DETAILS = "policy-details";
+	public static final String URL_MOTOR_DECLARATIONS = "declarations";
+	public static final String URL_MOTOR_APPLICATION_SUMMARY = "application-summary";
+	public static final String URL_MOTOR_CONFIRMATION = "confirmation";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD = "document-upload";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "document-upload-confirmation";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER = "document-upload-later";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "document-upload-later-confirmation";
+	public static final String URL_MOTOR_DOCUMENT_UPLOAD_LATER_CHECK = "start-upload-later-check";
+
 	public static final String FILE_MOTOR_LANDING = "landing";
 	public static final String FILE_MOTOR_GET_QUOTE = "get-quote";
 	public static final String FILE_MOTOR_QUICK_QUOTE = "quick-quote";
 	public static final String FILE_MOTOR_PLAN_THIRD = "plan-third";
 	public static final String FILE_MOTOR_PLAN_COMP = "plan-comp";
 	
+	public static final String FILE_MOTOR_RIDER_OPTIONS = "rider-options";	
+	public static final String FILE_MOTOR_CAR_DETAILS = "car-details";
+	public static final String FILE_MOTOR_DRIVERS_DETAILS = "drivers-details";
+	public static final String FILE_MOTOR_POLICY_DETAILS = "policy-details";
+	public static final String FILE_MOTOR_DECLARATIONS = "declarations";
+	public static final String FILE_MOTOR_APPLICATION_SUMMARY = "application-summary";
+	public static final String FILE_MOTOR_CONFIRMATION = "confirmation";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD = "document-upload";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "document-upload-confirmation";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER = "document-upload-later";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "document-upload-later-confirmation";
+	public static final String FILE_MOTOR_DOCUMENT_UPLOAD_LATER_CHECK = "start-upload-later-check";
+
 	public static final String PAGE_PROPERTIES_MOTOR_LANDING = "motor.landing";
 	public static final String PAGE_PROPERTIES_MOTOR_GET_QUOTE = "motor.get-quote";
 	public static final String PAGE_PROPERTIES_MOTOR_QUICK_QUOTE = "motor.quick-quote";
@@ -560,6 +586,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION= "motor.document-upload-confirmation";
 	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER = "motor.document-upload-later";
 	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION = "motor.document-upload-later-confirmation";
+	public static final String PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CHECK = "motor.start-upload-later-check";
 	
 	
 	/*API For easy health*/
@@ -602,15 +629,30 @@ public class UserRestURIConstants {
 	public static final String GET_SAVIE_REFERRAL_DISCOUNT = SERVICE_URL + "/premium/savie/referral/discount";
 	
 	/*API For (iMotor)*/
-	public static final String MOTOR_CARE_CARDETAILS_BY_MAKE_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}";
 	public static final String MOTOR_CARE_CARMAKE_LIST_GET = SERVICE_URL + "/iMotor/list/carMakes";
+	public static final String MOTOR_CARE_OCCUPATIONS_GET = SERVICE_URL + "/iMotor/list/occupations";
+	public static final String MOTOR_CARE_CODE_TABLE_GET = SERVICE_URL + "/iMotor/list/codeTable/{type}";
+	
+	public static final String MOTOR_CARE_CARDETAILS_BY_MAKE_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}";
+	public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}/{carModel}/supplement";
+	public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET = SERVICE_URL + "/iMotor/carDetails/supplement";
+	
+    public static final String MOTOR_CARE_CONTACT_ME_POST = SERVICE_URL + "/iMotor/contactMe";
+    public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
+    
 	public static final String MOTOR_CARE_GET_QUOTE_POST = SERVICE_URL + "/iMotor/quote";
 	public static final String MOTOR_CARE_SAVE_QUOTE_POST = SERVICE_URL + "/iMotor/quote/saving";
-	public static final String MOTOR_CARE_OCCUPATIONS_GET = SERVICE_URL + "/iMotor/list/occupations";
-    public static final String MOTOR_CARE_CONTACT_ME_POST = SERVICE_URL + "/iMotor/contactMe";
-    public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_GET = SERVICE_URL + "/iMotor/carDetails/{makeCode}/{carModel}/supplement";
-    public static final String MOTOR_CARE_CARDETAILS_SUPPLEMENT_SECOND_GET = SERVICE_URL + "/iMotor/carDetails/supplement";
-	public static final String MOTOR_CARE_CONTACT_US_POST = SERVICE_URL + "/member/cs/contact/motor";
+	public static final String MOTOR_CARE_SAVE_FOR_LATER_QUOTE_POST = SERVICE_URL + "/iMotor/quote/save4Later";
+	public static final String MOTOR_CARE_SAVE_POLICY_POST = SERVICE_URL + "/iMotor/policy/saving/{stepNo}";    	
+	public static final String MOTOR_CARE_FILE_UPLOAD_POST = SERVICE_URL + "/iMotor/policy/fileUpload";
+	public static final String MOTOR_CARE_FILE_UPLOAD_LATER_POST = SERVICE_URL + "/iMotor/policy/fileUploadLater";
+	public static final String MOTOR_CARE_FILE_UPLOAD_CHECK_GET = SERVICE_URL + "/iMotor/policy/fileUpload/check/{type}";
+	public static final String MOTOR_CARE_PAYMENT_FINALIZE_POST = SERVICE_URL + "/iMotor/policy/finalize";
+	public static final String MOTOR_CARE_PAYMENT_POST = SERVICE_URL + "/iMotor/policy/payment";
+	public static final String MOTOR_CARE_PAYMENT_FAILED_POST = SERVICE_URL + "/iMotor/policy/payment/summary";
+	public static final String MOTOR_CARE_PAYMENT_RESULT_GET = SERVICE_URL + "/iMotor/policy/payment/result";
+	public static final String MOTOR_CARE_SAVE_FOR_LATER_POST = SERVICE_URL + "/iMotor/policy/save4Later/{stepNo}";
+	public static final String MOTOR_CARE_SAVE_FOR_LATER_RESUME_POST = SERVICE_URL + "/iMotor/policy/save4Later/resume";
 
 	/*API For (Online Withdrawal)*/
 	public static final String ONLINE_WITHDRAWAL_POLICY_BY_CUST = SERVICE_URL+"/withdrawal/getPolicyInfoByCustomer"; 
@@ -864,5 +906,5 @@ public class UserRestURIConstants {
 			session.setAttribute("language", UserRestURIConstants.LANG_TC);
 			session.setAttribute("uiLocale", UserRestURIConstants.UILOCALE_TC);			
 		}
-    }
+    }    
 }

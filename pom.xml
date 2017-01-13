@@ -258,6 +258,12 @@
           <version>1.6</version>  
     	</dependency>  
     	
+    	<dependency>
+		    <groupId>com.fwd</groupId>
+		    <artifactId>fwdModel</artifactId>
+		    <version>0.0.1</version>
+		</dependency>
+
     	<!-- Qrcode -->
     	<dependency>  
             <groupId>com.google.zxing</groupId>  

@@ -1,5 +1,5 @@
 var contextPath = context;
-
+var promoCodeValid=false;
 // Savie Online
 $(document).ready(function() {
 	/*$('.modal').on('shown.bs.modal', function(){
@@ -1688,9 +1688,11 @@ function validatePromoCode(){
 			   //$("#errorMsg").html(data.errMsgs[0]);
 			   $('#promoCodeErrorMsg').toggleClass('hidden', promoCode.trim() == "");
 			   $('#promoCodeSuccessMsg').addClass('hidden');
+			   promoCodeValid=false;
 	    	} else {
 	    	   $('#promoCodeErrorMsg').addClass('hidden');
 	    	   $('#promoCodeSuccessMsg').toggleClass('hidden', promoCode.trim() == "");
+	    	   promoCodeValid=true;
 	    	}
 	    }  
 	});

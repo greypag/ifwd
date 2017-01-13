@@ -4,11 +4,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 public class Responses {
-  public static ResponseEntity ok() {
+  @SuppressWarnings("rawtypes")
+public static ResponseEntity ok() {
     return new ResponseEntity(HttpStatus.OK);
   }
 
-  public static ResponseEntity notFound() {
+  @SuppressWarnings("rawtypes")
+public static ResponseEntity notFound() {
     return new ResponseEntity(HttpStatus.NOT_FOUND);
   }
 

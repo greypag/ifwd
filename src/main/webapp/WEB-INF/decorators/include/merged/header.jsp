@@ -195,8 +195,23 @@ function refreshPage(){
 	var cleanURL = window.location.href.replace(/\?r=\d*/,''); //remove random parameter;
 	window.location.href = cleanURL.split('#')[0] + '?r=' + new Date().getTime();
 }
-
+function switchLoginWdiget(loginStatus){
+	//console.log(loginStatus);
+	$(".js-not-logged-in").remove();
+	$(".js-logged-in").removeClass("hidden");
+	$("#loginpopup").modal("hide");
+	$(".js-myDropdown__userName").append(loginStatus.fullName);
+<%--    $.ajax({
+		type : "GET",
+		url : "<%=request.getContextPath()%>/api/member/session",
+		async : false,
+		success : function(data) {
+			console.log(data);
+		}
+	}); --%>
+}
 function submitLoginForm(formID) {
+	console.log("submitLoginForm");
 	$('.login-ajax-loading').css({
 		"left":"0px",
 		"right":"0px"
@@ -213,6 +228,8 @@ function submitLoginForm(formID) {
 				async : false,
 				success : function(data) {
 					if (data.loginResult == 'success') {
+                    	//console.log(data);
+                    	switchLoginWdiget(data);
 						//$('.login-ajax-loading').hide();
 						//var Backlen = history.length;
 						//history.go(-Backlen);
@@ -305,133 +322,132 @@ function submitLoginForm(formID) {
 												// window.location.href = window.location.href;
 												window.location.href = window.location.href.substr(0, window.location.href.indexOf('#'));
 											}
-										} else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
-											try {
-												$('.login-ajax-loading').hide();
-											} catch (error) {
-											}
-											$('#ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(
-															getBundle(
-																	getBundleLanguage,
-																	"member.login.fail.first"));
-										} else if (data.loginResult == 'Please provide a valid User Name and Password.') {
-											try {
-												$('.login-ajax-loading').hide();
-											} catch (error) {
-											}
-											$('#ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(
-															getBundle(
-																	getBundleLanguage,
-																	"member.login.fail.first"));
-										} else if (data.loginResult == 'Link Sent Successfully On Your Registered Mail ID') {
-											try {
-												$('.login-ajax-loading').hide();
-											} catch (error) {
-											}
-											$('#ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(
-															getBundle(
-																	getBundleLanguage,
-																	"member.forgotPassword.success.message"));
-										} else if (data.loginResult == 'Internet Connection Error') {
-											try {
-												$('.login-ajax-loading').hide();
-											} catch (error) {
-											}
-											$('#ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(
-															getBundle(
-																	getBundleLanguage,
-																	"Connection.lost.message"));
-										} else if (data.loginResult == 'Invaild Username or password. Please try again.') {
-											try {
-												$('.login-ajax-loading').hide();
-											} catch (error) {
-											}
-											$('#ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(
-															getBundle(
-																	getBundleLanguage,
-																	"member.login.fail.first"));
-										} else if (data.loginResult == 'Invaild Username or password. Next invalid attempt will block your account.') {
-											try {
-												$('.login-ajax-loading').hide();
-											} catch (error) {
-											}
-											$('#ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(
-															getBundle(
-																	getBundleLanguage,
-																	"member.login.fail.second"));
-										} else if (data.loginResult == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
-											try {
-												$('.login-ajax-loading').hide();
-											} catch (error) {
-											}
-											$('#ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(
-															getBundle(
-																	getBundleLanguage,
-																	"member.login.fail.third"));
-										} else if (data.loginResult == 'fail') {
-											$('.login-ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(
-															getBundle(
-																	getBundleLanguage,
-																	"member.login.fail.first"));
-										} else {
-											$('.login-ajax-loading').hide();
-											$("#" + formID + ' #login-err-msg')
-													.show();
-											$("#" + formID + ' #login-err-msg')
-													.html(data.loginResult);
-										}
-
-									},
-									error : function() {
-										$('.login-ajax-loading').hide();
-
-										$('.login-ajax-loading').hide();
-										$("#" + formID + ' #login-err-msg')
-												.show();
-										$("#" + formID + ' #login-err-msg')
-												.html(data.loginResult);
-
-									}
-								});
+					} else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
+						try {
+							$('.login-ajax-loading').hide();
+						} catch (error) {
+						}
+						$('#ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(
+										getBundle(
+												getBundleLanguage,
+												"member.login.fail.first"));
+					} else if (data.loginResult == 'Please provide a valid User Name and Password.') {
+						try {
+							$('.login-ajax-loading').hide();
+						} catch (error) {
+						}
+						$('#ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(
+										getBundle(
+												getBundleLanguage,
+												"member.login.fail.first"));
+					} else if (data.loginResult == 'Link Sent Successfully On Your Registered Mail ID') {
+						try {
+							$('.login-ajax-loading').hide();
+						} catch (error) {
+						}
+						$('#ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(
+										getBundle(
+												getBundleLanguage,
+												"member.forgotPassword.success.message"));
+					} else if (data.loginResult == 'Internet Connection Error') {
+						try {
+							$('.login-ajax-loading').hide();
+						} catch (error) {
+						}
+						$('#ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(
+										getBundle(
+												getBundleLanguage,
+												"Connection.lost.message"));
+					} else if (data.loginResult == 'Invaild Username or password. Please try again.') {
+						try {
+							$('.login-ajax-loading').hide();
+						} catch (error) {
+						}
+						$('#ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(
+										getBundle(
+												getBundleLanguage,
+												"member.login.fail.first"));
+					} else if (data.loginResult == 'Invaild Username or password. Next invalid attempt will block your account.') {
+						try {
+							$('.login-ajax-loading').hide();
+						} catch (error) {
+						}
+						$('#ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(
+										getBundle(
+												getBundleLanguage,
+												"member.login.fail.second"));
+					} else if (data.loginResult == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
+						try {
+							$('.login-ajax-loading').hide();
+						} catch (error) {
+						}
+						$('#ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(
+										getBundle(
+												getBundleLanguage,
+												"member.login.fail.third"));
+					} else if (data.loginResult == 'fail') {
+						$('.login-ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(
+										getBundle(
+												getBundleLanguage,
+												"member.login.fail.first"));
 					} else {
 						$('.login-ajax-loading').hide();
+						$("#" + formID + ' #login-err-msg')
+								.show();
+						$("#" + formID + ' #login-err-msg')
+								.html(data.loginResult);
 					}
-					$('.login-ajax-loading').hide();
-				}, 1000);
 
-	}
+				},
+				error : function() {
+					$('.login-ajax-loading').hide();
+
+					$('.login-ajax-loading').hide();
+					$("#" + formID + ' #login-err-msg')
+							.show();
+					$("#" + formID + ' #login-err-msg')
+							.html(data.loginResult);
+
+				}
+			});
+		} else {
+			$('.login-ajax-loading').hide();
+		}
+		$('.login-ajax-loading').hide();
+	}, 1000);
+}
 
 
 
@@ -587,7 +603,7 @@ function getStarted(){
 										|| session.getAttribute("username") == null) {
 							%>
 
-							<li class="dropdown login-btn margin-left1" id="myDropdown">
+							<li class="dropdown login-btn margin-left1 js-not-logged-in" id="myDropdown">
 								<a id="fwd-login-desk" href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message
 										key="header.menu.login" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i> </a> <!--  </a> -->
@@ -662,6 +678,26 @@ function getStarted(){
 									</form>
 								</div>
 							</li>
+							
+							<li class="dropdown logout-btn margin-left1 hidden js-logged-in" id="myDropdown">
+								<a class="js-myDropdown__userName" href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message
+										key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;
+									<i class="fa fa-caret-right"></i> </a>
+								<div class="dropdown-menu drop-width">
+									<ul>
+										<li><a
+											href="<%=request.getContextPath()%>/${language}/account"
+											class="color1"> <fmt:message key="header.menu.member"
+													bundle="${msg}" /></a></li>
+										<li><a href="<%=request.getContextPath()%>/userLogout"
+											class="color1"> <fmt:message key="header.menu.logout"
+													bundle="${msg}" />
+
+
+										</a></li>
+									</ul>
+								</div>
+							</li>							
 							<%
 								} else if (!"true".equals(session.getAttribute("authenticate")
 										.toString())) {
@@ -1015,11 +1051,29 @@ function getStarted(){
                     || !"true".equals(session.getAttribute("authenticate")
                             .toString())) {
         %>
-        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdown" data-toggle="modal" data-target="#loginpopup">
-        <a class="dropdown-toggle color-wht log-to-acc"
-            id="fwd-login-mob"><i
-            class="fa fa-lock"></i> <fmt:message key="header.login.heading"
-                bundle="${msg}" /> </a>
+        <div class="dropdown login-btn btn btn-lg wd2 js-not-logged-in" id="myDropdown" data-toggle="modal" data-target="#loginpopup">
+	        <a class="dropdown-toggle color-wht log-to-acc"
+	            id="fwd-login-mob"><i
+	            class="fa fa-lock"></i> <fmt:message key="header.login.heading"
+	                bundle="${msg}" /> </a>
+        </div>
+         <div class="dropdown login-btn btn btn-lg wd2 hidden js-logged-in" id="myDropdownMob">
+	        <a class="js-myDropdown__userName dropdown-toggle" id="fwd-login"
+	            data-toggle="dropdown"><fmt:message key="header.login.welcome"
+	                bundle="${msg}" />&nbsp;&nbsp;&nbsp;
+	            <i class="fa fa-caret-right"> </i> </a>
+	        <div class="dropdown-menu drop-width">
+	            <ul>
+	                <li><a href="<%=request.getContextPath()%>/${language}/account"
+	                    class="color1"> <fmt:message key="header.menu.member"
+	                            bundle="${msg}" /></a></li>
+	                <li><a href="<%=request.getContextPath()%>/userLogout"
+	                    class="color1"><fmt:message key="header.menu.logout"
+	                            bundle="${msg}" /></a></li>
+	            </ul>
+	        </div>
+		</div>       
+        
         <!--<div class="dropdown-menu drop-width"
             style="left: -32px; top: 105px; max-width: 300px;">-->
             <!--<div class="dropdown-menu drop-width">
@@ -1094,28 +1148,28 @@ function getStarted(){
 
 
         <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
-        <a class="dropdown-toggle" id="fwd-login"
-            data-toggle="dropdown"><fmt:message key="header.login.welcome"
-                bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%>
-            <i class="fa fa-caret-right"> </i> </a>
-        <div class="dropdown-menu drop-width">
-            <ul>
-                <%
-                    if (!"direct".equalsIgnoreCase(request.getSession()
-                                .getAttribute("authenticate").toString())) {
-                %>
-                <li><a href="<%=request.getContextPath()%>/${language}/account"
-                    class="color1"> <fmt:message key="header.menu.member"
-                            bundle="${msg}" /></a></li>
-                <%
-                    }
-                %>
-                <li><a href="<%=request.getContextPath()%>/userLogout"
-                    class="color1"><fmt:message key="header.menu.logout"
-                            bundle="${msg}" /></a></li>
-            </ul>
-        </div>
-
+	        <a class="dropdown-toggle" id="fwd-login"
+	            data-toggle="dropdown"><fmt:message key="header.login.welcome"
+	                bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%>
+	            <i class="fa fa-caret-right"> </i> </a>
+	        <div class="dropdown-menu drop-width">
+	            <ul>
+	                <%
+	                    if (!"direct".equalsIgnoreCase(request.getSession()
+	                                .getAttribute("authenticate").toString())) {
+	                %>
+	                <li><a href="<%=request.getContextPath()%>/${language}/account"
+	                    class="color1"> <fmt:message key="header.menu.member"
+	                            bundle="${msg}" /></a></li>
+	                <%
+	                    }
+	                %>
+	                <li><a href="<%=request.getContextPath()%>/userLogout"
+	                    class="color1"><fmt:message key="header.menu.logout"
+	                            bundle="${msg}" /></a></li>
+	            </ul>
+	        </div>
+		</div>
 
         <%
             }

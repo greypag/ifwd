@@ -2,7 +2,7 @@
 *
 * FWD revamp v0.1.3 [ updated to 21/05/2016 (DD/MM/YYYY) ]
 * for branch#1.15.000 (ROPHI_fwdhk)
-* Last CSS Compiled on: 2016-11-18 16:19:14 +0800
+* Last CSS Compiled on: 2016-11-01 19:14:39 +0800
 *
 **/
 /* line 2, ../sass/common_screen/_stepIndicator.scss */
@@ -211,28 +211,27 @@
   }
   /* line 25, ../sass/customize_screen/_stepIndicator.scss */
   .stepIndicator--numberOnly .stepIndicator__item--last {
-    width: 24px;
+    width: 23px;
     margin-right: 0;
   }
   /* line 31, ../sass/customize_screen/_stepIndicator.scss */
   .stepIndicator--numberOnly .stepIndicator__item--3 {
     width: 45%;
-    margin-right: 0;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1069px) {
-  /* line 39, ../sass/customize_screen/_stepIndicator.scss */
+  /* line 38, ../sass/customize_screen/_stepIndicator.scss */
   .stepIndicator {
     font-size: 16px;
   }
 
-  /* line 43, ../sass/customize_screen/_stepIndicator.scss */
+  /* line 42, ../sass/customize_screen/_stepIndicator.scss */
   .stepIndicator__content {
     font-size: 16px;
   }
 }
 @media screen and (min-width: 1200px) {
-  /* line 49, ../sass/customize_screen/_stepIndicator.scss */
+  /* line 48, ../sass/customize_screen/_stepIndicator.scss */
   .stepIndicator__divider {
     padding-left: 6px;
   }

@@ -10,6 +10,8 @@
 @import 'common_screen/motor/landing';
 @import 'common_screen/motor/your-quote';
 @import 'common_screen/motor/quick-quote';
+@import 'common_screen/motor/motor-signup-form';
+@import 'common_screen/motor/start-upload-later';
 
 @media screen and #{$desktop} {
     @import 'desktop/motor/landing';
@@ -20,6 +22,7 @@
     @import 'mobile/motor/landing';
 	@import 'mobile/motor/plan-panel';
 	@import 'mobile/motor/quick-quote';
+    @import 'mobile/motor/motor-signup-form';
 }
 
 @import 'customize_screen/motor/contact-modal';
@@ -30,6 +33,13 @@
 @import 'customize_screen/motor/quick-quote';
 @import 'customize_screen/motor/breadcrumb';
 @import 'customize_screen/motor/motor_header';
+
+@media screen and (max-width: 767px){
+    /* Motor mobile sticky dropdown */
+    .motor__wrap--sticky-dropdown{
+        margin-top: 70px;
+    }
+}
 
 h1, h2, h3, h4, h5, h6, h7{
 font-family: 'CirculaPro-Bold', Arial, sans-serif !important;

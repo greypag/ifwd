@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -96,9 +97,13 @@ public class RestServiceImpl implements RestServiceDao {
 //			postMehod.addHeader("Content-Type", "text/html; charset=UTF-8");
 //			
 //			postMehod.addHeader("Accept-Charset", "UTF-8");	
-			postMehod.setEntity(new StringEntity(params.toJSONString()));
-			StringEntity entity=new StringEntity(params.toJSONString(),"UTF-8");
-			postMehod.setEntity(entity);
+			if(params!=null)
+			{
+				postMehod.setEntity(new StringEntity(params.toJSONString()));
+				StringEntity entity=new StringEntity(params.toJSONString(),"UTF-8");
+				postMehod.setEntity(entity);
+			}
+		
 			responseJsonObj = restClient.execute(postMehod,
 					new ResponseHandler<JSONObject>() {
 						@Override
@@ -171,8 +176,10 @@ public class RestServiceImpl implements RestServiceDao {
 			 * for (int i = 0; i < params.length; i++) {
 			 * jsonParams.put(params[i][0], params[i][1]); }
 			 */
-			putMehod.setEntity(new StringEntity(params.toJSONString()));
-
+			if(params!=null)
+			{
+				putMehod.setEntity(new StringEntity(params.toJSONString()));
+			}
 			responseJsonObj = restClient.execute(putMehod,
 					new ResponseHandler<JSONObject>() {
 						@Override

@@ -29,16 +29,19 @@
 		if(lang.equalsIgnoreCase("EN")){
 			path_to_resources[0] = "messages_en_US";
 			path_to_resources[1] = "provie_en_US";
-			path_to_resources[2] = "wealthree_en_US";
+			path_to_resources[2] = "motor_en_US";
+			path_to_resources[3] = "wealthree_en_US";
 		} else {
 			path_to_resources[0] = "messages_zh_HK";
 			path_to_resources[1] = "provie_zh_HK";
-			path_to_resources[2] = "wealthree_zh_HK";
+			path_to_resources[2] = "motor_zh_HK";
+			path_to_resources[3] = "wealthree_zh_HK";
 		}
 
 		ResourceBundle resource = ResourceBundle.getBundle(path_to_resources[0]);
 		ResourceBundle resource_provie = ResourceBundle.getBundle(path_to_resources[1]);
-		ResourceBundle resource_wealthree = ResourceBundle.getBundle(path_to_resources[2]);
+		ResourceBundle resource_motor = ResourceBundle.getBundle(path_to_resources[2]);
+		ResourceBundle resource_wealthree = ResourceBundle.getBundle(path_to_resources[3]);
 	
 		for( int i=0; i<bcList.length; i++ ){
 
@@ -69,6 +72,8 @@
 				translated_str = resource.getString(bcList[i]);	
 			} else if(resource_provie.containsKey(bcList[i])){			
 				translated_str = resource_provie.getString(bcList[i]);
+			} else if(resource_motor.containsKey(bcList[i])){			
+				translated_str = resource_motor.getString(bcList[i]);
 			} else if(resource_wealthree.containsKey(bcList[i])){			
 				translated_str = resource_wealthree.getString(bcList[i]);
 			}

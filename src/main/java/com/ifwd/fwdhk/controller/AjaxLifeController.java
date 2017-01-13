@@ -969,6 +969,9 @@ public class AjaxLifeController extends BaseController{
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savings-insurance/getSavieReferralDiscount"})
 	public void getSavieReferralDiscount(HttpServletRequest request,HttpServletResponse response) {
+		String referralCode = request.getParameter("referralCode");
+		String sumInsured = request.getParameter("sumInsured");
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
@@ -979,6 +982,15 @@ public class AjaxLifeController extends BaseController{
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
 			logger.error(ExceptionUtils.getStackTrace(e));
+		}
+		if(jsonObject.get("errMsgs")==null){
+			saviePlanDetails.setPromoCode(referralCode);
+			saviePlanDetails.setInsuredAmount(sumInsured);
+			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
+			request.getSession().setAttribute("promoCode", referralCode);
+		} else {
+			saviePlanDetails.setPromoCode("");
+			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
