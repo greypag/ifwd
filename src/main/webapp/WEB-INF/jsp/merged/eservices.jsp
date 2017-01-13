@@ -1157,6 +1157,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 
 							<p class="ew_desc">
 								<fmt:message key="ewallet.popup.pair.success.txt2" bundle="${msg}" />
+								${userDetails.getEmailAddress()}
 							</p>
 							<a href="javascript:void(0);" data-dismiss="modal" class="ew_btn_confirm"><fmt:message key="ewallet.popup.pair.success.btn" bundle="${msg}" /></a>
 						</div>					
@@ -1212,9 +1213,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 								<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.amountOpt.title" bundle="${msg}" /></h4>
 								<div class="col-xs-12 ew_popup_sec_content">
 									<div class="col-xs-12">
-										<p class="ew_hint">
+										<!-- <p class="ew_hint">
 											<fmt:message key="ewallet.popup.sec.amountOpt.min" bundle="${msg}" /> $500 / <fmt:message key="ewallet.popup.sec.amountOpt.max" bundle="${msg}" /> $3,000
-										</p>
+										</p> -->
 									</div>
 									<div class="col-xs-12">
 										<div class="ew_btn_grp">
@@ -1295,6 +1296,27 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 								</p>
 								<a href="javascript:void(0);" class="ew_btn_confirm" data-dismiss="modal"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
 							</div>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- unlink confirm -->
+<div class="modal fade ew_popup_unlinkConfirm" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="container-fluid bd-example-row">
+					<div class="row">
+						<div class="col-xs-12 ew_popup_sec">
+							<p class="ew_desc">
+								<fmt:message key="ewallet.prompt.unlink.confirmMsg" bundle="${msg}" />
+							</p>
+							<a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.prompt.unlink.confirmBtn1" bundle="${msg}" /></a>
+							<a href="javascript:void(0);" class="ew_btn_cancel" data-dismiss="modal"><fmt:message key="ewallet.prompt.unlink.confirmBtn2" bundle="${msg}" /></a>
 						</div>					
 					</div>
 				</div>

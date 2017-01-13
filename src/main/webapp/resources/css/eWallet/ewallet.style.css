@@ -7,10 +7,10 @@
 .ew_pol_list .ew_pol_info .ew_pol_blance, .ew_popup_linkup .ew_popup_sec_pol .ew_pol_info .ew_pol_blance, .ew_popup_withdraw .ew_popup_sec_pol .ew_pol_info .ew_pol_blance, .ew_pol_log .ew_pol_info .ew_pol_blance, .ew_popup_withdraw .ew_withdrawAmount .ew_amount {
   color: #fc610b; }
 
-.ew_popup_linkup .modal-content .ew_mobile, .ew_popup_linkupSuccess .modal-content .ew_mobile, .ew_popup_withdraw .modal-content .ew_mobile, .ew_popup_error .modal-content .ew_mobile {
+.ew_popup_linkup .modal-content .ew_mobile, .ew_popup_linkupSuccess .modal-content .ew_mobile, .ew_popup_withdraw .modal-content .ew_mobile, .ew_popup_error .modal-content .ew_mobile, .ew_popup_unlinkConfirm .modal-content .ew_mobile {
   color: #fc610b; }
 
-.ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_linkupSuccess .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount, .ew_popup_withdraw .ew_btn_withdraw, .ew_popup_withdraw .ew_success .ew_btn_confirm, .ew_popup_error .ew_btn_confirm, .ew_pol_list .ew_pol_wd_linkupBtn, .ew_pol_list .ew_pol_wd_withdrawBtn, .ew_pol_log .ew_log_dt_selectWrapper .ew_btn_ok {
+.ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_linkupSuccess .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount, .ew_popup_withdraw .ew_btn_withdraw, .ew_popup_withdraw .ew_success .ew_btn_confirm, .ew_popup_error .ew_btn_confirm, .ew_popup_unlinkConfirm .ew_btn_confirm, .ew_popup_unlinkConfirm .ew_btn_cancel, .ew_pol_list .ew_pol_wd_linkupBtn, .ew_pol_list .ew_pol_wd_withdrawBtn, .ew_pol_log .ew_log_dt_selectWrapper .ew_btn_ok {
   background-color: #fc610b;
   border-radius: 5px;
   color: #fff !important;
@@ -19,14 +19,14 @@
   margin-bottom: .5em;
   padding: 0.625em 1em;
   text-align: center; }
-  .ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm:hover, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm:hover, .ew_popup_linkupSuccess .ew_btn_confirm:hover, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount:hover, .ew_popup_withdraw .ew_btn_withdraw:hover, .ew_popup_withdraw .ew_success .ew_btn_confirm:hover, .ew_popup_error .ew_btn_confirm:hover, .ew_pol_list .ew_pol_wd_linkupBtn:hover, .ew_pol_list .ew_pol_wd_withdrawBtn:hover, .ew_pol_log .ew_log_dt_selectWrapper .ew_btn_ok:hover {
+  .ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm:hover, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm:hover, .ew_popup_linkupSuccess .ew_btn_confirm:hover, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount:hover, .ew_popup_withdraw .ew_btn_withdraw:hover, .ew_popup_withdraw .ew_success .ew_btn_confirm:hover, .ew_popup_error .ew_btn_confirm:hover, .ew_popup_unlinkConfirm .ew_btn_confirm:hover, .ew_popup_unlinkConfirm .ew_btn_cancel:hover, .ew_pol_list .ew_pol_wd_linkupBtn:hover, .ew_pol_list .ew_pol_wd_withdrawBtn:hover, .ew_pol_log .ew_log_dt_selectWrapper .ew_btn_ok:hover {
     color: #fff; }
 
 .ew_pol_list .ew_pol_wd_formBtn {
   color: #ff9900;
   text-decoration: none; }
 
-.ew_popup_linkup .modal-content .ew_remark, .ew_popup_linkupSuccess .modal-content .ew_remark, .ew_popup_withdraw .modal-content .ew_remark, .ew_popup_error .modal-content .ew_remark {
+.ew_popup_linkup .modal-content .ew_remark, .ew_popup_linkupSuccess .modal-content .ew_remark, .ew_popup_withdraw .modal-content .ew_remark, .ew_popup_error .modal-content .ew_remark, .ew_popup_unlinkConfirm .modal-content .ew_remark {
   color: #bababa;
   font-size: 0.75em; }
 
@@ -58,35 +58,36 @@
   padding: 5px 40px 5px 18px;
   text-align: center; }
 
-.ew_popup_linkup, .ew_popup_linkupSuccess, .ew_popup_withdraw, .ew_popup_error {
+.ew_popup_linkup, .ew_popup_linkupSuccess, .ew_popup_withdraw, .ew_popup_error, .ew_popup_unlinkConfirm {
   font-size: 16px; }
-  .ew_popup_linkup .modal-header .close, .ew_popup_linkupSuccess .modal-header .close, .ew_popup_withdraw .modal-header .close, .ew_popup_error .modal-header .close {
+  .ew_popup_linkup .modal-header .close, .ew_popup_linkupSuccess .modal-header .close, .ew_popup_withdraw .modal-header .close, .ew_popup_error .modal-header .close, .ew_popup_unlinkConfirm .modal-header .close {
     font-size: 55px !important;
     position: absolute;
     right: 11px; }
-  .ew_popup_linkup .modal-content, .ew_popup_linkupSuccess .modal-content, .ew_popup_withdraw .modal-content, .ew_popup_error .modal-content {
+  .ew_popup_linkup .modal-content, .ew_popup_linkupSuccess .modal-content, .ew_popup_withdraw .modal-content, .ew_popup_error .modal-content, .ew_popup_unlinkConfirm .modal-content {
     padding: 0 !important; }
-    .ew_popup_linkup .modal-content .ew_popup_sec_title, .ew_popup_linkupSuccess .modal-content .ew_popup_sec_title, .ew_popup_withdraw .modal-content .ew_popup_sec_title, .ew_popup_error .modal-content .ew_popup_sec_title {
+    .ew_popup_linkup .modal-content .ew_popup_sec_title, .ew_popup_linkupSuccess .modal-content .ew_popup_sec_title, .ew_popup_withdraw .modal-content .ew_popup_sec_title, .ew_popup_error .modal-content .ew_popup_sec_title, .ew_popup_unlinkConfirm .modal-content .ew_popup_sec_title {
       font-size: 0.625em; }
-    .ew_popup_linkup .modal-content .ew_link_resendOTP, .ew_popup_linkupSuccess .modal-content .ew_link_resendOTP, .ew_popup_withdraw .modal-content .ew_link_resendOTP, .ew_popup_error .modal-content .ew_link_resendOTP {
+    .ew_popup_linkup .modal-content .ew_link_resendOTP, .ew_popup_linkupSuccess .modal-content .ew_link_resendOTP, .ew_popup_withdraw .modal-content .ew_link_resendOTP, .ew_popup_error .modal-content .ew_link_resendOTP, .ew_popup_unlinkConfirm .modal-content .ew_link_resendOTP {
       @extedn %ew_base_link; }
-    .ew_popup_linkup .modal-content .ew_desc, .ew_popup_linkupSuccess .modal-content .ew_desc, .ew_popup_withdraw .modal-content .ew_desc, .ew_popup_error .modal-content .ew_desc {
+    .ew_popup_linkup .modal-content .ew_desc, .ew_popup_linkupSuccess .modal-content .ew_desc, .ew_popup_withdraw .modal-content .ew_desc, .ew_popup_error .modal-content .ew_desc, .ew_popup_unlinkConfirm .modal-content .ew_desc {
       font-size: 0.667em; }
-    .ew_popup_linkup .modal-content .ew_sentOtp, .ew_popup_linkupSuccess .modal-content .ew_sentOtp, .ew_popup_withdraw .modal-content .ew_sentOtp, .ew_popup_error .modal-content .ew_sentOtp,
+    .ew_popup_linkup .modal-content .ew_sentOtp, .ew_popup_linkupSuccess .modal-content .ew_sentOtp, .ew_popup_withdraw .modal-content .ew_sentOtp, .ew_popup_error .modal-content .ew_sentOtp, .ew_popup_unlinkConfirm .modal-content .ew_sentOtp,
     .ew_popup_linkup .modal-content .ew_resendOtp,
     .ew_popup_linkupSuccess .modal-content .ew_resendOtp,
     .ew_popup_withdraw .modal-content .ew_resendOtp,
-    .ew_popup_error .modal-content .ew_resendOtp {
+    .ew_popup_error .modal-content .ew_resendOtp,
+    .ew_popup_unlinkConfirm .modal-content .ew_resendOtp {
       display: none;
       padding: 1em 0; }
-  .ew_popup_linkup .modal-title, .ew_popup_linkupSuccess .modal-title, .ew_popup_withdraw .modal-title, .ew_popup_error .modal-title {
+  .ew_popup_linkup .modal-title, .ew_popup_linkupSuccess .modal-title, .ew_popup_withdraw .modal-title, .ew_popup_error .modal-title, .ew_popup_unlinkConfirm .modal-title {
     background-color: #fc610b;
     color: #fff !important;
     font-size: 0.667em !important;
     padding: 1.250em 0 !important;
     text-align: center; }
 
-.ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_linkupSuccess .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount, .ew_popup_withdraw .ew_btn_withdraw, .ew_popup_withdraw .ew_success .ew_btn_confirm, .ew_popup_error .ew_btn_confirm {
+.ew_popup_linkup .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_btn_confirm, .ew_popup_linkupSuccess .ew_btn_confirm, .ew_popup_withdraw .ew_popup_sec_amountOpt .ew_btn_amount, .ew_popup_withdraw .ew_btn_withdraw, .ew_popup_withdraw .ew_success .ew_btn_confirm, .ew_popup_error .ew_btn_confirm, .ew_popup_unlinkConfirm .ew_btn_confirm, .ew_popup_unlinkConfirm .ew_btn_cancel {
   font-size: 0.666em !important; }
 
 .ew_popup_linkup .ew_popup_sec_otpInput .ew_popup_sec_content, .ew_popup_withdraw .ew_popup_sec_otpInput .ew_popup_sec_content, .ew_pol_list .ew_pol, .ew_popup_linkup .ew_popup_sec_pol, .ew_popup_withdraw .ew_popup_sec_pol, .ew_popup_withdraw .ew_withdrawAmount, .ew_pol_log .ew_pol {
@@ -273,6 +274,12 @@
 
 .ew_popup_error {
   text-align: center; }
+
+.ew_popup_unlinkConfirm {
+  text-align: center; }
+  .ew_popup_unlinkConfirm .ew_btn_cancel {
+    background-color: #d8d8d8;
+    border-bottom: 1px solid #d8d8d8 !important; }
 
 .ew_pol_log .ew_log_selectWrapper {
   margin: 1.25em auto; }
