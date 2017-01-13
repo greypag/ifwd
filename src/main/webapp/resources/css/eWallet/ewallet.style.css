@@ -278,7 +278,8 @@
 .ew_popup_unlinkConfirm {
   text-align: center; }
   .ew_popup_unlinkConfirm .ew_btn_cancel {
-    background-color: gray; }
+    background-color: #d8d8d8;
+    border-bottom: 1px solid #d8d8d8 !important; }
 
 .ew_pol_log .ew_log_selectWrapper {
   margin: 1.25em auto; }

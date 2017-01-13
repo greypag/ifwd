@@ -455,7 +455,8 @@ $txt-hint-color: #999999;
 	}
 	.ew_btn_cancel{
 		@extend %ew_base_popup_btn;
-		background-color: gray;
+		background-color: #d8d8d8;
+		border-bottom: 1px solid #d8d8d8 !important;
 	}
 }
 
