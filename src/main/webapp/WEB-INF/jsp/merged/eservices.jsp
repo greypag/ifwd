@@ -1020,6 +1020,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<li><fmt:message key="ewallet.remark.line1" bundle="${msg}" /></li>
 						<li><fmt:message key="ewallet.remark.line2" bundle="${msg}" /></li> 
 						<li><fmt:message key="ewallet.remark.line3" bundle="${msg}" /></li> 
+						<li><fmt:message key="ewallet.remark.line4" bundle="${msg}" /></li> 
 						</ol>
 						</div>
 					</div>
