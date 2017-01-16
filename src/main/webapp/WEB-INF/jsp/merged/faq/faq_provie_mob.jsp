@@ -1016,6 +1016,228 @@
         </div>                                                               
         <div class="clearfix"></div>
       </div>
+      <div class="col-xs-12 col-sm-12 pad-none faq_content">
+          <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+              <fmt:message key="faq.withdrawal.group.title" bundle="${msg}" />
+          </div>
+          <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+              <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+          </div>
+
+          <div class="clearfix"></div>
+      </div>
+      <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q1" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a1" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q2" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a2" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q3" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a3" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q4" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a4" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q5" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a5" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q6" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a6" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q7" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a7" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q8" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a8" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q9" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a9" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q10" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a10" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+          <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+              <div class="col-xs-12 col-sm-12 pad-none">
+                  <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                      <fmt:message key="faq.withdrawal.group.q11" bundle="${msg}" />
+                  </div>
+                  <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                      <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+              <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                  <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                      <fmt:message key="faq.withdrawal.group.a11" bundle="${msg}" />
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>                                                                                                                                                                                                                                                                                      
+          <div class="clearfix"></div>
+      </div>       
 	  <div class="clearfix"></div>
 </div>
 <!-- Easy Health end -->
