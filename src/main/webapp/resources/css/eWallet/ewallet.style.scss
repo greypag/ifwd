@@ -591,13 +591,9 @@ $txt-hint-color: #999999;
 	
 }
 @media screen and (max-width: 768px) {
-	#savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li{
-		width: 50%;
-		float: left;
-	}
 	// fix insurance plan 3 tabs
 	#savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li{
-		width: 33%;
+		display: table-cell;
 	}
 }
 
