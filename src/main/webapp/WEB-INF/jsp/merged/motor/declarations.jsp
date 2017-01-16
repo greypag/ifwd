@@ -206,13 +206,16 @@ var nextPage = "${nextPageFlow}";
 	                        </div>
 	                        <div class="clearfix"></div>
 	                        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 statement">
+										<p><fmt:message key="motor.declarations.privacy.policy.statement.1" bundle="${motorMsg}" /></p>
 	                            <div class="custom-checkbox">
 	                                <div class="checkbox">
 	                                    <div class="form-group">
 	                                        <div class="help-block-wrap">
 	                                            <input  type="checkbox" id="psPICS" name="psPICS" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error1" bundle="${motorMsg}" />'>
-	                                            <label><small>
-	                                                    <fmt:message key="motor.declarations.privacy.policy.q1" bundle="${motorMsg}" /></small>
+	                                            <label>
+																	<small>
+																		<fmt:message key="motor.declarations.privacy.policy.q1" bundle="${motorMsg}" /><a href="<fmt:message key="motor.declarations.privacy.policy.q1.url" bundle="${motorMsg}" />"><fmt:message key="motor.declarations.privacy.policy.q1.body" bundle="${motorMsg}" /></a><fmt:message key="motor.declarations.privacy.policy.q1.tail" bundle="${motorMsg}" />
+																	</small>
 	                                            </label>
 	                                            <div class="help-block with-errors"></div>
 	                                        </div>
@@ -221,6 +224,7 @@ var nextPage = "${nextPageFlow}";
 	                                    <br/>
 	                                </div>
 	                            </div>
+										<p><fmt:message key="motor.declarations.privacy.policy.statement.2" bundle="${motorMsg}" /></p>
 	                            <div class="custom-checkbox">
 	                                <div class="checkbox">
 	                                    <div class="form-group">
