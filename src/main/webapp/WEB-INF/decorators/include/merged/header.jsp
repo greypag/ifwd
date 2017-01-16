@@ -1,8 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <c:set var="language"
 	value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
 	scope="session" />
@@ -66,6 +66,10 @@
 			    'ios_chrome': {
 			        'mobile': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.ios" bundle="${msg}" />'
+			    },
+			    'maintenance': {
+			        'mobile': '<s:message code="label.header.maintenance.message"/>',
+			        'desktop': '<s:message code="label.header.maintenance.message"/>'
 			    }
 			}
 	    }
@@ -91,6 +95,17 @@ var nBarConfig = {
 }
 
 <% } %>
+
+var isMaintenance = obj.nBarOnly.content.maintenance.desktop != 'deployed';
+
+if (isMaintenance) {
+	contentIndexArr.push('maintenance');
+}
+
+var nBarConfig = {
+	'contentIndex': contentIndexArr,
+	'isVisible': isMaintenance
+}
 
 </script>
 
