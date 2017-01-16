@@ -1248,10 +1248,10 @@ public class LifeServiceImpl implements LifeService {
 			if("0".equals(i)){
 				attributeList.add(new PdfAttribute("Cash", "On"));
 			}
-			if("1".equals(i)){
+			if("2".equals(i)){
 				attributeList.add(new PdfAttribute("Moneyinbankaccounts", "On"));
 			}
-			if("2".equals(i)){
+			if("1".equals(i)){
 				attributeList.add(new PdfAttribute("Moneymarketaccounts", "On"));
 			}
 			if("3".equals(i)){
