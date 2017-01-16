@@ -1,9 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
-<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
-<%@page import="com.google.gson.*"%>
-<%@page import="java.io.*"%>
-<%@page import="java.net.*"%>
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.json.simple.JSONArray"%>
+<%@page import="org.json.simple.JSONObject"%>
+
+<%@page import="com.ifwd.fwdhk.util.FaqUtil"%>
+
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -12,14 +14,22 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%
-JsonParser parser = new JsonParser();
+//JsonParser parser = new JsonParser();
 //String filePath = new File("").getAbsolutePath();
 //Object rootObj = parser.parse(new FileReader("C:/wamp/www/ifwd_git/src/main/webapp/resources/json/jsontest.json"));
 //Object rootObj = parser.parse(new FileReader("http://localhost:8080/fwdhk/resources/json/jsontest.json"));
-URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/jsontest.json");
-BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+//URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/jsontest.json");
+//BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
 //JsonObject rootObj = parser.parse(br).getAsJsonObject();
-JsonArray products = parser.parse(br).getAsJsonObject().getAsJsonArray("products");
+//JsonArray products = parser.parse(br).getAsJsonObject().getAsJsonArray("products");
+
+FaqUtil faqUtil = new FaqUtil("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/faq-savie.json", "data");
+ArrayList<String> faqTopicsArr = faqUtil.getFAQTopic();
+
+FaqUtil faqIndexUtil = new FaqUtil("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/jsontest.json", "products");
+ArrayList<JSONObject> faqIndexArr = faqIndexUtil.getFAQIndex();
+
+
 /*for (int i=0; i < products.size(); i++) {
 	JsonObject product = products.get(i).getAsJsonObject();
 	System.out.println(product.get("Category").toString());
@@ -28,18 +38,40 @@ JsonArray products = parser.parse(br).getAsJsonObject().getAsJsonArray("products
 %>
 <section id="contact-page">
 	<div class="test">
-	<% for (int i=0; i < products.size(); i++) { 
-		JsonObject product = products.get(i).getAsJsonObject();
+	<% for (int i=0; i < faqIndexArr.size(); i++) { 
+		JSONObject faqIndex = (JSONObject)faqIndexArr.get(i);
+		int index_group = (int)Integer.parseInt(faqIndex.get("Group").toString());
+		String index_link = faqIndex.get("Link").toString();
+		String index_name = faqIndex.get("Name").toString();
+
 	%>
-		<% if((int)Integer.parseInt(product.get("Group").toString())==1){ %>
-			<div class="col-md-12">
-				<a href="<%=request.getContextPath()%>/${language}/<%=product.get("Link").toString()%>"><%=product.get("Name").toString()%></a>
+		<% if(index_group==1){ %>
+			<div class="col-md-4">
+				<a href="<%=request.getContextPath()%>/${language}/<%=index_link%>"><%=index_name%></a>
 			</div>
-		<% }else if ((int)Integer.parseInt(product.get("Group").toString())==2){ %>
-			<div class="col-md-12">
-				<a href="<%=request.getContextPath()%>/${language}/<%=product.get("Link").toString()%>"><%=product.get("Name").toString()%></a>
+		<% }else if (index_group==2){ %>
+			<div class="col-md-4">
+				<a href="<%=request.getContextPath()%>/${language}/<%=index_link%>"><%=index_name%></a>
+			</div>
+		<% }else if (index_group==3){ %>
+			<div class="col-md-4">
+				<a href="<%=request.getContextPath()%>/${language}/<%=index_link%>"><%=index_name%></a>
 			</div>
 		<% } %>
+	<% } %>
+	</div>
+</seciton>
+<section>
+	<div>&nbsp;</div>
+</section>
+<section id="faq_topic_menu">
+	<div class="faq_topic_menu">
+	<% for (int i=0; i < faqTopicsArr.size(); i++) { 
+		String topic = (String) faqTopicsArr.get(i);
+	%>
+			<div class="col-md-12">
+				<a href="<%=request.getContextPath()%>/${language}/<%=topic%>"><%=topic%></a>
+			</div>
 	<% } %>
 	</div>
 </seciton>
