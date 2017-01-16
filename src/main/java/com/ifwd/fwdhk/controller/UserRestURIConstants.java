@@ -607,6 +607,7 @@ public class UserRestURIConstants {
 	public static final String ONLINE_WITHDRAWAL_SEARCH_PHW_POLICY =SERVICE_URL+ "/withdrawal/searchPhwPolicy";
 	public static final String ONLINE_WITHDRAWAL_PHW_POLICY_UI_CATEGORY =SERVICE_URL+ "/option/itemDesc";
 	public static final String ONLINE_WITHDRAWAL_PHW_POLICY_UI_NAME =SERVICE_URL+ "/option/itemDesc";
+	public static final String ONLINE_WITHDRAWAL_PHW_POLICY_LIFE_ACTIVE =SERVICE_URL+ "/option/itemDesc";
 	
 	
 	static String controller;
