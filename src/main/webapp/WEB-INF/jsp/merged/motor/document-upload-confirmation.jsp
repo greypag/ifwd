@@ -105,6 +105,7 @@ var nextPage = "${nextPageFlow}";
                         <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
                         <h3 id="motorRef" class="heading-h3 color-orange ref-number"></h3>
                     </p>
+						  <p><fmt:message key="motor.uploadconfirm.reminder.copy" bundle="${motorMsg}" /></p>
                 </div>
             </div>
 
