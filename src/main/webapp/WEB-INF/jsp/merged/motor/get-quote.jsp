@@ -15,6 +15,10 @@ var nextPage = "${nextPageFlow}";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/selectize.bootstrap3.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 <style type="text/css" media="all">
+.modal-dialog {
+    margin: auto !important;
+   padding-top: 3%;
+}
 #carValue{
 max-width: 150px;
 }
@@ -128,7 +132,7 @@ width: 100px !important;
                             <div class="form-group custom-dollar-box">
                                 <label for=""><fmt:message key="motor.getquote.statement.part7" bundle="${motorMsg}" /></label>
                                 <div class="help-block-wrap">
-                                    <input type="text" class="form-control" id="carValue" maxlength="8" placeholder="0" name="carEstimatedValue" data-required-error='<fmt:message key="motor.error.msg.carvalue.empty" bundle="${motorMsg}" />' data-min-error='<fmt:message key="motor.error.msg.carvalue.toohigh" bundle="${motorMsg}" />' required>
+                                    <input type="text" class="form-control" id="carValue" maxlength="9" onkeypress="return setMaxLength(this,8);" placeholder="0" name="carEstimatedValue" data-required-error='<fmt:message key="motor.error.msg.carvalue.empty" bundle="${motorMsg}" />' data-min-error='<fmt:message key="motor.error.msg.carvalue.toohigh" bundle="${motorMsg}" />' required>
                                    <label><fmt:message key="motor.getquote.statement.part8" bundle="${motorMsg}" /> </label> 
                                    <button type="button" class="btn btn-default pull-right" data-toggle="tooltip" data-html="true" title="<fmt:message key="motor.getquote.statement.tooltips" bundle="${motorMsg}" />">
                                  <i class="fa fa-question-circle" aria-hidden="true"></i>
@@ -543,6 +547,9 @@ function sendEmail() {
 }
 
 $(document).ready(function(){
+	function setMaxLength(obj, len) {
+		return (obj.value.length < len);
+	}
 	$('#loading-overlay').modal("show");
 	var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),

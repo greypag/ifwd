@@ -198,6 +198,38 @@ var nextPage = "${nextPageFlow}";
 	                    <div class="clearfix"></div>
 	                    
 	                    <form action="/api/iMotor/policy/declarations" method="post">
+	                     <div class="col-xs-12">
+	                            <div class="center" > 
+	                                <h1 class="landing_h2 hidden-sm hidden-xs"><fmt:message key="motor.declarations.declaration.title" bundle="${motorMsg}" /></h1>
+	                                <h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="motor.declarations.declaration.title" bundle="${motorMsg}" /></h1>
+	                            </div>
+	                        </div>
+	                        <div class="clearfix"></div>
+	                        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 statement">
+								<div class="custom-checkbox">
+	                                <div class="checkbox">
+	                                    <div class="form-group">
+	                                        <div class="help-block-wrap">
+	                                            <input  type="checkbox" id="psDEC" name="psDEC" value="" required data-required-error='<fmt:message key="motor.declarations.declaration.error1" bundle="${motorMsg}" />'>
+	                                            <label>
+													<small>
+														<fmt:message key="motor.declarations.declaration.checkboxcontent.1" bundle="${motorMsg}" />
+														<a target="_blank" href="<fmt:message key="motor.declarations.declaration.checkboxcontent.link" bundle="${motorMsg}" />">
+														<fmt:message key="motor.declarations.declaration.chceckboxcontent.2" bundle="${motorMsg}" /></a>
+														<fmt:message key="motor.declarations.declaration.checkboxcontent.3" bundle="${motorMsg}"/><br/>
+														<fmt:message key="motor.declarations.declaration.checkbox.point1" bundle="${motorMsg}"/><br/>
+														<fmt:message key="motor.declarations.declaration.checkbobx.point2" bundle="${motorMsg}"/><br/>
+														<fmt:message key="motor.declarations.declaration.checkbobx.point3" bundle="${motorMsg}"/><br/>
+													</small>
+	                                            </label>
+	                                            <div class="help-block with-errors"></div>
+	                                        </div>
+	                                    </div>
+	                                    <br/>
+	                                    <br/>
+	                                </div>
+	                            </div>
+	                        </div>
 	                        <div class="col-xs-12">
 	                            <div class="center" > 
 	                                <h1 class="landing_h2 hidden-sm hidden-xs"><fmt:message key="motor.declarations.privacy.policy" bundle="${motorMsg}" /></h1>
@@ -214,7 +246,7 @@ var nextPage = "${nextPageFlow}";
 	                                            <input  type="checkbox" id="psPICS" name="psPICS" value="" required data-required-error='<fmt:message key="motor.declarations.privacy.policy.error1" bundle="${motorMsg}" />'>
 	                                            <label>
 																	<small>
-																		<fmt:message key="motor.declarations.privacy.policy.q1" bundle="${motorMsg}" /><a href="<fmt:message key="motor.declarations.privacy.policy.q1.url" bundle="${motorMsg}" />"><fmt:message key="motor.declarations.privacy.policy.q1.body" bundle="${motorMsg}" /></a><fmt:message key="motor.declarations.privacy.policy.q1.tail" bundle="${motorMsg}" />
+																		<fmt:message key="motor.declarations.privacy.policy.q1" bundle="${motorMsg}" /><a target="_blank" href="<fmt:message key="motor.declarations.privacy.policy.q1.url" bundle="${motorMsg}" />"><fmt:message key="motor.declarations.privacy.policy.q1.body" bundle="${motorMsg}" /></a><fmt:message key="motor.declarations.privacy.policy.q1.tail" bundle="${motorMsg}" />
 																	</small>
 	                                            </label>
 	                                            <div class="help-block with-errors"></div>
