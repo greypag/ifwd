@@ -294,11 +294,6 @@ var policyHelper = {
 			}else{
 				policyDom.find(".ew_pol_warns .ew_pol_btnMore").attr("href", "#p" + info.policyId);
 				policyDom.find(".ew_pol_warns .ew_pol_warnList").attr("id", "p" + info.policyId);	
-				
-				var invalidMobileItem = $("<li/>");
-				var invalidMobileTxt = msgCtr.policyList.noMobileNum;
-				invalidMobileItem.html(invalidMobileTxt);
-				policyDom.find(".ew_pol_warns .ew_pol_warnList").append(invalidMobileItem);
 
 				for( var wi = 0; wi < warns.length; wi++){
 					var wranItem = $("<li/>");
