@@ -137,7 +137,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                 	<p>
                         <fmt:message key="motor.docupload.page.copy" bundle="${motorMsg}" />
-                        <strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong>
+                        <!-- <strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong>-->
                         <fmt:message key="motor.uploadconfirm.page.copy.part3" bundle="${motorMsg}" />
                         <br/>
                         <fmt:message key="motor.docupload.covernote.copy" bundle="${motorMsg}" />
@@ -154,7 +154,7 @@ var nextPage = "${nextPageFlow}";
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                     <p>
-                        <fmt:message key="motor.docupload.page.copy" bundle="${motorMsg}" />
+                        <fmt:message key="motor.docupload.page.copy2" bundle="${motorMsg}" />
                         <br/>
                     </p>
                 </div>

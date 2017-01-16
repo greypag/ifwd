@@ -134,12 +134,12 @@ var nextPage = "${nextPageFlow}";
                     </p>
                     <p>
                         <br />
-                        <a class="" href="#"><fmt:message key="motor.uploadconfirm.discount.downloadnow" bundle="${motorMsg}" /></a>
+                        <fmt:message key="motor.uploadconfirm.discount.downloadnow" bundle="${motorMsg}" />
                         <br />
-                        <img src="<%=request.getContextPath()%>/resources/images/motor/Apple_icon.png" alt="" />
+                        <a href="http://onelink.to/drive"><img src="<%=request.getContextPath()%>/resources/images/motor/Apple_icon.png" alt="" /></a>
                         &nbsp;
                         &nbsp;
-                        <img src="<%=request.getContextPath()%>/resources/images/motor/Andriod_icon.png" alt="" />
+                        <a href="http://onelink.to/drive"><img src="<%=request.getContextPath()%>/resources/images/motor/Andriod_icon.png" alt="" /></a>
                     </p>
                     <p class="small-print">
                         <br/>
