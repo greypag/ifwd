@@ -348,7 +348,10 @@
 @media screen and (max-width: 768px) {
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li {
     width: 50%;
-    float: left; } }
+    float: left; }
+
+  #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li {
+    width: 33%; } }
 @media screen and (max-width: 767px) {
   .ew_pol_log .ew_dt_from_txt,
   .ew_pol_log #dt_log_from,
