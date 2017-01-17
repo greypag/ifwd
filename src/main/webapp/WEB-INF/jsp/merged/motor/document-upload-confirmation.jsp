@@ -105,6 +105,7 @@ var nextPage = "${nextPageFlow}";
                         <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
                         <h3 id="motorRef" class="heading-h3 color-orange ref-number"></h3>
                     </p>
+						  <p><fmt:message key="motor.uploadconfirm.reminder.copy" bundle="${motorMsg}" /></p>
                 </div>
             </div>
 
@@ -133,12 +134,12 @@ var nextPage = "${nextPageFlow}";
                     </p>
                     <p>
                         <br />
-                        <a class="" href="#"><fmt:message key="motor.uploadconfirm.discount.downloadnow" bundle="${motorMsg}" /></a>
+                        <fmt:message key="motor.uploadconfirm.discount.downloadnow" bundle="${motorMsg}" />
                         <br />
-                        <img src="<%=request.getContextPath()%>/resources/images/motor/Apple_icon.png" alt="" />
+                        <a href="http://onelink.to/drive"><img src="<%=request.getContextPath()%>/resources/images/motor/Apple_icon.png" alt="" /></a>
                         &nbsp;
                         &nbsp;
-                        <img src="<%=request.getContextPath()%>/resources/images/motor/Andriod_icon.png" alt="" />
+                        <a href="http://onelink.to/drive"><img src="<%=request.getContextPath()%>/resources/images/motor/Andriod_icon.png" alt="" /></a>
                     </p>
                     <p class="small-print">
                         <br/>

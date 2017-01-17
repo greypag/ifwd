@@ -29,7 +29,7 @@ var nextPage = "${nextPageFlow}";
     }
     .motor-confirmation .confirmation-section{
         padding-top: 0;
-        padding-bottom: 40px;
+        padding-bottom: 0px;
     }
     .motor-confirmation #uploadDocSection .upload {
         border-radius: 0;
@@ -133,11 +133,28 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
     <div class="container confirmation-section">
+    	<div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
+                	<p>
+                        <fmt:message key="motor.docupload.page.copy" bundle="${motorMsg}" />
+                        <!-- <strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong>-->
+                        <fmt:message key="motor.uploadconfirm.page.copy.part3" bundle="${motorMsg}" />
+                        <br/>
+                        <fmt:message key="motor.docupload.covernote.copy" bundle="${motorMsg}" />
+                        <span id="sendMail"></span>
+                        <fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" />
+                    </p>
+                    <p>
+                        <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
+                        <h3 id="motorRef" class="heading-h3 color-orange ref-number"></h3>
+                    </p>
+                </div>
+            </div>
         <div class="content">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 text-center">
                     <p>
-                        <fmt:message key="motor.docupload.page.copy" bundle="${motorMsg}" />
+                        <fmt:message key="motor.docupload.page.copy2" bundle="${motorMsg}" />
                         <br/>
                     </p>
                 </div>
@@ -251,7 +268,9 @@ var nextPage = "${nextPageFlow}";
             
 	            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
 	                <div class="content text-center">
-	                    <button id="submitDoc" class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>
+		                <fmt:message key="motor.docupload.upload.reminder" bundle="${motorMsg}" /> 
+		                <br/>
+	                    <button id="submitDoc" class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="motor.button.Upload.document" bundle="${motorMsg}" /></button>
 	                </div>
 	            </div>
 	            <!-- <div class="col-sm-12 col-sm-10 col-sm-offset-1 text-center">
@@ -269,6 +288,8 @@ var total_license_dz = 0;
 var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):""%>');
 	
     $(document).ready(function(){
+    	$("#sendMail").html("<a href='mailto:"+quote.applicant.email+"'>"+quote.applicant.email+"</a>");
+    	$(".ref-number").html(quote.coverNoteNum);
     	$vehicleReg_dz = $('#vehicleReg-dz');
     	$hkid_dz = $('#hkid-dz');
     	$license_dz = $('#license-dz');

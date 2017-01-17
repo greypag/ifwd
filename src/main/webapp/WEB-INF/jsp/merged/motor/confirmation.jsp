@@ -40,7 +40,7 @@ try{
     }
     .motor-confirmation .confirmation-section{
         padding-top: 0;
-        padding-bottom: 40px;
+        padding-bottom: 0px;
     }
     .motor-confirmation #testimonials .landing_h2{
         color: #555 !important;
@@ -120,11 +120,13 @@ try{
                         </h3>
                     </p>-->
                     <p>
-                        <fmt:message key="motor.uploadconfirm.page.copy.part1" bundle="${motorMsg}" /><strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong><fmt:message key="motor.uploadconfirm.page.copy.part3" bundle="${motorMsg}" />
+                        <fmt:message key="motor.confirmation.page.copy.part1" bundle="${motorMsg}" />
+                        <strong><fmt:message key="motor.confirmation.page.copy.part2" bundle="${motorMsg}" />
+                        </strong><fmt:message key="motor.confirmation.page.copy.part3" bundle="${motorMsg}" />
                         <br/>
-                        <fmt:message key="motor.uploadconfirm.covernote.copy.part1" bundle="${motorMsg}" />
+                        <fmt:message key="motor.confirmation.covernote.copy.part1" bundle="${motorMsg}" />
                         <span id="sendMail"></span>
-                        <fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" />
+                        <fmt:message key="motor.confirmation.covernote.copy.part2" bundle="${motorMsg}" />
                     </p>
                     <p>
                         <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
@@ -228,12 +230,12 @@ try{
                     </p>
                     <p>
                         <br />
-                        <a class="" href="#"><fmt:message key="motor.confirmation.discount.downloadnow" bundle="${motorMsg}" /></a>
+                        <fmt:message key="motor.confirmation.discount.downloadnow" bundle="${motorMsg}" />
                         <br />
-                        <img src="<%=request.getContextPath()%>/resources/images/motor/Apple_icon.png" alt="" />
+                        <a href="http://onelink.to/drive"><img src="<%=request.getContextPath()%>/resources/images/motor/Apple_icon.png" alt="" /></a>
                         &nbsp;
                         &nbsp;
-                        <img src="<%=request.getContextPath()%>/resources/images/motor/Andriod_icon.png" alt="" />
+                        <a href="http://onelink.to/drive"><img src="<%=request.getContextPath()%>/resources/images/motor/Andriod_icon.png" alt="" /></a>
                     </p>
                     <p class="small-print">
                         <br/>

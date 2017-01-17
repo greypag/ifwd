@@ -1032,7 +1032,7 @@ var nextPage = "${nextPageFlow}";
 														<div class="help-block-wrap">
 															<input id="holdername" name="cardHolder" type="text"
 																class="form-control mdl-textfield__input"
-																onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
+																onblur="replaceAlpha(this); chkNotNullCreditCareNameEx2(this, 'errname');"
 																onkeypress="return alphaOnly(event);"> <span
 																id="errname" class="error-msg" style="height: 0px"></span>
 															<!-- <input type="text" name="cardName" maxlength="100" class="form-control mdl-textfield__input" id="fullName" required>-->
@@ -1129,7 +1129,7 @@ var nextPage = "${nextPageFlow}";
 																	bundle="${motorMsg}" /></label>
 															<div class="help-block with-errors"></div>
 														</div>
-														<div style="display: inline-block;margin-left:10px;" class="sec-mobdesk"><img src="/fwdhk/resources/images/motor/Payment_secruity_code.jpg" alt=""></div>
+														<div style="display: inline-block;margin-left:10px;" class="sec-mobdesk"><img src="<%=request.getContextPath()%>/resources/images/motor/Payment_secruity_code.jpg" alt=""></div>
 													
 												</div>
 											</div>
