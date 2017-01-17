@@ -1129,7 +1129,7 @@ var nextPage = "${nextPageFlow}";
 																	bundle="${motorMsg}" /></label>
 															<div class="help-block with-errors"></div>
 														</div>
-														<div style="display: inline-block;margin-left:10px;" class="sec-mobdesk"><img src="/fwdhk/resources/images/motor/Payment_secruity_code.jpg" alt=""></div>
+														<div style="display: inline-block;margin-left:10px;" class="sec-mobdesk"><img src="<%=request.getContextPath()%>/resources/images/motor/Payment_secruity_code.jpg" alt=""></div>
 													
 												</div>
 											</div>
