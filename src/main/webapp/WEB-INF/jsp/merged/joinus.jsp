@@ -544,10 +544,10 @@ function tooltipPlacement(){
 			<div class="row">
 				<ul>
 					<li><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></li>
-					<li><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></li>
-					<li><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></li>
+					<!--li><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></li-->
+					<!--li><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></li-->
 					<li><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></li>
-					<li><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></li>
+					<!--li><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></li-->
 				</ul>
 			</div>
 		</div>
@@ -666,22 +666,22 @@ function tooltipPlacement(){
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon1" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></span>
 						</div>
-						<div class="icon_wrapper">
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon2" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></span>
-						</div>
-						<div class="icon_wrapper">
+						</div-->
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon3" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></span>
-						</div>
+						</div-->
 						<div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon4" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></span>
 						</div>
-						<div class="icon_wrapper">
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon5" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></span>
-						</div>
+						</div-->
 					</div>
 
 					<div class="clearfix"></div>
@@ -803,22 +803,22 @@ function tooltipPlacement(){
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon1" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></span>
 						</div>
-						<div class="icon_wrapper">
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon2" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></span>
-						</div>
-						<div class="icon_wrapper">
+						</div-->
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon3" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></span>
-						</div>
+						</div-->
 						<div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon4" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></span>
 						</div>
-						<div class="icon_wrapper">
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon5" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></span>
-						</div>
+						</div-->
 					</div>
 
 					<div class="clearfix"></div>
