@@ -675,16 +675,17 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                     </div>
                     <div class="clearfix"></div>
                     <div class="declaration-content" style="margin:0px !important;">
-                        <div class="checkbox" style="padding-left: 24px;">
-                            <input id="checkbox3" type="checkbox"> <label
-                                for="checkbox3"> <fmt:message key="annual.summary.declarations" bundle="${msg}" /></label>
-                        </div>
-                        <span id="errchk1" class="error-msg"></span>
-
-                        <span id="errchk2" class="error-msg"></span>
-                        <div class="clearfix"></div>
+                    	<c:if test="${dueAmount > 0.00}">
+	                        <div class="checkbox" style="padding-left: 24px;">
+	                            <input id="checkbox3" type="checkbox"> <label
+	                                for="checkbox3"> <fmt:message key="annual.summary.declarations" bundle="${msg}" /></label>
+	                        </div>
+	                        <span id="errchk1" class="error-msg"></span>
+	
+	                        <span id="errchk2" class="error-msg"></span>
+	                        <div class="clearfix"></div>
+                        </c:if>
                         <div class="row" style="margin-top:30px;">
-                        	<% System.out.println(session.getAttribute("dueAmount")); %>
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
                                 <c:choose>
 								    <c:when test="${language=='en'}">
