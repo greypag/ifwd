@@ -558,22 +558,64 @@ public class AnnualTravelController {
 		
 		JSONObject parameters = new JSONObject();
 		String referenceNo = (String)session.getAttribute("finalizeReferenceNo");
+
+		String paymentMethod = (String)session.getAttribute("paymentMethod");
+		session.setAttribute("paymentMethod", paymentMethod);
+		
 		model.addAttribute("referenceNo", referenceNo);
 		parameters.put("referenceNo", referenceNo);
 		parameters.put("transactionNumber", session.getAttribute("transNo"));
 		parameters.put("transactionDate", session.getAttribute("transactionDate"));
 		parameters.put("paymentFail", "0");
-		
+		parameters.put("paymentMethod", paymentMethod);
+
 		String creditCardNo = (String)session.getAttribute("creditCardNo");
-		
-		if (creditCardNo !=null) { 
-			try {
-				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
-			} catch (Exception e) {
-				e.printStackTrace();
-			} 
+		String dueAmount = (String)session.getAttribute("dueAmount");
+
+		if("0.00".equals(dueAmount) && creditCardNo == null) {
+			creditCardNo = "";
+			parameters.put("expiryDate", "");
 		} else {
+			if(session.getAttribute("creditCardNo") !=null && session.getAttribute("creditCardNo") != ""){
+				try {
+					creditCardNo = Methods.decryptStr((String)session.getAttribute("creditCardNo"));
+				} catch (Exception e) {
+					e.printStackTrace();
+					model.addAttribute("errMsgs", e.toString());
+					return UserRestURIConstants.getSitePath(request)
+							+ "annualtravel/annual-travel-summary-payment";
+				} 
+			}
+			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+		}
+		
+		/* Finalize policy if due amount = 0 */
+		if (creditCardNo !=null) {
+			parameters.put("creditCardNo", creditCardNo);
+		} else {
+			
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
+			parameters.put("creditCardNo", "");
+			parameters.put("expiryDate", "");
+			parameters.put("paymentMethod", session.getAttribute("paymentMethod").toString());
+			
+			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+			new Thread(){
+				public void run() {
+					JSONObject responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.ANNUAL_TRAVEL_FINALIZE_POLICY, header, parameters);
+					logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
+				};
+			}.start();
+			
+			
 			model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+			
 			model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 			model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
 			model.addAttribute("referralCode", session.getAttribute("referralCode"));
@@ -584,12 +626,10 @@ public class AnnualTravelController {
 			return UserRestURIConstants.getSitePath(request)
 					+ "annualtravel/annual-travel-confirmation";
 		}
-			
-		parameters.put("expiryDate", session.getAttribute("expiryDate"));
 
-		if(JsonUtils.hasEmpty(parameters)) {
-			return UserRestURIConstants.getSitePath(request) + "travel/travel";
-		}
+		//if(JsonUtils.hasEmpty(parameters)) {
+		//	return UserRestURIConstants.getSitePath(request) + "travel/travel";
+		//}
 		
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);
