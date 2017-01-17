@@ -183,12 +183,10 @@ var nextPage = "${nextPageFlow}";
                                                 <td><fmt:message key="motor.selectplan1.table.1.row3.copy" bundle="${motorMsg}" /></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
-                                                <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
                                             </tr>
                                             <tr>
                                                 <td><fmt:message key="motor.selectplan1.table.1.row4.copy" bundle="${motorMsg}" /></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></td>
-                                                <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
                                             </tr>
                                             <tr>
