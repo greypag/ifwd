@@ -562,9 +562,13 @@ function WithdrawClass(){
 		this.popupDom.find(".ew_btn_withdraw").on("click", function (){
 			var inputDom = $("#ew_input_amount");
 			var amount = parseInt(inputDom.val(), 10);
-			if(inputDom.val().length < 3 || amount < 500 || amount > 3000){
+
+			if(inputDom.val().length < 3){
 				inputDom.addClass("ew_err_input");
-				eWalletCtr.showGenericMsg("", msgCtr.withdrawal.invalidAmount);
+				
+				if(amount < 500 || amount > 3000){
+					eWalletCtr.showGenericMsg("", msgCtr.withdrawal.invalidAmount);	
+				}
 				return;
 			}
 			that.amountWithdraw = amount;
@@ -740,7 +744,7 @@ function WithdrawClass(){
 
 function BaseOtpHelper() {
 	this.resendLockTimeout = null;
-	this.resendTimeoutMs = 30000;
+	this.resendTimeoutMs = 60000;
 	this.startResendCountdown = function() {
 		this.stopResendCountdown();
 
