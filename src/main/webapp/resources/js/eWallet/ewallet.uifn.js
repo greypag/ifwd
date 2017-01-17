@@ -565,7 +565,7 @@ function WithdrawClass(){
 
 			if(inputDom.val().length < 3){
 				inputDom.addClass("ew_err_input");
-				
+
 				if(amount < 500 || amount > 3000){
 					eWalletCtr.showGenericMsg("", msgCtr.withdrawal.invalidAmount);	
 				}
@@ -676,8 +676,11 @@ function WithdrawClass(){
 				that.switchSection(2);
 			},
 			failFn: function(response, xhr) {
-				that.popupDom.modal("hide");
 
+				if(!(xhr.status == 415 && (response.code == "TWE001" || response.code == "TWE003"))){
+					that.popupDom.modal("hide");	
+				}
+				
 				var msg = eWalletCtr.getApiErrorMsg("requestWithdraw", xhr.status, response.code);
 				eWalletCtr.showGenericMsg("", msg.replace("%productName%", _productName));
 			},
