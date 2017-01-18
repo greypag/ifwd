@@ -23,7 +23,25 @@ width:60px;
 <script>
 	$('document').ready(function(){
 		bootstrapvalidate_joinus();
-		global_show_bubble("form[name='joinus_form_member'] .js_bubble","form[name='joinus_form_member'] .checkboxBubble");
+	
+	//declaration checkbox
+	$("#checkbox1").change(function() {
+		$("#errorDeclaration").html("");
+	});
+
+	/* 
+		Direct Marketing checkbox event handle 
+		Declaraed at top to prevent event propagation being stopped by other event handler.
+	*/
+	$("#checkbox3, #checkbox4, #checkbox3_2, #checkbox4_2").change(function() {
+		if($(this).prop('checked')) {
+			$(this).val('On');
+		} else {
+			$(this).val('Off');
+		}		
+	});
+
+	global_show_bubble("form[name='joinus_form_member'] .js_bubble","form[name='joinus_form_member'] .checkboxBubble");
 		global_show_bubble("form[name='joinus_form_non_member'] .js_bubble","form[name='joinus_form_non_member'] .checkboxBubble");
 		
 		//choose is current fwd member or not
@@ -222,11 +240,6 @@ width:60px;
 		}
 		return false;
 	}
-	
-	//declaration checkbox
-	$("#checkbox1").change(function() {
-		$("#errorDeclaration").html("");
-	});
 
 function generate_common_validate_fields(form){
 	return {
@@ -703,12 +716,12 @@ function tooltipPlacement(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble"> <label
+							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble" value="Off"> <label
 								for="checkbox3"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble"> <label
+							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble" value="Off"> <label
 								for="checkbox4"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
@@ -840,12 +853,12 @@ function tooltipPlacement(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3_2" name="checkbox3_2" type="checkbox" class="js_bubble"> <label
+							<input id="checkbox3_2" name="checkbox3_2" type="checkbox" class="js_bubble" value="Off"> <label
 								for="checkbox3_2"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4_2" name="checkbox4_2" type="checkbox" class="js_bubble"> <label
+							<input id="checkbox4_2" name="checkbox4_2" type="checkbox" class="js_bubble" value="Off"> <label
 								for="checkbox4_2"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
