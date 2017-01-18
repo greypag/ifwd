@@ -33,7 +33,16 @@ width:60px;
 		Direct Marketing checkbox event handle 
 		Declaraed at top to prevent event propagation being stopped by other event handler.
 	*/
-	$("#checkbox3, #checkbox4, #checkbox3_2, #checkbox4_2").change(function() {
+	 
+	$("#checkbox3, #checkbox4,").change(function() {
+		if($(this).prop('checked')) {
+			$(this).val('true');
+		} else {
+			$(this).val('false');
+		}		
+	});
+
+	$("#checkbox3_2, #checkbox4_2").change(function() {
 		if($(this).prop('checked')) {
 			$(this).val('On');
 		} else {
@@ -728,12 +737,12 @@ function tooltipPlacement(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble optOut1" value="Off"> <label
+							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble optOut1" value="false"> <label
 								for="checkbox3"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble optOut2" value="Off"> <label
+							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble optOut2" value="false"> <label
 								for="checkbox4"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
