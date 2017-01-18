@@ -181,12 +181,12 @@ var nextPage = "${nextPageFlow}";
                                             </tr>
                                             <tr>
                                                 <td><fmt:message key="motor.selectplan1.table.1.row3.copy" bundle="${motorMsg}" /></td>
-                                                <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                <td class="text-center"><i class="fa fa-check" aria-hidden="true"></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
                                             </tr>
                                             <tr>
                                                 <td><fmt:message key="motor.selectplan1.table.1.row4.copy" bundle="${motorMsg}" /></td>
-                                                <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                <td class="text-center"><i class="fa fa-check" aria-hidden="true"></td>
                                                 <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
                                             </tr>
                                             <tr>
@@ -344,8 +344,74 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/select-plan.js"></script>
 <script type="text/javascript">
 var quote = jQuery.parseJSON('<%=request.getParameter("data").replace("&quot;", "\"")%>');
+(function($){
 
+ 	var backDetectValues = {
+ 		frameLoaded: 0,
+ 		frameTry: 0,
+ 		frameTime: 0,
+ 		frameDetect: null,
+ 		frameSrc: null,
+ 		frameCallBack: null,
+ 		frameThis: null,
+ 		frameNavigator: window.navigator.userAgent,
+ 		frameDelay: 0,
+ 		frameDataSrc: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC'
+ 	};
+
+	$.fn.backDetect = function(callback, delay) {
+		backDetectValues.frameThis = this;
+		backDetectValues.frameCallBack = callback;
+		if(delay !== null){
+			backDetectValues.frameDelay = delay;
+		}
+		setTimeout(function(){
+			$('<iframe src="' + backDetectValues.frameDataSrc + '?loading" style="display:none;" id="backDetectFrame" onload="jQuery.fn.frameInit();"></iframe>').appendTo(backDetectValues.frameThis);
+		}, backDetectValues.frameDelay);	  
+	};
+
+	$.fn.frameInit = function(){
+		backDetectValues.frameDetect = document.getElementById('backDetectFrame');
+		if(backDetectValues.frameLoaded > 1){
+			if(backDetectValues.frameLoaded == 2){
+				backDetectValues.frameCallBack.call(this);
+				//history.go(-1);
+			}
+		}
+		backDetectValues.frameLoaded++;
+		if(backDetectValues.frameLoaded == 1){
+			backDetectValues.frameTime = setTimeout(function(){jQuery.fn.setupFrames();}, 500);
+		}
+  }; 
+
+  $.fn.setupFrames = function(){
+  	clearTimeout(backDetectValues.frameTime);
+		backDetectValues.frameSrc = backDetectValues.frameDetect.src;
+  	if(backDetectValues.frameLoaded == 1 && backDetectValues.frameSrc.indexOf("historyLoaded") == -1){
+  		backDetectValues.frameDetect.src = backDetectValues.frameDataSrc + "?historyLoaded";
+  	}
+  };
+
+}(jQuery));
+function BackPage() {
+	var $form = $("<form id='quote-form' />");
+	$form.attr("action","get-quote?plan="+quote.planCode+"&back=yes");
+	$form.attr("method", "post");
+	var $quote = $("<input type='hidden' name='data' />");
+	$quote.attr("value", JSON
+			.stringify(quote));
+	$form.append($quote);
+	$("body").append($form);
+	$('#quote-form').submit();
+}
+$(window).load(function(){
+   $('body').backDetect(function(){
+	   BackPage();
+   	 return false;
+   });
+});
 $(document).ready(function(){
+	
   	$('#loading-overlay').modal("show");
     $.when(
         getMotorQuotePrice('silver', quote),
@@ -357,19 +423,40 @@ $(document).ready(function(){
         updatePriceTable();
     });
 
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
 
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+    
     $('.get-silver').on("click", function(e){
     	e.preventDefault();
         quote.compPlan = "Silver";
         quote.planCode = "Comp";
-    	redirectQuotePage("rider-options", quote);
+    	if(getUrlParameter("edit") == "yes")
+    		redirectQuotePage("rider-options?edit=yes", quote);
+    	else
+    		redirectQuotePage("rider-options", quote);
     });
 
     $('.get-gold').on("click", function(e){
     	e.preventDefault();
     	quote.compPlan = "Gold";
-        quote.planCode = "Comp";
-    	redirectQuotePage("rider-options", quote);
+  		quote.planCode = "Comp";
+    	if(getUrlParameter("edit") == "yes")
+    		redirectQuotePage("rider-options?edit=yes", quote);
+    	else
+	    	redirectQuotePage("rider-options", quote);
+
     });    
         
 });

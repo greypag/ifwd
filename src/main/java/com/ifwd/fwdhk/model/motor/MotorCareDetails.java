@@ -1,10 +1,15 @@
 package com.ifwd.fwdhk.model.motor;
 
-public class QuoteMotorCare {
-	private long id;
+import java.util.ArrayList;
+import java.util.List;
 
-	
-	private QuoteDriver quoteDriver;
+import com.fwd.model.motor.Applicant;
+import com.fwd.model.motor.CarDetail;
+import com.fwd.model.motor.Driver;
+import com.fwd.model.motor.MotorCareDeclaration;
+
+public class MotorCareDetails {
+	private long id;	
 	private String planCode;
 	private String compPlan;
 	private String grossPremium;
@@ -30,8 +35,23 @@ public class QuoteMotorCare {
 	private String inexperiencedDriverExcess;
 	private String tPPDExcess;
 	private String parkingExcess;
-	private String promoCode;
-	
+	private String promoCode;	
+	private CarDetail carDetail;
+	private List<Driver> driver = new ArrayList<>();	
+	private String policyStartDate;
+	private String policyEndDate;
+	private String nameOfPreviousInusrancer;
+	private String regNoofPreviousPolicy;
+	private String expDateOfPreviousInsurance;
+	private String previousPolicyNo;
+	private List<MotorCareDeclaration> motorCareDeclaration = new ArrayList<>();	
+	private boolean psPICS;
+	private boolean psNoDM;	
+	private boolean psNoProvidePersonalData;	
+	private String theClubMemberNum;
+	private String coverNoteNum;
+	private Applicant applicant;
+	private Double riderDiscountAmt;
 	
 	public long getId() {
 		return id;
@@ -39,14 +59,6 @@ public class QuoteMotorCare {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public QuoteDriver getQuoteDriver() {
-		return quoteDriver;
-	}
-	
-	public void setQuoteDriver(QuoteDriver quoteDriver) {
-		this.quoteDriver = quoteDriver;
-	}
-	
 	public String getPlanCode() {
 		return planCode;
 	}
@@ -254,6 +266,131 @@ public class QuoteMotorCare {
 
 	public void setPromoCode(String promoCode) {
 		this.promoCode = promoCode;
+	}
+	
+	public CarDetail getCarDetail() {
+		return carDetail;
+	}
+	
+	public void setCarDetail(CarDetail carDetail) {
+		this.carDetail = carDetail;
+	}
+	
+	public List<Driver> getDriver() {
+		return driver;
+	}
+	
+	public void setDriver(List<Driver> driver) {
+		this.driver = driver;
+	}
+		
+	public String getPolicyStartDate() {
+		return policyStartDate;
+	}
+	
+	public void setPolicyStartDate(String policyStartDate) {
+		this.policyStartDate = policyStartDate;
+	}
+	
+	public String getNameOfPreviousInusrancer() {
+		return nameOfPreviousInusrancer;
+	}
+	
+	public void setNameOfPreviousInusrancer(String nameOfPreviousInusrancer) {
+		this.nameOfPreviousInusrancer = nameOfPreviousInusrancer;
+	}
+	
+	public String getRegNoofPreviousPolicy() {
+		return regNoofPreviousPolicy;
+	}
+	
+	public void setRegNoofPreviousPolicy(String regNoofPreviousPolicy) {
+		this.regNoofPreviousPolicy = regNoofPreviousPolicy;
+	}
+	
+	public String getExpDateOfPreviousInsurance() {
+		return expDateOfPreviousInsurance;
+	}
+	public void setExpDateOfPreviousInsurance(String expDateOfPreviousInsurance) {
+		this.expDateOfPreviousInsurance = expDateOfPreviousInsurance;
+	}
+	
+	public String getPreviousPolicyNo() {
+		return previousPolicyNo;
+	}
+	
+	public void setPreviousPolicyNo(String previousPolicyNo) {
+		this.previousPolicyNo = previousPolicyNo;
+	}
+		
+	public List<MotorCareDeclaration> getMotorCareDeclaration() {
+		return motorCareDeclaration;
+	}
+	
+	public void setMotorCareDeclaration(
+			List<MotorCareDeclaration> motorCareDeclaration) {
+		this.motorCareDeclaration = motorCareDeclaration;
+	}
+	
+	public boolean isPsPICS() {
+		return psPICS;
+	}
+	
+	public void setPsPICS(boolean psPICS) {
+		this.psPICS = psPICS;
+	}
+	
+	public boolean isPsNoDM() {
+		return psNoDM;
+	}
+	
+	public void setPsNoDM(boolean psNoDM) {
+		this.psNoDM = psNoDM;
+	}
+	
+	public boolean isPsNoProvidePersonalData() {
+		return psNoProvidePersonalData;
+	}
+	
+	public void setPsNoProvidePersonalData(boolean psNoProvidePersonalData) {
+		this.psNoProvidePersonalData = psNoProvidePersonalData;
+	}
+	
+	public String getTheClubMemberNum() {
+		return theClubMemberNum;
+	}
+	
+	public void setTheClubMemberNum(String theClubMemberNum) {
+		this.theClubMemberNum = theClubMemberNum;
+	}
+	
+	public String getCoverNoteNum() {
+		return coverNoteNum;
+	}
+	
+	public void setCoverNoteNum(String coverNoteNum) {
+		this.coverNoteNum = coverNoteNum;
+	}
+	
+	public Applicant getApplicant() {
+		return applicant;
+	}
+	
+	public void setApplicant(Applicant applicant) {
+		this.applicant = applicant;
+	}
+	
+	public Double getRiderDiscountAmt() {
+		return riderDiscountAmt;
+	}
+	public void setRiderDiscountAmt(Double riderDiscountAmt) {
+		this.riderDiscountAmt = riderDiscountAmt;
+	}
+	public String getPolicyEndDate() {
+		return policyEndDate;
+	}
+	public void setPolicyEndDate(String policyEndDate) {
+		this.policyEndDate = policyEndDate;
 	}
 	
 }

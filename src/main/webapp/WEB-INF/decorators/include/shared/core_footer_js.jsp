@@ -74,6 +74,10 @@ if(request.getRequestURI().indexOf("/home-liability")>0 ||
 <% } %>
 
 <% if(request.getRequestURI().indexOf("/motor-insurance")>0) { %>
+<link href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
 <% } %>
 
 <% if(request.getRequestURI().indexOf("/term-life-insurance")>0) { %>

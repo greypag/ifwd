@@ -1,0 +1,52 @@
+#startUploadLaterSection{
+	form{
+		.text-box{
+			width: 100%;
+			
+			.help-block-wrap{
+				position: relative;
+				
+				label{
+					padding-top: 5px;
+					font-size: 14px;
+					left: 0;
+					top: 10px;
+					padding-left: 15px;
+					
+					&:after{
+						background-color: transparent;
+					}
+				}
+				
+				input{
+					padding-left: 15px;
+					padding-top: 15px;
+				}
+				
+				.glyphicon-exclamation-sign{
+					position: absolute;
+					right: 5px;
+					top: 5px;
+					font-size: 40px;
+					color: #F68A1D;
+				}
+				
+				.tooltip.top .tooltip-arrow{
+					border-top-color: #F68A1D;
+				}
+			}
+			
+			&.is-focused,
+			&.is-dirty{
+				label{
+					color: #ff8200;
+					top: -5px;
+				}
+			}
+		}
+		
+		.submit-btn{
+			margin-bottom: 30px;
+		}
+	}
+}

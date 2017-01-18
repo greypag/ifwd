@@ -68,7 +68,7 @@ import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.passkit.ValidateHolderResult;
 import com.ifwd.fwdhk.model.passkit.ValidatePolicyResult;
 import com.ifwd.fwdhk.model.ProvieRiderEligibility;
-import com.ifwd.fwdhk.model.motor.PolicyDriverDetails;
+//import com.ifwd.fwdhk.model.motor.PolicyDriverDetails;
 import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.LifeService;

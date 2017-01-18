@@ -23,7 +23,34 @@ width:60px;
 <script>
 	$('document').ready(function(){
 		bootstrapvalidate_joinus();
-		global_show_bubble("form[name='joinus_form_member'] .js_bubble","form[name='joinus_form_member'] .checkboxBubble");
+	
+	//declaration checkbox
+	$("#checkbox1").change(function() {
+		$("#errorDeclaration").html("");
+	});
+
+	/* 
+		Direct Marketing checkbox event handle 
+		Declaraed at top to prevent event propagation being stopped by other event handler.
+	*/
+	 
+	$("#checkbox3, #checkbox4").change(function() {
+		if($(this).prop('checked')) {
+			$(this).val('true');
+		} else {
+			$(this).val('false');
+		}		
+	});
+
+	$("#checkbox3_2, #checkbox4_2").change(function() {
+		if($(this).prop('checked')) {
+			$(this).val('On');
+		} else {
+			$(this).val('Off');
+		}		
+	});
+
+	global_show_bubble("form[name='joinus_form_member'] .js_bubble","form[name='joinus_form_member'] .checkboxBubble");
 		global_show_bubble("form[name='joinus_form_non_member'] .js_bubble","form[name='joinus_form_non_member'] .checkboxBubble");
 		
 		//choose is current fwd member or not
@@ -110,14 +137,17 @@ width:60px;
 			var dob=yearStr+"-"+monStr+"-"+dateStr;
 			if(name=="joinus_form_member"){
 			return $.post('<%=request.getContextPath()%>/api/member/register/member/customer',
-					{userName: $("#txtUserName1").val(), mobile: $("#txtMobileNo").val(),
-			    password: $("#txtConfPass").val(),
-			    email: $("#txtEmailId").val(),
-			    docNo: $("#txtHkid").val(),
-			    policyNo: $("#txtPolicyNumber").val(),
-			    dob: dob,
-			    optOut1: true,
-			    optOut2: true})
+					{
+						userName: $("#txtUserName1").val(),
+						mobile: $("#txtMobileNo").val(),
+						password: $("#txtConfPass").val(),
+						email: $("#txtEmailId").val(),
+						docNo: $("#txtHkid").val(),
+						policyNo: $("#txtPolicyNumber").val(),
+						dob: dob,
+						optOut1: ($('#checkbox3').val()=='true')?true:false,
+						optOut2: ($('#checkbox4').val()=='true')?true:false
+					})
 					.done(function (data) {
 						var resp=data.message;
 						 $.ajax({
@@ -127,6 +157,8 @@ width:60px;
 								async : false,
 								success : function(data) {
 									if (data == 'success') {
+										$('#loadingDiv').toggle();
+										
 										$(form_selector + ' #success-message').show();
 										$(form_selector + ' #joinus-err-msg').hide();
 										window.location.hash = form_selector+ ' #success-message';
@@ -175,10 +207,21 @@ width:60px;
 			$.ajax({
 				type : 'POST',
 				url : '<%=request.getContextPath()%>/{language}/joinus',
-				data : $(form_selector).serialize(),
+				data : {
+					fullName: $("#non-member__fullName").val(),
+					mobileNo: $("#non-member__mobileNo").val(),
+				    emailAddress: $("#non-member__email").val(),
+				    userName: $("#non-member__userName").val(),
+				    password: $("#non-member__password").val(),
+				    confirmPassword: $("#non-member__confirmPassword").val(),
+				    checkbox3: $('#checkbox3_2').val(),
+				    checkbox4: $('#checkbox4_2').val()
+				},
 				async : false,
 				success : function(data) {
 					if (data == 'success') {
+						$('#loadingDiv').toggle();
+						
 						$(form_selector + ' #success-message').show();
 						$(form_selector + ' #joinus-err-msg').hide();
 						window.location.hash = form_selector+ ' #success-message';
@@ -218,11 +261,6 @@ width:60px;
 		}
 		return false;
 	}
-	
-	//declaration checkbox
-	$("#checkbox1").change(function() {
-		$("#errorDeclaration").html("");
-	});
 
 function generate_common_validate_fields(form){
 	return {
@@ -250,7 +288,7 @@ function generate_common_validate_fields(form){
 				}
 			}
 		},
-		'EmailAddress': {
+		'emailAddress': {
 			container: form + ' #errorEmptyEmailIdJoinUs',
 			validators: {
 				notEmpty: {
@@ -540,10 +578,10 @@ function tooltipPlacement(){
 			<div class="row">
 				<ul>
 					<li><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></li>
-					<li><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></li>
-					<li><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></li>
+					<!--li><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></li-->
+					<!--li><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></li-->
 					<li><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></li>
-					<li><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></li>
+					<!--li><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></li-->
 				</ul>
 			</div>
 		</div>
@@ -600,7 +638,7 @@ function tooltipPlacement(){
 								<span id="errorEmptyMobJoinUs" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtEmailId" name="EmailAddress" value="${userDetails.getEmailAddress()}"
+								<input class="mdl-textfield__input registration__input" type="text" id="txtEmailId" name="emailAddress" value="${userDetails.getEmailAddress()}"
 									maxlength="50">
 								<label class="mdl-textfield__label registration__label" for="txtEmailId"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
 								<span id="errorEmptyEmailIdJoinUs" class="text-red"></span>
@@ -662,22 +700,22 @@ function tooltipPlacement(){
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon1" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></span>
 						</div>
-						<div class="icon_wrapper">
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon2" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></span>
-						</div>
-						<div class="icon_wrapper">
+						</div-->
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon3" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></span>
-						</div>
+						</div-->
 						<div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon4" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></span>
 						</div>
-						<div class="icon_wrapper">
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon5" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></span>
-						</div>
+						</div-->
 					</div>
 
 					<div class="clearfix"></div>
@@ -699,12 +737,12 @@ function tooltipPlacement(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble"> <label
+							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble optOut1" value="false"> <label
 								for="checkbox3"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble"> <label
+							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble optOut2" value="false"> <label
 								for="checkbox4"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
@@ -743,14 +781,14 @@ function tooltipPlacement(){
 
 						<div class="registration col-lg-11 col-md-11">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
+								<input id="non-member__fullName" class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
 									onkeypress="return alphaOnly(event);">
 								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /> <fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></label>
 								<span id="errorEmptyName" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="mobileNo" value="${userDetails.getMobileNo()}"
+								<input id="non-member__mobileNo" class="mdl-textfield__input registration__input" type="text" name="mobileNo" value="${userDetails.getMobileNo()}"
 									onblur="replaceNumeric(this);"
 									onkeypress="return isNumeric(event);"
 									maxlength="8">
@@ -758,28 +796,28 @@ function tooltipPlacement(){
 								<span id="errorEmptyMobJoinUs" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="EmailAddress" value="${userDetails.getEmailAddress()}"
+								<input id="non-member__email" class="mdl-textfield__input registration__input" type="text" name="emailAddress" value="${userDetails.getEmailAddress()}"
 									maxlength="50">
 								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
 								<span id="errorEmptyEmailIdJoinUs" class="text-red"></span>
 							</div>
 							<h3 class="black-bold"><fmt:message key="member.registration.details.header.login" bundle="${msg}" /></h3>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="userName" value="${userDetails.getUserName() }"
+								<input id="non-member__userName" class="mdl-textfield__input registration__input" type="text" name="userName" value="${userDetails.getUserName() }"
 									onkeypress="return validationUsername(event);">
 								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label>
 								<span id="errorEmptyUNameJoinUs" class="text-red"></span>
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipUserName1" id="tooltipUserName1" title="<fmt:message key='member.registration.details.label.username.help' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="password"  name="password"
+								<input id="non-member__password" class="mdl-textfield__input registration__input" type="password"  name="password"
 									autocomplete="off">
 								<label class="mdl-textfield__label registration__label" for="txtPass1"><fmt:message key="member.registration.details.label.password" bundle="${msg}" /></label>
 								<span id="errorJoinUsPassword" class="text-red"></span>
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipPass1" id="tooltipPass1" title="<fmt:message key='member.registration.details.label.password.help' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="password" name="confirmPassword"
+								<input id="non-member__confirmPassword" class="mdl-textfield__input registration__input" type="password" name="confirmPassword"
 									autocomplete="off">
 								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /></label>
 								<span id="errorEmptyConfPass" class="text-red"></span>
@@ -799,22 +837,22 @@ function tooltipPlacement(){
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon1" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon1_des" bundle="${msg}" /></span>
 						</div>
-						<div class="icon_wrapper">
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon2" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon2_des" bundle="${msg}" /></span>
-						</div>
-						<div class="icon_wrapper">
+						</div-->
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon3" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon3_des" bundle="${msg}" /></span>
-						</div>
+						</div-->
 						<div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon4" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon4_des" bundle="${msg}" /></span>
 						</div>
-						<div class="icon_wrapper">
+						<!--div class="icon_wrapper">
 							<img class="icon_size" src="<%=request.getContextPath()%><fmt:message key="member.registration.details.icon5" bundle="${msg}" />" alt="" />
 							<span><fmt:message key="member.registration.details.icon5_des" bundle="${msg}" /></span>
-						</div>
+						</div-->
 					</div>
 
 					<div class="clearfix"></div>
@@ -836,12 +874,12 @@ function tooltipPlacement(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3_2" name="checkbox3_2" type="checkbox" class="js_bubble"> <label
+							<input id="checkbox3_2" name="checkbox3_2" type="checkbox" class="js_bubble optOut1" value="Off"> <label
 								for="checkbox3_2"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4_2" name="checkbox4_2" type="checkbox" class="js_bubble"> <label
+							<input id="checkbox4_2" name="checkbox4_2" type="checkbox" class="js_bubble optOut2" value="Off"> <label
 								for="checkbox4_2"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
@@ -861,4 +899,8 @@ function tooltipPlacement(){
 		</div>
 		<!--/.container-->
 	</section>
+	
+<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+	<img style="width: 300px; height: 300px;" src="<%=request.getContextPath()%>/resources/images/loading.gif">
+</div>
 </body>

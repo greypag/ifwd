@@ -6,7 +6,7 @@ public class ContactMe {
 	private String contactNum;
 	private String preferredContactTime;
 	private String email;
-	private QuoteMotorCare quoteMotorCare;
+	private MotorCareDetails motorCareDetails;
 	private String from;
 	private String reason;
 	
@@ -34,11 +34,11 @@ public class ContactMe {
 	public void setPreferredContactTime(String preferredContactTime) {
 		this.preferredContactTime = preferredContactTime;
 	}
-	public QuoteMotorCare getQuoteMotorCare() {
-		return quoteMotorCare;
+	public MotorCareDetails getMotorCareDetails() {
+		return motorCareDetails;
 	}
-	public void setQuoteMotorCare(QuoteMotorCare quoteMotorCare) {
-		this.quoteMotorCare = quoteMotorCare;
+	public void setMotorCareDetails(MotorCareDetails motorCareDetails) {
+		this.motorCareDetails = motorCareDetails;
 	}
 	public String getEmail() {
 		return email;

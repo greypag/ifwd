@@ -114,7 +114,8 @@ function submitLoginForm(formID) {
 														'Click',
 														'Login success');
 												//location.reload();
-												window.location.href = window.location.href;
+												// window.location.href = window.location.href;
+												window.location.href = window.location.href.substr(0, window.location.href.indexOf('#'));
 											}
 										} else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
 											try {

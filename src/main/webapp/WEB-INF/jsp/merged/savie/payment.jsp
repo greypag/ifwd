@@ -57,7 +57,11 @@ var language = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="payment-content-wrapper">
 				<p class="panel-title"><fmt:message key="label.payment.title" bundle="${msg}" /></p>						
+				<c:choose>
+				<c:when test="${saviePlanDetails.promoCode!=null && saviePlanDetails.promoCode!=''&&saviePlanDetails.insuredAmountDiscount!='0'}">
 				
+				</c:when>
+				<c:otherwise>
 				<div class="radio-group clearfix">
 				   <div class="radio-button-group">
 					  <div class="clearfix desktop-align left cstm-md-col">
@@ -66,6 +70,7 @@ var language = "${language}";
 						 </div>
 						 <div class="text-bold pull-left desc">
 								<fmt:message key="option.direct.debit" bundle="${msg}" />
+								
 						 </div>
 					  </div>
 					  <div class="clearfix below desktop-align">
@@ -78,7 +83,10 @@ var language = "${language}";
 					  </div>
 				   </div>
 				</div>
-				<div id="errorMsg" style="color: red;"></div>
+				
+				</c:otherwise>
+				</c:choose>
+ 				<div id="errorMsg" style="color: red;"></div>
 				
 				<form action="" id="paymentForm" method="post">
 					<div id="direct-debit-panel">

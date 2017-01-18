@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<c:set var="isFwdCust" value="${'FWDCUST' eq memberType}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
@@ -39,7 +40,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<li class="mobile-dropdown dropdown-profile active"><a href="#profile-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-insurance-plan"><a href="#insurance-plan-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-promo-offers"><a href="#promo-offers-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<c:if test="${isFwdCust}">
 						<li class="mobile-dropdown dropdown-e-wallet"><a href="#e-wallet-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
+						</c:if>
 					</ul>
 				</div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
@@ -47,7 +50,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#profile-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#insurance-plan-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#promo-offers-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<c:if test="${isFwdCust}">
 						<li class="left-side-tab-menu e-wallet" id="e-wallet-tab-link"><a href="#e-wallet-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="e-wallet"></span><fmt:message key="tab.withdrawal" bundle="${msg}" /></a></li>
+						</c:if>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-9 right-side-content">
@@ -581,7 +586,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
-															<p class="info-data">${list.expiryDateDesc}</p>
+															<c:if test='${not empty list.expiryDateDesc}'><p class="info-data">${list.expiryDateDesc}</p></c:if>
 															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 													</div>
@@ -649,7 +654,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
 											</div>
 										</div>				
 										<c:choose>
@@ -669,7 +674,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 															<p class="info-data">${list.commencementDateDesc}~${list.expiryDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 													</div>
@@ -1015,6 +1020,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<li><fmt:message key="ewallet.remark.line1" bundle="${msg}" /></li>
 						<li><fmt:message key="ewallet.remark.line2" bundle="${msg}" /></li> 
 						<li><fmt:message key="ewallet.remark.line3" bundle="${msg}" /></li> 
+						<li><fmt:message key="ewallet.remark.line4" bundle="${msg}" /></li> 
 						</ol>
 						</div>
 					</div>
@@ -1157,6 +1163,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 
 							<p class="ew_desc">
 								<fmt:message key="ewallet.popup.pair.success.txt2" bundle="${msg}" />
+								${userDetails.getEmailAddress()}
 							</p>
 							<a href="javascript:void(0);" data-dismiss="modal" class="ew_btn_confirm"><fmt:message key="ewallet.popup.pair.success.btn" bundle="${msg}" /></a>
 						</div>					
@@ -1212,9 +1219,9 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 								<h4 class="ew_popup_sec_title"><fmt:message key="ewallet.popup.sec.amountOpt.title" bundle="${msg}" /></h4>
 								<div class="col-xs-12 ew_popup_sec_content">
 									<div class="col-xs-12">
-										<p class="ew_hint">
+										<!-- <p class="ew_hint">
 											<fmt:message key="ewallet.popup.sec.amountOpt.min" bundle="${msg}" /> $500 / <fmt:message key="ewallet.popup.sec.amountOpt.max" bundle="${msg}" /> $3,000
-										</p>
+										</p> -->
 									</div>
 									<div class="col-xs-12">
 										<div class="ew_btn_grp">
@@ -1295,6 +1302,27 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 								</p>
 								<a href="javascript:void(0);" class="ew_btn_confirm" data-dismiss="modal"><fmt:message key="ewallet.prompt.confirm" bundle="${msg}"/></a>
 							</div>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- unlink confirm -->
+<div class="modal fade ew_popup_unlinkConfirm" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="container-fluid bd-example-row">
+					<div class="row">
+						<div class="col-xs-12 ew_popup_sec">
+							<p class="ew_desc">
+								<fmt:message key="ewallet.prompt.unlink.confirmMsg" bundle="${msg}" />
+							</p>
+							<a href="javascript:void(0);" class="ew_btn_confirm"><fmt:message key="ewallet.prompt.unlink.confirmBtn1" bundle="${msg}" /></a>
+							<a href="javascript:void(0);" class="ew_btn_cancel" data-dismiss="modal"><fmt:message key="ewallet.prompt.unlink.confirmBtn2" bundle="${msg}" /></a>
 						</div>					
 					</div>
 				</div>

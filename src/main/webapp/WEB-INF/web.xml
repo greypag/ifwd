@@ -50,6 +50,9 @@
   <listener>
     <listener-class>com.github.pukkaone.jsp.EscapeXmlELResolverListener</listener-class>
   </listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>  
   <display-name>FWD</display-name>
   <security-constraint>
     <web-resource-collection>

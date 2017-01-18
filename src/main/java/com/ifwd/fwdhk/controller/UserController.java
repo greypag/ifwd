@@ -301,6 +301,32 @@ public class UserController {
 		
 		return null;
 	}
+	private Map<String,String> getPhwPolicyLifeActiveStatus(HttpServletRequest request){
+		String methodName = "getPhwPolicyLifeActiveStatus";
+		String url = UserRestURIConstants.ONLINE_WITHDRAWAL_PHW_POLICY_LIFE_ACTIVE+ "?itemTable=phw_policy_life_active";
+		
+		Map<String,String> header = Maps.newHashMap();
+		header.put("token", (String)request.getSession().getAttribute("token"));
+		header.put("username", (String)request.getSession().getAttribute("username"));
+		header.put("Content-Type","application/json");
+				
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, url, header, null);
+		if (responseJsonObj.get("errMsgs") == null) {
+			JSONArray jsonOptionItemDescs = (JSONArray) responseJsonObj.get("optionItemDesc");
+			Map<String,String> codePNameMap = Maps.newHashMap();
+			if(jsonOptionItemDescs!=null){
+				for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+					JSONObject catObj=(JSONObject)jsonOptionItemDescs.get(i);
+					codePNameMap.put((String)catObj.get("itemCode"), (String)catObj.get("itemDesc"));
+				}
+			}
+			return codePNameMap;
+		}else{
+			logger.warn(methodName+" errMsgs:"+responseJsonObj.get("errMsgs"));
+		}
+		
+		return null;
+	}
 	
 	private void supplementPhwPolicyName(HttpServletRequest request, Model model){
 		
@@ -331,6 +357,9 @@ public class UserController {
 			}
 		}
 	}
+    private static final String FWDCUST_POLICY_TYPE_LIFE="Life";
+    private static final String FWDCUST_POLICY_TYPE_GI="GI";
+	
 	/*
 	 *  PHW returned GI Policy# in format "74ZZ20879 000", UI display only need "74ZZ20879"
 	 */
@@ -353,7 +382,7 @@ public class UserController {
 				for(PurchaseHistoryPolicies p:policys){
 					String policyType = p.getPolicyType();
 					String policyNumber = p.getPolicyNumber();
-					if("GI".equalsIgnoreCase(policyType)){
+					if(FWDCUST_POLICY_TYPE_GI.equalsIgnoreCase(policyType)){
 						p.setPolicyNumber(processGiPolicyNumberForDisplay(policyNumber));
 					}
 				}
@@ -372,6 +401,21 @@ public class UserController {
     	}
     }
 
+
+    private boolean isActiveFwdCustPolicy(PurchaseHistoryPolicies entity, List<String> fwdCustPolicyActiveStatusList, long currentTime){
+    	boolean resultIsActive = false;
+    	String policyType = entity.getPolicyType();
+    	if(FWDCUST_POLICY_TYPE_LIFE.equalsIgnoreCase(policyType)){
+    		String status = entity.getStatus();
+    		if(fwdCustPolicyActiveStatusList.contains(status)){
+    			resultIsActive = true;
+    		}
+    	}else if(FWDCUST_POLICY_TYPE_GI.equalsIgnoreCase(policyType)){
+    		resultIsActive = currentTime <= DateApi.String2Long(entity.getExpiryDate());
+    	}
+    	return resultIsActive;
+    }
+    
 	private void processPhwPolicyCategory(HttpServletRequest request, Model model, PurchaseHistoryResponse phwPurchaseHistory) {
 		if(request==null||model==null||phwPurchaseHistory==null){return;}
 //		String methodName = "processPhwPolicyCategory";
@@ -402,6 +446,13 @@ public class UserController {
 		
 		long currentTime = DateApi.getCurrentTime();
 		String inComplete = WebServiceUtils.getMessage("user.policy.status.incomplete", UserRestURIConstants.getLanaguage(request));
+		String inforce = WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request));
+		
+		Map<String,String> phwPolicyLifeActiveStatus = this.getPhwPolicyLifeActiveStatus(request);
+		List<String> phwPolicyLifeActiveStatusList = new ArrayList<String>();
+		if(phwPolicyLifeActiveStatus!=null){
+			phwPolicyLifeActiveStatusList.addAll(phwPolicyLifeActiveStatus.keySet());
+		}
 		
 		for(PurchaseHistoryPolicies entity:pls){
 			
@@ -423,31 +474,33 @@ public class UserController {
 		    }
 			if(!StringUtils.isEmpty(entity.getExpiryDate())) {
 				entity.setExpiryDateDesc(DateApi.formatTime2(entity.getExpiryDate()));
-			}else {
-				entity.setExpiryDateDesc(inComplete);
 			}
 			
-			boolean isActive = currentTime <= DateApi.String2Long(entity.getExpiryDate());
+			boolean isActive = isActiveFwdCustPolicy(entity, phwPolicyLifeActiveStatusList, currentTime);
 			if(CAT_LIFE.equalsIgnoreCase(category)){
 				if(isActive){
+					entity.setStatus(inforce);
 					active_life.add(entity);
 				}else{
 					past_life.add(entity);
 				}
 			}else if(CAT_SAVE.equalsIgnoreCase(category)){
 				if(isActive){
+					entity.setStatus(inforce);
 					active_saving.add(entity);
 				}else{
 					past_saving.add(entity);
 				}
 			}else if(CAT_HOUSEHOLD.equalsIgnoreCase(category)){
 				if(isActive){
+					entity.setStatus(inforce);
 					active_house.add(entity);
 				}else{
 					past_house.add(entity);
 				}
 			}else if(CAT_TRAVEL.equalsIgnoreCase(category)){
 				if(isActive){
+					entity.setStatus(inforce);
 					active_travel.add(entity);
 				}else{
 					past_travel.add(entity);
@@ -1105,6 +1158,11 @@ public class UserController {
 					/*session.setAttribute("myOverseasReferralCode",
 							checkJsonObjNull(customer, "referralCode"));*/
 
+					String memberType = (String)customer.get("memberType");
+					String customerId = (String)customer.get("customerId");
+					if(memberType!=null)session.setAttribute("memberType", memberType);
+					if(customerId!=null)session.setAttribute("customerId", customerId);
+					
 					UserDetails loginUserDetails = new UserDetails();
 					loginUserDetails.setToken(checkJsonObjNull(response, "token"));
 					loginUserDetails.setFullName(checkJsonObjNull(customer, "name"));
@@ -1225,6 +1283,11 @@ public class UserController {
 							checkJsonObjNull(customer, "referralCode"));
 					/*session.setAttribute("myOverseasReferralCode",
 							checkJsonObjNull(customer, "referralCode"));*/
+					
+					String memberType = (String)customer.get("memberType");
+					String customerId = (String)customer.get("customerId");
+					if(memberType!=null)session.setAttribute("memberType", memberType);
+					if(customerId!=null)session.setAttribute("customerId", customerId);
 
 					UserDetails loginUserDetails = new UserDetails();
 					loginUserDetails.setToken(checkJsonObjNull(response, "token"));

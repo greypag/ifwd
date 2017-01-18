@@ -15,6 +15,10 @@ var nextPage = "${nextPageFlow}";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/motor/selectize.bootstrap3.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/motor-styles.css" type="text/css">
 <style type="text/css" media="all">
+.modal-dialog {
+    margin: auto !important;
+   padding-top: 3%;
+}
 #carValue{
 max-width: 150px;
 }
@@ -128,7 +132,7 @@ width: 100px !important;
                             <div class="form-group custom-dollar-box">
                                 <label for=""><fmt:message key="motor.getquote.statement.part7" bundle="${motorMsg}" /></label>
                                 <div class="help-block-wrap">
-                                    <input type="text" class="form-control" id="carValue" placeholder="0" name="carEstimatedValue" data-required-error='<fmt:message key="motor.error.msg.carvalue.empty" bundle="${motorMsg}" />' data-min-error='<fmt:message key="motor.error.msg.carvalue.toohigh" bundle="${motorMsg}" />' required>
+                                    <input type="text" class="form-control" id="carValue" maxlength="9" onkeypress="return setMaxLength(this,8);" placeholder="0" name="carEstimatedValue" data-required-error='<fmt:message key="motor.error.msg.carvalue.empty" bundle="${motorMsg}" />' data-min-error='<fmt:message key="motor.error.msg.carvalue.toohigh" bundle="${motorMsg}" />' required>
                                    <label><fmt:message key="motor.getquote.statement.part8" bundle="${motorMsg}" /> </label> 
                                    <button type="button" class="btn btn-default pull-right" data-toggle="tooltip" data-html="true" title="<fmt:message key="motor.getquote.statement.tooltips" bundle="${motorMsg}" />">
                                  <i class="fa fa-question-circle" aria-hidden="true"></i>
@@ -215,47 +219,83 @@ width: 100px !important;
                         </div>
                         </div>
                     </div>
-                    <!-- <div id="testimonials" class="q5 fadeInUp animated hidden">
+                    <div id="testimonials" class="q5 fadeInUp animated hidden">
                         <div class="center">
-                            <h2><fmt:message key="motor.getquote.promotion.heading" bundle="${motorMsg}" /></h2>
+                            <h2><fmt:message key="motor.Promotecode.title" bundle="${motorMsg}" /></h2>
                         </div>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" name="promoCode" id="" class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.placeholder" bundle="${motorMsg}" />' />
+                                        <input type="text" name="promoCode" id="promoCode" class="form-control" value="" placeholder='<fmt:message key="motor.promotecode.fieldlabel" bundle="${motorMsg}" />' />
+                                                                      		  <br/>
+										<div id="promo-errors" class="help-block with-errors color-red heading-h5"
+											role="alert" style="position:static"></div> 
+                                        <br/>
+                                        <%-- 
                                         <label>
-                                            <a href="javascript:;"><fmt:message key="motor.getquote.promotion.how.text" bundle="${motorMsg}" /></a>
+                                            <a href="javascript:;" id="findPromo" ><fmt:message key="motor.promotecode.get.promotecode" bundle="${motorMsg}" /></a>
                                         </label>
-                                        <br/>
-                                        <br/>
+                                        --%>                           
                                     </div>
-                                    <div class="col-md-6 text-left">
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="the-club-member-toggle" name="clubMember"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/theclub-logo.png" > <fmt:message key="motor.getquote.promotion.clubmemeber.checkbox" bundle="${motorMsg}" /></a></label>
-                                        </div>
-                                        <span class="text-red" id="errClubMemberID"></span>
-                                        <div class="form-group hidden" >
-                                            <div class="input-group">
-                                                <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'The Club Membership Number');" onblur="placeholderOnBlur(this,'The Club Membership Number');" value="The Club Membership Number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" name="clubMemberNum" id="" class="form-control" value="" placeholder='<fmt:message key="motor.getquote.promotion.clubmemeber.placeholder" bundle="${motorMsg}" />' />
-                                    </div>
-                                </div>
+                                <div class="col-md-6 col-md-offset-3">
+			                            <div class="row">
+			                            	<div class="col-xs-6">
+			                                    <a href="javascript:;" style="cursor:not-allowed" data="check" class="finalsubmitGetQuote bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></a>
+			                                    <br />
+			                                </div>
+			                                <div class="col-xs-6">
+			                                    <a href="javascript:;" data="go" class="finalsubmitGetQuote bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.skip" bundle="${motorMsg}" /></a>
+			                                    <br />
+			                                </div>
+			                                
+			                            </div>
+			                        </div>
                             </div>
                         </div>
-                    </div> -->
-
+                    </div>
                 </form>
             </div>
         </div>
     </div>
     <!--/.container-->
 </section>
+<!-- SaveForm Modal -->
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content plan-modal">
+            <div class="login-close-wrapper" style="padding-right: 15px;padding-top: 10px;display:none"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+            <div class="login-title-wrapper">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 plan-panel">
+                        <h3 class="heading-h3 color-orange text-center">
+                           <fmt:message key="motor.lightbox.welcomeback.title" bundle="${motorMsg}" /> <span class="userName"></span>
+                        </h3>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+                        <p>
+                            <fmt:message key="motor.lightbox.welcomeback.copy" bundle="${motorMsg}" />  </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 plan-panel">
+                        <div class="row" >
+                            <div class="text-center col-xs-6">
+                                <br />
+                                <a class="bdr-curve btn btn-primary nxt-btn startAgain"><fmt:message key="motor.button.restart.process" bundle="${motorMsg}" /></a>
+                                <br/>
+                            </div>
+                            <div class="text-center col-xs-6">
+                                <br />
+                                <a class="bdr-curve btn btn-primary nxt-btn continue"><fmt:message key="motor.button.savecontinue.continue" bundle="${motorMsg}" /> </a>
+                                <br/>
+                            </div>
+                            <div class="clearfix"></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="contactpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div
@@ -394,9 +434,241 @@ width: 100px !important;
         </div>
     </div>
 </div>
+<!--Get promotion code popup-->
+<div class="modal fade bs-promo-modal-lg " id="PromoModal" tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
+  <div class="modal-dialog modal-lg">
+            <div class="modal-content plan-modal">
+                <div class="login-form" id="sendmailofpromocode">
+                <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
+                     <span aria-hidden="true" style="font-size:30px;">×</span>
+                   </a>
+                </div>
+                <form>
+                    <div class="form-container">
+                        <h2><fmt:message key="motor.promotecode.get.promotecode.title" bundle="${motorMsg}" /></h2>
+                        <div class="alert alert-success proSuccess hide"></div>
+                        <h4><fmt:message key="motor.promotecode.get.promotecode.email" bundle="${motorMsg}" /></h4>
+                        <div class="form-group">
+                        	<input type="email" class="form-control" data-required-error='<fmt:message key="motor.error.msg.getquote.email.format" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.getquote.email.empty" bundle="${motorMsg}" />' placeholder=""
+                                name="emailToSendPromoCode" id="emailToSendPromoCode" style="background-color:#f2f2f2">
+                     
+                        </div>
+                        <span id="errPromoEmail" class="text-red"></span> <br>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                               
+                                <button type="submit" onclick="return sendEmail()"
+                                                            class="bdr-curve btn btn-primary btn-lg wd5">
+                                                            <fmt:message key="motor.button.submit"
+																bundle="${motorMsg}" />
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
+                            </div>
+                            <br> <br>
+                            <div class="col-lg-12 col-md-12">
+                                <p><fmt:message key="motor.promotecode.get.promotecode.footer" bundle="${motorMsg}" />	</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+
+
+            </div>
+        </div>
+</div>
+<!--/ Get promotion code popup-->
+
+
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/selectize.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/jquery.maskMoney.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/getQuote-form.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/motor-forms.js"></script>
+<script type="text/javascript">
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+var uri="";
+var tempquote="";
+var loginStatus=false;
+function callback_motor_LoginSuccess(){
+	//alert('Login success. Call Save later API.');
+	//$('#saveModal').modal("show");
+	var empty = {}; 
+	  $.ajax({
+			url:fwdApi.url.resume,
+			type:"post",
+			contentType: "application/json",
+			data: JSON.stringify(empty),
+			cache:false,
+			async:false,
+		    error:function (xhr, textStatus, errorThrown){
+		        //alert("error");
+		    },
+		    success:function(response){
+		    	console.dir(response);
+		    	//uri = response.uri;
+		    	//tempquote = response.motorCareDetails;
+		    	//$('#saveModal').modal("show");
+		    }
+		});
+}
+function sendEmail() {
+    $('.proSuccess').addClass('hide');
+    if (get_promo_val()) {
+    	//console.log($("#sendmailofpromocode form").serialize());
+        $.ajax({
+            type : "POST",
+            url : context + "/api/iMotor/email/promoCodes",
+            data : $("#sendmailofpromocode form").serialize(),
+            async : false,
+            success : function(data) {
+                //if (data.result == 'OK') {
+                	var chin = $('body').hasClass('chin');
+					if($('body').hasClass('chin'))
+                   		$('.proSuccess').removeClass('hide').html("謝謝！您的推廣編號已發送至到你所提交的電郵地址。");
+					else
+						$('.proSuccess').removeClass('hide').html("Thank you. Your promotion code has been emailed to you.");
+					
+               // } else {
+                	//console.log(data);
+               //     $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "motor.error.msg.getquote.promote.format"))
+               // }
+            },
+            error : function() {
+            }
+        });
+    }
+    return false;
+}
 
+$(document).ready(function(){
+	function setMaxLength(obj, len) {
+		return (obj.value.length < len);
+	}
+	$('#loading-overlay').modal("show");
+	var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+    
+    if(getUrlParameter("type")=="3")
+    {
+    	$('#loginpopup').modal("show");
+    }
+    
+    if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
+    {   
+    	$(".q2,.q3,.q4").removeClass("hidden");//q5 for promo
+    	
+		$('input[name=cc]').val(quote.carDetail.engineCapacity)
+		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
+		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
+		$('input[name=validAgeGroup]').attr("checked",true);	
+		$('input[name=driveMoreThanTwo]').attr("checked",true);	
+    }
+    
+  //Check UserLogin
+	$.ajax({
+		url:fwdApi.url.session,
+		type:"get",
+		contentType: "application/json",
+		cache:false,
+		async:false,
+	    error:function (xhr, textStatus, errorThrown){
+	    	
+	        if(xhr.status == 404){		        
+	        	$(".before-login").show();
+	        } else {
+	        	$(".before-login").show();
+	        }
+	    },
+	    success:function(response){
+	    	if(response){
+	    		if(response.userName == '*DIRECTGI'){
+	    			loginStatus=false;
+	    			//$('#loginpopup').modal("show");
+	    			//$(".before-login").show();
+	    			//$("#saveModal").removeClass("hidden");
+	    			return false;	
+	    		}else
+	    		{   loginStatus=true;
+	    			var empty = {}; 
+	    		  $.ajax({
+	    				url:fwdApi.url.resume,
+	    				type:"post",
+	    				contentType: "application/json",
+	    				data: JSON.stringify(empty),
+	    				cache:false,
+	    				async:false,
+	    			    error:function (xhr, textStatus, errorThrown){
+	    			        //alert("error");
+	    			    },
+	    			    success:function(response){
+	      			    	console.dir(response);
+	      			    	uri = response.uri;
+	       			    	tempquote = response.motorCareDetails;
+	      			    	//if(getUrlParameter("edit")!="yes")
+	      			    	   	//$('#saveModal').modal("show");
+	    			    }
+	    			});
+	    		}
+	    	}
+	    }
+	});
+	
+  	$(".startAgain").on("click",function(){
+  		$('#saveModal').modal("hide");
+  	});
+  	  
+    $(".continue").on("click",function(){
+    		resume = true;
+    		quote = tempquote;
+    		console.dir(quote);
+    		if(getUrlParameter("edit") == "yes")
+    		{
+    			$('#saveModal').modal("hide");
+	    		$(".q2,.q3,.q4,.q5").removeClass("hidden");
+	    		
+	    		$('input[name=cc]').val(quote.carDetail.engineCapacity)
+	    		$('input[name=carYearOfManufacture]').val(quote.carDetail.yearOfManufacture)
+	    		$('input[name=carEstimatedValue]').val(quote.carDetail.estimatedValue)
+	    		
+	    		$('input[name=validAgeGroup]').attr("checked",true);	
+	    		$('input[name=driveMoreThanTwo]').attr("checked",true);	
+	    		$carMake[0].selectize.setValue(quote.carDetail.makeCode);
+	    		$occupation[0].selectize.setValue(quote.driver[0].occupation);
+	    		$car_details[0].selectize.setValue(quote.carDetail.model);	
+	    		  var $q3 = $('.get-quote-field').find('.q3');
+	    		 		$q3.find('select').change(function(){
+	    		    	var sel = quote.driver[0].ncd,
+	    		    	selValue = sel.options[sel.selectedIndex].value;
+	    		  });
+    		}else if(uri != "get-quote"){
+	    		var $form = $("<form id='quote-form' />");
+	          	$form.attr("action", uri+"?edit=yes");
+	            $form.attr("method", "post");
+	            var $quote = $("<input type='hidden' name='data' />");
+	            $quote.attr("value", JSON.stringify(quote));
+	            $form.append($quote);
+	            $("body").append($form);
+	            $('#quote-form').submit();   
+    		}
+	});
+	  
+});
+</script>

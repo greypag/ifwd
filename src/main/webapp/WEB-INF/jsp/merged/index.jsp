@@ -441,6 +441,17 @@ var currentPath = "<%=request.getContextPath()%>";
 			var language = "en";
 
             jQuery(document).ready(function($) {
+					<% if(session.getAttribute("username")==null){ %>
+						console.log('no session username');
+						if (window.location.hash) {
+							var hash = window.location.hash.substring(1);
+							if (hash == "login") {
+								$('#loginpopup').modal();
+							}
+						}
+					<% }else{ %>
+						console.log('has session username');
+					<% } %>
             	
             	// To show review fna modal when clicking FNA CTA button
                 $('#btn-fna-cta').click(function() {

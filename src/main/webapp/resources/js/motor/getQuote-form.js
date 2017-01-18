@@ -7,8 +7,8 @@ enErr = {
 415: 'Your No Claim Discount is not eligible for an instant quote.',
 408: 'Your age is not between 25 and 70 years old.',
 409: 'Your driving experience is not eligible for an instant quote.',
-400: 'Quotation information is invalid.',
-500: 'System service is currently unavailable.',
+422: 'Quotation information is invalid.',
+504: 'System service is currently unavailable.',
 412: 'The estimated value of your car exceeds the maximum value allowed.',
 413: 'The estimated value of your car is below the minimum value allowed.',
 416: 'Your vehicle is not eligible for an instant quote.'
@@ -21,8 +21,8 @@ cnErr ={
 		415: '您的無索償折扣未能合乎即時報價的要求。', 
 		408: '您的年齡並非界乎25至70歲。',                 
 		409: '您的駕駛年資未能合乎即時報價的要求。',
-		400: '報價資料不正確。',
-		500: '系統現時未能提供服務。',
+		422: '報價資料不正確。',
+		504: '系統現時未能提供服務。',
 		412: '您輸入的座駕估計市值超出最高上限。',
 		413: '您輸入的座駕估計市值低於最低下限。',
 		416: '您的汽車未能符合即時報價的要求。'
@@ -34,7 +34,10 @@ $('#madeYearVal').prop('min', newMin);
 $('#madeYearVal').prop('max', newMax);
 
 var quote;
+var submitData;
 var carMake, $carMake, occupation, $occupation, ncd, $ncd;
+var car_details, $car_details;
+var resume = false;
 $(document).ready(function(){
     var $custom_dollarBox = $('.custom-dollar-box input[type="text"]');
     var $q1 = $('.get-quote-field').find('.q1');
@@ -192,8 +195,11 @@ $(document).ready(function(){
         });
         var error = $q3.find('.has-error').length;
         
+     
+        //if(!empty_select.length && !error){
         
-        if(!empty_select.length && !error){
+    	if($("#occupation").val()!="" && !$q2.hasClass('hidden'))
+    	{		
            	$q3.next().removeClass('hidden');
            	if(selValue == "")
            	ncd.open();
@@ -215,7 +221,7 @@ $(document).ready(function(){
     var carMakeApi;
     
     var xhr;
-    var car_details, $car_details;
+
     if($('.get-quote-form').length){
        $carMake = $('#carMake').selectize({
             valueField: 'makeCode',
@@ -235,16 +241,28 @@ $(document).ready(function(){
                         },
                         success: function(res) {
                             callback(res);
-                            var sessionCarMake = sessionStorage.getItem('carMake');
+							
+                            /*var sessionCarMake = sessionStorage.getItem('carMake');
                             if(sessionCarMake){
                             	$carMake[0].selectize.setValue(sessionCarMake);
                             	$('.q1, .q2, .q3, .q4, .q5').removeClass('hidden');
-                            }
-
+                            }*/
+							//$.each(res, function(i, item) {
+								if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
+								{
+									//console.log(item.makeCode+"-"+quote.carDetail.makeCode);
+									//if(item.makeCode == quote.carDetail.makeCode)
+									{
+										$carMake[0].selectize.setValue(quote.carDetail.makeCode);	
+									}
+								}
+								
+							//});
                         }
                 });
             },
             onChange: function(value){
+				
             	carMakeApi = "";
                 if (!value.length) {
                     car_details.disable();
@@ -265,7 +283,7 @@ $(document).ready(function(){
                             var i = 0, eCar;
                            
                             carMakeApi = context + '/api/iMotor/carDetails/'+value;
-                           
+                            
                             var sessionCarModel = sessionStorage.getItem('carModel');
                             if(sessionCarModel){
                             	$car_details[0].selectize.setValue(sessionCarModel);
@@ -273,6 +291,10 @@ $(document).ready(function(){
                             		sessionStorage.clear();
                             		}, 500);
                             }
+							else if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
+							{
+								$car_details[0].selectize.setValue(quote.carDetail.model);	
+							}
                             else
                             	car_details.open();
                             	
@@ -290,6 +312,50 @@ $(document).ready(function(){
             valueField: 'model',
             labelField: 'model',
             searchField: ['model'],
+			load: function(query, callback) {
+
+				if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
+				{
+					var eCarApi = carMakeApi + "/supplement" + "?carModel=" + value; 
+            	$.ajax({
+            		  url: eCarApi,
+            		  contentType: "application/json",
+            		  type: 'GET',
+            		  dataType: "json",
+            		  success: function(data) {
+            		//	  console.log(data);
+            	//		  console.log(data.electricCar);
+            	            if(data.electricCar){
+            	            //	console.log('eCar!!');
+            	            	$('#cc').addClass('hidden');
+            	            	$('#cc').find('div > input[name="cc"]').removeAttr('required');
+            	            }
+            	            else{
+            	        //    	console.log('Not eCar!!');
+            	            	$('#cc').removeClass('hidden');
+            	            	$('#cc').find('div > input[name="cc"]').prop('required',true);
+            	            }
+							$.each(data, function(i, item) {
+							//console.log(item.model+"-"+quote.carDetail.model);
+							if(item.model == quote.carDetail.model)
+							{
+								$car_details[0].selectize.setValue(item.model);	
+							}
+					
+					});
+							
+                      }, 
+                      error: function() {
+                        //  alert(eCarApi);
+                      }
+            		});
+            	
+
+            	
+            	$('#cc').find('input').focus();
+					
+				}
+			},
             onChange: function(value){
             	var eCarApi = carMakeApi + "/supplement" + "?carModel=" + value; 
             	$.ajax({
@@ -310,6 +376,8 @@ $(document).ready(function(){
             	            	$('#cc').removeClass('hidden');
             	            	$('#cc').find('div > input[name="cc"]').prop('required',true);
             	            }
+							
+							
                       }, 
                       error: function() {
                         //  alert(eCarApi);
@@ -347,10 +415,21 @@ $(document).ready(function(){
                         },
                         success: function(res) {
                             callback(res);
+							$('#loading-overlay').modal("hide");
                             var sessionOccupation = sessionStorage.getItem('occupation');
                             if(sessionOccupation){
                             	$occupation[0].selectize.setValue(sessionOccupation);
                             }
+							if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
+							{
+								$.each(res, function(i, item) {
+								//console.log(item.code+"-"+quote.applicant.occupation);
+									if(item.code == quote.applicant.occupation)
+									{
+										$occupation[0].selectize.setValue(item.code);	
+									}
+								});
+							}
                         }
                 });
             }
@@ -360,6 +439,10 @@ $(document).ready(function(){
         	preload: true,
             load: function(query, callback) {
             	 $('#ncd-selectized').data('required-error', $('#ncd').data('required-error'));
+				if(getUrlParameter("edit")=="yes"|| getUrlParameter("back")=="yes")
+				{
+						$ncd[0].selectize.setValue(quote.applicant.ncb);	
+				}
             }
         });
         ncd = $ncd[0].selectize;
@@ -380,249 +463,738 @@ $(document).ready(function(){
         
     	if (getUrlParameter('plan')=='third')
     		$q2.find('#carValue').removeAttr('required');
-    
+		var promo=false;
+		
+		$("#findPromo").on('click',function(e){
+			$("#PromoModal").modal("show");
+		});
+		
         $('#submitGetQuote').on('click', function(e){
-        	e.preventDefault();
-        	  $('#get-quote-form').validator('validate');
-        	  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
-          	if($('#carValue').prop('required')){
-            	if(num < 50000){
-            		 $('.custom-dollar-box').addClass('has-error has-danger');
-            		 var err = $('#carValue').data('min-error');
-            		 $('#carValue').parents('.form-group').find('.help-block.with-errors').html('<ul class="list-unstyled"><li>' + err + '</li></ul>');
-            	}
-            	else{
-            		$('#carValue').parents('.form-group').find('.help-block.with-errors').empty();
-            		$('.custom-dollar-box').removeClass('has-error has-danger');
-            	}
-            	}
-        	  
-        	if(!$('#get-quote-form .has-error').length){
-             	var isThird;
-            	if (getUrlParameter('plan')=='third') {
-            		isThird = true;
-            	} else {
-            		isThird = false;
-            	}
-            	var
-                //formObject = $(this).serializeArray(),
-                carMakeCode = $('[name="carMakeCode"]').val(),
-                carModel = $('[name="carModel"]').val(),
-                cc = $('[name="cc"]').val(),
-                ncb = $('[name="ncb"]').val(),
-                carYearOfManufacture = $('[name="carYearOfManufacture"]').val(),
-                clubMember = $('[name="clubMember"]').val(),
-                num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000,
-                occupation = $('[name="occupation"]').val(),
-                driveMoreThanTwo = "true",
-                validAgeGroup = "true",
-                promoCode = $('[name="promoCode"]').val(),
-                clubMemberNum = $('[name="clubMemberNum"]').val(),
-                ncd = $('[name="ncd"]').val(),
-                driveMoreThanTwo = $('[name="driveMoreThanTwo"]').is(':checked'),
-                validAgeGroup = $('[name="validAgeGroup"]').is(':checked');
-            	
-            	if (isThird)
-            		var carEstimatedValue = (num == 0) ? "" : num;
-            	else
-            		var carEstimatedValue = num;
-            	
-                quote = {
-                    "quoteDriver": {
-                        "carEstimatedValue": carEstimatedValue,
-                        "carMakeCode": carMakeCode,
-                        "carCC": cc,
-                        "carModel": carModel,
-                        "carYearOfManufacture": carYearOfManufacture,
-                        "driveMoreThanTwo": driveMoreThanTwo,
-                        "ncb": ncd,
-                        "occupation": occupation,
-                        "validAgeGroup": validAgeGroup
-                    },
-                    "planCode": null,
-                    "compPlan": null,
-                    "personalAccident": false,
-                    "thirdPartyPropertyDamage": false
-                };
-                if (isThird) {
-                    quote.planCode = "Third";
-                    quote.compPlan = null; 
-                } else {
-                    quote.planCode = "Comp";
-                    quote.compPlan = "Silver"; 
-                }
-          //  console.log(num);
-                	$.ajax({
-                        beforeSend: function(){
-                        	$('#loading-overlay').modal("show");
-                        },
-                        type: "POST",
-                        url: context + "/api/iMotor/quote",  //post to api
-                        data: JSON.stringify(quote),
-                        success: function(){
-                        	sessionStorage.setItem('carMake', carMakeCode);
-                        	sessionStorage.setItem('carModel', carModel);
-                        	sessionStorage.setItem('occupation', occupation);
-                          //	e.preventDefault();
-                            $('#loading-overlay').modal("hide");
-                            var $form = $("<form id='quote-form' />");
-                            if (isThird) {
-                                $form.attr("action", "third-party-quote");
-                            } else {
-                                $form.attr("action", "comprehensive-quote");
-                            }
-                            $form.attr("method", "post");
-                            var $quote = $("<input type='hidden' name='data' />");
-                            $quote.attr("value", JSON.stringify(quote));
-                            $form.append($quote);
-                            $("body").append($form);
-                            $('#quote-form').submit();                        
-                        },
-                        dataType: "json",
-                        contentType : "application/json",
-                        cache: false,
-                        async: false,
-                        error: function(xhr, textStatus, errorThrown) {
-                        	$('#reason').attr('value', xhr.status);
-                        	e.preventDefault();
-                            if (xhr.status == 400) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[400]);
-                            	else
-                            		$("#reasonMsg").text(enErr[400]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            if (xhr.status == 405) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[417]);
-                            	else
-                            		$("#reasonMsg").text(enErr[417]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 410) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[410]);
-                            	else
-                            		$("#reasonMsg").text(enErr[410]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 417) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[417]);
-                            	else
-                            		$("#reasonMsg").text(enErr[417]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 406) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[406]);
-                            	else
-                            		$("#reasonMsg").text(enErr[406]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 408) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[408]);
-                            	else
-                            		$("#reasonMsg").text(enErr[408]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 409) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[409]);
-                            	else
-                            		$("#reasonMsg").text(enErr[409]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 410) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[410]);
-                            	else
-                            		$("#reasonMsg").text(enErr[410]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 412) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[412]);
-                            	else
-                            		$("#reasonMsg").text(enErr[412]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 413) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[413]);
-                            	else
-                            		$("#reasonMsg").text(enErr[413]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 414) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[414]);
-                            	else
-                            		$("#reasonMsg").text(enErr[414]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 415) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[415]);
-                            	else
-                            		$("#reasonMsg").text(enErr[415]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 416) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[416]);
-                            	else
-                            		$("#reasonMsg").text(enErr[416]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                            } 
-                            else if (xhr.status == 500) {
-                            	if(chin)
-                            		$("#reasonMsg").text(cnErr[500]);
-                            	else
-                            		$("#reasonMsg").text(enErr[500]);
-                                $("#contactpopup").modal('show');
-                                window.location.hash = "callme=popup";
-                                console.log(xhr.status, textStatus, errorThrown);
-                                
-                            } else {
-                                $("#reasonMsg").text('System error');
-                                console.log(xhr.status, textStatus, errorThrown);
-                             
-                            }
-                            $("#loading-overlay").modal("hide");
-                         
-                        }
-                    });
-        		
-        	}
-        });
+			//if(promo==false)
+			{
+				promo=true;
+				$("#testimonials").removeClass('hidden');
+				setTimeout(function(){ 
+					$('html, body').animate({
+						scrollTop: $("#testimonials").offset().top
+					}, 500);	
+				},500);
+				//$('#promoCode').prop('required',true);
+				//$('#motor_registerForm').validator('update');
+				return false;
+			}
+		});
+        $("#promoCode").keyup(function(e){
+        	if($("#promoCode").val().length ==0)
+        		$(".finalsubmitGetQuote").css({"cursor":"not-allowed"});
+        	else
+        		$(".finalsubmitGetQuote").css({"cursor":"pointer"});
+        })
+		$('.finalsubmitGetQuote').validator().on('click', function(e){
+			
+			e.preventDefault();
+			if($(this).attr('data')=="check")
+			{
+				//$('#promoCode').prop('required',true);
+				//$('#motor_registerForm').validator('update');
+				//$('#get-quote-form').validator('validate');
+				if($("#promoCode").val().length ==0)
+					return false;
+			}else
+			{
+				$("#promo-errors").html("");
+				$('#promoCode').prop('required',false);
+				$('#motor_registerForm').validator('update');
+				$('#get-quote-form').validator('validate');
+			}
+			
+			
+				 
+				  var num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000;
+				if($('#carValue').prop('required')){
+					if(num < 50000){
+						 $('.custom-dollar-box').addClass('has-error has-danger');
+						 var err = $('#carValue').data('min-error');
+						 $('#carValue').parents('.form-group').find('.help-block.with-errors').html('<ul class="list-unstyled"><li>' + err + '</li></ul>');
+					}
+					else{
+						$('#carValue').parents('.form-group').find('.help-block.with-errors').empty();
+						$('.custom-dollar-box').removeClass('has-error has-danger');
+					}
+					}
+				  
+				if(!$('#get-quote-form .has-error').length){
+					var isThird;
+					if (getUrlParameter('plan')=='third' || getUrlParameter('plan')=='Third') {
+						isThird = true;
+					} else {
+						isThird = false;
+					}
+					var
+					//formObject = $(this).serializeArray(),
+					carMakeCode = $('[name="carMakeCode"]').val(),
+					carModel = $('[name="carModel"]').val(),
+					cc = $('[name="cc"]').val(),
+					ncb = $('[name="ncb"]').val(),
+					carYearOfManufacture = $('[name="carYearOfManufacture"]').val(),
+					clubMember = $('[name="clubMember"]').val(),
+					num = $('[name="carEstimatedValue"]').maskMoney('unmasked')[0]*1000,
+					occupation = $('[name="occupation"]').val(),
+					driveMoreThanTwo = "true",
+					validAgeGroup = "true",
+					promoCode = $('[name="promoCode"]').val(),
+					clubMemberNum = $('[name="clubMemberNum"]').val(),
+					ncd = $('[name="ncd"]').val(),
+					driveMoreThanTwo = $('[name="driveMoreThanTwo"]').is(':checked'),
+					validAgeGroup = $('[name="validAgeGroup"]').is(':checked');
+					
+					if (isThird)
+						var carEstimatedValue = (num == 0) ? "" : num;
+					else
+						var carEstimatedValue = num;
+					
+						submitData = {
+						"applicant": {
+							"ncb": ncd,
+							"occupation": occupation,
+							"driveMoreThanTwo": driveMoreThanTwo,         
+							"validAgeGroup": validAgeGroup
+						},
+						"carDetail": {
+							 "estimatedValue": carEstimatedValue,
+							 "makeCode": carMakeCode,
+							 "engineCapacity": cc,
+							 "model": carModel,
+							 "yearOfManufacture": carYearOfManufacture                        
+						}, 
+						"driver" : [{   
+							"ncb": ncd,
+							"occupation": occupation,
+							"driveMoreThanTwo": driveMoreThanTwo,         
+							"validAgeGroup": validAgeGroup, 
+						}],
+						"planCode": null,
+						"compPlan": null,
+						"personalAccident": false,
+						"thirdPartyPropertyDamage": false
+						//"promoCode":promoCode
+					};
+					if (isThird) {
+						submitData.planCode = "Third";
+						submitData.compPlan = null; 
+					} else {
+						submitData.planCode = "Comp";
+						submitData.compPlan = "Silver"; 
+					}
+					
+					if(getUrlParameter("edit")=="yes"|| getUrlParameter("back")=="yes")
+					{
+							
+						submitData.personalAccident = quote.personalAccident;
+						submitData.thirdPartyPropertyDamage = quote.thirdPartyPropertyDamage;
+						submitData.planCode = quote.planCode;
+						submitData.compPlan = quote.compPlan;
+					
+					}
+					
+			if($(this).attr('data')=="check")
+			{
+				
+				$("#promo-errors").html("");
+				submitData.promoCode = promoCode;
+					 $.ajax({
+						  type: "POST",
+						  data: JSON.stringify(submitData),
+						  dataType: "json",
+						  contentType : "application/json",
+						  cache: false,
+						  async: false,
+						  url:context + "/api/iMotor/quote",
+						  success: function(data){
+	
+							$.ajax({
+							beforeSend: function(){
+								$('#loading-overlay').modal("show");
+							},
+							type: "POST",
+							url: context + "/api/iMotor/quote",  //post to api
+							data: JSON.stringify(submitData),
+							success: function(){
+								//sessionStorage.setItem('carMake', carMakeCode);
+								//sessionStorage.setItem('carModel', carModel);
+								//sessionStorage.setItem('occupation', occupation);
+							  //	e.preventDefault();
+								$('#loading-overlay').modal("hide");
+								var $form = $("<form id='quote-form' />");
+								if (isThird) {
+									if(resume==true)
+										$form.attr("action", "third-party-quote?edit=yes");
+									else if(getUrlParameter("edit")=="yes" || getUrlParameter("back")=="yes")
+										$form.attr("action", "third-party-quote?edit=yes");
+									else
+										$form.attr("action", "third-party-quote");
+								} else {
+									if(resume==true)
+										$form.attr("action", "comprehensive-quote?edit=yes");
+									else if(getUrlParameter("edit")=="yes")
+										$form.attr("action", "comprehensive-quote?edit=yes");
+									else
+										$form.attr("action", "comprehensive-quote");
+								}
+								$form.attr("method", "post");
+								var $quote = $("<input type='hidden' name='data' />");
+								if(resume==true)
+								{
+									var opts = {};
+									opts = $.extend(opts,quote, submitData);
+									opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+									opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+									opts=  $.extend(opts,{"driver": $.extend(quote.driver[0], submitData.driver[0])});
+									$quote.attr("value", JSON.stringify(opts));				
+								}
+								else if(getUrlParameter("edit")=="yes")
+								{
+									var opts = {};
+									opts = $.extend(opts,quote, submitData);
+									opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+									opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+									opts=  $.extend(opts,{"driver": $.extend([],quote.driver, submitData.driver)});
+									$quote.attr("value", JSON.stringify(opts));	
+								}
+								else
+								{
+									$quote.attr("value", JSON.stringify(submitData));
+								}//$quote.attr("value", JSON.stringify(quote));
+								//console.dir(opts);
+								$form.append($quote);
+								$("body").append($form);
+								$('#quote-form').submit();                        
+							},
+							dataType: "json",
+							contentType : "application/json",
+							cache: false,
+							async: false,
+							error: function(xhr, textStatus, errorThrown) {
+								$('#reason').attr('value', xhr.status);
+								e.preventDefault();
+                            	if (xhr.status == 422) {
+									if(chin)
+                            			$("#reasonMsg").text(cnErr[422]);
+									else
+                            			$("#reasonMsg").text(enErr[422]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								if (xhr.status == 405) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 417) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								}
+								else if (xhr.status == 418) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[418]);
+									else
+										$("#reasonMsg").text(enErr[418]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 								
+								else if (xhr.status == 406) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[406]);
+									else
+										$("#reasonMsg").text(enErr[406]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 408) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[408]);
+									else
+										$("#reasonMsg").text(enErr[408]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 409) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[409]);
+									else
+										$("#reasonMsg").text(enErr[409]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 412) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[412]);
+									else
+										$("#reasonMsg").text(enErr[412]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 413) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[413]);
+									else
+										$("#reasonMsg").text(enErr[413]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 414) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[414]);
+									else
+										$("#reasonMsg").text(enErr[414]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 415) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[415]);
+									else
+										$("#reasonMsg").text(enErr[415]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 416) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[416]);
+									else
+										$("#reasonMsg").text(enErr[416]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+                            	else if (xhr.status == 504) {
+									if(chin)
+                            			$("#reasonMsg").text(cnErr[504]);
+									else
+                            			$("#reasonMsg").text(enErr[504]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+									
+								} else {
+									$("#reasonMsg").text('System error');
+									console.log(xhr.status, textStatus, errorThrown);
+								 
+								}
+								$("#loading-overlay").modal("hide");
+							 
+							}
+						});
+							
+						  },error: function(xhr, textStatus, errorThrown) {
+							$('#reason').attr('value', xhr.status);
+							e.preventDefault();
+							if (xhr.status == 418)
+							{	
+								if(motorlanguage == "EN")						
+									$("#promo-errors").html("Promotion Code is invalid or has already been used.");
+								else
+									$("#promo-errors").html("推廣編號不正確或已被使用。");
+							}
+							else if (xhr.status == 422) {
+									if(chin)
+                            			$("#reasonMsg").text(cnErr[422]);
+									else
+                            			$("#reasonMsg").text(enErr[422]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								if (xhr.status == 405) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 417) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								}/*
+								else if (xhr.status == 418) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[418]);
+									else
+										$("#reasonMsg").text(enErr[418]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								}*/ 								
+								else if (xhr.status == 406) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[406]);
+									else
+										$("#reasonMsg").text(enErr[406]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 408) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[408]);
+									else
+										$("#reasonMsg").text(enErr[408]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 409) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[409]);
+									else
+										$("#reasonMsg").text(enErr[409]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 412) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[412]);
+									else
+										$("#reasonMsg").text(enErr[412]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 413) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[413]);
+									else
+										$("#reasonMsg").text(enErr[413]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 414) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[414]);
+									else
+										$("#reasonMsg").text(enErr[414]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 415) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[415]);
+									else
+										$("#reasonMsg").text(enErr[415]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 416) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[416]);
+									else
+										$("#reasonMsg").text(enErr[416]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+                            	else if (xhr.status == 504) {
+									if(chin)
+                            			$("#reasonMsg").text(cnErr[504]);
+									else
+                            			$("#reasonMsg").text(enErr[504]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+									
+								} else {
+									$("#reasonMsg").text('System error');
+									console.log(xhr.status, textStatus, errorThrown);
+								 
+								}
+								$("#loading-overlay").modal("hide");
+						  }
+						});
+			}
+			else if($(this).attr('data')=="go")
+			{	
+				$("#loading-overlay").modal("show");
+				submitData.promoCode =null;
+					
+			  //  console.log(num);
+						$.ajax({
+							beforeSend: function(){
+								$('#loading-overlay').modal("show");
+							},
+							type: "POST",
+							url: context + "/api/iMotor/quote",  //post to api
+							data: JSON.stringify(submitData),
+							success: function(){
+								//sessionStorage.setItem('carMake', carMakeCode);
+								//sessionStorage.setItem('carModel', carModel);
+								//sessionStorage.setItem('occupation', occupation);
+							  //	e.preventDefault();
+								$('#loading-overlay').modal("hide");
+								var $form = $("<form id='quote-form' />");
+								if (isThird) {
+									if(resume==true)
+										$form.attr("action", "third-party-quote?edit=yes");
+									else if(getUrlParameter("edit")=="yes")
+										$form.attr("action", "third-party-quote?edit=yes");
+									else
+										$form.attr("action", "third-party-quote");
+								} else {
+									if(resume==true)
+										$form.attr("action", "comprehensive-quote?edit=yes");
+									else if(getUrlParameter("edit")=="yes")
+										$form.attr("action", "comprehensive-quote?edit=yes");
+									else
+										$form.attr("action", "comprehensive-quote");
+								}
+								$form.attr("method", "post");
+								var $quote = $("<input type='hidden' name='data' />");
+								if(resume==true)
+								{
+									var opts = {};
+									opts = $.extend(opts,quote, submitData);
+									opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+									opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+									opts=  $.extend(opts,{"driver": $.extend(quote.driver[0], submitData.driver[0])});
+									$quote.attr("value", JSON.stringify(opts));				
+								}
+								else if(getUrlParameter("edit")=="yes")
+								{
+									var opts = {};
+									opts = $.extend(opts,quote, submitData);
+									opts=  $.extend(opts,{"applicant": $.extend(quote.applicant, submitData.applicant)});
+									opts=  $.extend(opts,{"carDetail": $.extend(quote.carDetail, submitData.carDetail)});
+									opts=  $.extend(opts,{"driver": $.extend([],quote.driver, submitData.driver)});
+									$quote.attr("value", JSON.stringify(opts));	
+								}
+								else
+								{
+									$quote.attr("value", JSON.stringify(submitData));
+								}//$quote.attr("value", JSON.stringify(quote));
+								//console.dir(opts);
+								$form.append($quote);
+								$("body").append($form);
+								$('#quote-form').submit();                        
+							},
+							dataType: "json",
+							contentType : "application/json",
+							cache: false,
+							async: false,
+							error: function(xhr, textStatus, errorThrown) {
+								$('#reason').attr('value', xhr.status);
+								e.preventDefault();
+                            	if (xhr.status == 422) {
+									if(chin)
+                            			$("#reasonMsg").text(cnErr[422]);
+									else
+                            			$("#reasonMsg").text(enErr[422]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								if (xhr.status == 405) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 417) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[417]);
+									else
+										$("#reasonMsg").text(enErr[417]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								}
+								else if (xhr.status == 418) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[418]);
+									else
+										$("#reasonMsg").text(enErr[418]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 								
+								else if (xhr.status == 406) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[406]);
+									else
+										$("#reasonMsg").text(enErr[406]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 408) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[408]);
+									else
+										$("#reasonMsg").text(enErr[408]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 409) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[409]);
+									else
+										$("#reasonMsg").text(enErr[409]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 410) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[410]);
+									else
+										$("#reasonMsg").text(enErr[410]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 412) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[412]);
+									else
+										$("#reasonMsg").text(enErr[412]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 413) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[413]);
+									else
+										$("#reasonMsg").text(enErr[413]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 414) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[414]);
+									else
+										$("#reasonMsg").text(enErr[414]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 415) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[415]);
+									else
+										$("#reasonMsg").text(enErr[415]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+								else if (xhr.status == 416) {
+									if(chin)
+										$("#reasonMsg").text(cnErr[416]);
+									else
+										$("#reasonMsg").text(enErr[416]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+								} 
+                            	else if (xhr.status == 504) {
+									if(chin)
+                            			$("#reasonMsg").text(cnErr[504]);
+									else
+                            			$("#reasonMsg").text(enErr[504]);
+									$("#contactpopup").modal('show');
+									window.location.hash = "callme=popup";
+									console.log(xhr.status, textStatus, errorThrown);
+									
+								} else {
+									$("#reasonMsg").text('System error');
+									console.log(xhr.status, textStatus, errorThrown);
+								 
+								}
+								$("#loading-overlay").modal("hide");
+							 
+							}
+						});
+					
+				} 
+			}
+		});
       
        
 

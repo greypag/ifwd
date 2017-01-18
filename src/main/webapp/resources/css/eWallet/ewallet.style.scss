@@ -447,7 +447,21 @@ $txt-hint-color: #999999;
 	}
 }
 
+.ew_popup_unlinkConfirm{
+	@extend %ew_base_popup;
+	text-align: center;
+	.ew_btn_confirm{
+		@extend %ew_base_popup_btn;
+	}
+	.ew_btn_cancel{
+		@extend %ew_base_popup_btn;
+		background-color: #d8d8d8;
+		border-bottom: 1px solid #d8d8d8 !important;
+	}
+}
+
 // ============ Popup End ============
+
 
 
 //log
@@ -577,9 +591,9 @@ $txt-hint-color: #999999;
 	
 }
 @media screen and (max-width: 768px) {
+	// fix insurance plan 3 tabs
 	#savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li{
-		width: 50%;
-		float: left;
+		display: table-cell;
 	}
 }
 
