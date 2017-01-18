@@ -34,7 +34,7 @@ width:60px;
 		Declaraed at top to prevent event propagation being stopped by other event handler.
 	*/
 	 
-	$("#checkbox3, #checkbox4,").change(function() {
+	$("#checkbox3, #checkbox4").change(function() {
 		if($(this).prop('checked')) {
 			$(this).val('true');
 		} else {
@@ -145,8 +145,8 @@ width:60px;
 						docNo: $("#txtHkid").val(),
 						policyNo: $("#txtPolicyNumber").val(),
 						dob: dob,
-						optOut1: $('#checkbox3').val(),
-						optOut2: $('#checkbox4').val()
+						optOut1: ($('#checkbox3').val()=='true')?true:false,
+						optOut2: ($('#checkbox4').val()=='true')?true:false
 					})
 					.done(function (data) {
 						var resp=data.message;
