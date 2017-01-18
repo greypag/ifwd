@@ -9,12 +9,12 @@
 
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
-
+<%-- <c:set var="dueAmount" value="1800"/> --%>
 <script>
 perventRedirect=true;
 
 var enablePayment=true;
-
+var dueAmount = ${dueAmount};
     var clicked = false;
     function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
     	if(enablePayment){
@@ -59,6 +59,11 @@ var enablePayment=true;
 	        };
     	}
     }
+function hidePaymentSection(paymentValue){
+	if(paymentValue<=0){
+		$(".js-hide-payment").hide();
+	}
+}
 $(document).ready(function(){
     $('#cardNo1').payment('formatCardNumber');
     $('#cardNo1').keyup(function() {
@@ -66,6 +71,7 @@ $(document).ready(function(){
         var result = replaceSpace.replace(/\s/g,'');
         $("#cardnumber").val(result);
     });
+    hidePaymentSection(dueAmount);
 });
     
 </script>
@@ -548,7 +554,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                         value="${userDetails.emailAddress}"> <input
                         type="hidden" id="gateway" name="gateway"
                         value="${createPolicy.paymentGateway}">
-                    <div class="col-xs-12 pad-none product_payment_details">
+                    <div class="col-xs-12 pad-none product_payment_details js-hide-payment">
                         <div class="form-group float">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
                                 <label class="control-label h4-5"><fmt:message key="annual.summary.cardtype" bundle="${msg}" /></label>
@@ -669,24 +675,42 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                     </div>
                     <div class="clearfix"></div>
                     <div class="declaration-content" style="margin:0px !important;">
-                        <div class="checkbox" style="padding-left: 24px;">
-                            <input id="checkbox3" type="checkbox"> <label
-                                for="checkbox3"> <fmt:message key="annual.summary.declarations" bundle="${msg}" /></label>
-                        </div>
-                        <span id="errchk1" class="error-msg"></span>
-
-                        <span id="errchk2" class="error-msg"></span>
-                        <div class="clearfix"></div>
+                    	<c:if test="${dueAmount > 0.00}">
+	                        <div class="checkbox" style="padding-left: 24px;">
+	                            <input id="checkbox3" type="checkbox"> <label
+	                                for="checkbox3"> <fmt:message key="annual.summary.declarations" bundle="${msg}" /></label>
+	                        </div>
+	                        <span id="errchk1" class="error-msg"></span>
+	
+	                        <span id="errchk2" class="error-msg"></span>
+	                        <div class="clearfix"></div>
+                        </c:if>
                         <div class="row" style="margin-top:30px;">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
                                 <c:choose>
 								    <c:when test="${language=='en'}">
-								        <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
-								            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+								    	<c:choose>
+								    		<c:when test="${dueAmount > 0.00}">
+										        <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+										            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>									    		
+								        	</c:when>
+								        	<c:otherwise>
+										        <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD')" href="<%=request.getContextPath()%>/${language}/annual-travel-insurance/confirmation"
+										            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>							        	
+								        	</c:otherwise>
+								        </c:choose>
 								    </c:when>
 								    <c:otherwise>
-									    <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
-								            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+								    	<c:choose>
+									    	<c:when test="${dueAmount > 0.00}">
+											    <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+										            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+								        	</c:when>
+									        <c:otherwise>
+											    <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');" href="<%=request.getContextPath()%>/${language}/annual-travel-insurance/confirmation"
+										            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>										            									        
+									        </c:otherwise>
+								        </c:choose>
 								    </c:otherwise>
 								</c:choose>
                             </div>
