@@ -26,7 +26,7 @@
 FaqUtil faqUtil = new FaqUtil("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/faq-savie.json", "data");
 ArrayList<String> faqTopicsArr = faqUtil.getFAQTopic();
 
-FaqUtil faqIndexUtil = new FaqUtil("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/jsontest.json", "products");
+FaqUtil faqIndexUtil = new FaqUtil("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/jsontest.min.json", "products");
 ArrayList<JSONObject> faqIndexArr = faqIndexUtil.getFAQIndex();
 
 
