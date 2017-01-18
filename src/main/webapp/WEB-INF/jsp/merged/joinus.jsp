@@ -128,14 +128,17 @@ width:60px;
 			var dob=yearStr+"-"+monStr+"-"+dateStr;
 			if(name=="joinus_form_member"){
 			return $.post('<%=request.getContextPath()%>/api/member/register/member/customer',
-					{userName: $("#txtUserName1").val(), mobile: $("#txtMobileNo").val(),
-			    password: $("#txtConfPass").val(),
-			    email: $("#txtEmailId").val(),
-			    docNo: $("#txtHkid").val(),
-			    policyNo: $("#txtPolicyNumber").val(),
-			    dob: dob,
-			    optOut1: true,
-			    optOut2: true})
+					{
+						userName: $("#txtUserName1").val(),
+						mobile: $("#txtMobileNo").val(),
+						password: $("#txtConfPass").val(),
+						email: $("#txtEmailId").val(),
+						docNo: $("#txtHkid").val(),
+						policyNo: $("#txtPolicyNumber").val(),
+						dob: dob,
+						optOut1: $('#checkbox3').val(),
+						optOut2: $('#checkbox4').val()
+					})
 					.done(function (data) {
 						var resp=data.message;
 						 $.ajax({
@@ -195,7 +198,16 @@ width:60px;
 			$.ajax({
 				type : 'POST',
 				url : '<%=request.getContextPath()%>/{language}/joinus',
-				data : $(form_selector).serialize(),
+				data : {
+					fullName: $("#non-member__fullName").val(),
+					mobileNo: $("#non-member__mobileNo").val(),
+				    emailAddress: $("#non-member__email").val(),
+				    userName: $("#non-member__userName").val(),
+				    password: $("#non-member__password").val(),
+				    confirmPassword: $("#non-member__confirmPassword").val(),
+				    checkbox3: $('#checkbox3_2').val(),
+				    checkbox4: $('#checkbox4_2').val()
+				},
 				async : false,
 				success : function(data) {
 					if (data == 'success') {
@@ -267,7 +279,7 @@ function generate_common_validate_fields(form){
 				}
 			}
 		},
-		'EmailAddress': {
+		'emailAddress': {
 			container: form + ' #errorEmptyEmailIdJoinUs',
 			validators: {
 				notEmpty: {
@@ -617,7 +629,7 @@ function tooltipPlacement(){
 								<span id="errorEmptyMobJoinUs" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtEmailId" name="EmailAddress" value="${userDetails.getEmailAddress()}"
+								<input class="mdl-textfield__input registration__input" type="text" id="txtEmailId" name="emailAddress" value="${userDetails.getEmailAddress()}"
 									maxlength="50">
 								<label class="mdl-textfield__label registration__label" for="txtEmailId"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
 								<span id="errorEmptyEmailIdJoinUs" class="text-red"></span>
@@ -716,12 +728,12 @@ function tooltipPlacement(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble" value="Off"> <label
+							<input id="checkbox3" name="checkbox3" type="checkbox" class="js_bubble optOut1" value="Off"> <label
 								for="checkbox3"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble" value="Off"> <label
+							<input id="checkbox4" name="checkbox4" type="checkbox" class="js_bubble optOut2" value="Off"> <label
 								for="checkbox4"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
@@ -760,14 +772,14 @@ function tooltipPlacement(){
 
 						<div class="registration col-lg-11 col-md-11">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
+								<input id="non-member__fullName" class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
 									onkeypress="return alphaOnly(event);">
 								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /> <fmt:message key="member.registration.details.label.fullName.desc" bundle="${msg}" /></label>
 								<span id="errorEmptyName" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="mobileNo" value="${userDetails.getMobileNo()}"
+								<input id="non-member__mobileNo" class="mdl-textfield__input registration__input" type="text" name="mobileNo" value="${userDetails.getMobileNo()}"
 									onblur="replaceNumeric(this);"
 									onkeypress="return isNumeric(event);"
 									maxlength="8">
@@ -775,28 +787,28 @@ function tooltipPlacement(){
 								<span id="errorEmptyMobJoinUs" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="EmailAddress" value="${userDetails.getEmailAddress()}"
+								<input id="non-member__email" class="mdl-textfield__input registration__input" type="text" name="emailAddress" value="${userDetails.getEmailAddress()}"
 									maxlength="50">
 								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
 								<span id="errorEmptyEmailIdJoinUs" class="text-red"></span>
 							</div>
 							<h3 class="black-bold"><fmt:message key="member.registration.details.header.login" bundle="${msg}" /></h3>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="userName" value="${userDetails.getUserName() }"
+								<input id="non-member__userName" class="mdl-textfield__input registration__input" type="text" name="userName" value="${userDetails.getUserName() }"
 									onkeypress="return validationUsername(event);">
 								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label>
 								<span id="errorEmptyUNameJoinUs" class="text-red"></span>
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipUserName1" id="tooltipUserName1" title="<fmt:message key='member.registration.details.label.username.help' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="password"  name="password"
+								<input id="non-member__password" class="mdl-textfield__input registration__input" type="password"  name="password"
 									autocomplete="off">
 								<label class="mdl-textfield__label registration__label" for="txtPass1"><fmt:message key="member.registration.details.label.password" bundle="${msg}" /></label>
 								<span id="errorJoinUsPassword" class="text-red"></span>
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipPass1" id="tooltipPass1" title="<fmt:message key='member.registration.details.label.password.help' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="password" name="confirmPassword"
+								<input id="non-member__confirmPassword" class="mdl-textfield__input registration__input" type="password" name="confirmPassword"
 									autocomplete="off">
 								<label class="mdl-textfield__label registration__label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /></label>
 								<span id="errorEmptyConfPass" class="text-red"></span>
@@ -853,12 +865,12 @@ function tooltipPlacement(){
 							class="text-red"><fmt:message key="member.registration.declarations.PDPO.error" bundle="${msg}" /></label>
 						</span>
 						<div class="checkbox">
-							<input id="checkbox3_2" name="checkbox3_2" type="checkbox" class="js_bubble" value="Off"> <label
+							<input id="checkbox3_2" name="checkbox3_2" type="checkbox" class="js_bubble optOut1" value="Off"> <label
 								for="checkbox3_2"><fmt:message key="member.registration.declarations.PDPO.option1" bundle="${msg}" /> <br>
 							</label>
 						</div>
 						<div class="checkbox">
-							<input id="checkbox4_2" name="checkbox4_2" type="checkbox" class="js_bubble" value="Off"> <label
+							<input id="checkbox4_2" name="checkbox4_2" type="checkbox" class="js_bubble optOut2" value="Off"> <label
 								for="checkbox4_2"><fmt:message key="member.registration.declarations.PDPO.option2" bundle="${msg}" /> <br>
 								<br>
 							</label>
