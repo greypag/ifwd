@@ -1,0 +1,102 @@
+{
+	"groupCount": 3,
+	"categories": [
+		{
+			"name":"HEALTH & ACCIDENT",
+			"group": 1,
+			"products":[
+				{
+					"name":"Hospital Cash",
+					"link":"hospital"
+				}
+			]
+		},
+		{
+			"name":"LIFE",
+			"group": 1,
+			"products":[
+				{
+					"name":"Elite Term",
+					"link":"elite"
+				}
+			]
+		},
+		{
+			"name":"SAVING",
+			"group": 1,
+			"products":[
+				{
+					"name":"Provie Insurance Plan",
+					"link":"provie"
+				},
+				{
+					"name":"Savie Insurance Plan",
+					"link":"savie"
+				},
+				{
+					"name":"Wealthree Insurance Plan",
+					"link":"wealthree"
+				}
+			]
+		},
+		{
+			"name":"TRAVEL",
+			"group": 2,
+			"products":[
+				{
+					"name":"FlightCare(Free)",
+					"link":"flight"
+				},
+				{
+					"name":"Overseas StudyCare",
+					"link":"overseas"
+				},
+				{
+					"name":"TravelCare Insurance",
+					"link":"travel"
+				},
+				{
+					"name":"Working HolidayCare",
+					"link":"working-holiday"
+				}
+			]
+		},
+		{
+			"name":"HOUSEHOLD",
+			"group": 3,
+			"products":[
+				{
+					"name":"Easy HomeCare",
+					"link":"easy-home"
+				},
+				{
+					"name":"Handset Protection",
+					"link":"handset"
+				},
+				{
+					"name":"Home Liability",
+					"link":"home-liability"
+				},
+				{
+					"name":"Screen protection",
+					"link":"Screen"
+				}
+			]
+		},
+		{
+			"name":"Motor",
+			"group": 3,
+			"products":[
+				{
+					"name":"Drivamatics",
+					"link":"drivamatics"
+				},
+				{
+					"name":"MotorSmart Insurance",
+					"link":"motor-smart"
+				}
+			]
+		}
+	]
+	
+}

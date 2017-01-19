@@ -21,8 +21,19 @@ JSONParser jsonParser = new JSONParser();
 //String filePath = new File("").getAbsolutePath();
 //Object rootObj = parser.parse(new FileReader("C:/wamp/www/ifwd_git/src/main/webapp/resources/json/jsontest.json"));
 //Object rootObj = parser.parse(new FileReader("http://localhost:8080/fwdhk/resources/json/jsontest.json"));
-URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/jsontest.min.json");
-BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+String language = session.getAttribute("language").toString();
+String indexJsonPath = "";
+if(language!=null){
+	if(language=="en"){
+		indexJsonPath = "/fwdhk/resources/json/en/jsontest.min.json";
+	}else{
+		indexJsonPath = "/fwdhk/resources/json/tc/jsontest.min.json";
+	}
+}
+	
+
+URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
+BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
 JSONObject rootObj = (JSONObject) jsonParser.parse(br);
 long columnCount = (long) rootObj.get("groupCount");
 JSONArray categories = (JSONArray) rootObj.get("categories");
