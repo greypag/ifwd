@@ -404,6 +404,48 @@
 	                	<div class="clearfix"></div>
                 	</div>
 					--%>
+					<%-- Tap & Go --%>
+                	<hr class="partner_hr"/>
+                    <div id="tng" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="tng">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image partner_image--tng" src="<%=request.getContextPath()%>/resources/images/tng.png" alt="<fmt:message key="image.alt_63" bundle="${msg}" />"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.tng.title" bundle="${msg}" /></div>
+                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+                                        <li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.tng.desc1.part1" bundle="${msg}" />
+                                                <fmt:message key="partner.tng.desc1.link" bundle="${msg}" />
+                                                <fmt:message key="partner.tng.desc1.part2" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+											<li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.tng.tnc1.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.tng.tnc2.part1" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                            <%-- <div class="partner_link"> --%>
+	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
+	                            <%-- </div> --%>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
 					<%-- the Club --%>
                 	<hr class="partner_hr"/>
                     <div id="theclub_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="theclub">

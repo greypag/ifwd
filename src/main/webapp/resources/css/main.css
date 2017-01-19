@@ -12783,6 +12783,11 @@ button[disabled].btn.btn-default--vc {
 		width: 80%;
 		height: 80%;
 	}	
+	.partner_image.partner_image--tng {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}	
 }
 @media screen and (max-width: 991px) {
 	.partner_image.partner_image--3hk {
@@ -12806,6 +12811,11 @@ button[disabled].btn.btn-default--vc {
 		height: 80%;
 	}
 	.partner_image.partner_image--klook {
+		max-width: 240px;
+		width: 80%;
+		height: 80%;
+	}	
+	.partner_image.partner_image--tng {
 		max-width: 240px;
 		width: 80%;
 		height: 80%;
