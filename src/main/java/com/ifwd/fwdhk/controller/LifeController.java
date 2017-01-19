@@ -777,7 +777,11 @@ public class LifeController extends BaseController{
 			//
 			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 			LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
-			model.addAttribute("ifCampaign1111", false);
+			//0 = NORMAL, 1 = CAMPAIGN 1111, 2 = CNY LUCKY DRAW, 3 = CNY PROMOTION
+			
+			model.addAttribute("campaignTypeId", 0);
+			
+			
 			if ("SP".equals(saviePlanDetails.getPaymentType())) {
 				JSONObject jsonObject = new JSONObject();
 				try {
@@ -787,7 +791,7 @@ public class LifeController extends BaseController{
 			    	if(jsonArray.get(0).equals("SAVIE PREMIUM DISCOUNT")){
 			    		if(jsonArray.size()>1){
 			    			if (((String) jsonArray.get(1)).equals("FWD 1111 CAMPAIGN")){
-			    				model.addAttribute("ifCampaign1111", true);
+			    				model.addAttribute("campaignTypeId", 1);
 			    			}
 			    		}
 			    	}
