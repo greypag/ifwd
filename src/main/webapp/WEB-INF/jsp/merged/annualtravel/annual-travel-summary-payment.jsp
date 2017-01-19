@@ -523,19 +523,21 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                 </div>
                 <div class="gray-bg1 product_payment_detail_form_container">
                     <div style="width:80%;margin-left:10%;">
-                    <div class="col-xs-12 pad-none">
-                       <h2 class="from-control" style="padding:0px !important;"><fmt:message key="annual.summary.paymentdetails" bundle="${msg}" /></h2>
-                       <span id="paymentGatewayErrorMsg"  class="text-red">
-                           <c:choose>
-							   <c:when test="${errormsg=='Invalid Card Verification Number'}">
-							       <fmt:message key="common.payment.errormsg" bundle="${msg}" />
-							   </c:when>
-							   <c:otherwise>
-                                   ${errormsg }
-                               </c:otherwise>
-						   </c:choose>
-                       </span>
-                    </div>
+                    <c:if test="${dueAmount > 0.00}">
+                        <div class="col-xs-12 pad-none">
+                           <h2 class="from-control" style="padding:0px !important;"><fmt:message key="annual.summary.paymentdetails" bundle="${msg}" /></h2>
+                           <span id="paymentGatewayErrorMsg"  class="text-red">
+                               <c:choose>
+    							   <c:when test="${errormsg=='Invalid Card Verification Number'}">
+    							       <fmt:message key="common.payment.errormsg" bundle="${msg}" />
+    							   </c:when>
+    							   <c:otherwise>
+                                       ${errormsg }
+                                   </c:otherwise>
+    						   </c:choose>
+                           </span>
+                        </div>
+                    </c:if>
                     <input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
                     <input type="hidden" name="amount" value="${dueAmount.trim()}">
                     <input type="hidden" name="remark" value="${referralCode.trim()}">
@@ -696,7 +698,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 								        	</c:when>
 								        	<c:otherwise>
 										        <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD')" href="<%=request.getContextPath()%>/${language}/annual-travel-insurance/confirmation"
-										            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>							        	
+										            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.next" bundle="${msg}" /></a>							        	
 								        	</c:otherwise>
 								        </c:choose>
 								    </c:when>
@@ -708,7 +710,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 								        	</c:when>
 									        <c:otherwise>
 											    <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');" href="<%=request.getContextPath()%>/${language}/annual-travel-insurance/confirmation"
-										            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>										            									        
+										            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.next" bundle="${msg}" /></a>										            									        
 									        </c:otherwise>
 								        </c:choose>
 								    </c:otherwise>
