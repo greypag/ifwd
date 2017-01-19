@@ -618,6 +618,9 @@ public class MemberController extends BaseController {
 				case " The information you have entered is not valid, please try again":
 					resultCode="504";
 					break;
+				case " 閣下所輸入的資料並不正確，請重新輸入 ":
+					resultCode="504";
+					break;
 				default:
 					resultCode="500";
 					break;

@@ -87,7 +87,7 @@ public class ProvieController extends BaseController{
 	private CommonUtils commonUtils;
 	
 	@ApiIgnore
-	@RequestMapping(value = {"/provie"})
+	@RequestMapping(value = {"/provie", "/Provie", "/PROVIE"})
 	public ModelAndView o2OLanding1(Model model, HttpServletRequest request, HttpSession httpSession) {
 		provieOnlineService.removeProvieOnlineSession(request);		
 		String lang = UserRestURIConstants.getLanaguage(request);		
