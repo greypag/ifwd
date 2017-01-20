@@ -39,7 +39,7 @@
     "@type":"Offer",
     "priceCurrency":"HKD",
     "price":"0",
-    "priceValidUntil":"2016-12-31",
+    "priceValidUntil":"2017-12-31",
     "availability":"http://schema.org/InStock",
     "seller":{
       "@type":"Organization",

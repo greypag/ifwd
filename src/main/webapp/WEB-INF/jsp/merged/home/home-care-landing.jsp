@@ -29,7 +29,7 @@ var lang1 = "${language}";
     "@type":"Offer",
     "priceCurrency":"HKD",
     "price":"420",
-    "priceValidUntil":"2016-12-31",
+    "priceValidUntil":"2017-12-31",
     "availability":"http://schema.org/InStock",
     "seller":{
       "@type":"Organization",
