@@ -58,12 +58,21 @@ JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 //System.out.println(rootObj.has("products"));
 %>
 <section id="contact-page">
-	<div class="container">
-		<ol class="breadcrumb pad-none">
-			<li><fmt:message key="header.menu.home" bundle="${msg}" /></li>
-			<li class="active"><i class="fa fa-caret-right"></i><fmt:message key="header.menu.faq" bundle="${msg}" /></li>
-		</ol>	
-	</div>
+	
+	<!-- Breadcrumb Component Start-->
+    <div class="container container-fluid container--breadcrumb">
+        <c:set var="breadcrumbItems">
+            header.menu.home,header.menu.faq
+        </c:set>
+        <c:set var="breadcrumbActive">1</c:set>
+        
+        <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+            <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+            <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+        </jsp:include>
+    </div>
+    <!-- Breadcrumb Component End-->
+    
 	<div class="container faq-container">	
 		<% for(long count=1; count<=faqIndexGroup; count++){ %>
 			<div class="col-md-4 category-group-border">
