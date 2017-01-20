@@ -14,6 +14,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;;
 
 public class FaqUtil {
 
+    private JSONObject _faqObject;
     private JSONArray _faqArray;
     private String _key;
     
@@ -24,16 +25,15 @@ public class FaqUtil {
     }
     
 	public FaqUtil(String url, String key){
-        JSONObject _faqObject = this.getJson(url);
-        _faqArray = (JSONArray) _faqObject.get(key);
+        //_faqObject = this.getCall(url);
+        //_faqArray = (JSONArray) _faqObject.get(key);
     }
 
-    public JSONObject getJson(String url){
+    public JSONObject getJsonObject(String url){
         return restService.consumeApi(HttpMethod.GET, url, COMMON_HEADERS, null);
-
     }
 
-    public JSONObject getJsonPost(String url, JSONObject params){
+    public JSONObject getJsonObjectByPost(String url, JSONObject params){
         return restService.consumeApi(HttpMethod.POST, url, COMMON_HEADERS, params);
     }
 
@@ -51,20 +51,24 @@ public class FaqUtil {
         return resultList;
     }
 
-    public ArrayList<JSONObject> getFAQIndex(){
+    //public JSONObject getJsonObject(){
+    //    return this._faqObject;
+    //}
 
-        JSONArray faqArr = this._faqArray;
-        ArrayList<JSONObject> resultList = new ArrayList<>();
-
-        for(int i=0; i<faqArr.size(); i++){
-            resultList.add((JSONObject)faqArr.get(i));
-        }
-
-        //Sorting
-        // To be implemented
-
-        return resultList;
-    }
+    //public ArrayList<JSONObject> getFAQIndex(){
+//
+    //    JSONArray faqArr = this._faqArray;
+    //    ArrayList<JSONObject> resultList = new ArrayList<>();
+//
+    //    for(int i=0; i<faqArr.size(); i++){
+    //        resultList.add((JSONObject)faqArr.get(i));
+    //    }
+//
+    //    //Sorting
+    //    // To be implemented
+//
+    //    return resultList;
+    //}
     
     public static JSONArray sortJSON(JSONObject jsonObj, Comparator<JSONObject> customComp ){
     	JSONArray arr = new JSONArray();

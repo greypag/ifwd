@@ -32,23 +32,23 @@ if(language!=null){
 }
 	
 
-URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
-BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-JSONObject rootObj = (JSONObject) jsonParser.parse(br);
-long columnCount = (long) rootObj.get("groupCount");
-JSONArray categories = (JSONArray) rootObj.get("categories");
-System.out.println(columnCount);
-for(long i=1; i<=columnCount; i++){
-	System.out.println(i);
-}
+//URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
+//BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+//JSONObject rootObj = (JSONObject) jsonParser.parse(br);
+//long columnCount = (long) rootObj.get("groupCount");
+//JSONArray categories = (JSONArray) rootObj.get("categories");
+//System.out.println(columnCount);
+//for(long i=1; i<=columnCount; i++){
+//	System.out.println(i);
+//}
 //ArrayList category = (JSONArray) rootObj.get("category");
 //System.out.print(category.toString());
 //JsonArray products = parser.parse(br).getAsJsonObject();
 
-FaqUtil faqUtil = new FaqUtil("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/faq-savie.json", "data");
-ArrayList<String> faqTopicsArr = faqUtil.getFAQTopic();
-//FaqUtil faqIndexUtil = new FaqUtil("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/jsontest.min.json", "products");
-//ArrayList<JSONObject> faqIndexArr = faqIndexUtil.getFAQIndex();
+FaqUtil faqUtil = new FaqUtil();
+JSONObject faqIndexObj = faqUtil.getJsonObject("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/tc/jsontest.min.json");
+long faqIndexGroup = (long) faqIndexObj.get("groupCount");
+JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 
 
 /*for (int i=0; i < products.size(); i++) {
@@ -65,12 +65,12 @@ ArrayList<String> faqTopicsArr = faqUtil.getFAQTopic();
 		</ol>	
 	</div>
 	<div class="container faq-container">	
-		<% for(long count=1; count<=columnCount; count++){ %>
+		<% for(long count=1; count<=faqIndexGroup; count++){ %>
 			<div class="col-md-4 category-group-border">
-				<% for(int count2=0; count2<categories.size(); count2++){ %>
+				<% for(int count2=0; count2<faqIndexCategory.size(); count2++){ %>
 					
 					<% 
-						JSONObject category = (JSONObject)categories.get(count2);
+						JSONObject category = (JSONObject)faqIndexCategory.get(count2);
 						if((long)category.get("group")==count){
 					%>
 						<div class="category-group">
