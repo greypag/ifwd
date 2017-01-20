@@ -58,30 +58,36 @@ ArrayList<String> faqTopicsArr = faqUtil.getFAQTopic();
 //System.out.println(rootObj.has("products"));
 %>
 <section id="contact-page">
-	<% for(long count=1; count<=columnCount; count++){ %>
-		<div class="col-md-4">
-			<% for(int count2=0; count2<categories.size(); count2++){ %>
-				
-				<% 
-					JSONObject category = (JSONObject)categories.get(count2);
-					if((long)category.get("group")==count){
-				%>
-					<div class="category-group">
-						<h2 class="category-title"><%=(String)category.get("name") %></h2>
-						<% 
-							JSONArray products = (JSONArray)category.get("products");
-							for(int count3=0; count3<products.size(); count3++){
-								JSONObject product = (JSONObject)products.get(count3);
-						%>
-						<div>
-							<a href="<%=request.getContextPath()%>/${language}/faq/<%=(String)product.get("link") %>"><%=(String)product.get("name") %></a>	
-						</div>		
-						<% } %>						
-					</div>						
+	<div class="container">
+		<ol class="breadcrumb pad-none">
+			<li><fmt:message key="header.menu.home" bundle="${msg}" /></li>
+			<li class="active"><i class="fa fa-caret-right"></i><fmt:message key="header.menu.faq" bundle="${msg}" /></li>
+		</ol>	
+	</div>
+	<div class="container faq-container">	
+		<% for(long count=1; count<=columnCount; count++){ %>
+			<div class="col-md-4 category-group-border">
+				<% for(int count2=0; count2<categories.size(); count2++){ %>
+					
+					<% 
+						JSONObject category = (JSONObject)categories.get(count2);
+						if((long)category.get("group")==count){
+					%>
+						<div class="category-group">
+							<h2 class="category-title"><%=(String)category.get("name") %></h2>
+							<% 
+								JSONArray products = (JSONArray)category.get("products");
+								for(int count3=0; count3<products.size(); count3++){
+									JSONObject product = (JSONObject)products.get(count3);
+							%>
+							<a class="category-link" href="<%=request.getContextPath()%>/${language}/faq/<%=(String)product.get("link") %>"><%=(String)product.get("name") %></a>			
+							<% } %>						
+						</div>						
+					<% } %>
 				<% } %>
-			<% } %>
-		</div>
-	<% } %>
+			</div>
+		<% } %>
+	</div>
 </seciton>
 <%-- <section id="contact-page">
 	<div class="test">
@@ -111,7 +117,7 @@ ArrayList<String> faqTopicsArr = faqUtil.getFAQTopic();
 <section>
 	<div>&nbsp;</div>
 </section>
-<section id="faq_topic_menu">
+<%--<section id="faq_topic_menu">
 	<div class="faq_topic_menu">
 	<% for (int i=0; i < faqTopicsArr.size(); i++) { 
 		String topic = (String) faqTopicsArr.get(i);
@@ -121,4 +127,4 @@ ArrayList<String> faqTopicsArr = faqUtil.getFAQTopic();
 			</div>
 	<% } %>
 	</div>
-</seciton>
+</seciton>--%>

@@ -1,0 +1,38 @@
+.category-title{
+	font-size: 28px;
+	margin: 0 0 10px 0;
+}
+.category-link {
+	display: block;
+	font-size: 24px;
+	margin: 0 0 15px 0;
+}
+@media (min-width: 992px){
+	.faq-container{
+		display: flex;
+	}
+	.category-title{
+		font-size: 30px;
+		margin: 0 0 15px 0;
+	}
+	.category-link{
+		font-size: 24px;
+		display: block;
+		margin-bottom: 20px;
+	}
+	.category-group-border{
+		border-right: 1px solid #000;
+		flex: 1;
+	}
+	.category-group-border{
+		padding: 0 20px;
+	}
+	.faq-container {
+		.category-group-border:last-child{
+			border-right: none;
+		}
+		.category-group-border:nth-child(1){
+			padding-left: 0;
+		}
+	}
+}

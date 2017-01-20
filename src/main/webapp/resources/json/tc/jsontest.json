@@ -2,26 +2,6 @@
 	"groupCount": 3,
 	"categories": [
 		{
-			"name":"醫療",
-			"group": 1,
-			"products":[
-				{
-					"name":"住院保障",
-					"link":"hospital"
-				}
-			]
-		},
-		{
-			"name":"人壽",
-			"group": 1,
-			"products":[
-				{
-					"name":"定期壽險計劃",
-					"link":"elite"
-				}
-			]
-		},
-		{
 			"name":"儲蓄",
 			"group": 1,
 			"products":[
@@ -38,7 +18,28 @@
 					"link":"wealthree"
 				}
 			]
+		},	
+
+		{
+			"name":"人壽",
+			"group": 1,
+			"products":[
+				{
+					"name":"定期壽險計劃",
+					"link":"elite"
+				}
+			]
 		},
+		{
+			"name":"醫療",
+			"group": 1,
+			"products":[
+				{
+					"name":"住院保障",
+					"link":"hospital"
+				}
+			]
+		},		
 		{
 			"name":"旅遊",
 			"group": 2,

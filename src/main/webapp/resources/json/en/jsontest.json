@@ -2,26 +2,6 @@
 	"groupCount": 3,
 	"categories": [
 		{
-			"name":"HEALTH & ACCIDENT",
-			"group": 1,
-			"products":[
-				{
-					"name":"Hospital Cash",
-					"link":"hospital"
-				}
-			]
-		},
-		{
-			"name":"LIFE",
-			"group": 1,
-			"products":[
-				{
-					"name":"Elite Term",
-					"link":"elite"
-				}
-			]
-		},
-		{
 			"name":"SAVING",
 			"group": 1,
 			"products":[
@@ -36,6 +16,26 @@
 				{
 					"name":"Wealthree Insurance Plan",
 					"link":"wealthree"
+				}
+			]
+		},
+		{
+			"name":"LIFE",
+			"group": 1,
+			"products":[
+				{
+					"name":"Elite Term",
+					"link":"elite"
+				}
+			]
+		},			
+		{
+			"name":"HEALTH & ACCIDENT",
+			"group": 1,
+			"products":[
+				{
+					"name":"Hospital Cash",
+					"link":"hospital"
 				}
 			]
 		},
