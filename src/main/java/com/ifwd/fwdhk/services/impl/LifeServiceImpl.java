@@ -966,6 +966,19 @@ public class LifeServiceImpl implements LifeService {
 					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountCampaign1111";
 					break;
+					
+				case "2017 CNY Campaign Savie $2,888":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
+					pdfName="SavieOnlineApplicationFormPremiumDiscountCny2017LuckyDraw";
+					break;
+				case "2017 CNY Campaign Savie $888":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
+					pdfName="SavieOnlineApplicationFormPremiumDiscountCny2017LuckyDraw";
+					break;
+				case "2017 CNY Campaign Savie $300":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
+					pdfName="SavieOnlineApplicationFormPremiumDiscountCny2017Promotion";
+					break;
 				default:
 					pdfName = "SavieOnlineApplicationFormDiscount";
 					break;

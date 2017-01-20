@@ -249,9 +249,17 @@ var language = "${language}";
 								
 								<!-- HKID -->
 								<!--p class="policy-text"><fmt:message key="decleration.payment.policy.hkid" bundle="${msg}" /><a class="to-orange" href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.hkid.url" bundle="${msg}" />" target="_blank"><fmt:message key="decleration.payment.policy.hkid.tc" bundle="${msg}" /></a><fmt:message key="decleration.payment.policy.hkid.tc.stop" bundle="${msg}" /></p-->
+								
+								
 								<c:choose>
-									<c:when test="${ifCampaign1111==true}">
+									<c:when test="${campaignTypeId==1}">
 										<p class="policy-text"><fmt:message key="decleration.payment.policy.referrral" bundle="${msg}" /><a class="to-orange" href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.referrral.url1111" bundle="${msg}" />" target="_blank"><fmt:message key="decleration.payment.policy.referrral.tc" bundle="${msg}" /></a><fmt:message key="decleration.payment.policy.referrral.tc.stop" bundle="${msg}" /></p>
+									</c:when>
+									<c:when test="${campaignTypeId==2}">
+										<p class="policy-text"><fmt:message key="decleration.payment.policy.referrral" bundle="${msg}" /><a class="to-orange" href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.referrral.urlcnyLucky" bundle="${msg}" />" target="_blank"><fmt:message key="decleration.payment.policy.referrral.tc" bundle="${msg}" /></a><fmt:message key="decleration.payment.policy.referrral.tc.stop" bundle="${msg}" /></p>
+									</c:when>
+									<c:when test="${campaignTypeId==3}">
+										<p class="policy-text"><fmt:message key="decleration.payment.policy.referrral" bundle="${msg}" /><a class="to-orange" href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.referrral.urlcnyPromotion" bundle="${msg}" />" target="_blank"><fmt:message key="decleration.payment.policy.referrral.tc" bundle="${msg}" /></a><fmt:message key="decleration.payment.policy.referrral.tc.stop" bundle="${msg}" /></p>
 									</c:when>
 									<c:otherwise>
 										<p class="policy-text"><fmt:message key="decleration.payment.policy.referrral" bundle="${msg}" /><a class="to-orange" href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.referrral.url" bundle="${msg}" />" target="_blank"><fmt:message key="decleration.payment.policy.referrral.tc" bundle="${msg}" /></a><fmt:message key="decleration.payment.policy.referrral.tc.stop" bundle="${msg}" /></p>
