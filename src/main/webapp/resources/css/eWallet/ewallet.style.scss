@@ -222,7 +222,12 @@ $txt-hint-color: #999999;
 		margin-bottom: 0.625em;
 	}
 }
-
+.ew_pol_list .ew_accErrMsg{
+	background: orange;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
 
 .ew_pol_list .ew_pol_wd_linkup{
 	@extend %noPadLR;
