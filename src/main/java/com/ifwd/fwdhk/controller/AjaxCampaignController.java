@@ -35,6 +35,8 @@ public class AjaxCampaignController extends BaseController {
 	@RequestMapping(value = "/ajax/campaign/promoCodeCount")
 	@ResponseBody
 	public void getAvailablePromoCodeCountByCampaign(HttpServletRequest request, HttpServletResponse response) {
+		
+		
 		try {
 			if (Methods.isXssAjax(request)) {
 				throw new Exception("invalid AJAX call");

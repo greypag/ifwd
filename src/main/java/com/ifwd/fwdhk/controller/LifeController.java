@@ -792,6 +792,12 @@ public class LifeController extends BaseController{
 			    		if(jsonArray.size()>1){
 			    			if (((String) jsonArray.get(1)).equals("FWD 1111 CAMPAIGN")){
 			    				model.addAttribute("campaignTypeId", 1);
+			    			} else if (((String) jsonArray.get(1)).equals("2017 CNY Campaign Savie $2,888")){
+			    				model.addAttribute("campaignTypeId", 2);
+			    			} else if (((String) jsonArray.get(1)).equals("2017 CNY Campaign Savie $888")){
+			    				model.addAttribute("campaignTypeId", 2);
+			    			} else if (((String) jsonArray.get(1)).equals("2017 CNY Campaign Savie $300")){
+			    				model.addAttribute("campaignTypeId", 3);
 			    			}
 			    		}
 			    	}
