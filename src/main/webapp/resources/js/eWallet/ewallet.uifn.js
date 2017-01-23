@@ -110,7 +110,9 @@ var eWalletCtr = {
 		if(!code){
 			code = "";
 		}
-		if(headerCode == 400 || headerCode == 500){
+		
+		//header status code 431 has Code MPXXX or IPXXX
+		if(headerCode == 431 && code != "IP004"){
 			errMsgCode += code.substring(0,2);
 		}else{
 			errMsgCode += code;
@@ -135,6 +137,7 @@ var policyHelper = {
 	htmlTemplate: null,
 	isOccupied: false,
 	isInvalidMobile: false,
+	errMsgDom: $("#ewallet-plans .ew_accErrMsg"),
 	setTemplate: function() {
 		this.htmlTemplate = $(".ew_pol_template").clone();
 		this.htmlTemplate.removeClass("ew_pol_template");
@@ -187,7 +190,7 @@ var policyHelper = {
 			},
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("getPolicyListByCustomer", xhr.status, response.code);
-				eWalletCtr.showGenericMsg("", msg);
+				that.errMsgDom.show().html(msg);
 			},
 			doneFn: function (){
 				that.hideLoading();
@@ -342,6 +345,7 @@ var policyHelper = {
 	},
 	clearAllPolicy: function() {
 		//need to unbind all click event ???
+		this.errMsgDom.hide().html('');
 		$(".ew_pol_list .ew_pol").remove();
 	},
 	reloadPolicy: function() {
@@ -451,6 +455,8 @@ function LinkupClass() {
 	};
 
 	this.showPanel = function(data) {
+		this.reset();
+
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
 		this.popupDom.find(".ew_mobile").html(data.mobile.substring(0,4).concat("xxxx"));
 
@@ -648,6 +654,8 @@ function WithdrawClass(){
 	};
 
 	this.showPanel = function(data) {
+		this.reset();
+
 		_productName = data.policy["product_" + eWalletCtr.langMapping[languageP]];
 
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
@@ -1064,6 +1072,7 @@ var apiErrMsg = {
 	getPolicyListByCustomer:{  
 		c_431_MP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_MP"),
 		c_431_IP:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_IP"),
+		c_431_IP004:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_400_IP004"),
 		// c_200_TPW001:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW001"),
 		c_200_TPW002:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW002"),
 		c_200_TPW003:getBundle(getBundleLanguage,"ewallet.apiErrMsg.getPolicyListByCustomer.c_200_TPW003"),

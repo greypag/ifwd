@@ -3847,7 +3847,7 @@ a.eserv-link:hover {
 @media (min-width: 992px) {
   /* line 247, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row .plan-name {
-    font-weight: bold;
+    //font-weight: bold;
   }
 }
 /* line 252, ../sass/partials/savie/_purchase-history.scss */

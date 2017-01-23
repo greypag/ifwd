@@ -887,7 +887,10 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 										<i class="fa fa-refresh fa-spin ew_spin"></i>
 									</div>
 
-									
+									<div class="col-xs-12">
+										<p class="ew_accErrMsg"></p>
+									</div>
+
 									<div class="col-xs-12 ew_pol_wd_form">
 										<a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/support-claims/forms/life/policy-services-request-form.pdf" class="ew_pol_wd_formBtn"><fmt:message key="ewallet.downloadFormBtnText" bundle="${msg}" /></a>
 									</div>

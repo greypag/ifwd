@@ -131,7 +131,7 @@ $(document).ready(function(){
 
  		}else{
  			//Error handling?
- 			errMsg = getBundle(getBundleLanguage, "wealthree.input.error.invalid");
+ 			errMsg = getBundle(getBundleLanguage, "wealthree.input.error.invalid.amount.multiple");
  		}
 
  		if(errMsg != ""){
