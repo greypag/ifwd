@@ -25,9 +25,9 @@ String language = session.getAttribute("language").toString();
 String indexJsonPath = "";
 if(language!=null){
 	if(language=="en"){
-		indexJsonPath = "/fwdhk/resources/json/en/jsontest.min.json";
+		indexJsonPath = "/fwdhk/resources/json/en/faq-"+request.getAttribute("faqProduct")+".json";
 	}else{
-		indexJsonPath = "/fwdhk/resources/json/tc/jsontest.min.json";
+		indexJsonPath = "/fwdhk/resources/json/tc/faq-"+request.getAttribute("faqProduct")+".json";
 	}
 }
 	
@@ -46,9 +46,19 @@ if(language!=null){
 //JsonArray products = parser.parse(br).getAsJsonObject();
 
 FaqUtil faqUtil = new FaqUtil();
-JSONObject faqIndexObj = faqUtil.getJsonObject("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/tc/jsontest.min.json");
-long faqIndexGroup = (long) faqIndexObj.get("groupCount");
-JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
+JSONObject faqProductObj = faqUtil.getJsonObject("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
+
+JSONObject faqTopicWidget = (JSONObject) faqProductObj.get("category_widget");
+
+JSONArray topicList = (JSONArray) faqTopicWidget.get("list");
+
+for(int i=0; i<topicList.size(); i++){
+	System.out.println(topicList.get(i).toString());
+}
+
+System.out.println(topicList.toString());
+
+JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 
 
 /*for (int i=0; i < products.size(); i++) {
@@ -58,7 +68,6 @@ JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 //System.out.println(rootObj.has("products"));
 %>
 <section id="contact-page">
-	
 	<!-- Breadcrumb Component Start-->
     <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
@@ -72,73 +81,64 @@ JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
         </jsp:include>
     </div>
     <!-- Breadcrumb Component End-->
-    
+
 	<div class="container faq-container containerdd">
 		<div>Product = ${faqProduct}</div>
 		<div>Language = ${language}</div>
 	</div>
 
-	<div class="container faq-container">	
-		<% for(long count=1; count<=faqIndexGroup; count++){ %>
-			<div class="col-md-4 category-group-border">
-				<% for(int count2=0; count2<faqIndexCategory.size(); count2++){ %>
-					
-					<% 
-						JSONObject category = (JSONObject)faqIndexCategory.get(count2);
-						if((long)category.get("group")==count){
+	<div class="container faq-container">
+		<div class="category col-md-3">
+			<div class="category-title"><fmt:message key="faq.catlist.label" bundle="${msg}" /></div>
+			<% for(int i=0; i<topicList.size(); i++){ %>
+				<a class="category-item" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
+			<% } %>
+		</div>
+		<div class="faq-wrapper col-md-9">
+			<div class="product-title"><%=faqProductObj.get("product") %></div>
+			<% for(int i=0; i<topicList.size(); i++){ %>
+				<div id="category<%=i+1 %>" class="faq-group">
+					<div class="faq-group__title"><%=topicList.get(i).toString() %></div>
+					<%
+						JSONArray questions = (JSONArray) faqProductObj.get("questions");
+						for(int i2=0; i2<questions.size(); i2++){
+							JSONObject question = (JSONObject)questions.get(i2);
 					%>
-						<div class="category-group">
-							<h2 class="category-title"><%=(String)category.get("name") %></h2>
-							<% 
-								JSONArray products = (JSONArray)category.get("products");
-								for(int count3=0; count3<products.size(); count3++){
-									JSONObject product = (JSONObject)products.get(count3);
-							%>
-							<a class="category-link" href="<%=request.getContextPath()%>/${language}/faq/<%=(String)product.get("link") %>"><%=(String)product.get("name") %></a>			
-							<% } %>						
-						</div>						
+						<div class="faq-group__question">
+							<a href="#question<%=i+1 %>"><%=question.get("question_title").toString() %></a>
+						</div>					
+					<% } %>					
+					<%
+						JSONArray questionsAnswer = (JSONArray) faqProductObj.get("questions");
+						for(int i2=0; i2<questionsAnswer.size(); i2++){
+							JSONObject question = (JSONObject)questionsAnswer.get(i2);
+					%>
+						<div id="question<%=i+1 %>" class="faq-group__answer">
+							<%=question.get("question_title").toString() %>
+							<%=question.get("question_answer").toString() %>
+						</div>
 					<% } %>
-				<% } %>
-			</div>
-		<% } %>
+				</div>
+			<% } %>
+		</div>		
 	</div>
 </seciton>
-<%-- <section id="contact-page">
-	<div class="test">
-	<% for (int i=0; i < faqIndexArr.size(); i++) { 
-		JSONObject faqIndex = (JSONObject)faqIndexArr.get(i);
-		int index_group = (int)Integer.parseInt(faqIndex.get("Group").toString());
-		String index_link = faqIndex.get("Link").toString();
-		String index_name = faqIndex.get("Name").toString();
-
-	%>
-		<% if(index_group==1){ %>
-			<div class="col-md-4">
-				<a href="<%=request.getContextPath()%>/${language}/<%=index_link%>"><%=index_name%></a>
-			</div>
-		<% }else if (index_group==2){ %>
-			<div class="col-md-4">
-				<a href="<%=request.getContextPath()%>/${language}/<%=index_link%>"><%=index_name%></a>
-			</div>
-		<% }else if (index_group==3){ %>
-			<div class="col-md-4">
-				<a href="<%=request.getContextPath()%>/${language}/<%=index_link%>"><%=index_name%></a>
-			</div>
-		<% } %>
-	<% } %>
-	</div>
-</seciton> --%>
-<section>
-	<div>&nbsp;</div>
-</section>
-<%--<section id="faq_topic_menu">
-	<div class="faq_topic_menu">
-	<% for (int i=0; i < faqTopicsArr.size(); i++) { 
-		String topic = (String) faqTopicsArr.get(i);
-	%>
-			<div class="col-md-12">
-				<a href="<%=request.getContextPath()%>/${language}/<%=topic%>"><%=topic%></a>
-			</div>
-	<% } %>
-	</div>
-</seciton>--%>
+<script>
+	$(function() {
+		$( ".category-item" ).on( "click", function() {
+		  var link = $(this).attr("data-link");
+		  var $that = $(this);
+		  $(this).toggleClass("active");
+		  $( ".faq-group" ).each(function(){
+			 if($(this).attr("id")==link){
+				 $(this).show();
+			 }else{
+				 $(this).hide();
+			 } 
+		  });
+		  $( ".category-item" ).find(function() {
+	       console.log($(this).hasClass("category-item"));
+		  });		  
+		});		
+	});	
+</script>
