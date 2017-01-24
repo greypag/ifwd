@@ -730,65 +730,6 @@ var plan="${plan}";
 
 
 
-            <div class="row form-block"
-				<c:if test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
-					hidden="hidden"
-				</c:if>>
-                
-                <div class="col-xs-12">
-                    <h3 class="heading-title"><fmt:message key="application.jumbo.create.member" bundle="${msg}" /></h3>
-                </div>
-                    
-                <div class="col-xs-12 col-md-12">
-                    <div class="row">
-
-                        <div class="col-xs-12">
-                            
-                            <div class="form-group">
-                                <div class="fld-wrapper">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input autocomplete="off" class="mdl-textfield__input" type="text" id="cUserName" name="userName" maxlength="50">
-                                        <label class="mdl-textfield__label" for="userName"><fmt:message key="application.input.username" bundle="${msg}" /></label>
-                                    </div>
-                                    
-                                </div>
-                                <span class="error-msg" id="userNameErrMsg"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-xs-12 col-md-6">
-                                <div class="form-group">
-                                    <div class="fld-wrapper">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input autocomplete="off" class="mdl-textfield__input" type="password" id="cPassword" name="password">
-                                            <label class="mdl-textfield__label" for="password"><fmt:message key="application.input.password" bundle="${msg}" /></label>
-                                        </div>
-                                        
-                                    </div>
-                                    <span class="error-msg" id="passwordErrMsg"></span>
-                                </div>
-                        </div>
-
-                        <div class="col-xs-12 col-md-6">
-                                <div class="form-group b-left">
-                                    <div class="fld-wrapper">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input autocomplete="off" class="mdl-textfield__input" type="password" id="Confirm-Password" name="Confirm-Password">
-                                            <label class="mdl-textfield__label" for="Confirm-Password"><fmt:message key="application.input.confirm.password" bundle="${msg}" /></label>
-                                        </div>
-                                        
-                                    </div>
-                                    <span class="error-msg" id="Confirm-PasswordErrMsg"></span>
-                                </div>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
 
             <div class="btn-row text-center">
                 <a href="javascript:void(0);" onclick="perventRedirect=false;BackMe();" class="btn-app eh-btn-back grey-out"><fmt:message key="application.button.back" bundle="${msg}" /></a>
