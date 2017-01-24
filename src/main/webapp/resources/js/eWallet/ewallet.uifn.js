@@ -183,7 +183,8 @@ var policyHelper = {
 				}
 
 				if(that.isAllPolicyLocked(response.policies)){
-					eWalletCtr.showGenericMsg(msgCtr.policyList.policyAllLockedTitle, msgCtr.policyList.policyAllLocked);
+					//eWalletCtr.showGenericMsg(msgCtr.policyList.policyAllLockedTitle, msgCtr.policyList.policyAllLocked);
+					that.errMsgDom.show().html(msgCtr.policyList.policyAllLocked);
 				}else{
 					that.composePolicyList(response.policies);	
 				}
@@ -412,6 +413,8 @@ function LinkupClass() {
 	this.startLinkup = function(pid) {
 		var that = this;
 
+		that.reset();
+
 		this.policyId = pid;
 
 		//send TngOtpSMS API
@@ -455,8 +458,6 @@ function LinkupClass() {
 	};
 
 	this.showPanel = function(data) {
-		this.reset();
-
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
 		this.popupDom.find(".ew_mobile").html(data.mobile.substring(0,4).concat("xxxx"));
 
@@ -569,14 +570,12 @@ function WithdrawClass(){
 			var inputDom = $("#ew_input_amount");
 			var amount = parseInt(inputDom.val(), 10);
 
-			if(inputDom.val().length < 3){
+			if(isNaN(amount) || amount < 500 || amount > 3000){
 				inputDom.addClass("ew_err_input");
-
-				if(amount < 500 || amount > 3000){
-					eWalletCtr.showGenericMsg("", msgCtr.withdrawal.invalidAmount);	
-				}
+				eWalletCtr.showGenericMsg("", msgCtr.withdrawal.invalidAmount);	
 				return;
 			}
+		
 			that.amountWithdraw = amount;
 			that.requestWithdraw();
 		});
