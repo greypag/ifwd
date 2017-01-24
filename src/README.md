@@ -38,3 +38,4 @@ Branch Creation Log
 2017-01-12 - UAT Release branch R01162017-001 - Tap&Go / Cheapest Home Campaign Content
 2017-01-17 - DEV Annual Travel Skip Payment
 2017-01-18 - UAT Release branch R01162017-002 - CNY Campaign with Annual Travel Skip Payment
+2017-01-20 - DEV Remove GI embedded registration form
