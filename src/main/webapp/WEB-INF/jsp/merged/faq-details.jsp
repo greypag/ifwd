@@ -88,7 +88,11 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 	</div>
 
 	<div class="container faq-container">
-		<div class="category col-md-3">
+	    <div class="input-group">
+	     	<input id="search-input" type="text" class="form-control<% if(language=="tc"){ %> chinese-input<% } %>" placeholder="Search for...">
+	    </div>
+	    
+		<div class="category-list col-md-3">
 			<div class="category-title"><fmt:message key="faq.catlist.label" bundle="${msg}" /></div>
 			<% for(int i=0; i<topicList.size(); i++){ %>
 				<a class="category-item" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
@@ -104,19 +108,23 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 						for(int i2=0; i2<questions.size(); i2++){
 							JSONObject question = (JSONObject)questions.get(i2);
 					%>
-						<div class="faq-group__question">
-							<a href="#question<%=i+1 %>"><%=question.get("question_title").toString() %></a>
-						</div>					
+						<% if(topicList.get(i).toString().equals(question.get("category").toString())){ %>
+							<div class="faq-group__question">
+									<a href="#question<%=question.get("id").toString() %>"><%=question.get("question_title").toString() %></a>
+							</div>
+						<% } %>				
 					<% } %>					
 					<%
 						JSONArray questionsAnswer = (JSONArray) faqProductObj.get("questions");
 						for(int i2=0; i2<questionsAnswer.size(); i2++){
 							JSONObject question = (JSONObject)questionsAnswer.get(i2);
 					%>
-						<div id="question<%=i+1 %>" class="faq-group__answer">
-							<%=question.get("question_title").toString() %>
-							<%=question.get("question_answer").toString() %>
-						</div>
+						<% if(topicList.get(i).toString().equals(question.get("category").toString())){ %>
+							<div id="question<%=i2+1 %>" class="faq-group__answer">
+								<%=question.get("question_title").toString() %>
+								<%=question.get("question_answer").toString() %>
+							</div>
+						<% } %>
 					<% } %>
 				</div>
 			<% } %>
@@ -124,21 +132,5 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 	</div>
 </seciton>
 <script>
-	$(function() {
-		$( ".category-item" ).on( "click", function() {
-		  var link = $(this).attr("data-link");
-		  var $that = $(this);
-		  $(this).toggleClass("active");
-		  $( ".faq-group" ).each(function(){
-			 if($(this).attr("id")==link){
-				 $(this).show();
-			 }else{
-				 $(this).hide();
-			 } 
-		  });
-		  $( ".category-item" ).find(function() {
-	       console.log($(this).hasClass("category-item"));
-		  });		  
-		});		
-	});	
+	var jsonPath = "<%=request.getContextPath()%>/resources/json/${language}/faq-<%=request.getAttribute("faqProduct")%>.json";
 </script>

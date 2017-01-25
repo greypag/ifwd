@@ -1,0 +1,61 @@
+{
+  "product":"Savie自助息理財壽險",
+  "category_widget":{
+      "list":[
+      "產品特性",
+      "投保申請",
+      "保單服務",
+      "定期供款計劃"
+    ]
+  },
+  "questions":[
+    {
+      "category":"產品特性",
+      "id": 1,
+      "question_title": "<p class=\"question\">身故權益是怎樣計算?</p>",
+      "question_answer": "<p class=\"answer\">身故權益相等於戶口價值的105%。</p>"
+    },
+    {
+      "category":"產品特性",
+      "id": 2,
+      "question_title": "<p class=\"question\">若受保人因意外而身故，將怎樣賠償?</p>",
+      "question_answer": "<p class=\"answer\">若受保人因意外而身故，本公司將賠償相等於戶口價值的105%作為身故賠償，及額外獲得相等於戶口價值的100%作為意外身故權益，合共相等於戶口價值的205%。在本公司所發出的所有「Savie自助息理財壽險」保單下，每個受保生命可額外獲得的意外身故權益之上限為400,000港元。若有下列情形：</p>"
+    },
+    {
+	  "category":"投保申請",
+      "id": 3,
+      "question_title": "<p class=\"question\">保單追溯期是否適用於此計劃?</p>",
+      "question_answer": "<p class=\"answer\">不適用。</p>"
+    },
+    {
+      "category":"投保申請",
+      "id": 4,
+      "question_title": "<p class=\"question\">此計劃可否附加附約?</p>",
+      "question_answer": "<p class=\"answer\">否。</p>"
+    },
+    {
+      "category":"保單服務",
+      "id": 5,
+      "question_title": "<p class=\"question\">保單可否復效?</p>",
+      "question_answer": "<p class=\"answer\">否。復效並不適用於已退保之保單。</p>"
+    },
+    {
+      "category":"保單服務",
+      "id": 6,
+      "question_title": "<p class=\"question\">我於退保時可得多少退保價值?</p>",
+      "question_answer": "<p class=\"answer\">您將收到戶口價值(港元)。</p>"
+    },
+    {
+      "category":"定期供款計劃",
+      "id": 7,
+      "question_title": "<p class=\"question\">如選擇月繳，我可以在保單年期內暫停供款嗎?</p>",
+      "question_answer": "<p class=\"answer\">您可以隨時暫停供款，而保費假期的條款將會生效。</p>"
+    },
+    {
+      "category":"定期供款計劃",
+      "id": 8,
+      "question_title": "<p class=\"question\">如我想暫停月繳供款，應怎樣通知你們?</p>",
+      "question_answer": "<p class=\"answer\">您需填寫更改保單合約內容申請書中第9.2部份 - 保費假期。 申請書可於網站下載<a class=\"faq_answer_url\" href=\"http://www.fwd.com.hk/tc/support-claims/forms-listing/\" target=\"_blank\"><u>http://www.fwd.com.hk/tc/support-claims/forms-listing/</u></a> 。否則，若保單在寬限期後仍未繳付保費，保費假期將會生效。</p>"
+    }         
+  ]
+}
