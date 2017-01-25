@@ -525,7 +525,7 @@ function bootstrapvalidate_joinus(){
 									},
 									regexp:{
 										enabled: false,
-										regexp: /^[a-zA-Z0-9]*$/,
+										regexp: /^[a-zA-Z0-9]*-{0,1}[a-zA-Z0-9]+$/,
 										message: '<fmt:message key="member.registration.error.policyno.special.chars" bundle="${msg}" />'
 									}
 								}
