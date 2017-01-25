@@ -1,0 +1,14 @@
+.keyword-search{
+	width: 100%;
+	background-color: #f2f2f2;
+	.fa-search{
+	    display: inline;
+	    position: absolute;
+	    z-index: 3;
+	    top: 10px;
+	    font-size: 30px;
+	}
+	#search-input{
+		padding: 6px 0 6px 35px;
+	}
+}

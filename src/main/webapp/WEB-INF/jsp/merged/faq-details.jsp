@@ -87,12 +87,12 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 		<div>Language = ${language}</div>
 	</div>
 
-	<div class="container faq-container">
-	    <div class="input-group">
+	<div class="container pad-none">
+	    <div class="input-group keyword-search">
+	    	<i class="fa fa-search"></i>
 	     	<input id="search-input" type="text" class="form-control<% if(language=="tc"){ %> chinese-input<% } %>" placeholder="Search for...">
 	    </div>
-	    
-		<div class="category-list col-md-3">
+		<div class="category-list col-md-3 pad-none">
 			<div class="category-title"><fmt:message key="faq.catlist.label" bundle="${msg}" /></div>
 			<% for(int i=0; i<topicList.size(); i++){ %>
 				<a class="category-item" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>

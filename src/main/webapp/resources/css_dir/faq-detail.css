@@ -1,0 +1,19 @@
+/* line 1, ../sass/faq-detail.scss */
+.keyword-search {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+/* line 4, ../sass/faq-detail.scss */
+.keyword-search .fa-search {
+  display: inline;
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  font-size: 30px;
+}
+/* line 11, ../sass/faq-detail.scss */
+.keyword-search #search-input {
+  padding: 6px 0 6px 35px;
+}
+
+/*# sourceMappingURL=faq-detail.css.map */
