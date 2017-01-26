@@ -189,7 +189,7 @@
                                         </li>
 										<li style="list-style: none;">
                                             <ul class="desc_sublist">
-                                                <li><p class="h4-5"><fmt:message key="partner.cathay_pacific.desc1.point1" bundle="${msg}" /></p></li>
+                                                <%-- <li><p class="h4-5"><fmt:message key="partner.cathay_pacific.desc1.point1" bundle="${msg}" /></p></li> --%>
 												<li><p class="h4-5"><fmt:message key="partner.cathay_pacific.desc1.point2" bundle="${msg}" /></p></li>
 												<li><p class="h4-5"><fmt:message key="partner.cathay_pacific.desc1.point3" bundle="${msg}" /></p></li>
                                             </ul>

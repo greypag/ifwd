@@ -627,6 +627,7 @@ function WithdrawClass(){
 
 	this.startWithdraw = function(pid) {
 		var that = this;
+		this.reset();
 		this.policyId = pid;
 
 		that.showLoading();
@@ -653,8 +654,6 @@ function WithdrawClass(){
 	};
 
 	this.showPanel = function(data) {
-		this.reset();
-
 		_productName = data.policy["product_" + eWalletCtr.langMapping[languageP]];
 
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);
@@ -721,7 +720,6 @@ function WithdrawClass(){
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("performWithdraw", xhr.status, response.code);
 				eWalletCtr.showGenericMsg("", msg);
-				console.log(response, xhr);
 
 				if(xhr.status != 413) {
 					that.popupDom.modal("hide");
