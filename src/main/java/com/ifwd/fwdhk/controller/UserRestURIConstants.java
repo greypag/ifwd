@@ -526,6 +526,13 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASYHEALTH_UPLOAD_CONFIRMATION = "easyhealth.confirmation";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_UPLOAD_LATER_CONFIRMATION = "easyhealth.confirmation.upload.later";
 	
+	/* Page Flow Control For medical guardian */
+	public static final String URL_MEDICAL_GUARDIAN = "landing";
+	public static final String URL_MEDICAL_GUARDIAN_PLAN_OPTION = "plan-option";
+	public static final String URL_MEDICAL_GUARDIAN_UNDERWRITING = "underwriting";
+	public static final String URL_MEDICAL_GUARDIAN_SIGNATURE = "signature";
+	public static final String URL_MEDICAL_GUARDIAN_PAYMENT = "payment";
+	public static final String URL_MEDICAL_GUARDIAN_CONFIRMATION = "confirmation";
 	
 	/* Page Flow Control For motor */			
 	
