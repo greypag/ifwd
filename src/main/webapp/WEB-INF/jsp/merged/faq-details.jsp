@@ -82,7 +82,7 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
     </div>
     <!-- Breadcrumb Component End-->
 
-	<div class="faq-container container pad-none">
+	<div class="question-container container pad-none">
 		<h3 class="mob-pad-left30 orange bold"><%=faqProductObj.get("product") %></h3>
 	    <div class="input-group keyword-search">
 	    	<div class="keyword-bg">

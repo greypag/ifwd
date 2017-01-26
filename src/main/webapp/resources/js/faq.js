@@ -26,10 +26,14 @@ $(function() {
 		search.addDoc(question);
   	});		
 	$( "#search-input" ).keyup(function() {
-		console.log(search);
+		//console.log(search);
 		var searchCtrl = $(this).val();
+		if(searchCtrl==""){
+			$('.category-item[data-link="category1"]').trigger("click");
+			return false;
+		}
 		var searchResult = search.search(searchCtrl);
-		console.log(searchResult);
+		//console.log(searchResult);
 		$( ".faq-group" ).hide();
 		$( ".faq-group__question-index" ).hide();
 		$( ".faq-group__question" ).hide();
@@ -40,6 +44,7 @@ $(function() {
 		  $("#question"+qId).parent().show();
 		  console.log(qIndex);
 		};
+		console.log("ahah");
 	});
 	$( ".category-item" ).on( "click", function() {
 		$( ".category-item.active" ).each(function(){
@@ -56,5 +61,6 @@ $(function() {
 				$(this).hide();
 			} 
 		});		  
-	});		
+	});
+	$('.category-item[data-link="category1"]').trigger("click");
 });	

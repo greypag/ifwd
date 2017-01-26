@@ -5,6 +5,9 @@ $color-Gray20: #333333;
 .gray20{
 	color: $color-Gray20;
 }
+.keyword-search{
+	padding: 30px 5%;
+}
 .category-item{
 	font-size: 24px;
 	display: block;
@@ -32,7 +35,6 @@ $color-Gray20: #333333;
 }
 .keyword-search{
 	width: 100%;
-	padding: 30px 15%;
 	&.input-group{
 		background-color: #f1f1f1;
 	}
@@ -50,10 +52,14 @@ $color-Gray20: #333333;
 	#search-input{
 		padding: 6px 0 6px 45px;
 		border: 1px solid #DADADA;
+		border-radius: 0;
 	}
 }
 
 @media (min-width: 992px) {
+	.keyword-search{
+		padding: 30px 15%;
+	}
 	.mob-pad-left30{
 		padding-left: 0;
 	}
@@ -71,7 +77,7 @@ $color-Gray20: #333333;
 	}
 }
 @media (max-width: 991px) {
-  .faq-container.container{
+  .question-container.container{
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
