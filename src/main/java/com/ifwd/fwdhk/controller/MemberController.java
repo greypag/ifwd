@@ -613,7 +613,7 @@ public class MemberController extends BaseController {
 					resultCode="400";
 					break;
 				case "System error":
-					resultCode="500";
+					resultCode="504";
 					break;
 				case " The information you have entered is not valid, please try again":
 					resultCode="504";
@@ -622,7 +622,7 @@ public class MemberController extends BaseController {
 					resultCode="504";
 					break;
 				default:
-					resultCode="500";
+					resultCode="504";
 					break;
 				}
 				responseJsonObj.put("message", errMsg);
