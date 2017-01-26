@@ -31,8 +31,8 @@ $(function() {
 		var searchResult = search.search(searchCtrl);
 		console.log(searchResult);
 		$( ".faq-group" ).hide();
+		$( ".faq-group__question-index" ).hide();
 		$( ".faq-group__question" ).hide();
-		$( ".faq-group__answer" ).hide();
 		for (var i = 0; i < searchResult.length; i++) {
 		  var qId = searchResult[i]['ref'];
 		  var qIndex = $("#question"+qId);
@@ -42,8 +42,12 @@ $(function() {
 		};
 	});
 	$( ".category-item" ).on( "click", function() {
+		$( ".category-item.active" ).each(function(){
+			$(this).removeClass("active");
+		});
 		var link = $(this).attr("data-link");
-		$(this).toggleClass("active");
+		var that = $(this);
+		$(this).addClass("active");			
 		$( ".faq-group" ).each(function(){
 			if($(this).attr("id")==link){
 				$(this).show();

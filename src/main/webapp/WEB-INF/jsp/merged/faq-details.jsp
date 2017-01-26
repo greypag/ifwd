@@ -82,47 +82,49 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
     </div>
     <!-- Breadcrumb Component End-->
 
-	<div class="container faq-container containerdd">
-		<div>Product = ${faqProduct}</div>
-		<div>Language = ${language}</div>
-	</div>
-
-	<div class="container pad-none">
+	<div class="faq-container container pad-none">
+		<h3 class="mob-pad-left30 orange bold"><%=faqProductObj.get("product") %></h3>
 	    <div class="input-group keyword-search">
-	    	<i class="fa fa-search"></i>
-	     	<input id="search-input" type="text" class="form-control<% if(language=="tc"){ %> chinese-input<% } %>" placeholder="Search for...">
+	    	<div class="keyword-bg">
+		    	<i class="fa fa-search"></i>
+		     	<input id="search-input" type="text" class="form-control<% if(language=="tc"){ %> chinese-input<% } %>" placeholder="Search for...">
+	     	</div>
 	    </div>
-		<div class="category-list col-md-3 pad-none">
-			<div class="category-title"><fmt:message key="faq.catlist.label" bundle="${msg}" /></div>
+		<div class="category-list col-md-3 first_div">
+			<h3 class="hidden-xs hidden-sm gray20 bold"><fmt:message key="faq.catlist.label" bundle="${msg}" /></h3>
 			<% for(int i=0; i<topicList.size(); i++){ %>
-				<a class="category-item" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
+				<a class="category-item orange" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
 			<% } %>
 		</div>
-		<div class="faq-wrapper col-md-9">
-			<div class="product-title"><%=faqProductObj.get("product") %></div>
+		<div class="faq-wrapper col-md-9 second_div">
+			<h3 class="gray20 bold"><%=faqProductObj.get("product") %></h3>
 			<% for(int i=0; i<topicList.size(); i++){ %>
 				<div id="category<%=i+1 %>" class="faq-group">
-					<div class="faq-group__title"><%=topicList.get(i).toString() %></div>
-					<%
-						JSONArray questions = (JSONArray) faqProductObj.get("questions");
-						for(int i2=0; i2<questions.size(); i2++){
-							JSONObject question = (JSONObject)questions.get(i2);
-					%>
-						<% if(topicList.get(i).toString().equals(question.get("category").toString())){ %>
-							<div class="faq-group__question">
-									<a href="#question<%=question.get("id").toString() %>"><%=question.get("question_title").toString() %></a>
-							</div>
-						<% } %>				
-					<% } %>					
+					<h3 class="gray20 faq-group__title bold"><%=topicList.get(i).toString() %></h3>
+						<div class="faq-group__question-index">
+						<%
+							JSONArray questions = (JSONArray) faqProductObj.get("questions");
+							for(int i2=0; i2<questions.size(); i2++){
+								JSONObject question = (JSONObject)questions.get(i2);
+						%>
+							<% if(topicList.get(i).toString().equals(question.get("category").toString())){ %>
+								<a class="question orange" href="#question<%=question.get("id").toString() %>"><%=question.get("question_title").toString() %></a>
+							<% } %>			
+						<% } %>	
+						</div>										
 					<%
 						JSONArray questionsAnswer = (JSONArray) faqProductObj.get("questions");
 						for(int i2=0; i2<questionsAnswer.size(); i2++){
 							JSONObject question = (JSONObject)questionsAnswer.get(i2);
 					%>
 						<% if(topicList.get(i).toString().equals(question.get("category").toString())){ %>
-							<div id="question<%=i2+1 %>" class="faq-group__answer">
-								<%=question.get("question_title").toString() %>
-								<%=question.get("question_answer").toString() %>
+							<div id="question<%=i2+1 %>" class="faq-group__question">
+								<div class="question orange">
+									<%=question.get("question_title").toString() %>
+								</div>
+								<div class="answer">
+									<%=question.get("question_answer").toString() %>
+								</div>
 							</div>
 						<% } %>
 					<% } %>

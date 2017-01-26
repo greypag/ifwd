@@ -1,19 +1,121 @@
-/* line 1, ../sass/faq-detail.scss */
+/* line 2, ../sass/faq-detail.scss */
+.mob-pad-left30 {
+  padding-left: 30px;
+}
+
+/* line 5, ../sass/faq-detail.scss */
+.gray20 {
+  color: #333333;
+}
+
+/* line 8, ../sass/faq-detail.scss */
+.category-item {
+  font-size: 24px;
+  display: block;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 10px;
+  width: 300px;
+  cursor: pointer;
+}
+
+/* line 18, ../sass/faq-detail.scss */
+.category-item.active {
+  color: #9fb1b2;
+}
+
+/* line 23, ../sass/faq-detail.scss */
+.category-list .category-item:last-child {
+  border-bottom: none;
+}
+
+/* line 27, ../sass/faq-detail.scss */
+.question p {
+  font-size: 24px;
+}
+
+/* line 30, ../sass/faq-detail.scss */
+.answer p {
+  font-size: 16px;
+}
+
+/* line 33, ../sass/faq-detail.scss */
 .keyword-search {
   width: 100%;
-  background-color: #f2f2f2;
+  padding: 30px 15%;
 }
-/* line 4, ../sass/faq-detail.scss */
+/* line 36, ../sass/faq-detail.scss */
+.keyword-search.input-group {
+  background-color: #f1f1f1;
+}
+/* line 39, ../sass/faq-detail.scss */
+.keyword-search .keyword-bg {
+  position: relative;
+}
+/* line 42, ../sass/faq-detail.scss */
 .keyword-search .fa-search {
   display: inline;
   position: absolute;
   z-index: 3;
   top: 10px;
+  padding-left: 15px;
   font-size: 30px;
 }
-/* line 11, ../sass/faq-detail.scss */
+/* line 50, ../sass/faq-detail.scss */
 .keyword-search #search-input {
-  padding: 6px 0 6px 35px;
+  padding: 6px 0 6px 45px;
+  border: 1px solid #DADADA;
+}
+
+@media (min-width: 992px) {
+  /* line 57, ../sass/faq-detail.scss */
+  .mob-pad-left30 {
+    padding-left: 0;
+  }
+
+  /* line 60, ../sass/faq-detail.scss */
+  .category-list {
+    padding: 0;
+  }
+  /* line 62, ../sass/faq-detail.scss */
+  .category-list .category-item {
+    width: auto;
+  }
+
+  /* line 66, ../sass/faq-detail.scss */
+  .faq-wrapper {
+    padding: 0 0 0 5%;
+  }
+
+  /* line 69, ../sass/faq-detail.scss */
+  .faq-group__question-index {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 991px) {
+  /* line 74, ../sass/faq-detail.scss */
+  .faq-container.container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  /* line 87, ../sass/faq-detail.scss */
+  .category-list {
+    order: 2;
+  }
+
+  /* line 91, ../sass/faq-detail.scss */
+  .faq-wrapper {
+    order: 1;
+  }
 }
 
 /*# sourceMappingURL=faq-detail.css.map */

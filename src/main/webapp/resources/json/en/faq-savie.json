@@ -12,50 +12,50 @@
     {
       "category":"Product Feature",
       "id": 1,
-      "question_title": "<p class=\"question\">How is Death Benefit calculated?</p>",
-      "question_answer": "<p class=\"answer\">The Death Benefit equals 105% of Account Value.</p>"
+      "question_title": "<p>How is Death Benefit calculated?</p>",
+      "question_answer": "<p>The Death Benefit equals 105% of Account Value.</p>"
     },
     {
       "category":"Product Feature",
       "id": 2,
-      "question_title": "<p class=\"question\">What is the compensation for Accidental Death?</p>",
-      "question_answer": "<p class=\"answer\">If the death of the insured is caused by Accident, the Company will pay a Death Benefit equivalent to 105% of Account Value, together with an extra Accidental Death Benefit of 100% of Account Value. In total, 205% of Account Value is payable. Additional Accidental Death Benefit is capped at HKD 400,000 per life for Savie Insurance Plan provided that:</p>"
+      "question_title": "<p>What is the compensation for Accidental Death?</p>",
+      "question_answer": "<p>If the death of the insured is caused by Accident, the Company will pay a Death Benefit equivalent to 105% of Account Value, together with an extra Accidental Death Benefit of 100% of Account Value. In total, 205% of Account Value is payable. Additional Accidental Death Benefit is capped at HKD 400,000 per life for Savie Insurance Plan provided that:</p>"
     },
     {
 	  "category":"Application",
       "id": 3,
-      "question_title": "<p class=\"question\">Is backdating applicable to this Plan?</p>",
-      "question_answer": "<p class=\"answer\">No, backdating is not applicable for this Plan.</p>"
+      "question_title": "<p>Is backdating applicable to this Plan?</p>",
+      "question_answer": "<p>No, backdating is not applicable for this Plan.</p>"
     },
     {
       "category":"Application",
       "id": 4,
-      "question_title": "<p class=\"question\">Are there any riders attachable to this Plan?</p>",
-      "question_answer": "<p class=\"answer\">No attachable riders.</p>"
+      "question_title": "<p>Are there any riders attachable to this Plan?</p>",
+      "question_answer": "<p>No attachable riders.</p>"
     },
     {
       "category":"Policy Services",
       "id": 5,
-      "question_title": "<p class=\"question\">Can the policy be reinstated?</p>",
-      "question_answer": "<p class=\"answer\">No, reinstatement is not applicable for a policy which is surrendered by the Policy Owner.</p>"
+      "question_title": "<p>Can the policy be reinstated?</p>",
+      "question_answer": "<p>No, reinstatement is not applicable for a policy which is surrendered by the Policy Owner.</p>"
     },
     {
       "category":"Policy Services",
       "id": 6,
-      "question_title": "<p class=\"question\">What value will I get upon surrender?</p>",
-      "question_answer": "<p class=\"answer\">You will receive the account value in HKD.</p>"
+      "question_title": "<p>What value will I get upon surrender?</p>",
+      "question_answer": "<p>You will receive the account value in HKD.</p>"
     },
     {
       "category":"Regular Payment Plan",
       "id": 7,
-      "question_title": "<p class=\"question\">Can I stop paying premiums during the Policy Term if I chose monthly payment mode?</p>",
-      "question_answer": "<p class=\"answer\">You may ask for your premiums to be suspended and in such case Premium Holiday term will apply.</p>"
+      "question_title": "<p>Can I stop paying premiums during the Policy Term if I chose monthly payment mode?</p>",
+      "question_answer": "<p>You may ask for your premiums to be suspended and in such case Premium Holiday term will apply.</p>"
     },
     {
       "category":"Regular Payment Plan",
       "id": 8,
-      "question_title": "<p class=\"question\">If I would like to stop paying the premiums, how to notify you?</p>",
-      "question_answer": "<p class=\"answer\">You have to complete section 9.2 of the Policy Services Request Form to apply for Premium Holiday. The form is available to be downloaded from our website:<a class=\"faq_answer_url\" href=\"http://www.fwd.com.hk/en/support-claims/forms-listing/\" target=\"_blank\"><u>http://www.fwd.com.hk/en/support-claims/forms-listing/</u></a>.Otherwise, Premium Holiday term will apply if no premium is received after the expiration of Grace Period.</p>"
+      "question_title": "<p>If I would like to stop paying the premiums, how to notify you?</p>",
+      "question_answer": "<p>You have to complete section 9.2 of the Policy Services Request Form to apply for Premium Holiday. The form is available to be downloaded from our website:<a class=\"faq_answer_url\" href=\"http://www.fwd.com.hk/en/support-claims/forms-listing/\" target=\"_blank\"><u>http://www.fwd.com.hk/en/support-claims/forms-listing/</u></a>.Otherwise, Premium Holiday term will apply if no premium is received after the expiration of Grace Period.</p>"
     }         
   ]
 }
