@@ -128,10 +128,12 @@ var nextPage = "${nextPageFlow}";
                         <br />
                         <br />
                     </p>
+                    <%--
                     <p>
                         <h3><strike class="amountDueAmount"></strike></h3>
                         <h2 class="orange"><fmt:message key="motor.confirmation.discount.save.copy" bundle="${motorMsg}" /><span class="amountSave"></span></h2>
                     </p>
+                    --%>
                     <p>
                         <br />
                         <fmt:message key="motor.uploadconfirm.discount.downloadnow" bundle="${motorMsg}" />

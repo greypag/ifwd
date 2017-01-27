@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
 
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -116,6 +117,10 @@
 				'motor_insurance': {
 			        'mobile': '<fmt:message key="header.notification.msg.motor" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.motor" bundle="${msg}" />'
+			    },
+			    'maintenance': {
+			        'mobile': '<s:message code="label.header.maintenance.message"/>',
+			        'desktop': '<s:message code="label.header.maintenance.message"/>'
 			    }
 			}
 	    }
@@ -127,22 +132,23 @@ var contentIndexArr = [];
 var nBarConfig = {};
 var showNotification = ( <%=showNotification%> == false ) ? false : true;
 
-<% if(request.getRequestURI().indexOf("/travel-insurance")>0) { %>
+var isMaintenance = obj.nBarOnly.content.maintenance.desktop != 'deployed';
 
 nBarConfig = {
-	'contentIndex': contentIndexArr,
-	'isVisible': ( <%=showNotification%> == false ) ? false : true
+	'contentIndex': [],
+	'isVisible': false
 }
+
+<% if(request.getRequestURI().indexOf("/travel-insurance")>0) { %>
+
+	nBarConfig.isVisible = ( <%=showNotification%> == false ) ? false : true
 
 <% }else if(request.getRequestURI().indexOf("/motor-insurance")>0 ) { %>
 
-if( isMotorMaintenance ){
-	contentIndexArr.push("motor_insurance");
-	nBarConfig = {
-		'contentIndex': contentIndexArr,
-		'isVisible': true
+	if( isMotorMaintenance ){
+		contentIndexArr.push('motor_insurance');
+		nBarConfig.isVisible = true;
 	}
-}
 
 <% } else { %>
 
@@ -150,12 +156,16 @@ if ( isChromeIOS ) {
 	contentIndexArr.push('ios_chrome');
 }
 
-nBarConfig = {
-	'contentIndex': contentIndexArr,
-	'isVisible': ( <%=showNotification%> == false && isChromeIOS == false ) ? false : true
-}
+	nBarConfig.isVisible = ( <%=showNotification%> == false && isChromeIOS == false ) ? false : true
 
 <% } %>
+
+if (isMaintenance) {
+	contentIndexArr.push('maintenance');
+	nBarConfig.isVisible = true;
+}
+
+nBarConfig.contentIndex = contentIndexArr;
 
 </script>
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />

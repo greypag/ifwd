@@ -32,7 +32,7 @@ var home_url = "<%=request.getContextPath()%>";
   },
   "offers":{
     "@type":"AggregateOffer",
-    "lowPrice":"941000",
+    "lowPrice":"94100",
     "highPrice":"9400000",
     "priceCurrency":"HKD"
   }
