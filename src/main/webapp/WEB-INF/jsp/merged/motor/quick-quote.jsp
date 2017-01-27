@@ -225,8 +225,8 @@ max-width: 90px;
             <div class="row" >
                 <div class="text-center col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
                     <br />
-                    <a href="javascript:;" id="apply-link" data-toggle="modal" data-target="#contactpopup" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.apply" bundle="${motorMsg}" /></a>
-                    <!--<button id="apply-link" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>-->
+                    <!-- <a href="javascript:;" id="apply-link" data-toggle="modal" data-target="#contactpopup" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.apply" bundle="${motorMsg}" /></a>-->
+                    <button id="apply-link" class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="motor.button.submit" bundle="${motorMsg}" /></button>
                     <br/>
                     <br/>
                 </div>
@@ -740,98 +740,75 @@ function SaveAndExit()
         });
 
         $('#apply-link').on("click", function(){
-            /* Skip online flow - Begin */
-            window.location.hash = "callme=popup";
-            quote.personalAccident = $('[name="addon1"]').is(':checked');
-            quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
-            if ($('#quote-num').html().trim().length==0){
-                $.ajax({
-                    url:  motorApi.quoteSaving,
-                    contentType: "application/json",        
-                    type: 'POST',
-                    dataType: "json",
-                    data: JSON.stringify(quote),
-                    async: false,
-                    cache: false,
-                    error: function() {
-                        alert("Error");
-                    },
-                    success: function(data) {
-                        $('#quote-num').html(data.refNumber);
-                        quote.policyId = data.policyId;
-                    }
-                });
-            }
-            /* Skip online flow - End */
         });
         $('#form-inline').submit(function(event){
-        	//$('#loading-overlay').modal("show");
-        	//quote.personalAccident = $('[name="addon1"]').is(':checked');
-            //quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
-        	//if(getUrlParameter("edit") == "yes" || getUrlParameter("back")=="yes")
-        	//{
-        	//	
-        	//	$.ajax({
-        	//		  type: "POST",
-        	//		  data: JSON.stringify(quote),
-        	//		  dataType: "json",
-        	//	      contentType : "application/json",
-        	//	      cache: false,
-        	//	      async: false,
-        	//	      url:context + "/api/iMotor/quote/saving?edit=y",
-        	//		  success: function(data){
-        	//			  
-	        //                var $form = $("<form id='quote-form' />");
-	        //                $form.attr("action", "car-details?edit=yes");
-	        //                $form.attr("method", "post");
-	        //                var $quote = $("<input type='hidden' name='data' />");
-	        //                $quote.attr("value", JSON.stringify(quote));
-	        //                $form.append($quote);
-	        //                $("body").append($form);
-	        //                $('#quote-form').submit();
-	        //            	$('#loading-overlay').modal("hide");
-	        //                return false;
-        	//	                
-        	//		  },error: function(error) {
-        	//			alert("error");
-        	//		  }
-        	//		});
-        	//}else
-        	//{
-	        //    //window.location.hash = "callme=popup";
-	        //	if ($('#quote-num').html().trim().length==0){
-	        //        $.ajax({
-	        //            url:  motorApi.quoteSaving,
-	        //    		contentType: "application/json",        
-	        //            type: 'POST',
-	        //            dataType: "json",
-	        //            data: JSON.stringify(quote),
-	        //            async: false,
-	        //            cache: false,
-	        //            error: function() {
-	        //                alert("Error");
-	        //            },
-	        //            success: function(data) {
-	        //            	console.dir(data);
-	        //            	console.log(data.refNumber);
-	        //            	console.log(data.policyId);
-	        //                /*$('#quote-num').html(data.refNumber);
-	        //                quote.policyId = data.policyId;*/
-	        //                var object1 = {"policyId": data.policyId,"refNumber":data.refNumber};
-	        //                var $form = $("<form id='quote-form' />");
-	        //                $form.attr("action", "car-details");
-	        //                $form.attr("method", "post");
-	        //                var $quote = $("<input type='hidden' name='data' />");
-	        //                $quote.attr("value", JSON.stringify($.extend( object1, quote )));
-	        //                $form.append($quote);
-	        //                $("body").append($form);
-	        //                $('#quote-form').submit();  
-	        //                return false;
-	        //            }
-	        //         
-	        //        }); 
-	        //	}
-        	//}
+        	$('#loading-overlay').modal("show");
+        	quote.personalAccident = $('[name="addon1"]').is(':checked');
+            quote.thirdPartyPropertyDamage = $('[name="addon2"]').is(':checked');
+        	if(getUrlParameter("edit") == "yes" || getUrlParameter("back")=="yes")
+        	{
+        		
+        		$.ajax({
+        			  type: "POST",
+        			  data: JSON.stringify(quote),
+        			  dataType: "json",
+        		      contentType : "application/json",
+        		      cache: false,
+        		      async: false,
+        		      url:context + "/api/iMotor/quote/saving?edit=y",
+        			  success: function(data){
+        				  
+	                        var $form = $("<form id='quote-form' />");
+	                        $form.attr("action", "car-details?edit=yes");
+	                        $form.attr("method", "post");
+	                        var $quote = $("<input type='hidden' name='data' />");
+	                        $quote.attr("value", JSON.stringify(quote));
+	                        $form.append($quote);
+	                        $("body").append($form);
+	                        $('#quote-form').submit();
+	                    	$('#loading-overlay').modal("hide");
+	                        return false;
+        		                
+        			  },error: function(error) {
+        				alert("error");
+        			  }
+        			});
+        	}else
+        	{
+	            //window.location.hash = "callme=popup";
+	        	if ($('#quote-num').html().trim().length==0){
+	                $.ajax({
+	                    url:  motorApi.quoteSaving,
+	            		contentType: "application/json",        
+	                    type: 'POST',
+	                    dataType: "json",
+	                    data: JSON.stringify(quote),
+	                    async: false,
+	                    cache: false,
+	                    error: function() {
+	                        alert("Error");
+	                    },
+	                    success: function(data) {
+	                    	console.dir(data);
+	                    	console.log(data.refNumber);
+	                    	console.log(data.policyId);
+	                        /*$('#quote-num').html(data.refNumber);
+	                        quote.policyId = data.policyId;*/
+	                        var object1 = {"policyId": data.policyId,"refNumber":data.refNumber};
+	                        var $form = $("<form id='quote-form' />");
+	                        $form.attr("action", "car-details");
+	                        $form.attr("method", "post");
+	                        var $quote = $("<input type='hidden' name='data' />");
+	                        $quote.attr("value", JSON.stringify($.extend( object1, quote )));
+	                        $form.append($quote);
+	                        $("body").append($form);
+	                        $('#quote-form').submit();  
+	                        return false;
+	                    }
+	                 
+	                }); 
+	        	}
+        	}
         	   return false;
         });
     
