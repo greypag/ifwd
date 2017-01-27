@@ -26,5 +26,13 @@ header .top-bar .header-notification-box, .navbar.navbar-default.navbar-fixed-to
   position: relative;
   z-index: 1000;
 }
+/* line 27, ../sass/header.notification.bar.scss */
+.header-notification-box a {
+  color: #ff8200 !important;
+}
+/* line 29, ../sass/header.notification.bar.scss */
+.header-notification-box a:hover {
+  color: #ff8200 !important;
+}
 
 /*# sourceMappingURL=header.notification.bar.css.map */

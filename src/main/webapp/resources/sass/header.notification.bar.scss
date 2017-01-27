@@ -24,4 +24,10 @@ header .top-bar .header-notification-box, .navbar.navbar-default.navbar-fixed-to
       position: relative;
       z-index: 1000;
   }
+  a{
+  	color: #ff8200 !important;
+  	&:hover{
+  		color: #ff8200 !important;
+  	}
+  }
 }
