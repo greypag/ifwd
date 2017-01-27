@@ -103,11 +103,11 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="savie-product text-bold">
 									<fmt:message key="provie.landing.link.productbrochure" bundle="${provieMsg}" />
 									<fmt:message key="provie.landing.link.productbrochure.text1" bundle="${provieMsg}" />
-									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.productbrochure.link.oneoff" bundle="${provieMsg}" />'>
+									<a target="_blank" href='<fmt:message key="provie.landing.link.productbrochure.link.oneoff" bundle="${provieMsg}" />'>
 										<fmt:message key="provie.landing.link.productbrochure.text2" bundle="${provieMsg}" />
 									</a>
 									<fmt:message key="provie.landing.link.productbrochure.text3" bundle="${provieMsg}" />
-									<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.productbrochure.link.monthly" bundle="${provieMsg}" />'>
+									<a target="_blank" href='<fmt:message key="provie.landing.link.productbrochure.link.monthly" bundle="${provieMsg}" />'>
 										<fmt:message key="provie.landing.link.productbrochure.text4" bundle="${provieMsg}" />
 									</a>
 									<fmt:message key="provie.landing.link.productbrochure.text5" bundle="${provieMsg}" />
@@ -141,11 +141,11 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="savie-product text-bold">
 								<fmt:message key="provie.landing.link.productbrochure" bundle="${provieMsg}" />
 								<fmt:message key="provie.landing.link.productbrochure.text1" bundle="${provieMsg}" />
-								<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.productbrochure.link.oneoff" bundle="${provieMsg}" />'>
+								<a target="_blank" href='<fmt:message key="provie.landing.link.productbrochure.link.oneoff" bundle="${provieMsg}" />'>
 									<fmt:message key="provie.landing.link.productbrochure.text2" bundle="${provieMsg}" />
 								</a>
 								<fmt:message key="provie.landing.link.productbrochure.text3" bundle="${provieMsg}" />
-								<a target="_blank" href='<%=request.getContextPath()%>/resources/pdf/provie/<fmt:message key="provie.landing.link.productbrochure.link.monthly" bundle="${provieMsg}" />'>
+								<a target="_blank" href='<fmt:message key="provie.landing.link.productbrochure.link.monthly" bundle="${provieMsg}" />'>
 									<fmt:message key="provie.landing.link.productbrochure.text4" bundle="${provieMsg}" />
 								</a>
 								<fmt:message key="provie.landing.link.productbrochure.text5" bundle="${provieMsg}" />
