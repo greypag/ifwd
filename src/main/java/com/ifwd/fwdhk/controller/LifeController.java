@@ -422,11 +422,14 @@ public class LifeController extends BaseController{
 	@RequestMapping(value = {"/{lang}/{plan}/fatca"})
 	public ModelAndView getSavieOnlineLifeFatca(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
-		if(userName == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
-		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		if(!plan.equals("medical-guardian")){
+			if(userName == null){
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			}
 		}
+		
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		String underwritingYes = (String) request.getSession().getAttribute("underwritingYes");
 		String salesIllustrationJpgName = (String) request.getSession().getAttribute("salesIllustrationJpgName");
@@ -454,17 +457,19 @@ public class LifeController extends BaseController{
 	@RequestMapping(value = {"/{lang}/{plan}/personal-details"})
 	public ModelAndView getSavieOnlineLifePersonalDetails(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
-		if(userName == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
-		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
-		}
+		if(!plan.equals("medical-guardian")){
+			if(userName == null ){
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			} else if (userName.equalsIgnoreCase("*DIRECTGI") ) {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			}
+		}	
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		String fatcaYes = (String) request.getSession().getAttribute("fatcaYes");
-		if(userDetails == null){
+		if(userDetails == null && !plan.equals("medical-guardian")){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if(fatcaYes == null){
+		else if(fatcaYes == null && !plan.equals("medical-guardian")){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{

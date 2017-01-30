@@ -1748,8 +1748,11 @@ var ehPro = '${pro }';
             //### start TNC check
             if(!isTNCChecked()) return;
             //### end TNC check
+            
+            console.log("Auth : "+"${authenticate}")
+             //direct
 
-            if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+           // if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI" ){
             	$.ajax({     
 				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
 				    type:'get',
@@ -1808,14 +1811,14 @@ var ehPro = '${pro }';
 				    	}
 				    }  
 				});
-            }else{
-                $('#offline-online-modal').modal('hide');
-                $('.login-info').addClass('hidden');
-                $('#loginpopup .modal-dialog').removeClass('loginpopupext');
-                $('#loginpopup #fna-check').val("false");
-                $('#loginpopup #nav-bar-check').val("false");
-                $('#loginpopup').modal('show');         
-            }
+//             }else{
+//                 $('#offline-online-modal').modal('hide');
+//                 $('.login-info').addClass('hidden');
+//                 $('#loginpopup .modal-dialog').removeClass('loginpopupext');
+//                 $('#loginpopup #fna-check').val("false");
+//                 $('#loginpopup #nav-bar-check').val("false");
+//                 $('#loginpopup').modal('show');         
+//             }
         });
         
          $("#backSummary, .btn-apply").click(function() {

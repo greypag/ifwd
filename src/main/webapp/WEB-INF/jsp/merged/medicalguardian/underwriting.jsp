@@ -185,7 +185,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="checkbox">
 									<input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="underwriting.declaration" bundle="${msg}" /></label>
 									<span class="error-msg" id="ehUnderWriting4ErrMsg"></span>
-								</div>
+									</div>
 							</div>
 							<div class="btn-row text-center">
 								<a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-btn-underwriting-next"><fmt:message key="button.next" bundle="${msg}" /></a>
@@ -507,9 +507,7 @@ var nextPageFlow = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
          });
 		
 		
-		/*$("#eh-btn-underwriting-next").click(function() {
-    		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-        });*/
+		
 		
 		$('#et-select-plan-go-homepage').on('click', function(e) {
 			window.location.href= contextPath+'/'+language+'/medical-insurance';

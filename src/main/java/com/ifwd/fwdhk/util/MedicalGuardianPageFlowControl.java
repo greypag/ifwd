@@ -12,6 +12,12 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 public class MedicalGuardianPageFlowControl {
 	private final static Logger logger = LoggerFactory.getLogger(MedicalGuardianPageFlowControl.class);
 
+	/**
+	 * @param model
+	 * @param request
+	 * @param key
+	 * @return
+	 */
 	public static ModelAndView pageFlow(Model model, HttpServletRequest request, String key) {
 
 		logger.debug("-----------------------------------page flow start--------------------------------------------");
@@ -65,7 +71,7 @@ public class MedicalGuardianPageFlowControl {
 			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("medical-guardian")){
 				referer = UserRestURIConstants.URL_MEDICAL_GUARDIAN;
 			} else {
-				referer = getEasyHealthPage(referer);
+				referer = getMedicalGuardianPage(referer);
 			}
 		}
 
@@ -73,7 +79,7 @@ public class MedicalGuardianPageFlowControl {
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("medical-guardian")){
 				current = UserRestURIConstants.URL_MEDICAL_GUARDIAN;
 			} else {
-				current = getEasyHealthPage(current);
+				current = getMedicalGuardianPage(current);
 			}
 		}
 		
@@ -85,7 +91,7 @@ public class MedicalGuardianPageFlowControl {
 		logger.debug("current : " + current);
 
 		switch (current) {
-
+		
 		case UserRestURIConstants.URL_MEDICAL_GUARDIAN:
 			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_PLAN_OPTION;
 			break;
@@ -118,6 +124,8 @@ public class MedicalGuardianPageFlowControl {
 		default:
 			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN;
 
+
+		
 		}
 
 		logger.debug("nextPageFlow : " + "medical-guardian/"+to);
@@ -134,7 +142,7 @@ public class MedicalGuardianPageFlowControl {
 
 	}
 	
-	public static String getEasyHealthPage(String url){
+	public static String getMedicalGuardianPage(String url){
 		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN)) {
 			return UserRestURIConstants.URL_MEDICAL_GUARDIAN;
 		}
@@ -154,5 +162,6 @@ public class MedicalGuardianPageFlowControl {
 			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_CONFIRMATION;
 		}
 		return "";
+		
 	}
 }
