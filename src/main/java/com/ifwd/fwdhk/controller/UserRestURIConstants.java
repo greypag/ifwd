@@ -534,6 +534,25 @@ public class UserRestURIConstants {
 	public static final String URL_MEDICAL_GUARDIAN_PAYMENT = "payment";
 	public static final String URL_MEDICAL_GUARDIAN_CONFIRMATION = "confirmation";
 	
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN = "medicalguardian.landing";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_PLAN_OPTION = "medicalguardian.plan.option";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_UNDERWRITING = "medicalguardian.underwriting";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_LIFE_FATCA = "medicalguardian.fatca";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_SIGNATURE = "medicalguardian.signature";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_PAYMENT = "medicalguardian.payment";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_CONFIRMATION = "medicalguardian.confirmation";
+	
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_PERSONAL_DETAILS = "medicalguardian.personal.details";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_EMPLOYMENT_INFO = "medicalguardian.employment.info";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_BENEFICARY_INFO = "medicalguardian.beneficary.info";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_POLICY_SUMMARY = "medicalguardian.application.summary";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_DECLARATION = "medicalguardian.declaration";
+	
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_DOCUMENT_UPLOAD = "medicalguardian.document.upload";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_DOCUMENT_UPLOAD_LATER = "medicalguardian.document.upload.later";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION = "medicalguardian.confirmation";
+	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_LATER_CONFIRMATION = "medicalguardian.confirmation.upload.later";
+	
 	/* Page Flow Control For motor */			
 	
 

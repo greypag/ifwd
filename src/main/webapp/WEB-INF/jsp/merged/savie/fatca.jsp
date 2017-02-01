@@ -61,6 +61,12 @@ var languageP = "${language}";
 					</c:set>
 			    	<c:set var="stepActive">1</c:set>
 			    </c:if>
+			    <c:if test="${planIndex == 'medical-guardian'}">
+			    	<c:set var="stepItems">
+			    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+					</c:set>
+			    	<c:set var="stepActive">1</c:set>
+			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="stepItems">
 			    		stepindicator.selectplan,stepindicator.application,stepindicator.summary.declaration,stepindicator.sign,stepindicator.upload.document,stepindicator.confirmation

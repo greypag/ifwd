@@ -13,6 +13,10 @@
 <script type="text/javascript">
 	var context = "${pageContext.request.contextPath}";
 	var languageP = "${language}";
+	
+	
+	
+	
 </script>
 <html lang="en">
 	<head>
@@ -60,6 +64,12 @@
 				<c:set var="stepActive" value="0"/>
 
 				<c:if test="${planIndex == 'medical-insurance'}">
+					<c:set var="stepItems">
+						stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+					</c:set>
+					<c:set var="stepActive">1</c:set>
+				</c:if>
+				<c:if test="${planIndex == 'medical-guardian'}">
 					<c:set var="stepItems">
 						stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
 					</c:set>
@@ -243,7 +253,7 @@
 						class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field"
 						id="mobileNo"
 						name="mobileNumber"
-						readonly="readonly"
+						
 						value="${userDetails.mobileNo }"
 						type="text"
 						autocomplete="off"
@@ -320,7 +330,7 @@
 </div>
 <div class="clearfix form-group has-error">
 <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }" readonly="readonly" type="email"/>
+<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }"  type="email"/>
 <label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="emailAddress"><fmt:message key="placeholder.email" bundle="${msg}"/></label>
 </div>
 <span class="error-msg" id="emailErMsg"></span>
@@ -869,11 +879,24 @@ var getpath = "<%=request.getContextPath()%>";
 
 $(document).ready(function () {
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
+	console.log('${username}')
+	
+	if('${username}'==null || '${username}'=="*DIRECTGI"){
+		setInputReadonly('firstname',false);
+		setInputReadonly('lastname',false);
+		setSelectReadonly('tmpGender',false);
+		setInputReadonly('so-calendar-dob', false);
+		setInputReadonly('emailAddress', false);	
+		setInputReadonly('mobileNumber', false);	
+		
+		//mobileNo
+		
+	}
 
-	setSelectReadonly('tmpGender', true);
-	setInputReadonly('so-calendar-dob', true);
+	//setSelectReadonly('tmpGender', true);
+	//setInputReadonly('so-calendar-dob', true);
 	//setInputReadonly('residentialNo', true);
-	setInputReadonly('mobileNo', true);
+	//setInputReadonly('mobileNo', true);
 
 	if ('${plan }' == 'savings-insurance') {
 		setSelectReadonly('tmpMaritalStatus', true);
@@ -1195,7 +1218,7 @@ function soFormValidation() {
 				container: '#chineseNameErMsg',
 				validators: {
 					regexp: {
-						//regexp: /^[\s\u4e00-\u9eff]*$/,
+						<%--regexp: /^[\s\u4e00-\u9eff]*$/,--%>
 						regexp: /^[\s\u4e00-\u9fa5]*$/,
 						message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
 					}<%-- ,

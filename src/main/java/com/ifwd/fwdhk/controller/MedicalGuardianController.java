@@ -40,7 +40,7 @@ public class MedicalGuardianController extends BaseController {
 	@RequestMapping(value = {"/{lang}/medical-guardian"})
 	public ModelAndView getMedicalGuardian(Model model, HttpServletRequest request, HttpSession httpSession) {
 		easyHealthService.removeSession(request);
-		return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH);
+		return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN);
 	}
 	
 	@RequestMapping(value = {"/{lang}/medical-guardian/plan-option"})
@@ -50,7 +50,7 @@ public class MedicalGuardianController extends BaseController {
 			model.addAttribute("backSummary", backSummary);
 			request.getSession().setAttribute("ehStep", "1");
 		}
-		return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PLAN_OPTION);
+		return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PLAN_OPTION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/medical-guardian/underwriting"})
@@ -71,7 +71,7 @@ public class MedicalGuardianController extends BaseController {
 			model.addAttribute("etEnquiryTypeEN", InitApplicationMessage.etEnquiryTypeEN);
 			model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
 			request.getSession().setAttribute("underwritingYes", "underwritingYes");
-			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING);
+			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UNDERWRITING);
 		}
 	}
 	
@@ -93,7 +93,7 @@ public class MedicalGuardianController extends BaseController {
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
-			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
+			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_SIGNATURE);
 		}
 	}
 	
@@ -111,7 +111,7 @@ public class MedicalGuardianController extends BaseController {
 			String path = request.getRequestURL().toString();
 			model.addAttribute("successUrl", path.replace("payment", "document-upload"));
 			model.addAttribute("failurePath", path);
-			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PAYMENT);
+			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PAYMENT);
 		}
 	}
 

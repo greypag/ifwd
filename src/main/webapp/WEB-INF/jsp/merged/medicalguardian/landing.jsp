@@ -47,7 +47,7 @@ var home_url = "<%=request.getContextPath()%>";
                       <li class="divider"><i class="fa fa-angle-right"></i></li>
                       <li><a href="#"><fmt:message key="easyhealth.breadcrumb.category" bundle="${msg}" /> </a></li>
                       <li class="divider"><i class="fa fa-angle-right"></i></li>
-                      <li class="active-bc" id="et-active-bc-menu"><fmt:message key="easyhealth.breadcrumb.easyhealth" bundle="${msg}" /></li>
+                      <li class="active-bc" id="et-active-bc-menu"><fmt:message key="medicalguardian.breadcrumb.medicalguardian" bundle="${msg}" /></li>
                      </ol>
                 </div>
             </div>
