@@ -30,8 +30,10 @@ $color-Gray20: #333333;
 .question p{
 	font-size: 24px;
 }
-.answer p{
-	font-size: 16px;
+.answer{
+	*{
+		font-size: 16px;
+	}
 }
 .keyword-search{
 	width: 100%;

@@ -39,24 +39,24 @@
   font-size: 24px;
 }
 
-/* line 33, ../sass/faq-detail.scss */
-.answer p {
+/* line 34, ../sass/faq-detail.scss */
+.answer * {
   font-size: 16px;
 }
 
-/* line 36, ../sass/faq-detail.scss */
+/* line 38, ../sass/faq-detail.scss */
 .keyword-search {
   width: 100%;
 }
-/* line 38, ../sass/faq-detail.scss */
+/* line 40, ../sass/faq-detail.scss */
 .keyword-search.input-group {
   background-color: #f1f1f1;
 }
-/* line 41, ../sass/faq-detail.scss */
+/* line 43, ../sass/faq-detail.scss */
 .keyword-search .keyword-bg {
   position: relative;
 }
-/* line 44, ../sass/faq-detail.scss */
+/* line 46, ../sass/faq-detail.scss */
 .keyword-search .fa-search {
   display: inline;
   position: absolute;
@@ -65,7 +65,7 @@
   padding-left: 15px;
   font-size: 30px;
 }
-/* line 52, ../sass/faq-detail.scss */
+/* line 54, ../sass/faq-detail.scss */
 .keyword-search #search-input {
   padding: 6px 0 6px 45px;
   border: 1px solid #DADADA;
@@ -73,37 +73,37 @@
 }
 
 @media (min-width: 992px) {
-  /* line 60, ../sass/faq-detail.scss */
+  /* line 62, ../sass/faq-detail.scss */
   .keyword-search {
     padding: 30px 15%;
   }
 
-  /* line 63, ../sass/faq-detail.scss */
+  /* line 65, ../sass/faq-detail.scss */
   .mob-pad-left30 {
     padding-left: 0;
   }
 
-  /* line 66, ../sass/faq-detail.scss */
+  /* line 68, ../sass/faq-detail.scss */
   .category-list {
     padding: 0;
   }
-  /* line 68, ../sass/faq-detail.scss */
+  /* line 70, ../sass/faq-detail.scss */
   .category-list .category-item {
     width: auto;
   }
 
-  /* line 72, ../sass/faq-detail.scss */
+  /* line 74, ../sass/faq-detail.scss */
   .faq-wrapper {
     padding: 0 0 0 5%;
   }
 
-  /* line 75, ../sass/faq-detail.scss */
+  /* line 77, ../sass/faq-detail.scss */
   .faq-group__question-index {
     margin-bottom: 30px;
   }
 }
 @media (max-width: 991px) {
-  /* line 80, ../sass/faq-detail.scss */
+  /* line 82, ../sass/faq-detail.scss */
   .question-container.container {
     display: -webkit-box;
     display: -moz-box;
@@ -117,12 +117,12 @@
     flex-direction: column;
   }
 
-  /* line 93, ../sass/faq-detail.scss */
+  /* line 95, ../sass/faq-detail.scss */
   .category-list {
     order: 2;
   }
 
-  /* line 97, ../sass/faq-detail.scss */
+  /* line 99, ../sass/faq-detail.scss */
   .faq-wrapper {
     order: 1;
   }

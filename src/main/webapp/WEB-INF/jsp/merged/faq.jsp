@@ -46,7 +46,7 @@ if(language!=null){
 //JsonArray products = parser.parse(br).getAsJsonObject();
 
 FaqUtil faqUtil = new FaqUtil();
-JSONObject faqIndexObj = faqUtil.getJsonObject("http://"+request.getServerName()+":"+request.getServerPort()+"/fwdhk/resources/json/tc/jsontest.min.json");
+JSONObject faqIndexObj = faqUtil.getJsonObject("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
 long faqIndexGroup = (long) faqIndexObj.get("groupCount");
 JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 
@@ -89,7 +89,7 @@ JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 								for(int count3=0; count3<products.size(); count3++){
 									JSONObject product = (JSONObject)products.get(count3);
 							%>
-							<a class="category-link" href="<%=request.getContextPath()%>/${language}/faq/<%=(String)product.get("link") %>"><%=(String)product.get("name") %></a>			
+							<a class="category-link" href="<%=request.getContextPath()%>/${language}/faq-details?product=<%=(String)product.get("link") %>"><%=(String)product.get("name") %></a>			
 							<% } %>						
 						</div>						
 					<% } %>
