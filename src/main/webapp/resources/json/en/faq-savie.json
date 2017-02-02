@@ -229,42 +229,48 @@
     {
       "category":"Online Withdrawal Service",
       "id": 37,
+      "question_title": "<p>Online withdrawal service can be paired with Tap&Go only?</p>",
+      "question_answer": "<p>Yes.</p>"
+    },    
+    {
+      "category":"Online Withdrawal Service",
+      "id": 38,
       "question_title": "<p>How long will it take for the completion of the online withdrawal?</p>",
       "question_answer": "<p>Normally it will only take 1 minute.</p>"
     },
     {
       "category":"Online Withdrawal Service",
-      "id": 38,
+      "id": 39,
       "question_title": "<p>Why do I need to pair with Tap&Go mobile wallet?</p>",
       "question_answer": "<p>Withdrawal payment can only be made to Tag&Go account.</p>"
     },
     {
       "category":"Online Withdrawal Service",
-      "id": 39,
+      "id": 40,
       "question_title": "<p>How can I obtain one-time password again if I have input incorrectly?</p>",
       "question_answer": "<p>Customer may request for the resend of one-time password after 1 minute.</p>"
     },
     {
       "category":"Online Withdrawal Service",
-      "id": 40,
+      "id": 41,
       "question_title": "<p>Why my online withdrawal service has been temporary suspended? What should I do?</p>",
       "question_answer": "<p>o protect our customer, if customer has failed to input correct one time password 3 times, our system will temporary suspend customer account. Please contact 24 Hour service hotline 3123 3123 to unlock your account.</p>"
     },
     {
       "category":"Online Withdrawal Service",
-      "id": 41,
+      "id": 42,
       "question_title": "<p>Can I use online withdrawal service to surrender my policy?</p>",
       "question_answer": "<p>No.</p>"
     },
     {
       "category":"Online Withdrawal Service",
-      "id": 42,
+      "id": 43,
       "question_title": "<p>I have a question about Tap&Go….</p>",
       "question_answer": "<p>Please contact Tap&Go 24 Hour service hotline 2888 0000.</p>"
     },
     {
       "category":"Online Withdrawal Service",
-      "id": 43,
+      "id": 44,
       "question_title": "<p>Can I track my withdrawal record?</p>",
       "question_answer": "<p>You can login to iFWD customer account and select Online Withdrawal record for details.</p>"
     }                                                                                                                  
