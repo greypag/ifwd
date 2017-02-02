@@ -892,7 +892,10 @@ $(document).ready(function () {
 		//mobileNo
 		
 	}
-
+	setInputReadonly('firstname',false);
+	setInputReadonly('lastname',false);
+	setInputReadonly('so-calendar-dob', false);
+	
 	//setSelectReadonly('tmpGender', true);
 	//setInputReadonly('so-calendar-dob', true);
 	//setInputReadonly('residentialNo', true);
@@ -1165,7 +1168,10 @@ $("#et-personal-info-next, #btn-back").click(function () {
 			}
 		});
 		
-		if(hasBought && invalidTaxResident){
+		//if(hasBought && invalidTaxResident){
+		if(hasBought){
+				
+			
 			if ('${backSummary}' == "Y") {
 				window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
 			} else {

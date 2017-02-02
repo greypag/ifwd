@@ -530,6 +530,10 @@ public class UserRestURIConstants {
 	public static final String URL_MEDICAL_GUARDIAN = "landing";
 	public static final String URL_MEDICAL_GUARDIAN_PLAN_OPTION = "plan-option";
 	public static final String URL_MEDICAL_GUARDIAN_UNDERWRITING = "underwriting";
+	public static final String URL_MEDICAL_GUARDIAN_EMPLOYMENT_INFO = "employment-info";
+	public static final String URL_MEDICAL_GUARDIAN_BENEFICIARY = "beneficiary";
+	public static final String URL_MEDICAL_GUARDIAN_SUMMARY = "summary";
+	public static final String URL_MEDICAL_GUARDIAN_DECLARATION = "declaration";
 	public static final String URL_MEDICAL_GUARDIAN_SIGNATURE = "signature";
 	public static final String URL_MEDICAL_GUARDIAN_PAYMENT = "payment";
 	public static final String URL_MEDICAL_GUARDIAN_CONFIRMATION = "confirmation";

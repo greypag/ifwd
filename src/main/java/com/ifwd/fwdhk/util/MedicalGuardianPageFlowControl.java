@@ -67,6 +67,11 @@ public class MedicalGuardianPageFlowControl {
 
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
+		/*if (referer.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_EMPLOYMENT_INFO)){
+			referer="personal-details";
+			current="employment-info";
+			
+		}*/
 		if (referer != null) {
 			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("medical-guardian")){
 				referer = UserRestURIConstants.URL_MEDICAL_GUARDIAN;
@@ -93,18 +98,21 @@ public class MedicalGuardianPageFlowControl {
 		switch (current) {
 		
 		case UserRestURIConstants.URL_MEDICAL_GUARDIAN:
-			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_PLAN_OPTION;
-			break;
-			
-		case UserRestURIConstants.URL_MEDICAL_GUARDIAN_PLAN_OPTION: 
+			//to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_PLAN_OPTION;
 			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_UNDERWRITING;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			
 			break;
 			
 		case UserRestURIConstants.URL_MEDICAL_GUARDIAN_UNDERWRITING: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA;
 			break;
+		
+		
+		case UserRestURIConstants.URL_MEDICAL_GUARDIAN_EMPLOYMENT_INFO: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			break;	
 			
 		case UserRestURIConstants.URL_MEDICAL_GUARDIAN_SIGNATURE: 
 			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_PAYMENT;
@@ -151,6 +159,18 @@ public class MedicalGuardianPageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_UNDERWRITING)) {
 			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_UNDERWRITING;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_EMPLOYMENT_INFO)) {
+			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_EMPLOYMENT_INFO;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_BENEFICIARY)) {
+			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_BENEFICIARY;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_SUMMARY)) {
+			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_SUMMARY;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_DECLARATION)) {
+			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_DECLARATION;
 		}
 		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_SIGNATURE)) {
 			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_SIGNATURE;
