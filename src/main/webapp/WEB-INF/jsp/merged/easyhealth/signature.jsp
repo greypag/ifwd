@@ -207,8 +207,13 @@ var home_url = "<%=request.getContextPath()%>";
     					    	    if(data==null || data == ''){
     					    	    	//Unknown errors
     					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-    					    	    	alert(getBundle(getBundleLanguage, "system.error.message"))
-    					    	    	$('#loading-overlay').modal('hide');					   
+    					    	    	//alert(getBundle(getBundleLanguage, "system.error.message"))
+    					    	    	//$('#loading-overlay').modal('hide');
+    					    	    	
+    					    	    	// tes skip to payment
+    					    	    	window.onbeforeunload=null;
+    					    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    					    	    
     					    	    } 
     					    	    else if( data.errMsgs == 'session expired'){
     					    	    	//Timeout errors
@@ -220,6 +225,10 @@ var home_url = "<%=request.getContextPath()%>";
     					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
     					    	    	alert(getBundle(getBundleLanguage, "system.error.message"))
     					    	    	$('#loading-overlay').modal('hide');
+    					    	    	// tes
+    					    	    	window.onbeforeunload=null;
+    					    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    					    	    
     					    	    } 
     					    	    else {
     					    	    	// success
@@ -228,6 +237,7 @@ var home_url = "<%=request.getContextPath()%>";
     					    	    }
     					        },
     							error:function(){
+    								
     								$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
     								$('#loading-overlay').modal('hide');
     							}

@@ -55,8 +55,14 @@ public class EasyHealthPageFlowControl {
 		model.addAttribute("scriptDescription", scriptDescription);
 		model.addAttribute("scriptChildName", scriptChildName);
 		model.addAttribute("scriptImg", scriptImg);
-				
-		model.addAttribute("planIndex", "medical-insurance"); //Plan Name
+		String plan="";
+		if(request.getAttribute("plan").equals("medical-insurance/cansurance")){
+			plan="medical-insurance/cansurance";
+		}else{
+			plan="medical-insurance";
+		}
+		
+		model.addAttribute("planIndex", plan); //Plan Name
 		model.addAttribute("pageIndex", key); // Page Index
 
 		String referer = request.getHeader("referer");
@@ -120,11 +126,11 @@ public class EasyHealthPageFlowControl {
 
 		}
 
-		logger.debug("nextPageFlow : " + "medical-insurance/"+to);
-		logger.debug("nextPageFlow2 : " + "medical-insurance/"+to2);
+		logger.debug("nextPageFlow : " + plan+"/"+to);
+		logger.debug("nextPageFlow2 : " + plan+"/"+to2);
 
-		model.addAttribute("nextPageFlow", "medical-insurance/"+to);
-		model.addAttribute("nextPageFlow2", "medical-insurance/"+to2);
+		model.addAttribute("nextPageFlow", plan+"/"+to);
+		model.addAttribute("nextPageFlow2", plan+"/"+to2);
 
 		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
 

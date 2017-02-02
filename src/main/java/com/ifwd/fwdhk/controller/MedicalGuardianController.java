@@ -30,6 +30,7 @@ import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.EasyHealthService;
 import com.ifwd.fwdhk.services.impl.EasyHealthServiceImpl;
+import com.ifwd.fwdhk.services.impl.LifeServiceImpl;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.EasyHealthPageFlowControl;
 import com.ifwd.fwdhk.util.MedicalGuardianPageFlowControl;
@@ -49,8 +50,8 @@ public class MedicalGuardianController extends BaseController {
 	protected EasyHealthServiceImpl easyHealthServiceImpl;
 	@Autowired
 	protected CommonUtils commonUtils;
-	
-		
+	@Autowired
+	protected LifeServiceImpl lifeServiceImpl;
 	
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance"})
@@ -127,6 +128,18 @@ public class MedicalGuardianController extends BaseController {
 	public ModelAndView getMedicalGuardianSignature(Model model, HttpServletRequest request,HttpSession session) {
 		
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
+		CreateEliteTermPolicyResponse lifePolicy= new CreateEliteTermPolicyResponse();
+		lifePolicy.setErrMsg(null);
+		lifePolicy.setTransactionNumber("G44RQSV003991");
+		lifePolicy.setTransactionDate("2017-02-02");
+		lifePolicy.setSecureHash("58749955ca3c1885303edf21546b5d6b95d3b7e6");
+		lifePolicy.setPaymentGateway("https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp");
+		lifePolicy.setMerchantId("88116468");
+		lifePolicy.setPolicyNo("13219TES");
+		lifePolicy.setReferralCode("");
+		session.setAttribute("lifePolicy", lifePolicy);
+		
+		request.setAttribute("plan", "medical-insurance/cansurance");
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
 	
 }
@@ -340,20 +353,12 @@ public class MedicalGuardianController extends BaseController {
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/payment"})
 	public ModelAndView getMedicalGuardianPayment(Model model, HttpServletRequest request) {
-		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
-		if(userDetails == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-guardian");
-		}
-		else if(lifePolicy == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-guardian");
-		}
-		else{
+		
 			String path = request.getRequestURL().toString();
 			model.addAttribute("successUrl", path.replace("payment", "document-upload"));
 			model.addAttribute("failurePath", path);
 			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PAYMENT);
-		}
+		
 	}
 
 }

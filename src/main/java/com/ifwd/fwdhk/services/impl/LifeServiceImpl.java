@@ -3150,9 +3150,16 @@ public class LifeServiceImpl implements LifeService {
 		FileInputStream is = null;
 		BaseResponse br = null;
 		String planCode = null;
+		logger.debug("plan : "+plan);
 		if("savings-insurance".equals(plan)){
 			planCode = "SAVIE-SP";
+		}else if("cansurance".equals(plan)){
+			planCode = "HCP1";
+		}else if("medical-insurance/cansurance".equals(plan)){
+			planCode = "HCP1";
 		}
+		
+		
 		else{
 			planCode = "ROPHI1";
 		}
@@ -3289,6 +3296,7 @@ public class LifeServiceImpl implements LifeService {
 		return apiReturn;
 	}
 	
+	
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException{		
 		BaseResponse br = null;
 		try {
@@ -3317,13 +3325,15 @@ public class LifeServiceImpl implements LifeService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("planCode", request.getParameter("planCode"));
+	        parameters.put("planCode", request.getParameter("planCode"));
+			
 			parameters.put("fileType", "jpg");
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");
 			parameters.put("base64", image);
 			parameters.put("policyNo", lifePolicy.getPolicyNo());
-			br = connector.uploadSignature(parameters, header);
+			
+			br = connector.uploadSignature(parameters, header);	
 		} catch (ECOMMAPIException e) {
 			logger.error("EliteTermServiceImpl uploadSignature occurs an exception!");
 			logger.error(e.getMessage());
