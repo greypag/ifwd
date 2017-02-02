@@ -69,7 +69,7 @@
 					</c:set>
 					<c:set var="stepActive">1</c:set>
 				</c:if>
-				<c:if test="${planIndex == 'medical-guardian'}">
+				<c:if test="${planIndex == 'medical-insurance/cansurance'}">
 					<c:set var="stepItems">
 						stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
 					</c:set>

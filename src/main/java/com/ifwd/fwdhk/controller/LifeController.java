@@ -422,7 +422,7 @@ public class LifeController extends BaseController{
 	@RequestMapping(value = {"/{lang}/{plan}/fatca"})
 	public ModelAndView getSavieOnlineLifeFatca(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
-		if(!plan.equals("medical-guardian")){
+		if(!plan.equals("cansurance")){
 			if(userName == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
@@ -447,8 +447,8 @@ public class LifeController extends BaseController{
 			if("savings-insurance".equals(plan)) {
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
 			}
-			else if("medical-guardian".equals(plan)){
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_LIFE_FATCA);
+			else if("cansurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_LIFE_FATCA);
 			}
 			else {
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTHONLINE_LIFE_FATCA);
@@ -461,7 +461,7 @@ public class LifeController extends BaseController{
 	@RequestMapping(value = {"/{lang}/{plan}/personal-details"})
 	public ModelAndView getSavieOnlineLifePersonalDetails(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
-		if(!plan.equals("medical-guardian")){
+		if(!plan.equals("cansurance")){
 			if(userName == null ){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			} else if (userName.equalsIgnoreCase("*DIRECTGI") ) {
@@ -470,10 +470,10 @@ public class LifeController extends BaseController{
 		}	
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		String fatcaYes = (String) request.getSession().getAttribute("fatcaYes");
-		if(userDetails == null && !plan.equals("medical-guardian")){
+		if(userDetails == null && !plan.equals("cansurance")){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if(fatcaYes == null && !plan.equals("medical-guardian")){
+		else if(fatcaYes == null && !plan.equals("cansurance")){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
@@ -503,8 +503,8 @@ public class LifeController extends BaseController{
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PERSONAL_DETAILS);
 			}
-			else if("medical-guardian".equals(plan)){
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PERSONAL_DETAILS);
+			else if("cansurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PERSONAL_DETAILS);
 			}
 			else{
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
@@ -515,7 +515,7 @@ public class LifeController extends BaseController{
 	@RequestMapping(value = {"/{lang}/{plan}/employment-info"})
 	public ModelAndView getSavieOnlineLifeEmploymentInfo(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
-		if(!plan.equals("medical-guardian")){
+		if(!plan.equals("cansurance")){
 			if(userName == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
@@ -707,8 +707,8 @@ public class LifeController extends BaseController{
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_EMPLOYMENT_INFO);
 			}
-			else if("medical-guardian".equals(plan)){
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_EMPLOYMENT_INFO);
+			else if("cansurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_EMPLOYMENT_INFO);
 			}
 			else{
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
@@ -744,8 +744,8 @@ public class LifeController extends BaseController{
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_BENEFICARY_INFO);
 			}
-			else if("medical-guardian".equals(plan)){
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_BENEFICARY_INFO);
+			else if("cansurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_BENEFICARY_INFO);
 			}
 			else{
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
@@ -874,8 +874,8 @@ public class LifeController extends BaseController{
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_POLICY_SUMMARY);
 			}
-			else if("medical-guardian".equals(plan)){
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_POLICY_SUMMARY);
+			else if("cansurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_POLICY_SUMMARY);
 			}
 			else{
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
@@ -898,8 +898,8 @@ public class LifeController extends BaseController{
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DECLARATION);
 			}
-			else if("medical-guardian".equals(plan)){
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DECLARATION);
+			else if("cansurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DECLARATION);
 			}
 			else{
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
@@ -981,8 +981,8 @@ public class LifeController extends BaseController{
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD_LATER);
 			}
-			else if("medical-guardian".equals(plan)){
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DOCUMENT_UPLOAD_LATER);
+			else if("cansurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DOCUMENT_UPLOAD_LATER);
 			}
 			else{
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
@@ -1043,8 +1043,8 @@ public class LifeController extends BaseController{
 				if("medical-insurance".equals(plan)){
 					return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD);
 				}
-				else if("medical-guardian".equals(plan)){
-					return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DOCUMENT_UPLOAD);
+				else if("cansurance".equals(plan)){
+					return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DOCUMENT_UPLOAD);
 				}
 				else{
 					return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
@@ -1117,8 +1117,8 @@ public class LifeController extends BaseController{
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UPLOAD_CONFIRMATION);
 			}
-			else if("medical-guardian".equals(plan)){
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
+			else if("cansurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
 			}
 			else{
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
@@ -1183,7 +1183,7 @@ public class LifeController extends BaseController{
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UPLOAD_LATER_CONFIRMATION);
 			}
-			else if("medical-guardian".equals(plan)){
+			else if("cansurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_LATER_CONFIRMATION);
 			}
 			else{

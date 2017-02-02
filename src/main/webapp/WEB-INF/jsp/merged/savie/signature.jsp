@@ -841,6 +841,7 @@ var languageP = "${language}";
 						alert(getBundle(getBundleLanguage, "error.signature.empty"));
 						$('#loading-overlay').modal('hide');
 					}
+					
 					else{
 						$.ajax({
 					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     

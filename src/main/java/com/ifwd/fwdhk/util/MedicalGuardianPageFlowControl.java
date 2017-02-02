@@ -62,7 +62,7 @@ public class MedicalGuardianPageFlowControl {
 		model.addAttribute("scriptChildName", scriptChildName);
 		model.addAttribute("scriptImg", scriptImg);
 				
-		model.addAttribute("planIndex", "medical-guardian"); //Plan Name
+		model.addAttribute("planIndex", "cansurance"); //Plan Name
 		model.addAttribute("pageIndex", key); // Page Index
 
 		String referer = request.getHeader("referer");
@@ -73,7 +73,7 @@ public class MedicalGuardianPageFlowControl {
 			
 		}*/
 		if (referer != null) {
-			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("medical-guardian")){
+			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("cansurance")){
 				referer = UserRestURIConstants.URL_MEDICAL_GUARDIAN;
 			} else {
 				referer = getMedicalGuardianPage(referer);
@@ -81,7 +81,7 @@ public class MedicalGuardianPageFlowControl {
 		}
 
 		if (current != null) {
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("medical-guardian")){
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("cansurance")){
 				current = UserRestURIConstants.URL_MEDICAL_GUARDIAN;
 			} else {
 				current = getMedicalGuardianPage(current);
@@ -136,11 +136,11 @@ public class MedicalGuardianPageFlowControl {
 		
 		}
 
-		logger.debug("nextPageFlow : " + "medical-guardian/"+to);
-		logger.debug("nextPageFlow2 : " + "medical-guardian/"+to2);
+		logger.debug("nextPageFlow : " + "medical-insurance/cansurance/"+to);
+		logger.debug("nextPageFlow2 : " + "medical-insurance/cansurance/"+to2);
 
-		model.addAttribute("nextPageFlow", "medical-guardian/"+to);
-		model.addAttribute("nextPageFlow2", "medical-guardian/"+to2);
+		model.addAttribute("nextPageFlow", "medical-insurance/cansurance/"+to);
+		model.addAttribute("nextPageFlow2", "medical-insurance/cansurance/"+to2);
 
 		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
 

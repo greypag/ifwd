@@ -53,7 +53,7 @@ var home_url = "<%=request.getContextPath()%>";
      	<c:set var="stepItems" value="stepindicator.selectplan" /> 
 		<c:set var="stepActive" value="0" />
 
-		<c:if test="${planIndex == 'medical-guardian'}">
+		<c:if test="${planIndex == 'cansurance'}">
 	    	<c:set var="stepItems">
 	    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
 			</c:set>
