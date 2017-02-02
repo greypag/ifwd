@@ -844,7 +844,7 @@ var languageP = "${language}";
 					else{
 						$.ajax({
 					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
-					    	type:'post',     
+					    	 type:'post',     
 					    	data:{ "image" : datapair[1],"planCode" : "SAVIE-SP" }, 
 					    	success:function(data){
 					    		//loading mask 
