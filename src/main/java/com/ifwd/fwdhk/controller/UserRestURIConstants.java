@@ -699,6 +699,8 @@ public class UserRestURIConstants {
 	public static final String ONLINE_WITHDRAWAL_PHW_POLICY_UI_NAME =SERVICE_URL+ "/option/itemDesc";
 	public static final String ONLINE_WITHDRAWAL_PHW_POLICY_LIFE_ACTIVE =SERVICE_URL+ "/option/itemDesc";
 	
+	/*API For medical guardian*/
+	public static final String GET_MEDICAL_GUARDIAN_PREMIUM = SERVICE_URL + "/premium/cansurance";
 	
 	public static final String CRS_STATUS = SERVICE_URL + "/crs/status";
 	
