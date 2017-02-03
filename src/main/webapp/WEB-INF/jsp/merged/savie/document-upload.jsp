@@ -63,6 +63,12 @@ var languageP = "${language}";
 					</c:set>
 			    	<c:set var="stepActive">4</c:set>
 			    </c:if>
+			    <c:if test="${plan == 'medical-insurance/cansurance'}">
+			    	<c:set var="stepItems">
+			    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+					</c:set>
+			    	<c:set var="stepActive">4</c:set>
+			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="stepItems">
 			    		stepindicator.selectplan,stepindicator.application,stepindicator.summary.declaration,stepindicator.sign,stepindicator.upload.document,stepindicator.confirmation
@@ -526,7 +532,7 @@ var languageP = "${language}";
                 	
                 }
                 
-                /* if('${plan }' != 'medical-insurance/cansurance'){
+                if('${plan }' != 'medical-insurance/cansurance'){
                  if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
                 	errorMessageType = 'NOT_AUTHENTICATED';
                 } else if(policyUserName != "" && policyUserName.toUpperCase() != userName.toUpperCase() ){
@@ -556,7 +562,7 @@ var languageP = "${language}";
 	                }
             	} 
                 }
-				 */
+				 
 				// Toggle passport
 				$('#hkPermanentRes').click(function() {
 					$('#passport-section').toggle();

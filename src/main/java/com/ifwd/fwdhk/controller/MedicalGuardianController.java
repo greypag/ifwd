@@ -156,14 +156,14 @@ public class MedicalGuardianController extends BaseController {
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/signature"})
 	public ModelAndView getMedicalGuardianSignature(Model model, HttpServletRequest request,HttpSession session) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
-		/*try {
+		try {
 			easyHealthService.createLifePolicy(request, request.getSession());
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
-		}*/
+		}
 		
-		CreateEliteTermPolicyResponse lifePolicy= new CreateEliteTermPolicyResponse();
+		/*CreateEliteTermPolicyResponse lifePolicy= new CreateEliteTermPolicyResponse();
 		lifePolicy.setErrMsg(null);
 		lifePolicy.setTransactionNumber("G44RQSV003991");
 		lifePolicy.setTransactionDate("2017-02-02");
@@ -172,7 +172,7 @@ public class MedicalGuardianController extends BaseController {
 		lifePolicy.setMerchantId("88116468");
 		lifePolicy.setPolicyNo("TES");
 		lifePolicy.setReferralCode("");
-		session.setAttribute("lifePolicy", lifePolicy);
+		session.setAttribute("lifePolicy", lifePolicy);*/
 		request.setAttribute("plan", "medical-insurance/cansurance");
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
 		
