@@ -389,5 +389,48 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			request.getSession().setAttribute("ehStep", "2");
 			request.getSession().setAttribute("pro", pro);
 		}
+		else{
+			
+			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
+			String pro = request.getParameter("pro");
+			String[] strArray = {"eh-plan-a","eh-plan-b","eh-plan-c", "eh-plan-d"};
+			for(int i=0;i<plans.size();i++){
+				if(strArray[i].equals(pro)){
+					selectPlan.setIntensiveCareUnit(plans.get(i).get("intensiveCareUnit").toString());
+					selectPlan.setDeathBenefit(plans.get(i).get("deathBenefit").toString());
+					selectPlan.setDailyHospitalCash(plans.get(i).get("dailyHospitalCash").toString());
+					selectPlan.setRefundPremium(plans.get(i).get("refundPremium").toString());
+					selectPlan.setType(plans.get(i).get("type").toString());
+					selectPlan.setPaidPremium(plans.get(i).get("paidPremium").toString());
+					selectPlan.setPlanCode(plans.get(i).get("planCode").toString());
+					selectPlan.setMonthlyPremium(plans.get(i).get("monthlyPremium").toString());
+					selectPlan.setInfectiousDisease(plans.get(i).get("infectiousDisease").toString());
+					selectPlan.setAccidentalDeathBenefit(plans.get(i).get("accidentalDeathBenefit").toString());
+					selectPlan.setSelectPlan(pro);
+					if(0 == i){
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 基本計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
+					}
+					if(1 == i){
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 升級計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
+					}
+					if(2 == i){
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 高級計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
+					}
+					if(3 == i){
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 豪華計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
+					}
+					
+				}
+			}
+			request.getSession().setAttribute("selectPlan", selectPlan);
+			request.getSession().setAttribute("ehStep", "2");
+			request.getSession().setAttribute("pro", pro);
+			
+		}
+		
 	}
 }

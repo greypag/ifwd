@@ -196,7 +196,10 @@ var home_url = "<%=request.getContextPath()%>";
     						$('#loading-overlay').modal('hide');
     					}
     					else{
-    						$.ajax({
+    						//skip for tes
+    						window.onbeforeunload=null;
+			    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    						<%-- $.ajax({
     					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
     					    	type:'post',     
     					    	data:{ "image" : datapair[1],"planCode" : "ROPHI1" },     
@@ -241,7 +244,9 @@ var home_url = "<%=request.getContextPath()%>";
     								$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
     								$('#loading-overlay').modal('hide');
     							}
+    					        
     					    });
+    						 --%>
     					}
     				}
     				

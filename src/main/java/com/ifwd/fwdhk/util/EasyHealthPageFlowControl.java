@@ -55,11 +55,11 @@ public class EasyHealthPageFlowControl {
 		model.addAttribute("scriptDescription", scriptDescription);
 		model.addAttribute("scriptChildName", scriptChildName);
 		model.addAttribute("scriptImg", scriptImg);
-		String plan="";
-		if(request.getAttribute("plan").equals("medical-insurance/cansurance")){
-			plan="medical-insurance/cansurance";
-		}else{
-			plan="medical-insurance";
+		String plan="medical-insurance";
+		if(request.getAttribute("plan")!=null){
+			if(request.getAttribute("plan").equals("medical-insurance/cansurance")){
+				plan="medical-insurance/cansurance";
+			}	
 		}
 		
 		model.addAttribute("planIndex", plan); //Plan Name

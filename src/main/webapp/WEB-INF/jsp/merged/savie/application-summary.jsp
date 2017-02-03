@@ -90,7 +90,8 @@ var language = "${language}";
             <div class="summary-section clearfix">
                <c:if test="${plan == 'savings-insurance'}"><c:set var="backPlanUrl" value="plan-details-sp"/></c:if>
                <c:if test="${plan == 'medical-insurance'}"><c:set var="backPlanUrl" value="plan-option"/></c:if>
-               <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/${backPlanUrl }?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               
+               <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/${backPlanUrl }?backSummary=Y"><div id="PlanSelected"><fmt:message key="label.edit" bundle="${msg}"/></div></a></h5>
 					<div class="form-group application-summ">
 						<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 							<!--input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" /-->
@@ -132,7 +133,7 @@ var language = "${language}";
                </div>
             </div>
             <div class="summary-section below clearfix">
-               <h5><fmt:message key="label.personalinfo" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="label.personalinfo" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><div id="PersonInformation"><fmt:message key="label.edit" bundle="${msg}" /></div></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
@@ -767,6 +768,16 @@ var language = "${language}";
 					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 			}
 		$(document).ready(function() {
+			
+			var planSelected ='${planIndex}';
+			if(planSelected=='medical-insurance/cansurance'){
+				$('#PlanSelected').addClass('hidden');
+				$('#PersonInformation').addClass('hidden');
+				$('#planName').val('Medical Guardian');
+				
+				
+			} 
+			
 			var employmentS = '${plan == "savings-insurance" ? savieFna.employment_status : lifeEmploymentInfo.employmentStatus}';
 			if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
 				$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');

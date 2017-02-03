@@ -818,6 +818,7 @@ var languageP = "${language}";
 		
 		var signatureFileSize = "${signatureFileSize}";
 		$('#btn-confirm-1').on('click', function(e) {
+			console.log("masuk")
 			e.preventDefault();
 			if($(this).hasClass('disabled-gray-btn') == false) {
 				$('#signature-box-1').modal('hide');
@@ -869,7 +870,7 @@ var languageP = "${language}";
 					    	    	$('#loading-overlay').modal('hide');
 					    	    } 
 					    	    else {
-					    	    	// success
+					    	    	// success aza
 					    	    	window.onbeforeunload=null;
 					    	    	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 					    	    }

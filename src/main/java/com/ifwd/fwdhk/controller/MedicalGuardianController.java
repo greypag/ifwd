@@ -36,6 +36,7 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.EasyHealthPageFlowControl;
 import com.ifwd.fwdhk.util.MedicalGuardianPageFlowControl;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
+import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 @Controller
@@ -115,7 +116,7 @@ public class MedicalGuardianController extends BaseController {
 			selectPlan.setPaidPremium("");
 			selectPlan.setPlanCode("BASIC");
 			selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 基本計劃");
-			selectPlan.setPlanNameEn("Guardian Refundable Hospital Income Plan - BASIC");
+			selectPlan.setPlanNameEn("Medical Guardian");
 			selectPlan.setRefundPremium("44553.6");
 			selectPlan.setSelectPlan("eh-plan-a");
 			selectPlan.setType("BASIC");
@@ -163,12 +164,24 @@ public class MedicalGuardianController extends BaseController {
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/signature"})
 	public ModelAndView getMedicalGuardianSignature(Model model, HttpServletRequest request,HttpSession session) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
-		try {
+		/*try {
 			easyHealthService.createLifePolicy(request, request.getSession());
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
-		}
+		}*/
+		
+		CreateEliteTermPolicyResponse lifePolicy= new CreateEliteTermPolicyResponse();
+		lifePolicy.setErrMsg(null);
+		lifePolicy.setTransactionNumber("G44RQSV003991");
+		lifePolicy.setTransactionDate("2017-02-02");
+		lifePolicy.setSecureHash("58749955ca3c1885303edf21546b5d6b95d3b7e6");
+		lifePolicy.setPaymentGateway("https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp");
+		lifePolicy.setMerchantId("88116468");
+		lifePolicy.setPolicyNo("TES");
+		lifePolicy.setReferralCode("");
+		session.setAttribute("lifePolicy", lifePolicy);
+		request.setAttribute("plan", "medical-insurance/cansurance");
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
 		
 	
@@ -387,8 +400,20 @@ public class MedicalGuardianController extends BaseController {
 			String path = request.getRequestURL().toString();
 			model.addAttribute("successUrl", path.replace("payment", "document-upload"));
 			model.addAttribute("failurePath", path);
+			request.setAttribute("plan", "medical-insurance/cansurance");
 			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PAYMENT);
 		
 	}
 
+	
+	
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/document-upload"})
+	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
+		model.addAttribute("signatureWidth", InitApplicationMessage.signatureWidth);
+		model.addAttribute("signatureHeight", InitApplicationMessage.signatureHeight);
+		model.addAttribute("applicationFileSize", InitApplicationMessage.applicationFileSize);
+		request.setAttribute("plan", "medical-insurance/cansurance");
+		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
+	}
+	
 }

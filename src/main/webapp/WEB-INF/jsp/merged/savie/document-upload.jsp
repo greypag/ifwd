@@ -56,7 +56,7 @@ var languageP = "${language}";
 
 		     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
 				<c:set var="stepActive" value="0" />
-
+                
 				<c:if test="${planIndex == 'medical-insurance'}">
 			    	<c:set var="stepItems">
 			    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
@@ -86,10 +86,10 @@ var languageP = "${language}";
 						<h4 class="so-h4"><fmt:message key="label.select.document.title" bundle="${msg}" /></h4>
 						<div class="radio-group clearfix">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-6" id="nowUpload">
 									<div class="row">
 										<div class="col-xs-1">
-											<div class="pull-left radio-holder">
+											<div class="pull-left radio-holder" >
 												<input type="radio" id="upload-now-radio" name="upload" value="true" checked=""> <label for="upload-now-radio"></label>
 											</div>
 										</div>
@@ -108,10 +108,10 @@ var languageP = "${language}";
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6" id="latterUpload">
 									<div class="row">
 										<div class="col-xs-1">
-											<div class="pull-left radio-holder">
+											<div class="pull-left radio-holder" >
 												<input type="radio" id="upload-later-radio" name="upload" value="false"> <label for="upload-later-radio"></label>
 											</div>
 										</div>
@@ -518,8 +518,16 @@ var languageP = "${language}";
 				var userName = "${username}";
                 var policyUserName = "${policyUserName}";
                 var authenticate = "${authenticate}";
-
-                if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
+                
+                if('${plan }' == 'medical-insurance/cansurance'){
+                	
+                	$('#latterUpload').addClass('hidden');
+                	$('#nowUpload').addClass('hidden');
+                	
+                }
+                
+                /* if('${plan }' != 'medical-insurance/cansurance'){
+                 if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
                 	errorMessageType = 'NOT_AUTHENTICATED';
                 } else if(policyUserName != "" && policyUserName.toUpperCase() != userName.toUpperCase() ){
                 	errorMessageType = 'UNMATCHED_USERNAME';
@@ -546,8 +554,9 @@ var languageP = "${language}";
 	            		}
 	                	$('#error-to-home-modal').modal('show');
 	                }
-            	}
-				
+            	} 
+                }
+				 */
 				// Toggle passport
 				$('#hkPermanentRes').click(function() {
 					$('#passport-section').toggle();

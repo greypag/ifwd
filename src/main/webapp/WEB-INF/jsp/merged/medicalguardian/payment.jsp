@@ -268,7 +268,12 @@ $(document).ready(function() {
     });
     
     $("#btn-payment").on("click",function(){
-    	$('#paymentForm').bootstrapValidator('validate');
+    	
+    	//skip for tes
+		window.onbeforeunload=null;
+    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    	
+    	/* $('#paymentForm').bootstrapValidator('validate');
 		if($('#paymentForm').data('bootstrapValidator').isValid()){
 			//do something
 			var creditCaredNo = $('#cardNo').val();
@@ -298,7 +303,7 @@ $(document).ready(function() {
 	 			      console.log('error');   
 	 		      }
  		      });
-		}
+		} */
 	});
 });
 
