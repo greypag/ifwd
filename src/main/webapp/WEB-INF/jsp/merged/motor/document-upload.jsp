@@ -140,13 +140,13 @@ var nextPage = "${nextPageFlow}";
                         <!-- <strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong>-->
                         <fmt:message key="motor.uploadconfirm.page.copy.part3" bundle="${motorMsg}" />
                         <br/>
-                        <fmt:message key="motor.docupload.covernote.copy" bundle="${motorMsg}" />
+<%--                         <fmt:message key="motor.docupload.covernote.copy" bundle="${motorMsg}" />
                         <span id="sendMail"></span>
-                        <fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" />
+                        <fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" /> --%>
                     </p>
                     <p>
-                        <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
-                        <h3 id="motorRef" class="heading-h3 color-orange ref-number"></h3>
+                        <%-- <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" /> --%>
+                        <h3 id="motorRef" class="heading-h3 color-orange ref-number hidden"></h3>
                     </p>
                 </div>
             </div>
