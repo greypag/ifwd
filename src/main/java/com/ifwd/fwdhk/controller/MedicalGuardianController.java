@@ -62,15 +62,7 @@ public class MedicalGuardianController extends BaseController {
 		return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN);
 	}
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/plan-option"})
-	public ModelAndView getMedicalGuardianPlanOption(Model model, HttpServletRequest request, HttpSession httpSession) {
-		String backSummary = request.getParameter("backSummary");
-		if(backSummary!=null && "Y".equals(backSummary)){
-			model.addAttribute("backSummary", backSummary);
-			request.getSession().setAttribute("ehStep", "1");
-		}
-		return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PLAN_OPTION);
-	}
+	
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/application-summary"})
 	public ModelAndView getSavieOnlineLifePolicySummary(Model model, HttpServletRequest request, HttpSession httpSession) {
