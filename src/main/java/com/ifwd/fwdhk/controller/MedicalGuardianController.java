@@ -24,6 +24,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
 import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
@@ -98,13 +99,47 @@ public class MedicalGuardianController extends BaseController {
 			}
 			model.addAttribute("plan", "medical-guardian");
 				return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_BENEFICARY_INFO);
-			
-		
 	}
 	
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/underwriting"})
 	public ModelAndView getMedicalGuardianUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) {
+		   
+			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
+			selectPlan.setAccidentalDeathBenefit("");
+			selectPlan.setDailyHospitalCash("300");
+			selectPlan.setDeathBenefit("");
+			selectPlan.setInfectiousDisease("300");
+			selectPlan.setIntensiveCareUnit("300");
+			selectPlan.setMonthlyPremium("364.0");
+			selectPlan.setPaidPremium("");
+			selectPlan.setPlanCode("BASIC");
+			selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 基本計劃");
+			selectPlan.setPlanNameEn("Guardian Refundable Hospital Income Plan - BASIC");
+			selectPlan.setRefundPremium("44553.6");
+			selectPlan.setSelectPlan("eh-plan-a");
+			selectPlan.setType("BASIC");
+			
+			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean();//ehPlanDetail");
+			planDetail.setDob("1999-02-03");
+		    planDetail.setDobdmy("03-02-1999");
+		    planDetail.setGender("0");
+		 	planDetail.setSmoker("0");
+		
+		    httpSession.setAttribute("ehPlanDetail", planDetail);
+		    httpSession.setAttribute("selectPlan", selectPlan); 
+		    try {
+		    	easyHealthService.putPremium(request);
+				
+			} catch (ECOMMAPIException e) {
+				logger.info(e.getMessage());
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	
+			
 			model.addAttribute("etCsContactPreferredDayEN", InitApplicationMessage.etCsContactPreferredDayEN);
 			model.addAttribute("etCsContactPreferredDayCN", InitApplicationMessage.etCsContactPreferredDayCN);
 			model.addAttribute("etCsContactPreferredTimeSlotEN", InitApplicationMessage.etCsContactPreferredTimeSlotEN);
@@ -126,21 +161,15 @@ public class MedicalGuardianController extends BaseController {
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/signature"})
 	public ModelAndView getMedicalGuardianSignature(Model model, HttpServletRequest request,HttpSession session) {
-		
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
-		CreateEliteTermPolicyResponse lifePolicy= new CreateEliteTermPolicyResponse();
-		lifePolicy.setErrMsg(null);
-		lifePolicy.setTransactionNumber("G44RQSV003991");
-		lifePolicy.setTransactionDate("2017-02-02");
-		lifePolicy.setSecureHash("58749955ca3c1885303edf21546b5d6b95d3b7e6");
-		lifePolicy.setPaymentGateway("https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp");
-		lifePolicy.setMerchantId("88116468");
-		lifePolicy.setPolicyNo("13219TES");
-		lifePolicy.setReferralCode("");
-		session.setAttribute("lifePolicy", lifePolicy);
-		
-		request.setAttribute("plan", "medical-insurance/cansurance");
+		try {
+			easyHealthService.createLifePolicy(request, request.getSession());
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
+		
 	
 }
 	
