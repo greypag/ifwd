@@ -94,8 +94,8 @@ var language = "${language}";
                <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/${backPlanUrl }?backSummary=Y"><div id="PlanSelected"><fmt:message key="label.edit" bundle="${msg}"/></div></a></h5>
 					<div class="form-group application-summ">
 						<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-							<!--input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" /-->
-							<div class="mdl-textfield__input so-mdl-textfield-input planName-text" type="text" autocomplete="off" value="">${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }</div>
+							<!--<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" />-->
+							<div class="mdl-textfield__input so-mdl-textfield-input planName-text" type="text" autocomplete="off"  value="">${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }</div>
 							<label class="mdl-textfield__label planName-label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
 							<input type="hidden" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }">
 						</div>
@@ -321,7 +321,7 @@ var language = "${language}";
                </div>
             </div>
             <div class="summary-section below-employment clearfix">
-               <h5><fmt:message key="label.employment.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/employment-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="label.employment.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/employment-info?backSummary=Y"><div id="employmentInfo"> <fmt:message key="label.edit" bundle="${msg}" /></div></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
@@ -425,7 +425,7 @@ var language = "${language}";
 					</div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
-               <h5><fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/beneficiary-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/beneficiary-info?backSummary=Y"><div id="benefInfo"><fmt:message key="label.edit" bundle="${msg}" /></div></a></h5>
 		       <c:if test="${lifeBeneficaryInfo.isOwnEstate == 'true' }">
 		             <div class="desktop-left">
 			            <div class="form-group application-summ">
@@ -622,7 +622,7 @@ var language = "${language}";
 			</c:choose>
 			<c:if test="${plan == 'savings-insurance'}">
             <div class="summary-section below-payment clearfix">
-               <h5><fmt:message key="label.payment.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="label.payment.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment?backSummary=Y"><div id="payInfo"><fmt:message key="label.edit" bundle="${msg}" /></div></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
@@ -773,6 +773,10 @@ var language = "${language}";
 			if(planSelected=='medical-insurance/cansurance'){
 				$('#PlanSelected').addClass('hidden');
 				$('#PersonInformation').addClass('hidden');
+				$('#employmentInfo').addClass('hidden');
+				$('#benefInfo').addClass('hidden');
+				$('#payInfo').addClass('hidden');
+				
 				$('#planName').val('Medical Guardian');
 				
 				
