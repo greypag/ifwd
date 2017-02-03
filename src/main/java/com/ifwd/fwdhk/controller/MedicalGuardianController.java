@@ -129,6 +129,7 @@ public class MedicalGuardianController extends BaseController {
 		    httpSession.setAttribute("ehPlanDetail", planDetail);
 		    httpSession.setAttribute("selectPlan", selectPlan); 
 		    try {
+		    	easyHealthService.getPremium(planDetail, request);
 		    	easyHealthService.putPremium(request);
 				
 			} catch (ECOMMAPIException e) {
