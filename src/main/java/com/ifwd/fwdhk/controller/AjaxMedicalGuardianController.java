@@ -5,6 +5,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +32,8 @@ import com.ifwd.fwdhk.util.Methods;
 public class AjaxMedicalGuardianController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxMedicalGuardianController.class);
 	
+	
+	
 	@Autowired
 	private RestServiceDao restService;
 	@Autowired
@@ -38,6 +42,16 @@ public class AjaxMedicalGuardianController extends BaseController{
 	@ApiOperation(
 			value = "Get Premium for Medical Guardian"
 			)
+	@ApiResponses(value = {
+			@ApiResponse(code = 412, message = "Missing dob"),
+			@ApiResponse(code = 413, message = "Invalid dob"),
+			@ApiResponse(code = 414, message = "Missing smoker"),
+			@ApiResponse(code = 415, message = "Invalid smoker"),
+			@ApiResponse(code = 416, message = "Missing gender"),
+			@ApiResponse(code = 417, message = "Invalid gender"),
+			@ApiResponse(code = 504, message = "System error"),
+			@ApiResponse(code = 418, message = "Invalid referral code")
+			})
 	@RequestMapping(value = "/getPremium", method = POST)
 	public void getMedicalGuardianPremium(@ApiParam(value = "Plan Detail Request", required = true) @RequestBody EasyHealthPlanDetailBean planDetail,HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
