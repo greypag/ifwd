@@ -92,10 +92,21 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		
 		EasyHealthPremiumSelectPlan selectPlan = (EasyHealthPremiumSelectPlan) session.getAttribute("selectPlan");
 		String planCode = "";
+		String product=(String) session.getAttribute("prod");
+		
+	
 		String[] strArray = {"eh-plan-a","eh-plan-b","eh-plan-c", "eh-plan-d"};
 		for(int i=0;i<4;i++){
 			if(strArray[i].equals(selectPlan.getSelectPlan())){
 				planCode = "ROPHI"+(i+1);
+			}
+		}
+		
+		if(product==null){
+			planCode="";
+		}else{
+			if(product.equals("guardian")){
+				planCode="HCP1";
 			}
 		}
 		

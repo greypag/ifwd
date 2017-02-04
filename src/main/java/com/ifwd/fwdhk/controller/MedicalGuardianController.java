@@ -122,8 +122,8 @@ public class MedicalGuardianController extends BaseController {
 			selectPlan.setType("BASIC");
 			
 			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean();//ehPlanDetail");
-			planDetail.setDob("1999-02-03");
-		    planDetail.setDobdmy("03-02-1999");
+			//planDetail.setDob("1999-02-03");
+		   //planDetail.setDobdmy("03-02-1999");
 		    planDetail.setGender("0");
 		 	planDetail.setSmoker("0");
 		
@@ -164,7 +164,9 @@ public class MedicalGuardianController extends BaseController {
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/signature"})
 	public ModelAndView getMedicalGuardianSignature(Model model, HttpServletRequest request,HttpSession session) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
+		
 		try {
+			session.setAttribute("prod", "guardian");
 			easyHealthService.createLifePolicy(request, request.getSession());
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());

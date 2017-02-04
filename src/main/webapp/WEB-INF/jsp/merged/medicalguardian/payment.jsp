@@ -120,7 +120,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<label class="mdl-textfield__label" for="cardHolder"><fmt:message key="payment.card.holder.name" bundle="${msg}" /></label>
 									</div>
 								</div>
-								<span class="error-msg" id="cardHolderErrMsg"></span>
+								 <span class="error-msg" id="cardHolderErrMsg"></span> 
 							</div>
 							<div class="row">
 								<div class="col-xs-6">
@@ -269,11 +269,8 @@ $(document).ready(function() {
     
     $("#btn-payment").on("click",function(){
     	
-    	//skip for tes
-		window.onbeforeunload=null;
-    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
     	
-    	/* $('#paymentForm').bootstrapValidator('validate');
+    	$('#paymentForm').bootstrapValidator('validate');
 		if($('#paymentForm').data('bootstrapValidator').isValid()){
 			//do something
 			var creditCaredNo = $('#cardNo').val();
@@ -303,7 +300,7 @@ $(document).ready(function() {
 	 			      console.log('error');   
 	 		      }
  		      });
-		} */
+		} 
 	});
 });
 
