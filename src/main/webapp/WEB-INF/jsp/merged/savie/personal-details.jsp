@@ -220,7 +220,9 @@
 	</div>-->
 	<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-upgraded is-dirty is-not-active">
 		<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}"/></label>
-		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dobdmy}" readonly="readonly"/>
+		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dobdmy}" readonly="readonly" href="javascript:void(0)" onclick="mobiscroll().calendar"	/>
+		
+		
 	</div>
 	<span class="error-msg" id="so-calendar-dob-msg"></span>
 </div>
@@ -885,16 +887,42 @@ $(document).ready(function () {
 		setInputReadonly('firstname',false);
 		setInputReadonly('lastname',false);
 		setSelectReadonly('tmpGender',false);
-		setInputReadonly('so-calendar-dob', false);
+		setInputReadonly('dob', false);
 		setInputReadonly('emailAddress', false);	
 		setInputReadonly('mobileNumber', false);	
-		
-		//mobileNo
-		
 	}
+	$(function() {
+		/*  $('#so-calendar-dob').datepicker({
+             format: "yyyy-mm-dd",
+             startView: "decade",
+             startDate: dob_start_date,
+             endDate: dob_end_date,
+             autoclose: true,
+             startView: 2
+         }).css('cursor', 'default');
+		*/
+		
+		$('#so-calendar-dob').mobiscroll().calendar({
+			controls: ['date'],
+	        minDate: dob_start_date,
+	        maxDate: dob_end_date,
+	        showLabel: true,
+	        dateOrder: 'ddmmyy',
+	        dateFormat: 'dd-mm-yyyy',
+	        theme: "mobiscroll",
+	        mode: "scroller",
+	        display: "bubble",
+	        onClosed: "onClosed",
+	        lang: UILANGUAGE == "en" ? "en_fwd" : "zh_fwd"
+	}); 
+	});
+	/* if('${planIndex}'=='medical-insurance/cansurance'){
+		$('#so-calendar-dob').val('');
+	} */
+	
 	setInputReadonly('firstname',false);
 	setInputReadonly('lastname',false);
-	setInputReadonly('so-calendar-dob', false);
+	//setInputReadonly('so-calendar-dob', false);
 	
 	//setSelectReadonly('tmpGender', true);
 	//setInputReadonly('so-calendar-dob', true);

@@ -98,6 +98,7 @@ var language = "${language}";
 							<div class="mdl-textfield__input so-mdl-textfield-input planName-text" type="text" autocomplete="off"  value="">${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }</div>
 							<label class="mdl-textfield__label planName-label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
 							<input type="hidden" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }">
+						
 						</div>
 					</div>
 					<div class="desktop-left">
