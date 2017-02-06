@@ -136,11 +136,11 @@ public class MedicalGuardianPageFlowControl {
 		
 		}
 
-		logger.debug("nextPageFlow : " + "medical-insurance/cansurance/"+to);
-		logger.debug("nextPageFlow2 : " + "medical-insurance/cansurance/"+to2);
+		logger.debug("nextPageFlow : " + "medical-insurance/cansurance-"+to);
+		logger.debug("nextPageFlow2 : " + "medical-insurance/cansurance-"+to2);
 
-		model.addAttribute("nextPageFlow", "medical-insurance/cansurance/"+to);
-		model.addAttribute("nextPageFlow2", "medical-insurance/cansurance/"+to2);
+		model.addAttribute("nextPageFlow", "medical-insurance/cansurance-"+to);
+		model.addAttribute("nextPageFlow2", "medical-insurance/cansurance-"+to2);
 
 		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
 
