@@ -121,6 +121,8 @@ var language = "${language}";
 									<p class="info-value">
 										<fmt:message key="placeholder.direct.debit.copy" bundle="${msg}" />
 									   <input type="hidden" name="paymentMethod" value="Direct Debit">
+									   <input type="hidden" id="appFirstName" value="">
+                                       <input type="hidden" id="appLastName" value="">
 									</p>
 								</div>
 								<div class="info-wrapper">
