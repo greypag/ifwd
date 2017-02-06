@@ -35,52 +35,71 @@
 }
 
 /* line 39, ../sass/faq-detail.scss */
-.question p {
+.question {
   font-size: 24px;
+  margin-bottom: 16px;
 }
 
 /* line 43, ../sass/faq-detail.scss */
-.answer p, .answer td, .answer ol, .answer ul, .answer h1, .answer h2, .answer h3, .answer h4, .answer h5, .answer h6 {
+.faq-group__question-index {
+  margin-bottom: 60px;
+}
+/* line 45, ../sass/faq-detail.scss */
+.faq-group__question-index a.question {
+  line-height: 24px;
+  display: block;
+}
+
+/* line 50, ../sass/faq-detail.scss */
+.faq-group__question {
+  margin-bottom: 16px;
+}
+/* line 52, ../sass/faq-detail.scss */
+.faq-group__question .answer {
   font-size: 16px;
   line-height: 1.5;
 }
-/* line 48, ../sass/faq-detail.scss */
-.answer ul ul {
+/* line 55, ../sass/faq-detail.scss */
+.faq-group__question .answer a, .faq-group__question .answer p, .faq-group__question .answer td, .faq-group__question .answer ol, .faq-group__question .answer ul, .faq-group__question .answer h1, .faq-group__question .answer h2, .faq-group__question .answer h3, .faq-group__question .answer h4, .faq-group__question .answer h5, .faq-group__question .answer h6 {
+  font-size: 16px;
+  line-height: 1.5;
+}
+/* line 60, ../sass/faq-detail.scss */
+.faq-group__question .answer ul ul {
   list-style: none;
   padding-left: 20px;
 }
-/* line 51, ../sass/faq-detail.scss */
-.answer ul ul > li:before {
+/* line 63, ../sass/faq-detail.scss */
+.faq-group__question .answer ul ul > li:before {
   content: "-";
   margin-right: 10px;
 }
-/* line 57, ../sass/faq-detail.scss */
-.answer h1, .answer h2, .answer h3, .answer h4, .answer h5, .answer h6 {
+/* line 69, ../sass/faq-detail.scss */
+.faq-group__question .answer h1, .faq-group__question .answer h2, .faq-group__question .answer h3, .faq-group__question .answer h4, .faq-group__question .answer h5, .faq-group__question .answer h6 {
   color: #333333;
   margin: 0;
 }
-
-/* line 66, ../sass/faq-detail.scss */
-.answer table > tbody > tr > td {
+/* line 77, ../sass/faq-detail.scss */
+.faq-group__question .answer table > tbody th, .faq-group__question .answer table > tbody td {
   padding: 8px;
   line-height: 1.428571429;
   vertical-align: top;
   border: 1px solid #000000;
 }
 
-/* line 76, ../sass/faq-detail.scss */
+/* line 87, ../sass/faq-detail.scss */
 .keyword-search {
   width: 100%;
 }
-/* line 78, ../sass/faq-detail.scss */
+/* line 89, ../sass/faq-detail.scss */
 .keyword-search.input-group {
   background-color: #f1f1f1;
 }
-/* line 81, ../sass/faq-detail.scss */
+/* line 92, ../sass/faq-detail.scss */
 .keyword-search .keyword-bg {
   position: relative;
 }
-/* line 84, ../sass/faq-detail.scss */
+/* line 95, ../sass/faq-detail.scss */
 .keyword-search .fa-search {
   display: inline;
   position: absolute;
@@ -89,7 +108,7 @@
   padding-left: 15px;
   font-size: 30px;
 }
-/* line 92, ../sass/faq-detail.scss */
+/* line 103, ../sass/faq-detail.scss */
 .keyword-search #search-input {
   padding: 6px 0 6px 45px;
   border: 1px solid #DADADA;
@@ -97,37 +116,32 @@
 }
 
 @media (min-width: 992px) {
-  /* line 100, ../sass/faq-detail.scss */
+  /* line 111, ../sass/faq-detail.scss */
   .keyword-search {
     padding: 30px 15%;
   }
 
-  /* line 103, ../sass/faq-detail.scss */
+  /* line 114, ../sass/faq-detail.scss */
   .mob-pad-left30 {
     padding-left: 0;
   }
 
-  /* line 106, ../sass/faq-detail.scss */
+  /* line 117, ../sass/faq-detail.scss */
   .category-list {
     padding: 0;
   }
-  /* line 108, ../sass/faq-detail.scss */
+  /* line 119, ../sass/faq-detail.scss */
   .category-list .category-item {
     width: auto;
   }
 
-  /* line 112, ../sass/faq-detail.scss */
+  /* line 123, ../sass/faq-detail.scss */
   .faq-wrapper {
     padding: 0 0 0 5%;
   }
-
-  /* line 115, ../sass/faq-detail.scss */
-  .faq-group__question-index {
-    margin-bottom: 30px;
-  }
 }
 @media (max-width: 991px) {
-  /* line 120, ../sass/faq-detail.scss */
+  /* line 128, ../sass/faq-detail.scss */
   .question-container.container {
     display: -webkit-box;
     display: -moz-box;
@@ -141,17 +155,18 @@
     flex-direction: column;
   }
 
-  /* line 133, ../sass/faq-detail.scss */
+  /* line 141, ../sass/faq-detail.scss */
   .category-list {
     order: 2;
   }
 
-  /* line 137, ../sass/faq-detail.scss */
+  /* line 145, ../sass/faq-detail.scss */
   .faq-wrapper {
     order: 1;
   }
-
-  /* line 141, ../sass/faq-detail.scss */
+}
+@media (max-width: 767px) {
+  /* line 151, ../sass/faq-detail.scss */
   .answer table {
     overflow-x: scroll;
     display: block;

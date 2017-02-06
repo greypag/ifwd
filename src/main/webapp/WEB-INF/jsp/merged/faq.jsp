@@ -25,9 +25,9 @@ String language = session.getAttribute("language").toString();
 String indexJsonPath = "";
 if(language!=null){
 	if(language=="en"){
-		indexJsonPath = "/fwdhk/resources/json/en/jsontest.min.json";
+		indexJsonPath = "/fwdhk/resources/json/en/faq-index.json";
 	}else{
-		indexJsonPath = "/fwdhk/resources/json/tc/jsontest.min.json";
+		indexJsonPath = "/fwdhk/resources/json/tc/faq-index.json";
 	}
 }
 	

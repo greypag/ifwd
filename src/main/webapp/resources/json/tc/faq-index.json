@@ -2,89 +2,90 @@
 	"groupCount": 3,
 	"categories": [
 		{
-			"name":"SAVING",
+			"name":"儲蓄",
 			"group": 1,
 			"products":[
 				{
-					"name":"Provie Insurance Plan",
+					"name":"Provie 真息揀理財壽險",
 					"link":"provie"
 				},
 				{
-					"name":"Savie Insurance Plan",
+					"name":"Savie 自助息理財壽險",
 					"link":"savie"
 				},
 				{
-					"name":"Wealthree Insurance Plan",
+					"name":"Wealthree 三連息儲蓄保險計劃",
 					"link":"wealthree"
 				}
 			]
-		},
+		},	
+
 		{
-			"name":"LIFE",
+			"name":"人壽",
 			"group": 1,
 			"products":[
 				{
-					"name":"Elite Term",
+					"name":"定期壽險計劃",
 					"link":"elite"
 				}
 			]
-		},			
+		},
 		{
-			"name":"HEALTH & ACCIDENT",
+			"name":"醫療",
 			"group": 1,
 			"products":[
 				{
-					"name":"Hospital Cash",
+					"name":"住院保障",
 					"link":"hospital"
 				}
 			]
-		},
+		},		
 		{
-			"name":"TRAVEL",
+			"name":"旅遊",
 			"group": 2,
 			"products":[
 				{
-					"name":"FlightCare(Free)",
+					"name":"航空意外保險（免費）",
 					"link":"flight"
 				},
 				{
-					"name":"Overseas StudyCare",
+					"name":"海外留學保險",
 					"link":"overseas"
 				},
 				{
-					"name":"TravelCare Insurance",
+					"name":"旅遊保險",
 					"link":"travel"
 				},
 				{
-					"name":"Working HolidayCare",
+					"name":"工作假期保險",
 					"link":"working-holiday"
 				}
 			]
 		},
 		{
-			"name":"HOUSEHOLD",
+			"name":"家居及財物",
 			"group": 3,
 			"products":[
 				{
-					"name":"Easy HomeCare",
-					"link":"easy-home"
+					"name":"易安心家居保",
+					"link":"easy-home-care"
 				},
 				{
-					"name":"Handset Protection",
+					"name":"手機保險",
 					"link":"handset"
 				},
 				{
-					"name":"Home Liability",
+					"name":"家居責任保險",
 					"link":"home-liability"
 				},
 				{
-					"name":"Screen protection",
+					"name":"手機屏幕保險",
 					"link":"screen"
 				}
 			]
 		},
 		{
-			"name":"Motor",
+			"name":"汽車保險",
 			"group": 3,
 			"products":[
 				{
@@ -92,7 +93,7 @@
 					"link":"drivamatics"
 				},
 				{
-					"name":"MotorSmart Insurance",
+					"name":"智駕保汽車保險",
 					"link":"motor-smart"
 				}
 			]
