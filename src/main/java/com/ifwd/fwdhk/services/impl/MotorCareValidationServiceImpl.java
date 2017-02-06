@@ -321,7 +321,7 @@ public class MotorCareValidationServiceImpl implements
 			}
 			
 			// Check Length
-			if (length(motorCare.getRegNoofPreviousPolicy()) <4 
+			if (length(motorCare.getRegNoofPreviousPolicy()) <1 
 					|| length(motorCare.getRegNoofPreviousPolicy()) >8) {
 				return false;
 			}

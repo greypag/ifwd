@@ -51,7 +51,9 @@ public class MotorCareDetails {
 	private String theClubMemberNum;
 	private String coverNoteNum;
 	private Applicant applicant;
-	private Double riderDiscountAmt;
+	private String token;
+	private String mib;	
+	private String deductedCompInsuranceAmount;
 	
 	public long getId() {
 		return id;
@@ -379,18 +381,30 @@ public class MotorCareDetails {
 	public void setApplicant(Applicant applicant) {
 		this.applicant = applicant;
 	}
-	
-	public Double getRiderDiscountAmt() {
-		return riderDiscountAmt;
-	}
-	public void setRiderDiscountAmt(Double riderDiscountAmt) {
-		this.riderDiscountAmt = riderDiscountAmt;
-	}
+		
 	public String getPolicyEndDate() {
 		return policyEndDate;
 	}
 	public void setPolicyEndDate(String policyEndDate) {
 		this.policyEndDate = policyEndDate;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public String getMib() {
+		return mib;
+	}
+	public void setMib(String mib) {
+		this.mib = mib;
+	}
+	public String getDeductedCompInsuranceAmount() {
+		return deductedCompInsuranceAmount;
+	}
+	public void setDeductedCompInsuranceAmount(String deductedCompInsuranceAmount) {
+		this.deductedCompInsuranceAmount = deductedCompInsuranceAmount;
 	}
 	
 }
