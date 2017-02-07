@@ -159,7 +159,7 @@ var FNAQuestion ={
 		}, {
 		  "id": "q4_a",
 		  "num": "4a",
-		  "title": "<fmt:message key="fna.question.q4a" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span>",
+		  "title": "<fmt:message key="fna.question.q4a" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span>",
 		  "option": [{
 		    "id": 5,
 		    "title": "<fmt:message key="fna.question.q4a.amount" bundle="${msg}" /> <br><fmt:message key="fna.question.q4a.lessthan" bundle="${msg}" /> {0} <fmt:message key="fna.question.q4a.month" bundle="${msg}" /> <br><br><fmt:message key="fna.question.q4a.range" bundle="${msg}" />",
@@ -247,7 +247,7 @@ var FNAQuestion ={
 		  }]
 		}, {
 		  "id": "q4_d_2",
-		  "num": "4d (iI)",
+		  "num": "4d (ii)",
 		  "title": "<fmt:message key="fna.question.q4dii" bundle="${msg}" /> ",
 		  "option": [{
 		    "id": 0,

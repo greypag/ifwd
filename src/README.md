@@ -40,3 +40,4 @@ Branch Creation Log
 2017-01-18 - UAT Release branch R01162017-002 - CNY Campaign with Annual Travel Skip Payment
 2017-01-20 - UAT Release branch R01202017-001 - Motor Full
 2017-01-20 - DEV Remove GI embedded registration form
+2017-01-27 - UAT Release branch R01302017-001 - Motor Full Unblock
