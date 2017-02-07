@@ -721,7 +721,6 @@ function WithdrawClass(){
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("performWithdraw", xhr.status, response.code);
 				eWalletCtr.showGenericMsg("", msg);
-				console.log(response, xhr);
 
 				if(xhr.status != 413) {
 					that.popupDom.modal("hide");

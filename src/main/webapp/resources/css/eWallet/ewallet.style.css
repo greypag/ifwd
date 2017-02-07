@@ -163,10 +163,7 @@
   margin-bottom: 0.625em; }
 
 .ew_pol_list .ew_accErrMsg {
-  background: orange;
-  color: white;
-  padding: 10px;
-  text-align: center; }
+  padding: 20px 0 50px 0; }
 
 .ew_pol_list .ew_pol_wd_linkup {
   display: inline-block; }
