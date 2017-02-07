@@ -5,7 +5,7 @@ public class CansurancePlanDetailBean {
 	private String gender;
 	private String smoker;
 	private String dob;
-	private String dobdmy;
+
 	private String referralCode;
 	
 	public String getGender() {
@@ -26,12 +26,7 @@ public class CansurancePlanDetailBean {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-	public String getDobdmy() {
-		return dobdmy;
-	}
-	public void setDobdmy(String dobdmy) {
-		this.dobdmy = dobdmy;
-	}
+	
 	public String getReferralCode() {
 		return referralCode;
 	}

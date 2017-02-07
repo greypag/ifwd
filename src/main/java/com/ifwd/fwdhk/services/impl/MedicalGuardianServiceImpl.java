@@ -31,8 +31,8 @@ public class MedicalGuardianServiceImpl implements MedicalGuardianService{
 		StringBuffer url = new StringBuffer();
 		url.append(UserRestURIConstants.GET_MEDICAL_GUARDIAN_PREMIUM);
 		url.append("?dob=");
-		String[] dob = planDetail.getDobdmy().split("-");
-		planDetail.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
+//		String[] dob = planDetail.getDob().split("-");
+//		planDetail.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
 		url.append(planDetail.getDob());
 		url.append("&gender=");
 		url.append(planDetail.getGender().equals("0")?"M":"F");
