@@ -116,9 +116,10 @@ public class MedicalGuardianController extends BaseController {
 			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean();//ehPlanDetail");
 			//planDetail.setDob("1999-02-03");
 		   //planDetail.setDobdmy("03-02-1999");
-		    planDetail.setGender("0");
+		    planDetail.setGender("M");
 		 	planDetail.setSmoker("0");
-		
+		 	planDetail.setDob("1990-01-30");
+		 	planDetail.setDobdmy("30-01-1990");
 		    httpSession.setAttribute("ehPlanDetail", planDetail);
 		    httpSession.setAttribute("selectPlan", selectPlan); 
 		    try {
