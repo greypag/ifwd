@@ -902,6 +902,10 @@ function getStarted(){
 			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			                          <a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a>
 			                          </li>
+			                          <li class="menu-link">
+			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			                          <a href="<%=request.getContextPath()%>/${language}/medical-insurance/cansurance"><fmt:message key="header.product.type1.group1.linkname3" bundle="${msg}" /></a>
+			                          </li>
 		                         </ul>
 			                  </li>
 	                          <li class="nav-group no-padding partition-on-the-right protect-tab__2nd_col">
@@ -1202,6 +1206,7 @@ function getStarted(){
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}" /></a>
                     <ul class="col-sm-12 dropdown-menu">
 	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a></li>
+	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/medical-insurance/cansurance"><fmt:message key="header.product.type1.group1.linkname3" bundle="${msg}" /></a></li>
 	                </ul>
                 </li>
                 <li class="menu-link-grp-title">
