@@ -38,7 +38,6 @@ var home_url = "<%=request.getContextPath()%>";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/landing.css">
 
-
     <div class="fwd-savie-wrapper ">
         <div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
                 <div class="breadcrumb-container">
@@ -51,6 +50,30 @@ var home_url = "<%=request.getContextPath()%>";
                      </ol>
                 </div>
             </div>
+    </div>
+    <div class="container">
+	    <div class="col-xs-12">
+	    	Temp Form<br>
+	    	Date of Birth:<input type="text" name="dob" id="temp_dob" value="1980-01-30"><br>
+	    	Gender:<input type="text" name="gender" id="temp_gender" value="0"> (0 = male, 1 = female)<br>
+	    	Smoker:<input type="text" name="smoker" id="temp_smoker" value="0"> (0 = non smoker, 1 = smoker)<br>
+	    	referral Code:<input type="text" name="referralCode" id="temp_referralCode" value=""><br>
+	    	
+	    	<input type="button" value="Apply Now" id="btn-applyNow">
+	    	
+	    	<div class="resultPan hide">
+	    	<br><br><br>
+	    		<p class="result_txt"></p>
+	    		<form action="<%=request.getContextPath()%>/${language}/${nextPageFlow}" method="post">
+	    			<input type="hidden" name="dob" value="1980-01-30" class="flow_dob">
+	    			<input type="hidden" name="gender" value="0" class="flow_gender">
+	    			<input type="hidden" name="smoker" value="0" class="flow_smoker">
+	    			<input type="hidden" name="referralCode" value="" class="flow_referralCode">
+	    			<input type="submit" value="Get Quote">
+	    		</form>
+	    		<br><br><br>
+	    	</div>
+    	</div>
     </div>
     <div class="savie-regular-container savie-regular-landing rp-only">
         <div class="whole-banner">
@@ -493,3 +516,5 @@ $(document).ready(function() {
 	});
 });
 </script>
+
+<script src="<%=request.getContextPath()%>/resources/js/medical-guardian/uifn-landing.js"></script>
