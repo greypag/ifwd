@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
+import com.ifwd.fwdhk.model.easyhealth.CansurancePlanDetailBean;
 import com.ifwd.fwdhk.services.MedicalGuardianService;
 import com.ifwd.fwdhk.util.HeaderUtil;
 
@@ -25,7 +25,7 @@ public class MedicalGuardianServiceImpl implements MedicalGuardianService{
 	protected HeaderUtil headerUtil;
 	
 	@Override
-	public JSONObject getPremium(EasyHealthPlanDetailBean planDetail,
+	public JSONObject getPremium(CansurancePlanDetailBean planDetail,
 			HttpServletRequest request) throws ECOMMAPIException {
 
 		StringBuffer url = new StringBuffer();
