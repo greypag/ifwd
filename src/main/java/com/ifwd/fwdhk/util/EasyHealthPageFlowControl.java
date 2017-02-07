@@ -126,12 +126,21 @@ public class EasyHealthPageFlowControl {
 
 		}
 
-		logger.debug("nextPageFlow : " + plan+"/"+to);
-		logger.debug("nextPageFlow2 : " + plan+"/"+to2);
+		if(plan.equals("medical-insurance/cansurance")){
+			logger.debug("nextPageFlow : " + plan+"-"+to);
+			logger.debug("nextPageFlow2 : " + plan+"-"+to2);
 
-		model.addAttribute("nextPageFlow", plan+"/"+to);
-		model.addAttribute("nextPageFlow2", plan+"/"+to2);
+			model.addAttribute("nextPageFlow", plan+"-"+to);
+			model.addAttribute("nextPageFlow2", plan+"-"+to2);
+		}else{
+			logger.debug("nextPageFlow : " + plan+"/"+to);
+			logger.debug("nextPageFlow2 : " + plan+"/"+to2);
 
+			model.addAttribute("nextPageFlow", plan+"/"+to);
+			model.addAttribute("nextPageFlow2", plan+"/"+to2);
+			
+		}
+	
 		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
 
 		logger.debug("-----------------------------------page flow end--------------------------------------------");

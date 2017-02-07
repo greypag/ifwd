@@ -120,32 +120,53 @@ public class SavieOnlinePageFlowControl {
 			filePath = "savie/";
 			break;
 			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA: 
-			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
-			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA:
+			if(plan.equals("medical-insurance/cansurance")){
+				to = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+				to2 = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+			}else{
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+				to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+			}
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS: 
-			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
-			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			if(plan.equals("medical-insurance/cansurance")){
+				to = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
+				to2 = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			}else{
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
+				to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			}
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO: 
-			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
-			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			if(plan.equals("medical-insurance/cansurance")){
+				to = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
+				to2 = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+				
+			}else{
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
+				to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			}
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO: 
 			if("savings-insurance".equals(plan)){
 				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT;
+				to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			}
+			else if(plan.equals("medical-insurance/cansurance")){
+				to = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+				to2 = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			}
 			else{
 				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+				to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			}
-			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
@@ -156,14 +177,25 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY: 
-			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
-			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+			if(plan.equals("medical-insurance/cansurance")){
+				to = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+				to2 = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+				
+			}else{
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+				to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+			}
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION: 
-			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
-			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			if(plan.equals("medical-insurance/cansurance")){
+				to = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+				to2 = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			}else{
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+				to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			}
 			filePath = "savie/";
 			break;
 			
@@ -175,8 +207,13 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD:
-			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
-			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
+			if(plan.equals("medical-insurance/cansurance")){
+				to = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
+				to2 = plan+"-"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
+			}else{
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
+				to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
+			}
 			filePath = "savie/";
 			break;
 			

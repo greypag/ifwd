@@ -30,6 +30,7 @@ import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.EasyHealthService;
+import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.services.impl.EasyHealthServiceImpl;
 import com.ifwd.fwdhk.services.impl.LifeServiceImpl;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -54,6 +55,8 @@ public class MedicalGuardianController extends BaseController {
 	protected CommonUtils commonUtils;
 	@Autowired
 	protected LifeServiceImpl lifeServiceImpl;
+	@Autowired
+	private LifeService savieOnlineService;
 	
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance"})
@@ -62,9 +65,17 @@ public class MedicalGuardianController extends BaseController {
 		return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN);
 	}
 	
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/cansurance-plan-option"})
+	public ModelAndView getMedicalGuardianPlanOption(Model model, HttpServletRequest request, HttpSession httpSession) {
+		String backSummary = request.getParameter("backSummary");
+		if(backSummary!=null && "Y".equals(backSummary)){
+			model.addAttribute("backSummary", backSummary);
+			request.getSession().setAttribute("ehStep", "1");
+		}
+		return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PLAN_OPTION);
+	}
 	
-	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/application-summary"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-application-summary"})
 	public ModelAndView getSavieOnlineLifePolicySummary(Model model, HttpServletRequest request, HttpSession httpSession) {
 			model.addAttribute("plan", "cansurance");
 			request.getSession().setAttribute("applicationSummaryYes", "applicationSummaryYes");
@@ -73,7 +84,7 @@ public class MedicalGuardianController extends BaseController {
 		
 	}
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/declaration"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-declaration"})
 	public ModelAndView getSavieOnlineLifeDeclaration(Model model, HttpServletRequest request, HttpSession httpSession) {
 			model.addAttribute("plan", "cansurance");
 			return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DECLARATION);
@@ -81,7 +92,7 @@ public class MedicalGuardianController extends BaseController {
 	
 	
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/beneficiary-info"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-beneficiary-info"})
 	public ModelAndView getSavieOnlineLifeBeneficaryInfo(Model model, HttpServletRequest request, HttpSession httpSession) {
 		
 			model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.lifeBeneficiaryRelationshipEN);
@@ -95,7 +106,7 @@ public class MedicalGuardianController extends BaseController {
 	}
 	
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/underwriting"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-underwriting"})
 	public ModelAndView getMedicalGuardianUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) {
 		   
 			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
@@ -146,7 +157,7 @@ public class MedicalGuardianController extends BaseController {
 		
 	}
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/fatca"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-fatca"})
 	public ModelAndView getSavieOnlineLifeFatca(Model model, HttpServletRequest request, HttpSession httpSession) {
 		
 		request.getSession().setAttribute("fatcaYes", "fatcaYes");
@@ -154,7 +165,7 @@ public class MedicalGuardianController extends BaseController {
 		
 	}
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/signature"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-signature"})
 	public ModelAndView getMedicalGuardianSignature(Model model, HttpServletRequest request,HttpSession session) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 		
@@ -182,7 +193,7 @@ public class MedicalGuardianController extends BaseController {
 	
 }
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/personal-details"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-personal-details"})
 	public ModelAndView getSavieOnlineLifePersonalDetails(Model model, HttpServletRequest request,HttpSession httpSession) {
 		
 			model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);
@@ -207,7 +218,7 @@ public class MedicalGuardianController extends BaseController {
 	}
 	
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/employment-info"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-employment-info"})
 	public ModelAndView getSavieOnlineLifeEmploymentInfo(Model model, HttpServletRequest request,HttpSession httpSession) {
 			
 		
@@ -389,7 +400,7 @@ public class MedicalGuardianController extends BaseController {
 	
 	}
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/payment"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-payment"})
 	public ModelAndView getMedicalGuardianPayment(Model model, HttpServletRequest request) {
 		
 			String path = request.getRequestURL().toString();
@@ -402,13 +413,59 @@ public class MedicalGuardianController extends BaseController {
 
 	
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance/document-upload"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-document-upload"})
 	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
 		model.addAttribute("signatureWidth", InitApplicationMessage.signatureWidth);
 		model.addAttribute("signatureHeight", InitApplicationMessage.signatureHeight);
 		model.addAttribute("applicationFileSize", InitApplicationMessage.applicationFileSize);
 		request.setAttribute("plan", "medical-insurance/cansurance");
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
+	}
+	
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-confirmation"})
+	public ModelAndView getSavieOnlineUploadConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request
+			,HttpSession session) {
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+		String documentUploadYes = (String) request.getSession().getAttribute("documentUploadYes");
+		String sendEmailsYes = (String) request.getSession().getAttribute("sendEmailsYes");
+			if(sendEmailsYes == null){
+				try {
+					JSONObject models = new JSONObject();
+					models.put("name", request.getSession().getAttribute("username"));
+					
+					if("medical-insurance".equals(plan)) {
+						savieOnlineService.sendEmails(request, "rophiComplete", models);
+					}else {
+						savieOnlineService.sendEmails(request, "savieComplete", models);
+					}
+					
+					String hasPolicy = (String)session.getAttribute("hasPolicy");
+					if(hasPolicy == null) {
+						savieOnlineService.finalizeLifePolicy(plan, request, session);
+					}
+					
+					request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.info(e.getMessage());
+				}
+			}
+			model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
+			model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
+			GetVulnerableCustomerResponse vulnerableCustomerResponse=new GetVulnerableCustomerResponse();
+			String policyNo=lifePolicy.getPolicyNo();
+			final Map<String,String> header = headerUtil.getHeader1(request);
+			try {
+				vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
+				request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
+			} catch (ECOMMAPIException e) {
+				request.getSession().setAttribute("isVulnerable", false);
+				e.printStackTrace();
+			}
+		return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
+		
 	}
 	
 }
