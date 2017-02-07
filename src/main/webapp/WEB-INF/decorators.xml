@@ -47,7 +47,6 @@
 
 	<decorator name="fwdeasyhealth" page="template_easy_health.jsp">
 		<pattern>/*/medical-insurance*</pattern>
-		<pattern>/*/medical-guardian*</pattern>
 	</decorator>
 
 	<decorator name="fwdpartner_test" page="template_default_v2.jsp">
@@ -56,6 +55,7 @@
 		<pattern>/*/motor-insurance*</pattern>
 		<pattern>/*/savings-insurance/wealthree*</pattern>
 		<pattern>/*/joinus*</pattern>
+		<pattern>/*/medical-insurance/cansurance*</pattern>
 	</decorator>
 
 	<decorator name="ngdiscover" page="template_discover_ng.jsp">
