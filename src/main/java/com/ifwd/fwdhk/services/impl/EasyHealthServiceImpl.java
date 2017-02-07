@@ -60,7 +60,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		StringBuffer url = new StringBuffer();
 		url.append(UserRestURIConstants.GET_EASYHEALTH_PREMIUM);
 		url.append("?dob=");
- 		String[] dob = planDetail.getDobdmy().split("-");
+		String[] dob = planDetail.getDobdmy().split("-");
 		planDetail.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
 		url.append(planDetail.getDob());
 		url.append("&gender=");

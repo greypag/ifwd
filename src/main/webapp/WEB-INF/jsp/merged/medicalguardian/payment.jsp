@@ -76,8 +76,9 @@ var home_url = "<%=request.getContextPath()%>";
         <input type="hidden" name="remark" value="">
         <input type="hidden" name="pMethod" id="pMethod" value="Master">
         <input type="hidden" id="emailAddress" name="emailAddress" value="273128396@qq.com"> 
-        <input type="hidden" id="appFirstName" value="${userDetails.firstName }"> 
-        <input type="hidden" id="appLastName" value="${userDetails.lastName }"> 
+         <input type="hidden" id="appFirstName" value="<%= session.getAttribute("fname") %> ">  
+        <input type="hidden" id="appLastName" value="<%= session.getAttribute("lname") %>"> 
+       
 		<input type="hidden" name="referenceNo" value="${lifePolicy.policyNo}">
 		<input type="hidden" id="gateway" name="gateway" value="${lifePolicy.paymentGateway}"/>
 		
@@ -120,7 +121,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<label class="mdl-textfield__label" for="cardHolder"><fmt:message key="payment.card.holder.name" bundle="${msg}" /></label>
 									</div>
 								</div>
-								 <span class="error-msg" id="cardHolderErrMsg"></span> 
+								  <span class="error-msg" id="cardHolderErrMsg"></span>   
 							</div>
 							<div class="row">
 								<div class="col-xs-6">
@@ -261,6 +262,12 @@ var home_url = "<%=request.getContextPath()%>";
 <script>
 
 $(document).ready(function() {
+	
+	var fn=$('#appFirstName').val();
+	var ln=$('#appLastName').val();
+	console.log(fn+" "+ln)
+	
+	
     $('#ccNumber').keyup(function() {
         var replaceSpace = $(this).val(); 
         var result = replaceSpace.replace(/\s/g,'');

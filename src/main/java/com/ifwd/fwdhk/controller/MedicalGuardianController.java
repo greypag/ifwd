@@ -127,10 +127,9 @@ public class MedicalGuardianController extends BaseController {
 			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean();//ehPlanDetail");
 			//planDetail.setDob("1999-02-03");
 		   //planDetail.setDobdmy("03-02-1999");
-		    planDetail.setGender("M");
+		    planDetail.setGender("0");
 		 	planDetail.setSmoker("0");
-		 	planDetail.setDob("1990-01-30");
-		 	planDetail.setDobdmy("30-01-1990");
+		
 		    httpSession.setAttribute("ehPlanDetail", planDetail);
 		    httpSession.setAttribute("selectPlan", selectPlan); 
 		    try {
@@ -172,6 +171,8 @@ public class MedicalGuardianController extends BaseController {
 		try {
 			session.setAttribute("prod", "guardian");
 			easyHealthService.createLifePolicy(request, request.getSession());
+			
+			
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
@@ -401,12 +402,15 @@ public class MedicalGuardianController extends BaseController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-payment"})
-	public ModelAndView getMedicalGuardianPayment(Model model, HttpServletRequest request) {
+	public ModelAndView getMedicalGuardianPayment(Model model, HttpServletRequest request,HttpSession session) {
+		    LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
 		
 			String path = request.getRequestURL().toString();
 			model.addAttribute("successUrl", path.replace("payment", "document-upload"));
 			model.addAttribute("failurePath", path);
 			request.setAttribute("plan", "medical-insurance/cansurance");
+			session.setAttribute("fname", lifePersonalDetails.getFirstname());
+			session.setAttribute("lname", lifePersonalDetails.getLastname());
 			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PAYMENT);
 		
 	}

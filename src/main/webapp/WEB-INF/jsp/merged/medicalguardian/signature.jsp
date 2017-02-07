@@ -174,7 +174,8 @@ var home_url = "<%=request.getContextPath()%>";
     <script>
         $(document).ready(function() {
         	var signatureFileSize = "${signatureFileSize}";
-    		$('#btn-signature-next').on('click', function(e) {
+        	$('#btn-signature-next').on('click', function(e) {
+    			
     			e.preventDefault();
     			if($('#correct-signature').hasClass('hidden') == false) {
     				if (!$("#signature").jSignature('getData', 'native').length) {
@@ -196,10 +197,16 @@ var home_url = "<%=request.getContextPath()%>";
     						$('#loading-overlay').modal('hide');
     					}
     					else{
-    						$.ajax({
+    						var planSelected ='${planIndex}';
+    						var planCd="ROPHI1";
+    						if(planSelected=='medical-insurance/cansurance'){
+    							planCd="HCP1";
+    						}    						
+    						
+    						 $.ajax({
     					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
     					    	type:'post',     
-    					    	data:{ "image" : datapair[1],"planCode" : "ROPHI1" },     
+    					    	data:{ "image" : datapair[1],"planCode" : planCd },     
     					    	success:function(data){
     					    		//loading mask 
     					    		$('#loadingDiv').toggle();
@@ -207,8 +214,10 @@ var home_url = "<%=request.getContextPath()%>";
     					    	    if(data==null || data == ''){
     					    	    	//Unknown errors
     					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-    					    	    	alert(getBundle(getBundleLanguage, "system.error.message"))
-    					    	    	$('#loading-overlay').modal('hide');					   
+    					    	    	//alert(getBundle(getBundleLanguage, "system.error.message"))
+    					    	    	//$('#loading-overlay').modal('hide');
+    					    	    	
+    					    	    	
     					    	    } 
     					    	    else if( data.errMsgs == 'session expired'){
     					    	    	//Timeout errors
@@ -220,6 +229,10 @@ var home_url = "<%=request.getContextPath()%>";
     					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
     					    	    	alert(getBundle(getBundleLanguage, "system.error.message"))
     					    	    	$('#loading-overlay').modal('hide');
+    					    	    	// tes
+    					    	    	window.onbeforeunload=null;
+    					    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    					    	    
     					    	    } 
     					    	    else {
     					    	    	// success
@@ -228,10 +241,13 @@ var home_url = "<%=request.getContextPath()%>";
     					    	    }
     					        },
     							error:function(){
+    								
     								$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
     								$('#loading-overlay').modal('hide');
     							}
+    					        
     					    });
+    						 
     					}
     				}
     				
