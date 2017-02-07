@@ -118,7 +118,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
 			inputMsg.append(lifePersonalDetails.getChineseName());
 			applicant.put("dob", planDetail.getDob());
-			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1));
+			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1).toUpperCase());
 			applicant.put("hkId", lifePersonalDetails.getHkid().toUpperCase());
 			applicant.put("passport", "");
 			applicant.put("maritalStatus", lifePersonalDetails.getMartialStatus()!=null?lifePersonalDetails.getMartialStatus().split("-")[0]:"");
