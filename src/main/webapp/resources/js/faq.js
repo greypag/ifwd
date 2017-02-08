@@ -42,9 +42,8 @@ $(function() {
 		  var qIndex = $("#question"+qId);
 		  $("#question"+qId).show();
 		  $("#question"+qId).parent().show();
-		  console.log(qIndex);
+		  //console.log(qIndex);
 		};
-		console.log("ahah");
 	});
 	$( ".category-item" ).on( "click", function() {
 		$( ".category-item.active" ).each(function(){
