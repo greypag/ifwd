@@ -20,8 +20,8 @@ $(document).ready(function(){
 				gender:$("#temp_gender").val(),
 				smoker:$("#temp_smoker").val(),
 				referralCode:$("#temp_referralCode").val()
-			},	
-			cache:false,
+			},
+			contentType : 'application/json',
 			async:false,
 			error:function(xhr, textStatus, errorThrown){
 
