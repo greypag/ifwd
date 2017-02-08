@@ -90,12 +90,14 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 		     	<input id="search-input" type="text" class="form-control<% if(language=="tc"){ %> chinese-input<% } %>" placeholder="Search for...">
 	     	</div>
 	    </div>
-		<div class="category-list col-md-3 first_div">
+	    <!-- Category Widget For Mobile -->
+		<div class="category-list col-md-3 list-top">
 			<h3 class="hidden-xs hidden-sm gray20 bold"><fmt:message key="faq.catlist.label" bundle="${msg}" /></h3>
 			<% for(int i=0; i<topicList.size(); i++){ %>
 				<a class="category-item orange" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
 			<% } %>
 		</div>
+		<!-- End For Mobile -->	    
 		<div class="faq-wrapper col-md-9 second_div">
 			<h3 class="gray20 bold"><%=faqProductObj.get("product") %></h3>
 			<% for(int i=0; i<topicList.size(); i++){ %>
@@ -130,7 +132,14 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 					<% } %>
 				</div>
 			<% } %>
-		</div>		
+		</div>
+		<div class="category-list hidden-md hidden-lg list-bottom">
+			<h3 class="hidden-xs hidden-sm gray20 bold"><fmt:message key="faq.catlist.label" bundle="${msg}" /></h3>
+			<% for(int i=0; i<topicList.size(); i++){ %>
+				<a class="category-item orange" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
+			<% } %>
+		</div>
+		<a href="#" id="gotop-rp" class="go-top go-top-default rp"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>				
 	</div>
 </seciton>
 <script>
