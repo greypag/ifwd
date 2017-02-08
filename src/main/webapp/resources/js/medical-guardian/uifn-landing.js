@@ -13,16 +13,18 @@ $(document).ready(function(){
 		    	$("#loading-overlay").modal("show");
 		    },*/
 			url:APIServer + context + "/api/medicalguardian/getPremium",
+			contentType : 'application/json',
 			type:"post",
-			data:{
+			dataType: "json",
+			data: JSON.stringify({
 				dob:$("#temp_dob").val(),
 				dobdmy:$("#temp_dob_dmy").val(),
 				gender:$("#temp_gender").val(),
 				smoker:$("#temp_smoker").val(),
 				referralCode:$("#temp_referralCode").val()
-			},
-			contentType : 'application/json',
+			}),
 			async:false,
+			cache:false,
 			error:function(xhr, textStatus, errorThrown){
 
 				$(".result_txt").text(errorThrown);
