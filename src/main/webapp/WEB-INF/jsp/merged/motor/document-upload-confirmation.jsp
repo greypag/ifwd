@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <fmt:setBundle basename="motor" var="motorMsg" />
@@ -102,8 +103,8 @@ var nextPage = "${nextPageFlow}";
                         --%>
                     </p>
                     <p>
-                        <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
-                        <h3 id="motorRef" class="heading-h3 color-orange ref-number"></h3>
+                        <%-- <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" /> --%>
+                        <h3 id="motorRef" class="heading-h3 color-orange ref-number hidden"></h3>
                     </p>
 						  <p><fmt:message key="motor.uploadconfirm.reminder.copy" bundle="${motorMsg}" /></p>
                 </div>
@@ -240,7 +241,7 @@ var nextPage = "${nextPageFlow}";
 </section>
 <script type="text/javascript" charset="utf-8" src="<%=request.getContextPath()%>/resources/js/motor/landing.js"></script>
 <script type="text/javascript" charset="utf-8">
-var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?StringEscapeUtils.escapeEcmaScript(StringEscapeUtils.unescapeHtml4(request.getParameter("data"))):"{}"%>');
 
 $(document).ready(function(){
 	$(".amountDueAmount").html("$"+quote.amountDueAmount);

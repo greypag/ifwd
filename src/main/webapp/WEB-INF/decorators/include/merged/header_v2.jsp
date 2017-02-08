@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
 
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -570,7 +571,7 @@ nBarConfig.contentIndex = contentIndexArr;
 %>
 <script>
 $('.anchor-lang').on('click', function(){
-	var quoteData = JSON.stringify(<%=request.getParameter("data").replace("&quot;", "\"")%>);
+	var quoteData = JSON.stringify(<%=StringEscapeUtils.escapeEcmaScript(StringEscapeUtils.unescapeHtml4(request.getParameter("data")))%>);
 	var url = "${language}"=="en"?window.location.href.replace("/en/", "/tc/"):window.location.href.replace("/tc/", "/en/")
     var $form = $("<form />");
     $form.attr("action", url);

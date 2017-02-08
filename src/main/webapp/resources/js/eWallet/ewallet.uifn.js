@@ -628,7 +628,7 @@ function WithdrawClass(){
 	this.startWithdraw = function(pid) {
 		var that = this;
 		this.reset();
-		this.policyId = pid;
+		this.policyId = pid; 
 
 		that.showLoading();
 		//send TngOtpSMS API
@@ -654,6 +654,7 @@ function WithdrawClass(){
 	};
 
 	this.showPanel = function(data) {
+		
 		_productName = data.policy["product_" + eWalletCtr.langMapping[languageP]];
 
 		eWalletCtr.fillPolicyInfo(this.popupDom.find(".ew_pol_info"), data.policy);

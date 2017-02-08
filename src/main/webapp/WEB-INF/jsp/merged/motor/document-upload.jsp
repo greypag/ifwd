@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <fmt:setBundle basename="motor" var="motorMsg" />
@@ -140,13 +141,13 @@ var nextPage = "${nextPageFlow}";
                         <!-- <strong><fmt:message key="motor.uploadconfirm.page.copy.part2" bundle="${motorMsg}" /></strong>-->
                         <fmt:message key="motor.uploadconfirm.page.copy.part3" bundle="${motorMsg}" />
                         <br/>
-                        <fmt:message key="motor.docupload.covernote.copy" bundle="${motorMsg}" />
+<%--                         <fmt:message key="motor.docupload.covernote.copy" bundle="${motorMsg}" />
                         <span id="sendMail"></span>
-                        <fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" />
+                        <fmt:message key="motor.uploadconfirm.covernote.copy.part2" bundle="${motorMsg}" /> --%>
                     </p>
                     <p>
-                        <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" />
-                        <h3 id="motorRef" class="heading-h3 color-orange ref-number"></h3>
+                        <%-- <fmt:message key="motor.uploadconfirm.referenceno.copy" bundle="${motorMsg}" /> --%>
+                        <h3 id="motorRef" class="heading-h3 color-orange ref-number hidden"></h3>
                     </p>
                 </div>
             </div>
@@ -285,7 +286,7 @@ var nextPage = "${nextPageFlow}";
 var total_vehicleReg_dz = 0;
 var total_hkid_dz = 0;
 var total_license_dz = 0;
-var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):""%>');
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?StringEscapeUtils.escapeEcmaScript(StringEscapeUtils.unescapeHtml4(request.getParameter("data"))):""%>');
 	
     $(document).ready(function(){
     	$("#sendMail").html("<a href='mailto:"+quote.applicant.email+"'>"+quote.applicant.email+"</a>");

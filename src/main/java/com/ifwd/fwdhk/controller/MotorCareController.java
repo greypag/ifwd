@@ -963,12 +963,12 @@ public class MotorCareController extends BaseController{
 					ObjectMapper mapper = new ObjectMapper();
 					MotorCareDetails detail = mapper.readValue(responseJsonObj.get("motorCareDetails").toString(), MotorCareDetails.class); 
 					apiResponse.put("policyID", detail.getPolicyId());
-					apiResponse.put("refNumber", detail.getRefNumber());
+					apiResponse.put("token", detail.getToken());
 					
-					// Set refNumber to session as security check 
-					logger.info("Save declarations to Session: " + " refNumber: " + detail.getRefNumber() ) ;
+					// Set token to session as security check 
+					logger.info("Save declarations to Session: " + " token: " + detail.getToken() ) ;
 					HttpSession session = request.getSession(true);
-					session.setAttribute("MOTOR_SECURITY_CHECK_" + detail.getRefNumber(), detail.getRefNumber());
+					session.setAttribute("MOTOR_SECURITY_CHECK_" + detail.getToken(), detail.getToken());
 				} else {
 					logger.info(methodName + " motorCareDetails not found");
 					return motor_notFound(null);
@@ -1016,13 +1016,13 @@ public class MotorCareController extends BaseController{
 		}
 		// ******************* Valid input *******************
 
-		logger.info("--------------------- processPayment security check: " + body.getRefNumber() );
+		logger.info("--------------------- processPayment security check: " + body.getToken() );
 		
 		if (request.getSession(false) == null) {
 			logger.info( methodName + " no session data found");
 			return motor_notFound(null);
 		} else {
-			if (request.getSession(false).getAttribute("MOTOR_SECURITY_CHECK_" + body.getRefNumber()) == null) {
+			if (request.getSession(false).getAttribute("MOTOR_SECURITY_CHECK_" + body.getToken()) == null) {
 				logger.info( methodName + " no valid session data found");
 				return motor_notFound(null);
 			}
@@ -1057,8 +1057,8 @@ public class MotorCareController extends BaseController{
 					} else if ( StringUtils.equals(apiResponse.getErrorMsg(), "PAID") ) {
 						return new ResponseEntity<PayDollar>((PayDollar)null, HttpStatus.valueOf(413));
 					}
-					String successUrl = toBasePath + "payment-result" + "?refNum=" + urlEncodeInputSpace(apiResponse.getReferenceNo());
-					String failUrl = toBasePath + "application-summary" + "?paymentGatewayFlag=1&refNum=" + urlEncodeInputSpace(apiResponse.getReferenceNo());
+					String successUrl = toBasePath + "payment-result" + "?refNum=" + apiResponse.getReferenceNo();
+					String failUrl = toBasePath + "application-summary" + "?paymentGatewayFlag=1&refNum=" + apiResponse.getReferenceNo();
 					
 					apiResponse.setSuccessUrl(successUrl);					
 					apiResponse.setFailUrl(failUrl);
@@ -1123,7 +1123,7 @@ public class MotorCareController extends BaseController{
 			logger.info( methodName + " no session data found");
 			return motor_notFound(null);
 		} else {
-			if (session.getAttribute(body.getRefNumber()) == null) {
+			if (session.getAttribute(body.getToken()) == null) {
 				logger.info( methodName + " no valid session data found");
 				return motor_notFound(null);
 			}
@@ -1144,7 +1144,7 @@ public class MotorCareController extends BaseController{
 			
 			// ******************* Makeup result *******************
 			if (responseJsonObj.get("errMsgs") == null) {				
-				apiResponse = (MotorCareDetails) session.getAttribute(body.getRefNumber());	
+				apiResponse = (MotorCareDetails) session.getAttribute(body.getToken());
 				/*
 				if(responseJsonObj.get("motorCareDetails") != null && responseJsonObj.get("motorCareDetails").toString().length() > 0) {
 					ObjectMapper mapper = new ObjectMapper();
@@ -2238,10 +2238,10 @@ public class MotorCareController extends BaseController{
 			String serverUrl = replace(request.getRequestURL().toString(), request.getServletPath(), "");
 			// Form JSON to send email
 			if (applicant != null) parameters.put("to", (String)(applicant.get("email")));
-			parameters.put("subject", "Your Motor Smart application (Upload Later) has not yet been completed!");
+			parameters.put("subject", "FWD MotorSmart Insurance – Document submission");
 				if (applicant != null) model.put("name", (String)(applicant.get("name")));				
-				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "start-upload-later?refNum="+urlEncodeInputSpace((String)(data.get("refNumber"))));
-				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "start-upload-later?refNum="+urlEncodeInputSpace((String)data.get("refNumber")));
+				model.put("resumeEnLink", serverUrl + "/en/motor-insurance/" + "start-upload-later?refNum="+((String)(data.get("refNumber"))));
+				model.put("resumeTcLink", serverUrl + "/tc/motor-insurance/" + "start-upload-later?refNum="+((String)data.get("refNumber")));
 			parameters.put("model", model);
 			parameters.put("template", "motor\\motor-uploadLater.html");
 			logger.info(parameters.toString());			

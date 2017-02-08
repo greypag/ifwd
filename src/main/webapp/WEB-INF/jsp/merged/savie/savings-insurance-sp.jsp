@@ -92,7 +92,7 @@ var home_url = "<%=request.getContextPath()%>";
               	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
               	        			</div>
 	                      			<div class="savie-product text-bold">
-	              						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
+	              						<a href="<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
 	              					</div>
               	        		</div>
               	        	</form>
@@ -109,7 +109,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
                                 </div>
 	                            <div class="savie-product text-bold">
-	                                <a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
+	                                <a href="<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
 	                            </div>
                             </div>
                         </form>

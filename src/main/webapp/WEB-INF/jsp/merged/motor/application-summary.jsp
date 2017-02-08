@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <fmt:setBundle basename="motor" var="motorMsg" />
@@ -1630,7 +1631,7 @@ var nextPage = "${nextPageFlow}";
 	src="<%=request.getContextPath()%>/resources/js/common/fwd-payment.js"></script>
 <script type="text/javascript">
 
-var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?request.getParameter("data").replace("&quot;", "\""):"{}"%>');
+var quote = jQuery.parseJSON('<%=request.getParameter("data")!=null?StringEscapeUtils.escapeEcmaScript(StringEscapeUtils.unescapeHtml4(request.getParameter("data"))):"{}"%>');
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -1925,7 +1926,7 @@ $(window).load(function(){
 						if (getUrlParameter("paymentGatewayFlag") == "1"
 								&& getUrlParameter("refNum") != null) {
 							var summary = {
-								"refNumber" : getUrlParameter("refNum"),
+								"token" : getUrlParameter("refNum"),
 							};
 							$
 									.ajax({

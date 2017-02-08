@@ -2,9 +2,12 @@ package com.ifwd.fwdhk.controller;
 
 import static org.apache.commons.lang3.StringUtils.replace;
 
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -32,106 +35,124 @@ public class MotorController extends BaseController{
 	
 	private UserRestURIConstants urc;
 	
+	private static String INVALID_INPUT = "##INVALID_INPUT_XSS##";
+	
 	@RequestMapping(value = {"/{lang}/motor-insurance"})
-	public ModelAndView GetLanding(Model model, HttpServletRequest request) {		
+	public ModelAndView GetLanding(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_LANDING);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/get-quote"})
-	public ModelAndView getLSDLogin(Model model, HttpServletRequest request) {
+	public ModelAndView getLSDLogin(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_GET_QUOTE);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/third-party-quote"})
-	public ModelAndView getPlanThird(Model model, HttpServletRequest request) {
+	public ModelAndView getPlanThird(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_PLAN_THIRD);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/comprehensive-quote"})
-	public ModelAndView getPlanComp(Model model, HttpServletRequest request) {
+	public ModelAndView getPlanComp(Model model, HttpServletRequest request) throws Exception{
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_PLAN_COMP);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/rider-options"})
-	public ModelAndView getQuickQuote(Model model, HttpServletRequest request) {
+	public ModelAndView getQuickQuote(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_QUICK_QUOTE);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/car-details"})
-	public ModelAndView cardetails(Model model, HttpServletRequest request) {
+	public ModelAndView cardetails(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_CAR_DETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/drivers-details"})
-	public ModelAndView driversdetails(Model model, HttpServletRequest request) {
+	public ModelAndView driversdetails(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DRIVERS_DETAILS);
 	}
 
 	@RequestMapping(value = {"/{lang}/motor-insurance/policy-details"})
-	public ModelAndView policydetails(Model model, HttpServletRequest request) {
+	public ModelAndView policydetails(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_POLICY_DETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/declarations"})
-	public ModelAndView declarations(Model model, HttpServletRequest request) {
+	public ModelAndView declarations(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DECLARATIONS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/application-summary"})
-	public ModelAndView applicationsummary(Model model, HttpServletRequest request) {
+	public ModelAndView applicationsummary(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);		
 		handleLangFromPath(request);
+		
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_APPLICATION_SUMMARY);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/confirmation"})
-	public ModelAndView confirmation(Model model, HttpServletRequest request) {
+	public ModelAndView confirmation(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/document-upload"})
-	public ModelAndView documentupload(Model model, HttpServletRequest request) {
+	public ModelAndView documentupload(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/document-upload-confirmation"})
-	public ModelAndView documentuploadconfirmation(Model model, HttpServletRequest request) {
+	public ModelAndView documentuploadconfirmation(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/document-upload-later"})
-	public ModelAndView documentuploadlater(Model model, HttpServletRequest request) {
+	public ModelAndView documentuploadlater(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/document-upload-later-confirmation"})
-	public ModelAndView documentuploadlaterconfirmation(Model model, HttpServletRequest request) {
+	public ModelAndView documentuploadlaterconfirmation(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/start-upload-later-check"})
-	public ModelAndView documentuploadlatercheck(Model model, HttpServletRequest request) {
+	public ModelAndView documentuploadlatercheck(Model model, HttpServletRequest request) throws Exception{
+		handleXssInputThurPages(request);
 		handleLangFromPath(request);
 		return MotorPageFlowControl.pageFlow("", model, request, UserRestURIConstants.PAGE_PROPERTIES_MOTOR_DOCUMENT_UPLOAD_LATER_CHECK);
 	}
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/{lang}/motor-insurance/payment-result"})
-	public ModelAndView paymentResult(Model model, HttpServletRequest request, RedirectAttributes ra) {
-		
+	public ModelAndView paymentResult(Model model, HttpServletRequest request, RedirectAttributes ra) throws Exception{
+		handleXssInputThurPages(request);
 		String methodName = "paymentResult";
 		handleLangFromPath(request);
 			
@@ -203,8 +224,8 @@ public class MotorController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/motor-insurance/start-upload-later"})
-	public ModelAndView uploadDocLater(Model model, HttpServletRequest request, RedirectAttributes ra) {
-		
+	public ModelAndView uploadDocLater(Model model, HttpServletRequest request, RedirectAttributes ra) throws Exception{
+		handleXssInputThurPages(request);
 		String methodName = "uploadDocLater";
 		handleLangFromPath(request);
 			
@@ -241,5 +262,53 @@ public class MotorController extends BaseController{
 		urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 	}
+	
+	private static Pattern[] patterns = new Pattern[]{
+		// Script fragments
+        Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE),
+        // src='...'
+        Pattern.compile("src[\r\n]*=[\r\n]*\\\'(.*?)\\\'", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+        Pattern.compile("src[\r\n]*=[\r\n]*\\\"(.*?)\\\"", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+        // lonely script tags
+        Pattern.compile("</script>", Pattern.CASE_INSENSITIVE),
+        Pattern.compile("<script(.*?)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+        // eval(...)
+        Pattern.compile("eval\\((.*?)\\)", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+        // expression(...)
+        Pattern.compile("expression\\((.*?)\\)", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
+        // javascript:...
+        Pattern.compile("javascript:", Pattern.CASE_INSENSITIVE),
+        // vbscript:...
+        Pattern.compile("vbscript:", Pattern.CASE_INSENSITIVE),
+        // onload(...)=...
+        Pattern.compile("onload(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL)
+    };
+    
+    private boolean isXSSRelated(String value) {
+        if (value != null) {        
+            // Avoid null characters
+            value = value.replaceAll("", "");
+
+            // Remove all sections that match a pattern           
+            for (Pattern scriptPattern : patterns){
+                value = scriptPattern.matcher(value).replaceAll(INVALID_INPUT);
+            }
+            
+            if (StringUtils.contains(value, INVALID_INPUT)) {
+            	return true;
+            }
+        }
+        return false;
+    }
+    
+    private void handleXssInputThurPages (HttpServletRequest request) throws Exception {
+    	if (request.getParameterMap().containsKey("data") && request.getParameter("data") != null) {
+    		if (isXSSRelated((String)(StringEscapeUtils.unescapeHtml(request.getParameter("data"))))) {
+    			throw new Exception("Input data is invalid"); 
+    		}
+    	}
+    }
+    
+    
 
 }
