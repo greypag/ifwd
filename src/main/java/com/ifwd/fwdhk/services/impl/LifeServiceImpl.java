@@ -1937,7 +1937,9 @@ public class LifeServiceImpl implements LifeService {
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
 			inputMsg.append(lifePersonalDetails.getChineseName());
 			String[] dob = lifePersonalDetails.getDob().split("-");
-			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
+			//applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
+			applicant.put("dob", "1990-01-30");
+			
 			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1));
 			applicant.put("hkId", lifePersonalDetails.getHkid().toUpperCase());
 			applicant.put("passport", "");

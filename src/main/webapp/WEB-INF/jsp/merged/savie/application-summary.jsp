@@ -5,7 +5,6 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="com.ifwd.fwdhk.util.NumberFormatUtils"%>
-
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -35,6 +34,12 @@ var language = "${language}";
 		    <c:if test="${planIndex == 'medical-insurance'}">
 		    	<c:set var="breadcrumbItems">
 		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+				</c:set>
+		    	<c:set var="breadcrumbActive">4</c:set>
+		    </c:if>
+		    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
+		    	<c:set var="breadcrumbItems">
+		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.cansurance,breadcrumb.item.application
 				</c:set>
 		    	<c:set var="breadcrumbActive">4</c:set>
 		    </c:if>

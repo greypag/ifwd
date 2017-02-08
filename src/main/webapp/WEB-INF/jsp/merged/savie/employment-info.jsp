@@ -43,9 +43,9 @@ var languageP = "${language}";
 					</c:set>
 			    	<c:set var="breadcrumbActive">4</c:set>
 			    </c:if>
-			    <c:if test="${planIndex == 'medical-guardian'}">
+			    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
 			    	<c:set var="breadcrumbItems">
-			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.cansurance,breadcrumb.item.application
 					</c:set>
 			    	<c:set var="breadcrumbActive">4</c:set>
 			    </c:if>
@@ -595,6 +595,7 @@ var languageP = "${language}";
 				if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
 					$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
 					$('#amountOfLiquidAssetsDiv').removeClass('hidden');
+
 					$('#natureOfBusinessDiv').addClass('hidden');
 					$('#occupationDiv').addClass('hidden');
 					$('#otherOccupationDiv').addClass('hidden');
@@ -604,6 +605,7 @@ var languageP = "${language}";
 				else{
 					$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
 					$('#amountOfLiquidAssetsDiv').addClass('hidden');
+
 					$('#natureOfBusinessDiv').removeClass('hidden');
 					$('#occupationDiv').removeClass('hidden');
 					$('#employerNameDiv').removeClass('hidden');

@@ -30,7 +30,7 @@ var home_url = "<%=request.getContextPath()%>";
 	<!-- Breadcrumb Component Start-->
 	<div class="container container-fluid container--breadcrumb">
 		<c:set var="breadcrumbItems">
-		    breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+		    breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.cansurance,breadcrumb.item.application
 		</c:set>
 		  <c:set var="breadcrumbActive">4</c:set>
 		

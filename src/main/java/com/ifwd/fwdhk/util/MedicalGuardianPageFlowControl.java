@@ -62,7 +62,7 @@ public class MedicalGuardianPageFlowControl {
 		model.addAttribute("scriptChildName", scriptChildName);
 		model.addAttribute("scriptImg", scriptImg);
 				
-		model.addAttribute("planIndex", "cansurance"); //Plan Name
+		model.addAttribute("planIndex", "medical-insurance/cansurance"); //Plan Name
 		model.addAttribute("pageIndex", key); // Page Index
 
 		String referer = request.getHeader("referer");

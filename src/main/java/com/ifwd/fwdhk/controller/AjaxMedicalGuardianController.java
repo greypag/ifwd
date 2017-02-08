@@ -55,7 +55,7 @@ public class AjaxMedicalGuardianController extends BaseController{
 			value = "Get Premium for Medical Guardian",
 			response = CansurancePremium.class,
 			notes ="dob (yyyy-MM-dd)"
-					+ "<br>dobdmy (dd-MM-yyyy)"
+					+ "<br>"
 					+ "<br>gender (0:Male, 1:Female)"
 					+ "<br>smoker (0:Non-Smoker, 1:Smoker)"
 			)
@@ -73,11 +73,11 @@ public class AjaxMedicalGuardianController extends BaseController{
 	public ResponseEntity<CansurancePremium> getMedicalGuardianPremium(@ApiParam(value = "Plan Detail Request", required = true) @RequestBody CansurancePlanDetailBean planDetail,HttpServletRequest request,HttpServletResponse response) {
 
 		JSONObject jsonObject = new JSONObject();
-		if(Methods.isXssAjax(request)){
-			return Responses.badRequest(null);
-		}
-		
-		if(planDetail.getDobdmy()==null &&planDetail.getDob()==null){
+//		if(Methods.isXssAjax(request)){
+//			return Responses.badRequest(null);
+//		}
+//		
+		if(planDetail.getDob()==null){
 			return new ResponseEntity(null, HttpStatus.valueOf(412));
 		}
 		if(planDetail.getSmoker()==null){
@@ -97,9 +97,7 @@ public class AjaxMedicalGuardianController extends BaseController{
 		}
 
 		try {
-			if(planDetail.getDobdmy()!=null){
-				(new SimpleDateFormat("dd-MM-yyyy")).parse(planDetail.getDobdmy());
-			}
+			
 			if(planDetail.getDob()!=null){
 				(new SimpleDateFormat("yyyy-MM-dd")).parse(planDetail.getDob());
 			}
