@@ -1169,6 +1169,7 @@ var affordabilityPremium = ${sliderMax};
 <script>
 $(window).on('load',function(){
 	/* generate stop-rp-modal */
+	/*
 	var modal_id = 'stop-rp-modal';
 	var img_path = '<fmt:message key="savie.stop.rp.modal.img" bundle="${msg}" />';
 	var title = '<fmt:message key="savie.stop.rp.modal.title" bundle="${msg}" />';
@@ -1176,6 +1177,7 @@ $(window).on('load',function(){
 	var button = '<fmt:message key="savie.provie.stop.rp.modal.btn.continue" bundle="${msg}" />';
 	imgModal_noImg(modal_id, title, content, button);
 	$('#stop-rp-modal').modal('show');
+	*/
 	
 	/* generate non-close-modal */
 	//var modal_id = 'non-close-modal';

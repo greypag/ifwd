@@ -775,7 +775,6 @@ var language = "en";
 var getpath = "<%=request.getContextPath()%>";
 
 $(document).ready(function () {
-
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
 
 	setSelectReadonly('tmpGender', true);

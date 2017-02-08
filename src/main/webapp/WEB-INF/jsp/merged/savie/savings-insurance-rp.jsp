@@ -852,7 +852,7 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){
 	/* generate stop-rp-modal */
-	var modal_id = 'stop-rp-modal';
+<%-- 	var modal_id = 'stop-rp-modal';
 	var img_path = '<fmt:message key="savie.stop.rp.modal.img" bundle="${msg}" />';
 	var title = '<fmt:message key="savie.stop.rp.modal.title" bundle="${msg}" />';
 	var content = '<fmt:message key="savie.stop.rp.modal.content" bundle="${msg}" />';
@@ -862,7 +862,7 @@ $(document).ready(function(){
 	
 	$('#stop-rp-modal').on('hide.bs.modal',function(){
 		// window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/single-premium";
-	});
+	}); --%>
 	
 	/* generate non-close-modal */
 	//var modal_id = 'non-close-modal';
