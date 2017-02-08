@@ -36,6 +36,12 @@ var languageP = "${language}";
 					</c:set>
 			    	<c:set var="breadcrumbActive">4</c:set>
 			    </c:if>
+			    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
+			    	<c:set var="breadcrumbItems">
+			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.cansurance,breadcrumb.item.application
+					</c:set>
+			    	<c:set var="breadcrumbActive">4</c:set>
+			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="breadcrumbItems">
 			    		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application

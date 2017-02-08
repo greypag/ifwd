@@ -15,7 +15,6 @@ var languageP = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="declaration-page">
 		
 	<!-- Breadcrumb Component Start-->
@@ -27,6 +26,12 @@ var languageP = "${language}";
 	    <c:if test="${planIndex == 'medical-insurance'}">
 	    	<c:set var="breadcrumbItems">
 	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+			</c:set>
+	    	<c:set var="breadcrumbActive">4</c:set>
+	    </c:if>
+	    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
+	    	<c:set var="breadcrumbItems">
+	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.cansurance,breadcrumb.item.application
 			</c:set>
 	    	<c:set var="breadcrumbActive">4</c:set>
 	    </c:if>

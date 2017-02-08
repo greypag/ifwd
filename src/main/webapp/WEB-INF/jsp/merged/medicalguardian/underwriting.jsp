@@ -20,7 +20,6 @@ var home_url = "<%=request.getContextPath()%>";
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/easyhealth-application.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
-
 	<!-- Breadcrumb Component Start-->
     <div class="container container-fluid container--breadcrumb">
 	    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
@@ -29,6 +28,12 @@ var home_url = "<%=request.getContextPath()%>";
 	    <c:if test="${planIndex == 'medical-insurance'}">
 	    	<c:set var="breadcrumbItems">
 	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+			</c:set>
+	    	<c:set var="breadcrumbActive">4</c:set>
+	    </c:if>
+	    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
+	    	<c:set var="breadcrumbItems">
+	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.cansurance,breadcrumb.item.application
 			</c:set>
 	    	<c:set var="breadcrumbActive">4</c:set>
 	    </c:if>
