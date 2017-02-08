@@ -23,6 +23,17 @@ public class EasyHealthPlanDetailBean implements Serializable {
 	private String dob;
 	private String dobdmy;
 	
+	public EasyHealthPlanDetailBean() {
+		// 
+	}
+	
+	public EasyHealthPlanDetailBean(CansurancePlanDetailBean cplanDetail) {
+		this.gender = cplanDetail.getGender();
+		this.smoker = cplanDetail.getSmoker();
+		this.dob = cplanDetail.getDob();
+		this.dobdmy = cplanDetail.getDob();
+	}
+
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();
         /*if(this.insuredAmount == null || "".equals(this.insuredAmount)){

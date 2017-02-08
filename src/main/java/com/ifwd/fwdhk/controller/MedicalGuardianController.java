@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,12 +18,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.life.GetVulnerableCustomerResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.easyhealth.CansurancePlanDetailBean;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
 import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
@@ -31,6 +34,7 @@ import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.EasyHealthService;
 import com.ifwd.fwdhk.services.LifeService;
+import com.ifwd.fwdhk.services.MedicalGuardianService;
 import com.ifwd.fwdhk.services.impl.EasyHealthServiceImpl;
 import com.ifwd.fwdhk.services.impl.LifeServiceImpl;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -58,6 +62,9 @@ public class MedicalGuardianController extends BaseController {
 	@Autowired
 	private LifeService savieOnlineService;
 	
+	
+	@Autowired
+	private MedicalGuardianService medicalGuardianService;
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance"})
 	public ModelAndView getMedicalGuardian(Model model, HttpServletRequest request, HttpSession httpSession) {
@@ -107,24 +114,46 @@ public class MedicalGuardianController extends BaseController {
 	
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-underwriting"})
-	public ModelAndView getMedicalGuardianUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) {
+	public ModelAndView getMedicalGuardianUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) throws ECOMMAPIException {
 		   
 			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
-			selectPlan.setAccidentalDeathBenefit("");
-			selectPlan.setDailyHospitalCash("300");
-			selectPlan.setDeathBenefit("");
-			selectPlan.setInfectiousDisease("300");
-			selectPlan.setIntensiveCareUnit("300");
-			selectPlan.setMonthlyPremium("364.0");
-			selectPlan.setPaidPremium("");
-			selectPlan.setPlanCode("BASIC");
-			selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 基本計劃");
-			selectPlan.setPlanNameEn("Medical Guardian");
-			selectPlan.setRefundPremium("44553.6");
-			selectPlan.setSelectPlan("eh-plan-a");
-			selectPlan.setType("BASIC");
 			
-			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean();//ehPlanDetail");
+			CansurancePlanDetailBean cplanDetail = new CansurancePlanDetailBean();
+			cplanDetail.setDob("1990-01-30");
+			cplanDetail.setGender("0");
+			cplanDetail.setSmoker("0");
+			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean(cplanDetail);
+			
+			selectPlan.setAccidentalDeathBenefit("");
+			selectPlan.setDailyHospitalCash("");
+			selectPlan.setDeathBenefit("");
+			selectPlan.setInfectiousDisease("");
+			selectPlan.setIntensiveCareUnit("");
+			
+//			{
+//				  "gender": "M",
+//				  "dob": "1990-01-30",
+//				  "plans": [
+//				    {
+//				      "type": "HCP1",
+//				      "planCode": "HCP1",
+//				      "monthlyPremium": "48.33",
+//				      "discountedAmount": "0",
+//				      "totalDue": "48.33"
+//				    }
+//				  ],
+//				  "errMsgs": null
+//				}
+			
+			selectPlan.setPaidPremium("0");
+			selectPlan.setPlanCode("HCP1");
+			selectPlan.setPlanNameCn("揀易保癌症保障計劃");
+			selectPlan.setPlanNameEn("CANsurance Cancer Protection Plan");
+			selectPlan.setRefundPremium("0");
+			selectPlan.setSelectPlan("HCP1");
+			selectPlan.setType("HCP1");
+			
+			
 			//planDetail.setDob("1999-02-03");
 		   //planDetail.setDobdmy("03-02-1999");
 		    planDetail.setGender("0");
@@ -133,8 +162,11 @@ public class MedicalGuardianController extends BaseController {
 		    httpSession.setAttribute("ehPlanDetail", planDetail);
 		    httpSession.setAttribute("selectPlan", selectPlan); 
 		    try {
-		    	easyHealthService.getPremium(planDetail, request);
-		    	easyHealthService.putPremium(request);
+		    	JSONObject jsonObject = medicalGuardianService.getPremium(cplanDetail, request);
+		    	JSONArray plans = (JSONArray) jsonObject.get("plans");
+				JSONObject price = (JSONObject) plans.get(0);
+				selectPlan.setMonthlyPremium((String)price.get("monthlyPremium"));
+		    	//easyHealthService.putPremium(request);
 				
 			} catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());
