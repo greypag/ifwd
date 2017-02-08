@@ -139,7 +139,7 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 				<a class="category-item orange" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
 			<% } %>
 		</div>
-		<a href="#" id="gotop-rp" class="go-top go-top-default rp"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>				
+		<a href="#" class="scrollToTop-btn"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>				
 	</div>
 </seciton>
 <script>

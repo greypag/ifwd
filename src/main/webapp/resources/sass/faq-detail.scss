@@ -107,7 +107,7 @@ $color-Gray20: #333333;
 	}
 }
 
-.go-top{
+.scrollToTop-btn{
     bottom: 85px !important;
     z-index: 10;
     position: fixed;
@@ -115,7 +115,7 @@ $color-Gray20: #333333;
 }
 
 @media (min-width: 992px) {
-	.gotop{
+	.scrollToTop-btn{
 		display: none;
 	}
 	.keyword-search{
@@ -139,6 +139,10 @@ $color-Gray20: #333333;
 			padding: 0 15px;
 			&.list-top{
 				padding-top: 20px;
+			}
+			&.list-bottom{
+				padding-top: 20px;
+				border-top: 1px solid #000;
 			}
 		}
 }

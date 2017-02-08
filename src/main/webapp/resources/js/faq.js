@@ -6,8 +6,23 @@ $.ajax({
 	success: function(data) {
 		questionData = data;
   }
-});	
+});
+function backToTop(selector){
+	var that = $(selector);
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 200) {
+			that.fadeIn();
+		} else {
+			that.fadeOut();
+		}
+	});	
+	that.click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});		
+}
 $(function() {
+	backToTop('.scrollToTop-btn');	
 	var search = elasticlunr(function () {
 	    this.setRef('id');
 	    this.addField('question_title');
@@ -62,4 +77,9 @@ $(function() {
 		});		  
 	});
 	$('.category-item[data-link="category1"]').trigger("click");
+	$(".category-item").on("click", function(){
+		if( $(window).width()<992 ){
+			$('html, body').animate({scrollTop : 0},800);
+		}
+	});
 });	
