@@ -95,12 +95,13 @@ var affordabilityPremium = ${sliderMax};
 							<div class="col-xs-12">
 								<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type" <c:if test="${type == '2' }">disabled</c:if>>
+										<option value="regular-payment"><fmt:message key="savie.online.select.regular" bundle="${msg}" /></option>
 										<option value="one-off-premium"><fmt:message key="savie.online.select.oneoff" bundle="${msg}" /></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="label.savie.plan.details.paymentmode" bundle="${msg}" /></label>
 								</div>
-							</div>
+							</div> 
 							<div class="col-xs-12 hidden" id="plan-amount-holder">
 								<div class="selectDiv centreDiv gray-text-bg">
 									<select name="plan-amount" id="plan-amount" class="form-control gray-dropdown pd-dropdown" data-bv-field="plan-amount">
@@ -687,16 +688,16 @@ var affordabilityPremium = ${sliderMax};
 		$('body').addClass('modal-open');
 		//console.log('${savieType}');
 		if('${savieType}' == 'RP') {
-			// $("#type-of-payment").val("regular-payment");
-			// $('#plan-amount-holder').removeClass('hidden');
-			// $('#amount-slide-holder').addClass('hidden');
-			// if($('#plan-dob-datepicker').val() != '') {
-				// $('#total-years-holder').removeClass('hidden');
-			// }
-
-			// Hide SP only elements
-			// $('.js-display-savie-sp').css('display', 'none');
-			// $('.js-display-savie-rp').css('display', 'block');
+			$("#type-of-payment").val("regular-payment");
+			$('#plan-amount-holder').removeClass('hidden');
+			$('#amount-slide-holder').addClass('hidden');
+			if($('#plan-dob-datepicker').val() != '') {
+				$('#total-years-holder').removeClass('hidden');
+			}
+			
+			//Hide SP only elements
+			$('.js-display-savie-sp').css('display', 'none');
+			$('.js-display-savie-rp').css('display', 'block');
 
 		} else {
 			$("#type-of-payment").val("one-off-premium");
