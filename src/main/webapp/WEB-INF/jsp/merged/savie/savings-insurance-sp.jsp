@@ -887,16 +887,16 @@ var home_url = "<%=request.getContextPath()%>";
 			});
 			$("#regular-button").click(function(){
 				$("#regular-button").addClass('clicked-button');
-				// window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/regular-premium";
+				window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/regular-premium";
 				
 				/* generate stop-rp-modal */
-				var modal_id = 'stop-rp-modal';
+/* 				var modal_id = 'stop-rp-modal';
 				var img_path = '<fmt:message key="savie.stop.rp.modal.img" bundle="${msg}" />';
 				var title = '<fmt:message key="savie.stop.rp.modal.title" bundle="${msg}" />';
 				var content = '<fmt:message key="savie.stop.rp.modal.content" bundle="${msg}" />';
 				var button = '<fmt:message key="savie.stop.rp.modal.btn" bundle="${msg}" />';
 				imgModal_noImg(modal_id, title, content, button);
-				$('#stop-rp-modal').modal('show');
+				$('#stop-rp-modal').modal('show'); */
 			});
 
 			$('#so-carousel').bind('slide.bs.carousel', function (e) {
