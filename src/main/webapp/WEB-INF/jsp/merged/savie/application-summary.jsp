@@ -163,7 +163,7 @@ var language = "${language}";
                   <div class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
-								<select name="tmpGender" id="tmpGender" class="form-control gray-dropdown">
+								<select name="tmpGender" id="tmpGender" class="form-control gray-dropdown" style="text-transform:uppercase" >
 									<option value="" ><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
 									<option disabled="disabled" selected="selected" value="${language=='en'?lifePersonalDetails.gender:lifePersonalDetails.gender=='MALE'?'男':'女' }">${language=='en'?lifePersonalDetails.gender:lifePersonalDetails.gender=='MALE'?'男':'女' }</option>
 								</select>

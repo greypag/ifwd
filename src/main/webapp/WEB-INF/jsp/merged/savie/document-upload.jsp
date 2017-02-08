@@ -574,7 +574,10 @@ var languageP = "${language}";
 				// Uploading file validation
 				var up = true;
 				$('#updoc-complete-btn').on('click', function(e) {
-					if($("input[name='upload']:checked").val()=="true"){
+					window.onbeforeunload=null;
+			    	window.location = '/fwdhk/en/medical-insurance/cansurance-confirmation';
+					
+					<%-- if($("input[name='upload']:checked").val()=="true"){
 						var $self = $(this);
 						var isValid = isHkidValidity($self);
 							isValid = isPassportValidity($self);
@@ -592,7 +595,7 @@ var languageP = "${language}";
 					}
 					else{
 						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
-					}
+					} --%>
 				});
 				
 				$('#hkidFileToUpload').on('click', function(e) {

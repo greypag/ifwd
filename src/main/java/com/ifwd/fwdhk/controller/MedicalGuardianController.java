@@ -109,13 +109,15 @@ public class MedicalGuardianController extends BaseController {
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-underwriting"})
 	public ModelAndView getMedicalGuardianUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) {
 		   
-			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
+		   
+		    
+		    EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
 			selectPlan.setAccidentalDeathBenefit("");
-			selectPlan.setDailyHospitalCash("300");
+			selectPlan.setDailyHospitalCash("");
 			selectPlan.setDeathBenefit("");
 			selectPlan.setInfectiousDisease("300");
 			selectPlan.setIntensiveCareUnit("300");
-			selectPlan.setMonthlyPremium("364.0");
+			
 			selectPlan.setPaidPremium("");
 			selectPlan.setPlanCode("BASIC");
 			selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 基本計劃");
@@ -124,16 +126,11 @@ public class MedicalGuardianController extends BaseController {
 			selectPlan.setSelectPlan("eh-plan-a");
 			selectPlan.setType("BASIC");
 			
-			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean();//ehPlanDetail");
-			//planDetail.setDob("1999-02-03");
-		   //planDetail.setDobdmy("03-02-1999");
-		    planDetail.setGender("0");
-		 	planDetail.setSmoker("0");
-		
-		    httpSession.setAttribute("ehPlanDetail", planDetail);
+			
+		    httpSession.setAttribute("ehPlanDetail", httpSession.getAttribute("getPremium"));
 		    httpSession.setAttribute("selectPlan", selectPlan); 
 		    try {
-		    	easyHealthService.getPremium(planDetail, request);
+		    	//easyHealthService.getPremium(httpSession.getAttribute("getPremium"), request);
 		    	easyHealthService.putPremium(request);
 				
 			} catch (ECOMMAPIException e) {
@@ -168,7 +165,7 @@ public class MedicalGuardianController extends BaseController {
 	public ModelAndView getMedicalGuardianSignature(Model model, HttpServletRequest request,HttpSession session) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 		
-		try {
+		/*try {
 			session.setAttribute("prod", "guardian");
 			easyHealthService.createLifePolicy(request, request.getSession());
 			
@@ -177,17 +174,8 @@ public class MedicalGuardianController extends BaseController {
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
+		*/
 		
-		/*CreateEliteTermPolicyResponse lifePolicy= new CreateEliteTermPolicyResponse();
-		lifePolicy.setErrMsg(null);
-		lifePolicy.setTransactionNumber("G44RQSV003991");
-		lifePolicy.setTransactionDate("2017-02-02");
-		lifePolicy.setSecureHash("58749955ca3c1885303edf21546b5d6b95d3b7e6");
-		lifePolicy.setPaymentGateway("https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp");
-		lifePolicy.setMerchantId("88116468");
-		lifePolicy.setPolicyNo("TES");
-		lifePolicy.setReferralCode("");
-		session.setAttribute("lifePolicy", lifePolicy);*/
 		request.setAttribute("plan", "medical-insurance/cansurance");
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
 		
@@ -423,52 +411,20 @@ public class MedicalGuardianController extends BaseController {
 		model.addAttribute("signatureHeight", InitApplicationMessage.signatureHeight);
 		model.addAttribute("applicationFileSize", InitApplicationMessage.applicationFileSize);
 		request.setAttribute("plan", "medical-insurance/cansurance");
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
+		return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
 	}
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-confirmation"})
-	public ModelAndView getSavieOnlineUploadConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request
+	public ModelAndView getSavieOnlineUploadConfirmation(Model model, HttpServletRequest request
 			,HttpSession session) {
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
-		String documentUploadYes = (String) request.getSession().getAttribute("documentUploadYes");
-		String sendEmailsYes = (String) request.getSession().getAttribute("sendEmailsYes");
-			if(sendEmailsYes == null){
-				try {
-					JSONObject models = new JSONObject();
-					models.put("name", request.getSession().getAttribute("username"));
-					
-					if("medical-insurance".equals(plan)) {
-						savieOnlineService.sendEmails(request, "rophiComplete", models);
-					}else {
-						savieOnlineService.sendEmails(request, "savieComplete", models);
-					}
-					
-					String hasPolicy = (String)session.getAttribute("hasPolicy");
-					if(hasPolicy == null) {
-						savieOnlineService.finalizeLifePolicy(plan, request, session);
-					}
-					
-					request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
-				} catch (Exception e) {
-					e.printStackTrace();
-					logger.info(e.getMessage());
-				}
-			}
-			model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
-			model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
-			GetVulnerableCustomerResponse vulnerableCustomerResponse=new GetVulnerableCustomerResponse();
-			String policyNo=lifePolicy.getPolicyNo();
-			final Map<String,String> header = headerUtil.getHeader1(request);
-			try {
-				vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
-				request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
-			} catch (ECOMMAPIException e) {
-				request.getSession().setAttribute("isVulnerable", false);
-				e.printStackTrace();
-			}
-		return SavieOnlinePageFlowControl.pageFlow("medical-insurance/"+plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
+		
+		model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
+		model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
+		
+		return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
 		
 	}
 	

@@ -92,6 +92,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		
 		EasyHealthPremiumSelectPlan selectPlan = (EasyHealthPremiumSelectPlan) session.getAttribute("selectPlan");
 		String planCode = "";
+		String dateofbirth=planDetail.getDob();
 		String product=(String) session.getAttribute("prod");
 		
 	
@@ -107,6 +108,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		}else{
 			if(product.equals("guardian")){
 				planCode="HCP1";
+				dateofbirth=lifePersonalDetails.getDob();
 			}
 		}
 		
@@ -117,7 +119,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
 			inputMsg.append(lifePersonalDetails.getChineseName());
-			applicant.put("dob", lifePersonalDetails.getDob());
+			applicant.put("dob", dateofbirth);
 			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1).toUpperCase());
 			applicant.put("hkId", lifePersonalDetails.getHkid().toUpperCase());
 			applicant.put("passport", "");

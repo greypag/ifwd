@@ -196,8 +196,11 @@ var home_url = "<%=request.getContextPath()%>";
     						$('#loading-overlay').modal('hide');
     					}
     					else{
+    						// success
+			    	    	window.onbeforeunload=null;
+			    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
     						
-    						 $.ajax({
+    						 <%-- $.ajax({
     					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
     					    	type:'post',     
     					    	data:{ "image" : datapair[1],"planCode" : "ROPHI1" },     
@@ -240,7 +243,7 @@ var home_url = "<%=request.getContextPath()%>";
     								$('#loading-overlay').modal('hide');
     							}
     					        
-    					    });
+    					    }); --%>
     						 
     					}
     				}
