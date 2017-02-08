@@ -1,11 +1,18 @@
 package com.ifwd.fwdhk.model;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Component;
 
 
 @Component
-public class OptionItemDesc {
+public class OptionItemDesc implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String itemTable;
 	
 	private String itemCode;
