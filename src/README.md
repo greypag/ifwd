@@ -42,3 +42,4 @@ Branch Creation Log
 2017-01-20 - DEV Remove GI embedded registration form
 2017-01-27 - UAT Release branch R01302017-001 - FNA Content change
 2017-01-27 - UAT Release branch R02062017-001 - Motor Full
+2017-02-08 - DEV Wealthree Premium Discount
