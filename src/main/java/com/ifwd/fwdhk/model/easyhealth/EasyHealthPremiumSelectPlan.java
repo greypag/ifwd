@@ -14,8 +14,22 @@ public class EasyHealthPremiumSelectPlan {
 	private String selectPlan;
 	private String planNameCn;
 	private String planNameEn;
+	private String discount;
+	private String amountDue;
 	
 	
+	public String getDiscount() {
+		return discount;
+	}
+	public void setDiscount(String discount) {
+		this.discount = discount;
+	}
+	public String getAmountDue() {
+		return amountDue;
+	}
+	public void setAmountDue(String amountDue) {
+		this.amountDue = amountDue;
+	}
 	public String getIntensiveCareUnit() {
 		return intensiveCareUnit;
 	}

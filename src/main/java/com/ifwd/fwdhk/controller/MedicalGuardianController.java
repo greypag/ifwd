@@ -139,6 +139,8 @@ public class MedicalGuardianController extends BaseController {
 		    	JSONArray plans = (JSONArray) jsonObject.get("plans");
 				JSONObject price = (JSONObject) plans.get(0);
 				selectPlan.setMonthlyPremium((String)price.get("monthlyPremium"));
+				selectPlan.setDiscount((String)price.get("discountedAmount"));
+				selectPlan.setAmountDue((String)price.get("totalDue"));
 
 			} catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());
@@ -172,7 +174,7 @@ public class MedicalGuardianController extends BaseController {
 	public ModelAndView getMedicalGuardianSignature(Model model, HttpServletRequest request,HttpSession session) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 		
-		/*try {
+		try {
 			session.setAttribute("prod", "guardian");
 			easyHealthService.createLifePolicy(request, request.getSession());
 			
@@ -181,7 +183,7 @@ public class MedicalGuardianController extends BaseController {
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
-		*/
+		
 		
 		request.setAttribute("plan", "medical-insurance/cansurance");
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);

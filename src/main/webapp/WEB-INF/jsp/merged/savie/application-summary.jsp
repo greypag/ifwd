@@ -123,6 +123,16 @@ var language = "${language}";
 									<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></label>
 								</div>
 							</c:if>
+							<c:if test="${planIndex == 'medical-insurance/cansurance'}">
+								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingDiscount" name="savingDiscount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${selectPlan.discount}" />" readonly="readonly" />
+									<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></label>
+								</div>
+								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmountDue" name="savingAmountDue" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${selectPlan.amountDue}" />" readonly="readonly" />
+									<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></label>
+								</div>
+							</c:if>
 						</div>
                		</div>
                <div class="desktop-right">
@@ -783,6 +793,7 @@ var language = "${language}";
 				$('#employmentInfo').addClass('hidden');
 				$('#benefInfo').addClass('hidden');
 				$('#payInfo').addClass('hidden');
+				
 				
 				$('#planName').val('Medical Guardian');
 				
