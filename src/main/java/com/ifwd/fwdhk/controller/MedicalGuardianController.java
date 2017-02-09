@@ -122,6 +122,7 @@ public class MedicalGuardianController extends BaseController {
 			cplanDetail.setDob("1990-01-30");
 			cplanDetail.setGender("0");
 			cplanDetail.setSmoker("0");
+			cplanDetail.setReferralCode("H1");
 			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean(cplanDetail);
 			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
 			
