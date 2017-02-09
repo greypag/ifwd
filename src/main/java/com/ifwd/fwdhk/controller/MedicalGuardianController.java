@@ -117,36 +117,25 @@ public class MedicalGuardianController extends BaseController {
 	public ModelAndView getMedicalGuardianUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) throws ECOMMAPIException {
 		   
 
-			
-			CansurancePlanDetailBean cplanDetail = new CansurancePlanDetailBean();
-			cplanDetail.setDob("1990-01-30");
-			cplanDetail.setGender("0");
-			cplanDetail.setSmoker("0");
-			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean(cplanDetail);
 			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
-			
 			selectPlan.setAccidentalDeathBenefit("");
 			selectPlan.setDailyHospitalCash("");
 			selectPlan.setDeathBenefit("");
 			selectPlan.setInfectiousDisease("");
 			selectPlan.setIntensiveCareUnit("");
-
-		
-		    httpSession.setAttribute("ehPlanDetail", planDetail);
+	
+		    httpSession.setAttribute("ehPlanDetail", httpSession.getAttribute("planDetail"));
 		    httpSession.setAttribute("selectPlan", selectPlan); 
 		    try {
-		    	JSONObject jsonObject = medicalGuardianService.getPremium(cplanDetail, request);
+		    	JSONObject jsonObject = (JSONObject) httpSession.getAttribute("getPremium");
 		    	JSONArray plans = (JSONArray) jsonObject.get("plans");
-				JSONObject price = (JSONObject) plans.get(0);
+		    	JSONObject price = (JSONObject) plans.get(0);
+				
 				selectPlan.setMonthlyPremium((String)price.get("monthlyPremium"));
 				selectPlan.setDiscount((String)price.get("discountedAmount"));
-				//selectPlan.setDiscount("5");
 				selectPlan.setAmountDue((String)price.get("totalDue"));
-				selectPlan.setGender(cplanDetail.getGender());
-
-			} catch (ECOMMAPIException e) {
-				logger.info(e.getMessage());
-				e.printStackTrace();
+				selectPlan.setGender( jsonObject.get("gender").toString());
+	
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

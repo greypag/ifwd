@@ -5,7 +5,21 @@ public class CansurancePlanDetailBean {
 	private String gender;
 	private String smoker;
 	private String dob;
+	private String dobdmy;
+	private String planCode;
 
+	public String getPlanCode() {
+		return planCode;
+	}
+	public void setPlanCode(String planCode) {
+		this.planCode = planCode;
+	}
+	public String getDobdmy() {
+		return dobdmy;
+	}
+	public void setDobdmy(String dobdmy) {
+		this.dobdmy = dobdmy;
+	}
 	private String referralCode;
 	
 	public String getGender() {
