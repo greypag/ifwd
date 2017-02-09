@@ -140,7 +140,9 @@ public class MedicalGuardianController extends BaseController {
 				JSONObject price = (JSONObject) plans.get(0);
 				selectPlan.setMonthlyPremium((String)price.get("monthlyPremium"));
 				selectPlan.setDiscount((String)price.get("discountedAmount"));
+				//selectPlan.setDiscount("5");
 				selectPlan.setAmountDue((String)price.get("totalDue"));
+				selectPlan.setGender(cplanDetail.getGender());
 
 			} catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());

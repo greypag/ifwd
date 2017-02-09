@@ -574,10 +574,8 @@ var languageP = "${language}";
 				// Uploading file validation
 				var up = true;
 				$('#updoc-complete-btn').on('click', function(e) {
-					window.onbeforeunload=null;
-			    	window.location = '/fwdhk/en/medical-insurance/cansurance-confirmation';
 					
-					<%-- if($("input[name='upload']:checked").val()=="true"){
+					 if($("input[name='upload']:checked").val()=="true"){
 						var $self = $(this);
 						var isValid = isHkidValidity($self);
 							isValid = isPassportValidity($self);
@@ -592,10 +590,11 @@ var languageP = "${language}";
 						else {
 							$self.removeAttr('disabled');
 						}
+						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 					}
 					else{
 						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
-					} --%>
+					} 
 				});
 				
 				$('#hkidFileToUpload').on('click', function(e) {
@@ -698,11 +697,16 @@ var languageP = "${language}";
 			});
 			
 			function checkLogin() {
-            	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-					return true;
+				var planSelected ='${planIndex}';
+				if(planSelected=='medical-insurance/cansurance'){
+				    return true; 	
 				}else{
-					$('#loginpopup').modal('show');
-					return false;
+					if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+						return true;
+					}else{
+						$('#loginpopup').modal('show');
+						return false;
+					}					
 				}
 			}
 			

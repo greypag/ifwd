@@ -197,13 +197,19 @@ var home_url = "<%=request.getContextPath()%>";
     					}
     					else{
     						// success
-			    	    	window.onbeforeunload=null;
-			    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+			    	    	<%-- window.onbeforeunload=null;
+			    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}'; --%>
+			    	    	var planSelected ='${planIndex}';
+			    	    	var codeplan ="ROPHI1";
+			    			if(planSelected=='medical-insurance/cansurance'){
+			    				codeplan="HCP1";
+			    			}
+			    	    	
     						
-    						 <%-- $.ajax({
+    						 $.ajax({
     					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
     					    	type:'post',     
-    					    	data:{ "image" : datapair[1],"planCode" : "ROPHI1" },     
+    					    	data:{ "image" : datapair[1],"planCode" : codeplan },     
     					    	success:function(data){
     					    		//loading mask 
     					    		$('#loadingDiv').toggle();
@@ -226,9 +232,9 @@ var home_url = "<%=request.getContextPath()%>";
     					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
     					    	    	alert(getBundle(getBundleLanguage, "system.error.message"))
     					    	    	$('#loading-overlay').modal('hide');
-    					    	    	// tes
+    					    	    	<%-- // tes
     					    	    	window.onbeforeunload=null;
-    					    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    					    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}'; --%>
     					    	    
     					    	    } 
     					    	    else {
@@ -243,7 +249,7 @@ var home_url = "<%=request.getContextPath()%>";
     								$('#loading-overlay').modal('hide');
     							}
     					        
-    					    }); --%>
+    					    }); 
     						 
     					}
     				}

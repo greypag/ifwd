@@ -129,12 +129,18 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label mdl-textfield__label--select-box cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}"/></label>
-													<select class="form-control gray-dropdown" name="tmpGender" id="tmpGender"><option value="" <c:if test="${savieFna.gender != '0'&&savieFna.gender != '1'}">selected="selected"</c:if>
+													<select class="form-control gray-dropdown" name="tmpGender" id="tmpGender"><option value="" <c:if test="${savieFna.gender != '0'&&savieFna.gender != '1'}">selected="selected"</c:if><c:if test="${selectPlan.gender != '0'&&selectPlan.gender != '1'}">selected="selected"</c:if>
 													disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}"/></option>
-											<option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>><fmt:message key="label.male" bundle="${msg}"/></option>
-									<option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>><fmt:message key="label.female" bundle="${msg}"/></option>
+											<option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if><c:if test="${selectPlan.gender == '0'}">selected="selected"</c:if>><fmt:message key="label.male" bundle="${msg}"/></option>
+									<option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if><c:if test="${selectPlan.gender == '1'}">selected="selected"</c:if>><fmt:message key="label.female" bundle="${msg}"/></option>
 							</select>
+							<c:if test="${planIndex == 'medical-insurance/cansurance'}">
+							<input type="hidden" id="gender" name="gender" value="${selectPlan.gender == '0' ? 'MALE':'FEMALE'}"/>
+							</c:if>
+							<c:if test="${planIndex == 'savings-insurance'}">
 							<input type="hidden" id="gender" name="gender" value="${savieFna.gender == '0' ? 'MALE':'FEMALE'}"/>
+							</c:if>
+							
 							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 							<span class="error-msg" id="genderErMsg"></span>
 						</div>
@@ -889,13 +895,14 @@ $(document).ready(function () {
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
 	console.log('${username}')
 	
-	if('${username}'==null || '${username}'=="*DIRECTGI"){
+	if('${username}'==null || '${username}'=="*DIRECTGI" ||'${username}'==""){
 		setInputReadonly('firstname',false);
 		setInputReadonly('lastname',false);
 		setSelectReadonly('tmpGender',false);
 		setInputReadonly('dob', false);
 		setInputReadonly('emailAddress', false);	
 		setInputReadonly('mobileNumber', false);	
+		//$('#so-calendar-dob').val("");
 	}
 	$(function() {
 		/*  $('#so-calendar-dob').datepicker({
@@ -908,7 +915,7 @@ $(document).ready(function () {
          }).css('cursor', 'default');
 		*/
 		
-		$('#so-calendar-dob').mobiscroll().calendar({
+		/* $('#so-calendar-dob').mobiscroll().calendar({
 			controls: ['date'],
 	        minDate: dob_start_date,
 	        maxDate: dob_end_date,
@@ -920,7 +927,7 @@ $(document).ready(function () {
 	        display: "bubble",
 	        onClosed: "onClosed",
 	        lang: UILANGUAGE == "en" ? "en_fwd" : "zh_fwd"
-	}); 
+	});  */
 	});
 	/* if('${planIndex}'=='medical-insurance/cansurance'){
 		$('#so-calendar-dob').val('');

@@ -16,8 +16,15 @@ public class EasyHealthPremiumSelectPlan {
 	private String planNameEn;
 	private String discount;
 	private String amountDue;
+	private String gender;
 	
 	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String getDiscount() {
 		return discount;
 	}

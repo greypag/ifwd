@@ -86,7 +86,14 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
                     <h3 class="heading-title"><fmt:message key="payment.title" bundle="${msg}" /></h3>
-                     <p><fmt:message key="payment.description.1" bundle="${msg}" /><br><fmt:message key="payment.description.2" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium }' pattern="#.00"/><br><fmt:message key="payment.description.3" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/> <fmt:message key="payment.description.3.extra" bundle="${msg}" /></p>
+                     <p>
+                     <fmt:message key="payment.description.1" bundle="${msg}" /><br>
+                     <fmt:message key="payment.description.2" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium }' pattern="#.00"/><br>
+                     <c:if test="${selectPlan.discount!=null && selectPlan.discount!='' && selectPlan.discount!='0'}">
+                     <fmt:message key="payment.description.4" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.discount *2}' pattern="#.00"/><br>
+                     </c:if>
+                     <fmt:message key="payment.description.3" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/> <fmt:message key="payment.description.3.extra" bundle="${msg}" />
+                     </p>
 
                      <div class="row inner-row">
                          <div class="col-xs-12 col-md-6">
@@ -276,10 +283,10 @@ $(document).ready(function() {
     
     $("#btn-payment").on("click",function(){
     	// success
-    	window.onbeforeunload=null;
-    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    	<%-- window.onbeforeunload=null;
+    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';  --%>
     	
-    	/* $('#paymentForm').bootstrapValidator('validate');
+        $('#paymentForm').bootstrapValidator('validate');
 		if($('#paymentForm').data('bootstrapValidator').isValid()){
 			//do something
 			var creditCaredNo = $('#cardNo').val();
@@ -309,7 +316,7 @@ $(document).ready(function() {
 	 			      console.log('error');   
 	 		      }
  		      });
-		}  */
+		   }   
 	});
 });
 
