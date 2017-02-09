@@ -36,9 +36,12 @@ public class MedicalGuardianServiceImpl implements MedicalGuardianService{
 		url.append(planDetail.getDob());
 		url.append("&gender=");
 		url.append(planDetail.getGender().equals("0")?"M":"F");
-		url.append("&planCode=CRPECO");
+		//url.append("&planCode=CRPECO");
+		url.append("&planCode=");
 		url.append("&smoke=");
+		
 		url.append("1".equals(planDetail.getSmoker())?true:false);
+		url.append("&referralCode=" + planDetail.getReferralCode());
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);

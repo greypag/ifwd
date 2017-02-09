@@ -117,6 +117,7 @@ public class MedicalGuardianController extends BaseController {
 	public ModelAndView getMedicalGuardianUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) throws ECOMMAPIException {
 		   
 
+
 			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
 			selectPlan.setAccidentalDeathBenefit("");
 			selectPlan.setDailyHospitalCash("");
