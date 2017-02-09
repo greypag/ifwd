@@ -116,7 +116,7 @@ public class MedicalGuardianController extends BaseController {
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-underwriting"})
 	public ModelAndView getMedicalGuardianUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) throws ECOMMAPIException {
 		   
-
+		
 
 			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
 			selectPlan.setAccidentalDeathBenefit("");
@@ -124,14 +124,6 @@ public class MedicalGuardianController extends BaseController {
 			selectPlan.setDeathBenefit("");
 			selectPlan.setInfectiousDisease("");
 			selectPlan.setIntensiveCareUnit("");
-			
-			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean();//ehPlanDetail");
-			planDetail.setGender("M");
-		 	planDetail.setSmoker("0");
-		 	
-		 	httpSession.setAttribute("ehPlanDetail", httpSession.getAttribute("planDetail"));
-			httpSession.setAttribute("selectPlan", selectPlan);
-	
 		   
 		    try {
 		    	JSONObject jsonObject = (JSONObject) httpSession.getAttribute("getPremium");
@@ -148,6 +140,14 @@ public class MedicalGuardianController extends BaseController {
 				}
 				
 				selectPlan.setDob(jsonObject.get("dob").toString());
+				CansurancePlanDetailBean cplanDetail = new CansurancePlanDetailBean();
+				cplanDetail.setDob(jsonObject.get("dob").toString());
+				cplanDetail.setGender(selectPlan.getGender());
+				cplanDetail.setSmoker("0");
+				EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean(cplanDetail);
+				
+				httpSession.setAttribute("ehPlanDetail", planDetail);
+				httpSession.setAttribute("selectPlan", selectPlan);
 				
 			 
 				
