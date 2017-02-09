@@ -37,7 +37,7 @@ public class MedicalGuardianServiceImpl implements MedicalGuardianService{
 		url.append("&gender=");
 		url.append(planDetail.getGender().equals("0")?"M":"F");
 		//url.append("&planCode=CRPECO");
-		url.append("&planCode=");
+		url.append("&planCode=HCP1");
 		url.append("&smoke=");
 		
 		url.append("1".equals(planDetail.getSmoker())?true:false);

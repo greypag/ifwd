@@ -132,7 +132,7 @@ var language = "${language}";
 							</c:if>
 							<c:if test="${selectPlan.discount!=null && selectPlan.discount!='' && selectPlan.discount!='0'}">
 								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmountDue" name="savingAmountDue" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${selectPlan.amountDue-selectPlan.discount}" />" readonly="readonly" />
+									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmountDue" name="savingAmountDue" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${selectPlan.monthlyPremium-selectPlan.discount}" />" readonly="readonly" />
 									<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></label>
 								</div>
 								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">

@@ -7,6 +7,10 @@ $(document).ready(function(){
 		$(".flow_referralCode").val($("#temp_referralCode").val());
 		$(".flow_gender").val($("#temp_gender").val());
 		$(".flow_smoker").val($("#temp_smoker").val());
+		$(".flow_plancode").val($("#temp_plancode").val());
+		$(".flow_referralCode").val($("#temp_referralCode").val());
+		
+		
 				
 		$.ajax({
 /*		    beforeSend:function(){
@@ -21,6 +25,7 @@ $(document).ready(function(){
 				dobdmy:$("#temp_dob_dmy").val(),
 				gender:$("#temp_gender").val(),
 				smoker:$("#temp_smoker").val(),
+				plancode:$("#temp_plancode").val(),
 				referralCode:$("#temp_referralCode").val()
 			}),
 			async:false,
@@ -34,6 +39,8 @@ $(document).ready(function(){
 		    success:function(response){
 		    	if(response){
 		    		$(".result_txt").text(JSON.stringify(response));
+		    		var premium =JSON.stringify(response);
+		    		/*session.setAttribute("getPremium", premium);*/
 		    	}
 		    	
 		    	$(".resultPan").removeClass("hide");

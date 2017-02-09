@@ -232,7 +232,14 @@
 	</div>-->
 	<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-upgraded is-dirty is-not-active">
 		<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}"/></label>
-		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dobdmy}" readonly="readonly" href="javascript:void(0)" onclick="mobiscroll().calendar"	/>
+		
+		                    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
+							<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${selectPlan.dob}" readonly="readonly" href="javascript:void(0)" onclick="mobiscroll().calendar"	/>
+							</c:if>
+							<c:if test="${planIndex == 'savings-insurance'}">
+							<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dobdmy}" readonly="readonly" href="javascript:void(0)" onclick="mobiscroll().calendar"	/>
+							</c:if>
+		
 		
 		
 	</div>
@@ -902,6 +909,7 @@ $(document).ready(function () {
 		setInputReadonly('dob', false);
 		setInputReadonly('emailAddress', false);	
 		setInputReadonly('mobileNumber', false);	
+		
 		//$('#so-calendar-dob').val("");
 	}
 	$(function() {

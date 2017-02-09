@@ -17,8 +17,16 @@ public class EasyHealthPremiumSelectPlan {
 	private String discount;
 	private String amountDue;
 	private String gender;
+	private String dob;
 	
 	
+	
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 	public String getGender() {
 		return gender;
 	}

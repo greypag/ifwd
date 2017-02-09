@@ -124,9 +124,15 @@ public class MedicalGuardianController extends BaseController {
 			selectPlan.setDeathBenefit("");
 			selectPlan.setInfectiousDisease("");
 			selectPlan.setIntensiveCareUnit("");
+			
+			EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean();//ehPlanDetail");
+			planDetail.setGender("M");
+		 	planDetail.setSmoker("0");
+		 	
+		 	httpSession.setAttribute("ehPlanDetail", httpSession.getAttribute("planDetail"));
+			httpSession.setAttribute("selectPlan", selectPlan);
 	
-		    httpSession.setAttribute("ehPlanDetail", httpSession.getAttribute("planDetail"));
-		    httpSession.setAttribute("selectPlan", selectPlan); 
+		   
 		    try {
 		    	JSONObject jsonObject = (JSONObject) httpSession.getAttribute("getPremium");
 		    	JSONArray plans = (JSONArray) jsonObject.get("plans");
@@ -135,7 +141,16 @@ public class MedicalGuardianController extends BaseController {
 				selectPlan.setMonthlyPremium((String)price.get("monthlyPremium"));
 				selectPlan.setDiscount((String)price.get("discountedAmount"));
 				selectPlan.setAmountDue((String)price.get("totalDue"));
-				selectPlan.setGender( jsonObject.get("gender").toString());
+				if(jsonObject.get("gender").toString().equals("M")){
+					selectPlan.setGender("0");
+				}else{
+					selectPlan.setGender("1"); 	
+				}
+				
+				selectPlan.setDob(jsonObject.get("dob").toString());
+				
+			 
+				
 	
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
