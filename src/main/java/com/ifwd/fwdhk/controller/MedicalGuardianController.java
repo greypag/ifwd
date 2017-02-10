@@ -138,13 +138,14 @@ public class MedicalGuardianController extends BaseController {
 				}else{
 					selectPlan.setGender("1"); 	
 				}
-				
+				selectPlan.setReferralCode(jsonObject.get("referralCode").toString());
 				selectPlan.setDob(jsonObject.get("dob").toString());
 				CansurancePlanDetailBean cplanDetail = new CansurancePlanDetailBean();
 				cplanDetail.setDob(jsonObject.get("dob").toString());
 				cplanDetail.setGender(selectPlan.getGender());
 				cplanDetail.setSmoker("0");
 				EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean(cplanDetail);
+				
 				
 				httpSession.setAttribute("ehPlanDetail", planDetail);
 				httpSession.setAttribute("selectPlan", selectPlan);
