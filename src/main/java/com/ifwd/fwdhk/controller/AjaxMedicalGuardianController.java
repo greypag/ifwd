@@ -74,10 +74,10 @@ public class AjaxMedicalGuardianController extends BaseController{
 	public ResponseEntity<CansurancePremium> getMedicalGuardianPremium(@ApiParam(value = "Plan Detail Request", required = true) @RequestBody CansurancePlanDetailBean planDetail,HttpServletRequest request,HttpServletResponse response) {
 
 		JSONObject jsonObject = new JSONObject();
-		if(Methods.isXssAjax(request)){
-			return Responses.badRequest(null);
-		}
-		
+//		if(Methods.isXssAjax(request)){
+//			return Responses.badRequest(null);
+//		}
+//		
 		if(planDetail.getDob()==null){
 			return new ResponseEntity(null, HttpStatus.valueOf(412));
 		}
@@ -122,8 +122,10 @@ public class AjaxMedicalGuardianController extends BaseController{
 				
 		CansurancePremium responseObject = new CansurancePremium();
 		ObjectMapper mapper = new ObjectMapper();
+		
 		try {
 			responseObject= (CansurancePremium) mapper.readValue(jsonObject.toString(), CansurancePremium.class);
+			
 		} catch (IOException e) {
 			logger.error(e.getMessage());
 			responseObject.setErrMsgs(e.getMessage());
