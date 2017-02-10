@@ -66,6 +66,17 @@ $color-Gray20: #333333;
 				}
 			}
 		}
+		ol ol{
+			counter-reset: section;
+			padding-left: 0;		
+		}
+		ol ol li{
+			list-style:none;
+		}
+		ol ol li:before{
+			counter-increment: section;
+			content: "(" counter(section, lower-roman) ") ";
+		}
 		#{headings(1,6)}{
 			color: #333333;
 			margin: 0;

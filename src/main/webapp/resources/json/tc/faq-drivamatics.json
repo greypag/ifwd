@@ -14,7 +14,7 @@
       "category":"進行記錄:",
       "id": 1,
       "question_title": "為甚麼行程開始後，Drivamatics沒有即時自動啟動行程記錄？",
-      "question_answer": "Drivamatics must detect that you are moving or driving on a journey, before it starts recording. This is why there is a 2-minute difference between the moment you start your journey and the time when the recording begins."
+      "question_answer": "Drivamatics在偵測到您正在乘坐或駕駛交通工具後才會開始記錄行程，因此行程開始和記錄啟動，大概有 2 分鐘的偏差。"
     },
     {
       "category":"進行記錄:",
@@ -77,7 +77,7 @@
       "question_answer": "我們不建議您在記錄過程中查看行程，在駕駛過程中看手機絕非安全的行為。如您正在記錄模式的版面中，您將不能同時查看您的行程。"
     },
     {
-      "category":"瀏覽紀錄::",
+      "category":"瀏覽紀錄:",
       "id": 12,
       "question_title": "為甚麼在行程結束一段時間後，我才能在行程列表看到最近的行程?",
       "question_answer": "行程記錄結束後，已記錄的駕駛行為將自動上傳至伺服器，繼而對駕駛行為進行分析評分。 此過程需要依據大量的數據進行計算，因此在行程結束約30秒後，您才能在行程列表看到最近的行程。"

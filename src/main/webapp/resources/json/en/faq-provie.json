@@ -306,14 +306,14 @@
     {
       "category":"Online Withdrawal Service",
       "id": 50,
-      "question_title": "Online withdrawal service can be paired with Tap&Go only?",
-      "question_answer": "Yes."
+      "question_title": "How long will it take for the completion of the online withdrawal?",
+      "question_answer": "Normally it will only take 1 minute."
     },
     {
       "category":"Online Withdrawal Service",
       "id": 51,
-      "question_title": "How long will it take for the completion of the online withdrawal?",
-      "question_answer": "Normally it will only take 1 minute."
+      "question_title": "Online withdrawal service can be paired with Tap&Go only?",
+      "question_answer": "Yes."
     },    
     {
       "category":"Online Withdrawal Service",
