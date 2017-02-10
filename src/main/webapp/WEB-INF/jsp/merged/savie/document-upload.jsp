@@ -586,15 +586,16 @@ var languageP = "${language}";
 							$self.attr('disabled', 'disabled');
 							documentUpload('${plan }');
 							up = false;
+							window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 						} 
 						else {
 							$self.removeAttr('disabled');
 						}
-						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+						<%-- window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}'; --%>
 					}
-					else{
+					 else{
 						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
-					} 
+					}  
 				});
 				
 				$('#hkidFileToUpload').on('click', function(e) {
