@@ -278,7 +278,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			payment.put("expiryDate", "");
 		parameters.put("payment", payment);
 		parameters.put("insuredAmount", "100000");
-		parameters.put("referralCode", "");
+		//parameters.put("referralCode", "");
+		parameters.put("referralCode", "H1");
 		
 		if(!"None".equals(lifePersonalDetails.getHasTheClubMembershipNo())){
 			parameters.put("externalParty", "THE CLUB");
