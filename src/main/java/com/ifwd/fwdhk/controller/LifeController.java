@@ -533,6 +533,12 @@ public class LifeController extends BaseController{
 		}
 		else{
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+			if(savieFna.getGender().equals("0")){
+				lifePersonalDetails.setGender("MALE");
+			}else{
+				lifePersonalDetails.setGender("FEMALE");
+			}
+			userDetails.setLastName(lifePersonalDetails.getLastname());
 			
 			model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
 			model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);

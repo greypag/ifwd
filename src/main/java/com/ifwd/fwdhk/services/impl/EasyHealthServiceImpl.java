@@ -104,7 +104,6 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		}
 		
 		if(product==null){
-			planCode="";
 			refCode="";
 		}else{
 			if(product.equals("guardian")){

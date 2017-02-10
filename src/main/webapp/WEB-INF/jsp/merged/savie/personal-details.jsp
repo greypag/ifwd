@@ -920,7 +920,7 @@ var getpath = "<%=request.getContextPath()%>";
 
 $(document).ready(function () {
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
-	console.log('${username}')
+	
 	
 	if('${username}'==null || '${username}'=="*DIRECTGI" ||'${username}'==""){
 		setInputReadonly('firstname',false);
@@ -975,6 +975,7 @@ $(document).ready(function () {
 		setStyleOfIsNotActive('tmpPermanentDistrict');
 		
 	}
+	
 	
 	if ('${lifePersonalDetails.permanetAddress1}' != '') {
 		if ($('.res-additional').hasClass('hidden')) {
