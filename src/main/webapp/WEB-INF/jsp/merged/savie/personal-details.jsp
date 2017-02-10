@@ -129,7 +129,7 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label mdl-textfield__label--select-box cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}"/></label>
-													<select class="form-control gray-dropdown" name="tmpGender" id="tmpGender"><option value="" <c:if test="${savieFna.gender != '0'&&savieFna.gender != '1'}">selected="selected"</c:if><c:if test="${selectPlan.gender != '0'&&selectPlan.gender != '1'}">selected="selected"</c:if>
+													<select class="form-control gray-dropdown" name="tmpGender" id="tmpGender" readonly="readonly"><option value="" <c:if test="${savieFna.gender != '0'&&savieFna.gender != '1'}">selected="selected"</c:if><c:if test="${selectPlan.gender != '0'&&selectPlan.gender != '1'}">selected="selected"</c:if>
 													disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}"/></option>
 											<option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if><c:if test="${selectPlan.gender == '0'}">selected="selected"</c:if>><fmt:message key="label.male" bundle="${msg}"/></option>
 									<option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if><c:if test="${selectPlan.gender == '1'}">selected="selected"</c:if>><fmt:message key="label.female" bundle="${msg}"/></option>
@@ -234,10 +234,10 @@
 		<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}"/></label>
 		
 		                    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
-							<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${selectPlan.dob}" readonly="readonly" href="javascript:void(0)" onclick="mobiscroll().calendar"	/>
+							<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'medical-insurance/cansurance' ? selectPlan.dob:ehPlanDetail.dobdmy}" readonly="readonly" 	/>
 							</c:if>
-							<c:if test="${planIndex == 'savings-insurance'}">
-							<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dobdmy}" readonly="readonly" href="javascript:void(0)" onclick="mobiscroll().calendar"	/>
+							<c:if test="${plan == 'medical-insurance'}">
+							<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dobdmy}" readonly="readonly" />
 							</c:if>
 		
 		
@@ -270,16 +270,31 @@
 		<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 			<div class="clearfix form-group">
 				<div class="mobile-num">
-					<input
+				<c:if test="${plan == 'medical-insurance'}">
+				<input
 						class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field"
 						id="mobileNo"
 						name="mobileNumber"
-						
+						readonly="readonly"
 						value="${userDetails.mobileNo }"
 						type="text"
 						autocomplete="off"
 						maxlength="8"
 						oninput="maxLengthCheck(this)"/>
+				</c:if>
+				<c:if test="${plan == 'cansurance'}">
+				<input
+						class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field"
+						id="mobileNo"
+						name="mobileNumber"
+						value="${userDetails.mobileNo }"
+						type="text"
+						autocomplete="off"
+						maxlength="8"
+						oninput="maxLengthCheck(this)"/>
+				</c:if>
+				
+				
 					<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="mobileNo"><fmt:message key="placeholder.mobileno" bundle="${msg}"/></label>
 				</div>
 			</div>
@@ -351,7 +366,12 @@
 </div>
 <div class="clearfix form-group has-error">
 <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }"  type="email"/>
+<c:if test="${plan == 'medical-insurance'}">
+<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }"  type="email" readonly="readonly"/>
+</c:if>
+<c:if test="${plan == 'cansurance'}">
+<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }"  type="email" />
+</c:if>
 <label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="emailAddress"><fmt:message key="placeholder.email" bundle="${msg}"/></label>
 </div>
 <span class="error-msg" id="emailErMsg"></span>
@@ -905,13 +925,13 @@ $(document).ready(function () {
 	if('${username}'==null || '${username}'=="*DIRECTGI" ||'${username}'==""){
 		setInputReadonly('firstname',false);
 		setInputReadonly('lastname',false);
-		setSelectReadonly('tmpGender',false);
-		setInputReadonly('dob', false);
-		setInputReadonly('emailAddress', false);	
-		setInputReadonly('mobileNumber', false);	
+		$('#tmpGender').attr("disabled", true);
 		
-		//$('#so-calendar-dob').val("");
+	}else{
+		setSelectReadonly('tmpGender', true);
+		
 	}
+	
 	$(function() {
 		/*  $('#so-calendar-dob').datepicker({
              format: "yyyy-mm-dd",
@@ -937,18 +957,10 @@ $(document).ready(function () {
 	        lang: UILANGUAGE == "en" ? "en_fwd" : "zh_fwd"
 	});  */
 	});
-	/* if('${planIndex}'=='medical-insurance/cansurance'){
-		$('#so-calendar-dob').val('');
-	} */
 	
-	setInputReadonly('firstname',false);
+	
 	setInputReadonly('lastname',false);
-	//setInputReadonly('so-calendar-dob', false);
 	
-	//setSelectReadonly('tmpGender', true);
-	//setInputReadonly('so-calendar-dob', true);
-	//setInputReadonly('residentialNo', true);
-	//setInputReadonly('mobileNo', true);
 
 	if ('${plan }' == 'savings-insurance') {
 		setSelectReadonly('tmpMaritalStatus', true);
@@ -961,8 +973,9 @@ $(document).ready(function () {
 		setStyleOfIsNotActive('tmpMaritalStatus');
 		setStyleOfIsNotActive('permanentAddress1');
 		setStyleOfIsNotActive('tmpPermanentDistrict');
+		
 	}
-
+	
 	if ('${lifePersonalDetails.permanetAddress1}' != '') {
 		if ($('.res-additional').hasClass('hidden')) {
 			$('.res-additional').removeClass('hidden');

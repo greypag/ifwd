@@ -57,7 +57,7 @@ var home_url = "<%=request.getContextPath()%>";
 	    	Date of Birth:<input type="text" name="dob" id="temp_dob" value="1980-01-30"><br>
 	    	Gender:<input type="text" name="gender" id="temp_gender" value="0"> (0 = male, 1 = female)<br>
 	    	Smoker:<input type="text" name="smoker" id="temp_smoker" value="0"> (0 = non smoker, 1 = smoker)<br>
-	    	referral Code:<input type="text" name="referralCode" id="temp_referralCode" value=""><br>
+	    	referral Code:<input type="text" name="referralCode" id="temp_referralCode" value="H1"><br>
 	    	
 	    	
 	    	<input type="button" value="Apply Now" id="btn-applyNow">
@@ -69,7 +69,7 @@ var home_url = "<%=request.getContextPath()%>";
 	    			<input type="hidden" name="dob" value="1980-01-30" class="flow_dob">
 	    			<input type="hidden" name="gender" value="0" class="flow_gender">
 	    			<input type="hidden" name="smoker" value="0" class="flow_smoker">
-	    			<input type="hidden" name="plancode" value="HCP1" class="flow_plancode">
+	    			<input type="hidden" name="plancode" value="" class="flow_plancode">
 	    			<input type="hidden" name="referralCode" value="" class="flow_referralCode">
 	    			<input type="submit" value="Get Quote">
 	    		</form>
