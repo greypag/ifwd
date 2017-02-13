@@ -440,7 +440,16 @@ public class MedicalGuardianController extends BaseController {
 		
 		model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
 		model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
-		
+		GetVulnerableCustomerResponse vulnerableCustomerResponse=new GetVulnerableCustomerResponse();
+		String policyNo=lifePolicy.getPolicyNo();
+		final Map<String,String> header = headerUtil.getHeader1(request);
+		try {
+			vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
+			request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
+		} catch (ECOMMAPIException e) {
+			request.getSession().setAttribute("isVulnerable", false);
+			e.printStackTrace();
+		}		
 		return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
 		
 	}
