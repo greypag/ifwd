@@ -85,8 +85,8 @@
     {
       "category":"Product Features",
       "id": 13,
-      "question_title": "How is the interest calculated if the customer partially withdraws between policy anniversaries?",
-      "question_answer": "The interest is calculated daily. Any withdrawal will reduce the principal for interest calculation."
+      "question_title": "How is Account Value calculated?",
+      "question_answer": "Account Value is the accumulation of Premium paid with interest added (if any), less Partial Withdrawal(s) (if any)."
     },
     {
       "category":"Product Features",
@@ -98,7 +98,7 @@
       "category":"Product Features",
       "id": 15,
       "question_title": "Is there any premium limits?",
-      "question_answer": "The single premium is subject to  the following minimum and maximum amounts:<br><br><table> <tbody><tr><td></td><td>Single premium (Per Policy)</td></tr><tr><td>Minimum</td><td>HKD 30,000</td></tr><tr><td>Maximum</td><td>HKD 400,000</td></tr></tbody></table>"
+      "question_answer": "The single premium is subject to  the following minimum and maximum amounts:<br><br><table> <tbody><tr><td></td><td>Single premium (Per Policy)</td></tr><tr><td>Minimum</td><td>HKD 30,000</td></tr><tr><td>Maximum</td><td>HKD 400,000</td></tr></tbody></table><br>In addition, each policyholder may only hold a total premium of not more than HKD2M across all of their Savie policies."
     },                                                       
     {
 	  "category":"Product Features",
@@ -229,14 +229,14 @@
     {
       "category":"Online Withdrawal Service",
       "id": 37,
-      "question_title": "Online withdrawal service can be paired with Tap&Go only?",
-      "question_answer": "Yes."
+      "question_title": "How long will it take for the completion of the online withdrawal?",
+      "question_answer": "Normally it will only take 1 minute."
     },    
     {
       "category":"Online Withdrawal Service",
       "id": 38,
-      "question_title": "How long will it take for the completion of the online withdrawal?",
-      "question_answer": "Normally it will only take 1 minute."
+      "question_title": "Online withdrawal service can be paired with Tap&Go only?",
+      "question_answer": "Yes."
     },
     {
       "category":"Online Withdrawal Service",
@@ -254,7 +254,7 @@
       "category":"Online Withdrawal Service",
       "id": 41,
       "question_title": "Why my online withdrawal service has been temporary suspended? What should I do?",
-      "question_answer": "o protect our customer, if customer has failed to input correct one time password 3 times, our system will temporary suspend customer account. Please contact 24 Hour service hotline 3123 3123 to unlock your account."
+      "question_answer": "To protect our customer, if customer has failed to input correct one time password 3 times, our system will temporary suspend customer account. Please contact 24 Hour service hotline 3123 3123 to unlock your account."
     },
     {
       "category":"Online Withdrawal Service",
