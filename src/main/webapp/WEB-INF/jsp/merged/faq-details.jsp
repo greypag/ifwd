@@ -94,14 +94,14 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 		<div class="category-list col-md-3 list-top">
 			<h3 class="hidden-xs hidden-sm gray20 bold"><fmt:message key="faq.catlist.label" bundle="${msg}" /></h3>
 			<% for(int i=0; i<topicList.size(); i++){ %>
-				<a class="category-item orange" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
+				<a class="category-item orange <%= i==0 ? "active" : "" %>" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
 			<% } %>
 		</div>
 		<!-- End For Mobile -->	    
 		<div class="faq-wrapper col-md-9 second_div">
-			<h3 class="gray20 bold"><%=faqProductObj.get("product") %></h3>
+			<%--<h3 class="gray20 bold"><%=faqProductObj.get("product") %></h3>--%>
 			<% for(int i=0; i<topicList.size(); i++){ %>
-				<div id="category<%=i+1 %>" class="faq-group">
+				<div id="category<%=i+1 %>" class="faq-group js-show">
 					<h3 class="gray20 faq-group__title bold"><%=topicList.get(i).toString() %></h3>
 						<div class="faq-group__question-index">
 						<%
@@ -136,7 +136,7 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 		<div class="category-list hidden-md hidden-lg list-bottom">
 			<h3 class="hidden-xs hidden-sm gray20 bold"><fmt:message key="faq.catlist.label" bundle="${msg}" /></h3>
 			<% for(int i=0; i<topicList.size(); i++){ %>
-				<a class="category-item orange" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
+				<a class="category-item orange <%= i==0 ? "active" : "" %>" data-link="category<%=i+1 %>"><%=topicList.get(i).toString() %></a>
 			<% } %>
 		</div>
 		<a href="#" class="scrollToTop-btn"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>				

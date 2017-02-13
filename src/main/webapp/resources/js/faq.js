@@ -1,4 +1,23 @@
 var questionData;
+var questionToJump = new URLSearchParams(window.location.search);
+var urlUlility = {
+	getUrlVars: function(){
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++){
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	},
+	getUrlVar: function(name){
+		return getUrlVars()[name];
+	},
+	gethashLocation: function(){
+		return window.location.hash.substr(1);
+	}
+};
 $.ajax({
 	url: jsonPath,
 	dataType: 'json',
@@ -21,8 +40,17 @@ function backToTop(selector){
 		return false;
 	});		
 }
-$(function() {
-	backToTop('.scrollToTop-btn');	
+
+function anchorLink(selector){
+	var parentID;
+	if(selector){
+		parentID = $("#"+selector).parents(".js-show").attr("id");
+		$('.category-item[data-link="'+parentID+'"]').click();
+		location.hash = "#" + selector;
+	}
+}
+$(function() {	
+	var hashlocation = urlUlility.gethashLocation();
 	var search = elasticlunr(function () {
 	    this.setRef('id');
 	    this.addField('question_title');
@@ -44,7 +72,7 @@ $(function() {
 		//console.log(search);
 		var searchCtrl = $(this).val();
 		if(searchCtrl==""){
-			$('.category-item[data-link="category1"]').trigger("click");
+			$('.category-item[data-link="category1"]').click();			
 			return false;
 		}
 		var searchResult = search.search(searchCtrl);
@@ -61,14 +89,21 @@ $(function() {
 		};
 	});
 	$( ".category-item" ).on( "click", function() {
-		$( ".category-item.active" ).each(function(){
-			$(this).removeClass("active");
-		});
-		var link = $(this).attr("data-link");
+		var thatLink = $(this).attr("data-link");
 		var that = $(this);
-		$(this).addClass("active");			
+		that.toggleClass("active");
+		if( $(window).width()<992 ){
+			$('html, body').animate({scrollTop : 0},800);
+		}		
+		$( ".category-item.active" ).each(function(){
+			$(this).toggleClass("active");
+		});
+		/* added for synchronize active category for mobile */
+		$('.category-item[data-link="'+thatLink+'"]').each(function(){
+			$(this).toggleClass("active");
+		});	
 		$( ".faq-group" ).each(function(){
-			if($(this).attr("id")==link){
+			if($(this).attr("id")==thatLink){
 				$(this).show();
 				$(this).children().show();
 			}else{
@@ -76,10 +111,10 @@ $(function() {
 			} 
 		});		  
 	});
-	$('.category-item[data-link="category1"]').trigger("click");
-	$(".category-item").on("click", function(){
-		if( $(window).width()<992 ){
-			$('html, body').animate({scrollTop : 0},800);
-		}
-	});
+	if(hashlocation==""){
+		$('.category-item[data-link="category1"]').click();	
+	}else{
+		anchorLink(hashlocation);
+	}
+	backToTop('.scrollToTop-btn');
 });	
