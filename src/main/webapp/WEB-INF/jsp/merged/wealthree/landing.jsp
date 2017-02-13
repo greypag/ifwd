@@ -88,6 +88,10 @@ var home_url = "<%=request.getContextPath()%>";
                     <div class="fwd-container-limit hidden-sm hidden-xs">
 
                             <div class="img-banner-text savie-landing">
+										<div class="banner">
+											<p class="banner_title"><fmt:message key="wealthree.landing.banner.title1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.banner.title2" bundle="${wealthreeMsg}" /></p>
+											<p class="banner_desc"><fmt:message key="wealthree.landing.banner.desc1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.banner.desc2" bundle="${wealthreeMsg}" /></p>
+										</div>
                                 <div id="clearfix-height-rp">
                                     <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn" data-category="CTA" data-action="Go To Calculator" data-label="<fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
                                 </div>
@@ -100,6 +104,10 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="fwd-container-limit">
 
 						<div class="img-banner-text savie-landing">
+							<div class="banner">
+								<p class="banner_title"><fmt:message key="wealthree.landing.banner.title1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.banner.title2" bundle="${wealthreeMsg}" /></p>
+								<p class="banner_desc"><fmt:message key="wealthree.landing.banner.desc1" bundle="${wealthreeMsg}" /><br><fmt:message key="wealthree.landing.banner.desc2" bundle="${wealthreeMsg}" /></p>
+							</div>
 							<div id="clearfix-height-rp">
 								<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn" data-category="CTA" data-action="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree-customer-service-centre/" data-label="<fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.cta.start" bundle="${wealthreeMsg}" /></button>
 							</div>
@@ -175,6 +183,186 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 				</div>
 			</div>
+
+			<div class="pv_offers">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<h2 class="pv_offer_title">
+								<fmt:message key="wealthree.landing.discount.title" bundle="${wealthreeMsg}" />
+							</h2>
+							<p>
+								<fmt:message key="wealthree.landing.discount.desc" bundle="${wealthreeMsg}" />
+							</p>
+						</div>
+					</div>
+					<div id="pv_offer_cat_1" class="row pv_offer_cat">
+						<div class="col-xs-12 col-md-4 pv_offer">
+							<div class="inner">
+								<div class="pv_offer_tag">
+									<fmt:message key="wealthree.landing.discount.btn.text1" bundle="${wealthreeMsg}" />
+								</div>
+								<p class="pv_offer_req">
+									<span class="pv_req_type">
+										<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
+									</span>
+									<span class="pv_req_amount">
+										<span class="value">
+											<fmt:message key="wealthree.landing.discount.hkd1.value.text1" bundle="${wealthreeMsg}" />
+										</span>
+									</span>
+								</p>
+								<div class="pv_offer_rslt">
+									<p>
+										<span class="pv_rslt_type">
+											<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
+										</span>
+										<span class="pv_rslt_amount wp_rslt_amount">
+											<span class="value">
+												<fmt:message key="wealthree.landing.discount.hkd1.value.text2" bundle="${wealthreeMsg}" />
+											</span>
+										</span>
+									</p>
+								</div>
+							</div>
+							<div class="outer">
+								<p><fmt:message key="wealthree.landing.discount.hkd1.value.text3" bundle="${wealthreeMsg}" /></p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-4 pv_offer">
+							<div class="inner">
+								<div class="pv_offer_tag">
+									<fmt:message key="wealthree.landing.discount.btn.text1" bundle="${wealthreeMsg}" />
+								</div>
+								<p class="pv_offer_req">
+									<span class="pv_req_type">
+										<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
+									</span>
+									<span class="pv_req_amount">
+										<span class="value">
+											<fmt:message key="wealthree.landing.discount.hkd2.value.text1" bundle="${wealthreeMsg}" />
+										</span>
+									</span>
+								</p>
+								<div class="pv_offer_rslt">
+									<p>
+										<span class="pv_rslt_type">
+											<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
+										</span>
+										<span class="pv_rslt_amount wp_rslt_amount">
+											<span class="value">
+												<fmt:message key="wealthree.landing.discount.hkd2.value.text2" bundle="${wealthreeMsg}" />
+											</span>
+										</span>
+									</p>
+								</div>
+							</div>
+							<div class="outer">
+								<p><fmt:message key="wealthree.landing.discount.hkd2.value.text3" bundle="${wealthreeMsg}" /></p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-4 pv_offer">
+							<div class="inner">
+								<div class="pv_offer_tag">
+									<fmt:message key="wealthree.landing.discount.btn.text1" bundle="${wealthreeMsg}" />
+								</div>
+								<p class="pv_offer_req">
+									<span class="pv_req_type">
+										<fmt:message key="wealthree.landing.discount.paymentmode.text1" bundle="${wealthreeMsg}" />
+									</span>
+									<span class="pv_req_amount">
+										<span class="value">
+											<fmt:message key="wealthree.landing.discount.hkd3.value.text1" bundle="${wealthreeMsg}" />
+										</span>
+									</span>
+								</p>
+								<div class="pv_offer_rslt">
+									<p>
+										<span class="pv_rslt_type">
+											<fmt:message key="wealthree.landing.discount.paymentmode.text2" bundle="${wealthreeMsg}" />
+										</span>
+										<span class="pv_rslt_amount wp_rslt_amount">
+											<span class="value">
+												<fmt:message key="wealthree.landing.discount.hkd3.value.text2" bundle="${wealthreeMsg}" />
+											</span>
+										</span>
+									</p>
+								</div>
+							</div>
+							<div class="outer">
+								<p><fmt:message key="wealthree.landing.discount.hkd3.value.text3" bundle="${wealthreeMsg}" /></p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xs-12">
+						<h4><fmt:message key="wealthree.landing.discount.example.title" bundle="${wealthreeMsg}" /></h4>
+						<div class="tbl-discount" aria-expanded="false">
+							<div class="tbl-wrapper clearfix">
+								<div class="col-year">
+									<div class="col-year-inner">
+										<table>
+											<tr><th></th></tr>
+											<tr><td class="r1"><fmt:message key="wealthree.landing.discount.example.t01" bundle="${wealthreeMsg}" /></td></tr>
+											<tr><td class="r2"><fmt:message key="wealthree.landing.discount.example.t02" bundle="${wealthreeMsg}" /></td></tr>
+											<tr><td class="r3"><fmt:message key="wealthree.landing.discount.example.t03" bundle="${wealthreeMsg}" /></td></tr>
+											<tr><td class="r4"><fmt:message key="wealthree.landing.discount.example.t04" bundle="${wealthreeMsg}" /></td></tr>
+										</table>
+									</div>
+								</div>
+								<div class="discount-col-data">
+									<div class="col-data-scroller">
+										<table>
+											<tr>
+												<th><fmt:message key="wealthree.landing.discount.example.t10" bundle="${wealthreeMsg}" /></th>
+												<th><fmt:message key="wealthree.landing.discount.example.t20" bundle="${wealthreeMsg}" /></th>
+											</tr>
+											<tr>
+												<td class="r1"><fmt:message key="wealthree.landing.discount.example.t11" bundle="${wealthreeMsg}" /></td>
+												<td class="r1"><fmt:message key="wealthree.landing.discount.example.t21" bundle="${wealthreeMsg}" /><br><span class="small"><fmt:message key="wealthree.landing.discount.example.t21.desc" bundle="${wealthreeMsg}" /></span></td>
+											</tr>
+											<tr>
+												<td class="r2"><fmt:message key="wealthree.landing.discount.example.t12" bundle="${wealthreeMsg}" /></td>
+												<td class="r2"><fmt:message key="wealthree.landing.discount.example.t22" bundle="${wealthreeMsg}" /></td>
+											</tr>
+											<tr>
+												<td class="r3"><fmt:message key="wealthree.landing.discount.example.t13" bundle="${wealthreeMsg}" /></td>
+												<td class="r3"><fmt:message key="wealthree.landing.discount.example.t23" bundle="${wealthreeMsg}" /></td>
+											</tr>
+											<tr>
+												<td class="r4"><fmt:message key="wealthree.landing.discount.example.t14" bundle="${wealthreeMsg}" /></td>
+												<td class="r4 discount-percent"><fmt:message key="wealthree.landing.discount.example.t24" bundle="${wealthreeMsg}" /></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="col-data-control-wrapper">
+									<a class="left discount-col-data-control" href="javascript:void(0);">
+										<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</a>
+									<a class="right discount-col-data-control" href="javascript:void(0);">
+										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Wealthree_Premium_Discount_TnC.pdf" class="pv_offer_link" target="_blank"><fmt:message key="wealthree.landing.discount.tnc" bundle="${wealthreeMsg}" /></a>
+					</div>
+					
+					<div class="col-xs-12">
+						<div class="text-center btm-btn">
+							<br>
+							<button class="btn-savenow" data-category="CTA" data-action="<%=request.getContextPath()%>/${language}/savings-insurance/wealthree-customer-service-centre/" data-label="<fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" />" ><fmt:message key="wealthree.landing.calculation.save.now" bundle="${wealthreeMsg}" /></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="wp_productCalculator">
 				<div class="container">
 					<div class="row">

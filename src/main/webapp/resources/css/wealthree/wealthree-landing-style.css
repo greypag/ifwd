@@ -36,7 +36,8 @@
 .wh_productChart .chart-wrapper {
   max-width: 700px;
   margin: auto;
-  position: relative; }
+  position: relative;
+  margin-bottom: 20px; }
 .wh_productChart .checkbox {
   text-align: center; }
   .wh_productChart .checkbox label::before {
@@ -414,5 +415,97 @@ select::-ms-value {
   .pv_compareTable table tr td .sep {
     margin: 0 0 8px 0;
     padding: 12px 0 12px 0; } }
+/* add premium discount block(pv_offers) */
+.banner {
+  margin-bottom: 20px; }
+  .banner .banner_title {
+    color: #fff;
+    margin-bottom: 14px; }
+    .banner .banner_title span {
+      color: #fa9337;
+      font-size: 20px; }
+  .banner .banner_desc {
+    color: #fff; }
+
+.pv_offer .inner .wp_rslt_amount {
+  background: initial;
+  padding-left: 0; }
+.pv_offer .outer p {
+  color: #000;
+  font-size: 18px;
+  margin-top: 14px; }
+
+.tbl-discount {
+  margin-bottom: 20px;
+  color: #000;
+  background-color: #fff; }
+  .tbl-discount h4 {
+    background-color: #fa8818;
+    color: #fff;
+    font-size: 14px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-bottom: 0; }
+  .tbl-discount .tbl-wrapper {
+    position: relative; }
+    .tbl-discount .tbl-wrapper .col-year, .tbl-discount .tbl-wrapper .discount-col-data {
+      float: left; }
+    .tbl-discount .tbl-wrapper .col-year {
+      width: 30%; }
+      .tbl-discount .tbl-wrapper .col-year .col-year-inner {
+        /*border-right:1px solid #fa8818;*/ }
+      .tbl-discount .tbl-wrapper .col-year table {
+        width: 100%; }
+        .tbl-discount .tbl-wrapper .col-year table tr th:nth-child(1) {
+          background-color: #fa8818; }
+        .tbl-discount .tbl-wrapper .col-year table th, .tbl-discount .tbl-wrapper .col-year table td {
+          border-right: none; }
+    .tbl-discount .tbl-wrapper .discount-col-data {
+      width: 70%;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      position: relative; }
+      .tbl-discount .tbl-wrapper .discount-col-data .col-data-scroller {
+        width: 200%; }
+      .tbl-discount .tbl-wrapper .discount-col-data table {
+        width: 100%; }
+        .tbl-discount .tbl-wrapper .discount-col-data table th {
+          width: 50%;
+          background-color: #fa8818; }
+        .tbl-discount .tbl-wrapper .discount-col-data table td.discount-percent {
+          color: #ffd444;
+          font-size: 20px; }
+    .tbl-discount .tbl-wrapper th, .tbl-discount .tbl-wrapper td {
+      text-align: center;
+      padding: 5px;
+      border: 1px solid #fa8818; }
+    .tbl-discount .tbl-wrapper .col-data-control-wrapper {
+      position: absolute;
+      top: 17px;
+      width: 70%;
+      right: 0; }
+      .tbl-discount .tbl-wrapper .col-data-control-wrapper .discount-col-data-control.right {
+        position: absolute;
+        top: -10px;
+        right: 0;
+        color: #fff; }
+      .tbl-discount .tbl-wrapper .col-data-control-wrapper .discount-col-data-control.left {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        color: #fff; }
+
+@media screen and (min-width: 768px) {
+  .tbl-discount h4 {
+    font-size: 16px; }
+  .tbl-discount .tbl-wrapper .discount-col-data {
+    overflow-x: hidden; }
+    .tbl-discount .tbl-wrapper .discount-col-data .col-data-scroller {
+      width: 100%; }
+  .tbl-discount .tbl-wrapper .col-data-control-wrapper {
+    display: none; } }
+@media screen and (max-width: 320px) {
+  .tbl-discount .tbl-wrapper .col-year .col-year-inner table {
+    font-size: 12px; } }
 
 /*# sourceMappingURL=wealthree-landing-style.css.map */
