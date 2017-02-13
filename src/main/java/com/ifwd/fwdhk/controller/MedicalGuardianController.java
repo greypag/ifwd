@@ -29,6 +29,7 @@ import com.ifwd.fwdhk.model.easyhealth.CansurancePlanDetailBean;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
 import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.life.LifePaymentBean;
 import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
@@ -416,6 +417,8 @@ public class MedicalGuardianController extends BaseController {
 			request.setAttribute("plan", "medical-insurance/cansurance");
 			session.setAttribute("fname", lifePersonalDetails.getFirstname());
 			session.setAttribute("lname", lifePersonalDetails.getLastname());
+			
+			model.addAttribute("campaignTypeId", 0);
 			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PAYMENT);
 		
 	}
@@ -444,6 +447,10 @@ public class MedicalGuardianController extends BaseController {
 		String policyNo=lifePolicy.getPolicyNo();
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		try {
+			String hasPolicy = (String)session.getAttribute("hasPolicy");
+			if(hasPolicy == null) {
+				savieOnlineService.finalizeLifePolicy("cansurance", request, session);
+			}
 			vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
 			request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
 		} catch (ECOMMAPIException e) {
