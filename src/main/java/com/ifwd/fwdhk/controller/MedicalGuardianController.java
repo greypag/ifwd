@@ -212,6 +212,7 @@ public class MedicalGuardianController extends BaseController {
 			try {
 				session.setAttribute("prod", "guardian");
 				easyHealthService.createLifePolicy(request, request.getSession());
+				session.removeAttribute("prod");
 			} catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());
 				e.printStackTrace();
