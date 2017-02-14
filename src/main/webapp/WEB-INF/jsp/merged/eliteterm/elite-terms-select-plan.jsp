@@ -5453,6 +5453,8 @@ function addFormBeneficiary (counter) {
 	var hkId_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.hkId2}":"${etPolicyApplication.applicant.hkId3}";
 	var passportNo_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.passportNo2}":"${etPolicyApplication.applicant.passportNo3}";
 	var gender_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.gender2}":"${etPolicyApplication.applicant.gender3}";
+	gender_if_exist = (gender_if_exist=='')?'M':gender_if_exist; //Init gender if not eixst
+
 	var relationship_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.relationship2}":"${etPolicyApplication.applicant.relationship3}";
 	var entitlement_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.entitlement2}":"${etPolicyApplication.applicant.entitlement3}";
 
