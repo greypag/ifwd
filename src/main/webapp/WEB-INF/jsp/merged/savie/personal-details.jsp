@@ -116,7 +116,7 @@
 											<c:if test="${plan == 'medical-insurance'}">
 												<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" autocomplete="off" value="${userDetails.lastName }" autocomplete="off" readonly="readonly"/>
 											</c:if>
-											<c:if test="${plan == 'medical-insurance/cansurance'}">
+											<c:if test="${planIndex == 'medical-insurance/cansurance'}">
 												<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" autocomplete="off" value="${userDetails.lastName }" autocomplete="off" />
 											</c:if>	
 											<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="lastName"><fmt:message key="placeholder.last.name" bundle="${msg}"/></label>
@@ -926,7 +926,7 @@ var getpath = "<%=request.getContextPath()%>";
 $(document).ready(function () {
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
 	
-	
+	console.log("${planIndex}");
 	if('${username}'==null || '${username}'=="*DIRECTGI" ||'${username}'==""){
 		setInputReadonly('firstname',false);
 		setInputReadonly('lastname',false);
@@ -963,8 +963,9 @@ $(document).ready(function () {
 	});  */
 	});
 	
-	
-	setInputReadonly('lastname',true);
+	if ('${plan }' == 'cansurance') {
+		setInputReadonly('lastname',false);	
+	}	
 	
 
 	if ('${plan }' == 'savings-insurance') {
@@ -978,6 +979,7 @@ $(document).ready(function () {
 		setStyleOfIsNotActive('tmpMaritalStatus');
 		setStyleOfIsNotActive('permanentAddress1');
 		setStyleOfIsNotActive('tmpPermanentDistrict');
+		setInputReadonly('lastname',true);
 		
 	}
 	
