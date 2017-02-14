@@ -113,8 +113,13 @@
 											</div>
 											<span class="error-msg" id="firstNameErMsg"></span>
 											<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+											<c:if test="${plan == 'medical-insurance'}">
 												<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" autocomplete="off" value="${userDetails.lastName }" autocomplete="off" readonly="readonly"/>
-												<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="lastName"><fmt:message key="placeholder.last.name" bundle="${msg}"/></label>
+											</c:if>
+											<c:if test="${plan == 'medical-insurance/cansurance'}">
+												<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" autocomplete="off" value="${userDetails.lastName }" autocomplete="off" />
+											</c:if>	
+											<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="lastName"><fmt:message key="placeholder.last.name" bundle="${msg}"/></label>
 											</div>
 											<span class="error-msg" id="lastNameErMsg"></span>
 										</div>
@@ -959,7 +964,7 @@ $(document).ready(function () {
 	});
 	
 	
-	setInputReadonly('lastname',false);
+	setInputReadonly('lastname',true);
 	
 
 	if ('${plan }' == 'savings-insurance') {
