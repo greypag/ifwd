@@ -374,15 +374,17 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
-															<p class="info-data">${list.commencementDateDesc}</p>
+															<c:if test='${isFwdCust}'><p class="info-data">${list.commencementDateDesc}</p></c:if>
+															<c:if test='${not isFwdCust}'><p class="info-data"><fmt:message key="label.call_cs" bundle="${msg}" /></p></c:if>
 														</div>
 														<div class="col-xs-6 col-md-2 visible-md visible-lg mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p>
+															<c:if test='${isFwdCust}'><p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p></c:if>
+															<c:if test='${not isFwdCust}'><p class="info-data"><fmt:message key="label.hyphen" bundle="${msg}" /></p></c:if>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
-															<c:if test="${list.amount ne '0.0'}"><p class="info-data"><fmt:formatNumber value="${list.amount}" type="currency" currencySymbol="$" minFractionDigits="0" maxFractionDigits="2"/> (<fmt:message key="label.principal.asAt" bundle="${msg}" />${list.amountAsOfDate})</p></c:if>
+															<c:if test="${isFwdCust and list.amount ne '0.0'}"><p class="info-data"><fmt:formatNumber value="${list.amount}" type="currency" currencySymbol="$" minFractionDigits="0" maxFractionDigits="2"/> (<fmt:message key="label.principal.asAt" bundle="${msg}" />${list.amountAsOfDate})</p></c:if>
 															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
@@ -582,11 +584,13 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
-															<p class="info-data">${list.commencementDateDesc}</p>
+															<c:if test='${isFwdCust}'><p class="info-data">${list.commencementDateDesc}</p></c:if>
+															<c:if test='${not isFwdCust}'><p class="info-data"><fmt:message key="label.hyphen" bundle="${msg}" /></p></c:if>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
-															<c:if test='${not empty list.expiryDateDesc}'><p class="info-data">${list.expiryDateDesc}</p></c:if>
+															<c:if test='${isFwdCust and not empty list.expiryDateDesc}'><p class="info-data">${list.expiryDateDesc}</p></c:if>
+															<c:if test='${not isFwdCust}'><p class="info-data"><fmt:message key="label.call_cs" bundle="${msg}" /></p></c:if>
 															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 													</div>
