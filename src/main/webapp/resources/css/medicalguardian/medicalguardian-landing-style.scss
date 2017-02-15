@@ -1,0 +1,53 @@
+#plan-details-same-and-faq{
+	max-width : 1000px;
+}
+
+#pv_claims{
+	max-width: 1050px;
+	margin:auto;
+	.pv_title{
+		text-align:center;
+	}
+	.pv_feature_box{
+		background: #e1e1e4;
+		padding : 30px;
+		&:hover{
+		background: #fbb631;
+		}
+	}
+
+}
+
+#pv_fmp{
+	background-color : #FFD444;
+	padding : 26px;
+	text-align: center;
+	.pv_title{
+		color: #333;
+	}
+	.pv_btn{
+	background-color: #f8882d;
+    border-radius: 5px;
+    border: #fbb631 solid 1px;
+    border-bottom: #ce9528 solid 2px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 1.167em;
+    line-height: 2.381em;
+    min-width: 200px;
+    text-align: center;
+	}
+}
+
+#pv_CCPPSB{
+	 background: #e1e1e4;
+	.container{
+		div{
+			margin-bottom : 15px;
+		}
+	}
+	.pv_title{
+		color: #333;
+		font-weight : 700;
+	}
+}

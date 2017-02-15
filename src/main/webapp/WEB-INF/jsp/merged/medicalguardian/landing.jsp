@@ -37,6 +37,8 @@ var home_url = "<%=request.getContextPath()%>";
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/landing.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/medicalguardian/medicalguardian-landing-style.css">
+
 
     <div class="fwd-savie-wrapper ">
         <div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
@@ -96,7 +98,7 @@ var home_url = "<%=request.getContextPath()%>";
             </div>
         </div>
 
-        <div class="payment-mode">
+        <%-- <div class="payment-mode">
 
             <p class="availability-notice text-center"><fmt:message key="label.product.statement.easyhealth" bundle="${msg}" /><span></span>
             </p>
@@ -133,9 +135,356 @@ var home_url = "<%=request.getContextPath()%>";
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --%>
+			<div id="pv_CCPPSB">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<h2 class="pv_title text-center">CANsurance Cancer Protection Plan Schedule of Benefit (HK$)</h2>
+						</div>
+						<div class="wh_p_btns-gp text-center">
+		            		<a id="dlProductFacesheet" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i>&nbsp;productbrochure</a>
+		            		<a id="dlProductProvisions" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i>&nbsp;policyprovision</a>
+		            	</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="col-xs-5 col-xs-offset-1">
+								<div class="col-xs-12">
+									<span class="pv_title">Cancer Benefits</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Diagnostic Benefit</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">Full Cover</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Cancer Treatment Benefits</span>
+									<ol>
+										<li>Hospitalisation and Surgical Benefits</li>
+										<li>Treatment Benefit</li>
+									</ol>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">Full Cover</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Reconstructive Surgery Benefit (head or breast)</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">Full Cover</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Monitoring Benefit (up to 5 years since completion of active treatment)</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">Full Cover</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Per Covered Cancer Limit (HKD))</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">Full Cover</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Lifetime Cancer Limit (HKD))</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">Full Cover</span>
+								</div>
+								
+								<div class="col-xs-12">
+									<span class="pv_title">Death Benefits</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Compassionate Death Benefit</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">Full Cover</span>
+								</div>
+								
+								<div class="col-xs-12">
+									<span class="pv_title">Ancillary Services</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Second Medical Opinion Service<br>International SOS 24-hour Worldwide Assistance Program CANcierge</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">Full Cover</span>
+								</div>
+								
+							</div>
+							<div class="col-xs-5 col-xs-offset-1">
+								<div class="col-xs-12">
+									<span class="pv_title">Additional Benefit (Per Covered Cancer)</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Daily Hospital Cash for Hospitalisation:</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">500</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Chinese Medicine Practitioner Consultation (including acupuncture treatments or prescribed Chinese medicines)(per visit)</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">500</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Physiotherapist Consultation (including acupuncture and chiropractic services) / Occupation Therapy / Speech Therapy (per visit)</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">500</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Dietician Consultation (per visit))</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">500</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Psychological Counselling (for Insured and/ or immediate family members)(per visit)</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">1000</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Post-Hospitalisation home Nursing(per day)</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">1000</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Transportation Fee Subsidy (per day)</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">300</span>
+								</div>
+								
+								<div class="col-xs-8">
+									<span class="pv_item">Medical Appliances</span>
+								</div>
+								<div class="col-xs-4">
+									<span class="pv_price">5000</span>
+								</div>
+								
+							</div>
+								
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="pv_fmp">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<h3 class="pv_title">For more information about the Full Medical Plan, please click for more</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<a href="javascript:void(0);" class="pv_btn btnStart">Full Medical Plan</a>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+			<div id="plan-details-sample-and-faq" class="container">
+				<div id="pd-sf-tabs-container" class="container-fluid content-container-fluid">
+				   <ul id="pd-sf-nav-tabs" class="nav nav-tabs" role="tablist">
+						<li class="pd-sf-tab text-center active" role="presentation">
+							<a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab">Key Product Risks & Exclusions</a>
+						</li>
+						<li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
+							<a href="#pd-sf-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab">Glossary</a>
+						</li>
+						<li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
+							<a href="#pd-sf-faq-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab">FAQ</a>
+						</li>
+				   </ul>
+				</div>
+				<div class="pd-sf-divider"></div>
+				<div id="pd-sf-tab-content-container" class="container-fluid content-container-fluid">
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="pd-sf-sale-illustration-sample-pane">
+							<div class="panel-group" id="pd-sf-sale-illustration-sample-group" role="tablist" aria-multiselectable="true">
+								<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
+								   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+									  <h4 class="panel-title">
+										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+											TITLE1
+											<span class="pull-right">
+											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											</span>
+										 </a>
+									  </h4>
+								   </div>
+								   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
+									  <div class="panel-body">
+										<div>
+											
+											<ol>
+												1
+											</ol>
+											
+											<ol>
+												2
+											</ol>
+											
+											
+										</div>
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
+								   <div class="panel-heading" role="tab" id="pd-sf-claim-related">
+									  <h4 class="panel-title">
+										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+											TITLE2
+											<span class="pull-right">
+											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											</span>
+										 </a>
+									  </h4>
+								   </div>
+								   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
+									  <div class="panel-body">
+									  	<ol>
+									  		3
+									  	</ol>
+		
+									  	<ol>
+									  		4
+									  	</ol>
+									  </div>
+								   </div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="pd-sf-glossary-pane">
+							<div class="panel-group" id="pd-sf-glossary-group" role="tablist" aria-multiselectable="true">
+								<div class="panel panel-default pd-sf-faq-and-glossary-panel">
+								   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+									  <h4 class="panel-title">
+										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-glossary-group" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											TITLE3
+											<span class="pull-right">
+											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											</span>
+										 </a>
+									  </h4>
+								   </div>
+								   <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
+									  <div class="panel-body">
+									  	
+									  	<ol>
+								  			5
+								  		</ol><br/>
+									  	
+									  	<ol>
+									  		6
+									  	</ol><br/>
+									  	<ol>
+									  		7
+									  	</ol>
+									  	
+									  </div>
+								   </div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="pd-sf-faq-pane">
+							<div class="panel-group" id="pd-sf-faq-group" role="tablist" aria-multiselectable="true">
+								<div class="panel panel-default pd-sf-faq-panel">
+								   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+									  <h4 class="panel-title">
+										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-group" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+											TITLE4
+											<span class="pull-right">
+											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											</span>
+										 </a>
+									  </h4>
+								   </div>
+								   <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
+									  <div class="panel-body">
+									  	
+									  	<ol>
+								  			8
+								  		</ol><br/>
+									  	
+									  	<ol>
+									  		9
+									  	</ol><br/>
+									  	<ol>
+									  		10
+									  	</ol>
+									  	
+									  </div>
+								   </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div id="pv_claims" class="pv_sec_features container">
+            	<div class="fwd-container-limit">
+            		<div class="row">
+            			<div class="col-xs-12">
+            				<h2 class="pv_title">CLAIMS</h2>
+            			</div>
+						<div class="pv_feature_wrap">
 
-            <div class="regular-benefit">
+							<div id="claims_livechat" class="col-xs-4 col-lg-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
+								<h3 class="pv_feature_title">Live Chat</h3>
+								<p class="pv_feature_desc hidden-xs"><span class="pv_remark"></span></p>
+							</div>
+
+							<div id="claims_claims" class="col-xs-4 col-lg-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt='2' class="img_responsive">
+								<h3 class="pv_feature_title">Claims</h3>
+								<div class="visible-xs">
+									<a class="pop-youtube" href="#vModal" data-toggle="modal" data-youtube-link="2">
+									</a>
+								</div>
+								<div class="pv_feature_desc hidden-xs">
+									<div>
+									</div>
+								</div>
+							</div>
+							
+							<div id="claims_24h_hotline" class="col-xs-4 col-lg-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
+								<h3 class="pv_feature_title">24-hour Service Hotline</h3>
+								<p class="pv_feature_desc hidden-xs"><span class="pv_remark"></span></p>
+							</div>
+
+							<div class="clearfix hidden-lg"></div>
+
+							
+						</div>
+            		</div>
+            	</div>
+            </div>
+            <%-- <div class="regular-benefit">
                     <div class="hidden-xs hidden-sm">
                 <h3 class="benefits-desktop text-center"><fmt:message key="label.product.benefit" bundle="${msg}" /></h3>
                 <div class="gray-divide"></div>
@@ -373,7 +722,7 @@ var home_url = "<%=request.getContextPath()%>";
             </div>
 			<div class="content-disclaimer">
 				<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
-			</div>
+			</div> --%>
         <!-- OUR BLOG -->
         <div class="blog">
                 <div class="hidden-md hidden-lg">
@@ -513,6 +862,15 @@ $(document).ready(function() {
 	}
 	$('#btn-blog-link').click(function(){
 		window.open('<fmt:message key="blog.easyhealth.post1.link" bundle="${msg}" />');
+	});
+	$("#claims_livechat").click(function(){
+		window.location=""
+	});
+	$("#claims_claims").click(function(){
+		window.location=""
+	});
+	$("#claims_24h_hotline").click(function(){
+		window.location=""
 	});
 });
 </script>
