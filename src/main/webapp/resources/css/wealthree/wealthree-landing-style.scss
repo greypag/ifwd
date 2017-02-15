@@ -63,6 +63,7 @@
 		max-width:700px;
 		margin:auto;
 		position: relative;
+		margin-bottom: 20px;
 	}
 
 	.checkbox{
@@ -633,4 +634,170 @@ select::-ms-value{
 			}
 		}
 	}
+}
+
+/* add premium discount block(pv_offers) */
+.banner{
+	margin-bottom: 20px;
+	
+	.banner_title{
+		color: #fff;
+		margin-bottom: 14px;
+		
+		span{
+			color: #fa9337;
+			font-size: 20px;
+		}
+	}
+	.banner_desc{
+		color: #fff;
+	}
+}
+
+.pv_offer{
+	.inner{
+		.wp_rslt_amount{
+			background: initial;
+			padding-left: 0;
+		}
+	}
+	.outer{
+		p{
+			color: #000;
+			font-size: 18px;
+			margin-top: 14px;
+		}
+	}
+}
+
+.tbl-discount{
+	margin-bottom: 20px;
+	color: #000;
+	background-color: #fff;
+	
+	h4{
+		background-color:#fa8818;
+		color:#fff;
+		font-size:14px;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+		margin-bottom: 0;
+	}
+
+	.tbl-wrapper{
+		position: relative;
+		.col-year, .discount-col-data{
+			float:left;
+		}
+
+		.col-year{
+			width:30%;
+
+			.col-year-inner{
+				/*border-right:1px solid #fa8818;*/
+			}
+
+			table{
+				width:100%;
+				tr th{
+					&:nth-child(1){
+						background-color:#fa8818;
+					}
+				}
+				th, td{
+					border-right: none;
+				}
+			}
+		}
+
+		.discount-col-data{
+			width:70%;
+			overflow-x: hidden;
+			-webkit-overflow-scrolling: touch;
+			position: relative;
+
+			.col-data-scroller{
+				width:200%;
+			}
+
+			table{
+				width:100%;
+
+				th{
+					width:50%;
+					background-color:#fa8818;
+				}
+				
+				td{
+					&.discount-percent{
+						color: #ffd444;
+						font-size: 20px;
+					}
+				}
+			}
+		}
+
+		th, td{
+			text-align: center;
+			padding:5px;
+			border: 1px solid #fa8818;
+		}
+
+		.col-data-control-wrapper{
+			position: absolute;
+			top:17px;
+			width:70%;
+			right:0;
+
+			.discount-col-data-control.right{
+				position: absolute;
+				top:-10px;
+				right:0;
+				color: #fff;
+			}
+
+			.discount-col-data-control.left{
+				position: absolute;
+				top:-10px;
+				left:0;
+				color: #fff;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px){
+	.tbl-discount{
+		h4{
+			font-size:16px;
+		}
+
+		.tbl-wrapper{
+			.discount-col-data{
+				overflow-x:hidden;
+
+				.col-data-scroller{
+					width:100%;
+				}
+			}
+
+			.col-data-control-wrapper{
+				display:none;
+			}
+		}
+	 }
+}
+
+@media screen and (max-width: 320px){
+	.tbl-discount{
+		.tbl-wrapper{
+			.col-year{
+				.col-year-inner{
+					table{
+						font-size: 12px;
+					}
+				}
+			}
+		}
+	 }
 }
