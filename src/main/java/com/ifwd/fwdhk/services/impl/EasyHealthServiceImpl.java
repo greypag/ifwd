@@ -91,7 +91,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		StringBuffer inputMsg = new StringBuffer();
 		
 		EasyHealthPremiumSelectPlan selectPlan = (EasyHealthPremiumSelectPlan) session.getAttribute("selectPlan");
-		String planCode = "";
+		String planCode = "";String refCode="";
 		String dateofbirth=planDetail.getDob();
 		String product=(String) session.getAttribute("prod");
 		
@@ -104,11 +104,12 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		}
 		
 		if(product==null){
-			planCode="";
+			refCode="";
 		}else{
 			if(product.equals("guardian")){
 				planCode="HCP1";
 				dateofbirth=lifePersonalDetails.getDob();
+				refCode=selectPlan.getReferralCode();
 			}
 		}
 		
@@ -278,7 +279,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			payment.put("expiryDate", "");
 		parameters.put("payment", payment);
 		parameters.put("insuredAmount", "100000");
-		parameters.put("referralCode", "");
+		parameters.put("referralCode", refCode);
+		
 		
 		if(!"None".equals(lifePersonalDetails.getHasTheClubMembershipNo())){
 			parameters.put("externalParty", "THE CLUB");

@@ -92,7 +92,7 @@ var languageP = "${language}";
 						<h4 class="so-h4"><fmt:message key="label.select.document.title" bundle="${msg}" /></h4>
 						<div class="radio-group clearfix">
 							<div class="row">
-								<div class="col-md-6" id="nowUpload" style="display: none;">
+								<div class="col-md-6" id="nowUpload" >
 									<div class="row">
 										<div class="col-xs-1">
 											<div class="pull-left radio-holder" >
@@ -114,7 +114,7 @@ var languageP = "${language}";
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6" id="latterUpload" style="display:none;">
+								<div class="col-md-6" id="latterUpload" >
 									<div class="row">
 										<div class="col-xs-1">
 											<div class="pull-left radio-holder" >
@@ -525,9 +525,9 @@ var languageP = "${language}";
                 var policyUserName = "${policyUserName}";
                 var authenticate = "${authenticate}";
                 
-                if('${plan }' != 'medical-insurance/cansurance'){
-                	$('#latterUpload').removeAttribute("style");
-                 	$('#nowUpload').removeAttribute("style");
+                if('${plan }' == 'medical-insurance/cansurance'){
+                	$('#latterUpload').hide();
+                 	$('#nowUpload').hide();
                 	
                 }
                 
@@ -586,15 +586,16 @@ var languageP = "${language}";
 							$self.attr('disabled', 'disabled');
 							documentUpload('${plan }');
 							up = false;
+							window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 						} 
 						else {
 							$self.removeAttr('disabled');
 						}
-						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+						<%-- window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}'; --%>
 					}
-					else{
+					 else{
 						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
-					} 
+					}  
 				});
 				
 				$('#hkidFileToUpload').on('click', function(e) {

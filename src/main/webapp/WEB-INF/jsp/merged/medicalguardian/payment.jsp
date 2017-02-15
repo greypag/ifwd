@@ -65,7 +65,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
         <input type="hidden" name="merchantId" value="${lifePolicy.merchantId}">
         <input type="hidden" name="secureHash" value="${lifePolicy.secureHash }">
-         <input type="hidden" name="amount" value="<fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/>">
+         <input type="hidden" name="amount" value="<fmt:formatNumber value='${selectPlan.amountDue *2}' pattern="#.00"/>">
         <input type="hidden" name="orderRef" value="${lifePolicy.transactionNumber }">
         <input type="hidden" name="currCode" value="344">
         <input type="hidden" name="successUrl" value="${successUrl}">
@@ -92,7 +92,7 @@ var home_url = "<%=request.getContextPath()%>";
                      <c:if test="${selectPlan.discount!=null && selectPlan.discount!='' && selectPlan.discount!='0'}">
                      <fmt:message key="payment.description.4" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.discount *2}' pattern="#.00"/><br>
                      </c:if>
-                     <fmt:message key="payment.description.3" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/> <fmt:message key="payment.description.3.extra" bundle="${msg}" />
+                     <fmt:message key="payment.description.3" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.amountDue *2}' pattern="#.00"/> <fmt:message key="payment.description.3.extra" bundle="${msg}" />
                      </p>
 
                      <div class="row inner-row">
@@ -100,7 +100,7 @@ var home_url = "<%=request.getContextPath()%>";
                          	<div class="form-group">
 	                         	<div class="fld-wrapper">
 									<p class="fld-label"><fmt:message key="payment.description.amount" bundle="${msg}" /></p>
-									<p class="fld-val"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/></p>
+									<p class="fld-val"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.amountDue *2}' pattern="#.00"/></p>
 								</div>
 							</div>
 							<div class="form-group">

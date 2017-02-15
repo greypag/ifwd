@@ -8,6 +8,8 @@ public class CansurancePremium {
 	private String gender;
 	private String dob;
 	private List<CansurancePremiumPlan> plans;
+	private String referralCode;
+	
 	private String errMsgs;
 	public String getGender() {
 		return gender;
@@ -33,6 +35,14 @@ public class CansurancePremium {
 	public void setErrMsgs(String errMsgs) {
 		this.errMsgs = errMsgs;
 	}
+	public String getReferralCode() {
+		return referralCode;
+	}
+	public void setReferralCode(String referralCode) {
+		this.referralCode = referralCode;
+	}
+	
+	
 	
 	
 }

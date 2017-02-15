@@ -17,8 +17,23 @@ public class EasyHealthPremiumSelectPlan {
 	private String discount;
 	private String amountDue;
 	private String gender;
+	private String dob;
+	private String referralCode;
 	
 	
+	
+	public String getReferralCode() {
+		return referralCode;
+	}
+	public void setReferralCode(String referralCode) {
+		this.referralCode = referralCode;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 	public String getGender() {
 		return gender;
 	}
