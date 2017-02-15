@@ -120,7 +120,7 @@ var languageP = "${language}";
 							</ol>
 						</nav>
 					</div>
-					
+					<c:if test="${planIndex != 'medical-insurance/cansurance'}">
 					<div class="cstm-panel">
 						<p><b><fmt:message key="savie.declaration.automatic.exchange" bundle="${msg}" /></b></p>
 						<hr>
@@ -138,7 +138,7 @@ var languageP = "${language}";
 							<p>* <fmt:message key="savie.declaration.automatic.exchange.tnc.statement.03" bundle="${msg}" /></p>
 						</nav>
 					</div>
-					
+					</c:if>
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.pics" bundle="${msg}" /></b></p>
 						<!-- <p class="desktop-inline"><b>Declaration - </b></p>
