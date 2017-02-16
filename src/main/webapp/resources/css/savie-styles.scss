@@ -3,6 +3,7 @@ body.chin {
 }
 body .text-bold {
   font-family: "Calibri-bold", Calibri, sans-serif !important;
+  font-weight: bold;
 }
 body.chin .text-bold {
   font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
@@ -682,7 +683,7 @@ a:hover {
 	}
 }
 
-@media screen (min-width: 922px){
+@media screen and (min-width: 922px){
 /* line 302, ../sass/partials/savie/_common.scss */
 .fwd-container, .fwd-container-limit {
   max-width: 1115px !important;
@@ -1296,7 +1297,7 @@ h6 {
 /* line 772, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .plan-promo-code .mdl-textfield {
   background: #FFF;
-}#plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a
+}
 @media (min-width: 992px) {
   /* line 776, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-dob, .plan-calculator-holder .plan-form-holder .plan-promo-code, .plan-calculator-holder .plan-form-holder .plan-total-years {
@@ -1953,6 +1954,20 @@ body {
   width: 120px;
   margin: 10px auto;
 }
+
+/* VP3367 - replace pillar icon START*/
+.fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle img {
+  width: 36px;
+  height: 36px;
+}
+@media (min-width: 992px) {
+  .fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle img {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* VP3367 - replace pillar icon END*/
+
 /* line 389, ../sass/partials/savie/_homepage.scss */
 .fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle span.fa {
  margin-top: 30px;
@@ -2470,7 +2485,8 @@ a.eserv-link:hover {
 @media (max-width: 991px) {
   /* line 2, ../sass/partials/savie/_make-an-appointment.scss */
   #make-an-appointment-page .breadcrumbs, #pay-later-page .breadcrumbs, #application-summary-page .breadcrumbs {
-    // padding-top: 50px; // debug by #3595, Provie Mobile Navbar’s has a large white space
+    /*padding-top: 50px;*/
+    /* debug by #3595, Provie Mobile Navbar’s has a large white space */
   }
 }
 @media (max-width: 991px) {
@@ -3664,6 +3680,9 @@ a.eserv-link:hover {
     float: left;
     width: 33%;
   }
+  #savie-online-purchase-history #purchase-history-page .right-side-content #promo-offers-tab-contents .nav-tabs li {
+    width: 50%;
+  }
 }
 /* line 123, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li:nth-child(1) {
@@ -3809,7 +3828,7 @@ a.eserv-link:hover {
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row {
   padding: 20px 20px 0 20px;
 }
-@media (min-width: 992px) and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 233, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row {
     padding: 10px 0 10px 15px;
@@ -3828,7 +3847,7 @@ a.eserv-link:hover {
 @media (min-width: 992px) {
   /* line 247, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row .plan-name {
-    //font-weight: bold;
+    /*font-weight: bold;*/
   }
 }
 /* line 252, ../sass/partials/savie/_purchase-history.scss */
@@ -4320,6 +4339,18 @@ a.eserv-link:hover {
   height: 263px;
 }
 
+/* Temp remove Savie Appointment - 20160929*/
+#step-online .one-step{
+  height: auto;
+}
+@media (max-width: 992px) {
+  #step-online .one-step{
+    height: 320px;
+  }
+}
+/* End Temp remove Savie Appointment - 20160929*/
+
+
 /* line 121, ../sass/partials/savie/_online-offline-fna.scss */
 #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-online #online-application-btn {
   font-size: 16px;
@@ -4336,6 +4367,8 @@ a.eserv-link:hover {
   /* line 121, ../sass/partials/savie/_online-offline-fna.scss */
   #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-online #online-application-btn {
     margin-top: 60px;
+    position: absolute;
+    bottom: 10px;
   }
 }
 @media (max-width: 992px) {
@@ -4381,6 +4414,8 @@ a.eserv-link:hover {
   /* line 151, ../sass/partials/savie/_online-offline-fna.scss */
   #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
     margin-top: 25px;
+  	position: absolute;
+  	bottom: 10px;
   }
   body.chin #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
     margin-top: 42px;
@@ -6246,100 +6281,150 @@ p .payment-policy-wrapper{
 }
 
 /* line 2, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content {
+#fatca-page #fatca-content,
+#fatca-page #fatca-content-02,
+#fatca-page #fatca-content-03 {
   max-width: 340px;
   margin: 0 auto;
   padding-top: 5px;
 }
 @media (min-width: 992px) {
   /* line 2, ../sass/partials/savie/_fatca.scss */
-  #fatca-page #fatca-content {
+  #fatca-page #fatca-content,
+  #fatca-page #fatca-content-02,
+  #fatca-page #fatca-content-03 {
     max-width: 625px;
-    padding-top: 65px;
+    /*padding-top: 65px;*/
   }
 }
 /* line 10, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content h3 {
+#fatca-page #fatca-content h3,
+#fatca-page #fatca-content-02 h3,
+fatca-page #fatca-content-03 h3 {
   font-size: 24px;
   color: #ff8200;
 }
 /* line 14, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #agreement {
+#fatca-page #fatca-content #agreement,
+#fatca-page #fatca-content-02 #agreement-02,
+#fatca-page #fatca-content-03 #agreement-03 {
   font-size: 18px;
   line-height: 20px;
 }
 /* line 17, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #agreement a {
+#fatca-page #fatca-content #agreement a,
+#fatca-page #fatca-content-02 #agreement-02 a,
+#fatca-page #fatca-content-03 #agreement-03 a {
   color: #ff8200;
 }
 /* line 20, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #agreement a:hover {
+#fatca-page #fatca-content #agreement a:hover,
+#fatca-page #fatca-content-02 #agreement-02 a:hover,
+#fatca-page #fatca-content-03 #agreement-03 a:hover {
   text-decoration: underline;
 }
 /* line 23, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #buttons-holder {
+#fatca-page #fatca-content #buttons-holder,
+#fatca-page #fatca-content-02 #buttons-holder-02,
+#fatca-page #fatca-content-03 #buttons-holder-03 {
   margin-top: 25px;
 }
 @media (min-width: 992px) {
   /* line 23, ../sass/partials/savie/_fatca.scss */
-  #fatca-page #fatca-content #buttons-holder {
+  #fatca-page #fatca-content #buttons-holder,
+  #fatca-page #fatca-content-02 #buttons-holder-02,
+  #fatca-page #fatca-content-02 #buttons-holder-03 {
     margin-top: 15px;
   }
 }
 /* line 28, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #buttons-holder .btn {
+#fatca-page #fatca-content #buttons-holder .btn,
+#fatca-page #fatca-content-02 #buttons-holder-02 .btn,
+#fatca-page #fatca-content-03 #buttons-holder-03 .btn {
   width: 40%;
   padding: 3px 37px;
   font-size: 24px;
 }
 @media (min-width: 992px) {
   /* line 28, ../sass/partials/savie/_fatca.scss */
-  #fatca-page #fatca-content #buttons-holder .btn {
+  #fatca-page #fatca-content #buttons-holder .btn,
+  #fatca-page #fatca-content-02 #buttons-holder-02 .btn,
+  #fatca-page #fatca-content-03 #buttons-holder-03 .btn {
     width: 22%;
   }
 }
 /* line 35, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #buttons-holder .btn#yes-btn {
+#fatca-page #fatca-content #buttons-holder .btn#yes-btn,
+#fatca-page #fatca-content-02 #buttons-holder-02 .btn#yes-btn-02,
+#fatca-page #fatca-content-03 #buttons-holder-03 .btn#yes-btn-03 {
   margin-right: 3px;
 }
 @media (min-width: 992px) {
   /* line 35, ../sass/partials/savie/_fatca.scss */
-  #fatca-page #fatca-content #buttons-holder .btn#yes-btn {
+  #fatca-page #fatca-content #buttons-holder .btn#yes-btn,
+  #fatca-page #fatca-content-02 #buttons-holder-02 .btn#yes-btn-02,
+  #fatca-page #fatca-content-03 #buttons-holder-03 .btn#yes-btn-03 {
     margin-right: 7px;
   }
 }
 /* line 41, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #buttons-holder .btn#no-btn {
+#fatca-page #fatca-content #buttons-holder .btn#no-btn,
+#fatca-page #fatca-content-02 #buttons-holder-02 .btn#no-btn-02,
+#fatca-page #fatca-content-03 #buttons-holder-03 .btn#no-btn-03 {
   margin-left: 3px;
-  background: #9ba5a7;
-  border-bottom: 3px solid #676f70;
 }
 @media (min-width: 992px) {
   /* line 41, ../sass/partials/savie/_fatca.scss */
-  #fatca-page #fatca-content #buttons-holder .btn#no-btn {
+  #fatca-page #fatca-content #buttons-holder .btn#no-btn,
+  #fatca-page #fatca-content-02 #buttons-holder-02 .btn#no-btn-02,
+  #fatca-page #fatca-content-03 #buttons-holder-03 .btn#no-btn-03 {
     margin-left: 7px;
   }
 }
 /* line 51, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #condition-holder {
+#fatca-page #fatca-content #condition-holder,
+#fatca-page #fatca-content-02 #condition-holder-02,
+#fatca-page #fatca-content-03 #condition-holder-03 {
   width: 140px;
   font-size: 12px;
   margin-right: 28px;
   line-height: 12px;
   color: #9ba5a7;
   margin-top: 8px;
-  padding-bottom: 30px;
+  /*padding-bottom: 30px;*/
 }
 @media (min-width: 992px) {
   /* line 51, ../sass/partials/savie/_fatca.scss */
-  #fatca-page #fatca-content #condition-holder {
+  #fatca-page #fatca-content #condition-holder,
+  #fatca-page #fatca-content-02 #condition-holder-02,
+  #fatca-page #fatca-content-03 #condition-holder-03 {
     margin-right: 162px;
-    padding-bottom: 60px;
+    /*padding-bottom: 60px;*/
   }
 }
 /* line 63, ../sass/partials/savie/_fatca.scss */
-#fatca-page #fatca-content #condition-holder span {
+#fatca-page #fatca-content #condition-holder span,
+#fatca-page #fatca-content-02 #condition-holder-02 span,
+#fatca-page #fatca-content-03 #condition-holder-03 span {
   color: #ff8200;
+}
+
+#fatca-page #fatca-page-body .div-next-btn{
+	margin: 60px auto 30px;
+}
+
+#fatca-page #fatca-page-body .btn-not-clicked{
+	background: #9ba5a7;
+	border-bottom: 3px solid #676f70;
+}
+
+#fatca-page #fatca-content-03 #agreement-03-checkbox label {
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#declaration-page .declaration-content-wrapper .cstm-panel #chkAutoExchErMsg+nav ol{
+	margin-bottom: 15px;
 }
 
 /* line 4, ../sass/partials/savie/_unemployed.scss */
@@ -7397,7 +7482,7 @@ h6.so-h6 {
     margin-top: -3px;
   }
 }
-@media only screen and (min-width: 992px) and (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   /* line 53, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div:first-child .requirement-text-wrapper p {
     padding: 0 35px;
@@ -9133,7 +9218,7 @@ form#table-info #id-policy, form#table-info #id-application {
 #plan-details-sample-and-faq .tab-content .panel-collapse .panel-body {
   font-size: 18px;
   line-height: 20px;
-  padding: :20px;
+  padding :20px;
 }
 /* line 351, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .tab-content .panel-title a {
@@ -9466,8 +9551,8 @@ h3 .heading-title{
 }
 /* line 188, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li .at-share-tbx-element * {
-  max-width: 40px !important;
-  max-height: 40px !important;
+  /*max-width: 40px !important;*/
+  /*max-height: 40px !important;*/
 }
 /* line 214, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container .referral-notes {
@@ -9696,9 +9781,9 @@ h3 .heading-title{
 .fwd-savie-wrapper .modal.fade #pics-copy-final{
 	font-size: 14px
 }
-.savie-application-summary input[type="text"], .savie-application-summary select {
+/*.savie-application-summary input[type="text"], .savie-application-summary select {
 	text-transform: uppercase;
-}
+}*/
 #plan-details-b-page .thank-you-modal img {
 	position: relative;
 	z-index: 4;
@@ -9752,7 +9837,8 @@ select::-ms-value {
 	cursor: pointer;
 }
 
-#no-btn-call-hotline{
+#no-btn-call-hotline,
+#no-btn-call-hotline-02{
 	min-width:160px;
 }
 
@@ -9819,6 +9905,7 @@ select::-ms-value {
 	left: 52%;
 	margin-left: -40px;
 	opacity: 0.7;
+	z-index: 3;
 }
 
 .savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn:hover,
@@ -9884,7 +9971,8 @@ select::-ms-value {
 	.psa-divider{
 		/*height: 625px;*/
     /*height: 675px;*/ /*1.16.000 - Add Home Liability*/
-    height: 690px; /*1.18.001 - Add screen protector*/
+    /*height: 710px;*/ /*1.24.000 - Remove height*/
+    /*height: 690px;*/ /*1.24.000 - Add Motor */
 	}
 }
 .psa-divider:hover,
@@ -9942,4 +10030,49 @@ select::-ms-value {
 /* Added on 20160803 */
 a.to-orange{
 	color: #ff8200;
+}
+
+.text-orange{
+  color: #ff8200 !important;
+}
+
+.text-hover-orange:hover{
+  color: #ff8200 !important;
+}
+
+@media print{
+	a[href]:after {
+		content: none !important;
+	}
+	#appointment-confirmation-page-top .browse-holder,
+	.navbar-default{
+		display: none !important;
+	}
+	#appointment-confirmation-page-top .breadcrumbs{
+		padding-top: 0;
+	}
+}
+@media (max-width: 992px){
+	.savie-common-btn.save-hkid-exit-btn1{
+		margin-right: 0;
+	}
+	.savie-common-btn.save-hkid-exit-btn1,.savie-common-btn.save-hkid-exit-btn2{
+		width: 100%;
+	}	
+}
+.savie-common-btn.save-hkid-exit-btn1{
+	margin-right: 10px;
+}
+.savie-common-btn.save-hkid-exit-btn1,.savie-common-btn.save-hkid-exit-btn2{
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+/*For CANurance*/
+@media (min-width: 992px){
+	#application-summary-page{
+		.premium-discount-remark {
+			margin-top: 30%;
+		}
+	}
 }
