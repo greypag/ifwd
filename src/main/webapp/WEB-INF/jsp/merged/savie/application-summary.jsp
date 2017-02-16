@@ -116,35 +116,52 @@ var language = "${language}";
 					</div>
 					<div class="desktop-left">
 						<div class="form-group application-summ">
+								<div class="selectDiv centreDiv gray-text-bg is-not-active ${plan == 'cansurance'?'hidden-md hidden-lg':'hidden'}"> <!-- only cansurance need this field -->
+									<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></label>
+									<select name="tmpPremiumMode" id="tmpPremiumMode" class="form-control gray-dropdown">
+										<option value="" ><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></option>
+										<option disabled="disabled" selected="selected" value="${plan == 'savings-insurance' ? language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款':language == 'en' ? 'Monthly Regular Contribution':'月繳供款'}">
+										${plan == 'savings-insurance' ? language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款':language == 'en' ? 'Monthly Regular Contribution':'月繳供款'}</option>
+									</select>
+									<input type="hidden" id="premiumMode" name="premiumMode" />
+								</div>
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount:selectPlan.monthlyPremium}" />" readonly="readonly" />
 								<label class="mdl-textfield__label" for="savingAmount"><c:choose><c:when test="${planIndex == 'medical-insurance'}"><fmt:message key="Placeholder.medical.amount" bundle="${msg}" /></c:when><c:otherwise><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></c:otherwise></c:choose></label>
 							</div>
-							<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='' && saviePlanDetails.insuredAmountDiscount!='0'}">
-								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingDiscount" name="savingDiscount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${saviePlanDetails.insuredAmountDiscount}" />" readonly="readonly" />
-									<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></label>
-								</div>
-								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmountDue" name="savingAmountDue" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${saviePlanDetails.insuredAmountDue}" />" readonly="readonly" />
-									<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></label>
-								</div>
-							</c:if>
-							<c:if test="${selectPlan.discount!=null && selectPlan.discount!='' && selectPlan.discount!='0'}">
-								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingDiscount" name="savingDiscount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${selectPlan.discount}" />" readonly="readonly" />
-									<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></label>
-								</div>
-								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmountDue" name="savingAmountDue" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${selectPlan.monthlyPremium-selectPlan.discount}" />" readonly="readonly" />
-									<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></label>
-								</div>						
-							</c:if>
+							<c:choose>
+								<c:when test="${plan != 'cansurance'}">
+									<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='' && saviePlanDetails.insuredAmountDiscount!='0'}">
+										<!-- For Savie -->
+										<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+											<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingDiscount" name="savingDiscount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${saviePlanDetails.insuredAmountDiscount}" />" readonly="readonly" />
+											<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></label>
+										</div>
+										<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+											<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmountDue" name="savingAmountDue" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${saviePlanDetails.insuredAmountDue}" />" readonly="readonly" />
+											<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></label>
+										</div>
+									</c:if>
+								</c:when>
+								<c:otherwise>
+									<c:if test="${selectPlan.discount!=null && selectPlan.discount!='' && selectPlan.discount!='0'}">
+										<!-- For EasyHealth & Cansurance -->
+										<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+											<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingDiscount" name="savingDiscount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${selectPlan.discount}" />" readonly="readonly" />
+											<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="cansurance.premium.discount" bundle="${msg}" /></label>
+										</div>
+										<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+											<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmountDue" name="savingAmountDue" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${selectPlan.monthlyPremium-selectPlan.discount}" />" readonly="readonly" />
+											<label class="mdl-textfield__label" for="savingDiscount"><fmt:message key="cansurance.premium.due" bundle="${msg}" /></label>
+										</div>
+									</c:if>
+								</c:otherwise>
+							</c:choose>
 						</div>
-               		</div>
-               <div class="desktop-right">
-                  <div class="form-group application-summ">
-							<div class="selectDiv centreDiv gray-text-bg is-not-active ${planIndex=='medical-insurance'?'hidden':''}">
+					</div>
+					<div class="desktop-right">
+						<div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg is-not-active ${planIndex=='medical-insurance'?'hidden':''} ${plan == 'cansurance'?'hidden-xs hidden-sm':''}"> <!-- only cansurance need to hidden when width smaller than sm -->
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></label>
 								<select name="tmpPremiumMode" id="tmpPremiumMode" class="form-control gray-dropdown">
 									<option value="" ><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></option>
@@ -154,7 +171,14 @@ var language = "${language}";
 								<input type="hidden" id="premiumMode" name="premiumMode" />
 							</div>
 						</div>
-               </div>
+					</div>
+					<c:if test="${plan == 'cansurance'}">
+						<c:if test="${selectPlan.discount!=null && selectPlan.discount!='' && selectPlan.discount!='0'}">
+							<p class="premium-discount-remark">
+								<fmt:message key="cansurance.premium.remark" bundle="${msg}" />
+							</p>
+						</c:if>
+					</c:if>
             </div>
             <div class="summary-section below clearfix">
                <h5><fmt:message key="label.personalinfo" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><div id="PersonInformation"><fmt:message key="label.edit" bundle="${msg}" /></div></a></h5>
