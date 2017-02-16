@@ -1238,10 +1238,7 @@ $("#et-personal-info-next, #btn-back").click(function () {
 			}
 		});
 		
-		//if(hasBought && invalidTaxResident){
-		if(hasBought){
-				
-			
+		if(hasBought && invalidTaxResident){
 			if ('${backSummary}' == "Y") {
 				window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
 			} else {

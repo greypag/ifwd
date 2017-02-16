@@ -2176,6 +2176,9 @@ public class LifeServiceImpl implements LifeService {
 			planCode = "SAVIE-SP";
 		}
 		else if("cansurance".equals(plan)){
+			creditCaredNo = (String) session.getAttribute("creditCaredNo");
+			expiryDate = (String) session.getAttribute("expiryDate");
+			cardHolderName = (String) session.getAttribute("cardHolderName");
 			planCode = "HCP1";
 		}
 		else{

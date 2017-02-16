@@ -459,13 +459,23 @@ public class MedicalGuardianController extends BaseController {
 	}
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-document-upload"})
-	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
+	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request,HttpSession session) {
+		
 		
 		String creditCaredNo = (String) request.getSession().getAttribute("creditCaredNo");
 		if(creditCaredNo == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
 		}
 		else{
+			try {
+				savieOnlineService.finalizeLifePolicy("cansurance", request, session);
+			}
+			catch (ECOMMAPIException e) {
+				e.printStackTrace();
+			}	
+			catch (Exception e) {
+				e.printStackTrace();
+			}
 			model.addAttribute("signatureWidth", InitApplicationMessage.signatureWidth);
 			model.addAttribute("signatureHeight", InitApplicationMessage.signatureHeight);
 			model.addAttribute("applicationFileSize", InitApplicationMessage.applicationFileSize);
