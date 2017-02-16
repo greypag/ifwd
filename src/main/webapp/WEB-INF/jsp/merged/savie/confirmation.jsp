@@ -94,6 +94,9 @@
 		        					<c:if test="${planIndex == 'savings-insurance'}">
 	        							<fmt:message key="msg.confirmation.complete.savie.copy1" bundle="${msg}" />
 	        						</c:if>
+	        						<c:if test="${planIndex == 'medical-insurance/cansurance'}">
+	        							<fmt:message key="msg.confirmation.complete.cansurance.copy1" bundle="${msg}" />
+	        						</c:if>
 		        					<c:if test="${planIndex == 'medical-insurance'}">
 	        							<fmt:message key="msg.confirmation.complete.easyhealth.copy1" bundle="${msg}" />
 	        						</c:if>
@@ -103,6 +106,10 @@
 	        						<c:if test="${planIndex == 'savings-insurance'}">
 	        							<fmt:message key="msg.confirmation.complete.savie.copy2" bundle="${msg}" />
 	        						</c:if>
+	        						<c:if test="${planIndex == 'medical-insurance/cansurance'}">
+	        							<fmt:message key="msg.confirmation.complete.savie.copy2" bundle="${msg}" />
+	        						</c:if>
+		        					
 		        					<c:if test="${planIndex == 'medical-insurance'}">
 	        							<fmt:message key="msg.confirmation.complete.easyhealth.copy2" bundle="${msg}" />
 	        						</c:if>

@@ -475,7 +475,7 @@ var languageP = "${language}";
 				isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
 			}
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed &= validateChkboxField('hasReadAndAcceptAutoExch', 'chkAutoExchErMsg');
+			//isPassed &= validateChkboxField('hasReadAndAcceptAutoExch', 'chkAutoExchErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
 			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
@@ -484,9 +484,9 @@ var languageP = "${language}";
 			isPassed &= validateChkboxField('intentToReplacedNo', 'chkIntentToReplacedErMsg');
 			isPassed &= validateChkboxField('intentToLiveOutsideNo', 'chkIntentToLiveOutsideErMsg');
 			//console.log(isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg'));
-			isPassed &= validateChkboxField('haveReplacedNo', 'chkHaveReplacedErMsg');		
-			isPassed &= validateChkboxField('intentToReplacedNo', 'chkIntentToReplacedErMsg');		
-			isPassed &= validateChkboxField('intentToLiveOutsideNo', 'chkIntentToLiveOutsideErMsg');		
+			//isPassed &= validateChkboxField('haveReplacedNo', 'chkHaveReplacedErMsg');		
+			//isPassed &= validateChkboxField('intentToReplacedNo', 'chkIntentToReplacedErMsg');		
+			//isPassed &= validateChkboxField('intentToLiveOutsideNo', 'chkIntentToLiveOutsideErMsg');		
 			//console.log(isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg'));
 			if(! isPassed) {
 				return false;
