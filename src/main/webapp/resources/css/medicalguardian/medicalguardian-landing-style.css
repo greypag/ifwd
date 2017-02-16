@@ -1,3 +1,15 @@
+.pv_highlight {
+  color: #ff8200; }
+
+.pv_title {
+  font-weight: 700; }
+
+.collapse {
+  width: 100%; }
+
+.panel-body {
+  color: #333 !important; }
+
 #plan-details-same-and-faq {
   max-width: 1000px; }
 
@@ -30,12 +42,44 @@
     min-width: 200px;
     text-align: center; }
 
-#pv_CCPPSB {
+#pv_feature .panel {
+  background: none; }
+  #pv_feature .panel .panel-heading {
+    background: none; }
+
+#pv_schedule {
   background: #e1e1e4; }
-  #pv_CCPPSB .container div {
+  #pv_schedule #collapseDeath {
+    width: 100%; }
+  #pv_schedule .tab-pane div {
+    margin-bottom: 0; }
+  #pv_schedule .tab-pane .panel {
+    background: #e1e1e4;
+    margin-bottom: 0; }
+  #pv_schedule .tab-pane .panel-heading {
+    background: #e1e1e4;
+    margin-bottom: 0; }
+    #pv_schedule .tab-pane .panel-heading h4 {
+      text-align: center; }
+  #pv_schedule .tab-pane .panel-collapse {
+    margin-bottom: 0; }
+    #pv_schedule .tab-pane .panel-collapse .panel-body {
+      background: #e1e1e4;
+      margin-bottom: 0; }
+  #pv_schedule .gray-divide {
+    width: 100%; }
+  #pv_schedule .pv_price {
+    color: #ff8200;
+    font-weight: 700; }
+  #pv_schedule .container div {
     margin-bottom: 15px; }
-  #pv_CCPPSB .pv_title {
-    color: #333;
+  #pv_schedule ul {
+    list-style: none; }
+    #pv_schedule ul li:before {
+      content: "-"; }
+  #pv_schedule .no_order {
+    list-style: none; }
+  #pv_schedule .pv_title {
     font-weight: 700; }
 
 /*# sourceMappingURL=medicalguardian-landing-style.css.map */

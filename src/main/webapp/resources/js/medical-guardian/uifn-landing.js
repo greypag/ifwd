@@ -51,4 +51,16 @@ $(document).ready(function(){
 		    }*/
 		});
 	});
+	function togglePanel (){
+		   var w = $(window).width();
+		   if (w >= 768) {
+			   $('#pv_feature .collapse').removeClass('out').addClass('in').css("height","auto");
+		   }
+		}
+
+		$(window).resize(function(){
+		     togglePanel();
+		});
+
+		togglePanel();
 });

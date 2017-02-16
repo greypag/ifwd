@@ -1,3 +1,17 @@
+.pv_highlight{
+	color:#ff8200;
+}
+.pv_title{
+	font-weight : 700;
+}
+.collapse{
+	width : 100%
+
+}
+.panel-body{
+	color:#333 !important;
+}
+
 #plan-details-same-and-faq{
 	max-width : 1000px;
 }
@@ -38,16 +52,65 @@
     text-align: center;
 	}
 }
-
-#pv_CCPPSB{
-	 background: #e1e1e4;
+#pv_feature{
+	.panel{
+		background:none;
+		.panel-heading{
+			background:none;
+		}
+	}
+}
+#pv_schedule{
+	background: #e1e1e4;
+	#collapseDeath{
+		width:100%;
+	}
+	.tab-pane{
+		div{
+			margin-bottom : 0 ;
+		}
+		.panel{
+			background: #e1e1e4;
+			margin-bottom : 0 ;
+		}
+		.panel-heading{
+			background: #e1e1e4;
+			margin-bottom : 0;
+			h4{
+				text-align : center;
+			}
+		}
+		.panel-collapse{
+			margin-bottom : 0;
+			.panel-body{
+			background: #e1e1e4;
+			margin-bottom : 0 ;
+			}
+		}
+	}
+	.gray-divide{
+		width:100%;
+	}
+	 
+	 .pv_price{
+	 	color : #ff8200;
+	 	font-weight : 700;
+	 }
 	.container{
 		div{
 			margin-bottom : 15px;
 		}
 	}
+	ul{
+		list-style: none;
+		li:before{
+			content: "-";
+		}
+	}
+	.no_order{
+		list-style: none;
+	}
 	.pv_title{
-		color: #333;
 		font-weight : 700;
 	}
 }
