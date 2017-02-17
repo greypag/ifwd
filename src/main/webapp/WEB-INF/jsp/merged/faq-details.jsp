@@ -84,12 +84,12 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 
 	<div class="question-container container pad-none">
 		<h3 class="mob-pad-left30 orange bold"><%=faqProductObj.get("product") %></h3>
-	    <div class="input-group keyword-search">
+	    <!--div class="input-group keyword-search">
 	    	<div class="keyword-bg">
 		    	<i class="fa fa-search"></i>
 		     	<input id="search-input" type="text" class="form-control<% if(language=="tc"){ %> chinese-input<% } %>" placeholder="Search for...">
 	     	</div>
-	    </div>
+	    </div-->
 	    <!-- Category Widget For Mobile -->
 		<div class="category-list col-md-3 list-top">
 			<h3 class="hidden-xs hidden-sm gray20 bold"><fmt:message key="faq.catlist.label" bundle="${msg}" /></h3>
