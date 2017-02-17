@@ -30,9 +30,9 @@ var home_url = "<%=request.getContextPath()%>";
 	<!-- Breadcrumb Component Start-->
 	<div class="container container-fluid container--breadcrumb">
 		<c:set var="breadcrumbItems">
-		    breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.cansurance,breadcrumb.item.application
+		    breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.cansurance,breadcrumb.item.declaration.payment
 		</c:set>
-		  <c:set var="breadcrumbActive">4</c:set>
+		  <c:set var="breadcrumbActive">3</c:set>
 		
 		<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
 		  <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
@@ -44,7 +44,7 @@ var home_url = "<%=request.getContextPath()%>";
   <!-- StepIndicator Component Start-->
 
       <c:set var="stepItems">
-          stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+          stepindicator.underwriting,stepindicator.application,stepindicator.declaration.payment,stepindicator.upload.document2,stepindicator.confirmation
       </c:set>
       <c:set var="stepActive">2</c:set>
       

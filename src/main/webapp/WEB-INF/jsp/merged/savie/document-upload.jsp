@@ -38,6 +38,12 @@ var languageP = "${language}";
 					</c:set>
 			    	<c:set var="breadcrumbActive">4</c:set>
 			    </c:if>
+			    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
+				    	<c:set var="breadcrumbItems">
+				    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.cansurance,breadcrumb.item.upload.document
+						</c:set>
+				    	<c:set var="breadcrumbActive">3</c:set>
+				    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="breadcrumbItems">
 			    		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application
@@ -63,11 +69,11 @@ var languageP = "${language}";
 					</c:set>
 			    	<c:set var="stepActive">4</c:set>
 			    </c:if>
-			    <c:if test="${plan == 'medical-insurance/cansurance'}">
+			    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
 			    	<c:set var="stepItems">
-			    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+			    		stepindicator.underwriting,stepindicator.application,stepindicator.declaration.payment,stepindicator.upload.document2,stepindicator.confirmation
 					</c:set>
-			    	<c:set var="stepActive">4</c:set>
+			    	<c:set var="stepActive">3</c:set>
 			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="stepItems">

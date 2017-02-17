@@ -38,9 +38,9 @@ var languageP = "${language}";
 			    </c:if>
 			    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
 			    	<c:set var="breadcrumbItems">
-			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.cansurance,breadcrumb.item.application
+			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.cansurance,breadcrumb.item.underwriting
 					</c:set>
-			    	<c:set var="breadcrumbActive">4</c:set>
+			    	<c:set var="breadcrumbActive">3</c:set>
 			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="breadcrumbItems">
@@ -69,9 +69,9 @@ var languageP = "${language}";
 			    </c:if>
 			    <c:if test="${planIndex == 'medical-insurance/cansurance'}">
 			    	<c:set var="stepItems">
-			    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+			    		stepindicator.underwriting,stepindicator.application,stepindicator.declaration.payment,stepindicator.upload.document2,stepindicator.confirmation
 					</c:set>
-			    	<c:set var="stepActive">1</c:set>
+			    	<c:set var="stepActive">0</c:set>
 			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="stepItems">
