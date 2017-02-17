@@ -12,11 +12,18 @@
  * @return {Array}      Pattern >>> [{ 'id': 'xxx' }, ...]  [success]
  * @return {Boolean}    false   [failure]
  */
-var event_bindingValFromA2B = function(aField, bField) {
-    var firstField = $(aField);
-    var secField = $(bField);
-    if(firstField.val()!=""){
-    	secField.val(firstField.val());
+var _bindingValFromA2B = function(insureBoolean, formInfo, insureFieldInfo) {
+    var conditionalId = 'applicantRelationship';        //  oversea-plan-details.jsp >>> $('#applicantRelationship')
+    var fullname = $("#"+formInfo.inputId).val();
+
+    if (insureBoolean) {
+        if (document.getElementById(conditionalId) != null) {
+            if (document.getElementById(conditionalId).value == 'SE') {
+                $('#'+insureFieldInfo.inputBoxId).val(fullname);
+            }
+        } else {
+            $('#'+insureFieldInfo.inputBoxId).val(fullname);
+        }
     }
 };
 /*
@@ -660,16 +667,6 @@ var fv_successForm_flightCare = function( argObj ) {
     }
 };
 
-var fv_enablingValidators = function(isEnabledBoolean, fieldArray) {
-	console.log('_enablingValidators() is run. isEnabledBoolean = [ '+isEnabledBoolean+' ]');
-	var arrFieldnames = fieldArray.fieldnamesForValidation;
-	for (var h = 0; h < arrFieldnames.length; h++) {
-		(function( k ) {
-			$("#"+fieldArray.formId).formValidation('enableFieldValidators', arrFieldnames[k], isEnabledBoolean);
-		})(h);
-	}
-};
-
 /*
  * Export modules to "fvConfig" object
  */
@@ -685,7 +682,6 @@ fvConfig['helpers'] = {
             'binding': {
                 'applicantName2InsuredPerson':      event_applicantName2InsuredPerson
                 , 'applicantHkid2InsuredPerson':    event_applicantHkid2InsuredPerson
-                , 'bindingValFromA2B':				event_bindingValFromA2B
             }
         }
         , 'onkeypress': {
@@ -706,8 +702,7 @@ fvConfig['helpers'] = {
     , 'fv': {
         'successForm': {
             'flightCare':                       fv_successForm_flightCare
-        },
-    	'enable_validate_grp':					fv_enablingValidators
+        }
         , 'errValidator':                       {}
         , 'errField':                           {}
     }

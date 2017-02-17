@@ -1259,7 +1259,7 @@ perventRedirect = true;
 
 <script>
 $(function() {
-
+	console.log(fvConfig);
     fwdUtility.ux.floatingBox();
     // fwdUtility.temp.flightCare(); // Phase 2 may required
 

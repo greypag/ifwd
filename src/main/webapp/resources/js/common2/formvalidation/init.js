@@ -2,6 +2,7 @@
 
 // function initBSVConfig(errMsgHandler) {
 var initFVConfig = function(argCfg) {
+
 	try {
         // Check "fvConfig" is passed into initFVConfig() or not, HERE is named as "argCfg" argument.
         if ( typeof argCfg === "undefined" && argCfg === null ) { throw new Error('No "fvConfig" is loaded . Please check external JS links, esp. "validators.XXX.config.js" & "helpers.js"'); }
@@ -16,81 +17,12 @@ var initFVConfig = function(argCfg) {
 		// console.error(e.name.toString() + ' >>> ' + e.message);
 		console.error( e.toString() );
 	}
-	var formId = argCfg.pageAutoConfig.form[0].id;
-	var formInfo_fullname;
-	var formInfo_hkid;
-	var formInfo = {};
-	if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
-		formInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'adultName1' };
-		formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
-	} else {                                                            // Do Personal-plan below
-		formInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
-		formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
-	}
-	var initAccRegister = function(){
-		argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
-		argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( formInfo_fullname );
-		argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( formInfo_hkid );	
 
-		// Login Authenticate ( i.e. Username & Password )
-		if ( !argCfg.flightJSPcbInfo.isAuthenticated ) {
 
-			argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
 
-			// DOM [id="Username"]
-			formInfo = { 'formId': formId, 'inputId': 'Username' };
-			argCfg.helpers.attr.onkeypress.returnValidUsernameChar( formInfo );
-			argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
 
-			// DOM [id="Password"]
-			formInfo = { 'formId': formId, 'inputId': 'Password' };
-			argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
-
-			// DOM [id="Confirm-Password"]
-			formInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
-			argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
-
-			// Check fields is all-emptied or not. #Username, #Password, #Confirm-Password (Not-authenticated-case only)
-			formInfo = {
-				'formId': formId
-				// Should be a selector (ID / CLASSNAME) in distinct for targeted field(s)
-				, 'fieldsForValidation': [
-					'#Username'
-					, '#Password'
-					, '#Confirm-Password'
-				]
-				, 'fieldnamesForValidation': [
-					'userName'
-					, 'password'
-					, 'passwordConfirm'
-				]
-				// min. number of "not-empty" fields to triggers cb().
-				, 'fieldsLimitedTo': 1
-			};
-			//console.log(formInfo);
-			$.each(formInfo.fieldnamesForValidation, function(i, v) {
-				var fomrInfo2 = formInfo;
-				$("input[name=" + v + "]").on("blur", function() {
-					console.log(formInfo);
-					if ( argCfg.helpers.listener.isFieldsEmptied( formInfo ) ) {
-						argCfg.helpers.fv.enable_validate_grp(true, formInfo);
-						$("#"+formInfo.formId).formValidation('revalidateField', $(this).attr("name"));
-					} else {
-						argCfg.helpers.fv.enable_validate_grp(false, formInfo);
-					};
-				});
-			});
-
-		} else {
-			console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
-		}				
-	}
-	
-	var initEvent = function() {
-		argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut('checkbox3', 'checkbox4');
-	};
-	
 	var flightCare = function() {
+
         // flightCare() prerequistite variables validating
         try {
             if ( !_.has(argCfg, 'flightJSPcbInfo.counter') ) { throw new Error('The "flightJSPcbInfo.counter" js object is missing, please check the JSP variables is passed or not.'); }
@@ -101,36 +33,32 @@ var initFVConfig = function(argCfg) {
 
 		// other deticated js code before running FV
         $(function() {
-        	$('input, textarea').placeholder();
-    		initEvent();
-    		initAccRegister();        	
+
+			// Run placeholder.min.js
+			$('input, textarea').placeholder();
+
 			// Declaration
-			//var formId = argCfg.pageAutoConfig.form[0].id;
-			//var formInfo = {};				// For argCfg.helpers.attr.xxx
+			var formId = argCfg.pageAutoConfig.form[0].id;
+			var formInfo = {};				// For argCfg.helpers.attr.xxx
 			var datepickerConfig = {};		// For argCfg.helpers.attr.xxx
+
+			argCfg.helpers.attr.modifiedDOM(true, 'readonly', ['txtInsuFullName1', 'txtInsuHkid1', 'selectAgeRange1']);
 			// *Developer* if 'disabled' is assigned in DOM, the serialize string (for AJAX export) will not pass the fieldname to backend. That may cause a bug.
 			// argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
-			// DOM FROM [id="inputFullName"] TO [id="adultName1"] OR  [id="personalName1"]
-			var insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
-			var insureFieldInfo2 = { 'inputBoxId': 'txtInsuHkid1' , 'errMsgDOMId': 'errtxtInsuHkid1' };
-			var appRelationship = {
-					'isDeclared' : $('#applicantRelationship').length ? true : false,
-					'relationship' : $('#applicantRelationship').val()	
+
+			if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
+				var formInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'adultName1' };
+				var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
+			} else {                                                            // Do Personal-plan below
+				var formInfo_fullname = { 'formId': formId, 'inputId': 'inputFullName', 'errorId': 'fullnameinvalid', 'revalidateFieldName': 'personalName1' };
+				var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
 			}
-			$( '#'+formInfo_fullname.inputId).blur(function() {
-				argCfg.helpers.attr.onblur.binding.bindingValFromA2B( '#'+formInfo_fullname.inputId, '#'+insureFieldInfo.inputBoxId );
-			    $('#'+formInfo_fullname.formId).formValidation( 'revalidateField', formInfo.revalidateFieldName );
-			});
-			
-			$( '#'+formInfo_hkid.inputId).blur(function() {
-				argCfg.helpers.attr.onblur.binding.bindingValFromA2B( '#'+formInfo_hkid.inputId , '#'+insureFieldInfo2.inputBoxId );
-			    $('#'+formInfo_hkid.formId).formValidation( 'revalidateField', formInfo.revalidateFieldName );
-			});
-			//argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, formInfo_fullname, null );	// Value-binding & field revalidation
-			//argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( formInfo_fullname );							// Field Input control : alpha + space only
+			// DOM FROM [id="inputFullName"] TO [id="adultName1"] OR  [id="personalName1"]
+			argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, formInfo_fullname, null );	// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( formInfo_fullname );							// Field Input control : alpha + space only
 			// DOM FROM [id="inputTxtAppHkid"] TO [id="adultHKID1"] OR  [id="personalHKID1"]
-			//argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, formInfo_hkid, null );		// Value-binding & field revalidation
-			//argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( formInfo_hkid );							// Field Input control : general HKID valid chars only
+			argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, formInfo_hkid, null );		// Value-binding & field revalidation
+			argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( formInfo_hkid );							// Field Input control : general HKID valid chars only
 
 
 			// DOM [id="applicantDob"]
@@ -147,7 +75,7 @@ var initFVConfig = function(argCfg) {
 
 			// Start >>> Under Developing - the tooltip behaviour
 			// [opinion #1 = most simply, but not modulized]
-			//argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut('checkbox3', 'checkbox4');
+			argCfg.helpers.attr.onchange.checkBox_tooltipFadeInOut('checkbox3', 'checkbox4');
 
 				// [ Testing code in "helpers.userfulBackup.js" ]
 				// [opinion #2 = moderate simplicity, but not handling checkBoxNumRequired]
@@ -169,6 +97,74 @@ var initFVConfig = function(argCfg) {
                 // (this part may solve in phase 2 revamp)
 			// End >>> Under Developing - the tooltip behaviour
 
+			// Login Authenticate ( i.e. Username & Password )
+			if ( !argCfg.flightJSPcbInfo.isAuthenticated ) {
+
+				argCfg.helpers.attr.modifiedDOM('off', 'autocomplete', ['Password', 'Confirm-Password']);
+
+				// DOM [id="Username"]
+				formInfo = { 'formId': formId, 'inputId': 'Username' };
+				argCfg.helpers.attr.onkeypress.returnValidUsernameChar( formInfo );
+				argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
+
+				// DOM [id="Password"]
+				formInfo = { 'formId': formId, 'inputId': 'Password' };
+				argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
+
+				// DOM [id="Confirm-Password"]
+				formInfo = { 'formId': formId, 'inputId': 'Confirm-Password' };
+				argCfg.helpers.attr.onfocus.hideMembershipError( formInfo );
+
+				// Check fields is all-emptied or not. #Username, #Password, #Confirm-Password (Not-authenticated-case only)
+				formInfo = {
+					'formId': formId
+					// Should be a selector (ID / CLASSNAME) in distinct for targeted field(s)
+					, 'fieldsForValidation': [
+						'#Username'
+						, '#Password'
+						, '#Confirm-Password'
+					]
+					, 'fieldnamesForValidation': [
+						'userName'
+						, 'password'
+						, 'passwordConfirm'
+					]
+					// min. number of "not-empty" fields to triggers cb().
+					, 'fieldsLimitedTo': 1
+				};
+				var _enablingValidators = function(isEnabledBoolean) {
+					console.log('_enablingValidators() is run. isEnabledBoolean = [ '+isEnabledBoolean+' ]');
+					var arrFieldnames = formInfo.fieldnamesForValidation;
+					for (var h = 0; h < arrFieldnames.length; h++) {
+						(function( k ) {
+							$("#"+formInfo.formId).formValidation('enableFieldValidators', arrFieldnames[k], isEnabledBoolean);
+						})(h);
+					}
+				};
+
+				$.each(formInfo.fieldnamesForValidation, function(i, v) {
+					$("input[name=" + v + "]").on("blur", function() {
+						if ( argCfg.helpers.listener.isFieldsEmptied( formInfo ) ) {
+							_enablingValidators(true);
+							$("#"+formInfo.formId).formValidation('revalidateField', $(this).attr("name"));
+						} else {
+							_enablingValidators(false);
+						};
+					});
+				});
+
+				// Still drafting - just for reference
+				// formInfo = { 'formId': formId };
+				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_auth( formInfo );
+
+			} else {
+				// Scenario for Non-Authenticated case
+				console.log('argCfg.flightJSPcbInfo.authenticated = ' + argCfg.flightJSPcbInfo.authenticated);
+				// Still drafting - just for reference
+				// formInfo = { 'formId': formId };
+				// fwdUtility.pages.flightCare.activateUserAccountJoinUs_non_auth( formInfo );
+
+			}
 
 			// Submit Form
 			$(formId).onsubmit = function() {
@@ -193,10 +189,31 @@ var initFVConfig = function(argCfg) {
 		return result;
 	};
 
+    var travelCare	= function() {
+		// This For-loop SAME AS JSP var ${inx} (i.e. defined in flight-plan-details.jsp)
+		// In JS var, {Integer} 'argCfg.flightJSPcbInfo.counter.personalPlan' (i.e. Total Personal Plan Travller)
+		// for ( var i = 1; i < argCfg.flightJSPcbInfo.counter.personalPlan+1; i++ ) (function(i) {
+		//
+		// 	// WON'T - Note & Demo only, because these are hidden fields
+		// 	// DOM [id="personalBeneficiaryId"] is plugged "onBlur" & triggers isValidBeneFullName()
+		// 	formInfo = { 'inputId': 'personalBeneficiaryId'+i, 'errorId': 'err'+'personalBeneficiaryId'+i };
+		// 	argCfg.helpers.event.isValidBeneFullName( true, formInfo, null);
+		//
+		// })(i);
+		return null;
+	};
+	var easyHealth	= function() { return null; };
+	var easyHome 	= function() { return null; };
+	var eliteTerm	= function() { return null; };
+
 
 	// Export the stream of modules
 	return {
-		"flightCare":	flightCare
+		"flightCare":	flightCare,
+        "travelCare":   travelCare,
+		"easyHealth":	easyHealth,
+		"easyHome":		easyHome,
+		"eliteTerm":	eliteTerm
 	};
 };
 /*
@@ -274,10 +291,17 @@ var runFV = function(argCfg) {
 
 	};
 
-
+	var travelCare	= function() { return null; };
+	var easyHealth	= function() { return null; };
+	var easyHome 	= function() { return null; };
+	var eliteTerm	= function() { return null; };
 
 	// Export the stream of modules
 	return {
-		"flightCare":	flightCare
+		"flightCare":	flightCare,
+        "travelCare":   travelCare,
+		"easyHealth":	easyHealth,
+		"easyHome":		easyHome,
+		"eliteTerm":	eliteTerm
 	};
 };
