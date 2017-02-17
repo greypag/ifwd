@@ -428,7 +428,7 @@ select::-ms-value {
     color: #fff; }
 
 .pv_offer .inner .wp_rslt_amount {
-  background: initial;
+  background: none;
   padding-left: 0; }
 .pv_offer .outer p {
   color: #000;
