@@ -1,7 +1,131 @@
 'use strict';
-
 // function initBSVConfig(errMsgHandler) {
 var initFVConfig = function(argCfg) {
+	 /*
+	  * Flight Care FormValidation Config Generation
+	  *
+	  * @method [Public]    gen_configFlightCare
+	  * @param  {Object}    obj
+	  * @return {Object}    buffer  [success]
+	  * @return {Boolean}   false   [failure]
+	  */
+	var gen_configFlightCare = function(obj) {
+
+	    try {
+	        if ( _.isEmpty(obj) ) throw new Error('1 param is required. Please check.');
+	    } catch(e) {
+	        console.error(e.name.toString() + ' >>> ' + e.message);
+	        return false;
+	    }
+	   //  finally { statements } // noted
+
+	   /*
+	    * Add the suffix string (i.e. index) on each keys
+	    *
+	    * @method   [Private]           _plugIdIntoKeyMap
+	    * @param    {Integer / String}  index
+	    * @param    {Object}            configs
+	    * @return   {Object}            temp
+	    */
+	   var _plugIdIntoKeyMap = function(index, configs) {
+	       var keys = _.keys(configs);
+	       var temp = {};
+
+	       for (var i = 0; i < keys.length; i++) {
+	           temp[keys[i]] = keys[i] + index;
+	       }
+	       return temp;
+	   };
+
+	   /*
+	    * Core progress about FV config generation
+	    *
+	    * @method   [Private]   _multiplyConfig
+	    * @param    {Integer}   iPersonTotal ( insurcedPersonTotal )
+	    * @param    {Object}    o
+	    * @param    {Object}    pct ( personConfigType )
+	    * @return   {Object}
+	    */
+	    var _multiplyConfig = function(iPersonTotal, o, pct) {
+
+	        var buffer = {};
+	        var newKeyMap = {};
+	        for (i = 1; i <= iPersonTotal; i++) {
+
+	            var keyMap = _plugIdIntoKeyMap(i, o[pct]);
+
+	            newKeyMap = {};
+	            _.each( o[pct], function(iPersonV, iPersonI) {
+	               var sub = {};
+	               var targetKey = 'container';
+
+	               sub[targetKey] = iPersonV[targetKey] + i;
+
+	               // - new testing code - start -
+	               // console.log(typeof iPersonV.validators.identical);
+	               if ( i == 1 && iPersonI=="personalName1" ) {
+	                   iPersonV.validators.identical.enabled = true;
+	               } else if ( i != 1 && typeof iPersonV.validators.identical!="undefined" ) {
+	                   iPersonV.validators.identical.enabled = false;
+	               }
+	               // - new testing code - end -
+
+	               _.each(iPersonV, function(iPersonV_V, iPersonV_I) {
+	                   if (iPersonV_I !== targetKey) { sub[iPersonV_I] = iPersonV[iPersonV_I]; }
+	               });
+	               newKeyMap[ keyMap[iPersonI] ] = _.merge({}, sub);
+	            });
+	            buffer = _.merge(buffer, newKeyMap);
+
+	        }
+	        return buffer;
+	    };
+
+	    // Core
+	    var buffer = {};
+	    if ( obj.flightJSPcbInfo.counter.personalPlan === 0 ) {
+	       // Family Plan
+	        var familyConfig = {};
+	        familyConfig['adult'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.adult, obj, 'insuredAdult');
+	        familyConfig['child'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.child, obj, 'insuredChild');
+	        familyConfig['other'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.other, obj, 'insuredOther');
+	        _.each(familyConfig, function(fcVal, fcInd) {
+	           buffer = $.extend(buffer, fcVal);
+	        });
+	    } else {
+	        // Personal Plan
+	        buffer = _multiplyConfig(obj.flightJSPcbInfo.counter.personalPlan, obj, 'insuredPerson');
+	    }
+	    return buffer;
+
+	};	
+	
+	var initDatePicker = function(info, datepickerConfig) {
+	    // birthday datepicker, only 18-85 year-old users can buy the insurance
+	    $( '#' + info.inputId )
+	        .datepicker(datepickerConfig)
+	        .on('changeDate', function (ev) {
+	            $('#'+info.formId).val( $('#'+info.inputId).datepicker('getFormattedDate') );
+	            $('#'+info.formId).formValidation( 'revalidateField', info.revalidateFieldName );
+	            var selected = 2;
+	            if (ev.date != undefined) {
+	                if ( ev.date.valueOf() < fwdConstant.date.dob_end_date.valueOf()
+	                    && ev.date.valueOf() > fwdConstant.date.dob_70_date.valueOf() ) {
+	                    selected = 2;
+	                } else {
+	                    selected = 3;
+	                }
+	                // Check DOM item existences
+	                if ($("#selectAgeRange1").length > 0) {
+	                    $("#selectAgeRange1").val(selected);
+	                } else if ($("#insureDob1").length > 0) {
+	                    $("#insureDob1").val( $("#applicantDob").val() );
+	                }
+	            }
+	        });
+	        //$('#input_dob').datepicker('setDate', dob_end_date);
+	};		
+	
 	try {
         // Check "fvConfig" is passed into initFVConfig() or not, HERE is named as "argCfg" argument.
         if ( typeof argCfg === "undefined" && argCfg === null ) { throw new Error('No "fvConfig" is loaded . Please check external JS links, esp. "validators.XXX.config.js" & "helpers.js"'); }
@@ -72,11 +196,11 @@ var initFVConfig = function(argCfg) {
 				var fomrInfo2 = formInfo;
 				$("input[name=" + v + "]").on("blur", function() {
 					console.log(formInfo);
-					if ( argCfg.helpers.listener.isFieldsEmptied( formInfo ) ) {
-						argCfg.helpers.fv.enable_validate_grp(true, formInfo);
-						$("#"+formInfo.formId).formValidation('revalidateField', $(this).attr("name"));
+					if ( argCfg.helpers.listener.isFieldsEmptied( fomrInfo2 ) ) {
+						argCfg.helpers.fv.enable_validate_grp(true, fomrInfo2);
+						$("#"+fomrInfo2.formId).formValidation('revalidateField', $(this).attr("name"));
 					} else {
-						argCfg.helpers.fv.enable_validate_grp(false, formInfo);
+						argCfg.helpers.fv.enable_validate_grp(false, fomrInfo2);
 					};
 				});
 			});
@@ -104,34 +228,8 @@ var initFVConfig = function(argCfg) {
         	$('input, textarea').placeholder();
     		initEvent();
     		initAccRegister();        	
-			// Declaration
-			//var formId = argCfg.pageAutoConfig.form[0].id;
-			//var formInfo = {};				// For argCfg.helpers.attr.xxx
 			var datepickerConfig = {};		// For argCfg.helpers.attr.xxx
 			// *Developer* if 'disabled' is assigned in DOM, the serialize string (for AJAX export) will not pass the fieldname to backend. That may cause a bug.
-			// argCfg.helpers.attr.modifiedDOM(true, 'disabled', 'selectAgeRange1');
-			// DOM FROM [id="inputFullName"] TO [id="adultName1"] OR  [id="personalName1"]
-			var insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
-			var insureFieldInfo2 = { 'inputBoxId': 'txtInsuHkid1' , 'errMsgDOMId': 'errtxtInsuHkid1' };
-			var appRelationship = {
-					'isDeclared' : $('#applicantRelationship').length ? true : false,
-					'relationship' : $('#applicantRelationship').val()	
-			}
-			$( '#'+formInfo_fullname.inputId).blur(function() {
-				argCfg.helpers.attr.onblur.binding.bindingValFromA2B( '#'+formInfo_fullname.inputId, '#'+insureFieldInfo.inputBoxId );
-			    $('#'+formInfo_fullname.formId).formValidation( 'revalidateField', formInfo.revalidateFieldName );
-			});
-			
-			$( '#'+formInfo_hkid.inputId).blur(function() {
-				argCfg.helpers.attr.onblur.binding.bindingValFromA2B( '#'+formInfo_hkid.inputId , '#'+insureFieldInfo2.inputBoxId );
-			    $('#'+formInfo_hkid.formId).formValidation( 'revalidateField', formInfo.revalidateFieldName );
-			});
-			//argCfg.helpers.attr.onblur.binding.applicantName2InsuredPerson( true, formInfo_fullname, null );	// Value-binding & field revalidation
-			//argCfg.helpers.attr.onkeypress.returnEngSpaceOnly( formInfo_fullname );							// Field Input control : alpha + space only
-			// DOM FROM [id="inputTxtAppHkid"] TO [id="adultHKID1"] OR  [id="personalHKID1"]
-			//argCfg.helpers.attr.onblur.binding.applicantHkid2InsuredPerson( true, formInfo_hkid, null );		// Value-binding & field revalidation
-			//argCfg.helpers.attr.onkeypress.returnHkidLegalCharOnly( formInfo_hkid );							// Field Input control : general HKID valid chars only
-
 
 			// DOM [id="applicantDob"]
 			formInfo = { 'formId': formId, 'inputId': 'input_dob', 'revalidateFieldName': 'applicantDob' };
@@ -143,7 +241,7 @@ var initFVConfig = function(argCfg) {
 		        'endDate': fwdConstant.date.dob_end_date
 		        // /*'language': getBundleLanguage*/
 		    };
-			argCfg.helpers.initDatePicker.changeDate_trigger_selectBoxValueChange( formInfo, datepickerConfig );
+			initDatePicker( formInfo, datepickerConfig );
 
 			// Start >>> Under Developing - the tooltip behaviour
 			// [opinion #1 = most simply, but not modulized]
@@ -186,7 +284,7 @@ var initFVConfig = function(argCfg) {
 		result.fields = $.extend(
 				argCfg.schema.fields
 				, argCfg.applicant
-				, argCfg.helpers.generateConfig.flightCare( argCfg )
+				, gen_configFlightCare( argCfg )
 			);
 		console.log(result);
 
@@ -220,11 +318,217 @@ var runFV = function(argCfg) {
         }
 
 		var formId = fvCfgs.pageAutoConfig.form[0].id;
+		var rmIndex_Serialized = function(cfg, serializedString, fieldnameToRemoveIndex) {
 
+		    var _removeIndex = function( stringInput, travellerCounter, fieldnameToRemoveIndex ) {
+		        var temp = stringInput;
+		        for (var i = 0; i < fieldnameToRemoveIndex.length; i++) {
+		        	if (typeof travellerCounter==="object") {
+		        		$.each( travellerCounter, function( key, value ) {
+		                    for (var w = 1; w < value+1; w++) {
+		                        temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
+		                    }
+		        		});
+		            } else {
+			            for (var w = 1; w < travellerCounter+1; w++) {
+			                temp = temp.replace(fieldnameToRemoveIndex[i]+w, fieldnameToRemoveIndex[i]);
+			            }
+		            }
+		        }
+		        return temp;
+		    };
+
+		    // Core
+		    var stringBuffer = serializedString;
+		    if ( cfg.counter.personalPlan === 0 ) {
+		    	stringBuffer = _removeIndex( stringBuffer, cfg.counter.familyPlan, fieldnameToRemoveIndex );
+		        console.log('Family Plan');
+		        // ... have to develop it later
+
+		    } else {
+		        stringBuffer = _removeIndex( stringBuffer, cfg.counter.personalPlan, fieldnameToRemoveIndex );
+		    }
+		    return stringBuffer;
+		};		
+		var fv_successForm_flightCare = function( argObj ) {
+
+		    var e           = argObj.e;
+		    var data        = argObj.data;
+		    var fvConfig    = argObj.fvConfig;
+		    var fvCfgs      = argObj.fvCfgs;
+		    var formId      = fvCfgs.pageAutoConfig.form[0].id;
+
+		    var $form = $(e.target);
+		    var fv    = $form.data('formValidation');
+
+		    // Prevent form submission
+		    e.preventDefault();
+
+		    // Some instances you can use
+		    var $form	                   = $(e.target);
+		    var fv  	                   = $form.data('formValidation');
+		    var flagForAccCreated          = ( $.trim( $("#Username").val())!="" && $.trim( $("#Password").val())!="" && $.trim( $("#Confirm-Password").val())!="" ) ? true : false;
+		    var serializedString_withIndex = $('#'+ formId).serialize();
+
+		    // Washing ${inx} out from VAR serializedString_withIndex
+		    var fieldnameToRemoveIndex = [];
+		    if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
+		        fieldnameToRemoveIndex = [
+		            'adultName', 'adultHKID', 'adultAgeRange', 'adultBeneficiary'
+		            , 'childName', 'childHKID', 'childAgeRange', 'childBeneficiary'
+		            , 'otherName', 'otherHKID', 'otherAgeRange', 'otherBeneficiary'
+		        ];
+		    } else {                                                            // Do Personal-plan below
+		        fieldnameToRemoveIndex = [ 'personalName', 'personalHKID', 'personalAgeRange', 'personalBeneficiary' ];
+		    }
+		    var serializedString_withoutIndex = rmIndex_Serialized(
+		        fvConfig.flightJSPcbInfo
+		        , serializedString_withIndex
+		        , fieldnameToRemoveIndex
+		    );
+
+		    var pagesAJAX = {
+		        'joinus': function() {
+		            $.ajax({
+		                'type': "POST",
+		                'url': pagesURL.conformPolicy,
+		                'data': serializedString_withoutIndex,
+		                'async': false,
+		                'success': function(data) {
+		                    if (data.result == 'success') {
+
+		                        $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+		                        $('#errorMessages').hide();
+
+		                        $('#' + formId).attr("action", pagesURL.confirmation);
+		                        // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
+		                        fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
+		                            return true;
+		                        });
+
+		                    } else {
+		                        // Exception, mostly not related
+		                        $('#loading-overlay').modal('hide');
+		                        $('#errorMessages').removeClass('hide');
+		                        $('#errorMessages').html(data.errMsgs);
+
+		                        console.log(data);
+		                        fv.defaultSubmit(function(e) {
+		                            return false;
+		                        });
+		                    }
+		                }
+		            });
+		        }
+		        , 'confirmation': function() {
+		            $.ajax({
+		                'type': "POST",
+		                'url': pagesURL.conformPolicy,
+		                'data': serializedString_withoutIndex,
+		                'async': false,
+		                'success': function(data) {
+		                    if (data.result == 'success') {
+
+		                        $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+		                        $('#errorMessages').hide();
+
+		                        $('#' + formId).attr("action", pagesURL.confirmation);
+		                        // Only fv.defaultSubmit is allowed here. Under "e.preventDefault();"
+		                        fv.defaultSubmit(function(e) {      // Don't use general form.submit(function(e) {...}); etc...
+		                            return true;
+		                        });
+
+		                    } else {
+		                        // Exception, mostly not related
+		                        $('#loading-overlay').modal('hide');
+		                        $('#errorMessages').removeClass('hide');
+		                        $('#errorMessages').html(data.errMsgs);
+
+		                        console.log(data);
+		                        fv.defaultSubmit(function(e) {
+		                            return false;
+		                        });
+		                    }
+		                }
+		            });
+		        }
+		    };
+
+		    var exportAJAXdata = {
+		        'optIn1': ( $('#checkbox4').is(':checked') ? true : false )
+		        , 'optIn2': ( $('#checkbox3').is(':checked') ? true : false )
+		        , 'password': $('#Password').val()
+		        , 'mobile': $('#inputMobileNo').val()
+		        , 'name': $('#inputMobileNo').val()
+		        , 'userName': $('#Username').val()
+		        , 'email': $('#inputEmailId').val()
+		        , 'ajax': "true"
+		    };
+
+		    // Defines the URL for below.
+		    var pagesURL = {
+		        'joinus': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/joinus"
+		        , 'conformPolicy': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirm-policy"
+		        , 'confirmation': fvCfgs.flightJSPcbInfo.currentPage.contextPath + "/" + fvCfgs.flightJSPcbInfo.currentPage.lang + "/flight-insurance/confirmation"
+		    };
+
+		    // IF member account is going to be created ...
+		    if ( flagForAccCreated ) {
+
+		        // Core
+		        $.ajax({
+		            'type': 'POST',
+		            'url': pagesURL.joinus,
+		            'data': exportAJAXdata,
+		            'async': false,
+		            'success': function(res) {
+
+		                $('#loading-overlay').modal({ backdrop: 'static', keyboard: false });
+		                $('#errorMessages').hide();
+
+		                var expectedServerRes = {
+		                    'success': 			'success'
+		                    , 'dupUsername': 	'This username already in use, please try again'
+		                    , 'dupEmailMob': 	'email address and mobile no. already registered'
+		                };
+		                switch (res) {
+		                    case expectedServerRes.success:
+		                        pagesAJAX.joinus();
+		                        break;
+		                    case expectedServerRes.dupUsername:
+		                        fv
+		                            .updateMessage('userName', 'alreadyRegistered', getBundle(getBundleLanguage, 'member.registration.fail.username.registered'))
+		                            .updateStatus('userName', 'INVALID', 'alreadyRegistered');
+		                        $('#loading-overlay').modal('hide');
+		                        break;
+		                    case expectedServerRes.dupEmailMob:
+		                        fv
+		                            .updateMessage('emailAddress', 'alreadyRegistered', getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'))
+		                            .updateStatus('emailAddress', 'INVALID', 'alreadyRegistered');
+		                        fv
+		                            .updateMessage('mobileNo', 'alreadyRegistered', getBundle(getBundleLanguage, 'member.registration.fail.emailMobile.registered'))
+		                            .updateStatus('mobileNo', 'INVALID', 'alreadyRegistered');
+		                        $('#loading-overlay').modal('hide');
+		                        break;
+		                    default:
+		                        $('#loading-overlay').modal('hide');
+		                        $(".error-hide").css("display", "block");
+		                        $('.error-hide').html(res);
+		                }
+		            },
+		            'error': function(xhr, status, error) {
+		                $('#loading-overlay').modal('hide');
+		            }
+		        });
+
+		    } else {
+		        pagesAJAX.confirmation();
+		    }
+		};
 		// Trigger the FormValidation.io library here.
 		$('#' + formId).formValidation(argCfg)
 			.on('success.form.fv', function(e, data) {
-				fvCfgs.helpers.fv.successForm.flightCare({
+				fv_successForm_flightCare({
 					'e': 			e
 					, 'data': 		data
 					, 'fvConfig':	fvConfig

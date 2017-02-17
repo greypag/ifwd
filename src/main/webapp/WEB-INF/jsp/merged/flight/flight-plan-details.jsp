@@ -21,6 +21,23 @@
 <script>
 
     $(function() {
+       fvConfig['flightJSPcbInfo'] = {
+               'counter': {
+                   'familyPlan': {
+                       'adult':    ${planDetailsForm.totalAdultTraveller}
+                       , 'child':  ${planDetailsForm.totalChildTraveller}
+                       , 'other':  ${planDetailsForm.totalOtherTraveller}
+                   }
+                   , 'personalPlan': ${planDetailsForm.totalPersonalTraveller}
+               }
+               , 'currentPage': {
+                   'lang':             '${language}'
+                   , 'contextPath':    '<%=request.getContextPath()%>'
+               }
+               , 'plannedDays':    ${planDetailsForm.days}
+               , 'isAuthenticated':  ${!(authenticate.equals("direct") || authenticate.equals("false"))}
+           };    	
+    	
         $("[data-toggle='tooltip']").tooltip();
         $( "[data-toggle='tooltip']" ).on( "click", function() {
        		$(".tooltip").toggle();
@@ -288,6 +305,7 @@ perventRedirect = true;
                             </div>
                         </div>
                         <%-- commented HTML has been moved to "flight-plan-details-temp5.jsp" --%>
+                        <input type="hidden" id="applicantRelationship" value="SE">
                         <input type="hidden" id="isLogin" value="false">
                         <% } else { %>
                         <input type="hidden" id="isLogin" value="true">
@@ -1262,25 +1280,23 @@ $(function() {
 	console.log(fvConfig);
     fwdUtility.ux.floatingBox();
     // fwdUtility.temp.flightCare(); // Phase 2 may required
-
     // JSP values "landing-place"
-    fvConfig['flightJSPcbInfo'] = {
-        'counter': {
-            'familyPlan': {
-                'adult':    ${planDetailsForm.totalAdultTraveller}
-                , 'child':  ${planDetailsForm.totalChildTraveller}
-                , 'other':  ${planDetailsForm.totalOtherTraveller}
-            }
-            , 'personalPlan': ${planDetailsForm.totalPersonalTraveller}
-        }
-        , 'currentPage': {
-            'lang':             '${language}'
-            , 'contextPath':    '<%=request.getContextPath()%>'
-        }
-        , 'plannedDays':    ${planDetailsForm.days}
-        , 'isAuthenticated':  ${!(authenticate.equals("direct") || authenticate.equals("false"))}
-    };
+          
     var flightCfg = initFVConfig(fvConfig).flightCare();
     runFV(flightCfg).flightCare(fvConfig);
+
+	var appRelationship = $("#applicantRelationship").val();
+	var formId = fvConfig.pageAutoConfig.form[0].id;    
+    
+	var insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
+	var insureFieldInfo2 = { 'inputBoxId': 'txtInsuHkid1' , 'errMsgDOMId': 'errtxtInsuHkid1' };    
+    
+	if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
+		formInfo_fullname = { 'inputId': 'inputFullName', 'revalidateFieldName': 'adultName1' };
+		formInfo_hkid = { 'inputId': 'inputTxtAppHkid', 'revalidateFieldName': 'adultHKID1' };
+	} else {                                                            // Do Personal-plan below
+		formInfo_fullname = { 'inputId': 'inputFullName', 'revalidateFieldName': 'personalName1' };
+		formInfo_hkid = { 'inputId': 'inputTxtAppHkid', 'revalidateFieldName': 'personalHKID1' };
+	}    
 });
 </script>

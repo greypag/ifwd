@@ -42,8 +42,17 @@ fvConfig['applicant'] = function() {
                 , 'stringLength': {
                     'max': 50
                     , 'message': ''
-                }
-            }
+                }              
+            },
+            onSuccess: function(e, data) {
+            	if(fvConfig.flightJSPcbInfo.counter.personalPlan === 0){
+            		fvConfig.helpers.attr.onblur.binding.bindingValFromA2B( '#inputFullName', '#txtInsuFullName1' );
+            		data.fv.revalidateField('adultName1');
+            	}else{
+            		fvConfig.helpers.attr.onblur.binding.bindingValFromA2B( '#inputFullName', '#txtInsuFullName1' );
+            		data.fv.revalidateField('personalName1');
+            	}
+    		}            
         }
         , 'hkid': {
             'container': '#errAppHkid'
@@ -55,7 +64,16 @@ fvConfig['applicant'] = function() {
         		'isHkid': {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
-            }
+            },
+            onSuccess: function(e, data) {
+            	if(fvConfig.flightJSPcbInfo.counter.personalPlan === 0){
+            		fvConfig.helpers.attr.onblur.binding.bindingValFromA2B( '#inputTxtAppHkid', '#txtInsuHkid1' );
+            		data.fv.revalidateField('adultHKID1');
+            	}else{
+            		fvConfig.helpers.attr.onblur.binding.bindingValFromA2B( '#inputTxtAppHkid', '#txtInsuHkid1' );
+            		data.fv.revalidateField('personalHKID1');
+            	}
+    		}            
         }
         , 'applicantDob': {
             'container': '#dobInvalid'
