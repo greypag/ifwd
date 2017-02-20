@@ -67,6 +67,7 @@ public interface LifeService {
 	public void sendMailToNewPartner(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void validateSimpleChinese(String str,HttpServletRequest request) throws Exception;
 	public void getSavieApplicationByHkId(String hkid,HttpServletRequest request) throws ECOMMAPIException;
+	public void getSavieApplicationByHkIdPlanCode(String hkid,String plandCode,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getSavieHkidDiscount(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getSavieHkidDiscountByHkIdPlanAll(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getSavieHkidDiscountByHkIdPlan(String hkId, String saviePlan,HttpServletRequest request) throws ECOMMAPIException;

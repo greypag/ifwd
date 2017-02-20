@@ -837,6 +837,19 @@ maxlength="19"/>
 </div>
 </div>
 
+<div class="modal fade common-welcome-modal" id="prev-cansurance-app-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+       	<h4 class="text-center welcome-msg"><fmt:message key="overlay.cansurance.repeated.purchase.copy1" bundle="${msg}"/></h4>
+        <p class="text-center description-msg"><fmt:message key="overlay.cansurance.repeated.purchase.copy2" bundle="${msg}"/></p>
+        <center>
+        <button class="btn savie-common-btn" id="back-home-cansurance"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+        </center>
+		</div>
+    </div>
+</div>	
+
+
 <!-- JS INCLUDES -->
 <c:if test="${planIndex == 'savings-insurance' && not empty saviePlanDetails.promoCode}">
 <script type="text/javascript">
@@ -1077,9 +1090,19 @@ $(document).ready(function () {
 	});
 
 	$("#back-home").on('click', function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+		if ('${plan }' == 'cansurance') {
+			window.location = '<%=request.getContextPath()%>/${language}/medical-insurance/cansurance-personal-details';	
+		}else{
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+		}
+		
 	});
 
+	$("#back-home-cansurance").on('click', function(){
+			window.location = '<%=request.getContextPath()%>/${language}/medical-insurance/cansurance';	
+				
+	});
+	
 	// on change
 	$('#so-calendar-dob').on('changeDate show', function (e) {
 		$(this).parent('.selectDiv').parent('.et-date-info').addClass('is-not-active');
@@ -1174,25 +1197,46 @@ $("#et-personal-info-next, #btn-back").click(function () {
 		
 		$("#errorMsg").html("");
 		// Check has bought savie or not
-		$.ajax({
-			type: "POST",
-			async: false,
-			url: "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
-			data: $("#soInsuredInfoForm").serialize(),
-			success: function (data) {
-				if (data != null && data.errorMsg != null && data.errorMsg != "" || !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
-					if(data.errorMsg == "you can only buy one savie"){
-						$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
-						$('#prev-savie-app-modal').modal('show');
-					}
-					else{
-						show_stack_bar_top(data.errorMsg);
-					}
-				} else {
-					hasBought = true;
+		
+		if ('${plan }' == 'cansurance') {
+			$.ajax({
+				type: "POST",
+				async: false,
+				url: "<%=request.getContextPath()%>/ajax/savings-insurance/cekcansurance",
+				data: $("#soInsuredInfoForm").serialize(),
+				success: function (data) {
+						console.log("DATA.ERROR "+data.errorMsg);
+						if(data.errorMsg == "you can only buy one cansurance"){
+							$('#prev-cansurance-app-modal').modal({backdrop: 'static', keyboard: false});
+							$('#prev-cansurance-app-modal').modal('show');
+						}
+						else{
+							show_stack_bar_top(data.errorMsg);
+						}
 				}
-			}
-		});
+			});
+		}
+		else{
+			$.ajax({
+				type: "POST",
+				async: false,
+				url: "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
+				data: $("#soInsuredInfoForm").serialize(),
+				success: function (data) {
+					if (data != null && data.errorMsg != null && data.errorMsg != "" || !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
+						if(data.errorMsg == "you can only buy one savie"){
+							$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+							$('#prev-savie-app-modal').modal('show');
+						}
+						else{
+							show_stack_bar_top(data.errorMsg);
+						}
+					} else {
+						hasBought = true;
+					}
+				}
+			});
+		}
 		
 		// Identify suspicious tax resident
 		var tax_resident_info = {};
@@ -1633,6 +1677,7 @@ for Chinese Address
 			</div>
 		</div>
 	</div>
+
 	
 </body>
 </html>
