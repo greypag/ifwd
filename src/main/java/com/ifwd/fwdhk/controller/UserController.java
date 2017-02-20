@@ -1492,4 +1492,21 @@ public class UserController {
 		String str=  UserRestURIConstants.getSitePath(req)+ "faq";	
 		return UserRestURIConstants.getSitePath(req)+ "faq";
 	}
+
+	@RequestMapping(value = {"/{lang}/faq-details"}, method = RequestMethod.GET)
+	public String faqDetails(Model model, HttpServletRequest req) {	
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(req);
+
+		String faqProduct = (String) req.getParameter("product");
+		model.addAttribute("faqProduct", faqProduct);
+
+		String pageTitle = WebServiceUtils.getPageTitle("page.faq", UserRestURIConstants.getLanaguage(req));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.faq", UserRestURIConstants.getLanaguage(req));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String str=  UserRestURIConstants.getSitePath(req)+ "faq";	
+		return UserRestURIConstants.getSitePath(req)+ "faq-details";
+	}
 }

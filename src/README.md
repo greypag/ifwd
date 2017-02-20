@@ -35,6 +35,7 @@ Branch Creation Log
 2017-01-05 - UAT Release branch R01092017-001 - Wealthree
 2017-01-05 - DEV FNA Product Recommendation Case 1 Remarks
 2017-01-05 - UAT Release branch R01042017-002 - Savie Resume / TheClub content fix / Sale illustration
+2017-01-11 - DEV FAQ Revamp
 2017-01-12 - UAT Release branch R01162017-001 - Tap&Go / Cheapest Home Campaign Content
 2017-01-17 - DEV Annual Travel Skip Payment
 2017-01-18 - UAT Release branch R01162017-002 - CNY Campaign with Annual Travel Skip Payment
@@ -45,4 +46,6 @@ Branch Creation Log
 2017-02-08 - DEV Savie RP Reopen
 2017-02-08 - UAT Release branch R20170213-001 - Savie RP Reopen
 2017-02-08 - DEV Wealthree Premium Discount
-2017-02-15 - UAT Release branch release/R20170220-001 - Wealthree Premium Discount
+2017-02-15 - UAT Release branch release/R20170220-001 - Minor release - FAQ revamp/content update
+2017-02-15 - UAT Release branch R20170213-002 - Wealthree Premium Discount
+2017-02-17 - UAT Release branch R20170213-003 - Home contnet update

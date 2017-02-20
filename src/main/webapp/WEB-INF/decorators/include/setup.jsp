@@ -49,6 +49,9 @@ if(request.getRequestURI().indexOf("/household-insurance")>0) {
 <%
 }
 %>
+<% if(request.getRequestURI().indexOf("/faq")>0) { %>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css_dir/faq.css">
+<% } %>
 <script>
 
 	// handle when console is null/undefined especially in IE

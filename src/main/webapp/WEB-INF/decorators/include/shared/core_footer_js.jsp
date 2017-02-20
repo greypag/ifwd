@@ -118,7 +118,10 @@ if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 <%
 }
 %>
-
+<% if(request.getRequestURI().indexOf("/faq-detail")>0) { %>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elasticlunr.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/faq.js"></script>
+<% } %>
 <% 
 	/**********
 	Custom JS

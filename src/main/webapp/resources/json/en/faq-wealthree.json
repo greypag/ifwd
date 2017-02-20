@@ -1,0 +1,120 @@
+{
+  "product":"Wealthree Endowment",
+  "category_widget":{
+      "list":[
+      "Product Features",
+      "New Business",
+      "Policy Services"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Product Features",
+      "id": 1,
+      "question_title": "Can the customer prepay the second year premium?",
+      "question_answer": "No, prepayment on premium is not available."
+    },
+    {
+      "category":"Product Features",
+      "id": 2,
+      "question_title": "What benefits are payable in the event of insured’s death during the term of the policy?",
+      "question_answer": "The Death Benefit is equal to <ol><li>110% of the Total Premiums Paid; or</li><li>Guaranteed Cash Value, whichever is higher.</li></ol>It is calculated based on the date of the death of the Insured. If the Insured dies during the grace period, FWD will calculate the Total Premiums Paid to include the premium that is due for the second Policy Year. Death benefits will be paid after deducting any unpaid premiums."
+    },
+    {
+      "category":"Product Features",
+      "id": 3,
+      "question_title": "Is there a maximum limit on the Notional Amount?",
+      "question_answer": "Yes. The maximum Notional Amount is HKD 10,000,000 / RMB 8,000,000 (per life per this product)."
+    },
+    {
+      "category":"Product Features",
+      "id": 4,
+      "question_title": "What is the minimum Annual Premium?",
+      "question_answer": "The minimum Notional Amount is HKD 100,000 / RMB 80,000, hence minimum annual premium for this Product is HKD 47,003 and RMB 36,257 respectively."
+    },
+    {
+      "category":"Product Features",
+      "id": 5,
+      "question_title": "Can customer reduce the premium / notional amount after the policy is issued?",
+      "question_answer": "The premium / notional amount cannot be reduced after the policy is issued as partial surrender is not allowed."
+    },
+    {
+      "category":"New Business",
+      "id": 6,
+      "question_title": "Is it necessary for prospective policyholders to undergo medical examinations?",
+      "question_answer": "Medical examinations are not required for this Product."
+    }, 
+    {
+      "category":"New Business",
+      "id": 7,
+      "question_title": "Is backdating applicable to this Product?",
+      "question_answer": "Backdating is not applicable for this Product."
+    },
+    {
+      "category":"New Business",
+      "id": 8,
+      "question_title": "Are there any riders attachable to this Product?",
+      "question_answer": "No."
+    },
+    {
+      "category":"Policy Services",
+      "id": 9,
+      "question_title": "For RMB denominated policies, can the policyholder choose the currency of premium payments in HKD?",
+      "question_answer": "Yes, HKD is also acceptable. The currency conversion will be based on the prevailing market-based exchange rate between RMB and HKD as determined by FWD at its sole discretion from time to time. Please refer to section 4.5 Settlement Currency and Exchange Rate for details."
+    },
+    {
+      "category":"Policy Services",
+      "id": 10,
+      "question_title": "If the policyholder surrenders the policy within the Cooling off Period, what are the arrangements on the refund of the premium?",
+      "question_answer": "The refund of any premiums paid will be settled in policy currency (without any interest and administrative charge). Please refer to section 4.5 for Settlement Currency and Exchange Rate if customer chooses to receive refund of premium paid in different currency (HKD) to the policy currency for RMB denominated plans. The customer will bear the exchange rate and currency risk if the policy is surrenderred within the cooling off period."
+    },
+    {
+      "category":"Policy Services",
+      "id": 11,
+      "question_title": "Is the RMB-HKD exchange rate applicable to this Product available for reference?",
+      "question_answer": "Yes, the latest exchange rate is available on this website:<br><a target=\"_blank\" href=\"http://home.fwd.com.hk/fundprice/exchangerate.aspx?LangID=E\">http://home.fwd.com.hk/fundprice/exchangerate.aspx?LangID=E</a>"
+    },
+    {
+      "category":"Policy Services",
+      "id": 12,
+      "question_title": "Can the customer change the Notional Amount?",
+      "question_answer": "Customers can only change the Notional Amount during the Cooling off Period. The customer is required to sign a new illustration with revised notional amount on this basis. No changes can be made to the Notional Amount thereafter."
+    },
+    {
+      "category":"Policy Services",
+      "id": 13,
+      "question_title": "Can the customer partially surrender any value from Policy or apply for Policy Loan?",
+      "question_answer": "No, the customer cannot partially surrender any value from the Policy nor apply for Policy loan."
+    },
+    {
+      "category":"Policy Services",
+      "id": 14,
+      "question_title": "What is the Surrender Benefit if the customer surrenders the Policy before maturity?",
+      "question_answer": "If the customer surrenders the policy before the end of the policy term, the surrender benefit is equal to the Guaranteed Cash Value less any unpaid premiums and may be considerably less than the total premium paid. The Guaranteed Cash Value falling between two policy anniversaries will be determined by FWD by prorating the Guaranteed Cash Value as at last and next policy anniversaries."
+    }, 
+    {
+      "category":"Policy Services",
+      "id": 15,
+      "question_title": "What are the arrangements if premium remains unpaid at the expiration of the Grace Period?",
+      "question_answer": "If any premium remains unpaid at the expiration of the grace period, the Policy shall automatically cease to be in force from the first due date of the outstanding premium without notice to the Policy Owner. Any outstanding premium shall be deducted from the Guaranteed Cash Value. Guaranteed Cash Value will be settled in policy currency and returned to the Policyholder."
+    }, 
+    {
+      "category":"Policy Services",
+      "id": 16,
+      "question_title": "For RMB denominated plans, can the customer choose to receive the Surrender Benefit and Maturity Benefit in HKD?",
+      "question_answer": "Yes. Surrender Benefit and Maturity Benefit will be settled in policy currency. If the customer chooses to receive any benefits under this Product in different currency (HKD) to the policy currency, please refer to section 4.5 for Settlement Currency and Exchange Rate."
+    }, 
+    {
+      "category":"Policy Services",
+      "id": 17,
+      "question_title": "For RMB denominated plans, can the customer choose to receive the Death Benefit in HKD?",
+      "question_answer": "Yes. Death Benefit will be settled in policy currency. If the customer chooses to receive any benefits under this Product in different currency (HKD) to the policy currency, please refer to section 4.5 for Settlement Currency and Exchange Rate."
+    },
+    {
+      "category":"Policy Services",
+      "id": 18,
+      "question_title": "Is dividend payable under this Product?",
+      "question_answer": "This Product is a non-participating policy and will not distribute any dividends. The policy will provide guaranteed return upon maturity."
+    }                                                                                                                                                                          
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "product":"Savie Insurance Plan",
+  "category_widget":{
+      "list":[
+      "Product Features",
+      "Application",
+      "Policy Services",
+      "Regular Payment Plan",
+      "Online Withdrawal Service"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Product Features",
+      "id": 1,
+      "question_title": "How is Death Benefit calculated?",
+      "question_answer": "The Death Benefit equals 105% of Account Value."
+    },
+    {
+      "category":"Product Features",
+      "id": 2,
+      "question_title": "What is the compensation for Accidental Death?",
+      "question_answer": "If the death of the insured is caused by Accident, the Company will pay a Death Benefit equivalent to 105% of Account Value, together with an extra Accidental Death Benefit of 100% of Account Value. In total, 205% of Account Value is payable. Additional Accidental Death Benefit is capped at HKD 400,000 per life for Savie Insurance Plan provided that:<ol><li>the death of the Insured is caused directly and solely by an Accident; and</li><li>the death of the Insured occurs within 180 days from date of the Accident; and</li><li>the Accident takes place before the Policy Anniversary immediately preceding the seventy-first (71st) birthday of the Insured.</li></ol>"
+    },
+    {
+      "category":"Product Features",
+      "id": 3,
+      "question_title": "Is there a limit on number of withdrawals and withdrawal amount?",
+      "question_answer": "Currently, no limit on number of withdrawals. The minimum withdrawal amount is HKD 1,000 and maximum amount is subject to minimum account balance after withdrawal which is HKD 3,000."
+    },
+    {
+      "category":"Product Features",
+      "id": 4,
+      "question_title": "What are the charges of this product?",
+      "question_answer": "No charges apply."
+    },
+    {
+      "category":"Product Features",
+      "id": 5,
+      "question_title": "Is there any other currency offered?",
+      "question_answer": "No, only Hong Kong Dollar is available."
+    },
+    {
+      "category":"Product Features",
+      "id": 6,
+      "question_title": "Can I make additional premium payments?",
+      "question_answer": "No, additional premium payments are not accepted."
+    }, 
+    {
+      "category":"Product Features",
+      "id": 7,
+      "question_title": "Is the crediting rate guaranteed?",
+      "question_answer": "During the first three policy years, the crediting rate is guaranteed. Please refer to the company\u2019s website for latest offer on guaranteed crediting rates. The crediting rate is non-guaranteed for policy year 4 and onward."
+    },
+    {
+      "category":"Product Features",
+      "id": 8,
+      "question_title": "Is the interest calculation based on simple interest or compound interest basis?",
+      "question_answer": "Interest is accumulated using simple interest method and will be credited to policy account at each policy anniversary."
+    },
+    {
+      "category":"Product Features",
+      "id": 9,
+      "question_title": "What is the 4th year crediting rate?",
+      "question_answer": "The declared crediting rate will be announced through our corporate website. It is non-guaranteed and determined by FWD from time to time at its absolute discretion based on a series of factors including but not limited to market conditions, investment outlook, policy persistency, claims experience, expenses and FWD\u2019s investment return. The crediting rates are subject to change during the term of the policy and may be zero in adverse situation. The company invests through reinsurance arrangement."
+    },
+    {
+      "category":"Product Features",
+      "id": 10,
+      "question_title": "How is the crediting rate being determined?",
+      "question_answer": "The crediting rate is determined by FWD from time to time at its absolute discretion based on a series of factors including but not limited to market conditions, investment outlook, policy persistency, claims experience, expenses and FWD’s investment return. The crediting rates are subject to change during the term of the policy and may be zero in the most adverse situation. The company invests through reinsurance arrangement. Declared crediting rate will be announced through our corporate website."
+    },
+    {
+      "category":"Product Features",
+      "id": 11,
+      "question_title": "Is my money protected by the Deposit Protection Scheme in HKSAR?",
+      "question_answer": "No, money deposited in an insurance policy is not protected by the Scheme."
+    },
+    {
+      "category":"Product Features",
+      "id": 12,
+      "question_title": "How is the interest calculated if the customer partially withdraws between policy anniversaries?",
+      "question_answer": "The interest is calculated daily. Any withdrawal will reduce the principal for interest calculation."
+    },
+    {
+      "category":"Product Features",
+      "id": 13,
+      "question_title": "How is Account Value calculated?",
+      "question_answer": "Account Value is the accumulation of Premium paid with interest added (if any), less Partial Withdrawal(s) (if any)."
+    },
+    {
+      "category":"Product Features",
+      "id": 14,
+      "question_title": "How can I check my Account Balance?",
+      "question_answer": "You can contact our Customer Engagement Representative Centres or refer to the latest annual statement."
+    },
+    {
+      "category":"Product Features",
+      "id": 15,
+      "question_title": "Is there any premium limits?",
+      "question_answer": "The single premium is subject to  the following minimum and maximum amounts:<br><br><table> <tbody><tr><td></td><td>Single premium (Per Policy)</td></tr><tr><td>Minimum</td><td>HKD 30,000</td></tr><tr><td>Maximum</td><td>HKD 400,000</td></tr></tbody></table><br>In addition, each policyholder may only hold a total premium of not more than HKD2M across all of their Savie policies."
+    },                                                       
+    {
+	  "category":"Product Features",
+      "id": 16,
+      "question_title": "What are the risks associated with this plan?",
+      "question_answer": "Application of the Plan and all benefits payable under the Plan are subject to the credit risk of FWD. Policyowners will bear the default risk in the event that FWD is unable to satisfy its financial obligations under the insurance policies. When considering the benefits payable, please note that the cost of living in the future is likely to be higher than it is today due to inflation. Crediting rate from policy year 4 and onward is non-guaranteed and determined by FWD from time to time at its absolute discretion based on a series of factors including but not limited to market conditions, investment outlook, policy persistency, claims experience, expenses and FWD’s investment return. The crediting rates are subject to change during the term of the policy and may be zero in the adverse situation. The company invests through reinsurance arrangement."
+    },    
+    {
+      "category":"Application",
+      "id": 17,
+      "question_title": "Is backdating applicable to this Plan?",
+      "question_answer": "No, backdating is not applicable for this Plan."
+    },
+    {
+      "category":"Application",
+      "id": 18,
+      "question_title": "Are there any riders attachable to this Plan?",
+      "question_answer": "No attachable riders."
+    },
+    {
+      "category":"Application",
+      "id": 19,
+      "question_title": "How long does it take to process an application and put a policy inforce?",
+      "question_answer": "The policy will not be inforce until you have submitted all the documents including address proof and have made the full payment. Applicants will be contacted by the Company upon received of the full payment. The policy will be issued within 4-10 working days. A SMS will be sent to policyowner once the policy is inforce."
+    },
+    {
+      "category":"Application",
+      "id": 20,
+      "question_title": "When will Direct Debit Authorization (DDA) be debited?",
+      "question_answer": "On the 3<sup>rd</sup> and 25<sup>th</sup> of each month."
+    },
+    {
+      "category":"Application",
+      "id": 21,
+      "question_title": "If I am not a HKID cardholder, can I buy this product?",
+      "question_answer": "No. Only HKID cardholders are accepted. Note that non-permanent residents need to provide their passport as a supporting document."
+    },
+    {
+      "category":"Application",
+      "id": 22,
+      "question_title": "Can I change my mind and cancel the policy?",
+      "question_answer": "If you are not satisfied with the policy, you have the right to cancel it within the Cooling-off Period (that is, 21 days after either the delivery of the policy or the issue of a Notice informing you or your representative that the policy is available for collection and expiry date of the Cooling-off Period, whichever is earlier) by giving a written notice and obtain a refund of any premium paid provided that you have not made any claims under the policy. The written notice with your signature must be given to the office of FWD and you must ensure that such notice must be received by FWD on or before the expiry date of the Cooling-off Period. The office address of FWD is 1/F., FWD Financial Centre, 308 Des Voeux Road Central, Hong Kong."
+    },
+    {
+      "category":"Application",
+      "id": 23,
+      "question_title": "Do I have to submit all the supporting documents during the online application?",
+      "question_answer": "No, you may either upload the documents later, or bring them in person to our Customer Service Centres."
+    },
+    {
+      "category":"Application",
+      "id": 24,
+      "question_title": "Are there any age limits for applying to the Savie Insurance Plan?",
+      "question_answer": "The issue age must be 19-70 (your age next birthday) at the time of application."
+    },
+    {
+      "category":"Policy Services",
+      "id": 25,
+      "question_title": "Can the policy be reinstated?",
+      "question_answer": "No, reinstatement is not applicable for a policy which is surrendered by the Policy Owner."
+    },
+    {
+      "category":"Policy Services",
+      "id": 26,
+      "question_title": "What value will I get upon surrender?",
+      "question_answer": "You will receive the account value in HKD."
+    },
+    {
+      "category":"Policy Services",
+      "id": 27,
+      "question_title": "How can I withdraw money from the account?",
+      "question_answer": "Fill in the Policy Service Request Form under Section 8 - Withdrawal of Policy Value. The form is available to be downloaded from company website<br><a href=\"http://www.fwd.com.hk/en/support-claims/forms-listing/\" target=\"_blank\"><u>http://www.fwd.com.hk/en/support-claims/forms-listing/</u></a>"
+    },
+    {
+      "category":"Policy Services",
+      "id": 28,
+      "question_title": "How long does it take to process the partial withdrawals and surrender?",
+      "question_answer": "It takes 7 working days for partial withdrawal and 14 working days for surrender under normal circumstances. However, FWD may defer the payment of partial surrender or surrender benefits up to 6 months from the date of receipt of the duly completed request."
+    },
+    {
+      "category":"Regular Payment Plan",
+      "id": 29,
+      "question_title": "Can I stop paying premiums during the Policy Term if I chose monthly payment mode?",
+      "question_answer": "You may ask for your premiums to be suspended and in such case Premium Holiday term will apply."
+    },
+    {
+      "category":"Regular Payment Plan",
+      "id": 30,
+      "question_title": "If I would like to stop paying the premiums, how to notify you?",
+      "question_answer": "You have to complete section 9.2 of the Policy Services Request Form to apply for Premium Holiday. The form is available to be downloaded from our website:<a href=\"http://www.fwd.com.hk/en/support-claims/forms-listing/\" target=\"_blank\"><u>http://www.fwd.com.hk/en/support-claims/forms-listing/</u></a>.Otherwise, Premium Holiday term will apply if no premium is received after the expiration of Grace Period."
+    },
+    {
+      "category":"Regular Payment Plan",
+      "id": 31,
+      "question_title": "If I do not pay the regular premium, will the policy lapse?",
+      "question_answer": "The policy term provides for a Grace Period of 30 days after the premium due date. If the premium is unpaid after the expiration of the Grace Period, Premium Holiday term will apply. However, when the Account Value is equal to or less than zero, the policy shall automatically be terminated."
+    },
+    {
+      "category":"Regular Payment Plan",
+      "id": 32,
+      "question_title": "Can the customer change the premium amount?",
+      "question_answer": "Yes, but only if you have a regular premium plan. The amount of the regular premiums can only be reduced but cannot be increased. It cannot be reduced to an amount less than the specified minimum regular premium."
+    },
+    {
+      "category":"Regular Payment Plan",
+      "id": 33,
+      "question_title": "What if my DDA account value has no sufficient fund to pay the premium?",
+      "question_answer": "We will attempt the transfer again in next month, along with the next month premium. If there is still insufficient fund to pay the premiums, then Premium Holiday term will apply."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 34,
+      "question_title": "Which FWD products are available for FWD Online Withdrawal Service?",
+      "question_answer": "Savie Insurance Plan and Provie Insurance product (Only apply to HKD product)."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 35,
+      "question_title": "Any restrictions on the use of online withdrawal service?",
+      "question_answer": "Per Policy:<ul><li>Minimum withdrawal amount of HK$500 per transaction</li><li>Maximum total withdrawal amount of HK$3,000 per day</li><li>Maximum 3 times withdrawal per day</li><li>Maximum total withdrawal amount of HK$50,000 per calendar year </li></ul>"
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 36,
+      "question_title": "Are there any charges for using online withdrawal service?",
+      "question_answer": "This service is free of charge."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 37,
+      "question_title": "How long will it take for the completion of the online withdrawal?",
+      "question_answer": "Normally it will only take 1 minute."
+    },    
+    {
+      "category":"Online Withdrawal Service",
+      "id": 38,
+      "question_title": "Online withdrawal service can be paired with Tap&Go only?",
+      "question_answer": "Yes."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 39,
+      "question_title": "Why do I need to pair with Tap&Go mobile wallet?",
+      "question_answer": "Withdrawal payment can only be made to Tag&Go account."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 40,
+      "question_title": "How can I obtain one-time password again if I have input incorrectly?",
+      "question_answer": "Customer may request for the resend of one-time password after 1 minute."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 41,
+      "question_title": "Why my online withdrawal service has been temporary suspended? What should I do?",
+      "question_answer": "To protect our customer, if customer has failed to input correct one time password 3 times, our system will temporary suspend customer account. Please contact 24 Hour service hotline 3123 3123 to unlock your account."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 42,
+      "question_title": "Can I use online withdrawal service to surrender my policy?",
+      "question_answer": "No."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 43,
+      "question_title": "I have a question about Tap&Go….",
+      "question_answer": "Please contact Tap&Go 24 Hour service hotline 2888 0000."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 44,
+      "question_title": "Can I track my withdrawal record?",
+      "question_answer": "You can login to iFWD customer account and select Online Withdrawal record for details."
+    }                                                                                                                  
+  ]
+}

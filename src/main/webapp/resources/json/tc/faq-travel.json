@@ -1,0 +1,201 @@
+{
+  "product":"旅遊保險",
+  "category_widget":{
+      "list":[
+      "投/受保相關問題",
+      "索償相關問題",
+      "突發事件相關問題",
+      "流動保險證",
+      "Apple 裝置 - 流動保險證",
+      "Andriod 裝置 - 流動保險證"
+    ]
+  },
+  "questions":[
+    {
+      "category":"投/受保相關問題",
+      "id": 1,
+      "question_title": "年過80歲的長者可以投保嗎？",
+      "question_answer": "單次旅遊保障投保者年齡可達85歲，而全年保障只限保障至70歲。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 2,
+      "question_title": "剛出世的嬰兒同行外遊，可以投保嗎？",
+      "question_answer": "投保年齡滿六個星期，並已領有出世紙或護照的嬰兒，即可投保。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 3,
+      "question_title": "子女數目有限制嗎?",
+      "question_answer": "每次申請總人數最多為15名旅客(包括子女數目)。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 4,
+      "question_title": "子女的年齡有限制嗎?",
+      "question_answer": "同行子女的年齡須介乎6個星期至17歲，18歲或以上子女將視為成人旅客。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 5,
+      "question_title": "受保期可長達多少天？",
+      "question_answer": "單次旅遊最長可達連續180日，全年旅遊保險的每一旅程最長保障為連續90日。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 6,
+      "question_title": "受保行程一定要由香港出發嗎?",
+      "question_answer": "對，受保的行程須由香港出發，並以香港為回程終點。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 7,
+      "question_title": "如果打算到海外升學，購買旅遊保險會受保嗎？",
+      "question_answer": "不會，單次旅遊保險特別為由香港出發到海外消閒或公幹的旅遊人士而設，旅程不得超過180日，而全年旅遊保險的每一旅程最長保障為連續90日。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 8,
+      "question_title": "假若我身處海外，如欲延長保障期限，可否通過電話辦理手續？",
+      "question_answer": "可以。請在保障期屆滿前致電 (852) 3123 3123 查詢辦理手續。請注意旅程保障期最長為180日。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 9,
+      "question_title": "因恐怖襲擊而受傷是受保項目之一？",
+      "question_answer": "是。本旅遊保險承保由恐怖襲擊引致受傷的傷亡或醫療費用。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 10,
+      "question_title": "危險運動如笨豬跳是否受保項目之一？",
+      "question_answer": "是。只要受保人不是參與職業運動競賽或從事能賺取收益或報酬的運動競賽，該項運動便是受保項目之一。此外，休閒和業餘體育運動，包括冬季運動、笨豬跳、登山、攀岩、騎馬、潛水等運動，同樣受保障。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 11,
+      "question_title": "如果旅行時在外地受傷，於返港後繼續接受的治療會否受到保障呢？",
+      "question_answer": "旅遊保險的保障範圍包括於受保期內在外地意外受傷或生病所需之醫療費用，以及回港後90日內的覆診費用。賠償金額最高可達HK$100,000 (包括跌打每日每次上限為HK$200，最高賠償額為HK$3,000) 。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 12,
+      "question_title": "因搶劫而遺失的珠寶是否受保障範圍之一？",
+      "question_answer": "是。只要珠寶是於受保人手中的行李內或存放於酒店夾萬內時被劫，受保人可作出索償。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 13,
+      "question_title": "如因天氣惡劣而引致回程延誤，導致過了保單的保障期，我是否需要另外購買一份旅遊保險？",
+      "question_answer": "倘若受保人因非預見及突如其來的事故導致無法於原保單保障期內返回香港，此旅遊保險一般會就其保單自動延長最多10天的保障期，180天的最長保障期並不限於自動延長的保單。"
+    },{
+      "category":"投/受保相關問題",
+      "id": 14,
+      "question_title": "我已在出發機場途中，我仍可投保嗎?",
+      "question_answer": "辦妥離境手續前，您仍可以投保。"
+    },{
+      "category":"索償相關問題",
+      "id": 15,
+      "question_title": "我該如何作出索償？",
+      "question_answer": "你須於保單有效期屆滿後之三十一天內以書面通知本公司有關索償事故。請注意任何與個人責任相關的索償，需在引致索償之事件發生後的十四天內以書面通知本公司。<br><br>請根據以下步驟下載「旅遊意外索償申請表」：<br><ol><li>瀏覽本公司網頁<a href=\"http://www.fwd.com.hk\" target=\"_blank\">http://www.fwd.com.hk</a></li><li>按「客戶服務」</li><li>按「表格下載」</li><li>按「一般保險」</li><li>按「旅遊保險」 <a href=\"http://www.fwd.com.hk/tc/support-claims/claims/travel-insurance/\" target=\"_blank\">http://www.fwd.com.hk/tc/support-claims/claims/travel-insurance/</a></li></ol>"
+    },{
+      "category":"索償相關問題",
+      "id": 16,
+      "question_title": "如強制隔離期少於一曆日，我可否作出索償？",
+      "question_answer": "不可以。但如強制隔離期連續並多於二十四小時，本公司將為受保人每一整日的隔離支付津貼HK$500。"
+    },{
+      "category":"索償相關問題",
+      "id": 17,
+      "question_title": "手機／智能電話被竊會得到賠償嗎？",
+      "question_answer": "不可以，根據本計劃的主要不受保事項，手機／智能電話是不受保的。"
+    },{
+      "category":"索償相關問題",
+      "id": 18,
+      "question_title": "如欲申請行李賠償，我該注意什麼？",
+      "question_answer": "受保人須於發現行李被破壞、遺失或損毀的二十四小時內通知酒店、航空公司、當地警方等有關當局，方可提出行李索償。詳情請參閱保單第五部分內容。"
+    },{
+      "category":"索償相關問題",
+      "id": 19,
+      "question_title": "如發生行李延誤，我可否作出索償？",
+      "question_answer": "可以。倘若在旅程中因行李送遞或誤送而令受保人抵達海外目的地六小時後仍未能取得行李，並因此須購買基本衣物或必需品，本公司將予以賠償。詳情請參閱保單第六部分內容。"
+    },{
+      "category":"索償相關問題",
+      "id": 20,
+      "question_title": "如現金、旅行支票等於旅程中遺失，我可否得到賠償？",
+      "question_answer": "可以。受保人須於現金或旅行支票等被偷盜的二十四小時內通知當地警方，索償方可被獲批。詳情請參閱保單第七部分內容。"
+    },{
+      "category":"索償相關問題",
+      "id": 21,
+      "question_title": "計劃有什麼主要不保事項?",
+      "question_answer": "主要不保事項如下:<br><ol><li>戰爭（不論已宣戰與否）、內戰、外敵行動、叛亂、軍事或篡奪行動。</li><li>核風險。</li><li>恐怖主義（此保障計劃所承保的人身意外、醫療費用、全球緊急支援服務、 旅程延誤、旅程取消、縮短旅程項目除外）。</li><li>投保前已存在之傷疾、先天及遺傳性疾病。</li><li>自殺、蓄意自我傷害、神經錯亂、墮胎、流產、懷孕及其併發症、分娩、性病、 服用酒精或非由註冊醫生處方的藥物、牙齒護理（因意外而損壞健全的牙齒除外)。</li><li>任何種類的競賽（徒步進行的比賽除外）或任何職業性質的運動或受保人可能 或可以賺取收入或報酬的運動。</li><li>任何空中活動，除非受保人（i）以付費乘客身份在認可及持牌航空公司的航機上， 或（ii）所參與之活動是由另一位持牌人士帶領下負責操縱及航行，而該活動的舉 辦者亦獲當地有關當局授權。</li><li>任何損失未能於24小時內向有關機構報告(例如：航空公司、警署)及取回書面證明。</li><li>傳呼機、手提電話、手提便攜式通訊器材、電腦器材(手提電腦除外)。</li><li>由於使用汽車、飛機或船隻或因故意、蓄意或非法活動所引起的責任。</li></ol>"
+    },{
+      "category":"突發事件相關問題",
+      "id": 22,
+      "question_title": "如欲終止保單，保費會否發還？",
+      "question_answer": "如屬單次旅遊，當保單正式生效時，保費將不獲發還。全年旅遊保險則可退回保費，詳情請參照保單條款。"
+    },{
+      "category":"突發事件相關問題",
+      "id": 23,
+      "question_title": "外地旅遊時，如需要支援，應如何處理？",
+      "question_answer": "請致電國際SOS24小時緊急支援服務 (852) 3122 2900，服務範圍包括旅遊證件及行李遺失支援、機票安排、緊急醫療運送、轉介翻譯員、法律團體、領事館和醫療機構及安排入院等服務。致電時並請提供以下資料:<br><br><ul><li>受保人姓名、保單編號、身份證號碼或護照號碼及；</li><li>意外地點、受保人或其代表的聯絡電話　及；</li><li>簡述意外發生經過與求助需要</li>"
+    },{
+      "category":"突發事件相關問題",
+      "id": 24,
+      "question_title": "如黑色外遊警示於我投保後但旅程出發前發出，富衛的旅遊保險會保障什麼？",
+      "question_answer": "如在發出黑色外遊警示前已購買保單，而受保旅程之目的地在啟程前七天內發出黑色外遊警示，你可選擇取消旅程並獲團費、交通或住宿的費用或訂金的相關賠償。計劃Ａ賠償可高達HK$30,000，計劃Ｂ賠償可達HK$5,000。"
+    },{
+      "category":"突發事件相關問題",
+      "id": 25,
+      "question_title": "如黑色外遊警示於旅程中發出，富衛的旅遊保險會保障什麼？",
+      "question_answer": "如黑色外遊警示於旅程中發出及旅程因此而提早結束，你將會按比例獲得賠償包括在原定假期或旅程內不可退回的預繳交通或住宿費，以及返回香港的額外費用。計劃Ａ賠償可高達HK$30,000，計劃Ｂ賠償可達HK$5,000。"
+    },{
+      "category":"流動保險證",
+      "id": 26,
+      "question_title": "什麼是旅遊保險流動保險證？",
+      "question_answer": "旅遊保險流動保險證包含了保險證明書中的重要資訊，方便您於旅程中有需要時使用。資訊包括證書持有人及受保人姓名、保單類型、保單編號、保障期、保單細節、保障項目表、全球緊急支援服務熱線及富衛24小時服務熱線資料。"
+    },{
+      "category":"流動保險證",
+      "id": 27,
+      "question_title": "旅遊保險流動保險證是否同時適用於家庭計劃？",
+      "question_answer": "是。旅遊保險流動保險證同時適用於個人及家庭計劃。"
+    },{
+      "category":"流動保險證",
+      "id": 28,
+      "question_title": "如何取得我的旅遊保險流動保險證？",
+      "question_answer": "請按照以下2個簡單步驟通過驗證以取得流動保險證:<br><br><b>第1步：</b><br><br>1: 於成功購買頁面按 “下載流動保險證” 按鈕或使用流動裝置掃瞄頁面中的二維碼; 或<br><br>2: 直接按下確認電郵中的連結。<br><br>其後系統將導向至驗證頁面。<br><br><b>第2步：</b><br><br>輸入您香港身份證號碼的頭5個字元以作驗證。"
+    },{
+      "category":"流動保險證",
+      "id": 29,
+      "question_title": "如何將流動保險證加到Wallet/Passbook/Pass2U裝置中？",
+      "question_answer": "<ul><li>iOS裝置：<br>如您正在使用運行iOS 6或以上版本的iPhone或 iPod touch，通過驗證頁面後請點擊 “Add to Apple Wallet”圖標以將流動保險證加到Wallet/Passbook。</li><li>Android 裝置：<br>如您正在使用已安裝 “Pass2U”，及運行Android 3.0或以上版本的Android裝置，通過驗證頁面後請點擊　“添加至Add to Pass2U”圖標以將流動保險證加到Pass2U錢包。如並未安裝 “Pass2U”請點擊 “立即下載 Google Play”。</li><li>非流動裝置：<br>請在如您正在使用非流動裝置，通過驗證頁面後請使用流動裝置掃瞄畫面中的二維碼以到達流動保險證下載版面。</li></ul>"
+    },{
+      "category":"流動保險證",
+      "id": 30,
+      "question_title": "為何我的流動保險證沒有顯示任何資料？",
+      "question_answer": "原因為驗證時間過長。請移除流動保險證及重新通過驗證下載流動保險證。"
+    },{
+      "category":"流動保險證",
+      "id": 31,
+      "question_title": "我可以將流動保險證分享或轉寄予他人嗎？",
+      "question_answer": "為保障您的私隱，請不要分享或轉寄驗證連結予保單無關的第三者。"
+    },{
+      "category":"Apple 裝置 - 流動保險證",
+      "id": 32,
+      "question_title": "什麼是Wallet/Passbook？",
+      "question_answer": "Wallet 是一個iOS應用程式，適用於運行iOS 9 或以上系統的iPhone 及iPod touch，及運行watchOS或以上系統的Apple Watch。<br><br>Passbook (Wallet 前身) 是一個iOS應用程式，適用於運行iOS 6，7或8的iPhone 及iPod touch。<br><br>Wallet/Passbook方便易用，讓您以數碼形式儲存及使用您的流動保險證，無須下載、使用特別的應用程序或從電郵短訊中找出保險證明書。"
+    },{
+      "category":"Apple 裝置 - 流動保險證",
+      "id": 33,
+      "question_title": "如何取得Wallet/Passbook？",
+      "question_answer": "運行iOS 9 或以上系統的iPhone和iPod touch以及運行watchOS或以上系統的Apple Watch已預載Wallet，而運行iOS 6，7或8的iPhone和iPod touch已預載Passbook。<br><br>如您的裝置正使用舊版的系統，請升級至iOS 9或以上版本以使用Wallet或iOS 6/7/8以使用Passbook。"
+    },{
+      "category":"Apple 裝置 - 流動保險證",
+      "id": 34,
+      "question_title": "Wallet/Passbook 適用於iPad嗎？",
+      "question_answer": "不適用。Wallet/Passbook只適用於運行iOS 6或以上版本的iPhone或 iPod touch。"
+    },{
+      "category":"Apple 裝置 - 流動保險證",
+      "id": 35,
+      "question_title": "Wallet適用於Apple Watch嗎？",
+      "question_answer": "適用。但請注意您只能透過流動裝置加入或刪除流動保險證。"
+    },{
+      "category":"Andriod 裝置 - 流動保險證",
+      "id": 36,
+      "question_title": "什麼是 “Pass2U”？",
+      "question_answer": "“Pass2U“是一個Android應用程式，適用於運行Android 3.0或以上系統之裝置。<br><br>“Pass2U“方便易用，讓您以數碼形式儲存及使用您的旅遊保險證，無須下載、使用特別的應用程序或從電郵短訊中找出證明書。"
+    },{
+      "category":"Andriod 裝置 - 流動保險證",
+      "id": 37,
+      "question_title": "如何取得 “Pass2U”？",
+      "question_answer": "請於以下Google Play 商店連結下載該應用程式:<br><a href=\"https://play.google.com/store/apps/details?id=com.passesalliance.wallet&hl=tc\" target=\"_blank\">https://play.google.com/store/apps/details?id=com.passesalliance.wallet&hl=tc</a>"
+    }
+  ]
+}

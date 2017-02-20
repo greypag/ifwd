@@ -93,7 +93,12 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 <%
 }
 %>
-
+<% if(request.getRequestURI().indexOf("/faq")>0) { %>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css_dir/faq.css">
+<% } %>
+<% if(request.getRequestURI().indexOf("/faq-detail")>0) { %>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css_dir/faq-detail.css">
+<% } %>
 <%
 	/**********
 	Custom CSS

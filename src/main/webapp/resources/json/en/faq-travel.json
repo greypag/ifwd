@@ -1,0 +1,201 @@
+{
+  "product":"TravelCare",
+  "category_widget":{
+      "list":[
+      "Applicant/Insured related questions",
+      "Claim related questions",
+      "Incident related issues",
+      "Mobile Insurance Pass",
+      "Pass in Apple device",
+      "Pass in Android device"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Applicant/Insured related questions",
+      "id": 1,
+      "question_title": "Can elderly over 80 years of age apply for the insurance?",
+      "question_answer": "For single trip travel insurance, the person insured can be up to 85 years old. For annual travel insurance, the insured age is up to 70."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 2,
+      "question_title": "Can newborn babies travelling along apply for the insurance?",
+      "question_answer": "Babies who are more than six weeks old and have their own birth certificates or passports can be insured."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 3,
+      "question_title": "Is there any limit for the number of children?",
+      "question_answer": "The maximum number of insured persons for every application is 15 (including the number of children)."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 4,
+      "question_title": "Is there any age limit for children?",
+      "question_answer": "Children must be between 6 weeks and 17 years of age. Anyone who is 18 years old or above is considered an adult."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 5,
+      "question_title": "How long can the insured period be?",
+      "question_answer": "The insured period can be at most 180 days for single trip travel insurance while 90 days per trip for annual travel insurance."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 6,
+      "question_title": "Must the insured travellers depart from Hong Kong?",
+      "question_answer": "Yes, the insured travellers must start and end their journey in Hong Kong."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 7,
+      "question_title": "If I am planning to study abroad, can I be insured with TravelCare?",
+      "question_answer": "No. TravelCare Insurance is specially designed for people travelling overseas from Hong Kong for leisure or business purposes. The journey should be no longer than 180 days for single trip travel insurance and 90 days for annual travel insurance."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 8,
+      "question_title": "If I am at overseas and wish to extend the policy period, can I do it through phone call?",
+      "question_answer": "Yes, Please contact our Customer Engagement Representative through (852) 3123-3123 for further details before the period of insurance ends. Please note that the maximum duration of journey is 180 days."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 9,
+      "question_title": "Is bodily injury caused by an act of terrorism included as one of the insured items?",
+      "question_answer": "Yes, TravelCare Insurance covers any bodily injury, death or medical treatment caused by an act of terrorism."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 10,
+      "question_title": "Are dangerous sports activities such as bungee jumping counted as one of the insured items?",
+      "question_answer": "Yes, as long as the insured person is not engaging in sports or games in a professional capacity or where the insured person would or could earn income or remuneration from engaging in such sport or game, the activity is insured. Leisure and amateur sport activities including winter sports, bungee jumping, hiking, rock climbing, horse riding, scuba diving are covered."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 11,
+      "question_title": "If bodily injuries and sickness arise during the journey, will the insured person be covered for follow-up medical treatment after he returns to Hong Kong?",
+      "question_answer": "The cover provided by the TravelCare Insurance includes medical treatment arising from bodily injuries or sickness contracted or sustained outside the usual country of residence during the journey. Payment for eligible expenses may be made up to HK$100,000 (including Chinese medicine practitioners, subject to the daily limit per visit of HK$200 and a total sub-limit of HK$3,000) for follow-up medical treatment of the insured person within 90 days of his return from the journey to the usual country of residence."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 12,
+      "question_title": "Is jewelry lost to robbery insured?",
+      "question_answer": "Yes, loss of jewelry and watches from baggage hand-carried by the insured or kept in the hotel safety deposit box is insured."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 13,
+      "question_title": "If the return trip is delayed due to bad weather and the period of insurance has commenced, do I have to purchase a new TravelCare Insurance?",
+      "question_answer": "The insurance cover provided will be automatically extended for a maximum period of 10 days in the event that the insured person is unavoidably delayed in the course of this scheduled itinerary as stipulated prior to departure. The maximum period of insurance for this policy shall be 180 consecutive calendar days."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 14,
+      "question_title": "Can I still apply for the insurance if I am already on my way to the airport?",
+      "question_answer": "You can still apply for the insurance up until you have completed your departure procedure."
+    },{
+      "category":"Claim related questions",
+      "id": 15,
+      "question_title": "How do I make claims?",
+      "question_answer": "Notice of any claim must be given to the company within thirty-one days of the expiry of this policy, and in the instance of a claim under the section on personal liability benefit, such notice must be given in writing as soon as possible and in any event not later than 14 days after the incident giving rise to such a claim.<br><br>Please download the \"Travel Insurance Claim Form\" according to the following steps:<br><ol><li>Visit our website<a href=\"http://www.fwd.com.hk/en\" target=\"_blank\">http://www.fwd.com.hk</a></li><li>Go to \"Customer Service\"</li><li>Go to \"Download Forms\"</li><li>Go to \"General Insurance\"</li><li>Go to \"Travel Insurance\" <a href=\"http://www.fwd.com.hk/en/support-claims/claims/travel-insurance/\" target=\"_blank\">http://www.fwd.com.hk/en/support-claims/claims/travel-insurance/</a></li></ol>"
+    },{
+      "category":"Claim related questions",
+      "id": 16,
+      "question_title": "Can I make claims if the period of compulsory quarantine due to infectious disease is less than one day?",
+      "question_answer": "No, but if the compulsory quarantine is over a continuous period of 24 hours, we will pay a cash allowance of HK$500 per day."
+    },{
+      "category":"Claim related questions",
+      "id": 17,
+      "question_title": "Am I insured if my mobile phone/ smart phone is stolen?",
+      "question_answer": "No, it is stated in the major exclusions section of the plan that mobile phones/ smart phones are not insured."
+    },{
+      "category":"Claim related questions",
+      "id": 18,
+      "question_title": "What should I be aware of when applying for baggage benefit?",
+      "question_answer": "The case of theft, loss or willful damage of baggage must be reported to the local police, the airline and any third parties liable within 24 hours of occurrence before being able to make the claim. Please refer to section 5 of the policy for more details."
+    },{
+      "category":"Claim related questions",
+      "id": 19,
+      "question_title": "Can I make a claim if there is a baggage delay?",
+      "question_answer": "Yes, we will pay up to the maximum limit in your selected policy for each insured person for the additional cost to get back the baggage or emergency purchase of essential items of toiletries or clothing consequent upon temporary deprivation to baggage for at least 6 hours from the time of arrival at destination abroad due to delay or misdirection in delivery. Please refer to section 6 of the policy for more details."
+    },{
+      "category":"Claim related questions",
+      "id": 20,
+      "question_title": "Am I able to make claims if I lose my cash or traveller cheques during the journey?",
+      "question_answer": "Yes, if the insured person experiences any loss of cash, banknotes or travellers cheques, however a report must be made to the local police where the loss occurs within 24 hours of the loss in order to make a claim for it. Please refer to section 7 of the policy for more details."
+    },{
+      "category":"Claim related questions",
+      "id": 21,
+      "question_title": "Are there any major exclusions?",
+      "question_answer": "The major exclusions are:<br><ol><li>War (whether declared or not), civil war, act of foreign enemies, rebellion, military or usurped power.</li><li>Nuclear hazards.</li><li>Acts of Terrorism (except the Personal Accident, Medical Cover, Worldwide Emergency Services, Travel Delay, Cancellation Charges and Trip Curtailment covered by TravelCare).</li><li>Pre-existing condition, congenital and hereditary condition.</li><li>Suicide, attempted suicide or intentional self-inflicted bodily injuries, insanity, abortion, miscarriage, assigned complications, pregnancy, child-birth, venereal diseases, the use of alcohol or drugs other than those prescribed by a qualified registered physician, dental treatment (unless resulting from accidental bodily injury to sound and natural teeth).</li><li>Racing (other than on foot) or any sports or games in a professional capacity or where the insured person would or could earn income or remuneration from engaging in such sport.</li><li>Any activities in the air unless an insured person is (i) travelling as a fare paying passenger in a licensed aircraft operated by a recognized airline, or (ii) participating in such activity where the maneuver or navigation of such activity is managed and controlled by another licensed person and the provider of such activity must be authorized by the relevant local authority.</li><li>Losses not reported within 24 hours to the authorities (such as airlines, police) and failure to provide the report certified by the relevant authorities.</li><li>Pager, mobile phone, handheld portable telecommunication equipment, computer equipment (except laptop computer).</li><li>Personal liabilities arising from use of operation of vehicles, aircraft, watercraft, willful, malicious or unlawful acts.</li></ol>"
+    },{
+      "category":"Incident related issues",
+      "id": 22,
+      "question_title": "If I terminate my policy, will the premium be returned?",
+      "question_answer": "For single trip travel insurance, the premium cannot be refunded after the policy has come into effect. For annual travel insurance, the premium can be refunded subject to policy terms. Please refer to the policy for details."
+    },{
+      "category":"Incident related issues",
+      "id": 23,
+      "question_title": "If I need emergency support while travelling abroad, what should I do?",
+      "question_answer": "Please contact the International SOS 24 hour emergency support service at (+852) 3122-2900. Their services include support for the lost travel documents and lost baggage, flight arrangements, emergency medical transportation, and the arrangement of hospital services. They can refer you to interpreters, legal organizations, consulates, and medical institutions. When you call, please be ready to give the following information:<br><br><ul><li>The insured person’s name, policy number, and Hong Kong identity card number or passport number,</li><li>The location of the accident or emergency and the contact phone for the insured person or his/her representative,</li><li>A description of the accident or emergency and what type of assistance is required.</li>"
+    },{
+      "category":"Incident related issues",
+      "id": 24,
+      "question_title": "If the Black Travel Alert is posted before I embark on the insured journey, will FWD cover the journey?",
+      "question_answer": "If the Black Travel Alert is posted at the planned destination within 7 days before the scheduled departure, you may choose to cancel the trip and receive compensation for the deposits or any part of the payment made in advance for travel tickets, accommodation, or tour packages which are forfeited and irrecoverable as a direct result, up to the maximum limit of HK$30,000 for Plan A, or HK$5,000 for Plan B."
+    },{
+      "category":"Incident related issues",
+      "id": 25,
+      "question_title": "If the Black Travel Alert is posted during my journey, will FWD cover it?",
+      "question_answer": "If the Black Travel Alert causes an early termination of your journey, you may receive compensation for the deposits or any part of the payment made in advance for travel tickets, accommodation, or tour packages which are forfeited and irrecoverable as a direct result. You may also receive compensation for the extra costs of your early return to Hong Kong. Again, the maximum benefits are HK$30,000 HKD for Plan A, and HK$5,000 for Plan B."
+    },{
+      "category":"Mobile Insurance Pass",
+      "id": 26,
+      "question_title": "What is TravelCare Mobile Insurance Pass?",
+      "question_answer": "TravelCare Mobile Insurance Pass includes the important information of the insurance certificate that you may need throughout your journey. Information includes the names of certificate holder and insured person(s), policy type, certificate number, period of insurance, policy details, schedule of benefits, worldwide emergency service hotline and FWD 24-hour service hotline."
+    },{
+      "category":"Mobile Insurance Pass",
+      "id": 27,
+      "question_title": "Is TravelCare Mobile Insurance Pass also available for family plan?",
+      "question_answer": "Yes. TravelCare Mobile Insurance Pass is available for both personal and family plans."
+    },{
+      "category":"Mobile Insurance Pass",
+      "id": 28,
+      "question_title": "How can I obtain my TravelCare Mobile Insurance Pass?",
+      "question_answer": "Simply verify your identity by following 2 steps to obtain the Mobile Insurance Pass:<br><br><b>Step 1:</b><br><br>1: Press “Download Mobile Insurance Pass” button on the purchase confirmation page or use your device to scan the QR code shown on the page; or<br><br>2: Click the hyperlink shown on the confirmation email.<br><br>The system will then direct you to the verification page.<br><br><b>Step 2:</b><br><br>Input the first 5 characters of your HKID/passport."
+    },{
+      "category":"Mobile Insurance Pass",
+      "id": 29,
+      "question_title": "How can I add the Mobile Insurance Pass in Wallet/Passbook/Pass2U?",
+      "question_answer": "<ul><li>iOS Device:<br>If you are using an iPhone or iPod touch with iOS 6 operating systems or later, simply tap the “Add to Apple Wallet” badge after the verification process and store the Mobile Insurance Pass in Wallet/Passbook.</li><li>Android Device:<br>If you are using an Android device with Android 3.0 operating systems or later with “Pass2U” installed, simply tap the “Add to Pass2U” badge after the verification process and store the Mobile Insurance Pass in “Pass2U” wallet. If “Pass2U” is not yet installed, please tap the “Get It On Google Play” badge.</li><li>Non-mobile device:<br>If you are using non-mobile device, please use a mobile device to scan the QR code shown on the page to access the Mobile Insurance Pass download page.</li></ul>"
+    },{
+      "category":"Mobile Insurance Pass",
+      "id": 30,
+      "question_title": "Why is there no information shown in the Mobile Insurance Pass?",
+      "question_answer": "The verification session has timed out. Please delete the Mobile Insurance Pass and re-submit the verification to download the Mobile Insurance Pass."
+    },{
+      "category":"Mobile Insurance Pass",
+      "id": 31,
+      "question_title": "Can I share or forward the Mobile Insurance Pass to others?",
+      "question_answer": "To protect your privacy, please do not share or forward the verification link to third party who is not related to the policy."
+    },{
+      "category":"Pass in Apple device",
+      "id": 32,
+      "question_title": "What is Wallet/Passbook?",
+      "question_answer": "Wallet is an iOS application, available for devices running iOS 9 or later on iPhone and iPod touch or watchOS or later on Apple Watch.<br><br>Passbook (early version of Wallet) is an iOS application available for devices running iOS6, 7 or 8 an iPhone and iPod touch.<br><br>Both of them allow you to easily store and access your Mobile Insurance Passes, without downloading or using the specific mobile app or even searching for your insurance certificate through email."
+    },{
+      "category":"Pass in Apple device",
+      "id": 33,
+      "question_title": "How can I get Wallet/Passbook?",
+      "question_answer": "If you are using iPhone or iPod touch updated with operating system iOS 9 or later, Wallet is pre-installed. If you are using iPhone or iPod touch updated with operating system iOS 6, 7 or 8, Passbook is pre-installed.<br><br>If your iPhone or iPod touch is using an older operating system version, please upgrade it to iOS 9 or later (Wallet) or iOS6/7/8 (Passbook) in order to enjoy the features."
+    },{
+      "category":"Pass in Apple device",
+      "id": 34,
+      "question_title": "Is Wallet/Passbook applicable to iPad?",
+      "question_answer": "No, Wallet/Passbook is only available for iPhone or iPod touch with iOS 6 operating system or later."
+    },{
+      "category":"Pass in Apple device",
+      "id": 35,
+      "question_title": "Is Wallet applicable to Apple Watch?",
+      "question_answer": "Yes, but please note that you can only add or delete the Mobile Insurance Pass through your mobile devices."
+    },{
+      "category":"Pass in Android device",
+      "id": 36,
+      "question_title": "What is “Pass2U”?",
+      "question_answer": "“Pass2U” is an Android application, which is available for devices running Android 3.0 or later.<br><br>“Pass2U” allow you to easily store and access your Mobile Insurance Pass, without downloading or using the specific mobile app or even searching for your insurance certificate through email."
+    },{
+      "category":"Pass in Android device",
+      "id": 37,
+      "question_title": "How can I get “Pass2U”?",
+      "question_answer": "Please get it through the following Google Play Store hyperlink:<br><a href=\"https://play.google.com/store/apps/details?id=com.passesalliance.wallet&hl=en\" target=\"_blank\">https://play.google.com/store/apps/details?id=com.passesalliance.wallet&hl=en</a>"
+    }
+  ]
+}

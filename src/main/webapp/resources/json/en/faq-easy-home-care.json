@@ -1,0 +1,133 @@
+{
+  "product":"Easy HomeCare",
+  "category_widget":{
+      "list":[
+      "Applicant/Insured related questions",
+      "Claim related questions",
+      "Renewal issues"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Applicant/Insured related questions",
+      "id": 1,
+      "question_title": "Is there a limit on the area and the age of the insured home?",
+      "question_answer": "Yes, Easy HomeCare Insurance is only applicable to any home below the net floor area of 1,000 sq. ft. and aged under 35 years."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 2,
+      "question_title": "Is the insurance applicable if I am living in a village house?",
+      "question_answer": "No, the insured home has to be above four stories high. For homes in buildings that are four stories or less, customers can still choose to purchase home insurance. Please contact us through our 24-hour Service Hotline: 3123-3123 for more information."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 3,
+      "question_title": "Is the loss or breakdown of mobile phones insured?",
+      "question_answer": "No, mobile phones are not covered under the policy."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 4,
+      "question_title": "Are my household contents insured when I am out travelling?",
+      "question_answer": "Yes, but we do not cover malicious damage, vandalism or escape of water or oil from any washing machine, dishwater or fixed domestic water or heating installation if the home has been unoccupied for more than 60 days."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 5,
+      "question_title": "If my home is leased or rented to others, is it still insured?",
+      "question_answer": "Yes, but we will only pay for part of the loss. For further details, please call our customer hotline: 3123-3123."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 6,
+      "question_title": "If I am moving, am I able to change the insured home to the new home?",
+      "question_answer": "Yes, if you inform us before your move and your new home is within the territory of Hong Kong, below net floor area of 1,000 sq. ft. and aged under 35 years, we will change the insured home to your new residence without any extra charge. Also, in the event your household contents are damaged while in transit we will pay up to HK$50,000 for a claim. We will also cover your household contents for a maximum period of two months from the beginning of the movie."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 7,
+      "question_title": "If I am moving to a new home which is aged over 35 years, is my new residence still insured?",
+      "question_answer": "Please notify us to go over an underwriting process when moving. Once the process has successfully gone through, we will issue a certificate and your new residence will be insured. If it is unsuccessful, we will refund the paid premiums by proportion. For more information on the refunding procedure, please call our 24-hour Service Hotline at 3123-3123 and ask our customer service officers."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 8,
+      "question_title": "Are the household contents still covered while undergoing interior renovation?",
+      "question_answer": "Yes, but the renovation shall not be longer than two months. We will cover the accidental damage of the household contents during the period of interior renovation. Any claim payment will not be more than HK$100,000."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 9,
+      "question_title": "Can I purchase Easy HomeCare Insurance for my parents?",
+      "question_answer": "Yes, as long as you (the policyholder) own or live in the insured home, you are able to purchase the Easy HomeCare Insurance."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 10,
+      "question_title": "Does Easy HomeCare Insurance also cover my family members’ household contents? Do I have to set them as policyholders?",
+      "question_answer": "Yes, household contents belonging to you, your spouse, children, parents or relatives living with you at the home are automatically insured. Their names do not need to be listed."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 11,
+      "question_title": "Is my domestic helper’s personal property insured under the policy?",
+      "question_answer": "Yes, we will pay for the loss of or damage to the personal property of your domestic helper. Any Claim Payment will not be more than HK$1,000 for any single item and up to HK$5,000 every year."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 12,
+      "question_title": "Are household contents put in outdoor areas or on the roof (such as barbecue ovens, beach chairs, and television antennas) insured under the policy?",
+      "question_answer": "No, household contents kept in open areas or on roofs are not insured."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 13,
+      "question_title": "Is the damage of household contents caused by my home pets insured under the policy?",
+      "question_answer": "No, damage caused by domestic pets is not insured."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 14,
+      "question_title": "Are the accidental loss and damage of my jewelry insured under the policy?",
+      "question_answer": "Yes, as long as the loss or damage of the jewelry is caused by fires, floods, water discharged or overflowing or leaking from any water system, typhoons, burglaries or other accidents. Any claim payment will not be more than HK$10,000 for any single item of valuables and the aggregate limit is HK$100,000 per year."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 15,
+      "question_title": "Are home appliances still insured under the policy regardless of their age?",
+      "question_answer": "Yes, regardless of their age, they are still insured."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 16,
+      "question_title": "If I am a tenant, can I purchase Easy HomeCare Insurance for the residence I am living at?",
+      "question_answer": "Yes, you are insured if you and your family members are tenants of your home. You are insured for loss or damage you have caused on the renovated parts of your home that you have stated responsibility for. Loss or damage of your household contents is also included."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 17,
+      "question_title": "Are there any major exclusions?",
+      "question_answer": "The major exclusions include: wear and tear, loss or damage arising from uninsurable risks such as domestic animals, loss of or damage to mobile phones, loss or damage if the home is unoccupied for more than 60 consecutive days, personal responsibilities for travelling out of Hong Kong exceeding 90 consecutive days and loss due to war risks. For more details, please refer to our policy provisions."
+    },{
+      "category":"Claim related questions",
+      "id": 18,
+      "question_title": "How do I make claims?",
+      "question_answer": "Notice of any claim must be given to the company within thirty-one days of the expiry of this policy, and in the instance of a claim under the section on personal liability benefit, such notice must be given in writing as soon as possible and in any event not later than 14 days after the incident giving rise to such a claim.<br><br>Please download the \"HomeCare Insurance Claim Form\" according to the following steps:<br><ol><li>Visit our website<a href=\"http://www.fwd.com.hk/en\" target=\"_blank\">http://www.fwd.com.hk</a></li><li>Go to \"Customer Service\"</li><li>Go to \"Download Forms\"</li><li>Go to \"General Insurance\"</li><li>Go to \"HomeCare Insurance Claim Form\" <a href=\"http://www.fwd.com.hk/~/media/Files/FWDHK/pdf/support-claims/forms/gi/home-care-insurance-claim-form.pdf\" target=\"_blank\">http://www.fwd.com.hk/~/media/Files/FWDHK/pdf/support-claims/forms/gi/home-care-insurance-claim-form.pdf</a></li></ol>"
+    },{
+      "category":"Claim related questions",
+      "id": 19,
+      "question_title": "Can I make claims for accidental death of me or my family?",
+      "question_answer": "Yes, in the event of accidental death of you or your family members within three calendar months as a direct result of fire or theft at your home, we will pay up to HK$200,000 per year."
+    },{
+      "category":"Claim related questions",
+      "id": 20,
+      "question_title": "When applying for a claim, how many days after the occurrence of the accident should I inform you?",
+      "question_answer": "When a claim occurs or is likely to occur, you must advise us in writing as soon as possible but not later than 30 days of the occurrence."
+    },{
+      "category":"Claim related questions",
+      "id": 21,
+      "question_title": "If my household contents require temporary removal from my home for cleaning, renovation or other similar purposes, am I able to make claims for damages caused in the process of removing my household contents?",
+      "question_answer": "Yes, but the removal will only be insured within Hong Kong."
+    },{
+      "category":"Renewal issues",
+      "id": 22,
+      "question_title": "If I am uninterested in renewing the insurance, should I notify you on cancelling the policy?",
+      "question_answer": "Yes, if you are not renewing, please write to inform us within 14 days before the premium payment due date, or your policy will be renewed automatically."
+    },{
+      "category":"Renewal issues",
+      "id": 23,
+      "question_title": "Can I cancel my insurance policy?",
+      "question_answer": "Yes, please write to inform us before the premium payment due date. If you do not make any claims within the effective days of your policy, you can get back part of the premium, but we will charge a minimum premium of no less than HK$200."
+    },{
+      "category":"Renewal issues",
+      "id": 24,
+      "question_title": "How do I cancel a policy?",
+      "question_answer": "If you are unwilling to renew the policy or would like to change the method of paying your premium or make amendments on any information, please ensure that you contact us and submit a signed statement within fourteen days before the premium payment due date to FWD Life Insurance Company (Bermuda) Limited.<br><br>Customer service centers<br><br><table><tbody><tr><td>Location</td><td>Address</td><td>Opening Hours</td></tr><tr><td>Tsim Sha Tsui  (Flagship Service Centre)</td><td>G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</td><td>Mon - Sat 10:00am to 8:00pm<br>Closed on Sun & Public Holidays</td></tr><tr><td>Sheung Wan</td><td>1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan</td><td>Mon - Sat 8:00am to 8:00pm <br>Closed on Sun & Public Holidays</td></tr><tr><td>Quarry Bay</td><td>13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay</td><td>Mon - Sat 8:00am to 8:00pm<br>Closed on Sun & Public Holidays</td></tr><tr><td>Kwun Tong</td><td>Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong</td><td>Mon - Fri 10:00 am - 2:00 pm and 3:00 pm - 6:00 pm<br>Closed on Sat, Sun & Public Holidays</td></tr><tr><td>Shatin</td><td>Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin</td><td>Mon - Fri 10:00 am - 2:00 pm and 3:00 pm - 6:00 pm <br>Closed on Sat, Sun & Public Holidays</td></tr></tbody></table>"
+    }
+  ]
+}
