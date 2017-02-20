@@ -30,14 +30,20 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 	<div class="container-fluid fwd-full-container eservices profile-active-page" id="savie-online-purchase-history">
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="row" id="purchase-history-page">
-				<h2><fmt:message key="label.fwd.member.account2" bundle="${msg}" /></h2>
+				<c:if test="${isFwdCust}"><h2><fmt:message key="label.fwd.customer.account" bundle="${msg}" /></h2></c:if>
+				<c:if test="${not isFwdCust}"><h2><fmt:message key="label.fwd.member.account2" bundle="${msg}" /></h2></c:if>
 				<div class="btn-group account-dropdown hidden-md hidden-lg clearfix">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						<span class="button-text"><fmt:message key="tab.member.profile" bundle="${msg}" /></span>
+						<span class="button-text">
+						<c:if test="${isFwdCust}"><fmt:message key="tab.customer.profile" bundle="${msg}" /></c:if>
+						<c:if test="${not isFwdCust}"><fmt:message key="tab.member.profile" bundle="${msg}" /></c:if></span>
 						<i class="fa fa-angle-down"></i>
 					</button>
 					<ul class="dropdown-menu" role="menu">
-						<li class="mobile-dropdown dropdown-profile active"><a href="#profile-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-profile active"><a href="#profile-tab-link" data-toggle="tab" aria-expanded="true">
+						<c:if test="${isFwdCust}"><fmt:message key="tab.customer.profile" bundle="${msg}" /></c:if>
+						<c:if test="${not isFwdCust}"><fmt:message key="tab.member.profile" bundle="${msg}" /></c:if>
+						</a></li>
 						<li class="mobile-dropdown dropdown-insurance-plan"><a href="#insurance-plan-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="mobile-dropdown dropdown-promo-offers"><a href="#promo-offers-tab-link" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
 						<c:if test="${isFwdCust}">
@@ -47,7 +53,10 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 				</div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
 					<ul class="nav nav-pills nav-stacked">
-						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#profile-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#profile-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span>
+						<c:if test="${isFwdCust}"><fmt:message key="tab.customer.profile" bundle="${msg}" /></c:if>
+						<c:if test="${not isFwdCust}"><fmt:message key="tab.member.profile" bundle="${msg}" /></c:if>
+						</a></li>
 						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#insurance-plan-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#promo-offers-tab-link"><span class="side-menu-icon hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
 						<c:if test="${isFwdCust}">
@@ -374,15 +383,17 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
-															<p class="info-data">${list.commencementDateDesc}</p>
+															<c:if test='${isFwdCust}'><p class="info-data">${list.commencementDateDesc}</p></c:if>
+															<c:if test='${not isFwdCust}'><p class="info-data"><fmt:message key="label.call_cs" bundle="${msg}" /></p></c:if>
 														</div>
 														<div class="col-xs-6 col-md-2 visible-md visible-lg mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p>
+															<c:if test='${isFwdCust}'><p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p></c:if>
+															<c:if test='${not isFwdCust}'><p class="info-data"><fmt:message key="label.hyphen" bundle="${msg}" /></p></c:if>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
-															<c:if test="${list.amount ne '0.0'}"><p class="info-data"><fmt:formatNumber value="${list.amount}" type="currency" currencySymbol="$" minFractionDigits="0" maxFractionDigits="2"/> (<fmt:message key="label.principal.asAt" bundle="${msg}" />${list.amountAsOfDate})</p></c:if>
+															<c:if test="${isFwdCust and list.amount ne '0.0'}"><p class="info-data"><fmt:formatNumber value="${list.amount}" type="currency" currencySymbol="$" minFractionDigits="0" maxFractionDigits="2"/> (<fmt:message key="label.principal.asAt" bundle="${msg}" />${list.amountAsOfDate})</p></c:if>
 															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
@@ -582,11 +593,13 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
-															<p class="info-data">${list.commencementDateDesc}</p>
+															<c:if test='${isFwdCust}'><p class="info-data">${list.commencementDateDesc}</p></c:if>
+															<c:if test='${not isFwdCust}'><p class="info-data"><fmt:message key="label.hyphen" bundle="${msg}" /></p></c:if>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.endDate" bundle="${msg}" /></h4>
-															<c:if test='${not empty list.expiryDateDesc}'><p class="info-data">${list.expiryDateDesc}</p></c:if>
+															<c:if test='${isFwdCust and not empty list.expiryDateDesc}'><p class="info-data">${list.expiryDateDesc}</p></c:if>
+															<c:if test='${not isFwdCust}'><p class="info-data"><fmt:message key="label.call_cs" bundle="${msg}" /></p></c:if>
 															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 													</div>
@@ -688,7 +701,10 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 						<p id="note"><fmt:message key="label.remark.status.account.value" bundle="${msg}" /></p>
 					</div>
 					<div id="eservices-tab-contents" class="content">
-						<h3 class="heading-title"><fmt:message key="label.member.detail" bundle="${msg}" /></h3>
+						<h3 class="heading-title">
+						<c:if test="${isFwdCust}"><fmt:message key="label.customer.detail" bundle="${msg}" /></c:if>
+						<c:if test="${not isFwdCust}"><fmt:message key="label.member.detail" bundle="${msg}" /></c:if>
+						</h3>
 						<div id="member-details">	
 							<div class="row member-data-holder">
 								<div class="text-bold col-xs-6 col-md-4 member-data-label">
@@ -1443,7 +1459,7 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 				$('#e-wallet-tab-contents').addClass('hidden');
 				$('.mobile-dropdown').removeClass('active');
 				$('.dropdown-profile').addClass('active');
-				var selText = '<fmt:message key="tab.member.profile" bundle="${msg}" />'; //'Profile';
+				var selText = '<c:if test="${isFwdCust}"><fmt:message key="tab.customer.profile" bundle="${msg}" /></c:if><c:if test="${not isFwdCust}"><fmt:message key="tab.member.profile" bundle="${msg}" /></c:if>'; //'Profile';
 		  		$('.dropdown-menu li a').parents('.btn-group').find('.dropdown-toggle').html(selText+' <i class="fa fa-angle-down"></i>');
 			} else if ($(this).hasClass('insurance-plan')) {
 				$('.eservices').addClass('insurance-active-page');
