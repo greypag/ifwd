@@ -153,6 +153,7 @@ public class AjaxLifeController extends BaseController{
 			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
 			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
 			if (saviePlanDetails != null) {
+				
 				savieOnlineService.getSavieApplicationByHkId(lifePersonalDetails.getHkid(), request);
 				int amount = Integer.valueOf(saviePlanDetails.getInsuredAmount());
 				String saviePlan = "";
@@ -188,6 +189,26 @@ public class AjaxLifeController extends BaseController{
 			jsonObject.put("errorMsg", e.getMessage());
 			logger.error(ExceptionUtils.getStackTrace(e));
 		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/cekcansurance"})
+	public void cekcansurance(LifePersonalDetailsBean lifePersonalDetails ,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+				
+			try {
+				savieOnlineService.getSavieApplicationByHkIdPlanCode(lifePersonalDetails.getHkid(),"HCP1", request);
+			} catch (ECOMMAPIException e) {
+				// TODO Auto-generated catch block
+				jsonObject.put("errorMsg", e.getMessage());
+				logger.info(jsonObject.toString());
+				
+			}
+		
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}

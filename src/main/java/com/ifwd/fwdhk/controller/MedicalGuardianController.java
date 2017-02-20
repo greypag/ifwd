@@ -451,6 +451,7 @@ public class MedicalGuardianController extends BaseController {
 			request.setAttribute("plan", "medical-insurance/cansurance");
 			session.setAttribute("fname", lifePersonalDetails.getFirstname());
 			session.setAttribute("lname", lifePersonalDetails.getLastname());
+			session.setAttribute("emailAddress", lifePersonalDetails.getEmailAddress());
 			
 			model.addAttribute("campaignTypeId", 0);
 			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_PAYMENT);
@@ -493,6 +494,7 @@ public class MedicalGuardianController extends BaseController {
 		
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		String documentUploadYes = (String) request.getSession().getAttribute("documentUploadYes");
+		String sendEmailsYes = (String) request.getSession().getAttribute("sendEmailsYes");
 		if(documentUploadYes == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
 		}
@@ -500,6 +502,21 @@ public class MedicalGuardianController extends BaseController {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
 		}
 		else{
+			
+			JSONObject models = new JSONObject();
+			models.put("name", session.getAttribute("fname"));
+			
+			if(sendEmailsYes == null){
+				try {
+					savieOnlineService.sendEmails(request, "cansuranceComplete", models); 
+					session.removeAttribute("emailAddress");
+					request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 			model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
 			model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
 			GetVulnerableCustomerResponse vulnerableCustomerResponse=new GetVulnerableCustomerResponse();

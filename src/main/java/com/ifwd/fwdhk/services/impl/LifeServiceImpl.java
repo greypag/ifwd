@@ -3827,6 +3827,10 @@ public class LifeServiceImpl implements LifeService {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 			subject = "FWD Medical Insurance Plan – Document Upload [" + lifePolicy.getPolicyNo() + "] | 富衛醫療保險 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "rophi\\uploadDocument.html";
+		}else if("cansuranceComplete".equals(action)) {
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+			subject = "FWD Medical Insurance Plan - Complete [" + lifePolicy.getPolicyNo() + "] | 您的網上富衛醫療保險申請已完成！ [" + lifePolicy.getPolicyNo() + "]";
+			template = "cansurance\\cansuranceComplete.html";
 		}else if("provie-o2o-rp".equals(action)) {
 			subject = "Provie Appointment Acknowledgement from FWD | Provie真息揀理財壽險計劃申請確認";
 			template = "provie\\provie-o2o-rp.html";
@@ -4335,6 +4339,33 @@ public class LifeServiceImpl implements LifeService {
 				JSONArray jsonArray = (JSONArray) responseJsonObj.get("policies");
 				if(jsonArray.size()>0){
 					throw new ECOMMAPIException("you can only buy one savie");
+				}
+			}
+			else{
+				logger.error(responseJsonObj.get("errMsgs").toString());
+				throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+			}
+		}
+	}
+	
+	public void getSavieApplicationByHkIdPlanCode(String hkid,String planCode,HttpServletRequest request) throws ECOMMAPIException {
+		String Url = UserRestURIConstants.SERVICE_URL + "/savie/application/plancodehkid";
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("hkId", hkid);
+		jsonObject.put("planCode", planCode);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		logger.info("***********responseJsonObj****************:"+responseJsonObj);
+		
+		if(responseJsonObj==null){
+			logger.error("getSavieApplicationByHkIdPlanCode data error: responseJsonObj=null");
+			throw new ECOMMAPIException("data error");
+		}
+		else{
+			if (responseJsonObj.get("errMsgs") == null) {
+				JSONArray jsonArray = (JSONArray) responseJsonObj.get("policies");
+				if(jsonArray.size()>0){
+					throw new ECOMMAPIException("you can only buy one cansurance");
 				}
 			}
 			else{
