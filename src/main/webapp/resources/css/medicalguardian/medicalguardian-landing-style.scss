@@ -3,6 +3,7 @@
 }
 .pv_title{
 	font-weight : 700;
+	font-size : 1.2em;
 }
 .collapse{
 	width : 100%
@@ -10,6 +11,7 @@
 }
 .panel-body{
 	color:#333 !important;
+	padding : 15px !important;
 }
 
 #plan-details-same-and-faq{
@@ -17,16 +19,37 @@
 }
 
 #pv_claims{
+	background : #F1F1F1;
 	max-width: 1050px;
 	margin:auto;
+	h2{
+		color : #ff8200;
+	}
 	.pv_title{
 		text-align:center;
+		color : #ff8200 !important;
 	}
 	.pv_feature_box{
 		background: #e1e1e4;
 		padding : 30px;
 		&:hover{
 		background: #fbb631;
+		}
+	}
+
+	#payment-filter{
+		.thumbnail{
+			background : #F1F1F1;
+			&:hover{
+				background : #fbb631;
+			}
+		}
+	}
+
+	.btn-group{
+		text-align:center;
+		.btn{
+			float:none;
 		}
 	}
 
@@ -58,6 +81,9 @@
 		.panel-heading{
 			background:none;
 		}
+	}
+	img{
+		width:100%;
 	}
 }
 #pv_schedule{
@@ -110,7 +136,15 @@
 	.no_order{
 		list-style: none;
 	}
-	.pv_title{
-		font-weight : 700;
+}
+
+
+
+@media (max-width:991px){
+	#payment-filter{
+		.thumbnail{
+			min-height:160px;
+			max-height:160px;
+		}
 	}
 }

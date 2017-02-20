@@ -61,6 +61,11 @@ $(document).ready(function(){
 		$(window).resize(function(){
 		     togglePanel();
 		});
+		
+		$("#pv_claims .dropdown-menu li a").on("click",function(){
+			var that = this;
+			setTimeout(function (){$(that).parent('li').removeClass('active');}, 300);
+		});
 
 		togglePanel();
 });

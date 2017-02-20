@@ -122,13 +122,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseCover" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-2 col-sm-2">
-									  		image
+									  		<div class="col-xs-3 col-sm-2">
+									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_01.png" alt=""> 
 									  		</div>
 									  		<div class="col-sm-4 hidden-xs">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.1.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-10 col-sm-6">
+									  		<div class="col-xs-9 col-sm-6">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.1.1" bundle="${medicalguardianMsg}" /></li>
 									  			</ul>
@@ -157,13 +157,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseAddon" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-2 col-sm-2">
-									  		image
+									  		<div class="col-xs-3 col-sm-2">
+									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_02.png" alt="">
 									  		</div>
 									  		<div class="col-sm-4 hidden-xs">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.2.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-10 col-sm-6">
+									  		<div class="col-xs-9 col-sm-6">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.2.1" bundle="${medicalguardianMsg}" /></li>
 									  				<li><fmt:message key="medicalguardian.feature.2.2" bundle="${medicalguardianMsg}" /></li>
@@ -193,13 +193,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseCoverPeriods" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-2 col-sm-2">
-									  		image
+									  		<div class="col-xs-3 col-sm-2">
+									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_03.png" alt="">
 									  		</div>
 									  		<div class="col-sm-4 hidden-xs">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.3.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-10 col-sm-6">
+									  		<div class="col-xs-9 col-sm-6">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.3.1" bundle="${medicalguardianMsg}" /></li>
 									  				<li><fmt:message key="medicalguardian.feature.3.2" bundle="${medicalguardianMsg}" /></li>
@@ -231,13 +231,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseExtraSup" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-2 col-sm-2">
-									  		image
+									  		<div class="col-xs-3 col-sm-2">
+									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_04.png" alt="">
 									  		</div>
 									  		<div class="col-sm-4 hidden-xs">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.4.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-10 col-sm-6">
+									  		<div class="col-xs-9 col-sm-6">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.4.1" bundle="${medicalguardianMsg}" /></li>
 									  				<li><fmt:message key="medicalguardian.feature.4.2" bundle="${medicalguardianMsg}" /></li>
@@ -267,13 +267,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseOneStop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-2 col-sm-2">
-									  		image
+									  		<div class="col-xs-3 col-sm-2">
+									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_05.png" alt="">
 									  		</div>
 									  		<div class="col-sm-4 hidden-xs">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.5.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-10 col-sm-6">
+									  		<div class="col-xs-9 col-sm-6">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.5.1" bundle="${medicalguardianMsg}" /></li>
 									  			</ul>
@@ -302,13 +302,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseTil100" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-2 col-sm-2">
-									  		image
+									  		<div class="col-xs-3 col-sm-2">
+									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_06.png" alt="">
 									  		</div>
 									  		<div class="col-sm-4 hidden-xs">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.6.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-10 col-sm-6">
+									  		<div class="col-xs-9 col-sm-6">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.6.1" bundle="${medicalguardianMsg}" /></li>
 									  			</ul>
@@ -376,49 +376,49 @@ var home_url = "<%=request.getContextPath()%>";
 										<span class="pv_title"><fmt:message key="medicalguardian.schedule.cancer.benefit.title" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									<div class="col-xs-12 gray-divide"></div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.cancer.benefit.text" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.full.cover" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.cancer.benefit.text1" bundle="${medicalguardianMsg}" /></span>
 										<ul>
 											<li><fmt:message key="medicalguardian.schedule.cancer.benefit.text1.1" bundle="${medicalguardianMsg}" /></li>
 											<li><fmt:message key="medicalguardian.schedule.cancer.benefit.text1.2" bundle="${medicalguardianMsg}" /></li>
 										</ul>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.full.cover" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.cancer.benefit.text2" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.full.cover" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.cancer.benefit.text3" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.full.cover" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									<div class="col-xs-12 gray-divide"></div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.cancer.benefit.text4" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.500000" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.cancer.benefit.text5" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.1500000" bundle="${medicalguardianMsg}" /></span>
 									</div>	
 								</div>
@@ -432,52 +432,52 @@ var home_url = "<%=request.getContextPath()%>";
 										<span class="pv_title"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.title1" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									<div class="col-xs-12 gray-divide"></div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.text" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.500" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.text1" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.500" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.text2" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.500" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.text3" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.500" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.text4" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.1000" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.text5" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.1000" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.text6" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.300" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.text7" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.5000" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									<div class="col-xs-12">
@@ -490,10 +490,10 @@ var home_url = "<%=request.getContextPath()%>";
 										<span class="pv_title"><fmt:message key="medicalguardian.schedule.death.benefit.title" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									<div class="col-xs-12 gray-divide"></div>
-									<div class="col-xs-8">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.death.benefit.text" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-4">
+									<div class="col-xs-3">
 										<span class="pv_price"><fmt:message key="medicalguardian.schedule.price.10000" bundle="${medicalguardianMsg}" /></span>
 									</div>
 								</div>
@@ -668,43 +668,187 @@ var home_url = "<%=request.getContextPath()%>";
 		<div id="pv_claims" class="pv_sec_features container">
             	<div class="fwd-container-limit">
             		<div class="row">
-            			<div class="col-xs-12">
-            				<h2 class="pv_title">CLAIMS</h2>
+            			<%-- <div class="col-xs-12">
+            				<h2 class="pv_title">We are here for you</h2>
             			</div>
 						<div class="pv_feature_wrap">
-
-							<div id="claims_livechat" class="col-xs-4 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
-								<h3 class="pv_feature_title">Live Chat</h3>
-								<p class="pv_feature_desc hidden-xs"><span class="pv_remark"></span></p>
-							</div>
-
-							<div id="claims_claims" class="col-xs-4 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt='2' class="img_responsive">
-								<h3 class="pv_feature_title">Claims</h3>
-								<div class="visible-xs">
-									<a class="pop-youtube" href="#vModal" data-toggle="modal" data-youtube-link="2">
-									</a>
-								</div>
-								<div class="pv_feature_desc hidden-xs">
-									<div>
-									</div>
-								</div>
-							</div>
-							
-							<div id="claims_24h_hotline" class="col-xs-4 col-lg-4 pv_feature_box text-center">
+						<div>
+							<div id="claims_24h_hotline" class="col-xs-12 col-sm-4 pv_feature_box text-center">
 								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
 								<h3 class="pv_feature_title">24-hour Service Hotline</h3>
-								<p class="pv_feature_desc hidden-xs"><span class="pv_remark"></span></p>
+								<p class="pv_feature_desc hidden-xs"><span class="pv_remark">Our team of Customer Engagement Representatives is at your service 24/7 to address your insurance needs. Call us at 3123 3123.</span></p> 
+							</div>
+							
+							<div id="claims_livechat" class="col-xs-12 col-sm-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
+								<h3 class="pv_feature_title">Live Chat</h3>
+								<p class="pv_feature_desc hidden-xs"><span class="pv_remark">Need live support? Chat in real-time with our Customer Engagement Representatives to have your questions answered. </span></p> 
+							</div>
+							
+							<div id="claims_email" class="col-xs-12 col-sm-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
+								<h3 class="pv_feature_title">Email</h3>
+								<p class="pv_feature_desc hidden-xs"><span class="pv_remark">Have questions or comments for us? Drop us an email at cs.hk@fwd.com and one of our Customer Engagement Representatives will respond to your enquiry as soon as possible.</span></p>
+							</div>
+						</div>	
+						
+						<div>
+							<div id="claims_inperson" class="col-xs-12 col-sm-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
+								<h3 class="pv_feature_title">In Person</h3>
+								<p class="pv_feature_desc hidden-xs"><span class="pv_remark">Drop by the nearest FWD Customer Service Centre if you need our service in person. We’ll be happy to help.</span></p> 
 							</div>
 
-							<div class="clearfix hidden-lg"></div>
+							<div id="claims_claims" class="col-xs-12 col-sm-4 pv_feature_box text-center">
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt='2' class="img_responsive">
+								<h3 class="pv_feature_title">Claims</h3>
+								 <p class="pv_feature_desc hidden-xs">
+									<span class="pv_remark">Making a claim has never been easier. We have developed a simple, quick and easy claims process for you. Click here to learn more.</span>
+								</p> 
+							</div>
+						</div>	
+						</div> --%>
+						<div class="text-center">
+			                <h2 class="pv_title"><fmt:message key="medicalguardian.claims" bundle="${medicalguardianMsg}" /></h2>
+			            </div>
+						<ul id="payment-filter" class="payment-filter hidden-xs nav nav-tabs l_tinynav1" role="tablist">
+			                <li role="presentation" class="col-sm-2 col-sm-offset-1 text-center">
+			                    <div class="thumbnail">
+			                        <div class="caption">
+			                            <div class="table">
+			                                <a class="table-cell text-center hvr-icon-rotate" href=".call" role="tab" data-toggle="tab">
+			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_01.png" alt="" width="201" height="201">
+			                                    <span class="pv_title"><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></span></a>
+			                            </div>
+			                        </div>
+			                        <div class="pointer"></div>
+			                    </div>
+			                </li>
+			                <li role="presentation" class="col-sm-2 text-center">
+			                    <div class="thumbnail">
+			                        <div class="caption">
+			                            <div class="table">
+			                                <a class="table-cell text-center hvr-icon-rotate" href=".live_chat" role="tab" data-toggle="tab">
+			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_02.png" alt="" width="201" height="201">
+			                                    <span class="pv_title"><br><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></span></a>
+			                            </div>
+			                        </div>
+			                        <div class="pointer"></div>
+			                    </div>
+			                </li>
+			                <li role="presentation" class="col-sm-2 text-center">
+			                    <div class="thumbnail">
+			                        <div class="caption">
+			                            <div class="table">
+			                                <a class="table-cell text-center hvr-icon-rotate" href=".email" role="tab" data-toggle="tab">
+			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_03.png" alt="" width="201" height="201"> 
+			                                    <span class="pv_title"><br><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></span></a>
+			                            </div>
+			                        </div>
+			                        <div class="pointer"></div>
+			                    </div>
+			                </li>
+			                <li role="presentation" class="col-sm-2 text-center">
+			                    <div class="thumbnail">
+			                        <div class="caption">
+			                            <div class="table">
+			                                <a class="table-cell text-center hvr-icon-rotate" href=".in_person" role="tab" data-toggle="tab">
+			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_04.png" alt="" width="201" height="201"> 
+			                                    <span class="pv_title"><br><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></span></a>
+			                            </div>
+			                        </div>
+			                        <div class="pointer"></div>
+			                    </div>
+			                </li>
+			                <li role="presentation" class="col-sm-2 text-center">
+			                    <div class="thumbnail">
+			                        <div class="caption">
+			                            <div class="table">
+			                                <a class="table-cell text-center hvr-icon-rotate" href=".claims" role="tab" data-toggle="tab">
+			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_05.png" alt="" width="201" height="201"> 
+			                                    <span class="pv_title"><br><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></span></a>
+			                            </div>
+			                        </div>
+			                        <div class="pointer"></div>
+			                    </div>
+			                </li>
+			            </ul>
+				            <div class="btn-group visible-xs">
+							  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+							    Action
+							    <span class="caret"></span>
+							  </a>
+							  <ul class="dropdown-menu">
+							    <!-- dropdown menu links -->
+							    <li><a href=".call" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href=".live_chat" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href=".email" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href=".in_person" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href=".claims" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></a></li>
+							  </ul>
+							</div>
 
-							
-						</div>
+			            <div class="tab-content payment-tab">
+			                <div role="tabpanel" class="tab-pane call">
+			                    <div class="row">
+			                        <div class="col-sm-10 col-sm-offset-1">
+			                            <div class="content text-center">
+			                            	<h2><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></h2>
+			                                <p><fmt:message key="medicalguardian.claims1.1" bundle="${medicalguardianMsg}" /></p>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			                <div role="tabpanel" class="tab-pane live_chat">
+			                    <div class="row">
+			                        <div class="col-sm-10 col-sm-offset-1">
+			                            <div class="content text-center">
+			                                <h2><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></h2>
+			                                <p><fmt:message key="medicalguardian.claims2.1" bundle="${medicalguardianMsg}" /></p>
+			                                <!-- <a class="btn btn-primary text-uppercase full-width livechat_button">Chat Now</a> -->
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			                <div role="tabpanel" class="tab-pane email">
+			                    <div class="row">
+			                        <div class="col-sm-10 col-sm-offset-1">
+			                            <div class="content text-center">
+			                                <h2><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></h2>
+			                                <p><fmt:message key="medicalguardian.claims3.1" bundle="${medicalguardianMsg}" /></p>
+			                             </div>
+			                        </div>
+			                    </div>
+			                </div>
+			                <div role="tabpanel" class="tab-pane in_person">
+			                    <div class="row">
+			                        <div class="col-sm-10 col-sm-offset-1">
+			                            <div class="content text-center">
+			                                <h2><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></h2>
+			                                <p><fmt:message key="medicalguardian.claims4.1" bundle="${medicalguardianMsg}" /></p>
+											                            
+										</div>
+			                        </div>
+			                    </div>
+			                </div>
+			                <div role="tabpanel" class="tab-pane claims">
+			                    <div class="row">
+			                        <div class="col-sm-10 col-sm-offset-1">
+			                            <div class="content text-center">
+			                               
+			                                <h2><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></h2>
+			                                <p><fmt:message key="medicalguardian.claims5.1" bundle="${medicalguardianMsg}" /></p>
+			                                <!-- <a href="/en/support-claims/eservices-app" class="btn btn-primary text-uppercase full-width">Learn More</a>    -->                         </div>
+			                        </div>
+			                    </div>
+			                </div>
+			
+			            </div>
             		</div>
             	</div>
             </div>
+            
+            
             <%-- <div class="regular-benefit">
                     <div class="hidden-xs hidden-sm">
                 <h3 class="benefits-desktop text-center"><fmt:message key="label.product.benefit" bundle="${msg}" /></h3>
