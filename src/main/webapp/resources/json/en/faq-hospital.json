@@ -1,0 +1,66 @@
+{
+  "product":"Hospital",
+  "category_widget":{
+      "list":[
+      "Product Features",
+      "Application",
+      "Policy Services"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Product Features",
+      "id": 1,
+      "question_title": "For Confinement, what is the minimum duration period in order to count as a day?",
+      "question_answer": "\"Confinement\" means the Insured is required to be continuously confined in the Hospital for not less than 6 consecutive hours throughout the period from the Insured’s admission until Discharge."
+    },
+    {
+      "category":"Product Features",
+      "id": 2,
+      "question_title": "I already have medical insurance, can I apply for EasyHealth Refundable Hospital Income Plan?",
+      "question_answer": "Yes, EasyHealth Refundable Hospital Income Plan is a standalone insurance plan. It does not clash with your current medical insurance plan."
+    },
+    {
+      "category":"Product Features",
+      "id": 3,
+      "question_title": "Can I upgrade or downgrade the plan type during my contribution period?",
+      "question_answer": "No, the policy requires a 10 year contribution period with 15 years of coverage. Once applied, no upgrade or downgrade of plan type is allowed."
+    },
+    {
+      "category":"Application",
+      "id": 4,
+      "question_title": "Can my premium be paid by another person?",
+      "question_answer": "No, you may either upload the documents later, or bring them in person to our customer service center. However, please note that supplemental documents must be submitted within a specific period after policy issuance."
+    },
+    {
+      "category":"Application",
+      "id": 5,
+      "question_title": "Do I have to submit all the supporting documents during the online application?",
+      "question_answer": "No, you may either upload the documents later, or bring them in person to our customer service center. However, please note that supplemental documents must be submitted within a specific period after policy issuance."
+    },
+    {
+      "category":"Policy Services",
+      "id": 6,
+      "question_title": "If I surrender this Policy before the Maturity Date, can I get back the premium I paid?",
+      "question_answer": "Yes, but you will only be refunded part of the premium paid. If you surrender this policy before the Maturity Date, FWD will pay the Surrender Benefit which is expressed as a percentage of the actual total premium paid under this Policy up to the date of surrender, as set out below: <table> <tbody><tr> <td>Surrender during Policy Year</td><td>Surrender during Policy Year</td></tr><tr> <td>0-5</td><td>0%</td></tr><tr> <td>6</td><td>10%</td></tr><tr> <td>7</td><td>20%</td></tr><tr> <td>8</td><td>30%</td></tr><tr> <td>9</td><td>40%</td></tr><tr> <td>10</td><td>50%</td></tr><tr> <td>11</td><td>60%</td></tr><tr> <td>12</td><td>70%</td></tr><tr> <td>13</td><td>80%</td></tr><tr> <td>14</td><td>90%</td></tr><tr> <td>15</td><td>100%</td></tr><tr> <td>Maturity</td><td>102%</td></tr></tbody></table>"
+    }, 
+    {
+      "category":"Policy Services",
+      "id": 7,
+      "question_title": "If the insured dies before the Maturity Date, how is death benefit paid?",
+      "question_answer": "We will pay to the Beneficiary 150% of the total annualized premium under this Policy and we will deduct unpaid premium of that policy year (if any) from the total payable benefit."
+    },
+    {
+      "category":"Policy Services",
+      "id": 8,
+      "question_title": "If the insured dies as a result of an Accident, what is the compensation?",
+      "question_answer": "If the death of the insured is caused by Accident, we will pay a Death Benefit equivalent to 150% of the total annualized premium paid, together with an extra Accidental Death benefit of 50% of total annualized premium paid. In total, 200% of total annualized premium paid is payable and we will deduct unpaid premium of that policy year (if any) from the total payable benefit."
+    },
+    {
+      "category":"Policy Services",
+      "id": 9,
+      "question_title": "What does Covered Infectious Disease include?",
+      "question_answer": "Infectious Diseases include: <ol> <li>Malaria</li><li>Cholera</li><li>Dengue Fever</li><li>Tetanus</li><li>Measles</li><li>Rabies</li><li>Yellow Fever</li><li>Scarlet Fever</li><li>SARS</li><li>Japanese Encephalitis</li><li>Meningococcal Infection</li><li>Creutzfeldt-Jakob Disease (Mad Cow Disease)</li><li>Legionellosis</li><li>Amebicdysentery</li><li>Anthrax</li><li>Leprosy</li><li>Diphtheria</li><li>Acute Poliomyelitis</li><li>Plague</li><li>Tuberculosis</li></ol>"
+    }                                                                                                                                     
+  ]
+}

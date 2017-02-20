@@ -1,0 +1,113 @@
+{
+  "product":"\"MonCare\" Mobile Screen Protection Plan",
+  "category_widget":{
+      "list":[
+      "About Product & Registration",
+      "About Claims"
+    ]
+  },
+  "questions":[
+    {
+      "category":"About Product & Registration",
+      "id": 1,
+      "question_title": "How many days do I have to register the \"MonCare\" Mobile Screen Protection Plan upon purchase of my new Sony Xperia™ mobile phone?",
+      "question_answer": "You must register the \"MonCare\" Mobile Screen Protection Plan within 14 days (calendar days) after purchasing your mobile from a Sony Xperia™ authorised dealer in Hong Kong."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 2,
+      "question_title": "How do I register for the free \"MonCare\" Mobile Screen Protection Plan after purchasing a Sony Xperia™ mobile?",
+      "question_answer": "<h3>Step 1:</h3>When you purchase a designated Sony Xperia™ mobile at an authorised dealer, a promotion card containing a printed iFWD URL and a QR code will be given to you. You may scan the QR code for the connection to iFWD website for registration. Or you may go to iFWD website directly.<br><br><h3>Step 2:</h3>Enter the unique IMEI number of your Sony Xperia™ phone, then click \"Get Started\". (Please read our Personal Information Collection Statement and the terms and conditions. You must agree to consent to our use of your personal data for direct marketing and provision of your personal data to other parties and FWD companies and agree to the terms and conditions to enjoy this free screen protection plan.)<br><br><h3>Step 3:</h3>Register as a FWD member. Existing members can just use their login.<br><br><h3>Step 4:</h3>Enter Sony Xperia™ mobile phone information including purchase date and choose the name of the authorized dealer.<br><br><h3>Step 5:</h3>After the registration, your free \"MonCare\" Mobile Screen Protection Plan policy will be emailed to you and the policy will take effect immediately.<br><br>"
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 3,
+      "question_title": "What does the free \"MonCare\" Mobile Screen Protection Plan cover?",
+      "question_answer": "The policy will cover accidental damage to the screen of designated new Sony Xperia™ mobile phones purchased by you from a <a  target=\"_blank\" href=\"http://sonyxperiahk.com/dealer_fwd/\">Sony Xperia™ authorized dealer</a> in Hong Kong. During the policy period, if you break your mobile screen by accident anywhere in the world and it is repaired at Sony Xperia™ Customer Service Center (Repair Center) in Hong Kong, we will reimburse up to HK$800 once per policy period."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 4,
+      "question_title": "Are all Sony XperiaTM phone models purchased from authorized dealers eligible for registration under the \"MonCare\" Mobile Screen Protection Plan?",
+      "question_answer": "Only the following Sony XperiaTM phone models are eligible for registration under the free \"MonCare\" Mobile Screen Protection Plan: <ul><li>Sony Xperia™ XZ</li><li>Sony Xperia™ X Compact</li><li>Sony Xperia™ X Performance</li><li>Sony Xperia™ X</li><li>Sony Xperia™ XA Ultra</li><li>Sony Xperia™ XA</li><li>Sony Xperia™ Z5 Premium</li><li>Sony Xperia™ Z5</li></ul>"
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 5,
+      "question_title": "My Sony Xperia™ mobile was purchased overseas, can I register for the free \"MonCare\" Mobile Screen Protection Plan?",
+      "question_answer": " No. All designated new Sony Xperia™ mobiles must be purchased during the promotion period  (1 August 2016 – 30 November 2016 (both days inclusive)) from Sony Xperia™ authorised dealers in Hong Kong.  For details, please visit <a target=\"_blank\" href=\"http://sonyxperiahk.com/dealer_fwd\">here</a>."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 6,
+      "question_title": "How long does the promotion period last? When is the last registration date of this Plan?",
+      "question_answer": "The promotion period is from 1 August 2016 to 31 October 2016 (both dates inclusive). Since the Offer must be redeemed within 7 days from the date of purchase (including the date of purchase), so the last registration date of this Plan is 6 November, 2016."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 7,
+      "question_title": "My purchase invoice was lost / My mobile is a gift without an invoice, can I register the free \"MonCare\" Mobile Screen Protection Plan?",
+      "question_answer": "You do not need to provide the purchase invoice when registering for the \"MonCare\" Mobile Screen Protection Plan. However, a valid purchase invoice is required to complete the whole claim registration.  If you lost the purchase invoice or you do not have the purchase invoice, please visit the Sony Xperia™ authorized dealer  to reissue a new purchase invoice or retrieve you purchase invoice.<br><br>To register for the free \"MonCare\" Mobile Screen Protection Plan, you just need to input the information of your mobile including the IMEI number, purchase date and the name of authorized dealer. Please be aware that you must provide a purchase invoice issued by a Sony Xperia™ authorized dealer when you make a claim.<br><br>Any claim must be made within 30 calendar days after the repair is completed at the Sony Xperia™ Customer Service Center (Repair Center) .  You can fill in an online claim form at <a target=\"_blank\" href=\"https://i.fwd.com.hk/screen-insurance/en/claim-online\">iFWD website</a> and upload the purchase invoice issued by any Sony Xperia™ authorized dealer, the repair invoice and the maintenance order** issued by the authorized Sony Xperia™ repairer.<br><br>**Please request the maintenance order together with the repair invoice at the authorized Sony Xperia™ Customer Service Center (Repair Center)."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 8,
+      "question_title": "How do I find the IMEI number of my Sony Xperia™ mobile?",
+      "question_answer": "The IMEI number of your Sony Xperia™ mobiles can be found through the following ways: <ul> <li>The purchase invoice issued by Sony Xperia™ authorized dealers in Hong Kong</li><li>From your Sony Xperia™ mobile label tray <ul> <li>Open the cover for the nano / micro SIM card and memory card slot</li><li>Remove the holder of the SIM card and memory card to view your IMEI number</li><li>You can also open the phone dialer on your device and enter *#06# to view the IMEI number</li><img src=\"https://i.fwd.com.hk/resources/images/sony_mobile_imei.png\"> </ul> </li><li>To view your IMEI number via the device settings <ul> <li> From your Home screen, tap <img src=\"https://i.fwd.com.hk/resources/images/sony_screen_menu.png\"> </li><li>Find and tap <b>Settings&gt;About phone&gt;Status&gt;IMEI information</b>.</li></ul> </li></ul>"
+    },        
+    {
+      "category":"About Product & Registration",
+      "id": 9,
+      "question_title": "Can a non-HKID card holder enroll \"MonCare\" Mobile screen Protection Plan?",
+      "question_answer": "Yes, you can. Please enter your passport number to enroll in the plan."
+    },
+    {
+      "category":"About Claims",
+      "id": 10,
+      "question_title": "Where can I take my Sony Xperia™ mobile for repair if the screen of my mobile was broken?",
+      "question_answer": "All repairs must be conducted by Sony Xperia™ Customer Service Center (Repair Center). You may call Sony Xperia™ Customer Service Hotline at (852) 8203-8863 (Monday to Saturday, 9:00am – 8:00pm) for enquiries.<br><br>Sony Xperia™ Customer Service Center address and office hours:<br>20/F, Ginza Plaza, 2A-2H Sai Yeung Choi Street, Mongkok, Kowloon<br>Mondays to Saturdays: 11:00am – 8:00pm<br>Sundays &amp; Public Holidays closed"
+    },
+    {
+      "category":"About Claims",
+      "id": 11,
+      "question_title": "What is the maximum amount of compensation of this \"MonCare\" Mobile Screen Protection Plan?",
+      "question_answer": "The maximum amount of compensation is HK$800 and only ONE claim can be made during the policy period. All claims are based on the repair invoice issued by Sony Xperia™ Customer Service Center (Repair Center). No cash will be refunded under the policy."
+    },
+    {
+      "category":"About Claims",
+      "id": 12,
+      "question_title": "Staff from Sony XperiaTM Customer Service Center (Repair Center) told me that my screen could not be repaired due to serious damage or my repair request was rejected by Sony XperiaTM Customer Service Center (Repair Center). Can I still make a claim?",
+      "question_answer": "If Sony XperiaTM Customer Service Center has already confirmed your phone could not be repaired due to serious damage or repairing request was rejected, then the policy will not offer any compensation and no cash will be refunded."
+    },
+    {
+      "category":"About Claims",
+      "id": 13,
+      "question_title": "How can I make a claim when my mobile screen is fixed?",
+      "question_answer": "Your claim must be made within 30 calendar days after repairing at Sony Xperia™ Customer Service Center (Repair Center).  You can fill in an online claim form at <a target=\"_blank\" href=\"https://i.fwd.com.hk/screen-insurance/en/claim-online\">iFWD website</a> and upload the purchase invoice issued by any Sony Xperia™ authorized dealer, the repair invoice and the maintenance order** issued by the authorized Sony Xperia™ repairer.<br><br>**Please request the maintenance order together with the repair invoice at the authorized Sony Xperia™  Customer Service Center (Repair Center)."
+    },
+    {
+      "category":"About Claims",
+      "id": 14,
+      "question_title": "How long does it take to make a claim?",
+      "question_answer": "It takes 10 working days to process a claim when all required documents are received."
+    },
+    {
+      "category":"About Claims",
+      "id": 15,
+      "question_title": "I lost my purchase invoice, can I still repair my mobile at Sony Xperia™ Customer Service Center (Repair Center)?",
+      "question_answer": "For all repairing services about Sony Xperia™ mobiles, please call Sony Xperia™ Customer Service Hotline at (852) 8203-8863 (Monday to Saturday, 9:00am - 8:00pm) for enquiries."
+    },
+    {
+      "category":"About Claims",
+      "id": 16,
+      "question_title": "How do you pay the compensation?",
+      "question_answer": "All compensation will be paid by cheque issued in Hong Kong dollars and can only be deposited in the banks located in Hong Kong."
+    },
+    {
+      "category":"About Claims",
+      "id": 17,
+      "question_title": "What are the major exclusions of this \"MonCare\" Mobile Screen Protection Plan ?",
+      "question_answer": "<ul> <li>Damage which is not accidental in nature</li><li>Water Damage</li><li>Not applicable to repair</li><li>Damage that does not affect the functionality of the covered mobile phone, e.g. scratches</li><li>Damage that is covered by warranties of the handset manufacturer</li><li>Damage due to normal wear and tear</li><li>The IMEI of damaged phone does not match with the covered mobile phone</li></ul>"
+    }                                                                                                                                                                                              
+  ]
+}

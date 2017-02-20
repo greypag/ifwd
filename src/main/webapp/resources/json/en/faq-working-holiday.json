@@ -1,0 +1,169 @@
+{
+  "product":"Working HolidayCare",
+  "category_widget":{
+      "list":[
+      "Investment/insurance related questions",
+      "Claim related questions",
+      "Incident related issues",
+      "Renewal/policy issues"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Investment/insurance related questions",
+      "id": 1,
+      "question_title": "Does the Working HolidayCare Insurance only apply to the 10 countries with Bilateral Working Holiday Scheme agreement?",
+      "question_answer": "Yes, the Working HolidayCare Insurance applies only to those countries included (or soon to be included) in the Bilateral Working Holiday Scheme agreement with the Hong Kong SAR Government. Those countries are New Zealand, Australia, Ireland, Germany, Japan, Canada, South Korea, France, United Kingdom and Austria."
+    },
+    {
+      "category":"Investment/insurance related questions",
+      "id": 2,
+      "question_title": "Do I need my Working Holiday Visa as proof when I purchase Working HolidayCare Insurance?",
+      "question_answer": "No, the company will only verify the validity of the Working Holiday Scheme visa if there is a claim. The claimant must prove that he or she holds a valid visa at the time of the incurred loss during their working holiday."
+    },
+    {
+	  "category":"Investment/insurance related questions",
+      "id": 3,
+      "question_title": "If I go on vacation elsewhere before arriving at the visa-issuing country and before the beginning the WHS period, will my vacation be covered?",
+      "question_answer": "Yes, the policy covers all ancillary trips towards to their WHS visa-issuing country. The maximum protection period is 365 days, starting from the day of departure from Hong Kong, so applicants should pay attention to the effective date and end date for their policy when planning trip itineraries."
+    },
+    {
+      "category":"Investment/insurance related questions",
+      "id": 4,
+      "question_title": "Is it compulsory to purchase insurance for my working holiday?",
+      "question_answer": "Proof of medical or health insurance for the length of your stay is required for your working holiday visa application if you are going to New Zealand, Ireland, Germany, Canada, South Korea, France or Austria. For Japan, it is required upon your arrival. However, it is not compulsory to purchase insurance for Australia and the United Kingdom."
+    },
+    {
+      "category":"Investment/insurance related questions",
+      "id": 5,
+      "question_title": "What is the maximum period of insurance?",
+      "question_answer": "The premium cover for your Working Holiday Scheme may be up to 365 days."
+    },
+    {
+      "category":"Investment/insurance related questions",
+      "id": 6,
+      "question_title": "What are the major exclusions?",
+      "question_answer": "Major exclusions are war(whether declared or not); acts of terrorism; racing (other than on foot) or accidents occurring while engaging in any sports or games in a professional capacity or where the insured person would or could earn income or remuneration from engaging in such sport; the insured person being a crew member or an operator of any air carrier; where the insured person is engaging in offshore activities including commercial diving, oil rigging, mining or aerial photography, the handling of explosives, being a site worker or being a member of an armed forces service. For more details, please refer to our policy."
+    },
+    {
+      "category":"Investment/insurance related questions",
+      "id": 7,
+      "question_title": "What kind of occupational risks are covered by the Working HolidayCare Insurance? What if I am unsure as to whether or not my job is covered?",
+      "question_answer": "The policy generally covers temporary employment allowed under the WHS, extending to manual work in farms, restaurants, as a tourist guide, etc.<br>Coverage is not applicable for being a crew member or an operator of any air carrier; engaging in offshore activities including commercial diving, oil rigging, mining or aerial photography; handling of explosives, being a site worker or being a member of an armed forces service.<br><br>For any doubts about accepted occupations, you can always ask our 24 hour Customer Services hotline at +852-3123-3123 or e-mail us at gi.enquiry.hk@fwd.com."
+    },
+    {
+      "category":"Investment/insurance related questions",
+      "id": 8,
+      "question_title": "Do I need to declare my itinerary if I come back to Hong Kong for a short break?",
+      "question_answer": "No, the Working HolidayCare Insurance covers multiple trips originating from Hong Kong to worldwide destinations. Please note that coverage does not apply to accidents within Hong Kong."
+    },
+    {
+      "category":"Investment/insurance related questions",
+      "id": 9,
+      "question_title": "What’s the difference between purchasing Working HolidayCare Insurance and TravelCare Insurance in terms of benefits?",
+      "question_answer": "Working HolidayCare provides you with extra benefits that cater to the WHS on top of many of the benefits that TravelCare already provides. Working HolidayCare and TravelCare both offer benefits such as no excess for all benefits, 24-hour Worldwide Emergency Assistance, and cover for leisure and amateur sports. However, WorkingHoliday further offers an allowance for an unforeseeable loss of income, cover for your temporary employment including manual work, and cover for worldwide leisure trips during your WHS period.<br><br>For full details, you can look at the policy, and if you have further questions, you may call our 24-hour Service Hotline at 3123-3123."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 10,
+      "question_title": "How do I make claims?",
+      "question_answer": "Notice of any claim must be given to the company within thirty-one days of the expiry of this policy, and in the instance of a claim under the section on personal liability benefit, such notice must be given in writing as soon as possible and in any event not later than 14 days after the incident giving rise to such a claim.<br><br>Please download the \"Travel Insurance Claim Form\" according to the following steps:<ol><li>Visit our website<a href=\"http://www.fwd.com.hk/en\" target=\"_blank\">http://www.fwd.com.hk</a></li><li>Go to \"Customer Service\"</li><li>Go to \"Download Forms\"</li><li>Go to \"General Insurance\"</li><li>Go to \"Travel Insurance\" <a href=\"http://www.fwd.com.hk/en/support-claims/claims/travel-insurance/\" target=\"_blank\">http://www.fwd.com.hk/en/support-claims/claims/travel-insurance/</a></li></ol>"
+    },
+    {
+      "category":"Claim related questions",
+      "id": 11,
+      "question_title": "What if I need medical treatment for an injury sustained from my work holiday a few months after returning to Hong Kong? Will this be insured?",
+      "question_answer": "The outline of the Working HolidayCare Insurance includes medical treatment arising from bodily injuries or sickness contracted or sustained outside the usual country of residence during the journey. Payment may be for eligible expenses up to HK$100,000 (including Chinese medicine practitioners, subject to the daily limit per visit of HK$200 and a total sub-limit of HK$3,000) for follow-up medical treatment of the insured person within 90 days of his return from the journey to the usual country of residence."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 12,
+      "question_title": "What if I am hospitalized and my family members want to visit me?",
+      "question_answer": "If you are confined in hospital for more than 3 days, up to 2 immediate family members may be covered for their travel and accommodation for a compassionate visit arranged by Intl.SOS. Accommodation is limited to HK$1,200 per night up to 5 consecutive days. The maximum benefit is HK$40,000 for Plan A or HK$15,000 for Plan B."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 13,
+      "question_title": "Am I covered if I need to fly back to Hong Kong for a family emergency?",
+      "question_answer": "Yes, you may be covered for an unexpected return economy class flight to Hong Kong arranged by Intl.SOS following the death of a close relative. The maximum benefit is HK$40,000 for Plan A or HK$15,000 for Plan B.<br><br>You may also be covered for unused prepaid travel or accommodation bookings that have been forfeited due to the curtailment of your journey. The maximum benefit of this is HK$30,000 for Plan A or HK$5,000 for Plan B."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 14,
+      "question_title": "If I lose my travel documents, am I covered for the process of replacing them?",
+      "question_answer": "Yes, the cost of obtaining replacement air tickets, travel expenses and accommodation incurred to obtain such replacement arising from theft, burglary, robbery and accidental loss may be covered up to HK$20,000 for Plan A, but not for Plan B."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 15,
+      "question_title": "Will I be covered if I hurt myself while abroad and am unable to work and receive income?",
+      "question_answer": "Yes, you will be allowed HK$1,000 for each 7 days you are hospitalized due to an injury and are unable to return to your work under the WHS as recommended by a qualified medical practitioner, for a period of up to 3 weeks. Please note that this coverage is available to policyholders of Plan A, but not Plan B."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 16,
+      "question_title": "If I accidentally damage someone else’s property while driving, can I be insured for my personal liability?",
+      "question_answer": "No, the personal liability benefit does not apply to liability arising from the use or hire of motor vehicles. Aside from the use of motor vehicles, you may be covered up to HK$1,500,000 (Plan A) or HK$750,000 (Plan B) against third party legal liability as a result of accidental injury, loss, or damage to a third party’s property during the period of insurance."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 17,
+      "question_title": "Is bodily injury caused by an act of terrorism included as one of the insured items?",
+      "question_answer": "Yes, Working HolidayCare Insurance covers any bodily injury, death or medical treatment caused by an act of terrorism."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 18,
+      "question_title": "Am I covered if I accidentally burn my arm during my working holiday?",
+      "question_answer": "If you suffer third degree burns over an area equal to or greater than 5% of your head or 10% of your total body surface area, this is covered in the insurance."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 19,
+      "question_title": "If I accidentally break my leg during my working holiday, is the required wheelchair covered by the insurance?",
+      "question_answer": "We are not liable for expenses related to the purchase by or on behalf of the insured person of a wheelchair, crutch or other mobility device; however, we will reimburse the reasonable cost of the temporary hire of the device if its use has been recommended by a medical practitioner."
+    },
+    {
+      "category":"Claim related questions",
+      "id": 21,
+      "question_title": "Will I be covered if I accidentally break my glasses or hearing aid during my Work Holiday?",
+      "question_answer": "No, we will not cover any expenses related to medical apparatus or apparatus to correct visual acuity or refractive error, such as glasses, contact lenses, hearing aids, prosthetics, and other medical equipment."
+    },
+    {
+      "category":"Incident related issues",
+      "id": 22,
+      "question_title": "If the Black Travel Alert is posted by the Security Bureau of HKSAR before I embark on the insured journey, will FWD cover the journey?",
+      "question_answer": "If the Black Travel Alert is posted at the planned destination within 7 days before the scheduled departure, you may choose to cancel the trip and receive compensation for the deposits or any part of the payment made in advance for travel tickets, accommodation, or tour packages which are forfeited and irrecoverable as a direct result, up to the maximum limit of HK$30,000 for Plan A, or HK$5,000 for Plan B."
+    },
+    {
+      "category":"Incident related issues",
+      "id": 23,
+      "question_title": "If the Black Travel Alert is posted during my journey, will FWD cover it?",
+      "question_answer": "If the Black Travel Alert causes an early termination of your journey, you may receive compensation for the deposits or any part of the payment made in advance for travel tickets, accommodation, or tour packages which are forfeited and irrecoverable as a direct result. You may also receive compensation for the extra costs of your early return to Hong Kong. Again, the maximum benefits are HK$30,000 for Plan A, and HK$5,000 for Plan B."
+    },
+    {
+      "category":"Incident related issues",
+      "id": 24,
+      "question_title": "If I need emergency support while travelling abroad, what should I do?",
+      "question_answer": "Please contact the International SOS 24 hour emergency support service at (+852) 3122-2900. Their services include support for the lost travel documents and lost baggage, flight arrangements, emergency medical transportation, and the arrangement of hospital services. They can refer you to interpreters, legal organizations, consulates, and medical institutions. When you call, please be ready to give the following information:<br><br><ul><li>The insured person’s name, policy number, and Hong Kong identity card number or passport number</li><li>The location of the accident or emergency and the contact phone for the insured person or his/her representative</li><li>A description of the accident or emergency and what type of assistance is required</li></ul>"
+    },
+    {
+      "category":"Renewal/policy issues",
+      "id": 25,
+      "question_title": "How can I renew the Policy if I decide to continue my WHS?",
+      "question_answer": "The Working HolidayCare Insurance policy cannot be renewed. If the insured person continues their WHS by connecting to another WHS country, the Working HolidayCare policy requires the insured person to return to Hong Kong before enrolling in another policy and re-commencing from Hong Kong."
+    },
+    {
+      "category":"Renewal/policy issues",
+      "id": 26,
+      "question_title": "Can I cancel my insurance policy?",
+      "question_answer": "Yes, you may cancel your policy at any time by sending written notice to the company. Provided that no claim has been made in the policy, the policyholder will be entitled to a pro-rata refund of the premium paid corresponding to the remaining portion of the period of insurance, subject to a minimum premium of HK$500 per policy being retained by our company."
+    },
+    {
+      "category":"Renewal/policy issues",
+      "id": 27,
+      "question_title": "If my visa application is rejected, how can I cancel my policy?",
+      "question_answer": "If you are rejected and wish to cancel your policy, please bring your written notice of rejection issued by the embassy of the country you were to go and a signed statement to one of our customer service centers or call our 24-hour Service Hotline at 3123-3123 for more details."
+    }
+  ]
+}

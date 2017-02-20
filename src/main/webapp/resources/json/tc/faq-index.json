@@ -1,0 +1,99 @@
+{
+	"groupCount": 3,
+	"categories": [
+		{
+			"name":"儲蓄",
+			"group": 1,
+			"products":[
+				{
+					"name":"Provie 真息揀理財壽險",
+					"link":"provie"
+				},
+				{
+					"name":"Savie 自助息理財壽險",
+					"link":"savie"
+				},
+				{
+					"name":"Wealthree 三連息儲蓄保險計劃",
+					"link":"wealthree"
+				}
+			]
+		},	
+
+		{
+			"name":"人壽",
+			"group": 1,
+			"products":[
+				{
+					"name":"定期壽險計劃",
+					"link":"elite"
+				}
+			]
+		},
+		{
+			"name":"醫療",
+			"group": 1,
+			"products":[
+				{
+					"name":"住院保障",
+					"link":"hospital"
+				}
+			]
+		},		
+		{
+			"name":"旅遊",
+			"group": 2,
+			"products":[
+				{
+					"name":"航空意外保險（免費）",
+					"link":"flight"
+				},
+				{
+					"name":"海外留學保險",
+					"link":"overseas"
+				},
+				{
+					"name":"旅遊保險",
+					"link":"travel"
+				},
+				{
+					"name":"工作假期保險",
+					"link":"working-holiday"
+				}
+			]
+		},
+		{
+			"name":"家居及財物",
+			"group": 3,
+			"products":[
+				{
+					"name":"易安心家居保",
+					"link":"easy-home-care"
+				},
+				{
+					"name":"手機保險",
+					"link":"handset"
+				},
+				{
+					"name":"手機屏幕保險",
+					"link":"screen"
+				}
+			]
+		},
+		{
+			"name":"汽車保險",
+			"group": 3,
+			"products":[
+				{
+					"name":"Drivamatics",
+					"link":"drivamatics"
+				},
+				{
+					"name":"智駕保汽車保險",
+					"link":"motor-smart"
+				}
+			]
+		}
+	]
+	
+}

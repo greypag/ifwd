@@ -1,0 +1,82 @@
+{
+  "product":"MotorSmart Insurance",
+  "category_widget":{
+      "list":[
+      "About Product and Register"
+    ]
+  },
+  "questions":[
+    {
+      "category":"About Product and Register",
+      "id": 1,
+      "question_title": "What does FWD MotorSmart cover?",
+      "question_answer": "It protects you against motor driving legal liability with our Third Party Cover, as well as covers loss or damage to your vehicle with our Comprehensive Cover. There are three plans to meet your needs.<br><br>Basic Benefits <table> <tbody><tr> <td>Coverage</td><td>Comprehensive Gold</td><td>Comprehensive Silver</td><td>Third Party</td></tr><tr> <td>a.Third Party Bodily Injury</td><td>Limit: HK$100,000,000</td><td>Limit :HK$100,000,000</td><td>Limit :HK$100,000,000</td></tr><tr> <td>b.Third Party Property Damage</td><td>Limit : HK$3,000,000</td><td>Limit : HK$2,000,000</td><td>Limit : HK$2,000,000</td></tr><tr> <td>c. Own Damage to Your Vehicle</td><td>✓</td><td>✓</td><td>✕</td></tr><tr> <td>d. Medical Expenses</td><td>✓</td><td>✓</td><td>✕</td></tr><tr> <td>e. No Claim Discount Protection</td><td>✓</td><td>✕</td><td>✕</td></tr><tr> <td>f. \"New for Old\" Replacement Vehicle</td><td>✓</td><td>✕</td><td>✕</td></tr><tr> <td>g. Windscreen Excess Waiver</td><td>✓</td><td>✕</td><td>✕</td></tr><tr> <td>h. Claims Recovery Advisory Services</td><td>✓</td><td>✕</td><td>✕</td></tr><tr> <td>i. Alternative Vehicle</td><td>✓</td><td>✕</td><td>✕</td></tr><tr> <td>j. Emergency Roadside Assistance</td><td>✓</td><td>✕</td><td>✕</td></tr><tr> <td>k. Emergency Towing Assistance</td><td>✓</td><td>✕</td><td>✕</td></tr><tr> <td>l. Theft of Mobile Phone</td><td>✓</td><td>✕</td><td>✕</td></tr></tbody></table>"
+    },
+    {
+      "category":"About Product and Register",
+      "id": 2,
+      "question_title": "What is “No Claim Discount”?",
+      "question_answer": "If you don’t make a claim during the preceding period(s) of insurance specified below, the following renewal premium will be reduced by the Discount specified below: <table> <tbody><tr> <td>Period(s) of Insurance</td><td>Discount</td></tr><tr> <td>One Year</td><td>20%</td></tr><tr> <td>Two consecutive years</td><td>30%</td></tr><tr> <td>Three consecutive years</td><td>40%</td></tr><tr> <td>Four consecutive years</td><td>50%</td></tr><tr> <td>Five or more consecutive years</td><td>60%</td></tr></tbody></table>"
+    },
+    {
+      "category":"About Product and Register",
+      "id": 3,
+      "question_title": "If I am a novice driver, can I apply for MotorSmart?",
+      "question_answer": "Yes, but if you have less than 2 years driving experience, or are younger than 25 or older than 70, please call us on 3123 3123 for the application details."
+    },
+    {
+      "category":"About Product and Register",
+      "id": 4,
+      "question_title": "If I have a no claim history with other insurance company, does that no claim discount apply to the application of MotorSmart?",
+      "question_answer": "Yes. Please submit your no claim discount, name of the previous insurance company, registration number of the vehicle under the previous policy, previous insurance expiry date and previous policy number with your application."
+    },
+    {
+      "category":"About Product and Register",
+      "id": 5,
+      "question_title": "How many named drivers can be insured under MotorSmart?",
+      "question_answer": "You can name up to 4 drivers in MotorSmart but you must be the primary driver."
+    },
+    {
+      "category":"About Product and Register",
+      "id": 6,
+      "question_title": "Will the premium of MotorSmart remain unchanged during insurance period and upon policy renewal?",
+      "question_answer": "Generally, premium will not be adjusted during the period of insurance. However, renewal premium will be adjusted subject to different factors, such as plan type, additional protection, insured vehicle model and make, drivers’ occupation, driving experience and age, claim experience in past year, etc."
+    },     
+    {
+      "category":"About Product and Register",
+      "id": 7,
+      "question_title": "Can I select any additional protection on top of the basic protection of MotorSmart?",
+      "question_answer": "You can select “Personal accident for named driver” and “Increase of Third Party Property Damage limit” on top of the basic protection but with payment of additional premium. <br><br>Personal Accident for Named Driver: By paying an extra premium of HK$100, this provides cover for accidental death arising from the injuries sustained by the named driver as a result of the motor accident involving the insured car over the past 12 months. The coverage is up to HK$500,000.<br><br>Increase of 3rd Party Property Damage Limit: By paying an extra premium of HK$309 (Inclusive of surcharge of the Motor Insurers’ Bureau of Hong Kong), you can increase your third party property damage coverage to HK$5,000,000."
+    },
+    {
+      "category":"About Product and Register",
+      "id": 8,
+      "question_title": "What information must I submit when applying for Motorsmart?",
+      "question_answer": "<ol> <li>Copy of Driving License and HKID for each named driver</li><li>Copy of Vehicle Registration document</li></ol>"
+    },
+    {
+      "category":"About Product and Register",
+      "id": 9,
+      "question_title": "After I received the Cover Note, how much time do I have to submit the rest of the documents?",
+      "question_answer": "You must submit all your documents in 30 days upon issuance of the Cover Note."
+    },
+    {
+      "category":"About Product and Register",
+      "id": 10,
+      "question_title": "Does it mean my policy is inforce once the Cover Note is issued?",
+      "question_answer": "The Cover Note is not a Policy and the coverage period is 30 days only. You must submit all related documents within 30 days upon issuance of the Cover Note. Upon verification of the related documents, we will issue the Policy to you. If you don’t submit the related documents in this timeframe, the coverage will end after the expiry and no policy will be issued. If you want to make a claim during this Cover Note coverage period, we will process your claim once you have submitted all related documents and they have been verified by us."
+    },
+    {
+      "category":"About Product and Register",
+      "id": 11,
+      "question_title": "What is covered under the medical expense benefits ?",
+      "question_answer": "We will pay you the reasonable medical expenses incurred up to HKD2,000 in connection with any bodily injury by violent, accidental, external and visible means sustained by you or the insured driver or the passengers of the car as the direct and immediate result of an accident to the motor car."
+    },
+    {
+      "category":"About Product and Register",
+      "id": 12,
+      "question_title": "What should I do if I have a traffic accident?",
+      "question_answer": "If an accident happens, we recommend that you: <ul> <li>Keep calm and call the Police immediately</li><li>Record the name, contact number of the persons involved and any witnesses; the insured company of the persons involved (if applicable)</li><li>Record the Vehicle registration numbers of all vehicles involved, location , time</li><li>If safe, take photos and video of the accident related situation before anything is moved.</li><li>Call ISOS 24-Hour emergency hotline (852) 3122 2900 for 24-Hour Free Emergency Roadside Assistance, 24-Hour free Emergency Towing Assistance and alternative Vehicle.</li><li>You must report all accidents to us as quickly as possible, even if you are not claiming on your own insurance or when there is no damage. If you do not notify us, your protection may be affected.</li></ul>"
+    }                                                                                                                                                                    
+  ]
+}

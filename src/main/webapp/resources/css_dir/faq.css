@@ -1,0 +1,54 @@
+/* line 1, ../sass/faq.scss */
+.category-title {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+}
+
+/* line 5, ../sass/faq.scss */
+.category-link {
+  display: block;
+  font-size: 24px;
+  margin: 0 0 15px 0;
+}
+
+@media (min-width: 992px) {
+  /* line 11, ../sass/faq.scss */
+  .faq-container {
+    display: flex;
+  }
+
+  /* line 14, ../sass/faq.scss */
+  .category-title {
+    font-size: 30px;
+    margin: 0 0 15px 0;
+  }
+
+  /* line 18, ../sass/faq.scss */
+  .category-link {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  /* line 23, ../sass/faq.scss */
+  .category-group-border {
+    border-right: 1px solid #000;
+    flex: 1;
+  }
+
+  /* line 27, ../sass/faq.scss */
+  .category-group-border {
+    padding: 0 20px;
+  }
+
+  /* line 31, ../sass/faq.scss */
+  .faq-container .category-group-border:last-child {
+    border-right: none;
+  }
+  /* line 34, ../sass/faq.scss */
+  .faq-container .category-group-border:nth-child(1) {
+    padding-left: 0;
+  }
+}
+
+/*# sourceMappingURL=faq.css.map */

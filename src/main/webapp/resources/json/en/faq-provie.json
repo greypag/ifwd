@@ -1,0 +1,355 @@
+{
+  "product":"Provie Insurance",
+  "category_widget":{
+      "list":[
+      "Product Features",
+      "New Business",
+      "Policy Services",
+      "Online Withdrawal Service"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Product Features",
+      "id": 1,
+      "question_title": "How is the Term Life Benefit calculated?",
+      "question_answer": "The Term Life Benefit equals 100% of the Account Value, calculated as at the date the death claim is received by FWD, capped at HKD 4,000,000/USD 500,000 per life for Provie Insurance Plan. Term Life Benefit will be paid in additional to the Death Benefit offered by the Basic Plan. Free Term life benefit rider’s coverage is offered until the Policy Anniversary immediately preceding the 66th birthday of the Insured."
+    },
+    {
+      "category":"Product Features",
+      "id": 2,
+      "question_title": "How is the Cancer Benefit calculated?",
+      "question_answer": "The Cancer Benefit equals 50% of the Account Value, calculated as at the date of the First Confirmed Diagnosis of Cancer, capped at HKD 2,000,000/USD 250,000 per life for Provie Insurance Plan, provided that the Insured is diagnosed as suffering from covered Cancer and has survived the First Confirmed Diagnosis of Cancer for more than 14 days. Cancer Benefit will be paid in additional to the Death Benefit offered by the Basic Plan.<br><br>Free Cancer benefit rider’s coverage is offered until the Policy Anniversary immediately preceding the 66th birthday of the Insured. For the purposes of calculating this benefit, the Account Value will also include the amount of crediting interest not yet added to the Account Value which was accrued between the Policy Anniversary immediately before the First Confirmed Diagnosis of Cancer and the date of the First Confirmed Diagnosis of Cancer."
+    },
+    {
+      "category":"Product Features",
+      "id": 3,
+      "question_title": "How is the Accidental Death Benefit calculated?",
+      "question_answer": "The Accidental Death Benefit equals 500% of the Account Value, capped at HKD 12,000,000/USD 1,500,000 per life for Provie Insurance Plan provided that: <ol> <li>the death of the Insured is caused directly and solely by an Accident; and</li><li>the death of the Insured occurs within 180 days from date of the Accident; and</li><li>the Accident takes place before the Policy Anniversary immediately preceding the 66th birthday of the Insured.</li></ol> Accidental Death Benefit will be paid in additional to the Death Benefit offered by the Basic Plan. Free Accidental death benefit rider’s coverage is offered until the Policy Anniversary immediately preceding the 66th birthday of the Insured. In the event the death of the Insured is caused directly or indirectly from the consumption or influence of alcohol, chemicals or drugs (unless the drugs have been consumed in accordance with the lawful directions and prescription of a Medical Practitioner), the maximum amount FWD will pay under this benefit will be HK$1,000,000/US$125,000 per Insured life under all policies of this Product."
+    },
+    {
+      "category":"Product Features",
+      "id": 4,
+      "question_title": "What are the exclusions under Term Life Benefit?",
+      "question_answer": "If the death of the Insured is caused directly or indirectly by the wilful participation of the Insured, Policy Owner or Beneficiary in an illegal or unlawful act, no Term Life Benefit will be paid."
+    },
+    {
+      "category":"Product Features",
+      "id": 5,
+      "question_title": "What are the exclusions under Accidental Death Benefit?",
+      "question_answer": "No Accidental Death Benefit shall be paid where the death of the Insured is caused directly or indirectly from any of the followings: (1) Catastrophic events of any natural disaster, nuclear radiation, contamination, radioactive gas, war or any act of war (whether declared or not), any act of terrorism, rebellion, insurrection or hostilities. (2) The wilful participation of the Insured, Policy Owner or Beneficiary in an illegal or unlawful act."
+    },
+    {
+      "category":"Product Features",
+      "id": 6,
+      "question_title": "Does the Cancer benefit cover all types of cancer?",
+      "question_answer": " No. The benefit only covers cancers meet the following definition: <ul> <li>any malignant tumour positively diagnosed with histological confirmation and characterised by the uncontrolled growth of malignant cells and invasion of tissue or any occurrence of histologically confirmed leukemia, lymphoma or sarcoma.</li></ul>  The following cancers or tumours are excluded: <ol> <li>the symptoms appear, the condition occurs or the diagnosis relating to the relevant Cancer occurs within the first ninety (90) days from the Policy Date;</li><li>any loss or claim caused by or resulting from a Pre-existing Condition;</li><li>tumours showing the malignant changes of carcinoma in situ (including cervical dysplasia CIN-1, CIN-2 and CIN-3) or which are histologically described as pre-malignant;</li><li>all skin cancers, unless there is evidence of metastases or the tumour is a malignant melanoma of greater than 1.5mm maximum thickness as determined by histological examination using the Breslow method;</li><li>non life-threatening cancers, such as prostate cancers which are histologically described as TNM Classification T1 (a) or T1(b), or are of another equivalent or lesser classification;</li><li>papillary micro-carcinoma of the thyroid;</li><li>non-invasive papillary cancer of the bladder histologically described as TaN0M0 or of a lesser classification; and</li><li>chronic lymphocytic leukaemia less than RAI Stage I or Binet Stage A-I.</li></ol>  No Cancer Benefit will be paid for the following: <ol> <li>any loss or claim directly or indirectly caused by or resulting from Human Immunodeficiency Virus (HIV) related illness, including Acquired Immunization Deficiency Syndrome (AIDS) and/or any mutations, derivations or variations, which is derived from an HIV infection;</li><li>any condition arising out of the consumption of poisoning drugs, psychiatric drugs, drug abuse, alcohol abuse, abuse of solvents, and other substances unless prescribed by a Medical Practitioner for treatment.</li></ol> Please refer to the Policy Provision for the terms and conditions of Cancer Benefit, details and definition of covered cancers and exclusions."
+    },
+    {
+      "category":"Product Features",
+      "id": 7,
+      "question_title": "Can the customer change the rider election once the basic plan’s inforced?",
+      "question_answer": "No, Policyholders must choose one of the protection riders at policy inception. During the term of the Policy, the riders attached to the Policy cannot be changed after Policy Date."
+    },
+    {
+      "category":"Product Features",
+      "id": 8,
+      "question_title": "How is Death Benefit calculated?",
+      "question_answer": "The Death Benefit equals 105% of Account Value calculated as at the date the death claim is received by FWD. If the death of the Insured is caused directly or indirectly by the wilful participation of the Insured, Policy Owner or Beneficiary in an illegal or unlawful act, Death Benefit will be limited to 100% of the Account Value."
+    },
+    {
+      "category":"Product Features",
+      "id": 9,
+      "question_title": "Will the policy be terminated after the payment of Cancer Benefit?",
+      "question_answer": "Upon the payment of the Cancer Benefit, the Rider will terminate but the Basic Policy will remain valid. For the avoidance of doubt, the Cancer Benefit is only payable once during the lifetime of the Insured regardless of the number of occurrences of Cancer or recurrence of Cancer."
+    },
+    {
+      "category":"Product Features",
+      "id": 10,
+      "question_title": "Is there a limit on the number of partial surrender and partial surrender amount?",
+      "question_answer": "Currently, no limit on number of partial surrender. The minimum partial surrender amount is HKD 1,000/USD125 and maximum partial surrender amount is subject to minimum account value after partial surrender which is HKD 3,000/USD375. FWD reserves the right to prescribe minimum account value at its sole discretion from time to time."
+    },
+    {
+      "category":"Product Features",
+      "id": 11,
+      "question_title": "What are the charges of this product?",
+      "question_answer": "No charges apply."
+    },
+    {
+      "category":"Product Features",
+      "id": 12,
+      "question_title": "What are the currencies offered?",
+      "question_answer": "Hong Kong Dollar/US Dollar is available."
+    },
+    {
+      "category":"Product Features",
+      "id": 13,
+      "question_title": "What is the exchange rate of USD used to determine premium payments, premiums refund due to cancellation and benefits of USD denominated policies in HKD?",
+      "question_answer": "It will be a market-based currency of USD, as solely determined by FWD from time to time. For reference, please refer to the following website on current exchange rate:<br><a href=\"http://home.fwd.com.hk/fundprice/ExchangeRate.aspx\">http://home.fwd.com.hk/fundprice/ExchangeRate.aspx</a>"
+    },
+    {
+      "category":"Product Features",
+      "id": 14,
+      "question_title": "Can the customer make additional premium payments?",
+      "question_answer": "No, additional premium payments are not accepted."
+    },                            
+    {
+      "category":"Product Features",
+      "id": 15,
+      "question_title": "Is the interest calculation based on simple interest or compound interest basis?",
+      "question_answer": "Interest is accumulated daily using simple interest method and will be credited to policy account at each policy anniversary and (where applicable) on the death of the Insured or the surrender of the Policy."
+    },        
+    {
+      "category":"Product Features",
+      "id": 16,
+      "question_title": "What is the crediting interest rate? Is the crediting interest rate guaranteed?",
+      "question_answer": "During the first five policy years, the crediting interest rate is guaranteed. Starting from policy year 6, crediting interest rate is not guaranteed and is subject to change during the term of the policy. It is determined by FWD from time to time at its absolute discretion. The guaranteed minimum crediting interest rate for the Product is 0% per annum. The declared crediting interest rate will be announced through FWD website. Please refer to crediting interest rate history at FWD website:<br><a href=\"https://www.fwd.com.hk/en/regulatory-disclosures/historical-crediting-interest-rates/\">https://www.fwd.com.hk/en/regulatory-disclosures/historical-crediting-interest-rates/</a>"
+    },
+    {
+      "category":"Product Features",
+      "id": 17,
+      "question_title": "How is the crediting interest rate being determined?",
+      "question_answer": "The crediting interest rate is determined by FWD from time to time at its absolute discretion. The crediting interest rates are subject to change during the term of the policy and may be equal to guaranteed minimum crediting interest rate at zero. Declared crediting interest rate will be announced through FWD’s website. Please refer to crediting interest rate philosophy on product brochure and FWD website:<br><a href=\"https://www.fwd.com.hk/en/regulatory-disclosures/crediting-interest-rate-philosophy/\">https://www.fwd.com.hk/en/regulatory-disclosures/crediting-interest-rate-philosophy/</a>"
+    },
+    {
+      "category":"Product Features",
+      "id": 18,
+      "question_title": "Is customer’s money protected by the Deposit Protection Scheme in HKSAR?",
+      "question_answer": "No, money deposited in an insurance policy is not protected by the Scheme."
+    },
+    {
+      "category":"Product Features",
+      "id": 19,
+      "question_title": "How is interest calculated if the customer partially surrenders between policy anniversaries?",
+      "question_answer": "The interest is calculated daily. Any partial surrender will reduce the Account Value (as of the prior Policy Anniversary) for interest calculation."
+    },
+    {
+      "category":"Product Features",
+      "id": 20,
+      "question_title": "How is Account Value calculated?",
+      "question_answer": "Account Value is the accumulation of premium paid with crediting interest (if any), less Partial Surrender(s) (if any) and premiums for rider benefit(s) (if any)."
+    },   
+    {
+      "category":"Product Features",
+      "id": 21,
+      "question_title": "How can the customers check Account Balance?",
+      "question_answer": "The customer can call our 24-hour Service Hotline 3123-3123 or refer to the latest annual statement."
+    },
+    {
+      "category":"Product Features",
+      "id": 22,
+      "question_title": "Are there any premium limits?",
+      "question_answer": "Yes, One-off premium and Monthly Regular Contribution are subject to the following limits: <table> <tbody><tr> <td></td><td>One-off premium</td><td>Monthly Regular Contribution</td></tr><tr> <td>Minimum</td><td>HKD 30,000/ USD 3,750</td><td>HKD 1,000/ USD 125</td></tr><tr> <td>Maximum</td><td>HKD 1,000,000/ USD 125,000</td><td>HKD 20,000/ USD 2,500</td></tr></tbody></table>"
+    },
+    {
+      "category":"Product Features",
+      "id": 23,
+      "question_title": "When is the premium payment term until?",
+      "question_answer": "The premium payment term is up to age 100 for Monthly Regular Contribution plans."
+    },
+    {
+      "category":"Product Features",
+      "id": 24,
+      "question_title": "What are the key product risks associated with this product?",
+      "question_answer": "The key product risks are credit risk, liquidity risk/early surrender risk, inflation risk, non-guaranteed benefits, exchange rate and currency risk. Please refer to brochure for complete risk closure including exclusions and termination conditions."
+    },
+    {
+      "category":"New Business",
+      "id": 25,
+      "question_title": "Is it necessary for prospective policyholders to undergo medical examinations?",
+      "question_answer": "No, medical examinations are not required for this product. Simplified underwriting is needed for clients who elect for Term Life Benefit and Cancer Benefit."
+    },
+    {
+      "category":"New Business",
+      "id": 26,
+      "question_title": "Will the application get rejected if misstatements were found during simplified underwriting for Term Life Benefit and Cancer Benefit?",
+      "question_answer": "If customers misstate the answers to underwriting questions, FWD reserves the right to reject the application of basic policy and the rider benefit elected after submission."
+    },
+    {
+      "category":"New Business",
+      "id": 27,
+      "question_title": "Is backdating applicable to this Plan?",
+      "question_answer": "No, backdating is not applicable for this Plan."
+    },
+    {
+      "category":"New Business",
+      "id": 28,
+      "question_title": "What are available payment methods?",
+      "question_answer": "Customers can set up direct deposit account (DDA). Alternatively, customers can pay by cheques or BoCom Co-brand credit card in the policyholder’s name at customer service centers.<br><br><table> <tbody> <tr> <th rowspan=\"2\">Product</th> <td colspan=\"3\">Initial Premium Payment</td><td>Subsequent Premium</td></tr><tr> <td>Personal Cheques</td><td>Bank of Communications FWD Credit Card</td><td>DDA through Bank accounts</td><td>DDA through Bank accounts</td></tr><tr> <th>One-off Premium</th> <td>Accept</td><td>Accept</td><td>Accept</td><td>N/A</td></tr><tr> <th>Monthly Regular Contribution</th> <td>Accept</td><td>Accept</td><td>N/A</td><td>Accept</td></tr></tbody></table><br><br> The following payment methods are not applicable:<ol> <li>Payment by 3rd party</li><li>Pay by PPS</li><li>Pay by e-banking (include from bank account or credit card)</li></ol>"
+    },
+    {
+      "category":"New Business",
+      "id": 29,
+      "question_title": "Are there any riders attachable to this Plan?",
+      "question_answer": "Yes, attachable free riders are Free Term Life Benefit Rider , Free Cancer Benefit Rider and Free Accidental Death Benefit Rider."
+    },
+    {
+      "category":"New Business",
+      "id": 30,
+      "question_title": "How long does it take to process an application and put a policy inforce?",
+      "question_answer": "The policy will not be inforce until the customers have submitted all the documents including address proof and have made the full initial payment. The policy will be issued within 4-10 working days. A SMS will be sent to policyowner once the policy is inforce."
+    },
+    {
+      "category":"New Business",
+      "id": 31,
+      "question_title": "When will Direct Debit Authorization (DDA) be debited?",
+      "question_answer": "On the 3<sup>rd</sup> and 25<sup>th</sup> of each month."
+    },
+    {
+      "category":"New Business",
+      "id": 32,
+      "question_title": "If the customer is not a HKID cardholder, can he/she buy this product?",
+      "question_answer": "No. Only HKID cardholders are accepted. Note that non-permanent residents need to provide their passport as a supporting document."
+    },
+    {
+      "category":"New Business",
+      "id": 33,
+      "question_title": "Can the customer change his/her mind and cancel the policy?",
+      "question_answer": "If customer is not satisfied with the policy, he/she has the right to cancel it within the Cooling-off Period (that is, 21 days after either the delivery of the policy or the issue of a Notice informing him/her or his/her representative that the policy is available for collection and expiry date of the Cooling-off Period, whichever is earlier) by giving a written notice and obtain a refund of any premium paid provided that he/she has not made any claims under the policy. The written notice with his/her signature must be given to the office of FWD and he/she must ensure that such notice must be received by FWD on or before the expiry date of the Cooling-off Period. The office address of FWD is 1/F., FWD Financial Centre, 308 Des Voeux Road Central, Hong Kong."
+    },
+    {
+      "category":"New Business",
+      "id": 34,
+      "question_title": "Does the customer have to submit all the supporting documents during the online application?",
+      "question_answer": "No, the customer may either upload the documents later, or bring them in person to our customer service center."
+    },
+    {
+      "category":"New Business",
+      "id": 35,
+      "question_title": "Are there any age limits for applying to the Provie Insurance Plan?",
+      "question_answer": "The issue age must be 19-60 (your age next birthday) at the time of application."
+    },
+    {
+      "category":"Policy Services",
+      "id": 36,
+      "question_title": "Can the customer stop paying premiums during the Policy Term even he/she opts for monthly payment?",
+      "question_answer": "Yes, premiums can be skipped and premium holiday rules will apply."
+    },
+    {
+      "category":"Policy Services",
+      "id": 37,
+      "question_title": "If the customer would like to stop paying the premiums for monthly regular contribution plans, what should he/she do?",
+      "question_answer": "Fill in Policy Services Request Form in section 9.2 to apply for Premium Holiday. The form is available to be downloaded from FWD website: <a href=\"http://www.fwd.com.hk/en-US/cs/form-download-life.html\">http://www.fwd.com.hk/en-US/cs/form-download-life.html</a>.<br><br>Otherwise, Premium Holiday will apply if no premium is received after expiration of Grace Period."
+    },
+    {
+      "category":"Policy Services",
+      "id": 38,
+      "question_title": "If the customer does not pay any premium, will the policy be lapsed?",
+      "question_answer": "The FWD allows a Grace Period of 30 days after the premium due date for payment of each premium. If premium is unpaid after the expiration of the Grace Period, FWD will apply Premium Holiday of the Policy. When the Account Value is less than zero, the policy shall automatically be terminated."
+    },
+    {
+      "category":"Policy Services",
+      "id": 39,
+      "question_title": "Can the customer make changes on premium amount?",
+      "question_answer": "Only applicable to Monthly Regular Contribution plans. Monthly Regular Contributions can be reduced which are subject to minimum premium amount."
+    },
+    {
+      "category":"Policy Services",
+      "id": 40,
+      "question_title": "Can the policy be reinstated?",
+      "question_answer": "No, reinstatement is not applicable for a policy which is surrendered by the Policy Owner."
+    },
+    {
+      "category":"Policy Services",
+      "id": 41,
+      "question_title": "What value will the customer get upon surrender?",
+      "question_answer": "The customer will receive the account value in HKD or USD. For USD-denominated policies, customer can request the surrender benefits in HKD subject to exchange rate at time of surrender. The exchange rate will be a market-based currency of USD, as solely determined by FWD from time to time. For reference, please refer to the following website on current exchange rate:<br><a href=\"http://home.fwd.com.hk/fundprice/ExchangeRate.aspx\">http://home.fwd.com.hk/fundprice/ExchangeRate.aspx</a>"
+    },
+    {
+      "category":"Policy Services",
+      "id": 42,
+      "question_title": "How can the customer make partial surrenders from the account?",
+      "question_answer": "Fill in the Policy Service Request Form under Section 8. Withdrawal of Policy Value. The form is available to be downloaded from FWD website:<br><a href=\"http://www.fwd.com.hk/en-US/cs/form-download-life.html\">http://www.fwd.com.hk/en-US/cs/form-download-life.html</a>"
+    },
+    {
+      "category":"Policy Services",
+      "id": 43,
+      "question_title": "What if customer’s account is insufficient to pay DDA?",
+      "question_answer": "It will arrange double lodgement in next month autopay after 1st lodgement fails. If autopay is failed again, premium holiday will be applied as premiums are skipped."
+    },
+    {
+      "category":"Policy Services",
+      "id": 44,
+      "question_title": "What should the customer do if he/she wishes to change account for DDA purposes?",
+      "question_answer": "Submit the Direct Debit/ Credit Card Authorization Form to setup a new DDA account. The form is available to be downloaded from FWD website:<br><a href=\"http://www.fwd.com.hk/en-US/cs/form-download-life.html\">http://www.fwd.com.hk/en-US/cs/form-download-life.html</a>"
+    },
+    {
+      "category":"Policy Services",
+      "id": 45,
+      "question_title": "The customer would like to terminate the policy, where can he/she apply for it?",
+      "question_answer": "Fill in Policy Surrender Request form. The form is available to be downloaded from FWD portal:<br><a href=\"https://portal.fwd.com.hk/Dashboard/Forms/Forms/Forms%20View.aspx\">https://portal.fwd.com.hk/Dashboard/Forms/Forms/Forms%20View.aspx</a><br>Dept. Flash Report/Forms &gt; Forms &gt; Department : Life Administration &gt; Form Type"
+    },
+    {
+      "category":"Policy Services",
+      "id": 46,
+      "question_title": "How long does it take to process the partial surrender and surrender?",
+      "question_answer": "It takes 7 working days for partial surrender and 14 working days for surrender under normal circumstances. However, FWD may defer the payment of partial surrender or surrender benefits up to 6 months from the date of receipt of the duly completed request."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 47,
+      "question_title": "Which FWD products are available for FWD Online Withdrawal Service?",
+      "question_answer": "Savie Insurance Plan and Provie Insurance product (Only apply to HKD product)."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 48,
+      "question_title": "Any restrictions on the use of online withdrawal service?",
+      "question_answer": "Per Policy:<ul><li>Minimum withdrawal amount of HK$500 per transaction</li><li>Maximum total withdrawal amount of HK$3,000 per day</li><li>Maximum 3 times withdrawal per day</li><li>Maximum total withdrawal amount of HK$50,000 per calendar year </li></ul>"
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 49,
+      "question_title": "Are there any charges for using online withdrawal service?",
+      "question_answer": "This service is free of charge."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 50,
+      "question_title": "How long will it take for the completion of the online withdrawal?",
+      "question_answer": "Normally it will only take 1 minute."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 51,
+      "question_title": "Online withdrawal service can be paired with Tap&Go only?",
+      "question_answer": "Yes."
+    },    
+    {
+      "category":"Online Withdrawal Service",
+      "id": 52,
+      "question_title": "Why do I need to pair with Tap&Go mobile wallet?",
+      "question_answer": "Withdrawal payment can only be made to Tag&Go account."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 53,
+      "question_title": "How can I obtain one-time password again if I have input incorrectly?",
+      "question_answer": "Customer may request for the resend of one-time password after 1 minute."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 54,
+      "question_title": "Why my online withdrawal service has been temporary suspended? What should I do?",
+      "question_answer": "o protect our customer, if customer has failed to input correct one time password 3 times, our system will temporary suspend customer account. Please contact 24 Hour service hotline 3123 3123 to unlock your account."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 55,
+      "question_title": "Can I use online withdrawal service to surrender my policy?",
+      "question_answer": "No."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 56,
+      "question_title": "I have a question about Tap&Go….",
+      "question_answer": "Please contact Tap&Go 24 Hour service hotline 2888 0000."
+    },
+    {
+      "category":"Online Withdrawal Service",
+      "id": 57,
+      "question_title": "Can I track my withdrawal record?",
+      "question_answer": "You can login to iFWD customer account and select Online Withdrawal record for details."
+    }                                                                                                                                                                                                                                                                                                         
+  ]
+}

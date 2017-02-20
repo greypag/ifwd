@@ -1,0 +1,125 @@
+{
+  "product":"\"PhoneCare\" Handset Protection",
+  "category_widget":{
+      "list":[
+      "About Product & Registration",
+      "About Claims"
+    ]
+  },
+  "questions":[
+    {
+      "category":"About Product & Registration",
+      "id": 1,
+      "question_title": "How many days do I have to register the PhoneCare Handset Protection after I have subscribed or upgraded to an iPhone 7 or iPhone 7 Plus with a monthly service plan at 3HK?",
+      "question_answer": "During the promotion period^, you can register the PhoneCare Handset Protection Plan within 10 calendar days (including the date of purchase or upgrade) after subscribing or upgrading to an iPhone 7 or iPhone 7 Plus at 3HK.<br><br><sup>^</sup> Promotion period is from 16 September 2016 – 30 November 2016 (both days inclusive). The last registration date of this offer is 9 December, 2016."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 2,
+      "question_title": "Are all mobile phones purchased from 3HK eligible for registration under the PhoneCare Handset Protection Plan?",
+      "question_answer": "The selected handsets only include: <ul> <li>Apple iPhone7</li><li>Apple iPhone7 Plus</li></ul>"
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 3,
+      "question_title": "Can I register for more than one (1) iPhone7 or iPhone7 Plus?",
+      "question_answer": "Yes, but you may register up to two (2) iPhone7 or iPhone7 Plus only."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 4,
+      "question_title": "Can a non-HKID card holder enroll PhoneCare Handset Protection Plan?",
+      "question_answer": "Yes, you can. Please enter your passport number to enroll in the plan."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 5,
+      "question_title": "How do I register for the free PhoneCare Handset Protection Plan after subscribing or upgrading to iPhone7 or iPhone7 Plus with a monthly service plan with 3HK ?",
+      "question_answer": "<h3>Step 1:</h3> During the promotion period (16 September 2016 – 30 November 2016 (both days inclusive)), when you subscribe or upgrade to an iPhone 7 or iPhone 7 Plus with 3 HK, you can obtain a registration code from the promotion flyer from 3HK. You may go to our iFWD website within 10 calendar days (including the date of purchase or upgrade) and input the registration code. (The last registration date is 9 December, 2016)<br><br><h3>Step 2:</h3> Click “Get Started”. (Please read our Personal Information Collection Statement and the terms and conditions. You must consent to our use of your personal data for direct marketing and provision of your personal data to other parties and FWD companies and agree to the terms and conditions to enjoy this free PhoneCare handset protection plan.)<br><br><h3>Step 3:</h3> Register as a FWD member. Existing members can just use their login.<br><br><h3>Step 4:</h3> Enter your iPhone 7 or iPhone 7 Plus information including IMEI number, handset model, 3HK Sales &amp; Services Agreement number and purchase date.<br><br><h3>Step 5:</h3> After the registration, your free PhoneCare Handset Protection Plan policy will be emailed to you and the policy will take effect immediately.<br><br>"
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 6,
+      "question_title": "What does the PhoneCare Handset Protection Plan cover?",
+      "question_answer": "3HK customers can enjoy a free 6-month Handset Protection Plan when they subscribe or upgrade to an iPhone 7 or iPhone7 Plus and register the phone within 10 calendar days of purchase or upgrade (including the date of purchase or upgrade). During the protection period, if the covered handset is lost, stolen or damaged beyond repair, you can claim a one-time reimbursement of up to HK$4,000<sup>1</sup> as the subsidy for a replacement handset<sup>2</sup>.<br><br><ul> <li><b>Accidental Loss:</b> If you have lost your handset by accident, you can file a claim after the loss is reported to the closest local police in person within 24 hours.<br><br></li><li><b>Theft:</b> If your handset is stolen, you can file a claim after the theft is reported to the closest local police in person within 24 hours.<br><br>Note: Please submit your claim along with the police report or police statement showing loss item details (including brand name, model and IMEI number), the date, location and cause of the loss or theft.</li><li><b>Damage Beyond Repair:</b> If your handset is damaged beyond repair, or the cost of repair is greater than the retail price of the covered handset, you can file a claim after a written confirmation issued by Apple Store or Apple authorized repair centre is obtained.<br><br>Note: Please submit your claim along with a written confirmation or quotation issued by Apple Store or Apple authorized repair center showing the IMEI Number, date of inspection and cause of damage of the covered handset.<br><br></li></ul> <sup>1</sup>The reimbursement value towards replacement phone upon approval of claim is 50% of the original handset price, with a limit of HK$4,000. Original handset price refers to the retail price of the handset as shown in the registration form on the website at the time of registration.<br><sup>2</sup>You must buy the replacement handset of the covered handset model from any Apple Store or Apple authorized resellers .<br><br>"
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 7,
+      "question_title": "How can I find the IMEI number of my mobile?",
+      "question_answer": "The IMEI number of your mobile can be found through the following ways: <ul> <li>Use your handset keypad and input “*#06#”, and then press “Send”</li><li>It is stated on the Sales and Service Agreement issued by 3HK </li></ul>"
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 8,
+      "question_title": "I am not the person who subscribed to the iPhone7 or iPhone7 Plus monthly service plan with 3HK, can I still enroll in the PhoneCare Handset Protection Plan?",
+      "question_answer": "Only the registered account holder named on 3HK Sales & Services Agreement can enroll in the Handset Protection Plan."
+    },        
+    {
+      "category":"About Product & Registration",
+      "id": 9,
+      "question_title": "I have lost my flyer provided by 3HK so that I am unable to register with the code, can you re-issue a new code?",
+      "question_answer": "The flyer cannot be re-issued if it was lost."
+    },
+    {
+      "category":"About Product & Registration",
+      "id": 10,
+      "question_title": "Can I enroll in the plan over the phone?",
+      "question_answer": "No, you must enroll in the plan through our online platform. Please visit the <a href=\"https://i.fwd.com.hk/phone-insurance/en/\">iFWD website</a> for details."
+    },
+    {
+      "category":"About Claims",
+      "id": 11,
+      "question_title": "Where can I get a written confirmation or quotation so as to prove that my handset is damaged beyond repair, or the cost of repair is greater than the retail price of the covered handset?",
+      "question_answer": "You can obtain a written confirmation or quotation issued by Apple Store or Apple authorized repair center in Hong Kong showing the IMEI Number, date of inspection and cause of damage of the covered handset so as to prove the cost of repair is greater than the retail price of the covered handset. You may call 3HK 24 hours Customer Service Hotline at 1033."
+    },
+    {
+      "category":"About Claims",
+      "id": 12,
+      "question_title": "What is the maximum compensation of this PhoneCare Handset Protection Plan?",
+      "question_answer": "During the protection period, if the covered handset is lost, stolen or damaged beyond repair, you can claim a one-time reimbursement of up to HK$4,000<sup>1</sup> as the subsidy for a replacement handset<sup>2</sup>.<br><br><sup>1</sup>The reimbursement value towards replacement phone upon approval of claims is 50% of the original handset price, with a limit of HK$4,000. Original handset price refers to the retail price of the handset as shown in the registration form on this website.<br><br><sup>2</sup>You must buy the replacement handset of the covered handset model from Apple Store or Apple authorized resellers. "
+    },
+    {
+      "category":"About Claims",
+      "id": 13,
+      "question_title": "If I need to replace my handset, can I replace with another handset model?",
+      "question_answer": "You must replace with the covered handset model."
+    },
+    {
+      "category":"About Claims",
+      "id": 14,
+      "question_title": "How can I make a claim?",
+      "question_answer": "<ol> <li>Fill out the online claim form and upload the Sales and Services Agreement issued by 3 HK within 30 days of the occurrence of accidental loss, theft and damage beyond repair of the covered handset; and<br><br><ol><li>For Accidental Loss or Stolen claims: A police report or police statement stating the loss item details (including brand name, model and IMEI number), the date, location and cause of loss. Such loss must be reported in person within 24 hours to the closest local police of the accidental loss or theft of the covered handset;or<br><br></li><li>For a Damaged Beyond Repair claim: A written confirmation or quotation (as the case may be) issued by Apple Store or Apple authorized repair centre stating the IMEI number, date of inspection, cause of damage and the covered handset is beyond repair, or the cost of repair is greater than the retail price of the covered handset.<br><br></li></ol> </li><li>We will send you an email upon receipt of the claim confirming the reimbursement amount for a replacement handset to which you are entitled. Please purchase a replacement handset of the original handset model within 30 days from any Apple Store or Apple authorized resellers.<sup>*</sup><br><br></li><li>Send us the purchase invoice of the replacement handset issued by Apple Store or Apple authorized resellers together with the certificate number of your policy within 30 days of purchase via this email: <a href=\"mailto:3HK.hk@fwd.com\" target=\"_blank\">3HK.hk@fwd.com</a> (the purchase invoice must show the covered handset model). Once the claim is approved, we will send the settlement cheque<sup>**</sup> within 10 working days to your correspondence address in Hong Kong.<br><br></li></ol><sup>*</sup>The reimbursement value towards replacement phone upon approval of claims is 50% of the original handset price, with a limit of HK$4,000. You are responsible for the outstanding amount of the replacement handset.<br><br><sup>**</sup>All settlement cheques will be issued in Hong Kong dollars and can only be deposited in banks located in Hong Kong."
+    },
+    {
+      "category":"About Claims",
+      "id": 15,
+      "question_title": "I lost my 3HK Sales & Services Agreement, what can I do?",
+      "question_answer": "If you have lost 3HK Sales & Services Agreement, please call 3HK 24 hours Customer Service Hotline at 1033 ."
+    },
+    {
+      "category":"About Claims",
+      "id": 16,
+      "question_title": "How do you pay the compensation?",
+      "question_answer": "All compensation will be paid by cheque issued in Hong Kong dollars and can only be deposited in the banks located in Hong Kong."
+    },
+    {
+      "category":"About Claims",
+      "id": 17,
+      "question_title": "Can I pick up the claim settlement cheque at your Customer Service Centre?",
+      "question_answer": "No, the settlement cheque will be sent via ordinary mail."
+    },
+    {
+      "category":"About Claims",
+      "id": 18,
+      "question_title": "What are the major exclusions of this PhoneCare Handset Protection Plan?",
+      "question_answer": "<ul> <li>Damage which is not accidental in nature</li><li>Damage that does not affect the functionality of the covered mobile phone, e.g. scratches</li><li>Damage that is covered by warranties of the handset manufacturer</li><li>Damage due to gradual deterioration</li></ul>For more details, please refer to the Policy Provisions."
+    },
+    {
+      "category":"About Claims",
+      "id": 19,
+      "question_title": "Can I submit a claim by mail?",
+      "question_answer": "No, please submit your claim through our website."
+    }                                                                                                                                                                                                 
+  ]
+}

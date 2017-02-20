@@ -1,0 +1,200 @@
+{
+  "product":"Drivamatics",
+  "category_widget":{
+      "list":[
+      "About Recording:",
+      "About Reviewing the Record:",
+      "About identity recognition:",
+      "About the system and others:",
+      "About Personal information:"
+    ]
+  },
+  "questions":[
+    {
+      "category":"About Recording:",
+      "id": 1,
+      "question_title": "Why doesn’t Drivamatics start recording immediately after I start my journey?",
+      "question_answer": "Drivamatics must detect that you are moving or driving on a journey, before it starts recording. This is why there is a 2-minute difference between the moment you start your journey and the time when the recording begins."
+    },
+    {
+      "category":"About Recording:",
+      "id": 2,
+      "question_title": "What makes the recording process stop?",
+      "question_answer": "If you stop moving for 3 minutes and Drivamatics detects it, the system will stop to use the GPS automatically, and the recording will also be stopped. If Drivamatics later detects that you are moving or driving on a journey, the system will start recording again."
+    },
+    {
+      "category":"About Recording:",
+      "id": 3,
+      "question_title": "Why is the starting point of recording not exactly the same as the real time I began my trip?",
+      "question_answer": "Drivamatics must detect that you are moving or driving on a journey in order to start recording. At that moment, your exact location is already different with the starting point. This is why the journey starting point record is not exactly the same as the actual journey starting point."
+    },
+    {
+      "category":"About Recording:",
+      "id": 4,
+      "question_title": "Why do I have to turn on the GPS all the time?",
+      "question_answer": "Drivamatics needs the GPS to detect your location and start recording. Therefore you need to keep the GPS turned on all the time."
+    },
+    {
+      "category":"About Recording:",
+      "id": 5,
+      "question_title": "Why are there breaks in the journey tracking?",
+      "question_answer": "Different elements such as buildings and weather can interrupt the GPS from collect location data. So there will be occasional breaks in the tracking record. However, Drivamatics is based on the data of the map, and will try to fill in the breaks whilst tracking. This function starts after you turn on the network data or Wi-Fi connection."
+    },
+    {
+      "category":"About Recording:",
+      "id": 6,
+      "question_title": "What can prevent Drivamatics from building a record?",
+      "question_answer": "When your mobile phone cannot receive mobile data or use Wi-Fi (for example, on a train, in a tunnel, or under a bridge), and the GPS may not be able to function, so Drivamatics cannot create a record."
+    },     
+    {
+      "category":"About Recording:",
+      "id": 7,
+      "question_title": "Why are some journeys recorded in 2 parts? For example when I have to wait for a long time for the traffic light or when caught in a traffic jam.",
+      "question_answer": "Whenever Drivamatics detects that you have stopped moving for more than 3 minutes, the system will automatically stop the GPS, and the recording will stop at the same time. So every time you are stationary for more than 3 minutes, the system will end the journey record and start a new one when you get going again."
+    },
+    {
+      "category":"About Recording:",
+      "id": 8,
+      "question_title": "How can I tell if my journey is being recorded?",
+      "question_answer": "You can enter Drivamatics and go to “Settings”, turn on “Notification when auto-record”. When turning on this function, you can receive notification whenever the system starts recording automatically."
+    },
+    {
+      "category":"About Recording:",
+      "id": 9,
+      "question_title": "How can I improve the accuracy of the journey record?",
+      "question_answer": "Place your mobile device somewhere stable during your trip.<br><br>Drivamatics calculates your score with a precise scientific method. You have to update the app regularly to score accurately. If you have not updated a new version within 30 days after release, the app will stop you from using it and also stop calculating your driving score until you update the app. Your past driving record will not be removed when updating.<br><br>Every time a new version is released, a notification will be sent to remind you to update your app, to ensure it runs properly. If, after a week, you still have not updated your app, you will get another notification and so on every week, every time you turn on your app, it will show an update reminder until you do update your app. If you turn off your notification, you may miss the update reminder and your score will no longer be counted."
+    },
+    {
+      "category":"About Recording:",
+      "id": 10,
+      "question_title": "How does Drivamatics determine my driving score?",
+      "question_answer": "Drivamatics calculates your score precisely based on over 40 attributes to evaluate your driving skills. The 5 main elements are safe speed, braking technique, concentration, turning technique and smooth acceleration."
+    },
+    {
+      "category":"About Reviewing the Record:",
+      "id": 11,
+      "question_title": "During recording and whilst travelling, can I review my journey at the same time?",
+      "question_answer": "We do not suggest you to check your journey record when recording, checking your mobile phone whist driving is dangerous. This is why you cannot review your record whilst in the page of recoding mode."
+    },
+    {
+      "category":"About Reviewing the Record:",
+      "id": 12,
+      "question_title": "Why can I not review my performance on the journey list immediately after my journey ends?",
+      "question_answer": "After the recording is finished, all the data will be uploaded to the server, and then evaluated and scored. Therefore, the latest journey can only be shown in the list after 30 seconds of end of your journey."
+    },
+    {
+      "category":"About Reviewing the Record:",
+      "id": 13,
+      "question_title": "What is an invalid journey?",
+      "question_answer": "If there is not enough valid data during recriding (for example, when you are driving through a tunnel or under a bridge), the system will not able to evaluate your driving behavior and score. So such trip will be determined as an invalid journey."
+    },
+    {
+      "category":"About Reviewing the Record:",
+      "id": 14,
+      "question_title": "What will cause the ‘Too short a time’/’Too short a distance’/ ‘Inaccurate location data’ messages to appear?",
+      "question_answer": "If the recording time is less than 2 minutes, or the distance is less than 1 kilometer, or the location data is not accurate enough, the app will send out one of these notifications."
+    },
+    {
+      "category":"About Reviewing the Record:",
+      "id": 15,
+      "question_title": "What are the use of the scores of each journey and the Total Average Score?",
+      "question_answer": "The driving scores in the App shall be used for your reference and for the purpose of enhancing driving pleasure and calculation of MotorSmart Award cash rebate (if applicable) only. The score is an evaluation of your driving technique based on various factors. These scores are for your own interest. They have no legal basis and cannot be used as evidence in any situation."
+    }, 
+    {
+      "category":"About identity recognition:",
+      "id": 16,
+      "question_title": "Why is there no scoring notification?",
+      "question_answer": "The system has to collect more than 300 kilometers worth of data, not less than 10 hours of driving, and not less than 20 trips, to provide a more reliable score. If your journey records have not met the above requirements, then there will be no scoring notification."
+    },
+    {
+      "category":"About identity recognition:",
+      "id": 17,
+      "question_title": "Why does Drivamatics need confirmation for some of the journeys for public transport?",
+      "question_answer": "Even though the app can recognize public transport with a high level of accuracy, it cannot reach 100% accuracy. Whenever Drivamatics cannot recognize a particular type of transportation, it will notify you to confirm or amend."
+    },
+    {
+      "category":"About identity recognition:",
+      "id": 18,
+      "question_title": "Why does the app stop recording automatically after I run the recording process manually?",
+      "question_answer": "Whenever Drivamatics detects you are not driving or taking transportation, it will stop recording automatically."
+    },
+    {
+      "category":"About identity recognition:",
+      "id": 19,
+      "question_title": "Why does it require confirmation for some journeys, but not others?",
+      "question_answer": "Drivamatics recognizes the driving ‘signature’ of all drivers. Whenever it detects a known signature it does not require confirmation. If the app cannot match a new journey with a driver’s past record or signature, it requires confirmation."
+    },
+    {
+      "category":"About identity recognition:",
+      "id": 20,
+      "question_title": "If Drivamatics recognized a journey category incorrectly, can the record be changed?",
+      "question_answer": "Yes. In the journey list, slide the incorrectly recognized journey title to the left, click the ‘Journey Reconfirmation’ button and choose the correct journey category from the menu. A journey can only be changed once."
+    },
+    {
+      "category":"About identity recognition:",
+      "id": 21,
+      "question_title": "After I finish a journey, if I don’t want this journey to appear in my Drivamatics record, can I delete it?",
+      "question_answer": "Yes. Simply slide the screen to the left, and click ‘Do not show’. But be careful, once you delete a journey, it will be removed permanently. But the journey will still be counted when evaluating your score."
+    },
+    {
+      "category":"About the system and others:",
+      "id": 22,
+      "question_title": "After successful registration, why is there a message saying ‘the system wants to use your location information’? Do I have to accept this message?",
+      "question_answer": "Drivamatics is required on your GPS location to collect the data to create your score. So you have to accept Drivamatics using your location information. After you turn on the location information, if Drivamatics is in a stand-by mode, the battery usage shall not be more than 5%."
+    },
+    {
+      "category":"About the system and others:",
+      "id": 23,
+      "question_title": "How can I check my battery usage when I am using iOS or Andriod?",
+      "question_answer": "On iOS, go to Mobile System setting -> Battery->check the last 24 hours or 7 days battery usage and see the proportion related to Drivamatics. On Android, go to Mobile System setting ->application -> check the battery usage of Drivamatics."
+    },
+    {
+      "category":"About the system and others:",
+      "id": 24,
+      "question_title": "What do I need to do for Drivamatics to operate properly?",
+      "question_answer": "<ol> <li>Allow location service permission</li><li>Turn on a 3G or 4G network</li><li>Turn on backend activity permission, allow background app re-consolidation (this option is not compulsory, but your user experience will be enhanced when you turn it on.)</li></ol>"
+    },
+    {
+      "category":"About the system and others:",
+      "id": 25,
+      "question_title": "During the journey recording process, will my mobile network data be used? Can I set the data upload after connecting to Wi-Fi’?",
+      "question_answer": "<ol> <li>During the journey recording process, it’s not necessary to use a mobile network, but it needs mobile network to use the GPS to receive the location signal.</li><li>Yes. When you upload the data, you can simply set it to upload after connecting to Wi-Fi’ in the system setting. This can save your network data usage. But be careful, when you set ‘Upload journey record only with Wi-Fi’, the system will delay the feedback of the journey recorded. Uploading Data through Wi-Fi is not as good as with a 3G or 4G network.</li></ol>"
+    },
+    {
+      "category":"About the system and others:",
+      "id": 26,
+      "question_title": "How can I save on data usage when I am using Drivamatics?",
+      "question_answer": "You can turn on ‘Use map only with Wi-Fi’ in the setting and ‘Upload journey record only with Wi-Fi’ in Drivamatics to save on data usage."
+    },
+    {
+      "category":"About the system and others:",
+      "id": 27,
+      "question_title": "What is the ‘Application enhancement’ in the Drivamatics settings?",
+      "question_answer": "When you press ‘Application enhancement’, the system will automatically upload all the information and data of the app to the application programmer, in order to modify your experience and improve the user-orientated interface design."
+    },
+    {
+      "category":"About Personal information:",
+      "id": 28,
+      "question_title": "Why do you need to collect my personal information?",
+      "question_answer": "We collect your location and trip information simply to evaluate your driving score and for reference. We will not use this record for tracking or monitoring. Also, we collect your information so we can send you new offers, company news and information, as well as direct marketing material. If you want to know more about our personal information usage terms, please refer to the relative terms and condition."
+    },
+    {
+      "category":"About Personal information:",
+      "id": 29,
+      "question_title": "How to unsubscribe from FWD direct marketing information?",
+      "question_answer": "Please call the FWD 24-hour Service Hotline at 3123 3123. However, once you unsubscribe we will not be able to inform you about our latest offers and important updates."
+    },
+    {
+      "category":"About Personal information:",
+      "id": 30,
+      "question_title": "How long will my information be kept?",
+      "question_answer": "In normal circumstances, we will delete your account as well as the information in your account after you stop using Drivamatics for 2 consecutive years (This means if you have not uploaded any driving score to the system in 2 years.)"
+    },
+    {
+      "category":"About Personal information:",
+      "id": 31,
+      "question_title": "If I remove Drivamatics from my mobile handset, does it mean my information is deleted? And does it mean I have unsubscribed from the FWD direct marketing list?",
+      "question_answer": "No. Even if you remove Drivamatics from your mobile handset, the system will still keep your information, until you stop using Drivamatics for 2 consecutive years (This means you have not uploaded any driving scores to the system for 2 years.)<br><br>After 2 years, our company will delete your account as well as all the information in your account. If you do not want us to use your personal information for direct marketing, please call the FWD 24-hour Service Hotline at 3123 3123 to unsubscribe from FWD direct marketing list."
+    }                                                                                                                                                                                                                                                
+  ]
+}

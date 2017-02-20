@@ -1,0 +1,168 @@
+{
+  "product":"Term Life Plan",
+  "category_widget":{
+      "list":[
+      "Product Features",
+      "Application",
+      "Policy Services"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Product Features",
+      "id": 1,
+      "question_title": "What is Term life insurance?",
+      "question_answer": "Term life insurance provides pure life insurance protection to the insured for a specific period but does not contain any savings feature. The insurance company will pay the sum assured if death occurs during the covered period. As this plan has no cash value and saving elements, premium for this type of insurance plan is usually the lowest and increase with Insured's age. However, if the insured is still alive at the maturity date of the policy, no proceeds will be provided to the insured by the insurance company."
+    },
+    {
+      "category":"Product Features",
+      "id": 2,
+      "question_title": "Why does the customer need Elite Term Plan?",
+      "question_answer": "This Plan offers low-cost protection with pure life coverage. It allows customers to fill his/her protection gap at a relatively low cost. Moreover, the premiums payable are guaranteed to stay the same for the first twenty policy years. Starting from the 21st policy year, the premiums are not guaranteed which will be determined annually based on factors including but not limited to the age of the Insured at next birthday, claims experience and policy persistency at the time of renewal. No matter what the customer's state of health is, the Plan continues up to the age of 95."
+    },
+    {
+      "category":"Product Features",
+      "id": 3,
+      "question_title": "What is the minimum sum insured and maximum sum insured of Elite Term Plan at i.FWD?",
+      "question_answer": "The minimum sum insured is HKD 400,000 and the maximum sum insured is HKD 2,000,000 which is subject to age limit (Insured's age of next birthday) through i.FWD .<ol><li>Insured age of 19 - 50: maximum sum insured will be HK$2.0 million</li><li>Insured age of 51 - 55: maximum sum insured will be HK$1.5 million</li><li>Insured age of 56 - 60: maximum sum insured will be HK$0.5 million</li></ol>"
+    },
+    {
+      "category":"Product Features",
+      "id": 4,
+      "question_title": "What is Advanced Death Benefit?",
+      "question_answer": "While the policy is in force and the insured's advent of death is highly likely within 12 months as certified by a registered medical specialist as defined in the policy and is accepted by FWD, the Advanced Death Benefit in the sum equivalent to the Death Benefit will be payable to the policy owner in advance subject to the maximum of HK$1,000,000 per insured. Upon payment of such benefit to the policy owner, the sum insured and the premium of the policy will be reduced accordingly. If the sum insured is reduced to zero or below, the policy will terminate. Advanced Death Benefit is not applicable under specific circumstances. Please refer to the exclusions for the Advanced Death Benefit on the policy provisions."
+    },
+    {
+      "category":"Product Features",
+      "id": 5,
+      "question_title": "Does the premium stay the same throughout the term of the policy?",
+      "question_answer": "No. The premium remains level and is guaranteed for the first 20 policy years. Starting from the 21st policy year, the premiums are not guaranteed which will be determined annually based on factors including but not limited to the age of the Insured at next birthday, claims experience and policy persistency at the time of renewal."
+    },
+    {
+      "category":"Product Features",
+      "id": 6,
+      "question_title": "Is there any policy fee levied on the Elite Term Plan?",
+      "question_answer": "No."
+    }, 
+    {
+      "category":"Product Features",
+      "id": 7,
+      "question_title": "Are there any other currencies offered at i.FWD?",
+      "question_answer": "Only Hong Kong Dollar is available at i.FWD."
+    },
+    {
+      "category":"Product Features",
+      "id": 8,
+      "question_title": "What are the key product risks?",
+      "question_answer": "The key product risks are:<ol><li>Credit risk<br>This product is an insurance policy issued by FWD. The application of this insurance product and all benefits payable under the policy are subject to the credit risk of FWD. The customer will bear the default risk in the event that FWD is unable to satisfy its financial obligations under this insurance contract.</li><li>Inflation risk<br>The cost of living in the future may be higher than now due to the effects of inflation.  Therefore, the benefits under this policy may not be sufficient for the increasing protection needs in the future even if FWD fulfills all of the contractual obligations.</li><li>Exclusions<br>No Advanced Death Benefit will be paid where the Insured's advent of death is caused directly or indirectly from any of the following: (1) intentional self-inflicted injury, or attempted suicide, while sane or insane and while intoxicated or not; or (2) Human Immunodeficiency Virus (HIV) related illness, including Acquired Immunization Deficiency Syndrome (AIDS) and/or any mutations, derivations or variations thereof, which is derived from an HIV infection; or (3) intoxication caused by alcohol or narcotics or drugs or agents unless taken in accordance with the lawful directions and prescription of a Registered Medical Specialist.</li><li>Premium adjustment<br>The premiums payable for the first 20 policy years are level and guaranteed. Starting from the 21st policy year, the premium is non-guaranteed and will be determined annually based on the age of the Insured on his/her next birthday at the time of renewal. The premium may increase significantly starting from the 21st policy due to factors including but not limited to age, claims experience and policy persistency.</li><li>Premium term and non-payment of premium<br>The premium payment term of the policy ends on the policy anniversary immediately preceding the Life Insured's 95th birthday. FWD allows a Grace Period of 30 days after the premium due date for payment of each premium. If a premium is still unpaid at the expiration of the Grace Period, the policy will be terminated from the date of the first unpaid premium was due. Please note that once the policy is terminated on this basis, the customer will lose all of the benefits.</li><li>CTermination conditions<br>The policy shall terminate on the earliest of the following: (1) The death of the Life Insured. (2) The policy anniversary immediately preceding the 95th birthday of the Life Insured. (3) The date on which the entire amount of the Sum Insured remaining is converted to a permanent plan of life insurance subject to the FWD's relevant rules at the time of conversion. (4) The Sum Insured is reduced to zero or below upon payment of the Advanced Death Benefit under this policy. (5) The end of the Grace Period of any premiums due and not received by FWD.</li></ol>"
+    },
+    {
+      "category":"Application",
+      "id": 9,
+      "question_title": "What are the underwriting requirements for Elite Term Plan at i.FWD?",
+      "question_answer": "Simplified underwriting. Customers need to answer 4 underwriting questions. No medical examinations are required for this plan. If one of answers to the underwriting questions is \"yes\", customers are subject to standard underwriting procedure offline."
+    },
+    {
+      "category":"Application",
+      "id": 10,
+      "question_title": "Can the Policy be dated back?",
+      "question_answer": "Yes, but not more than 3 months."
+    },
+    {
+      "category":"Application",
+      "id": 11,
+      "question_title": "Is there any attachable rider?",
+      "question_answer": "No, there is no attachable rider available through i.FWD at policy inception. After the policy is inforced, the customer can opt for riders by going through necessary underwriting."
+    },
+    {
+      "category":"Application",
+      "id": 12,
+      "question_title": "If the customer is not a HKID cardholder, can he/she buy this product?",
+      "question_answer": "No. Only HKID cardholders and residents in Hong Kong are accepted. Note that non-permanent residents need to provide their passport as a supporting document."
+    },
+    {
+      "category":"Application",
+      "id": 13,
+      "question_title": "If the customer lives outside of Hong Kong, can he/she apply for this product?",
+      "question_answer": "The customer can call our 24-hour Service Hotline 31233123 for enquiries and apply for traditional Elite Term Plan. Premiums may be adjusted with applicable geographic loadings."
+    },
+    {
+      "category":"Application",
+      "id": 14,
+      "question_title": "If the customer occupation is classified as dangerous, can he/she apply for this product?",
+      "question_answer": "Yes but premiums may be adjusted with applicable occupation loadings."
+    },
+    {
+      "category":"Application",
+      "id": 15,
+      "question_title": "What are available payment methods?",
+      "question_answer": "Customers can pay by credit cards only in policyholder's name by setting up direct deposit account (DDA) online. Acceptable credit cards are Visa/Master/BoCom Co-brand credit card."
+    },                                                       
+    {
+	  "category":"Application",
+      "id": 16,
+      "question_title": "How long does it take to process an application and put a policy inforce?",
+      "question_answer": "The policy will not be inforce until the customers have submitted all the documents including address proof and have made the full initial payment. Applicants will be contacted by FWD upon received of the full initial payment. The policy will be issued within 3 working days."
+    },    
+    {
+      "category":"Application",
+      "id": 17,
+      "question_title": "When will Direct Debit Authorization (DDA) of credit cards be debited?",
+      "question_answer": "On the 3<sup>rd</sup> of each month."
+    },
+    {
+      "category":"Application",
+      "id": 18,
+      "question_title": "Does the customer have to submit all the supporting documents during the online application?",
+      "question_answer": "No, the customer may either upload the documents later, or bring them in person to our customer service centers."
+    },
+    {
+      "category":"Application",
+      "id": 19,
+      "question_title": "Are there any age limits for applying to Elite Term Plan at i.FWD?",
+      "question_answer": "The issue age must be 19-60 (age next birthday) at the time of application."
+    },
+    {
+      "category":"Application",
+      "id": 20,
+      "question_title": "Can the customer change his/her mind and cancel the policy?",
+      "question_answer": "If the customer is not satisfied with the policy, he/she has the right to cancel it within the Cooling-off Period and obtain a refund of any premium paid provided that he/she has not made any claims under the policy. A written notice signed by him/her should be received by the office of FWD at 1/F., FWD Financial Centre, 308 Des Voeux Road Central, Hong Kong within the Cooling-Off Period (that is, 21 days after either the delivery of the policy or the issue of a Notice informing him/her or his/her representative that the policy is available for collection and expiry date of the Cooling-off Period, whichever is earlier)."
+    },
+    {
+      "category":"Policy Services",
+      "id": 21,
+      "question_title": "Can the customer increase the sum insured during the term of the policy?",
+      "question_answer": "The customer can only increase the sum insured during the first policy year of the policy and the change will be effective from the Commencement Date. It is subject to full underwriting."
+    },
+    {
+      "category":"Policy Services",
+      "id": 22,
+      "question_title": "What are the premium payment mode(s)?",
+      "question_answer": "Only monthly mode is available through i.FWD at policy inception. It can be changed after the policy is inforced. Please fill in the Policy Service Request Form under Part A Section 4.  Change of Payment Mode. The form is available to be downloaded from company website:<a href=\"http://www.fwd.com.hk/en/support-claims/forms-listing/\" target=\"_blank\"><u>http://www.fwd.com.hk/en/support-claims/forms-listing/</u></a>"
+    },
+    {
+      "category":"Policy Services",
+      "id": 23,
+      "question_title": "If the customer does not pay the premium due after the initial premium is paid, will the policy be lapsed?",
+      "question_answer": "The Company allows a Grace Period of 30 days after the premium due date for payment of each premium after the first. If a premium is unpaid at the expiration of the Grace Period, the Policy shall cease to be in force from the date of the first unpaid premium. Any due and unpaid premiums shall be deducted from a benefit otherwise payable."
+    },
+    {
+      "category":"Policy Services",
+      "id": 24,
+      "question_title": "Can the policy be reinstated?",
+      "question_answer": "Within one year from the date of a default in payment of premiums pursuant to which this Policy was terminated, this Policy may be reinstated at the Company's absolute discretion, provided that the Insured is still alive and insurable by the Company's underwriting rules. The Policy Owner is required to pay all the unpaid premiums with interest, at a rate determined by the Company from time to time, from the date of the default in payment of premiums."
+    },
+    {
+      "category":"Policy Services",
+      "id": 25,
+      "question_title": "Can the customer convert to permanent life insurance plan? What kind of evidence does he/she need to submit?",
+      "question_answer": "Yes, this Plan enables customers to convert to a permanent life insurance plan, provided that the policy is inforce and the Insured is alive, before the Policy anniversary immediately preceding the 70th birthday of the Insured. Evidence of insurability is not required."
+    },
+    {
+      "category":"Policy Services",
+      "id": 26,
+      "question_title": "When the customer make a death/advanced death benefit claim, how is the payment be calculated?",
+      "question_answer": "It is equal to 100% of the sum insured. For Advanced Death Benefit, it is subject to the maximum of HK$1,000,000 per insured. Where the premium payment mode is other than annually, if the Death Benefit or Advanced Death Benefit is payable, FWD shall deduct from the amount payable the unpaid premiums (if any) for the remainder of the current year of insurance, together with any other indebtedness."
+    }                                                                                                                                     
+  ]
+}

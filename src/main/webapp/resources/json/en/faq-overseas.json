@@ -1,0 +1,73 @@
+{
+  "product":"Overseas Study",
+  "category_widget":{
+      "list":[
+      "General questions",
+      "Personal accident",
+      "Kidnap case",
+      "Education fund"
+    ]
+  },
+  "questions":[
+    {
+      "category":"General questions",
+      "id": 1,
+      "question_title": "What are the insured requirements for ‘Overseas StudyCare Insurance’?",
+      "question_answer": "The insured must be between the ages of 12 to 65 with a valid HKID and holds an overseas full time student visa, and an acceptance letter from the educational institution. If the insured aged 12-17, the application should be made by his/her parent."
+    },
+    {
+      "category":"General questions",
+      "id": 2,
+      "question_title": "If I need to stay in another country for exchange or leisure purposes while studying overseas, am I covered?",
+      "question_answer": "The policy provides Worldwide cover. If you are travelling for leisure during your study trip, the plan will only cover the following areas: <ol> <li>Medical Expenses</li><li>Top up In-Patient Medical Expenses</li><li>Worldwide Emergency Assistance Services</li><li>Personal Accident</li><li>Travel Delay</li><li>Baggage</li><li>Personal Liability</li></ol>"
+    },
+    {
+      "category":"General questions",
+      "id": 3,
+      "question_title": "Which countries are included as Asian Countries?",
+      "question_answer": "Asian Countries include: <ol> <li>India</li><li>Japan</li><li>Korea</li><li>Macau</li><li>Malaysia</li><li>China</li><li>Singapore</li><li>Taiwan</li><li>Thailand</li><li>Vietnam</li></ol>"
+    },
+    {
+      "category":"Personal accident",
+      "id": 4,
+      "question_title": "Under what circumstances is the beneficiary able to receive Double Indemnity?",
+      "question_answer": " If any of the scenarios below occur, the beneficiary will receive Double Indemnity: <ol> <li>The Insured Student was travelling as a fare paying passenger on a public conveyance which was involved in an accident and died</li><li>The Insured Student died if he/she was an innocent bystander in a gun battle between the police and another person or person; or</li><li>The Insured Student was unable to escape a fire within any residential building and died</li></ol>"
+    },
+    {
+      "category":"Personal accident",
+      "id": 5,
+      "question_title": "When would I receive benefits for a burn injury?",
+      "question_answer": "We will award benefits if the Insured Student suffers third degree burns from an accident while on a journey, however, this benefit may only be claimed once for each accident during the journey."
+    },
+    {
+      "category":"Kidnap case",
+      "id": 6,
+      "question_title": "If the Insured Student is kidnapped overseas during their period of study, what benefits will be awarded?",
+      "question_answer": "In this tragic event of kidnapping, we will offer the following benefits (only applicable to Worldwide or Asia only Plan A): <ol> <li>Compassionate Visit and Hotel Accommodation – Provided to up to 2 immediate family members, including travelling costs to the location of the educational institution where the Insured Student was kidnapped. (Accommodations up to HK$1,200 per person per night for 5 consecutive days)</li><li>Compassionate Death Benefit – compensation for the Accidental Death of Insured Student from injury inflicted during the kidnapping incident up to HK$250,000.</li></ol>"
+    }, 
+    {
+      "category":"Kidnap case",
+      "id": 7,
+      "question_title": "If in the event that the Insured Student was kidnapped, and was killed during a gun battle between the kidnappers and the police, what benefits will be awarded?",
+      "question_answer": "If the Insured Student was kidnapped and then killed in the following gun battle, the claim will also fall under section 4 b – Personal Accident awarded Double Indemnity at the maximum limit to HK$1,000,000. (Please note that Section 7b – Kidnapping Compassionate death benefit will not be applicable)"
+    },
+    {
+      "category":"Kidnap case",
+      "id": 8,
+      "question_title": "If the Insured Student was kidnapped but I failed to report it to the relevant authorities within 24 hours, will he/she still be awarded benefits?",
+      "question_answer": "If it has been discovered that the Insured Student has been kidnapped, notification must be made to the relevant authorities within 24 hours of that time."
+    },
+    {
+      "category":"Kidnap case",
+      "id": 9,
+      "question_title": "If the Insured Student is kidnapped when he/she is travel out of the country of the Overseas Educational institution attended during the school holiday, will benefits be awarded?",
+      "question_answer": "If the Insured Student is on a trip away from his/her country of the educational institution no benefits will be awarded."
+    },
+    {
+      "category":"Education fund",
+      "id": 10,
+      "question_title": "If the Insured Student lives in on-campus accommodation, will this be covered within the Education Fund?",
+      "question_answer": "The Education Fund only covers unpaid tuition fees (excluding overdue fees). Any accommodation fees, off campus study tours, amusement courses or consumables are excluded from this benefit."
+    }                                                                                                                                    
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "product":"FlightCare",
+  "category_widget":{
+      "list":[
+      "Applicant/Insured related questions",
+      "Claim related questions",
+      "Other related questions"
+    ]
+  },
+  "questions":[
+    {
+      "category":"Applicant/Insured related questions",
+      "id": 1,
+      "question_title": "Can I register for more than one FlightCare insurance policy in order to increase the protection amount?",
+      "question_answer": "No, you cannot increase the protection amount by registering for more than one FlightCare insurance policy. The maximum protection benefit per the insured for all FlightCare policies is HK$500,000, irrespective of the number of FlightCare insurance policies registered."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 2,
+      "question_title": "Is there any restriction on the insured journey period?",
+      "question_answer": "The departure date of the insured person must be within 90 days of the application date."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 3,
+      "question_title": "Do I need to provide a flight number?",
+      "question_answer": "No, you do not need to provide a flight number."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 4,
+      "question_title": "Can I register for FlightCare Insurance policy if I am not a Hong Kong Identity Card holder?",
+      "question_answer": "No, only Hong Kong Identity Card holders can register and be insured, and the journey must originate from and return to Hong Kong."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 5,
+      "question_title": "Can I register for FlightCare for a long overseas work stay?",
+      "question_answer": "Yes, as long as you depart from and return to Hong Kong, and the entire journey is no more than 30 days."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 6,
+      "question_title": "If the return flight is delayed due to a snowstorm, will FlightCare protection be extended until my return?",
+      "question_answer": "If your return to Hong Kong is delayed due to unpredictable circumstances, the insurance cover provided may be automatically extended up to 10 days in general. This may extend beyond the 30 day maximum period of insurance, making the maximum period 40 days only in the case of unpredictable circumstances."
+    },{
+      "category":"Applicant/Insured related questions",
+      "id": 7,
+      "question_title": "Are tickets redeemed from the lottery, received as gifts, or acquired through incentive programs (e.g. Asia Miles or similar schemes) included under FlightCare coverage?",
+      "question_answer": "Yes, we will not refuse to cover tickets redeemed from the lottery, received as gifts, or acquired through incentive programs (e.g. Asia Miles or similar schemes)."
+    },{
+      "category":"Claim related questions",
+      "id": 8,
+      "question_title": "How do I make claims?",
+      "question_answer": "Notice of any claim must be given to the company within thirty-one days of the expiry of this policy, and in the instance of a claim under the section on personal liability benefit, such notice must be given in writing as soon as possible and in any event not later than 14 days after the incident giving rise to such a claim.<br><br>Please download the \"Travel Insurance Claim Form\" according to the following steps:<br><ol><li>Visit our website<a href=\"http://www.fwd.com.hk/en\" target=\"_blank\">http://www.fwd.com.hk</a></li><li>Go to \"Customer Service\"</li><li>Go to \"Download Forms\"</li><li>Go to \"General Insurance\"</li><li>Go to \"Travel Insurance\" <a href=\"http://www.fwd.com.hk/en/support-claims/claims/travel-insurance#filter=.personal_accident\" target=\"_blank\">http://www.fwd.com.hk/en/support-claims/claims/travel-insurance#filter=.personal_accident</a></li></ol>"
+    },{
+      "category":"Claim related questions",
+      "id": 9,
+      "question_title": "If the insured suffers from death due to an accident inside the aircraft before the aircraft takes off, will his beneficiary receive compensation?",
+      "question_answer": "If the insured person suffers from physical injury due to accident inside the aircraft which leads to death, the beneficiaries can receive compensation."
+    },{
+      "category":"Claim related questions",
+      "id": 10,
+      "question_title": "Is there compensation for death by heart attack onboard the aircraft?",
+      "question_answer": "No, death as a result of illness is not considered an accidental death and therefore this will not be under coverage. An accident within the scope of compensation is a bodily injury leading to death. Even if a heart attack is caused by the accident and results in the insured person’s death, no compensation will be paid."
+    },{
+      "category":"Claim related questions",
+      "id": 11,
+      "question_title": "If an act of terrorism causes the aircraft to crash and results in my death, will there be compensation?",
+      "question_answer": "Terrorist attacks fall within the scope of compensation, but accidents as a result of acts of war (whether declared or not), civil war, insurrection, and military action are not compensated."
+    },{
+      "category":"Claim related questions",
+      "id": 12,
+      "question_title": "If I am infected with \"Middle East respiratory syndrome\" on my flight and die after returning to Hong Kong, will there be compensation?",
+      "question_answer": "No, death as a result of illness is not considered an accidental death and therefore this will not be covered. An accident within the scope of compensation is considered as an event occurring entirely beyond the insured person’s control and caused by violent, external, and visible means."
+    },{
+      "category":"Claim related questions",
+      "id": 13,
+      "question_title": "If my flight is attacked and I die only after landing and being transported to a hospital, will there be compensation?",
+      "question_answer": "If your injury from the accident leads to death within one year of the accident, compensation may be payable."
+    },{
+      "category":"Claim related questions",
+      "id": 14,
+      "question_title": "While on my journey, if I suffer from any injuries that do not lead to death, can I make any medical claims?",
+      "question_answer": "No, compensation is only payable if your injuries received on the journey lead to your death."
+    },{
+      "category":"Other related questions",
+      "id": 15,
+      "question_title": "I didn’t receive an email confirmation after buying FlightCare, what should I do?",
+      "question_answer": "Your problem may be due to:<br><ol><li>Entering the incorrect email address.</li><li>Leaving the web page before the purchase could be completed.</li><li>The system is still processing your insurance policies.</li><li>The internet connection has been interrupted making the registration incomplete.</li></ol><br>You can call our 24 hour customer hotline at 3123-3123 for queries. Upon verification of your personal and policy information, the company will follow up and resend a confirmation email."
+    }
+  ]
+}
