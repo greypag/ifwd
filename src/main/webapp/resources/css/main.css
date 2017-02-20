@@ -12668,33 +12668,27 @@ button[disabled].btn.btn-default--vc {
 @media screen and (min-width: 992px) {
 	#business-partners-container img.hk3_logo {
 		margin-top: 15px;
-		height: 40%;
 		width: 40%;
 	}
 	#business-partners-container img.seven_eleven_logo {
 		margin-top: 25px;
-		height: 55%;
 		width: 55%;
 	}
 	#business-partners-container img.agoda_logo {
 	    margin-top: 15px;
-		height: 55%;
 		width: 55%;
 	}
 	#business-partners-container img.cx_logo {
 		margin-top: 20px;
 	}
 	#business-partners-container img.cfucome_logo {
-		margin-top: 40px;
-		height: 38%;
-		width: 38%;
+		width: 25%;
 	}
 	#business-partners-container img.csl_logo {
 		margin-top: 30px;
 	}
 	#business-partners-container img.sony_logo {
 		margin-top: 45px;
-		height: 55%;
 		width: 55%;
 	}
 	#business-partners-container img.seven_eleven_logo {}
@@ -12703,6 +12697,9 @@ button[disabled].btn.btn-default--vc {
 		height: 59%;
 		width: 59%;
 	}
+	#business-partners-container img.bp_tng {
+	    margin-top: 50px;
+	}	
 }
 
 /* line 2, ../sass/page/travel/page-travel-confirmation.scss */

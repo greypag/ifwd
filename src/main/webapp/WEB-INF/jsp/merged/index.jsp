@@ -315,64 +315,43 @@ var currentPath = "<%=request.getContextPath()%>";
 				   <h2 class="text-bold text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>
 				   <div class="bp-divider"></div>
 				   <div id="business-partners">
-					   <div class="row">
-						   <div class="col-xs-1 col-md-2">&nbsp;</div>
-						   <%-- <div id="bp-hk3" class="col-xs-12 col-md-2 text-center">
-							   <div class="desktop-center clearfix">
-								   <img class="hk3_logo" src="<%=request.getContextPath()%>/resources/images/partner_3hk.png">
-							   </div>
- 	 					  </div> --%>
+				   <div class="row">
 						  <div id="bp-7eleven" class="col-xs-12 col-md-3 text-center">
-							  <div class="desktop-center clearfix">
-								  <img class="seven_eleven_logo" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png">
-							  </div>
+						  	<img class="seven_eleven_logo" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png">
 						  </div>
 						  <div id="bp-agoda" class="col-xs-12 col-md-3 text-center">
-	 						 <div class="desktop-center clearfix">
-	 							<img class="agoda_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
+ 							<img class="agoda_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
+						</div>
+						<div id="bp-cx" class="col-xs-12 col-md-3 text-center">
+						   <img class="cx_logo">
+					   </div>
+						<div id="bp-cfucome" class="col-xs-12 col-md-3 text-center">
+							<img class="cfucome_logo" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png">
+						</div>					   
+					</div> <!-- end of row -->
+					<div class="row">
+						<div id="bp-csl" class="col-xs-12 col-md-3 text-center">
+							<img class="csl_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png">
+						</div>				
+						<div id="bp-klook" class="col-xs-12 col-md-3 text-center">
+							<img class="bp-klook" src="<%=request.getContextPath()%>/resources/images/KLOOK_LOGO_HK_MKT.png">
+						</div>					
+						<div id="bp-tng" class="col-xs-12 col-md-3 text-center">
+							<img class="bp_tng" src="<%=request.getContextPath()%>/resources/images/tng.png">iv>
+						</div>					
+						<%-- <div id="bp-sony" class="col-xs-12 col-md-3 text-center">
+							<div class="desktop-center clearfix">
+								<img class="sony_logo" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png">
+							</div>
+						</div> --%>
+						<div id="bp-club" class="col-xs-12 col-md-3 text-center">
+							<div class="desktop-center clearfix">
+	 							<img class="club_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
 	 <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
 	 <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
 	 						</div>
 						</div>
-						<div id="bp-cx" class="col-xs-12 col-md-3 text-center">
-						   <div class="desktop-center clearfix">
-							   <img class="cx_logo">
-						   </div>
-					   </div>
-	 				<div class="col-xs-1">&nbsp;</div>
-				</div> <!-- end of row -->
-				<div class="row">
-					<div id="bp-cfucome" class="col-xs-12 col-md-2 text-center">
-						<div class="desktop-center clearfix">
-							<img class="cfucome_logo" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png">
-						</div>
-					</div>
-					<div id="bp-klook" class="col-xs-12 col-md-3 text-center">
-						<div class="desktop-center clearfix">
-							<img class="bp-klook" src="<%=request.getContextPath()%>/resources/images/KLOOK_LOGO_HK_MKT.png">
-						</div>
-					</div>					
-					<div id="bp-csl" class="col-xs-12 col-md-3 text-center">
-						<div class="desktop-center clearfix">
-						<img class="csl_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png">
-<%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
-<%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
-						</div>
-					</div>
-					<%-- <div id="bp-sony" class="col-xs-12 col-md-3 text-center">
-						<div class="desktop-center clearfix">
-							<img class="sony_logo" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png">
-						</div>
-					</div> --%>
-					<div id="bp-club" class="col-xs-12 col-md-4 text-center">
-						<div class="desktop-center clearfix">
- 							<img class="club_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
- <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
- <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
- 						</div>
-					</div>
-					<div class="col-xs-1">&nbsp;</div>
-				</div> <!-- end of row -->
+					</div> <!-- end of row -->
 				   </div>
 
 				</div>
