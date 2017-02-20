@@ -337,7 +337,7 @@ var currentPath = "<%=request.getContextPath()%>";
 							<img class="bp-klook" src="<%=request.getContextPath()%>/resources/images/KLOOK_LOGO_HK_MKT.png">
 						</div>					
 						<div id="bp-tng" class="col-xs-12 col-md-3 text-center">
-							<img class="bp_tng" src="<%=request.getContextPath()%>/resources/images/tng.png">iv>
+							<img class="bp_tng" src="<%=request.getContextPath()%>/resources/images/tng.png">
 						</div>					
 						<%-- <div id="bp-sony" class="col-xs-12 col-md-3 text-center">
 							<div class="desktop-center clearfix">
