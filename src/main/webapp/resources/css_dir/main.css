@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.6, last compiled on: 2017-02-20 11:55:26 +0800
+* FWD revamp v0.1.6, last compiled on: 2016-11-02 11:36:09 +0800
 *
 **/
 /* line 94, ../sass/_mixin.scss */
@@ -2229,31 +2229,6 @@ body.chin .partner-headline-wrapper .headline-title {
   list-style-type: lower-roman;
 }
 
-/* line 38, ../sass/common_screen/_faq.scss */
-.faq_answer__list--pad-left20 {
-  padding-left: 20px;
-}
-
-/* line 42, ../sass/common_screen/_faq.scss */
-.faq-answer *, .faq_answer * {
-  font-size: 16px;
-}
-
-/* line 2, ../sass/page/travel/page-travel-confirmation.scss */
-.passkit-link-wrapper .passkit-btn {
-  border-radius: 4px;
-  background-color: #fdb714;
-  border-color: #fdb714;
-  border-bottom: solid 3px #cfa238;
-}
-/* line 7, ../sass/page/travel/page-travel-confirmation.scss */
-.passkit-link-wrapper .passkit-btn:hover {
-  background-color: transparent;
-  color: #fdb714;
-  border: 1px #fdb714 solid;
-  border-bottom: 3px solid;
-}
-
 @media screen and (max-width: 991px) {
   /* line 1, ../sass/mobile/_header.scss */
   body {
@@ -2556,34 +2531,6 @@ body.chin .partner-headline-wrapper .headline-title {
     padding-bottom: 0 !important;
     padding-left: 0 !important;
     padding-left: 30px !important;
-  }
-
-  /* line 3, ../sass/mobile/_landing.scss */
-  #business-partners-container img.hk3_logo {
-    height: 12%;
-    width: 12%;
-  }
-  /* line 7, ../sass/mobile/_landing.scss */
-  #business-partners-container img.sony_logo {
-    height: 30%;
-    width: 30%;
-  }
-  /* line 11, ../sass/mobile/_landing.scss */
-  #business-partners-container img.cx_logo {
-    height: 40%;
-    width: 40%;
-  }
-  /* line 15, ../sass/mobile/_landing.scss */
-  #business-partners-container img.cfucome_logo {
-    margin-top: 20px;
-    height: 14%;
-    width: 14%;
-  }
-  /* line 21, ../sass/mobile/_landing.scss */
-  #business-partners-container img.seven_eleven_logo {
-    margin-top: 20px;
-    height: 35%;
-    width: 35%;
   }
 
   /* line 3, ../sass/mobile/_loginpopup.scss */
@@ -2922,10 +2869,6 @@ body.chin .partner-headline-wrapper .headline-title {
     margin-top: 50px;
     height: 59%;
     width: 59%;
-  }
-  /* line 39, ../sass/desktop/_landing.scss */
-  #business-partners-container img.bp-klook {
-    margin: 30px 0 0 0;
   }
 
   /* line 1, ../sass/desktop/_loginpopup.scss */
@@ -3411,31 +3354,10 @@ body.chin .partner-headline-wrapper .headline-title {
   }
 }
 @media (max-width: 767px) {
-  /* line 3, ../sass/customize_screen/_faq.scss */
+  /* line 2, ../sass/customize_screen/_faq.scss */
   .faq-answer__orderList__listItem {
     width: 100%;
     clear: both;
-  }
-
-  /* line 7, ../sass/customize_screen/_faq.scss */
-  .faq_answer a {
-    word-wrap: break-word;
-  }
-}
-@media screen and (max-width: 991px) {
-  /* line 2, ../sass/customize_screen/travel/page-travel-confirmation.scss */
-  .passkit-link-wrapper {
-    text-align: center;
-  }
-  /* line 4, ../sass/customize_screen/travel/page-travel-confirmation.scss */
-  .passkit-link-wrapper #qrImg {
-    margin: 20px auto 0 0;
-    display: inline-block;
-  }
-  /* line 8, ../sass/customize_screen/travel/page-travel-confirmation.scss */
-  .passkit-link-wrapper .passkit-btn {
-    white-space: normal;
-    word-wrap: break-word;
   }
 }
 

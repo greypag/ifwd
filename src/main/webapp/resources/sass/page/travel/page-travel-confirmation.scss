@@ -1,4 +1,7 @@
 .passkit-link-wrapper{
+	#qrImg{
+		margin-left: 50px;
+	}
 	.passkit-btn{
 		border-radius: 4px;
 		background-color: #fdb714;
@@ -8,7 +11,15 @@
 			background-color: transparent;
 			color: #fdb714;
 			border: 1px #fdb714 solid;
-			border-bottom: 3px solid;
+		}
+	}	
+}
+@media screen and (max-width: 991px){
+	.passkit-link-wrapper{
+		text-align: center;
+		#qrImg{
+			display: block;
+			margin: 20px auto 0 auto;
 		}
 	}	
 }
