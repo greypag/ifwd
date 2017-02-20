@@ -12146,7 +12146,7 @@ body.chin .partner-headline-wrapper .headline-title{
   .faq-answer__orderList__listItem {
     width: 100%;
     clear: both;
-  }
+  }  
 }
 @media all and (max-width: 480px) {
   /* line 8, ../sass/customize_screen/_faq.scss */
@@ -12702,10 +12702,6 @@ button[disabled].btn.btn-default--vc {
 	}	
 }
 
-/* line 2, ../sass/page/travel/page-travel-confirmation.scss */
-.passkit-link-wrapper #qrImg {
-  margin-left: 50px;
-}
 /* line 5, ../sass/page/travel/page-travel-confirmation.scss */
 .passkit-link-wrapper .passkit-btn {
   border-radius: 4px;
@@ -12718,6 +12714,23 @@ button[disabled].btn.btn-default--vc {
   background-color: transparent;
   color: #fdb714;
   border: 1px #fdb714 solid;
+  border-bottom: 3px solid;
+}
+@media screen and (max-width: 991px) {
+  /* line 2, ../sass/customize_screen/travel/page-travel-confirmation.scss */
+  .passkit-link-wrapper {
+    text-align: center;
+  }
+  /* line 4, ../sass/customize_screen/travel/page-travel-confirmation.scss */
+  .passkit-link-wrapper #qrImg {
+    margin: 20px auto 0 0;
+    display: inline-block;
+  }
+  /* line 8, ../sass/customize_screen/travel/page-travel-confirmation.scss */
+  .passkit-link-wrapper .passkit-btn {
+    white-space: normal;
+    word-wrap: break-word;
+  }
 }
 /* line 39, ../sass/desktop/_landing.scss */
 #business-partners-container img.bp-klook {

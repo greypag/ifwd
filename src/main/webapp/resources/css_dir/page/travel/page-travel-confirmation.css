@@ -1,31 +1,16 @@
 /* line 2, ../../../sass/page/travel/page-travel-confirmation.scss */
-.passkit-link-wrapper #qrImg {
-  margin-left: 50px;
-}
-/* line 5, ../../../sass/page/travel/page-travel-confirmation.scss */
 .passkit-link-wrapper .passkit-btn {
   border-radius: 4px;
   background-color: #fdb714;
   border-color: #fdb714;
   border-bottom: solid 3px #cfa238;
 }
-/* line 10, ../../../sass/page/travel/page-travel-confirmation.scss */
+/* line 7, ../../../sass/page/travel/page-travel-confirmation.scss */
 .passkit-link-wrapper .passkit-btn:hover {
   background-color: transparent;
   color: #fdb714;
   border: 1px #fdb714 solid;
-}
-
-@media screen and (max-width: 991px) {
-  /* line 18, ../../../sass/page/travel/page-travel-confirmation.scss */
-  .passkit-link-wrapper {
-    text-align: center;
-  }
-  /* line 20, ../../../sass/page/travel/page-travel-confirmation.scss */
-  .passkit-link-wrapper #qrImg {
-    display: block;
-    margin: 20px auto 0 auto;
-  }
+  border-bottom: 3px solid;
 }
 
 /*# sourceMappingURL=page-travel-confirmation.css.map */
