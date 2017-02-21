@@ -26,9 +26,9 @@ String language = session.getAttribute("language").toString();
 String indexJsonPath = "";
 if(language!=null){
 	if(language=="en"){
-		indexJsonPath = "/fwdhk/resources/json/en/faq-index.json";
+		indexJsonPath = "/resources/json/en/faq-index.json";
 	}else{
-		indexJsonPath = "/fwdhk/resources/json/tc/faq-index.json";
+		indexJsonPath = "/resources/json/tc/faq-index.json";
 	}
 }
 	
@@ -46,8 +46,14 @@ if(language!=null){
 //System.out.print(category.toString());
 //JsonArray products = parser.parse(br).getAsJsonObject();
 
+String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+if (request.getServerPort() != 80 && request.getServerPort() != 443)
+{
+    serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+}
+
 FaqUtil faqUtil = new FaqUtil();
-JSONObject faqIndexObj = faqUtil.getJsonObject("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
+JSONObject faqIndexObj = faqUtil.getJsonObject(serverUrl+indexJsonPath);
 long faqIndexGroup = (long) faqIndexObj.get("groupCount");
 JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 
@@ -63,13 +69,15 @@ JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 	<!-- Breadcrumb Component Start-->
     <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
-            header.menu.home,header.menu.faq
+            breadcrumb.item.home,breadcrumb.item.faq
         </c:set>
         <c:set var="breadcrumbActive">1</c:set>
+        <c:set var="breadcrumbBold">true</c:set>
         
         <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
             <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
             <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+            <jsp:param name="breadcrumbBold" value="${breadcrumbBold}"/>
         </jsp:include>
     </div>
     <!-- Breadcrumb Component End-->
