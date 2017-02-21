@@ -168,6 +168,7 @@ var policyHelper = {
 
 		this.showLoading();
 		this.isLoadingApi = true;
+		logViewer.clearPolicyOption();
 
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyListByCustomer,
@@ -185,6 +186,8 @@ var policyHelper = {
 				if(that.isAllPolicyLocked(response.policies)){
 					//eWalletCtr.showGenericMsg(msgCtr.policyList.policyAllLockedTitle, msgCtr.policyList.policyAllLocked);
 					that.errMsgDom.show().html(msgCtr.policyList.policyAllLocked);
+				}else if(response.policies.length == 0){
+					that.errMsgDom.show().html(msgCtr.policyList.policyEmpty);
 				}else{
 					that.composePolicyList(response.policies);	
 				}
@@ -208,24 +211,17 @@ var policyHelper = {
 			}
 		}
 
-		return lockedCount == policyAry.length;
+		return lockedCount > 0 && lockedCount == policyAry.length;
 	},
 	composePolicyList: function(policyAry) {
 		var that = this;
 
-		logViewer.clearPolicyOption();
+        // show msg if no mobile number
+        if(that.isInvalidMobile){
+            eWalletCtr.showGenericMsg("", msgCtr.policyList.noMobileNum);
+            return;
+        }
 
-		// show msg if no policy return
-		if(policyAry.length == 0){
-			eWalletCtr.showGenericMsg("", msgCtr.policyList.policyEmpty);
-			return;
-		}
-
-		// show msg if no mobile number
-		if(that.isInvalidMobile){
-			eWalletCtr.showGenericMsg("", msgCtr.policyList.noMobileNum);
-			return;
-		}
 
 		for (var pi = 0; pi < policyAry.length; pi++) {
 			var info = policyAry[pi];
@@ -720,15 +716,17 @@ function WithdrawClass(){
 			},
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("performWithdraw", xhr.status, response.code);
-				eWalletCtr.showGenericMsg("", msg);
+				
 
 				if(xhr.status != 413) {
 					that.popupDom.modal("hide");
+				}else if(response.code == "OTE005"){
+					that.resetOtpInput();
+					that.appendErrMsg(msg);
+					return;
 				}
 
-				if(xhr.status == 413 && response.code == "OTE005"){
-					that.resetOtpInput();
-				}
+				eWalletCtr.showGenericMsg("", msg);
 			},
 			doneFn: function (){
 				that.hideLoading();
