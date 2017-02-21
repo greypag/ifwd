@@ -113,7 +113,7 @@
 											</div>
 											<span class="error-msg" id="firstNameErMsg"></span>
 											<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<c:if test="${plan == 'medical-insurance'}">
+											<c:if test="${plan == 'medical-insurance' || planIndex == 'savings-insurance' }">
 												<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" autocomplete="off" value="${userDetails.lastName }" autocomplete="off" readonly="readonly"/>
 											</c:if>
 											<c:if test="${planIndex == 'medical-insurance/cansurance'}">
@@ -1215,7 +1215,6 @@ $("#et-personal-info-next, #btn-back").click(function () {
 							 show_stack_bar_top(data.errorMsg);
 						} 
 					}else {
-						console.log($('#soInsuredInfoForm').val())
 						hasBought = true;
 					}		
 				}
