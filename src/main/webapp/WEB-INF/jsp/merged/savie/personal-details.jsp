@@ -1205,14 +1205,19 @@ $("#et-personal-info-next, #btn-back").click(function () {
 				url: "<%=request.getContextPath()%>/ajax/savings-insurance/cekcansurance",
 				data: $("#soInsuredInfoForm").serialize(),
 				success: function (data) {
-						console.log("DATA.ERROR "+data.errorMsg);
+					if (data != null && data.errorMsg != null && data.errorMsg != "" || !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {	
 						if(data.errorMsg == "you can only buy one cansurance"){
 							$('#prev-cansurance-app-modal').modal({backdrop: 'static', keyboard: false});
 							$('#prev-cansurance-app-modal').modal('show');
 						}
-						else{
-							show_stack_bar_top(data.errorMsg);
-						}
+						 else{
+							 
+							 show_stack_bar_top(data.errorMsg);
+						} 
+					}else {
+						console.log($('#soInsuredInfoForm').val())
+						hasBought = true;
+					}		
 				}
 			});
 		}

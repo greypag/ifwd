@@ -202,6 +202,7 @@ public class AjaxLifeController extends BaseController{
 				
 			try {
 				savieOnlineService.getSavieApplicationByHkIdPlanCode(lifePersonalDetails.getHkid(),"HCP1", request);
+				session.setAttribute("lifePersonalDetails", lifePersonalDetails);
 			} catch (ECOMMAPIException e) {
 				// TODO Auto-generated catch block
 				jsonObject.put("errorMsg", e.getMessage());
