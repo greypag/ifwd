@@ -1,42 +1,103 @@
+body {
+  color: #575756; }
+  body h2 {
+    font-family: "CircularPro-Bold" !important; }
+  body.chin {
+    font-family: "MelleHK" !important; }
+
 .pv_highlight {
-  color: #ff8200; }
+  color: #E87722 !important; }
 
 .pv_title {
   font-weight: 700;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  color: #333; }
 
 .collapse {
   width: 100%; }
 
-.panel-body {
-  color: #333 !important;
-  padding: 15px !important; }
+/* .panel-body{
+	color:#333 !important;
+	padding : 15px !important;
+}
+ */
+#pv_calculator {
+  background: #ececec;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+  #pv_calculator .div-container {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  #pv_calculator .div-box {
+    background: #FFF; }
+    #pv_calculator .div-box label, #pv_calculator .div-box select {
+      width: 100%; }
+    #pv_calculator .div-box select {
+      list-style: none;
+      -webkit-appearance: none; }
+    #pv_calculator .div-box img {
+      top: 44%;
+      width: 14px;
+      right: 20px;
+      position: absolute; }
 
 #plan-details-same-and-faq {
   max-width: 1000px; }
 
 #pv_claims {
-  background: #F1F1F1;
+  background: #ececec;
   max-width: 1050px;
   margin: auto; }
   #pv_claims h2 {
-    color: #ff8200; }
+    color: #E87722; }
   #pv_claims .pv_title {
     text-align: center;
-    color: #ff8200 !important; }
+    color: #E87722 !important;
+    margin-bottom: 20px; }
   #pv_claims .pv_feature_box {
     background: #e1e1e4;
     padding: 30px; }
     #pv_claims .pv_feature_box:hover {
-      background: #fbb631; }
+      background: #E87722; }
   #pv_claims #payment-filter .thumbnail {
     background: #F1F1F1; }
     #pv_claims #payment-filter .thumbnail:hover {
-      background: #fbb631; }
+      background: #E87722; }
+      #pv_claims #payment-filter .thumbnail:hover .pv_title {
+        color: #FFF !important; }
   #pv_claims .btn-group {
-    text-align: center; }
+    text-align: center;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: gray !important;
+    border: none !important;
+    width: auto !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    padding: 10px 5px 5px 9px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    -webkit-transition: all 240ms ease-out; }
     #pv_claims .btn-group .btn {
+      color: #E87722 !important;
+      width: 100%;
       float: none; }
+      #pv_claims .btn-group .btn .icon-chevron-thin-down {
+        float: right; }
+      #pv_claims .btn-group .btn:focus {
+        color: #E87722 !important; }
+    #pv_claims .btn-group .dropdown-menu {
+      width: 100%; }
+      #pv_claims .btn-group .dropdown-menu li a {
+        color: #E87722 !important; }
+  #pv_claims .tab-content img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: auto;
+    margin-bottom: 10px; }
 
 #pv_fmp {
   background-color: #FFD444;
@@ -62,30 +123,40 @@
     background: none; }
 #pv_feature img {
   width: 100%; }
+#pv_feature .hidden-xs {
+  text-align: center;
+  margin-top: 5%; }
+
+#pd-sf-tab-content-container .panel-heading {
+  background: #ececec !important; }
+  #pd-sf-tab-content-container .panel-heading a {
+    font-weight: 700; }
 
 #pv_schedule {
-  background: #e1e1e4; }
+  background: #ececec; }
   #pv_schedule #collapseDeath {
     width: 100%; }
   #pv_schedule .tab-pane div {
     margin-bottom: 0; }
   #pv_schedule .tab-pane .panel {
-    background: #e1e1e4;
+    background: #ececec;
     margin-bottom: 0; }
   #pv_schedule .tab-pane .panel-heading {
-    background: #e1e1e4;
+    background: #ececec;
     margin-bottom: 0; }
     #pv_schedule .tab-pane .panel-heading h4 {
       text-align: center; }
   #pv_schedule .tab-pane .panel-collapse {
     margin-bottom: 0; }
     #pv_schedule .tab-pane .panel-collapse .panel-body {
-      background: #e1e1e4;
+      background: #ececec;
       margin-bottom: 0; }
+  #pv_schedule .tab-pane a {
+    font-weight: 700; }
   #pv_schedule .gray-divide {
     width: 100%; }
   #pv_schedule .pv_price {
-    color: #ff8200;
+    color: #E87722;
     font-weight: 700; }
   #pv_schedule .container div {
     margin-bottom: 15px; }
@@ -97,8 +168,18 @@
     list-style: none; }
 
 @media (max-width: 991px) {
+  body h2 {
+    font-size: 1.5em !important; }
+
   #payment-filter .thumbnail {
     min-height: 160px;
-    max-height: 160px; } }
+    max-height: 160px; }
+
+  .col-xs-12 {
+    padding-right: 5px;
+    padding-left: 5px; }
+
+  #pv_claims .pv_title {
+    margin-bottom: 10px; } }
 
 /*# sourceMappingURL=medicalguardian-landing-style.css.map */

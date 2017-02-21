@@ -101,10 +101,79 @@ var home_url = "<%=request.getContextPath()%>";
             </div>
         </div>
         
+	    	
+	    	
+	    	<div id="pv_calculator" class="hide">
+	    		<div class="container">
+		    		<div class="row">
+			    		<div class="col-xs-12 text-center div-container">
+			    			<span class="pv_title">How much would this cost you?</span>
+			    		</div>
+			    		<div class="div-container">
+				    		<div class="col-xs-2 col-xs-offset-1 div-box selectDiv centreDiv">
+								<label class="" for="Gender">Gender</label>
+								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+								<select name="Gender" id="type-of-gender" class="" data-bv-field="Gender" >
+									<option value="" data-val="">1</option>
+									<option value="" data-val="">2</option>
+									<option value="" data-val="" selected>3</option>
+									<option value=""  data-val="">4</option>
+								</select>
+				    		</div>
+				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+								<label class="" for="dob">Birthday</label>
+								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+								<select name="dob" id="day-of-birth" class="" data-bv-field="dob" >
+									<option value="" data-val="">1</option>
+									<option value="" data-val="">2</option>
+									<option value="" data-val="" selected>3</option>
+									<option value=""  data-val="">4</option>
+								</select>
+				    		</div>
+				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+								<label class="" for="Gender">Smoke Habit</label>
+								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+								<select name="Habit" id="type-of-habit" class="" data-bv-field="Habit" >
+									<option value="" data-val="">1</option>
+									<option value="" data-val="">2</option>
+									<option value="" data-val="" selected>3</option>
+									<option value=""  data-val="">4</option>
+								</select>
+				    		</div>
+				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+								<label class="" for="Code">Promotion Code</label>
+								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+								<input type="text" name="Code">
+				    		</div>
+				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+								<label class="" for="Code">First-year Premium</label>
+								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+								<label class="" for="Code">/month</label>
+				    		</div>
+				    		<div class="col-xs-12 col-xs-offset-1">
+				    			<span class="pv_remark">This product is available to HKID holders with a Hong Kong mailing address only</span>
+				    		</div>
+				    		<div class="col-xs-12">
+				    			<a class="btn btn-primary text-uppercase full-width livechat_button">即時對話</a>
+				    		</div>
+				    		<div class="col-xs-12 wh_p_btns-gp text-center">
+	            				<a id="dlProductFacesheet" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.product.factsheet" bundle="${medicalguardianMsg}" /></a>
+	            				<a id="dlProductProvisions" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.policy.provisions" bundle="${medicalguardianMsg}" /></a>
+		            		</div>
+			    		</div>
+		    		</div>
+	    		</div>
+	    	</div>
+	    	
+	    	
+	    	
+			
+			
+	    	
         <!-- Feature -->
 	        <div id="pv_feature">
 	        	<div class="container">
-	        	<h2 class="pv_title text-center">Flexible and affordable, giving you smart and seamless coverage.<br/>Plan early and you too can go full steam ahead with no worries!</h2>
+	        	<!-- <h2 class="pv_title text-center">Flexible and affordable, giving you smart and seamless coverage.<br/>Plan early and you too can go full steam ahead with no worries!</h2> -->
 	        	<!-- Full Online Application -->
 	        		 <div role="tabpanel" class="tab-pane active" id="">
 						<div class="panel-group" id="" role="tablist" aria-multiselectable="true">
@@ -330,23 +399,11 @@ var home_url = "<%=request.getContextPath()%>";
 				<div role="tabpanel" class="tab-pane active" id="pd-sf-sale-illustration-sample-pane">
 					<div class="panel-group" id="pd-sf-sale-illustration-sample-group" role="tablist" aria-multiselectable="true">
 						<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
-							  <h4 class="panel-title">
-								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseSchedule" aria-expanded="false" aria-controls="collapseSchedule">
-									<fmt:message key="medicalguardian.schedule.expand" bundle="${medicalguardianMsg}" />
-									<span class="pull-right hidden-xs hidden-sm hidden-md hidden-lg">
-									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
-									</span>
-								 </a>
-							  </h4>
-						   </div>
+						   
 						   <div id="collapseSchedule" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
 							  <div class="panel-body">
 								<div class="row">
-								 <div class="wh_p_btns-gp text-center">
-		            		<a id="dlProductFacesheet" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.product.factsheet" bundle="${medicalguardianMsg}" /></a>
-		            		<a id="dlProductProvisions" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.policy.provisions" bundle="${medicalguardianMsg}" /></a>
-		            	</div>
+								 
 						<!-- Schedule Table Start -->
 						<!-- left col -->
 							<div class="col-xs-12 col-sm-6">
@@ -576,6 +633,16 @@ var home_url = "<%=request.getContextPath()%>";
 									   		</div>
 										</div>
 									</div>
+									<div class="panel-heading" role="tab" id="pd-sf-product-related">
+									  <h4 class="panel-title">
+										 <a id="collapsedExpandSpan" class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseSchedule" aria-expanded="false" aria-controls="collapseSchedule">
+											<fmt:message key="medicalguardian.schedule.expand" bundle="${medicalguardianMsg}" />
+											<span class="pull-right hidden-xs hidden-sm hidden-md hidden-lg">
+											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											</span>
+										 </a>
+									  </h4>
+								   </div>
 								</div>
 							</div>				
 						</div>
@@ -793,6 +860,7 @@ var home_url = "<%=request.getContextPath()%>";
 			                    <div class="row">
 			                        <div class="col-sm-10 col-sm-offset-1">
 			                            <div class="content text-center">
+			                            	<img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_01.png" alt="">
 			                            	<h2><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></h2>
 			                                <p><fmt:message key="medicalguardian.claims1.1" bundle="${medicalguardianMsg}" /></p>
 			                            </div>
@@ -803,6 +871,7 @@ var home_url = "<%=request.getContextPath()%>";
 			                    <div class="row">
 			                        <div class="col-sm-10 col-sm-offset-1">
 			                            <div class="content text-center">
+			                            <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_02.png" alt="">
 			                                <h2><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></h2>
 			                                <p><fmt:message key="medicalguardian.claims2.1" bundle="${medicalguardianMsg}" /></p>
 			                                <!-- <a class="btn btn-primary text-uppercase full-width livechat_button">Chat Now</a> -->
@@ -814,6 +883,7 @@ var home_url = "<%=request.getContextPath()%>";
 			                    <div class="row">
 			                        <div class="col-sm-10 col-sm-offset-1">
 			                            <div class="content text-center">
+			                            <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_03.png" alt="">
 			                                <h2><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></h2>
 			                                <p><fmt:message key="medicalguardian.claims3.1" bundle="${medicalguardianMsg}" /></p>
 			                             </div>
@@ -824,6 +894,7 @@ var home_url = "<%=request.getContextPath()%>";
 			                    <div class="row">
 			                        <div class="col-sm-10 col-sm-offset-1">
 			                            <div class="content text-center">
+			                            <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_04.png" alt="">
 			                                <h2><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></h2>
 			                                <p><fmt:message key="medicalguardian.claims4.1" bundle="${medicalguardianMsg}" /></p>
 											                            
@@ -835,7 +906,7 @@ var home_url = "<%=request.getContextPath()%>";
 			                    <div class="row">
 			                        <div class="col-sm-10 col-sm-offset-1">
 			                            <div class="content text-center">
-			                               
+			                               <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_05.png" alt="">
 			                                <h2><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></h2>
 			                                <p><fmt:message key="medicalguardian.claims5.1" bundle="${medicalguardianMsg}" /></p>
 			                                <!-- <a href="/en/support-claims/eservices-app" class="btn btn-primary text-uppercase full-width">Learn More</a>    -->                         </div>
@@ -1233,6 +1304,20 @@ $(document).ready(function() {
 	});
 	$("#claims_24h_hotline").click(function(){
 		window.location=""
+	});
+	
+	$('#collapsedExpandSpan').click(function () {
+		var that = this;
+		setTimeout(function (){
+			if($(that).hasClass('collapsed'))
+			{
+			    $(that).html("<fmt:message key='medicalguardian.schedule.expand' bundle='${medicalguardianMsg}' />"); 
+			}
+			else
+			{      
+			    $(that).html("<fmt:message key='medicalguardian.schedule.collapse' bundle='${medicalguardianMsg}' />"); 
+			}
+			},500); 
 	});
 });
 </script>
