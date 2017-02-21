@@ -4,7 +4,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="org.json.simple.JSONObject"%>
-<%@page import="org.json.simple.parser.JSONParser"%>
 <%@page import="java.util.Iterator"%>
 
 <%@page import="com.ifwd.fwdhk.util.FaqUtil"%>
@@ -17,10 +16,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%
-JSONParser jsonParser = new JSONParser();
-//String filePath = new File("").getAbsolutePath();
-//Object rootObj = parser.parse(new FileReader("C:/wamp/www/ifwd_git/src/main/webapp/resources/json/jsontest.json"));
-//Object rootObj = parser.parse(new FileReader("http://localhost:8080/fwdhk/resources/json/jsontest.json"));
+
 String language = session.getAttribute("language").toString();
 String indexJsonPath = "";
 if(language!=null){
@@ -30,36 +26,13 @@ if(language!=null){
 		indexJsonPath = "/resources/json/tc/faq-"+request.getAttribute("faqProduct")+".json";
 	}
 }
-	
-
-//URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
-//BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-//JSONObject rootObj = (JSONObject) jsonParser.parse(br);
-//long columnCount = (long) rootObj.get("groupCount");
-//JSONArray categories = (JSONArray) rootObj.get("categories");
-//System.out.println(columnCount);
-//for(long i=1; i<=columnCount; i++){
-//	System.out.println(i);
-//}
-//ArrayList category = (JSONArray) rootObj.get("category");
-//System.out.print(category.toString());
-//JsonArray products = parser.parse(br).getAsJsonObject();
-
-String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
-if (request.getServerPort() != 80 && request.getServerPort() != 443)
-{
-    serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
-}
 
 FaqUtil faqUtil = new FaqUtil();
-JSONObject faqProductObj = faqUtil.getJsonObject(serverUrl+indexJsonPath);
+JSONObject faqProductObj = faqUtil.getJsonObjectFromFile(application.getRealPath("/") + indexJsonPath);
 
 JSONObject faqTopicWidget = (JSONObject) faqProductObj.get("category_widget");
-
 JSONArray topicList = (JSONArray) faqTopicWidget.get("list");
-
 JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
-
 
 /*for (int i=0; i < products.size(); i++) {
 	JsonObject product = products.get(i).getAsJsonObject();
