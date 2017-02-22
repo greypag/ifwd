@@ -53,7 +53,7 @@ public class FaqUtil {
 			}
             
             try {
-				jsonTxt = IOUtils.toString(is);
+				jsonTxt = IOUtils.toString(is, "UTF8");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
