@@ -1,7 +1,14 @@
+@font-face {
+  font-family: 'CircularPro-Bold';
+  font-weight: 700;
+  src: url("../../fonts/CircularPro-Bold.ttf") format('truetype'),
+       url("../../fonts/CircularPro-Bold.woff") format('woff'),
+       url("../../fonts/CircularPro-Bold.otf") format('opentype');
+}
 
 body {
 		
-	color : #575756;
+	color : #575756 !important;
 	h2{
 		font-family:"CircularPro-Bold" !important;
 	}
@@ -20,38 +27,290 @@ body {
 }
 .collapse{
 	width : 100%
-
+}
+.content-wrapper{
+	margin : 10px 0 !important;
 }
 /* .panel-body{
 	color:#333 !important;
 	padding : 15px !important;
 }
  */
-
+ .sticky{
+ 	bottom:0;
+ 	position : fixed;
+ }
+ #div-sticky{
+ 	min-height: 60px;
+ 	background : #fff;
+ 	width:100%;
+ 	z-index:999;
+ 	span{
+ 		position:absolute;
+ 		bottom : 33%;
+ 		left : 10%;
+ 	}
+ 	.btn{
+ 		margin-right:5%;
+ 		margin-top:3%;
+ 		float:right;
+ 		padding : 5px 5px !important;
+ 		border-radius:4px;
+ 	}
+ }
+.modal-dialog{
+	.modal-content{
+		background:#ececec;
+		padding: 15px ;
+		.modal-header{
+			.pv_title{
+				font-size : 0.8em !important;
+				padding-left : 5px;
+			}
+		}
+		.modal-body{
+			.div-box{
+				background:none;
+				min-height : 60px;
+				padding-left : 0;
+				padding-right : 5px;
+				label,select{
+					width:100%;
+				}
+				label{
+					font-size: 0.5em;
+				    font-family: calibri-bold;
+				    position:absolute;
+				}
+				input{
+					border : none;
+					margin-top:10px;
+					padding: 5px 0;
+					font-size : 1em;
+					color : #E87722;
+				}
+				select{
+					list-style:none;
+					-webkit-appearance: none;
+					border : none;
+					margin-top:15px;
+					padding: 3px 0;
+					font-size : 0.6em;
+					color : #E87722;
+					&:focus{
+						border:none;
+						outline:0px;
+					}
+					font-weight:700
+				}
+				img{
+					position:absolute;
+					bottom:35%;
+					right:10%;
+				}
+				.glyphicon-chevron-down{
+					top:48%;
+					width:10px;
+					right:20px;
+					position:absolute;
+					color : #E87722;
+					font-size : 0.7em;
+				}
+				#btn_input_code{
+					position:absolute;
+					bottom:28%;
+					right:5%;
+					padding: 5px 15px !important;
+					color : #fff;
+				}
+			}
+			.item-wrapper{
+				padding-left : 15px;
+				padding-right : 15px;
+				background : #FFF;
+			}
+			#FirstYear{
+				background : none;
+				min-height: 60px;
+				padding-left : 0;
+				margin-bottom : 10px;
+				.item-wrapper{
+					padding-top : 0px;
+					padding-bottom : 5px;
+				}
+				label{
+					position:relative;
+					width:auto;
+				}
+			}
+			#btn_quote{
+				padding-left : 0px;
+				padding-right: 5px;
+				a{
+					width:100%;
+					color:#FFF;
+				}
+			}
+		}
+	}
+}
+#contactUsModal{
+	.modal-header{
+		.pv_title{
+			font-size : 2.0em !important;
+		}
+	}
+	input{
+		background:none;
+		font-size : 0.8em;
+	}
+}
 
 #pv_calculator{
 	background:#ececec;
-	padding-top:10px;
-	padding-bottom:10px;
-
+	position:relative;
+	/* padding-top:10px;
+	padding-bottom:10px; */
+	
+	#loadingDiv{
+		position: absolute;
+    	padding-top: 2%;
+    	img{
+    		max-height:100%;
+    	}
+	}
 	.div-container{
 		margin-top:10px;
 		margin-bottom:10px;
 	}
+	
 	.div-box{
 		background:#FFF;
+		min-height : 60px;
+		margin-right: 1px;
 		label,select{
 			width:100%;
+		}
+		label{
+			font-size: 14px;
+		    font-family: calibri-bold;
+		    top: 4px;
+		    position:absolute;
+		}
+		input{
+			border : none;
+			margin-top:24px;
+			padding: 5px 0;
+			font-size : 1em;
+			color : #E87722;
 		}
 		select{
 			list-style:none;
 			-webkit-appearance: none;
+			border : none;
+			margin-top:15px;
+			padding: 5px 0;
+			font-size : 1em;
+			color : #E87722;
+			&:focus{
+				border:none;
+				outline:0px;
+			}
+			font-weight:700
 		}
-		img{
-			top: 44%;
-			width:14px;
+		.glyphicon-chevron-down{
+			top:48%;
+			width:10px;
 			right:20px;
 			position:absolute;
+			color : #E87722;
+			font-size : 0.7em;
+		}
+		#btn_input_code{
+			position:absolute;
+			bottom:15%;
+			right:3%;
+			padding: 5px 15px !important;
+		}
+	}
+	
+	#FirstYear{
+		.bold{
+			font-size:1.2em;
+		}
+		label{
+			width:auto;
+		}
+	}
+	.relative{
+		position:relative !important;
+		label{
+			position:relative !important;
+		}
+	}
+	.btn{
+		border-radius:4px;
+	}
+	
+	.pv_remark{
+		color: #999999;
+		font-size:0.8em;
+	}
+
+
+
+	#mobile-form{
+		font-size : 0.8em;
+		.glyphicon-pencil{
+			color : #E87722;
+			font-size : 1.5em !important;
+			padding-left : 8px;
+			padding-top : 10px;
+		}
+		label{
+			font-size : 0.8em;
+			top: 0 ;
+		}
+		h2{
+			font-size:1.0em;
+		}
+		.div-box{
+			background : #ececec;
+			margin-right:0;
+			border-left: 1px solid darkgray;
+			padding-left : 5px;
+			padding-right : 5px;
+			min-height : 48px;
+			img{
+				right:5px;
+			}
+			select{
+				background:none;
+				margin-top: 11px;
+				padding : 3px 0 ;
+			}
+			input{
+				margin-top:17px;
+			}
+		}
+		#div_mobile_promotion_code{
+			background:white;
+			border:none;
+			#btn_input_code{
+				right: 5%;
+				bottom:10%;
+			}
+		}
+		#FirstYear{
+			padding-left : 0 !important;
+			#price{
+				font-size : 1.2em !important;
+				font-weight : 700 ; 
+			}
+		}
+		.btn{
+			padding: 5px 10px !important;
+			font-size : 1em;
 		}
 	}
 }
@@ -244,7 +503,10 @@ body {
 @media (max-width:991px){
 	body{
 		h2{
-			font-size : 1.5em !important;
+			font-size : 1.2em !important;
+		}
+		p,span{
+			font-size : 0.7em !important;
 		}
 	}
 	#payment-filter{
@@ -264,4 +526,12 @@ body {
 		}
 	}
 }
+
+@media (min-width:768px){
+	#pv_feature .collapse{
+		height:auto !important;
+		display:block !important;
+	}
+}
+
 
