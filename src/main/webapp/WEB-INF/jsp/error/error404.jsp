@@ -2,6 +2,7 @@
 <html>
 <head>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% response.setStatus(404); %>
 <script type="text/javascript">
 	window.status = "Loading: Document body...";
 </script>
