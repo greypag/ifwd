@@ -105,8 +105,11 @@ var language = "${language}";
 							<c:if test="${planIndex == 'medical-insurance/cansurance'}">
 							${planIndex == 'medical-insurance/cansurance' ? language == 'en' ? 'CANsurance Cancer Protection Plan':'揀易保癌症保障計劃':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }
 							</c:if>
+							<c:if test="${planIndex == 'savings-insurance'}">
+							${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }
+							</c:if>
 							<c:if test="${planIndex == 'medical-insurance'}">
-							${plan == 'medical-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }
+							${plan == 'medical-insurance' ? language == 'en' ? 'EASYHEALTH REFUNDABLE HOSPITAL INCOME PLAN ':'「守衛您」保費回贈住院保障計劃' :language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }
 							</c:if>
 							</div>
 							<label class="mdl-textfield__label planName-label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
