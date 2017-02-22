@@ -54,7 +54,7 @@ var home_url = "<%=request.getContextPath()%>";
                 </div>
             </div>
     </div>
-    <div class="container">
+    <div class="container hide">
 	    <div class="col-xs-12">
 	    	Temp Form<br>
 	    	Date of Birth:<input type="text" name="dob" id="temp_dob" value="1980-01-30"><br>
@@ -103,75 +103,300 @@ var home_url = "<%=request.getContextPath()%>";
         
 	    	
 	    	
-	    	<div id="pv_calculator" class="hide">
+	    	<div id="pv_calculator" class="">
+	    	<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+				<img style="width: 300px; height: 300px;"
+					src="<%=request.getContextPath()%>/resources/images/loading.gif">
+			</div>
 	    		<div class="container">
-		    		<div class="row">
+		    		<div class="row hidden-xs">
 			    		<div class="col-xs-12 text-center div-container">
-			    			<span class="pv_title">How much would this cost you?</span>
+			    			<h2 class="pv_title content-wrapper">
+			    				<span><fmt:message key="medicalguardian.cal.title" bundle="${medicalguardianMsg}" /></span>
+			    				<span class="pv_highlight"><fmt:message key="medicalguardian.cal.title.1" bundle="${medicalguardianMsg}" /></span>
+			    				<br>
+			    				<span><fmt:message key="medicalguardian.cal.title.2" bundle="${medicalguardianMsg}" /></span>
+			    			</h2>
 			    		</div>
 			    		<div class="div-container">
 				    		<div class="col-xs-2 col-xs-offset-1 div-box selectDiv centreDiv">
-								<label class="" for="Gender">Gender</label>
-								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
-								<select name="Gender" id="type-of-gender" class="" data-bv-field="Gender" >
+								<label class="" for="Gender"><fmt:message key="medicalguardian.cal.form.gender" bundle="${medicalguardianMsg}" /></label>
+								<%-- <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class=""> --%>
+								<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+								<select name="Gender" id="type-of-gender" class="type-of-gender" data-bv-field="Gender" >
+									<option value="0" data-val="Male"><fmt:message key="medicalguardian.cal.form.gender.male" bundle="${medicalguardianMsg}" /></option>
+									<option value="1" data-val="Female"><fmt:message key="medicalguardian.cal.form.gender.female" bundle="${medicalguardianMsg}" /></option>
+									<option value="2" data-val="Empty" selected disabled class="hide"></option>
+								</select>
+				    		</div>
+				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+								<label class="" for="dob"><fmt:message key="medicalguardian.cal.form.birthday" bundle="${medicalguardianMsg}" /></label>
+								<%-- <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class=""> --%>
+								<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+								<%-- <select name="dob" id="day-of-birth" class="" data-bv-field="dob" >
 									<option value="" data-val="">1</option>
 									<option value="" data-val="">2</option>
 									<option value="" data-val="" selected>3</option>
 									<option value=""  data-val="">4</option>
+								</select> --%>
+								<input name="plan-dob" id="plan-dob-datepicker" value="" class="mobiscroll-datepicker" /> 
+				    		</div>
+				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+								<label class="" for="Habit"><fmt:message key="medicalguardian.cal.form.habit" bundle="${medicalguardianMsg}" /></label>
+								<%-- <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class=""> --%>
+								<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+								<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" >
+									<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
+									<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
+									<option value="2" data-val="" selected disabled class="hide"></option>
 								</select>
 				    		</div>
 				    		<div class="col-xs-2 div-box selectDiv centreDiv">
-								<label class="" for="dob">Birthday</label>
-								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
-								<select name="dob" id="day-of-birth" class="" data-bv-field="dob" >
-									<option value="" data-val="">1</option>
-									<option value="" data-val="">2</option>
-									<option value="" data-val="" selected>3</option>
-									<option value=""  data-val="">4</option>
-								</select>
+								<label class="promotion_code_label" for="Code"><fmt:message key="medicalguardian.cal.form.promotion.code" bundle="${medicalguardianMsg}" /></label>
+								<input class="promotion_code_input" type="text" name="Code" maxlength="10" placeholder="e.g.: FWD678">
+				    			<a id="btn_input_code" class="btn btn-primary text-uppercase livechat_button btn_input_code">></a>
 				    		</div>
-				    		<div class="col-xs-2 div-box selectDiv centreDiv">
-								<label class="" for="Gender">Smoke Habit</label>
-								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
-								<select name="Habit" id="type-of-habit" class="" data-bv-field="Habit" >
-									<option value="" data-val="">1</option>
-									<option value="" data-val="">2</option>
-									<option value="" data-val="" selected>3</option>
-									<option value=""  data-val="">4</option>
-								</select>
+				    		<div id="FirstYear" class="col-xs-2 div-box selectDiv centreDiv relative">
+								<label class="" for="Code"><fmt:message key="medicalguardian.cal.form.first.year" bundle="${medicalguardianMsg}" /></label>
+								<label class="bold premium_price" for="Code">HK$1000</label>
+								<label><fmt:message key="medicalguardian.cal.form.per.month" bundle="${medicalguardianMsg}" /></label>
 				    		</div>
-				    		<div class="col-xs-2 div-box selectDiv centreDiv">
-								<label class="" for="Code">Promotion Code</label>
-								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
-								<input type="text" name="Code">
+				    		<div class="col-xs-12 text-center content-wrapper">
+				    			<span class="pv_remark"><fmt:message key="medicalguardian.cal.remark" bundle="${medicalguardianMsg}" /></span>
 				    		</div>
-				    		<div class="col-xs-2 div-box selectDiv centreDiv">
-								<label class="" for="Code">First-year Premium</label>
-								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
-								<label class="" for="Code">/month</label>
+				    		<div class="col-xs-12 content-wrapper text-center">
+				    			<a class="btn btn-primary text-uppercase livechat_button"><fmt:message key="medicalguardian.cal.apply.now" bundle="${medicalguardianMsg}" /></a>
 				    		</div>
-				    		<div class="col-xs-12 col-xs-offset-1">
-				    			<span class="pv_remark">This product is available to HKID holders with a Hong Kong mailing address only</span>
-				    		</div>
-				    		<div class="col-xs-12">
-				    			<a class="btn btn-primary text-uppercase full-width livechat_button">即時對話</a>
-				    		</div>
-				    		<div class="col-xs-12 wh_p_btns-gp text-center">
+				    		<div class="col-xs-12 wh_p_btns-gp text-center content-wrapper">
 	            				<a id="dlProductFacesheet" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.product.factsheet" bundle="${medicalguardianMsg}" /></a>
 	            				<a id="dlProductProvisions" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.policy.provisions" bundle="${medicalguardianMsg}" /></a>
 		            		</div>
 			    		</div>
 		    		</div>
+		    		<div id="mobile-form" class="visible-xs">
+		    			<div class="col-xs-12 text-center div-container">
+			    			<h2 class="pv_title content-wrapper">
+			    				<span><fmt:message key="medicalguardian.cal.title" bundle="${medicalguardianMsg}" /></span>
+			    				<span class="pv_highlight"><fmt:message key="medicalguardian.cal.title.1" bundle="${medicalguardianMsg}" /></span>
+			    				<br>
+			    				<span><fmt:message key="medicalguardian.cal.title.2" bundle="${medicalguardianMsg}" /></span>
+			    			</h2>
+			    		</div>
+			    		<div class="col-xs-3 div-box selectDiv">
+							<label class="" for="Gender"><fmt:message key="medicalguardian.cal.form.gender" bundle="${medicalguardianMsg}" /></label>
+							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs">
+							<select name="Gender" id="type-of-gender" class="type-of-gender" data-bv-field="Gender" disabled>
+								<option value="0" data-val="Male"><fmt:message key="medicalguardian.cal.form.gender.male" bundle="${medicalguardianMsg}" /></option>
+								<option value="1" data-val="Female"><fmt:message key="medicalguardian.cal.form.gender.female" bundle="${medicalguardianMsg}" /></option>
+								<option value="2" data-val="Empty" selected disabled class="hide"></option>
+							</select>
+			    		</div>
+			    		<div class="col-xs-3 div-box selectDiv">
+							<label class="" for="dob"><fmt:message key="medicalguardian.cal.form.birthday" bundle="${medicalguardianMsg}" /></label>
+							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs">
+							<%-- <select name="dob" id="day-of-birth" class="mobiscroll-datepicker" data-bv-field="dob" disabled>
+								<option value="" data-val="">1</option>
+								<option value="" data-val="">2</option>
+								<option value="" data-val="" selected>3</option>
+								<option value=""  data-val="">4</option>
+							</select> --%>
+							<input name="plan-dob" id="plan-dob-datepicker" value="" class="mobiscroll-datepicker" disabled />
+
+			    		</div>
+			    		<div class="col-xs-4 div-box selectDiv">
+							<label class="" for="Habit"><fmt:message key="medicalguardian.cal.form.habit" bundle="${medicalguardianMsg}" /></label>
+							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs">
+							<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" disabled>
+								<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
+								<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
+								<option value="2" data-val="" selected disabled class="hide"></option>
+							</select>
+			    		</div>
+			    		<div class="col-xs-2 div-box selectDiv">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+			    		</div>
+			    		
+			    		<div id="div_mobile_promotion_code" class="col-xs-12 div-box selectDiv centreDiv">
+								<label class="promotion_code_label" for="Code"><fmt:message key="medicalguardian.cal.form.promotion.code" bundle="${medicalguardianMsg}" /></label>
+								<input class="promotion_code_input" type="text" name="Code" maxlength="10" placeholder="e.g.: FWD678">
+				    			<a id="btn_input_code" class="btn btn-primary text-uppercase livechat_button btn_input_code">></a>
+				    	</div>
+				    	
+				    	<div id="FirstYear" class="col-xs-8 bold">
+								<label class="" for="Code"><fmt:message key="medicalguardian.cal.form.first.year" bundle="${medicalguardianMsg}" /></label>
+								<br>
+								<label id="price" class="premium_price" for="Code">HK$1000</label>
+								<span><fmt:message key="medicalguardian.cal.form.per.month" bundle="${medicalguardianMsg}" /></span>
+				    	</div>
+			    		<div class="col-xs-4 content-wrapper text-center">
+				    			<a class="btn btn-primary text-uppercase livechat_button"><fmt:message key="medicalguardian.cal.apply.now" bundle="${medicalguardianMsg}" /></a>
+				    	</div>
+			    		
+			    		
+			    		<div class="col-xs-12 wh_p_btns-gp text-center content-wrapper">
+	            			<a id="dlProductFacesheet" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.product.factsheet" bundle="${medicalguardianMsg}" /></a>
+	            			<a id="dlProductProvisions" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.policy.provisions" bundle="${medicalguardianMsg}" /></a>
+		            	</div>
+		    		</div>
 	    		</div>
 	    	</div>
 	    	
-	    	
-	    	
+	    	<div id="div-sticky" class="sticky visible-xs">
+	    		<div>
+		    		<span class="pv_title" id="quoteModalLabel">How much would this cost you?</span>
+		    		<!-- <button class="btn btn-primary " data-toggle="modal" data-target="#contactUsModal"> -->
+			    	<button class="btn btn-primary " data-toggle="modal" data-target="#quoteModal">
+					  	<fmt:message key="medicalguardian.quote.now" bundle="${medicalguardianMsg}" />
+					</button>
+				</div>
+			</div>
+	    	<!-- Quote Modal -->
+			<div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        <h2 class="pv_title" id="quoteModalLabel">How much would this cost you?</h2>
+			      </div>
+			      <div class="modal-body row-fluid">
+				        <div class="col-xs-6 div-box selectDiv">
+				        	<div class="item-wrapper">
+								<label class="" for="Gender"><fmt:message key="medicalguardian.cal.form.gender" bundle="${medicalguardianMsg}" /></label>
+								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+								<select name="Gender" id="type-of-gender" class="type-of-gender" data-bv-field="Gender" >
+									<option value="0" data-val="Male"><fmt:message key="medicalguardian.cal.form.gender.male" bundle="${medicalguardianMsg}" /></option>
+									<option value="1" data-val="Female"><fmt:message key="medicalguardian.cal.form.gender.female" bundle="${medicalguardianMsg}" /></option>
+									<option value="2" data-val="Empty" selected disabled class="hide"></option>
+								</select>
+							</div>
+			    		</div>
+			    		<div class="col-xs-6  div-box selectDiv">
+			    			<div class="item-wrapper">
+								<label class="" for="Habit"><fmt:message key="medicalguardian.cal.form.habit" bundle="${medicalguardianMsg}" /></label>
+								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+								<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" >
+									<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
+									<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
+									<option value="2" data-val="" selected disabled class="hide"></option>
+								</select>
+							</div>
+			    		</div>
+			    		<div class="col-xs-12 div-box selectDiv">
+			    			<div class="item-wrapper">
+								<label class="" for="dob"><fmt:message key="medicalguardian.cal.form.birthday" bundle="${medicalguardianMsg}" /></label>
+								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+								<input name="plan-dob" id="plan-dob-datepicker" value="" class="mobiscroll-datepicker" />
+							</div>
+			    		</div>
+			    		
+			    		<div id="div_mobile_promotion_code" class="col-xs-12 div-box selectDiv centreDiv div-box">
+			    			<div class="item-wrapper">
+								<label class="promotion_code_label" for="Code"><fmt:message key="medicalguardian.cal.form.promotion.code" bundle="${medicalguardianMsg}" /></label>
+								<input class="promotion_code_input" type="text" name="Code" maxlength="10" placeholder="e.g.: FWD678">
+				    			<a id="btn_input_code" class="btn btn-primary text-uppercase livechat_button btn_input_code">></a>
+				    		</div>
+				    	</div>
+				    	
+				    	<div id="FirstYear" class="col-xs-12 bold div-box">
+				    		<div class="item-wrapper">
+								<label class="" for="Code"><fmt:message key="medicalguardian.cal.form.first.year" bundle="${medicalguardianMsg}" /></label>
+								<br>
+								<label id="price" class="premium_price" for="Code">HK$1000</label>
+								<label id="price" class="" for="Code"><fmt:message key="medicalguardian.cal.form.per.month" bundle="${medicalguardianMsg}" /></label>
+				    		</div>
+				    	</div>
+			    		<div id="btn_quote" class="col-xs-12 content-wrapper text-center">
+				    			<a class="btn btn-primary text-uppercase livechat_button"><fmt:message key="medicalguardian.quote.now" bundle="${medicalguardianMsg}" /></a>
+				    	</div>
+				    
+			      </div>
+			      <div class="modal-footer">
+			       <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button> -->
+			      </div>
+			    </div>
+			  </div>
+			</div>
+				    	
+			
+			<!-- Contact Us Modal -->
+			<div class="modal fade" id="contactUsModal" tabindex="-1" role="dialog" aria-labelledby="contactUsModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        <h2 class="pv_title text-center" id="contactUsModalLabel">Thank you!</h2>
+			      </div>
+			      <div class="modal-body row-fluid">
+					        <p class="pv_desc">We appreciate your interest in our product.</p><br>
+					        <p class="pv_desc">
+					        We are sorry to inform you that your application cannot be completed online
+					         as online application is only valid to applicants whose age is 19 to 55 
+					         years on their next birthday. Please leave us your contact details,
+					         and we will call you at your preferred time. You can also reach us via our 24-hour Service Hotline at 3123 3123.
+					          </p> 
+					          <br>
+					          
+					          <div id="" class="col-xs-12 div-box selectDiv centreDiv div-box">
+					    			<div class="item-wrapper">
+										<label class="" for="Code">Full Name</label>
+										<input type="text" name="Code" maxlength="20" placeholder="">
+						    		</div>
+						    	</div>
+						    	<div id="" class="col-xs-12 div-box selectDiv centreDiv div-box">
+					    			<div class="item-wrapper">
+										<label class="" for="Email">Email</label>
+										<input type="text" name="Code" maxlength="20" placeholder="">
+						    		</div>
+						    	</div>
+						    	<div id="" class="col-xs-12 div-box selectDiv centreDiv div-box">
+					    			<div class="item-wrapper">
+										<label class="" for="ContactNumber">Contact Number </label>
+										<input type="text" name="Code" maxlength="20" placeholder="">
+						    		</div>
+						    	</div>
+						    	<div class="col-xs-12 div-box selectDiv">
+					    			<div class="item-wrapper">
+										<label class="" for="dob">Preferred Contact Time</label>
+										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
+										<select name="contactTime" id="contact-time" class="" data-bv-field="contact-time" >
+											<option value="" data-val="">Morning</option>
+											<option value="" data-val="" selected>Afternoon</option>
+											<option value="" data-val="">Evening</option>
+										</select>
+									</div>
+					    		</div>
+					    		<div class="checkbox">
+								  <label><input type="checkbox" value="">I have read and understood the <a target="_blank" href="https://www.fwd.com.hk/upload/en-US/personal_information_collection_statement.pdf">Personal Information Collection Statement</a> and agree to be bound by it.</label>
+								</div>
+								
+								<div id="btn_quote" class="col-xs-12 content-wrapper text-center">
+						    		<a class="btn btn-primary text-uppercase livechat_button">Submit</a>
+						    	</div>
+				    
+			      </div>
+			      <div class="modal-footer">
+			       <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button> -->
+			      </div>
+			    </div>
+			  </div>
+			</div>
 			
 			
 	    	
         <!-- Feature -->
 	        <div id="pv_feature">
+	        	<div class="container">
+	        		<div class="row">
+		        		<div class="col-xs-12 text-center">
+		       				<h2 class="pv_title content-wrapper"><fmt:message key="medicalguardian.feature.title" bundle="${medicalguardianMsg}" /></h2>
+	       					<p>
+	       					<fmt:message key="medicalguardian.feature.title.desc" bundle="${medicalguardianMsg}" />
+	       					</p>
+		        		</div>
+	        		</div>
+	        	</div>
 	        	<div class="container">
 	        	<!-- <h2 class="pv_title text-center">Flexible and affordable, giving you smart and seamless coverage.<br/>Plan early and you too can go full steam ahead with no worries!</h2> -->
 	        	<!-- Full Online Application -->
@@ -181,7 +406,7 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 								  <h4 class="panel-title hidden-sm hidden-md hidden-lg text-center">
 									 <a class="collapsed" role="button" data-toggle="collapse" data-parent="" href="#collapseCover" aria-expanded="true" aria-controls="collapseCover">
-										<fmt:message key="medicalguardian.feature.1.title" bundle="${medicalguardianMsg}" />
+									 	<fmt:message key="medicalguardian.feature.1.title" bundle="${medicalguardianMsg}" />
 										<span class="pull-right  hidden-md hidden-lg">
 										   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 										</span>
@@ -1322,4 +1547,7 @@ $(document).ready(function() {
 });
 </script>
 
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/medical-guardian/uifn-landing.js"></script>

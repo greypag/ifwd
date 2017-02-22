@@ -1,5 +1,9 @@
+@font-face {
+  font-family: 'CircularPro-Bold';
+  font-weight: 700;
+  src: url("../../fonts/CircularPro-Bold.ttf") format("truetype"), url("../../fonts/CircularPro-Bold.woff") format("woff"), url("../../fonts/CircularPro-Bold.otf") format("opentype"); }
 body {
-  color: #575756; }
+  color: #575756 !important; }
   body h2 {
     font-family: "CircularPro-Bold" !important; }
   body.chin {
@@ -16,30 +20,222 @@ body {
 .collapse {
   width: 100%; }
 
+.content-wrapper {
+  margin: 10px 0 !important; }
+
 /* .panel-body{
 	color:#333 !important;
 	padding : 15px !important;
 }
  */
+.sticky {
+  bottom: 0;
+  position: fixed; }
+
+#div-sticky {
+  min-height: 60px;
+  background: #fff;
+  width: 100%;
+  z-index: 999; }
+  #div-sticky span {
+    position: absolute;
+    bottom: 33%;
+    left: 10%; }
+  #div-sticky .btn {
+    margin-right: 5%;
+    margin-top: 3%;
+    float: right;
+    padding: 5px 5px !important;
+    border-radius: 4px; }
+
+.modal-dialog .modal-content {
+  background: #ececec;
+  padding: 15px; }
+  .modal-dialog .modal-content .modal-header .pv_title {
+    font-size: 0.8em !important;
+    padding-left: 5px; }
+  .modal-dialog .modal-content .modal-body .div-box {
+    background: none;
+    min-height: 60px;
+    padding-left: 0;
+    padding-right: 5px; }
+    .modal-dialog .modal-content .modal-body .div-box label, .modal-dialog .modal-content .modal-body .div-box select {
+      width: 100%; }
+    .modal-dialog .modal-content .modal-body .div-box label {
+      font-size: 0.5em;
+      font-family: calibri-bold;
+      position: absolute; }
+    .modal-dialog .modal-content .modal-body .div-box input {
+      border: none;
+      margin-top: 10px;
+      padding: 5px 0;
+      font-size: 1em;
+      color: #E87722; }
+    .modal-dialog .modal-content .modal-body .div-box select {
+      list-style: none;
+      -webkit-appearance: none;
+      border: none;
+      margin-top: 15px;
+      padding: 3px 0;
+      font-size: 0.6em;
+      color: #E87722;
+      font-weight: 700; }
+      .modal-dialog .modal-content .modal-body .div-box select:focus {
+        border: none;
+        outline: 0px; }
+    .modal-dialog .modal-content .modal-body .div-box img {
+      position: absolute;
+      bottom: 35%;
+      right: 10%; }
+    .modal-dialog .modal-content .modal-body .div-box .glyphicon-chevron-down {
+      top: 48%;
+      width: 10px;
+      right: 20px;
+      position: absolute;
+      color: #E87722;
+      font-size: 0.7em; }
+    .modal-dialog .modal-content .modal-body .div-box #btn_input_code {
+      position: absolute;
+      bottom: 28%;
+      right: 5%;
+      padding: 5px 15px !important;
+      color: #fff; }
+  .modal-dialog .modal-content .modal-body .item-wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #FFF; }
+  .modal-dialog .modal-content .modal-body #FirstYear {
+    background: none;
+    min-height: 60px;
+    padding-left: 0;
+    margin-bottom: 10px; }
+    .modal-dialog .modal-content .modal-body #FirstYear .item-wrapper {
+      padding-top: 0px;
+      padding-bottom: 5px; }
+    .modal-dialog .modal-content .modal-body #FirstYear label {
+      position: relative;
+      width: auto; }
+  .modal-dialog .modal-content .modal-body #btn_quote {
+    padding-left: 0px;
+    padding-right: 5px; }
+    .modal-dialog .modal-content .modal-body #btn_quote a {
+      width: 100%;
+      color: #FFF; }
+
+#contactUsModal .modal-header .pv_title {
+  font-size: 2.0em !important; }
+#contactUsModal input {
+  background: none;
+  font-size: 0.8em; }
+
 #pv_calculator {
   background: #ececec;
-  padding-top: 10px;
-  padding-bottom: 10px; }
+  position: relative;
+  /* padding-top:10px;
+  padding-bottom:10px; */ }
+  #pv_calculator #loadingDiv {
+    position: absolute;
+    padding-top: 2%; }
+    #pv_calculator #loadingDiv img {
+      max-height: 100%; }
   #pv_calculator .div-container {
     margin-top: 10px;
     margin-bottom: 10px; }
   #pv_calculator .div-box {
-    background: #FFF; }
+    background: #FFF;
+    min-height: 60px;
+    margin-right: 1px; }
     #pv_calculator .div-box label, #pv_calculator .div-box select {
       width: 100%; }
+    #pv_calculator .div-box label {
+      font-size: 14px;
+      font-family: calibri-bold;
+      top: 4px;
+      position: absolute; }
+    #pv_calculator .div-box input {
+      border: none;
+      margin-top: 24px;
+      padding: 5px 0;
+      font-size: 1em;
+      color: #E87722; }
     #pv_calculator .div-box select {
       list-style: none;
-      -webkit-appearance: none; }
-    #pv_calculator .div-box img {
-      top: 44%;
-      width: 14px;
+      -webkit-appearance: none;
+      border: none;
+      margin-top: 15px;
+      padding: 5px 0;
+      font-size: 1em;
+      color: #E87722;
+      font-weight: 700; }
+      #pv_calculator .div-box select:focus {
+        border: none;
+        outline: 0px; }
+    #pv_calculator .div-box .glyphicon-chevron-down {
+      top: 48%;
+      width: 10px;
       right: 20px;
-      position: absolute; }
+      position: absolute;
+      color: #E87722;
+      font-size: 0.7em; }
+    #pv_calculator .div-box #btn_input_code {
+      position: absolute;
+      bottom: 15%;
+      right: 3%;
+      padding: 5px 15px !important; }
+  #pv_calculator #FirstYear .bold {
+    font-size: 1.2em; }
+  #pv_calculator #FirstYear label {
+    width: auto; }
+  #pv_calculator .relative {
+    position: relative !important; }
+    #pv_calculator .relative label {
+      position: relative !important; }
+  #pv_calculator .btn {
+    border-radius: 4px; }
+  #pv_calculator .pv_remark {
+    color: #999999;
+    font-size: 0.8em; }
+  #pv_calculator #mobile-form {
+    font-size: 0.8em; }
+    #pv_calculator #mobile-form .glyphicon-pencil {
+      color: #E87722;
+      font-size: 1.5em !important;
+      padding-left: 8px;
+      padding-top: 10px; }
+    #pv_calculator #mobile-form label {
+      font-size: 0.8em;
+      top: 0; }
+    #pv_calculator #mobile-form h2 {
+      font-size: 1.0em; }
+    #pv_calculator #mobile-form .div-box {
+      background: #ececec;
+      margin-right: 0;
+      border-left: 1px solid darkgray;
+      padding-left: 5px;
+      padding-right: 5px;
+      min-height: 48px; }
+      #pv_calculator #mobile-form .div-box img {
+        right: 5px; }
+      #pv_calculator #mobile-form .div-box select {
+        background: none;
+        margin-top: 11px;
+        padding: 3px 0; }
+      #pv_calculator #mobile-form .div-box input {
+        margin-top: 17px; }
+    #pv_calculator #mobile-form #div_mobile_promotion_code {
+      background: white;
+      border: none; }
+      #pv_calculator #mobile-form #div_mobile_promotion_code #btn_input_code {
+        right: 5%;
+        bottom: 10%; }
+    #pv_calculator #mobile-form #FirstYear {
+      padding-left: 0 !important; }
+      #pv_calculator #mobile-form #FirstYear #price {
+        font-size: 1.2em !important;
+        font-weight: 700; }
+    #pv_calculator #mobile-form .btn {
+      padding: 5px 10px !important;
+      font-size: 1em; }
 
 #plan-details-same-and-faq {
   max-width: 1000px; }
@@ -169,7 +365,9 @@ body {
 
 @media (max-width: 991px) {
   body h2 {
-    font-size: 1.5em !important; }
+    font-size: 1.2em !important; }
+  body p, body span {
+    font-size: 0.7em !important; }
 
   #payment-filter .thumbnail {
     min-height: 160px;
@@ -181,5 +379,9 @@ body {
 
   #pv_claims .pv_title {
     margin-bottom: 10px; } }
+@media (min-width: 768px) {
+  #pv_feature .collapse {
+    height: auto !important;
+    display: block !important; } }
 
 /*# sourceMappingURL=medicalguardian-landing-style.css.map */
