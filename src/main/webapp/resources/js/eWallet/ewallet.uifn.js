@@ -19,12 +19,16 @@ var eWalletCtr = {
 		this.tryDisplayLinkupSuccess();
 
 		this.initHashChange();
+		
+		this.initPairSuccessPopup();
 
 		// for internal testing only
 		var isShowEWalletTab = this.getQueryStringByName("showWallet");
 		if(!isShowEWalletTab || isShowEWalletTab != "1"){
 			$("#e-wallet-tab-link, .mobile-dropdown.dropdown-e-wallet").hide();
 		}
+
+		
 	},
 	tryDisplayLinkupSuccess: function (){
 		var flag = this.getQueryStringByName("statusFlag");
@@ -38,6 +42,31 @@ var eWalletCtr = {
 		} else {
 			eWalletCtr.showGenericMsg("", msgCtr.linkup.tngLinkupFail);
 		}
+	},
+	initPairSuccessPopup: function (){
+		$(".ew_popup_linkupSuccess").on('hidden.bs.modal', function (){
+			var _newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+			//take out statusFlag and append to url
+			var _qs = window.location.search.substring(1).split('&');
+			var _qi;
+			var _newQS = "";
+			for(_qi = 0; _qi < _qs.length; _qi++){
+				var _qsItem = _qs[_qi];
+				if(_qsItem == "statusFlag=true") continue;
+
+				_newQS += _newQS.length == 0 ? "?" : "&";
+				_newQS += _qsItem;
+			}
+
+			_newurl += _newQS;
+
+
+			_newurl += window.location.hash;
+
+    		window.history.pushState({path:_newurl},'',_newurl);
+
+		});
 	},
 	initHashChange: function (){
     	window.addEventListener("hashchange", function(e) {
