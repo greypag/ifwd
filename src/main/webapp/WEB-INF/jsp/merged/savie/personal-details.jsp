@@ -1207,40 +1207,70 @@ $("#et-personal-info-next, #btn-back").click(function () {
 	$('#placeOfBirthCnName').val(str[1]);
 	
 	//set value NATIONALITY
-	var str = $('#tmpNationality').val().split(",");
-	$('#nationalty').val(str[0]);
-	$('#nationaltyEnName').val(str[1]);
-	$('#nationaltyCnName').val(str[1]);
+	var strNa = $('#tmpNationality').val().split(",");
+	$('#nationalty').val(strNa[0]);
+	$('#nationaltyEnName').val(strNa[1]);
+	$('#nationaltyCnName').val(strNa[1]);
 	
 	//set value MaritalStatus
-	var str = $('#tmpMaritalStatus').val().split(",");
-	$('#martialStatus').val(str[0]);
-	$('#martialStatusEnName').val(str[1]);
-	$('#martialStatusCnName').val(str[1]);
+	var strMa = $('#tmpMaritalStatus').val().split(",");
+	$('#martialStatus').val(strMa[0]);
+	$('#martialStatusEnName').val(strMa[1]);
+	$('#martialStatusCnName').val(strMa[1]);
 	
 	//set value PermanentDistrict
-	var str = $('#tmpPermanentDistrict').val().split(",");
-	$('#permanetAddressDistrict').val(str[0]);
-	$('#permanetAddressDistrictEnName').val(str[1]);
-	$('#permanetAddressDistrictCnName').val(str[1]);
+	var strPer = $('#tmpPermanentDistrict').val().split(",");
+	$('#permanetAddressDistrict').val(strPer[0]);
+	$('#permanetAddressDistrictEnName').val(strPer[1]);
+	$('#permanetAddressDistrictCnName').val(strPer[1]);
 	
 	//set value residentialAddressDistrict
-	var str = $('#tmpResidentialDistrict').val();
-	if(str!=null){
-		var str2=str.split(",");
-		$('#residentialAddressDistrict').val(str2[0]);
-		$('#residentialAddressDistrictEnName').val(str2[1]);
-		$('#residentialAddressDistrictCnName').val(str2[1]);	
+	var strRes = $('#tmpResidentialDistrict').val();
+	if(strRes!=null){
+		var strRes2=strRes.split(",");
+		$('#residentialAddressDistrict').val(strRes2[0]);
+		$('#residentialAddressDistrictEnName').val(strRes2[1]);
+		$('#residentialAddressDistrictCnName').val(strRes2[1]);	
+	}else{
+		var perAddRest1 =$('#permanentAddress1').val();
+		var perAddRest2 =$('#permanentAddress2').val();
+		var perAddRest3 =$('#permanentAddress3').val();
+		var perAddRestDist =$('#permanetAddressDistrict').val();
+		var perAddRestDistEn =$('#permanetAddressDistrictEnName').val();
+		var perAddRestDistCn =$('#permanetAddressDistrictCnName').val();
+		
+		$('#residentialAddress1').val(perAddRest1);
+		$('#residentialAddress2').val(perAddRest2);
+		$('#residentialAddress3').val(perAddRest3);
+		$('#residentialAddressDistrict').val(perAddRestDist);
+		$('#residentialAddressDistrictEnName').val(perAddRestDistEn);
+		$('#residentialAddressDistrictCnName').val(perAddRestDistCn);
 	}
 	
 	
 	//set value correspondenceAddressDistrict
-	var str = $('#tmpCorrespondenceDistrict').val();
-	if(str!=null){
-		var str2=str.split(",");
-	$('#correspondenceAddressDistrict').val(str2[0]);
-	$('#correspondenceAddressDistrictEnName').val(str2[1]);
-	$('#correspondenceAddressDistrictCnName').val(str2[1]);
+	var strCor = $('#tmpCorrespondenceDistrict').val();
+	if(strCor!=null){
+		var strCor2=strCor.split(",");
+	$('#correspondenceAddressDistrict').val(strCor2[0]);
+	$('#correspondenceAddressDistrictEnName').val(strCor2[1]);
+	$('#correspondenceAddressDistrictCnName').val(strCor2[1]);
+	}
+	else{
+		
+		var perAddCorr1 =$('#permanentAddress1').val();
+		var perAddCorr2 =$('#permanentAddress2').val();
+		var perAddCorr3 =$('#permanentAddress3').val();
+		var perAddCorrDist =$('#permanetAddressDistrict').val();
+		var perAddCorrDistEn =$('#permanetAddressDistrictEnName').val();
+		var perAddCorrDistCn =$('#permanetAddressDistrictCnName').val();
+		
+		$('#correspondenceAddress1').val(perAddCorr1);
+		$('#correspondenceAddress2').val(perAddCorr2);
+		$('#correspondenceAddress3').val(perAddCorr3);
+		$('#correspondenceAddressDistrict').val(perAddCorrDist);
+		$('#correspondenceAddressDistrictEnName').val(perAddCorrDistEn);
+		$('#correspondenceAddressDistrictCnName').val(perAddCorrDistCn);
 	}
 	
 	
