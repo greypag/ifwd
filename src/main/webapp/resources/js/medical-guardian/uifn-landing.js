@@ -75,7 +75,8 @@ $(document).ready(function(){
 	
 	$('#pv_calculator').bind('inview', function (event, visible, topOrBottomOrBoth) {
 		  if (visible == true) {
-			  $('#div-sticky').removeClass("active");
+			  //$('#sticky-control').removeClass("active");
+			  $('#sticky-control').fadeOut();
 			  console.log("yes");
 		    if (topOrBottomOrBoth == 'top') {
 		      // top part of element is visible
@@ -85,7 +86,8 @@ $(document).ready(function(){
 		      // whole part of element is visible
 		    }
 		  } else {
-			  $('#div-sticky').addClass("active");
+			  //$('#div-sticky').addClass("active");
+			  $('#sticky-control').fadeIn();
 			  console.log("no");
 		  }
 		});

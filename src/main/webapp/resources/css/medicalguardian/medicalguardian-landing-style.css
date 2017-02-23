@@ -6,8 +6,9 @@ body {
   color: #575756 !important; }
   body h2 {
     font-family: "CircularPro-Bold" !important; }
-  body.chin {
-    font-family: "MelleHK" !important; }
+  body option {
+    font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+    font-weight: bold; }
 
 .pv_highlight {
   color: #E87722 !important; }
@@ -26,11 +27,53 @@ body {
 .no_order {
   list-style: none; }
 
-/* .panel-body{
-	color:#333 !important;
-	padding : 15px !important;
-}
- */
+.btn {
+  font-weight: 700; }
+
+.div-box {
+  background: #FFF;
+  min-height: 60px;
+  margin-right: 1px; }
+  .div-box label, .div-box select {
+    width: 100%;
+    font-weight: 700; }
+  .div-box label {
+    font-size: 14px;
+    font-family: calibri-bold;
+    top: 4px;
+    position: absolute; }
+  .div-box input {
+    border: none;
+    margin-top: 19px;
+    padding: 5px 0;
+    font-size: 1em;
+    color: #E87722;
+    font-weight: 700; }
+  .div-box select {
+    list-style: none;
+    -webkit-appearance: none;
+    border: none;
+    margin-top: 15px;
+    padding: 5px 0;
+    font-size: 1em;
+    color: #E87722;
+    font-weight: 700; }
+    .div-box select:focus {
+      border: none;
+      outline: 0px; }
+  .div-box .glyphicon-chevron-down {
+    top: 48%;
+    width: 10px;
+    right: 20px;
+    position: absolute;
+    color: #E87722;
+    font-size: 0.7em; }
+  .div-box #btn_input_code {
+    position: absolute;
+    bottom: 15%;
+    right: 3%;
+    padding: 5px 15px !important; }
+
 .sticky {
   bottom: 0;
   position: fixed; }
@@ -39,18 +82,46 @@ body {
   min-height: 60px;
   background: #fff;
   width: 100%;
-  z-index: 999;
-  display: none !important; }
+  z-index: 999; }
   #div-sticky.active {
     display: block !important; }
-  #div-sticky #sticky-container {
-    padding: 10px; }
-    #div-sticky #sticky-container span {
-      font-size: 0.7em; }
-    #div-sticky #sticky-container .btn {
+  #div-sticky .sticky-container {
+    padding-top: 5px; }
+    #div-sticky .sticky-container span {
+      vertical-align: sub;
+      font-size: 0.8em; }
+    #div-sticky .sticky-container .btn {
       float: right;
       padding: 6px 12px !important;
       border-radius: 4px; }
+
+#desktop-div-sticky {
+  min-height: 60px;
+  background: #fff;
+  width: 100%;
+  z-index: 999;
+  display: none; }
+  #desktop-div-sticky.active {
+    display: block !important; }
+  #desktop-div-sticky #sticky-container {
+    padding: 10px; }
+    #desktop-div-sticky #sticky-container span {
+      font-size: 0.7em; }
+    #desktop-div-sticky #sticky-container .btn {
+      float: right;
+      padding: 6px 12px !important;
+      border-radius: 4px; }
+  #desktop-div-sticky label {
+    position: relative;
+    width: auto; }
+  #desktop-div-sticky .div-box {
+    margin-right: 0px; }
+  #desktop-div-sticky input {
+    margin-top: 0; }
+  #desktop-div-sticky .selectDiv {
+    margin-bottom: 0; }
+  #desktop-div-sticky select {
+    margin-top: 0; }
 
 .modal-dialog .modal-content {
   background: #ececec;
@@ -62,7 +133,8 @@ body {
     background: none;
     min-height: 60px;
     padding-left: 0;
-    padding-right: 5px; }
+    padding-right: 5px;
+    width: 100%; }
     .modal-dialog .modal-content .modal-body .div-box label, .modal-dialog .modal-content .modal-body .div-box select {
       width: 100%; }
     .modal-dialog .modal-content .modal-body .div-box label {
@@ -75,7 +147,7 @@ body {
       border: none;
       margin-top: 20px;
       padding: 5px 10px;
-      font-size: 0.8em;
+      font-size: 0.6em;
       color: #E87722;
       width: 100%; }
     .modal-dialog .modal-content .modal-body .div-box select {
@@ -136,8 +208,7 @@ body {
 #pv_calculator {
   background: #ececec;
   position: relative;
-  /* padding-top:10px;
-  padding-bottom:10px; */ }
+  padding-bottom: 15px; }
   #pv_calculator #loadingDiv {
     position: absolute;
     padding-top: 2%; }
@@ -146,49 +217,6 @@ body {
   #pv_calculator .div-container {
     margin-top: 10px;
     margin-bottom: 10px; }
-  #pv_calculator .div-box {
-    background: #FFF;
-    min-height: 60px;
-    margin-right: 1px; }
-    #pv_calculator .div-box label, #pv_calculator .div-box select {
-      width: 100%;
-      font-weight: 700; }
-    #pv_calculator .div-box label {
-      font-size: 14px;
-      font-family: calibri-bold;
-      top: 4px;
-      position: absolute; }
-    #pv_calculator .div-box input {
-      border: none;
-      margin-top: 24px;
-      padding: 5px 0;
-      font-size: 1em;
-      color: #E87722;
-      font-weight: 700; }
-    #pv_calculator .div-box select {
-      list-style: none;
-      -webkit-appearance: none;
-      border: none;
-      margin-top: 15px;
-      padding: 5px 0;
-      font-size: 1em;
-      color: #E87722;
-      font-weight: 700; }
-      #pv_calculator .div-box select:focus {
-        border: none;
-        outline: 0px; }
-    #pv_calculator .div-box .glyphicon-chevron-down {
-      top: 48%;
-      width: 10px;
-      right: 20px;
-      position: absolute;
-      color: #E87722;
-      font-size: 0.7em; }
-    #pv_calculator .div-box #btn_input_code {
-      position: absolute;
-      bottom: 15%;
-      right: 3%;
-      padding: 5px 15px !important; }
   #pv_calculator #FirstYear .bold {
     font-size: 1.2em; }
   #pv_calculator #FirstYear label {
@@ -202,6 +230,8 @@ body {
   #pv_calculator .pv_remark {
     color: #999999;
     font-size: 0.8em; }
+  #pv_calculator .dlProductBrochure {
+    padding: 0 15px; }
   #pv_calculator #mobile-form .glyphicon-pencil {
     color: #E87722;
     font-size: 1.5em !important;
@@ -216,7 +246,7 @@ body {
     background: #ececec;
     margin-right: 0;
     border-left: 1px solid darkgray;
-    padding-left: 5px;
+    padding-left: 15px;
     padding-right: 5px;
     min-height: 48px; }
     #pv_calculator #mobile-form .div-box img {
@@ -318,15 +348,25 @@ body {
     min-width: 200px;
     text-align: center; }
 
-#pv_feature .panel {
-  background: none; }
-  #pv_feature .panel .panel-heading {
-    background: none; }
-#pv_feature img {
-  width: 100%; }
-#pv_feature .hidden-xs {
-  text-align: center;
-  margin-top: 5%; }
+#pv_feature {
+  padding-top: 15px; }
+  #pv_feature .container {
+    max-width: 1020px; }
+  #pv_feature .panel-group {
+    padding: 0; }
+    #pv_feature .panel-group .panel {
+      background: none; }
+      #pv_feature .panel-group .panel .panel-heading {
+        background: none;
+        padding: 5px; }
+      #pv_feature .panel-group .panel .panel-body {
+        padding: 20px 0 0 0; }
+  #pv_feature img {
+    max-width: 50px;
+    min-width: 50px; }
+  #pv_feature .hidden-xs {
+    text-align: center;
+    margin-top: 1%; }
 
 #pd-sf-tab-content-container .panel-heading {
   background: #ececec !important; }
@@ -334,9 +374,13 @@ body {
     font-weight: 700; }
 
 #pv_schedule {
-  background: #ececec; }
+  background: #ececec;
+  padding-top: 50px;
+  padding-bottom: 20px; }
   #pv_schedule #collapseDeath {
     width: 100%; }
+  #pv_schedule h2 {
+    margin-bottom: 24px; }
   #pv_schedule .tab-pane div {
     margin-bottom: 0; }
   #pv_schedule .tab-pane .panel {
@@ -380,6 +424,29 @@ body {
 
   #pv_claims .pv_title {
     margin-bottom: 10px; } }
+@media (max-width: 768px) {
+  .div-box {
+    padding-left: 5px !important;
+    font-size: 0.8em; }
+    .div-box input {
+      font-size: 0.8em; }
+
+  #mobile-form #btn_cal_apply_mobile {
+    padding-left: 0;
+    padding-right: 0; }
+
+  .dlProductBrochure {
+    padding: 0 8px !important;
+    font-size: 0.8em; }
+
+  #pv_feature panel-body {
+    padding: 20px 0 0 0; }
+    #pv_feature panel-body .row {
+      display: block;
+      margin-right: 0; }
+
+  .modal-content .modal-body .div-box select, .modal-content .modal-body .div-box input {
+    padding: 3px 6px !important; } }
 @media (min-width: 768px) {
   #pv_feature .collapse {
     height: auto !important;
@@ -391,7 +458,13 @@ body {
     font-size: 0.7em; }
 
   .modal-content .type-of-habit {
-    font-size: 0.5em; } }
+    font-size: 0.5em; }
+
+  #pv_feature panel-body {
+    padding: 20px 0 0 0; }
+    #pv_feature panel-body .row {
+      display: flex;
+      align-items: center; } }
 @media (max-width: 1201px) {
   #pv_calculator #FirstYear .bold {
     font-size: 0.8em; } }
