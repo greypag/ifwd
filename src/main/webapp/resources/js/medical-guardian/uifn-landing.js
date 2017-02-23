@@ -60,6 +60,46 @@ $(document).ready(function(){
 		callAjaxOnChange();
 		$('#quoteModal').modal('hide')
 	});
+	
+	/*var test = $("#pv_feature").offset().top;
+	$(window).scroll(function(){
+		setTimeout(function(){
+			if($(window).scrollTop() > test){
+			   $('#div-sticky').fadeIn();
+			}
+			else{
+				$('#div-sticky').fadeOut();
+			}
+			},300);
+	});*/
+	
+	$('#pv_calculator').bind('inview', function (event, visible, topOrBottomOrBoth) {
+		  if (visible == true) {
+			  $('#div-sticky').removeClass("active");
+			  console.log("yes");
+		    if (topOrBottomOrBoth == 'top') {
+		      // top part of element is visible
+		    } else if (topOrBottomOrBoth == 'bottom') {
+		      // bottom part of element is visible
+		    } else {
+		      // whole part of element is visible
+		    }
+		  } else {
+			  $('#div-sticky').addClass("active");
+			  console.log("no");
+		  }
+		});
+	$(window).trigger('checkInView');
+	/*$('#pv_calculator').on('inview', function(event, isInView) {
+		  if (isInView) {
+			  $('#div-sticky').removeClass("active");
+			  console.log("yes");
+		  } else {
+			  $('#div-sticky').addClass("active");
+			  console.log("no");
+		  }
+		});*/
+	
 });
 		
 
@@ -72,7 +112,7 @@ function toggleContactUs(){
 function callAjaxOnChange(){
 	if($('.type-of-gender').val()!=null && $('.type-of-habit').val()!=null && $(".mobiscroll-datepicker").val()!=""){
 		console.log("AJAX!");
-		$('#loadingDiv').fadeIn(200);
+		$('.waitingDiv').fadeIn(200);
 		setTimeout(callAjax,500);
 	}
 }
@@ -131,7 +171,7 @@ function callAjax(){
 	    	
 	    },
 	    complete:function(){
-	    	$('#loadingDiv').fadeOut(200);
+	    	$('.waitingDiv').fadeOut(200);
 	    }
 	});
 }

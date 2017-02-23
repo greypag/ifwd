@@ -109,7 +109,7 @@ var home_url = "<%=request.getContextPath()%>";
 					src="<%=request.getContextPath()%>/resources/images/loading.gif">
 			</div>
 	    		<div class="container">
-		    		<div class="row hidden-xs">
+		    		<div class="row hidden-xs hidden-sm">
 			    		<div class="col-xs-12 text-center div-container">
 			    			<h2 class="pv_title content-wrapper">
 			    				<span><fmt:message key="medicalguardian.cal.title" bundle="${medicalguardianMsg}" /></span>
@@ -157,7 +157,7 @@ var home_url = "<%=request.getContextPath()%>";
 				    			<a id="btn_input_code" class="btn btn-primary text-uppercase livechat_button btn_input_code">></a>
 				    		</div>
 				    		<div id="FirstYear" class="col-xs-2 div-box selectDiv centreDiv relative">
-								<label class="" for="Code"><fmt:message key="medicalguardian.cal.form.first.year" bundle="${medicalguardianMsg}" /></label>
+								<label class="" for="Code"><fmt:message key="medicalguardian.cal.form.first.year" bundle="${medicalguardianMsg}" /></label><br>
 								<label class="bold premium_price" for="Code">HK$1000</label>
 								<label><fmt:message key="medicalguardian.cal.form.per.month" bundle="${medicalguardianMsg}" /></label>
 				    		</div>
@@ -165,7 +165,7 @@ var home_url = "<%=request.getContextPath()%>";
 				    			<span class="pv_remark"><fmt:message key="medicalguardian.cal.remark" bundle="${medicalguardianMsg}" /></span>
 				    		</div>
 				    		<div class="col-xs-12 content-wrapper text-center">
-				    			<a class="btn btn-primary text-uppercase livechat_button"><fmt:message key="medicalguardian.cal.apply.now" bundle="${medicalguardianMsg}" /></a>
+				    			<a class="btn btn-primary text-uppercase livechat_button" href="<%=request.getContextPath()%>/${language}/${nextPageFlow}"><fmt:message key="medicalguardian.cal.apply.now" bundle="${medicalguardianMsg}" /></a>
 				    		</div>
 				    		<div class="col-xs-12 wh_p_btns-gp text-center content-wrapper">
 	            				<a id="dlProductFacesheet" class="dlProductBrochure" href=""  target="_blank" data-category="PDF Dowload" data-action="" data-label="" ><i class="fa fa-download" aria-hidden="true"></i><fmt:message key="medicalguardian.schedule.product.factsheet" bundle="${medicalguardianMsg}" /></a>
@@ -173,7 +173,7 @@ var home_url = "<%=request.getContextPath()%>";
 		            		</div>
 			    		</div>
 		    		</div>
-		    		<div id="mobile-form" class="visible-xs">
+		    		<div id="mobile-form" class="visible-xs visible-sm">
 		    			<div class="col-xs-12 text-center div-container">
 			    			<h2 class="pv_title content-wrapper">
 			    				<span><fmt:message key="medicalguardian.cal.title" bundle="${medicalguardianMsg}" /></span>
@@ -184,7 +184,7 @@ var home_url = "<%=request.getContextPath()%>";
 			    		</div>
 			    		<div class="col-xs-3 div-box selectDiv">
 							<label class="" for="Gender"><fmt:message key="medicalguardian.cal.form.gender" bundle="${medicalguardianMsg}" /></label>
-							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs">
+							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs hidden-sm">
 							<select name="Gender" id="type-of-gender" class="type-of-gender" data-bv-field="Gender" disabled>
 								<option value="0" data-val="Male"><fmt:message key="medicalguardian.cal.form.gender.male" bundle="${medicalguardianMsg}" /></option>
 								<option value="1" data-val="Female"><fmt:message key="medicalguardian.cal.form.gender.female" bundle="${medicalguardianMsg}" /></option>
@@ -193,7 +193,7 @@ var home_url = "<%=request.getContextPath()%>";
 			    		</div>
 			    		<div class="col-xs-3 div-box selectDiv">
 							<label class="" for="dob"><fmt:message key="medicalguardian.cal.form.birthday" bundle="${medicalguardianMsg}" /></label>
-							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs">
+							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs hidden-sm">
 							<%-- <select name="dob" id="day-of-birth" class="mobiscroll-datepicker" data-bv-field="dob" disabled>
 								<option value="" data-val="">1</option>
 								<option value="" data-val="">2</option>
@@ -205,7 +205,7 @@ var home_url = "<%=request.getContextPath()%>";
 			    		</div>
 			    		<div class="col-xs-4 div-box selectDiv">
 							<label class="" for="Habit"><fmt:message key="medicalguardian.cal.form.habit" bundle="${medicalguardianMsg}" /></label>
-							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs">
+							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs hidden-sm">
 							<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" disabled>
 								<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
 								<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
@@ -213,7 +213,9 @@ var home_url = "<%=request.getContextPath()%>";
 							</select>
 			    		</div>
 			    		<div class="col-xs-2 div-box selectDiv">
-							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+			    			<a href="" data-toggle="modal" data-target="#quoteModal">
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+							</a>
 			    		</div>
 			    		
 			    		<div id="div_mobile_promotion_code" class="col-xs-12 div-box selectDiv centreDiv">
@@ -229,7 +231,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<span><fmt:message key="medicalguardian.cal.form.per.month" bundle="${medicalguardianMsg}" /></span>
 				    	</div>
 			    		<div class="col-xs-4 content-wrapper text-center">
-				    			<a class="btn btn-primary text-uppercase livechat_button"><fmt:message key="medicalguardian.cal.apply.now" bundle="${medicalguardianMsg}" /></a>
+				    			<a class="btn btn-primary text-uppercase livechat_button" href="<%=request.getContextPath()%>/${language}/${nextPageFlow}"><fmt:message key="medicalguardian.cal.apply.now" bundle="${medicalguardianMsg}" /></a>
 				    	</div>
 			    		
 			    		
@@ -241,19 +243,26 @@ var home_url = "<%=request.getContextPath()%>";
 	    		</div>
 	    	</div>
 	    	
-	    	<div id="div-sticky" class="sticky visible-xs">
-	    		<div>
-		    		<span class="pv_title" id="quoteModalLabel">How much would this cost you?</span>
-		    		<!-- <button class="btn btn-primary " data-toggle="modal" data-target="#contactUsModal"> -->
-			    	<button class="btn btn-primary " data-toggle="modal" data-target="#quoteModal">
-					  	<fmt:message key="medicalguardian.quote.now" bundle="${medicalguardianMsg}" />
-					</button>
+	    	<div id="div-sticky" class="sticky hidden-lg">
+	    		<div id="sticky-container">
+	    			<div class="col-xs-6">
+	    				<span class="pv_title" id="quoteModalLabel">How much would this cost you?</span>
+	    			</div>
+	    			<div class="col-xs-6">
+				    	<button class="btn btn-primary " data-toggle="modal" data-target="#quoteModal">
+						  	<fmt:message key="medicalguardian.quote.now" bundle="${medicalguardianMsg}" />
+						</button>
+					</div>
 				</div>
 			</div>
 	    	<!-- Quote Modal -->
 			<div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
 			    <div class="modal-content">
+			    	<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+						<img style="width: 300px; height: 300px;"
+							src="<%=request.getContextPath()%>/resources/images/loading.gif">
+					</div>
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			        <h2 class="pv_title" id="quoteModalLabel">How much would this cost you?</h2>
@@ -306,7 +315,7 @@ var home_url = "<%=request.getContextPath()%>";
 				    		</div>
 				    	</div>
 			    		<div id="btn_quote" class="col-xs-12 content-wrapper text-center">
-				    			<a class="btn btn-primary text-uppercase livechat_button"><fmt:message key="medicalguardian.quote.now" bundle="${medicalguardianMsg}" /></a>
+				    			<a class="btn btn-primary text-uppercase livechat_button" href="<%=request.getContextPath()%>/${language}/${nextPageFlow}"><fmt:message key="medicalguardian.quote.now" bundle="${medicalguardianMsg}" /></a>
 				    	</div>
 				    
 			      </div>
@@ -632,6 +641,16 @@ var home_url = "<%=request.getContextPath()%>";
 						<!-- Schedule Table Start -->
 						<!-- left col -->
 							<div class="col-xs-12 col-sm-6">
+							<!-- Plan Level -->
+							<div class="col-xs-12">
+									<div class="col-xs-12">
+										<span class="pv_title"><fmt:message key="medicalguardian.schedule.plan.level" bundle="${medicalguardianMsg}" /></span>
+									</div>
+									<div class="col-xs-12 gray-divide"></div>
+									<div class="col-xs-12">
+										<span class="pv_item"><fmt:message key="medicalguardian.schedule.plan.level.text" bundle="${medicalguardianMsg}" /></span>
+									</div>
+								</div>
 							<!-- Area of Cover -->
 								<div class="col-xs-12">
 									<div class="col-xs-12">
@@ -786,17 +805,29 @@ var home_url = "<%=request.getContextPath()%>";
 										<span><fmt:message key="medicalguardian.schedule.additional.benefit.title.desc" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									<div class="col-xs-12 gray-divide"></div>
-									<div class="col-xs-12">
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.benefit.text" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-12">
+									<div class="col-xs-3">
+										<span class="pv_price"><fmt:message key="medicalguardian.schedule.once.per.policy" bundle="${medicalguardianMsg}" /></span>
+									</div>
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.benefit.text1" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-12">
+									<div class="col-xs-3">
+										<span class="pv_price"><fmt:message key="medicalguardian.schedule.3.per.policy" bundle="${medicalguardianMsg}" /></span>
+									</div>
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.benefit.text2" bundle="${medicalguardianMsg}" /></span>
 									</div>
-									<div class="col-xs-12">
+									<div class="col-xs-3">
+										<span class="pv_price"><fmt:message key="medicalguardian.schedule.once.per.policy" bundle="${medicalguardianMsg}" /></span>
+									</div>
+									<div class="col-xs-9">
 										<span class="pv_item"><fmt:message key="medicalguardian.schedule.additional.benefit.text3" bundle="${medicalguardianMsg}" /></span>
+									</div>
+									<div class="col-xs-3">
+										<span class="pv_price"><fmt:message key="medicalguardian.schedule.once.per.policy" bundle="${medicalguardianMsg}" /></span>
 									</div>
 								</div>
 								<!-- Ancillary Services -->
@@ -826,34 +857,30 @@ var home_url = "<%=request.getContextPath()%>";
 													<ol class="no_order">
 														<li><fmt:message key="medicalguardian.schedule.remark4.1" bundle="${medicalguardianMsg}" /></li>
 														<li><fmt:message key="medicalguardian.schedule.remark4.2" bundle="${medicalguardianMsg}" /></li>
-														<li><fmt:message key="medicalguardian.schedule.remark4.3" bundle="${medicalguardianMsg}" /></li>
-														<li><fmt:message key="medicalguardian.schedule.remark4.4" bundle="${medicalguardianMsg}" /></li>
 													</ol>
-													<fmt:message key="medicalguardian.schedule.remark4.5" bundle="${medicalguardianMsg}" />
+													<fmt:message key="medicalguardian.schedule.remark4.3" bundle="${medicalguardianMsg}" />
 													</li>
-													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark5" bundle="${medicalguardianMsg}" /></p></li>
-													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark6" bundle="${medicalguardianMsg}" /></p></li>
+													<li><fmt:message key="medicalguardian.schedule.remark5" bundle="${medicalguardianMsg}" />
+													<ol class="no_order">
+														<li><fmt:message key="medicalguardian.schedule.remark5.1" bundle="${medicalguardianMsg}" /></li>
+														<li><fmt:message key="medicalguardian.schedule.remark5.2" bundle="${medicalguardianMsg}" /></li>
+													</ol>
+													<fmt:message key="medicalguardian.schedule.remark5.3" bundle="${medicalguardianMsg}" />
+													</li>
+													<li><fmt:message key="medicalguardian.schedule.remark6" bundle="${medicalguardianMsg}" />
+													<ol class="no_order">
+														<li><fmt:message key="medicalguardian.schedule.remark6.1" bundle="${medicalguardianMsg}" /></li>
+														<li><fmt:message key="medicalguardian.schedule.remark6.2" bundle="${medicalguardianMsg}" /></li>
+													</ol>
+													<fmt:message key="medicalguardian.schedule.remark6.3" bundle="${medicalguardianMsg}" />
+													</li>
 													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark7" bundle="${medicalguardianMsg}" /></p></li>
 													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark8" bundle="${medicalguardianMsg}" /></p></li>
 													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark9" bundle="${medicalguardianMsg}" /></p></li>
 													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark10" bundle="${medicalguardianMsg}" /></p></li>
-													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark11" bundle="${medicalguardianMsg}" />
-													<ol class="no_order">
-														<li><fmt:message key="medicalguardian.schedule.remark11.1" bundle="${medicalguardianMsg}" /></li>
-														<li><fmt:message key="medicalguardian.schedule.remark11.2" bundle="${medicalguardianMsg}" /></li>
-													</ol>
-													<fmt:message key="medicalguardian.schedule.remark11.3" bundle="${medicalguardianMsg}" />
-													</li>
-													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark12" bundle="${medicalguardianMsg}" />
-													<ol class="no_order">
-														<li><fmt:message key="medicalguardian.schedule.remark12.1" bundle="${medicalguardianMsg}" /></li>
-														<li><fmt:message key="medicalguardian.schedule.remark12.2" bundle="${medicalguardianMsg}" /></li>
-													</ol>
-													<fmt:message key="medicalguardian.schedule.remark12.3" bundle="${medicalguardianMsg}" />
-													</li>
+													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark11" bundle="${medicalguardianMsg}" /></p></li>
+													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark12" bundle="${medicalguardianMsg}" /></p></li>
 													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark13" bundle="${medicalguardianMsg}" /></p></li>
-													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark14" bundle="${medicalguardianMsg}" /></p></li>
-													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark15" bundle="${medicalguardianMsg}" /></p></li>
 												</ol>
 									   		</div>
 										</div>
@@ -952,6 +979,83 @@ var home_url = "<%=request.getContextPath()%>";
 									  </div>
 								   </div>
 								</div>
+								<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
+								   <div class="panel-heading" role="tab" id="pd-sf-claim-related">
+									  <h4 class="panel-title">
+										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											<fmt:message key="medicalguardian.adjustment" bundle="${medicalguardianMsg}" />
+											<span class="pull-right">
+											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											</span>
+										 </a>
+									  </h4>
+								   </div>
+								   <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
+									  <div class="panel-body">
+									  	<div>
+									  		<p><span class="pv_title"><fmt:message key="medicalguardian.adjustment" bundle="${medicalguardianMsg}" /></span></p>
+											<p><span class=""><fmt:message key="medicalguardian.adjustment.1" bundle="${medicalguardianMsg}" /></span></p>
+									  	</div>
+									  	<br/>
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
+								   <div class="panel-heading" role="tab" id="pd-sf-claim-related">
+									  <h4 class="panel-title">
+										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+											<fmt:message key="medicalguardian.term" bundle="${medicalguardianMsg}" />
+											<span class="pull-right">
+											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											</span>
+										 </a>
+									  </h4>
+								   </div>
+								   <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
+									  <div class="panel-body">
+									  	<div>
+									  		<p><span class="pv_title"><fmt:message key="medicalguardian.term" bundle="${medicalguardianMsg}" /></span></p>
+											<p><span class=""><fmt:message key="medicalguardian.term.1" bundle="${medicalguardianMsg}" /></span></p>
+											<p><span class=""><fmt:message key="medicalguardian.term.2" bundle="${medicalguardianMsg}" /></span></p>
+									  	</div>
+									  	<br/>
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
+								   <div class="panel-heading" role="tab" id="pd-sf-claim-related">
+									  <h4 class="panel-title">
+										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+											<fmt:message key="medicalguardian.condition" bundle="${medicalguardianMsg}" />
+											<span class="pull-right">
+											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											</span>
+										 </a>
+									  </h4>
+								   </div>
+								   <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
+									  <div class="panel-body">
+									  	<div>
+									  		<p><span class="pv_title"><fmt:message key="medicalguardian.condition" bundle="${medicalguardianMsg}" /></span></p>
+											<p><span class=""><fmt:message key="medicalguardian.condition1" bundle="${medicalguardianMsg}" /></span></p>
+											<ol class="no_order">
+												<li><span class=""><fmt:message key="medicalguardian.condition1.1" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.2" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.3" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.4" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.5" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.6" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.7" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.8" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.9" bundle="${medicalguardianMsg}" /></span></li>
+												<li><span class=""><fmt:message key="medicalguardian.condition1.10" bundle="${medicalguardianMsg}" /></span></li>
+											</ol>
+									  	</div>
+									  	<br/>
+									  </div>
+								   </div>
+								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -1551,3 +1655,5 @@ $(document).ready(function() {
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/medical-guardian/uifn-landing.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/medical-guardian/jquery.inview.min.js"></script>
+

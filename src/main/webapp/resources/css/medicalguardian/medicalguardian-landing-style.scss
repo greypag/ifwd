@@ -31,6 +31,9 @@ body {
 .content-wrapper{
 	margin : 10px 0 !important;
 }
+.no_order{
+		list-style: none;
+}
 /* .panel-body{
 	color:#333 !important;
 	padding : 15px !important;
@@ -45,18 +48,21 @@ body {
  	background : #fff;
  	width:100%;
  	z-index:999;
- 	span{
- 		position:absolute;
- 		bottom : 33%;
- 		left : 10%;
+ 	display: none !important;
+ 	&.active{
+ 		display: block !important;
  	}
- 	.btn{
- 		margin-right:5%;
- 		margin-top:3%;
- 		float:right;
- 		padding : 5px 5px !important;
- 		border-radius:4px;
- 	}
+ 	#sticky-container{
+ 		padding : 10px;
+	 	span{
+	 		font-size : 0.7em;
+	 	}
+	 	.btn{
+	 		float:right;
+	 		padding : 6px 12px !important;
+	 		border-radius:4px;
+	 	}
+	 }
  }
 .modal-dialog{
 	.modal-content{
@@ -81,20 +87,23 @@ body {
 					font-size: 0.5em;
 				    font-family: calibri-bold;
 				    position:absolute;
+				    left:10px;
+				    top: 2px;	
 				}
 				input{
 					border : none;
-					margin-top:10px;
-					padding: 5px 0;
-					font-size : 1em;
+					margin-top:20px;
+					padding: 5px 10px;
+					font-size : 0.8em;
 					color : #E87722;
+					width:100%;
 				}
 				select{
 					list-style:none;
 					-webkit-appearance: none;
 					border : none;
 					margin-top:15px;
-					padding: 3px 0;
+					padding: 3px 10px;
 					font-size : 0.6em;
 					color : #E87722;
 					&:focus{
@@ -106,7 +115,7 @@ body {
 				img{
 					position:absolute;
 					bottom:35%;
-					right:10%;
+					right:15px;
 				}
 				.glyphicon-chevron-down{
 					top:48%;
@@ -125,8 +134,7 @@ body {
 				}
 			}
 			.item-wrapper{
-				padding-left : 15px;
-				padding-right : 15px;
+				
 				background : #FFF;
 			}
 			#FirstYear{
@@ -190,6 +198,7 @@ body {
 		margin-right: 1px;
 		label,select{
 			width:100%;
+			font-weight:700;
 		}
 		label{
 			font-size: 14px;
@@ -203,6 +212,7 @@ body {
 			padding: 5px 0;
 			font-size : 1em;
 			color : #E87722;
+			font-weight: 700;
 		}
 		select{
 			list-style:none;
@@ -260,7 +270,7 @@ body {
 
 
 	#mobile-form{
-		font-size : 0.8em;
+		//font-size : 0.8em;
 		.glyphicon-pencil{
 			color : #E87722;
 			font-size : 1.5em !important;
@@ -286,18 +296,18 @@ body {
 			}
 			select{
 				background:none;
-				margin-top: 11px;
 				padding : 3px 0 ;
 			}
 			input{
 				margin-top:17px;
+				width:100%;
 			}
 		}
 		#div_mobile_promotion_code{
 			background:white;
 			border:none;
 			#btn_input_code{
-				right: 5%;
+				right: 1%;
 				bottom:10%;
 			}
 		}
@@ -493,9 +503,6 @@ body {
 			content: "-";
 		}
 	}
-	.no_order{
-		list-style: none;
-	}
 }
 
 
@@ -503,10 +510,7 @@ body {
 @media (max-width:991px){
 	body{
 		h2{
-			font-size : 1.2em !important;
-		}
-		p,span{
-			font-size : 0.7em !important;
+			font-size : 1.5em !important;
 		}
 	}
 	#payment-filter{
@@ -531,6 +535,30 @@ body {
 	#pv_feature .collapse{
 		height:auto !important;
 		display:block !important;
+	}
+	#mobile-form{
+		.div_box{
+			input{
+				font-size : 0.6em;
+			}
+			select{
+				font-size : 0.7em;
+			}
+		}
+	}
+	.modal-content{
+		.type-of-habit{
+			font-size: 0.5em;
+		}
+	}
+}
+@media (max-width:1201px){
+	#pv_calculator{
+		#FirstYear{
+			.bold{
+				font-size:0.8em;
+			}
+		}
 	}
 }
 

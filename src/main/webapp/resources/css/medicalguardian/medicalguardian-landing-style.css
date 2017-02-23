@@ -23,6 +23,9 @@ body {
 .content-wrapper {
   margin: 10px 0 !important; }
 
+.no_order {
+  list-style: none; }
+
 /* .panel-body{
 	color:#333 !important;
 	padding : 15px !important;
@@ -36,17 +39,18 @@ body {
   min-height: 60px;
   background: #fff;
   width: 100%;
-  z-index: 999; }
-  #div-sticky span {
-    position: absolute;
-    bottom: 33%;
-    left: 10%; }
-  #div-sticky .btn {
-    margin-right: 5%;
-    margin-top: 3%;
-    float: right;
-    padding: 5px 5px !important;
-    border-radius: 4px; }
+  z-index: 999;
+  display: none !important; }
+  #div-sticky.active {
+    display: block !important; }
+  #div-sticky #sticky-container {
+    padding: 10px; }
+    #div-sticky #sticky-container span {
+      font-size: 0.7em; }
+    #div-sticky #sticky-container .btn {
+      float: right;
+      padding: 6px 12px !important;
+      border-radius: 4px; }
 
 .modal-dialog .modal-content {
   background: #ececec;
@@ -64,19 +68,22 @@ body {
     .modal-dialog .modal-content .modal-body .div-box label {
       font-size: 0.5em;
       font-family: calibri-bold;
-      position: absolute; }
+      position: absolute;
+      left: 10px;
+      top: 2px; }
     .modal-dialog .modal-content .modal-body .div-box input {
       border: none;
-      margin-top: 10px;
-      padding: 5px 0;
-      font-size: 1em;
-      color: #E87722; }
+      margin-top: 20px;
+      padding: 5px 10px;
+      font-size: 0.8em;
+      color: #E87722;
+      width: 100%; }
     .modal-dialog .modal-content .modal-body .div-box select {
       list-style: none;
       -webkit-appearance: none;
       border: none;
       margin-top: 15px;
-      padding: 3px 0;
+      padding: 3px 10px;
       font-size: 0.6em;
       color: #E87722;
       font-weight: 700; }
@@ -86,7 +93,7 @@ body {
     .modal-dialog .modal-content .modal-body .div-box img {
       position: absolute;
       bottom: 35%;
-      right: 10%; }
+      right: 15px; }
     .modal-dialog .modal-content .modal-body .div-box .glyphicon-chevron-down {
       top: 48%;
       width: 10px;
@@ -101,8 +108,6 @@ body {
       padding: 5px 15px !important;
       color: #fff; }
   .modal-dialog .modal-content .modal-body .item-wrapper {
-    padding-left: 15px;
-    padding-right: 15px;
     background: #FFF; }
   .modal-dialog .modal-content .modal-body #FirstYear {
     background: none;
@@ -146,7 +151,8 @@ body {
     min-height: 60px;
     margin-right: 1px; }
     #pv_calculator .div-box label, #pv_calculator .div-box select {
-      width: 100%; }
+      width: 100%;
+      font-weight: 700; }
     #pv_calculator .div-box label {
       font-size: 14px;
       font-family: calibri-bold;
@@ -157,7 +163,8 @@ body {
       margin-top: 24px;
       padding: 5px 0;
       font-size: 1em;
-      color: #E87722; }
+      color: #E87722;
+      font-weight: 700; }
     #pv_calculator .div-box select {
       list-style: none;
       -webkit-appearance: none;
@@ -195,47 +202,45 @@ body {
   #pv_calculator .pv_remark {
     color: #999999;
     font-size: 0.8em; }
-  #pv_calculator #mobile-form {
-    font-size: 0.8em; }
-    #pv_calculator #mobile-form .glyphicon-pencil {
-      color: #E87722;
-      font-size: 1.5em !important;
-      padding-left: 8px;
-      padding-top: 10px; }
-    #pv_calculator #mobile-form label {
-      font-size: 0.8em;
-      top: 0; }
-    #pv_calculator #mobile-form h2 {
-      font-size: 1.0em; }
-    #pv_calculator #mobile-form .div-box {
-      background: #ececec;
-      margin-right: 0;
-      border-left: 1px solid darkgray;
-      padding-left: 5px;
-      padding-right: 5px;
-      min-height: 48px; }
-      #pv_calculator #mobile-form .div-box img {
-        right: 5px; }
-      #pv_calculator #mobile-form .div-box select {
-        background: none;
-        margin-top: 11px;
-        padding: 3px 0; }
-      #pv_calculator #mobile-form .div-box input {
-        margin-top: 17px; }
-    #pv_calculator #mobile-form #div_mobile_promotion_code {
-      background: white;
-      border: none; }
-      #pv_calculator #mobile-form #div_mobile_promotion_code #btn_input_code {
-        right: 5%;
-        bottom: 10%; }
-    #pv_calculator #mobile-form #FirstYear {
-      padding-left: 0 !important; }
-      #pv_calculator #mobile-form #FirstYear #price {
-        font-size: 1.2em !important;
-        font-weight: 700; }
-    #pv_calculator #mobile-form .btn {
-      padding: 5px 10px !important;
-      font-size: 1em; }
+  #pv_calculator #mobile-form .glyphicon-pencil {
+    color: #E87722;
+    font-size: 1.5em !important;
+    padding-left: 8px;
+    padding-top: 10px; }
+  #pv_calculator #mobile-form label {
+    font-size: 0.8em;
+    top: 0; }
+  #pv_calculator #mobile-form h2 {
+    font-size: 1.0em; }
+  #pv_calculator #mobile-form .div-box {
+    background: #ececec;
+    margin-right: 0;
+    border-left: 1px solid darkgray;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-height: 48px; }
+    #pv_calculator #mobile-form .div-box img {
+      right: 5px; }
+    #pv_calculator #mobile-form .div-box select {
+      background: none;
+      padding: 3px 0; }
+    #pv_calculator #mobile-form .div-box input {
+      margin-top: 17px;
+      width: 100%; }
+  #pv_calculator #mobile-form #div_mobile_promotion_code {
+    background: white;
+    border: none; }
+    #pv_calculator #mobile-form #div_mobile_promotion_code #btn_input_code {
+      right: 1%;
+      bottom: 10%; }
+  #pv_calculator #mobile-form #FirstYear {
+    padding-left: 0 !important; }
+    #pv_calculator #mobile-form #FirstYear #price {
+      font-size: 1.2em !important;
+      font-weight: 700; }
+  #pv_calculator #mobile-form .btn {
+    padding: 5px 10px !important;
+    font-size: 1em; }
 
 #plan-details-same-and-faq {
   max-width: 1000px; }
@@ -360,14 +365,10 @@ body {
     list-style: none; }
     #pv_schedule ul li:before {
       content: "-"; }
-  #pv_schedule .no_order {
-    list-style: none; }
 
 @media (max-width: 991px) {
   body h2 {
-    font-size: 1.2em !important; }
-  body p, body span {
-    font-size: 0.7em !important; }
+    font-size: 1.5em !important; }
 
   #payment-filter .thumbnail {
     min-height: 160px;
@@ -382,6 +383,17 @@ body {
 @media (min-width: 768px) {
   #pv_feature .collapse {
     height: auto !important;
-    display: block !important; } }
+    display: block !important; }
+
+  #mobile-form .div_box input {
+    font-size: 0.6em; }
+  #mobile-form .div_box select {
+    font-size: 0.7em; }
+
+  .modal-content .type-of-habit {
+    font-size: 0.5em; } }
+@media (max-width: 1201px) {
+  #pv_calculator #FirstYear .bold {
+    font-size: 0.8em; } }
 
 /*# sourceMappingURL=medicalguardian-landing-style.css.map */
