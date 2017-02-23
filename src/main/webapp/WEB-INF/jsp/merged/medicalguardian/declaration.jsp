@@ -106,6 +106,20 @@ var languageP = "${language}";
 						<p style="margin-top: 15px;"><fmt:message key="declaration.dda.note" bundle="${msg}" /></p>
 					</div>
 					</c:if>
+					
+					<div class="cstm-panel">
+						<p><b><fmt:message key="label.declaration.pics" bundle="${msg}" /></b></p>
+						<!-- <p class="desktop-inline"><b>Declaration - </b></p>
+						<p class="desktop-inline"><b>Personal Information Collection Statement</b></p>-->
+						<hr>
+						<div class="form-group checkbox-wrapper clearfix">
+							<input type="checkbox" id="hasReadAndAcceptPICS" name="hasReadAndAcceptPICS" value="true">
+							<label for="hasReadAndAcceptPICS"></label>
+							<fmt:message key="declaration.pics.agree" bundle="${msg}" />
+						</div>
+						<p id="chkPICSErMsg" class="err-msg hidden"><fmt:message key="error.pics.not.checked" bundle="${msg}" /></p>
+					</div>
+					
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.fatca" bundle="${msg}" /></b></p>
 						<hr>
@@ -121,7 +135,7 @@ var languageP = "${language}";
 							</ol>
 						</nav>
 					</div>
-					
+					<%-- 
 					<div class="cstm-panel">
 						<p><b><fmt:message key="savie.declaration.automatic.exchange" bundle="${msg}" /></b></p>
 						<hr>
@@ -139,20 +153,7 @@ var languageP = "${language}";
 							<p>* <fmt:message key="savie.declaration.automatic.exchange.tnc.statement.03" bundle="${msg}" /></p>
 						</nav>
 					</div>
-					
-					<div class="cstm-panel">
-						<p><b><fmt:message key="label.declaration.pics" bundle="${msg}" /></b></p>
-						<!-- <p class="desktop-inline"><b>Declaration - </b></p>
-						<p class="desktop-inline"><b>Personal Information Collection Statement</b></p>-->
-						<hr>
-						<div class="form-group checkbox-wrapper clearfix">
-							<input type="checkbox" id="hasReadAndAcceptPICS" name="hasReadAndAcceptPICS" value="true">
-							<label for="hasReadAndAcceptPICS"></label>
-							<fmt:message key="declaration.pics.agree" bundle="${msg}" />
-						</div>
-						<p id="chkPICSErMsg" class="err-msg hidden"><fmt:message key="error.pics.not.checked" bundle="${msg}" /></p>
-					</div>
-					
+					--%>
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.policyreplacement" bundle="${msg}" /></b></p>
 						<hr>
@@ -213,9 +214,9 @@ var languageP = "${language}";
 							<p><b><fmt:message key="label.declaration.policyreplacement.confirm" bundle="${msg}" /></b></p>
 							<ol class="list list--lower-roman">
 								<li class="list__item"><fmt:message key="declaration.policyreplacement.copy3" bundle="${msg}" /></li>
-								<li class="list__item"><fmt:message key="declaration.policyreplacement.copy4" bundle="${msg}" /></li>
+								<li class="list__item"><fmt:message key="declaration.policyreplacement.cansurance.copy4" bundle="${msg}" /></li>
 							</ol>
-							<p><fmt:message key="declaration.policyreplacement.copy5" bundle="${msg}" /></p>
+							<p><fmt:message key="declaration.policyreplacement.cansurance.copy5" bundle="${msg}" /></p>
 							<div style="margin-top: 20px;">
 							  <p><fmt:message key="declaration.policyreplacement.copy6" bundle="${msg}" /></p>
 								<ul class="list-unstyled">
@@ -278,6 +279,17 @@ var languageP = "${language}";
 								<fmt:message key="declaration.application.copy1" bundle="${msg}" />
 							</ol>
 						</nav>
+					</div>
+										
+					<div class="cstm-panel">
+						<p><b><fmt:message key="label.declaration.cansurance.promo" bundle="${msg}" /></b></p>
+						<hr>
+						<div class="form-group checkbox-wrapper clearfix">
+							<input type="checkbox" id="hasReadAndAcceptPromo" name="hasReadAndAcceptPromo" value="true">
+							<label for="hasReadAndAcceptPromo"></label>
+							<fmt:message key="declaration.promo.cansurance.agree" bundle="${msg}" />
+						</div>
+						<p id="chkPromoErMsg" class="err-msg hidden"><fmt:message key="error.promo.cansurance.not.checked" bundle="${msg}" /></p>
 					</div>
 					
 					<div class="cstm-panel">
@@ -476,10 +488,11 @@ var languageP = "${language}";
 				isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
 			}
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed &= validateChkboxField('hasReadAndAcceptAutoExch', 'chkAutoExchErMsg');
+			//isPassed &= validateChkboxField('hasReadAndAcceptAutoExch', 'chkAutoExchErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
 			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptPromo', 'chkPromoErMsg');
 
 			isPassed &= validateChkboxField('haveReplacedNo', 'chkHaveReplacedErMsg');
 			isPassed &= validateChkboxField('intentToReplacedNo', 'chkIntentToReplacedErMsg');
@@ -540,10 +553,11 @@ var languageP = "${language}";
 			// validation
 			isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed &= validateChkboxField('hasReadAndAcceptAutoExch', 'chkAutoExchErMsg');
+			//isPassed &= validateChkboxField('hasReadAndAcceptAutoExch', 'chkAutoExchErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
-			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');			
+			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptPromo', 'chkPromoErMsg');
             if(isPassed) {
 				$('#save-and-continue-batch5-modal').modal('show');
             }

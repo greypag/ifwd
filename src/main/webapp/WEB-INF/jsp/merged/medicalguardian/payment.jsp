@@ -88,13 +88,15 @@ var home_url = "<%=request.getContextPath()%>";
                     <h3 class="heading-title"><fmt:message key="payment.title" bundle="${msg}" /></h3>
                      <p>
                      <fmt:message key="payment.description.1" bundle="${msg}" /><br>
-                     <fmt:message key="payment.description.2" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium }' pattern="#.00"/><br>
+                     <fmt:message key="payment.description.cansurance.1" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium }' pattern="#.00"/><fmt:message key="payment.description.cansurance.hkd" bundle="${msg}" /><br>
+                     <fmt:message key="payment.description.cansurance.5" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/><fmt:message key="payment.description.cansurance.hkd" bundle="${msg}" /><br>
                      <c:if test="${selectPlan.discount!=null && selectPlan.discount!='' && selectPlan.discount!='0'}">
-                     <fmt:message key="payment.description.4" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.discount *2}' pattern="#.00"/><br>
+							<fmt:message key="payment.description.cansurance.6" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.discount *2}' pattern="#.00"/><fmt:message key="payment.description.cansurance.hkd" bundle="${msg}" /><br>
+							<fmt:message key="payment.description.cansurance.7" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.amountDue *2}' pattern="#.00"/><fmt:message key="payment.description.cansurance.hkd" bundle="${msg}" /><br>	
                      </c:if>
-                     <fmt:message key="payment.description.3" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.amountDue *2}' pattern="#.00"/> <fmt:message key="payment.description.3.extra" bundle="${msg}" />
+                     <%/* <fmt:message key="payment.description.3" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.amountDue *2}' pattern="#.00"/> <fmt:message key="payment.description.3.extra" bundle="${msg}" />  */ %>
                      </p>
-
+					<br>
                      <div class="row inner-row">
                          <div class="col-xs-12 col-md-6">
                          	<div class="form-group">

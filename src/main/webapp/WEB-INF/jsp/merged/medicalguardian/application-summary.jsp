@@ -112,7 +112,19 @@ var language = "${language}";
 						<div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount:selectPlan.monthlyPremium}" />" readonly="readonly" />
-								<label class="mdl-textfield__label" for="savingAmount"><c:choose><c:when test="${planIndex == 'medical-insurance'}"><fmt:message key="Placeholder.medical.amount" bundle="${msg}" /></c:when><c:otherwise><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></c:otherwise></c:choose></label>
+								<label class="mdl-textfield__label" for="savingAmount">
+									<c:choose>
+										<c:when test="${planIndex == 'medical-insurance'}">
+											<fmt:message key="Placeholder.medical.amount" bundle="${msg}" />
+										</c:when>
+										<c:when test="${planIndex == 'medical-insurance/cansurance'}">
+											<fmt:message key="Placeholder.cansurance.amount" bundle="${msg}" />
+										</c:when>
+										<c:otherwise>
+											<fmt:message key="Placeholder.savingamount" bundle="${msg}" />
+										</c:otherwise>
+									</c:choose>
+								</label>
 							</div>
 							<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='' && saviePlanDetails.insuredAmountDiscount!='0'}">
 								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">

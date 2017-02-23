@@ -115,6 +115,9 @@ var languageP = "${language}";
 						        					<c:if test="${planIndex == 'medical-insurance'}">
 					        							<fmt:message key="msg.upload.easyhealth.copy1" bundle="${msg}" />
 					        						</c:if>
+					        						<c:if test="${planIndex == 'medical-insurance/cansurance'}">
+					        							<fmt:message key="msg.upload.cansurance.copy1" bundle="${msg}" />
+					        						</c:if>
 												</span>
 											</div>
 										</div>
@@ -136,6 +139,9 @@ var languageP = "${language}";
 					        						</c:if>
 						        					<c:if test="${planIndex == 'medical-insurance'}">
 					        							<fmt:message key="msg.upload.easyhealth.copy2" bundle="${msg}" />
+					        						</c:if>
+					        						<c:if test="${planIndex == 'medical-insurance/cansurance'}">
+					        							<fmt:message key="msg.upload.cansurance.copy2" bundle="${msg}" />
 					        						</c:if>
 												</span>
 											</div>
@@ -181,7 +187,16 @@ var languageP = "${language}";
 					   </div>
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">
-								<p class="first-desc"><fmt:message key="msg.upload.savie.copy4" bundle="${msg}" /></p>
+								<p class="first-desc">
+									<c:choose>
+										<c:when test="${planIndex == 'medical-insurance/cansurance'}">
+											<fmt:message key="msg.upload.cansurance.copy4" bundle="${msg}" />
+										</c:when>
+										<c:otherwise>
+											<fmt:message key="msg.upload.savie.copy4" bundle="${msg}" />
+										</c:otherwise>
+									</c:choose>
+								</p>
 								<ol>
 									<c:if test="${planIndex == 'savings-insurance'}">
 	        							<li><fmt:message key="msg.upload.savie.copy5" bundle="${msg}" /></li>
@@ -530,13 +545,13 @@ var languageP = "${language}";
 				var userName = "${username}";
                 var policyUserName = "${policyUserName}";
                 var authenticate = "${authenticate}";
-                
+                /*
                 if('${plan }' == 'medical-insurance/cansurance'){
                 	$('#latterUpload').hide();
                  	$('#nowUpload').hide();
                 	
                 }
-                
+                */
                 if('${plan }' != 'medical-insurance/cansurance'){
                  if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
                 	errorMessageType = 'NOT_AUTHENTICATED';

@@ -98,7 +98,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<h4><fmt:message key="underwriting.question.q1" bundle="${msg}" /></h4>
 								</div>
 								<div class="col-xs-11">
-									<p><label for="ehUnderWriting1"><fmt:message key="underwriting.question.q1.copy" bundle="${msg}" /></label></p>
+									<p><label for="ehUnderWriting1"><fmt:message key="underwriting.cansurance.question.q1.copy" bundle="${msg}" /></label></p>
 								</div>
 								<div class="col-xs-1">
 									<div class="form-group">

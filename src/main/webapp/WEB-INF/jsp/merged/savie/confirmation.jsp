@@ -107,13 +107,23 @@
 	        							<fmt:message key="msg.confirmation.complete.easyhealth.copy1" bundle="${msg}" />
 	        						</c:if>
 	        					</h3>
-	        					<h3 class="text-bold visible-xs visible-sm" id="policy-no-mb"><fmt:message key="label.policyno" bundle="${msg}" /> <span class="policy-no">${lifePolicy.policyNo }</span></h3>
+	        					<h3 class="text-bold visible-xs visible-sm" id="policy-no-mb">
+	        						<c:choose>
+	        							<c:when test="${planIndex == 'medical-insurance/cansurance'}">
+	        								<fmt:message key="label.policyno.cansurance" bundle="${msg}" /> 
+	        							</c:when>
+	        							<c:otherwise>
+	        								<fmt:message key="label.policyno" bundle="${msg}" /> 
+	        							</c:otherwise>
+	        						</c:choose>
+	        						<span class="policy-no">${lifePolicy.policyNo }</span>
+	        					</h3>
 	        					<p id="success-purchase">
 	        						<c:if test="${planIndex == 'savings-insurance'}">
 	        							<fmt:message key="msg.confirmation.complete.savie.copy2" bundle="${msg}" />
 	        						</c:if>
 	        						<c:if test="${planIndex == 'medical-insurance/cansurance'}">
-	        							<fmt:message key="msg.confirmation.complete.savie.copy2" bundle="${msg}" />
+	        							<fmt:message key="msg.confirmation.complete.cansurance.copy2" bundle="${msg}" />
 	        						</c:if>
 		        					
 		        					<c:if test="${planIndex == 'medical-insurance'}">
@@ -124,7 +134,16 @@
 	        					<div class="border-gray visible-xs visible-sm"></div>
 	        				</div>
 	        				<div class="text-bold col-md-4 visible-md visible-lg" id="policy-no-holder">
-	        					<h2><fmt:message key="label.policyno" bundle="${msg}" /></h2>
+	        					<h2>
+	        					<c:choose>
+	        						<c:when test="${planIndex == 'medical-insurance/cansurance'}">
+	        								<fmt:message key="label.policyno.cansurance" bundle="${msg}" /> 
+	        							</c:when>
+	        							<c:otherwise>
+	        								<fmt:message key="label.policyno" bundle="${msg}" /> 
+	        							</c:otherwise>
+	        						</c:choose>
+	        					</h2>
 	        					<h2 id="policy-no">${lifePolicy.policyNo }</h2>
 	        				</div>
 	        				<div class="col-md-12 border-gray visible-md visible-lg" id="border-desktop"></div>
