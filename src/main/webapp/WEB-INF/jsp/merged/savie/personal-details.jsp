@@ -165,13 +165,13 @@
 									<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}"/></option>
 									<c:if test="${language == 'en'}">
 										<c:forEach var="list" items="${placeOfBirthEN}">
-											<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+											<enhance:out escapeXml="false"><option value="${list.itemCode },${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 									</enhance:out>
 								</c:forEach>
 							</c:if>
 							<c:if test="${language == 'tc'}">
 								<c:forEach var="list" items="${placeOfBirthCN}">
-									<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									<enhance:out escapeXml="false"><option value="${list.itemCode },${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 							</enhance:out>
 						</c:forEach>
 					</c:if>
@@ -187,7 +187,9 @@
 						</c:forEach>
 					</c:if>
 				</select>
-				<input type="hidden" id="placeOfBirth" name="placeOfBirth" value="${placeOfBirthCode }"/>
+				<input type="hidden" id="placeOfBirth" name="placeOfBirth" />
+				<input type="hidden" id="placeOfBirthEnName" name="placeOfBirthEnName" />
+				<input type="hidden" id="placeOfBirthCnName" name="placeOfBirthCnName" />
 				<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 				<span class="error-msg" id="placeOfBirthErMsg"></span>
 			</div>
@@ -200,7 +202,8 @@
 						<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.nationality" bundle="${msg}"/></option>
 						<c:if test="${language == 'en'}">
 							<c:forEach var="list" items="${nationalityEN}">
-								<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+								<enhance:out escapeXml="false">
+								<option value="${list.itemCode},${list.itemDesc}" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 						</enhance:out>
 					</c:forEach>
 				</c:if>
@@ -209,6 +212,7 @@
 						<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 				</enhance:out>
 			</c:forEach>
+			
 		</c:if>
 	</select>
 
@@ -222,7 +226,9 @@
 			<c:if test="${lifePersonalDetails.nationalty == list.itemCode}"><c:set var="nationaltyCode" value="${list.itemCode }"/></c:if>
 		</c:forEach>
 	</c:if>
-	<input type="hidden" id="nationalty" name="nationalty" value="${nationaltyCode }"/>
+	<input type="hidden" id="nationalty" name="nationalty" />
+	<input type="hidden" id="nationaltyEnName" name="nationaltyEnName" />
+	<input type="hidden" id="nationaltyCnName" name="nationaltyCnName" />
 	<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 	<span class="error-msg" id="nationalityErMsg"></span>
 </div>
@@ -313,7 +319,7 @@
 			<select class="form-control gray-dropdown" name="tmpMaritalStatus" id="tmpMaritalStatus">
 				<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.martial.status" bundle="${msg}"/></option>
 				<c:if test="${language == 'en'}">
-					<c:forEach var="list" items="${maritalStatusesEN}"><option value="${list.itemCode }" <c:choose> <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
+					<c:forEach var="list" items="${maritalStatusesEN}"><option value="${list.itemCode },${list.itemDesc }" <c:choose> <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
 					<c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>
 					<c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
 					<c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when>
@@ -325,7 +331,7 @@
 		</c:forEach>
 	</c:if>
 	<c:if test="${language == 'tc'}">
-		<c:forEach var="list" items="${maritalStatusesCN}"><option value="${list.itemCode }" <c:choose> <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
+		<c:forEach var="list" items="${maritalStatusesCN}"><option value="${list.itemCode },${list.itemDesc }" <c:choose> <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
 		<c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>
 		<c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
 		<c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when>
@@ -364,7 +370,9 @@
 	</c:choose>
 	</c:forEach>
 	</c:if>
-	<input type="hidden" id="martialStatus" name="martialStatus" value="${martialStatusCode }"/>
+	<input type="hidden" id="martialStatus" name="martialStatus"/>
+	<input type="hidden" id="martialStatusEnName" name="martialStatusEnName"/>
+	<input type="hidden" id="martialStatusCnName" name="martialStatusCnName"/>
 	<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 	<span class="error-msg" id="maritalStatErMsg"></span>
 	</div>
@@ -426,13 +434,13 @@ maxlength="19"/>
 <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.address.district" bundle="${msg}"/></option>
 <c:if test="${language == 'en'}">
 <c:forEach var="list" items="${savieDistrictEN}">
-	<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+	<enhance:out escapeXml="false"><option value="${list.itemCode },${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 </enhance:out>
 </c:forEach>
 </c:if>
 <c:if test="${language == 'tc'}">
 <c:forEach var="list" items="${savieDistrictCN}">
-<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+<enhance:out escapeXml="false"><option value="${list.itemCode },${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 </enhance:out>
 </c:forEach>
 </c:if>
@@ -448,7 +456,9 @@ maxlength="19"/>
 <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}"><c:set var="permanetAddressDistrictCode" value="${list.itemCode }"/></c:if>
 </c:forEach>
 </c:if>
-<input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" value="${permanetAddressDistrictCode }"/>
+<input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" />
+<input type="hidden" id="permanetAddressDistrictEnName" name="permanetAddressDistrictEnName" />
+<input type="hidden" id="permanetAddressDistrictCnName" name="permanetAddressDistrictCnName" />
 <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 <span class="error-msg" id="permanentDistrictErMsg"></span>
 </div>
@@ -512,13 +522,13 @@ maxlength="19"/>
 <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.address.district" bundle="${msg}"/></option>
 <c:if test="${language == 'en'}">
 <c:forEach var="list" items="${savieDistrictEN}">
-<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+<enhance:out escapeXml="false"><option value="${list.itemCode },${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 </enhance:out>
 </c:forEach>
 </c:if>
 <c:if test="${language == 'tc'}">
 <c:forEach var="list" items="${savieDistrictCN}">
-<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+<enhance:out escapeXml="false"><option value="${list.itemCode },${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 </enhance:out>
 </c:forEach>
 </c:if>
@@ -534,7 +544,9 @@ maxlength="19"/>
 <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}"><c:set var="residentialAddressDistrictCode" value="${list.itemCode }"/></c:if>
 </c:forEach>
 </c:if>
-<input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" value="${residentialAddressDistrictCode }"/>
+<input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" />
+<input type="hidden" id="residentialAddressDistrictEnName" name="residentialAddressDistrictEnName" />
+<input type="hidden" id="residentialAddressDistrictCnName" name="residentialAddressDistrictCnName" />
 <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 <span class="error-msg" id="residentialDistrictErMsg"></span>
 </div>
@@ -598,13 +610,13 @@ maxlength="19"/>
 <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.address.district" bundle="${msg}"/></option>
 <c:if test="${language == 'en'}">
 <c:forEach var="list" items="${savieDistrictEN}">
-<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+<enhance:out escapeXml="false"><option value="${list.itemCode },${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 </enhance:out>
 </c:forEach>
 </c:if>
 <c:if test="${language == 'tc'}">
 <c:forEach var="list" items="${savieDistrictCN}">
-<enhance:out escapeXml="false"><option value="${list.itemCode }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+<enhance:out escapeXml="false"><option value="${list.itemCode },${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 </enhance:out>
 </c:forEach>
 </c:if>
@@ -620,7 +632,9 @@ maxlength="19"/>
 <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}"><c:set var="correspondenceAddressDistrictCode" value="${list.itemCode }"/></c:if>
 </c:forEach>
 </c:if>
-<input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" value="${correspondenceAddressDistrictCode }"/>
+<input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
+<input type="hidden" id="correspondenceAddressDistrictEnName" name="correspondenceAddressDistrictEnName" />
+<input type="hidden" id="correspondenceAddressDistrictCnName" name="correspondenceAddressDistrictCnName" />
 <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 <span class="error-msg" id="correspondenceDistrictErMsg"></span>
 </div>
@@ -939,7 +953,6 @@ var getpath = "<%=request.getContextPath()%>";
 $(document).ready(function () {
 	//$('#soInsuredInfoForm input').addClass('is-not-active');
 	
-	console.log("${planIndex}");
 	if('${username}'==null || '${username}'=="*DIRECTGI" ||'${username}'==""){
 		setInputReadonly('firstname',false);
 		setInputReadonly('lastname',false);
@@ -1182,16 +1195,87 @@ if (msieversion() >= 9) {
 	$('.selectDiv .gray-dropdown').removeClass('ie-select');
 }
 
+
+
 $("#et-personal-info-next, #btn-back").click(function () {
 	$('#soInsuredInfoForm').bootstrapValidator('validate');
+	
+	//set value PlaceOfBirth
+	var str = $('#tmpPlaceOfBirth').val().split(",");
+	$('#placeOfBirth').val(str[0]);
+	$('#placeOfBirthEnName').val(str[1]);
+	$('#placeOfBirthCnName').val(str[1]);
+	
+	//set value NATIONALITY
+	var strNa = $('#tmpNationality').val().split(",");
+	$('#nationalty').val(strNa[0]);
+	$('#nationaltyEnName').val(strNa[1]);
+	$('#nationaltyCnName').val(strNa[1]);
+	
+	//set value MaritalStatus
+	var strMa = $('#tmpMaritalStatus').val().split(",");
+	$('#martialStatus').val(strMa[0]);
+	$('#martialStatusEnName').val(strMa[1]);
+	$('#martialStatusCnName').val(strMa[1]);
+	
+	//set value PermanentDistrict
+	var strPer = $('#tmpPermanentDistrict').val().split(",");
+	$('#permanetAddressDistrict').val(strPer[0]);
+	$('#permanetAddressDistrictEnName').val(strPer[1]);
+	$('#permanetAddressDistrictCnName').val(strPer[1]);
+	
+	//set value residentialAddressDistrict
+	var strRes = $('#tmpResidentialDistrict').val();
+	if(strRes!=null){
+		var strRes2=strRes.split(",");
+		$('#residentialAddressDistrict').val(strRes2[0]);
+		$('#residentialAddressDistrictEnName').val(strRes2[1]);
+		$('#residentialAddressDistrictCnName').val(strRes2[1]);	
+	}else{
+		var perAddRest1 =$('#permanentAddress1').val();
+		var perAddRest2 =$('#permanentAddress2').val();
+		var perAddRest3 =$('#permanentAddress3').val();
+		var perAddRestDist =$('#permanetAddressDistrict').val();
+		var perAddRestDistEn =$('#permanetAddressDistrictEnName').val();
+		var perAddRestDistCn =$('#permanetAddressDistrictCnName').val();
+		
+		$('#residentialAddress1').val(perAddRest1);
+		$('#residentialAddress2').val(perAddRest2);
+		$('#residentialAddress3').val(perAddRest3);
+		$('#residentialAddressDistrict').val(perAddRestDist);
+		$('#residentialAddressDistrictEnName').val(perAddRestDistEn);
+		$('#residentialAddressDistrictCnName').val(perAddRestDistCn);
+	}
+	
+	
+	//set value correspondenceAddressDistrict
+	var strCor = $('#tmpCorrespondenceDistrict').val();
+	if(strCor!=null){
+		var strCor2=strCor.split(",");
+	$('#correspondenceAddressDistrict').val(strCor2[0]);
+	$('#correspondenceAddressDistrictEnName').val(strCor2[1]);
+	$('#correspondenceAddressDistrictCnName').val(strCor2[1]);
+	}
+	else{
+		
+		var perAddCorr1 =$('#permanentAddress1').val();
+		var perAddCorr2 =$('#permanentAddress2').val();
+		var perAddCorr3 =$('#permanentAddress3').val();
+		var perAddCorrDist =$('#permanetAddressDistrict').val();
+		var perAddCorrDistEn =$('#permanetAddressDistrictEnName').val();
+		var perAddCorrDistCn =$('#permanetAddressDistrictCnName').val();
+		
+		$('#correspondenceAddress1').val(perAddCorr1);
+		$('#correspondenceAddress2').val(perAddCorr2);
+		$('#correspondenceAddress3').val(perAddCorr3);
+		$('#correspondenceAddressDistrict').val(perAddCorrDist);
+		$('#correspondenceAddressDistrictEnName').val(perAddCorrDistEn);
+		$('#correspondenceAddressDistrictCnName').val(perAddCorrDistCn);
+	}
+	
+	
 	if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
 	
-	<%-- if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid() && chkClubMember()) { --%>
-		/*if ( $('#gender-errormsg').hasClass('has-error') ) {
-						$('#genderErMsg').find('.help-block').attr('style', 'display:block;');
-					} else {
-						$('#genderErMsg').find('.help-block').attr('style', 'display:none;');
-					}*/
 		var hasBought = false;
 		var invalidTaxResident = false;
 		
@@ -1220,7 +1304,7 @@ $("#et-personal-info-next, #btn-back").click(function () {
 				}
 			});
 		}
-		else{
+		else{ 
 			$.ajax({
 				type: "POST",
 				async: false,

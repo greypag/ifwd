@@ -128,6 +128,11 @@ public class MedicalGuardianPageFlowControl {
 			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_CONFIRMATION;
 			to2 = UserRestURIConstants.URL_MEDICAL_GUARDIAN_CONFIRMATION;
 			break;
+		
+		case UserRestURIConstants.URL_MEDICAL_GUARDIAN_DECLARATION: 
+			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_SIGNATURE;
+			to2 = UserRestURIConstants.URL_MEDICAL_GUARDIAN_SIGNATURE;
+			break;	
 
 		default:
 			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN;

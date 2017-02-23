@@ -29,6 +29,7 @@ public class MedicalGuardianServiceImpl implements MedicalGuardianService{
 			HttpServletRequest request) throws ECOMMAPIException {
 
 		StringBuffer url = new StringBuffer();
+		request.getSession().setAttribute("getsmoke", planDetail.getSmoker());
 		url.append(UserRestURIConstants.GET_MEDICAL_GUARDIAN_PREMIUM);
 		url.append("?dob=");
 //		String[] dob = planDetail.getDob().split("-");

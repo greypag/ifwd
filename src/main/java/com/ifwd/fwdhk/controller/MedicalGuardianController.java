@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -108,7 +109,8 @@ public class MedicalGuardianController extends BaseController {
 		}
 		else{
 			model.addAttribute("plan", "cansurance");
-			return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DECLARATION);
+			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DECLARATION);
+			//return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_DECLARATION);
 		}
 			
 	}
@@ -163,7 +165,7 @@ public class MedicalGuardianController extends BaseController {
 				CansurancePlanDetailBean cplanDetail = new CansurancePlanDetailBean();
 				cplanDetail.setDob(jsonObject.get("dob").toString());
 				cplanDetail.setGender(selectPlan.getGender());
-				cplanDetail.setSmoker("0");
+				cplanDetail.setSmoker((String) httpSession.getAttribute("getsmoke"));
 				EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean(cplanDetail);
 				httpSession.setAttribute("ehPlanDetail", planDetail);
 				httpSession.setAttribute("selectPlan", selectPlan);
