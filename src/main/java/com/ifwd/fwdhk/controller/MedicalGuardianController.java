@@ -165,7 +165,7 @@ public class MedicalGuardianController extends BaseController {
 				CansurancePlanDetailBean cplanDetail = new CansurancePlanDetailBean();
 				cplanDetail.setDob(jsonObject.get("dob").toString());
 				cplanDetail.setGender(selectPlan.getGender());
-				cplanDetail.setSmoker("0");
+				cplanDetail.setSmoker((String) httpSession.getAttribute("getsmoke"));
 				EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean(cplanDetail);
 				httpSession.setAttribute("ehPlanDetail", planDetail);
 				httpSession.setAttribute("selectPlan", selectPlan);
