@@ -979,6 +979,10 @@ public class LifeServiceImpl implements LifeService {
 					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
 					pdfName="SavieOnlineApplicationFormPremiumDiscountCny2017Promotion";
 					break;
+				case "Savie FWDiscover Campaign $300":
+					attributeList.add(new PdfAttribute("PromoCode",saviePlanDetails.getPromoCode()));
+					pdfName="SavieOnlineApplicationFormFWDiscover";
+					break;
 				default:
 					pdfName = "SavieOnlineApplicationFormDiscount";
 					break;
