@@ -93,6 +93,9 @@
             <fmt:message key="erro.404.page.move" bundle="${msg}" />
             <br>
             <br>
+            <fmt:message key="erro.404.page.correct" bundle="${msg}" />
+            <br>
+            <br>
             <!-- Please call our 24-hour hotline for any assistance. -->
             <fmt:message key="erro.404.call.assistance" bundle="${msg}" /> 
         </h3>
