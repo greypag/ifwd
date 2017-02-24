@@ -210,7 +210,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" disabled>
 								<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
 								<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
-								<option value="2" data-val="" selected disabled class="hide"></option>
+								<option value="2" data-val="" selected disabled class="hide" hidden></option>
 							</select>
 			    		</div>
 			    		<div class="col-xs-2 div-box selectDiv">
@@ -290,7 +290,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" >
 								<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
 								<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
-								<option value="2" data-val="" selected disabled class="hide"></option>
+								<option value="2" data-val="" selected disabled class="hide" hidden></option>
 							</select>
 			    		</div>
 			    		<div class="col-xs-2 div-box selectDiv centreDiv">
@@ -342,7 +342,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" >
 									<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
 									<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
-									<option value="2" data-val="" selected disabled class="hide"></option>
+									<option value="2" data-val="" selected disabled class="hide" hidden></option>
 								</select>
 							</div>
 			    		</div>
