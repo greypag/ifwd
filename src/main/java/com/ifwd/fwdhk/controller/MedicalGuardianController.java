@@ -9,6 +9,7 @@ import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -539,6 +540,51 @@ public class MedicalGuardianController extends BaseController {
 			
 		}
 		
+	}
+	
+	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-confirmation-upload-later"})
+	public ModelAndView getSavieOnlineUploadLaterConfirmation(Model model, HttpServletRequest request,
+			HttpSession session) {
+		
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+		String documentUploadYes = (String) request.getSession().getAttribute("documentUploadYes");
+		if(documentUploadYes == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
+		}		
+		else if(lifePolicy == null || lifePolicy.getPolicyNo() == null || "".equals(lifePolicy.getPolicyNo())){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
+		}
+		else{
+			try {
+				String plan="medical-insurance/cansurance";
+				JSONObject models = new JSONObject();
+				models.put("name", session.getAttribute("fname"));
+				String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+				if (request.getServerPort() != 80 && request.getServerPort() != 443){
+					serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+				}
+				String language = (String) request.getSession().getAttribute("language");
+				if(StringUtils.isEmpty(language)){
+					language = "tc";
+				}
+				String encodePolicyNum = new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+				String url = serverUrl + "/"+language+ "/"+plan + "/document-upload?policyNumber=" + encodePolicyNum;
+				
+				models.put("uploadLink", url);
+				models.put("uploadEnLink", serverUrl + "/en/"+plan + "/document-upload?policyNumber=" + encodePolicyNum);
+				models.put("uploadTcLink", serverUrl + "/tc/"+plan + "/document-upload?policyNumber=" + encodePolicyNum);
+				
+				savieOnlineService.sendEmails(request, "uploadDocument", models);
+				savieOnlineService.finalizeLifePolicy(plan, request, session);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.info(e.getMessage());
+			}
+			model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
+			model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
+			return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
+		}
 	}
 	
 	
