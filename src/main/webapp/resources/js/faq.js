@@ -1,5 +1,4 @@
 var questionData;
-var questionToJump = new URLSearchParams(window.location.search);
 var urlUlility = {
 	getUrlVars: function(){
 		var vars = [], hash;
@@ -15,7 +14,7 @@ var urlUlility = {
 		return getUrlVars()[name];
 	},
 	gethashLocation: function(){
-		return window.location.hash.substr(1);
+		return window.location.hash;
 	}
 };
 $.ajax({
@@ -42,14 +41,19 @@ function backToTop(selector){
 }
 
 function anchorLink(selector){
-	var parentID;
+	//var parentID;
+	var headerOffset;
+	$(window).width() <= 991 ? headerOffset = $('.navbar-fixed-top').height() : headerOffset = $('.top-bar').height();
+	console.log(headerOffset);
+	//console.log(isMobile);
 	if(selector){
-		parentID = $("#"+selector).parents(".js-show").attr("id");
-		$('.category-item[data-link="'+parentID+'"]').click();
-		location.hash = "#" + selector;
+	    $('html, body').animate({
+	        scrollTop: $(selector).offset().top - headerOffset
+	    }, 2000);		
+		//location.hash = "#" + selector;
 	}
 }
-$(function() {	
+$(function() {
 	var hashlocation = urlUlility.gethashLocation();
 	var search = elasticlunr(function () {
 	    this.setRef('id');
@@ -111,10 +115,17 @@ $(function() {
 			} 
 		});		  
 	});
+	$( ".faq-group__question-index" ).on( "click", ".question", function(event) {
+		event.preventDefault();
+		anchorLink($(this).attr("href"));
+	});
 	if(hashlocation==""){
 		$('.category-item[data-link="category1"]').click();	
 	}else{
+		var parentID;
+		parentID = $(hashlocation).parents(".js-show").attr("id");
+		$('.category-item[data-link="'+parentID+'"]').click();
 		anchorLink(hashlocation);
 	}
 	backToTop('.scrollToTop-btn');
-});	
+});
