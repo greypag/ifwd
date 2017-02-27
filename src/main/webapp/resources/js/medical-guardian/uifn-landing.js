@@ -11,8 +11,8 @@ $(document).ready(function(){
 		var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
 		var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
 		
-		var dob_start_date = new Date((new Date()).setYear((new Date()).getFullYear() - 55));
-		var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 18));
+		var dob_start_date = new Date((new Date()).setYear((new Date()).getFullYear() - 101));
+		var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 1));
 		//var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 1));		
 		$('.mobiscroll-datepicker').mobiscroll().calendar({
 			controls: ['date'],
@@ -126,6 +126,19 @@ $(document).ready(function(){
 		}
 	});
 	
+	$("#appointmentRegisterFullName").keyup(function(e) {
+		  var regex = /^[a-zA-Z ]+$/;
+		  if (regex.test(this.value) !== true)
+		    this.value = this.value.replace(/[^a-zA-Z ]+/, '');
+		});
+	$("#appointmentRegisterMobileNo").keyup(function(e) {
+		  var regex = /^[0-9]+$/;
+		  if (regex.test(this.value) !== true)
+		    this.value = this.value.replace(/[^0-9]+/, '');
+		});
+	
+	bsvFormRegister($('#form-appointment-register'));
+	
 });
 		
 
@@ -137,6 +150,21 @@ function toggleContactUs(){
 
 function callAjaxOnChange(){
 	if($('.type-of-gender').val()!=null && $('.type-of-habit').val()!=null && $(".mobiscroll-datepicker").val()!=""){
+		$(".mobiscroll-datepicker").val();
+		var Dobs = new Array()
+		Dobs = $(".mobiscroll-datepicker").val().split("-");
+		var Dobs1 = new Date(Dobs[0],Dobs[1]-1 ,Dobs[2], 0, 0, 0, 0);
+		console.log("dob :" + Dobs1);
+		
+		var DobDate = new Date(Dobs1);
+		console.log("DobDate : " + DobDate);
+		var today = new Date();
+		console.log("today :" + today);
+		var difference = Math.abs(today - DobDate);
+		console.log("difference1 : " + difference);
+		difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
+		console.log("difference2 : " + difference);
+		
 		console.log("AJAX!");
 		$('.waitingDiv').fadeIn(200);
 		setTimeout(callAjax,500);
@@ -144,21 +172,14 @@ function callAjaxOnChange(){
 }
 
 function callAjax(){
-	/*$(".flow_dob").val($("#temp_dob").val());
-	$(".flow_referralCode").val($("#temp_referralCode").val());
-	$(".flow_gender").val($("#temp_gender").val());
-	$(".flow_smoker").val($("#temp_smoker").val());
-	$(".flow_plancode").val($("#temp_plancode").val());*/
-	
 	$(".flow_dob").val($(".mobiscroll-datepicker").val());	
 	$(".flow_gender").val($(".type-of-gender").val());
-	$(".flow_smoker").val($(".type-of-habit").val()); //non smoker
+	$(".flow_smoker").val($(".type-of-habit").val()); 
 	$(".flow_referralCode").val($('.promotion_code_input').val());
 	
 	$.ajax({
-		/*beforeSend:function(){
-			$('#loadingDiv').fadeIn(000);
-	    },*/
+		beforeSend:function(){
+	    },
 		url:APIServer + context + "/api/medicalguardian/getPremium",
 		contentType : 'application/json',
 		type:"post",
@@ -186,11 +207,7 @@ function callAjax(){
 	    		
 	    		$('.premium_price').text("HK$" + response.plans[0].totalDue);
 	    		/*session.setAttribute("getPremium", premium);*/
-	    		
-	    		
-	    		
-	    		var nineteen = new Date((new Date()).setYear((new Date()).getFullYear() - 19));	
-	    		var fiftyfive = new Date((new Date()).setYear((new Date()).getFullYear() - 55));	
+
 	    	}
 	    	
 	    	$(".resultPan").removeClass("hide");
@@ -217,4 +234,175 @@ function onClosed(valueText,inst){
 		
 	}
 	return true;
+}
+
+function bsvFormRegister(form){
+
+	form.find(".js-btn-submit").on("click",function(){
+		form.data('bootstrapValidator').validate();
+		if(form.data('bootstrapValidator').isValid()){
+			var postData = {
+				confirmPassword:$("#appointmentRegisterConfPass").val(),
+				email:$("#appointmentRegisterEmailAddress").val(),
+				fullName:$("#appointmentRegisterFullName").val(),
+				mobileNo:$("#appointmentRegisterMobileNo").val(),
+				optOut1:$("#checkbox3").val(),
+				optOut2:$("#checkbox4").val(),
+				password:$("#appointmentRegisterPassword").val(),
+				userName:$("#appointmentRegisterUserName").val()
+			}
+			$.ajax({
+				beforeSend:function(){
+					$("#loading-overlay").modal("show");
+				},
+				url:fwdApi.url.member,
+				type:"post",
+				contentType: "application/json",
+				data:JSON.stringify(postData),
+				cache:false,
+				async:false,
+				error:function(xhr, textStatus, errorThrown){
+
+					var resp = {message:"Unknown Error"};
+					$(".regPanErrMsg").text('');
+                    if (xhr.status == 406) {
+                    	$(".regPanErrMsg").append($("<small/>").text(getBundle(getBundleLanguage, "member.registration.fail.username.registered")));
+                    } else if (xhr.status == 409) {
+                    	$(".regPanErrMsg").append($("<small/>").text(getBundle(getBundleLanguage, "member.registration.fail.emailMobile.registered")));
+                    } else {
+    					$(".regPanErrMsg").append($("<small/>").text(resp.message));	
+                    }
+
+					$("#loading-overlay").modal("hide");
+			    },
+			    success:function(response){
+			    	if(response){
+			    		isLogged = true;
+			    		$(".after-login").find(".fld-val").text(response.fullName);
+			    		userName = response.userName;
+			    		//$(".before-login").hide();
+			    		$(".after-login").show();
+			    		$("#btn-appointment-confirm").show();
+
+			    		//$("#loading-overlay").modal("hide");
+			    		
+			    		//window.location.reload();
+			    		
+			    		//Simulate Login
+			    		$("#appointmentloginUsername").val($("#appointmentRegisterUserName").val());
+						$("#appointmentloginPassword").val($("#appointmentRegisterPassword").val());
+						$("#btn-appointment-login").trigger("click");
+			    		
+			    	}
+			    },
+			    complete:function(){
+			    	$("#loading-overlay").modal("hide");
+			    }
+			});
+		}
+		
+	});
+
+	form.find("input[name='EmailAddress']").on("keypress",function(evt){
+		return validationEmail(evt);
+	});
+
+	form.find("input[name='userName']").on("keypress",function(evt){
+		return validationUsername(evt);
+	});
+
+	form.bootstrapValidator({
+		fields:{
+			fullName:{
+				container: ".FullNameErrMsg",
+				validators:{
+					callback:{
+						message:'',
+						callback:function(){
+
+							var isValid = true;
+							
+							var elm = form.find("input[name='fullName']");
+							var val = $.trim(elm.val());
+							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
+							if(val == ""){
+								errMsg.text(getBundle(getBundleLanguage, "member.name.notNull.message"));
+								isValid =  false;
+							}
+
+							return isValid;
+						}
+					}
+				}
+			},
+
+			mobileNo:{
+				container:'.mobileNoErrMsg',
+				validators:{
+					callback:{
+						message:'',
+						callback:function(){
+
+							var isValid = true;
+							
+							var elm = form.find("input[name='mobileNo']");
+							var val = $.trim(elm.val());
+							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
+
+							if(val == ""){
+								errMsg.text(getBundle(getBundleLanguage, "member.mobileNo.notNull.message"));
+								isValid =  false;
+							}else{
+								if (mobile_pattern.test(val) == false) {
+									errMsg.text(getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message"));
+									isValid =  false;
+								}
+							}
+
+							return isValid;
+						}
+					}
+				}
+			},
+
+			EmailAddress:{
+				container:'.EmailAddressErrMsg',
+				validators:{
+					callback:{
+						message:'',
+						callback:function(){
+							var isValid = true;
+							
+							var elm = form.find("input[name='EmailAddress']");
+							var val = $.trim(elm.val());
+							var errMsg = elm.parents(".form-group").find("small[data-bv-validator='callback']");
+
+							if(val == ""){
+								errMsg.text(getBundle(getBundleLanguage, "member.email.notNull.message"));
+								isValid = false;
+							}else{
+								if (emailreg.test(val) == false) {
+									errMsg.text(getBundle(getBundleLanguage, "member.email.notValid.message"));
+									isValid = false;
+								}
+							}
+
+							return isValid;
+						}
+					}
+				}
+			},
+
+			
+
+			checkbox1:{
+				container:'.checkbox1ErrMsg',
+				validators:{
+					notEmpty:{
+						message:getBundle(getBundleLanguage, "member.declaration.tnc.notChecked.message")
+					}
+				}
+			}
+		}
+	});
 }
