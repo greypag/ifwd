@@ -1286,7 +1286,7 @@ $("#et-personal-info-next, #btn-back").click(function () {
 			$.ajax({
 				type: "POST",
 				async: false,
-				url: "<%=request.getContextPath()%>/ajax/savings-insurance/cekcansurance",
+				url: "<%=request.getContextPath()%>/ajax/savings-insurance/validateCansurance",
 				data: $("#soInsuredInfoForm").serialize(),
 				success: function (data) {
 					if (data != null && data.errorMsg != null && data.errorMsg != "" || !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {	

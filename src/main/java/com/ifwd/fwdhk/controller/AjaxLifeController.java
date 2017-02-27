@@ -193,8 +193,8 @@ public class AjaxLifeController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savings-insurance/cekcansurance"})
-	public void cekcansurance(LifePersonalDetailsBean lifePersonalDetails ,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	@RequestMapping(value = {"/ajax/savings-insurance/validateCansurance"})
+	public void validateCansurance(LifePersonalDetailsBean lifePersonalDetails ,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
