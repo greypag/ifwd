@@ -370,7 +370,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
-                                                    id="txtInsuHkid${inx}" name="personalHKID${inx}"
+                                                    id="txtInsuHkid${inx}" name="personalHKID"
                                                     class="form-control textUpper full-control js__fv__input_hkid"
                                                     placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" />
                                                     <span id="errtxtInsuHkid${inx}"
@@ -562,7 +562,7 @@ perventRedirect = true;
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <!-- onkeyup="value=value.replace(/[\W]/g,'')" -->
-                                               <input id="txtInsuHkid${inx}" name="adultHKID${inx}"
+                                               <input id="txtInsuHkid${inx}" name="adultHKID"
                                                     class="form-control textUpper full-control js__fv__input_hkid" placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
@@ -718,7 +718,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtChldInsuHkid${inx}" name="childHKID${inx}" class="form-control textUpper full-control js__fv__input_hkid"
+                                               <input id="txtChldInsuHkid${inx}" name="childHKID" class="form-control textUpper full-control js__fv__input_hkid"
                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                <span id="errtxtChldInsuHkid${inx}" class="text-red"> </span>
                                            </div>
@@ -875,7 +875,7 @@ perventRedirect = true;
                                                             bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID${inx}" class="form-control textUpper full-control js__fv__input_hkid"
+                                               <input id="txtOtherInsuHkid${inx}" name="otherHKID" class="form-control textUpper full-control js__fv__input_hkid"
                                                placeholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />"/>
                                                <span id="errtxtOtherInsuHkid${inx}" class="text-red"></span>
                                            </div>
@@ -1271,13 +1271,13 @@ perventRedirect = true;
 </div>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/helpers.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.flightCare.config.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.custom-rule.config.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/validators.flightCare.config.js" charset="utf-8"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/formvalidation/init.js" charset="utf-8"></script>
 
 <script>
 $(function() {
-	console.log(fvConfig);
+	//console.log(fvConfig);
     fwdUtility.ux.floatingBox();
     // fwdUtility.temp.flightCare(); // Phase 2 may required
     // JSP values "landing-place"
@@ -1285,7 +1285,7 @@ $(function() {
     var flightCfg = initFVConfig(fvConfig).flightCare();
     runFV(flightCfg).flightCare(fvConfig);
 
-	var appRelationship = $("#applicantRelationship").val();
+	/*var appRelationship = $("#applicantRelationship").val();
 	var formId = fvConfig.pageAutoConfig.form[0].id;    
     
 	var insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
@@ -1297,6 +1297,6 @@ $(function() {
 	} else {                                                            // Do Personal-plan below
 		formInfo_fullname = { 'inputId': 'inputFullName', 'revalidateFieldName': 'personalName1' };
 		formInfo_hkid = { 'inputId': 'inputTxtAppHkid', 'revalidateFieldName': 'personalHKID1' };
-	}    
+	}*/   
 });
 </script>

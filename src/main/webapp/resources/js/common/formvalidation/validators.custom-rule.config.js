@@ -35,6 +35,33 @@ fvConfig['customValidatingRules'] = function() {
                 var value = $field.val();
                 return true;
             }
+        }, 'isDuplicated': {
+        	'validate': function(validator, $field, options){
+        		var isDuplicated, fieldName, fieldGroup = [], valArray = [];
+        		fieldName = (typeof options.fieldsToCheck !== 'undefined' && options.fieldsToCheck!='') ? options.fieldsToCheck : $field.attr('name');
+        		if($.isArray(fieldName)){
+        			for(var i = 0; i<fieldName.length; i++){
+        				fieldGroup = $.merge(fieldGroup, validator.getFieldElements(fieldName[i]));
+        				//console.log(fieldGroup);
+        			}
+        			for(var i = 0; i<fieldGroup.length; i++){
+        				//console.log(fieldGroup[i].value);
+        				valArray.push(fieldGroup[i].value.toUpperCase());
+        			}
+        		}else{
+        			fieldGroup = validator.getFieldElements(fieldName);
+        			for(var i = 0; i<fieldGroup.length; i++){
+        				valArray.push(fieldGroup[i].value.toUpperCase());
+        			}        			
+        		}
+        		//console.log($field.val());
+        		isDuplicated = fvConfig.helpers.fvCallback.hasDuplicatedValues($field.val().toUpperCase(), valArray);
+        		if(isDuplicated==true){
+        			return false;
+        		}else{
+        			return true;
+        		}        		
+        	}
         }
     	/*isValidDob : {
     		validate: function(validator, $field, options) {

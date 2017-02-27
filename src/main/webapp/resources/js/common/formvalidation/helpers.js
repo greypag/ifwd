@@ -6,11 +6,8 @@
  * Binding value from "input field A" to "input field B"
  *
  * @method [Private]    _bindingValFromA2B
- * @param  {Boolean}    insureBoolean
- * @param  {Object}     formInfo
- * @param  {Object}     insureFieldInfo
- * @return {Array}      Pattern >>> [{ 'id': 'xxx' }, ...]  [success]
- * @return {Boolean}    false   [failure]
+ * @param  {String}		aField
+ * @param  {Stromg}     bField
  */
 var event_bindingValFromA2B = function(aField, bField) {
     var firstField = $(aField);
@@ -41,7 +38,7 @@ var _grap_formIdArray = function() {
                 , 'name': relatedFormElem[i].name
             } );
         }
-        console.log(result);
+        //console.log(result);
         // result = _.uniqBy();
     }
     return result;
@@ -64,7 +61,7 @@ var event_applicantName2InsuredPerson = function( insureBoolean, formInfo, insur
         insureFieldInfo = { 'inputBoxId': 'txtInsuFullName1' , 'errMsgDOMId': 'errtxtPersonalFullName1' };
     }
     $( '#'+formInfo.inputId).blur(function() {
-        _bindingValFromA2B(insureBoolean, formInfo, insureFieldInfo);
+    	event_bindingValFromA2B(insureBoolean, formInfo, insureFieldInfo);
         $('#'+formInfo.formId).formValidation( 'revalidateField', formInfo.revalidateFieldName );
     });
 };
@@ -84,7 +81,7 @@ var event_applicantHkid2InsuredPerson = function( insureBoolean, formInfo, insur
         insureFieldInfo = { 'inputBoxId': 'txtInsuHkid1' , 'errMsgDOMId': 'errtxtInsuHkid1' };
     }
     $( '#'+formInfo.inputId).blur(function() {
-        _bindingValFromA2B(insureBoolean, formInfo, insureFieldInfo);
+    	event_bindingValFromA2B(insureBoolean, formInfo, insureFieldInfo);
         $('#'+formInfo.formId)
             .formValidation( 'revalidateField', formInfo.revalidateFieldName );
     });
@@ -164,120 +161,47 @@ var event_modifiedDOM = function(switchOption, action, fieldIdInfo) {
     }
 };
 
-/*
- * Generate the json callback() function for validation calling in "xxx.config.js"
- *
- * @method  [Public] cb_hkidUniqueValidation
- * @param   Nil
- * @return  {Object} 1D object with callback(), dedicated for FV library
- */
-var cb_hkidUniqueValidation = function(pageConfigInfo) {
-    var formId          = pageConfigInfo.form[0].id;
-    return {
-        'message': 'lkjfaklsdjfla'
-        , 'callback': function(value, validator, $field) {
-            // Private function declars
-            var _frequencyAnalysing = function(arrayElem, propInObj) {
-                var current         = null;
-                var buffCount       = 0;
-                var buffElem        = [];
-                var templateItem    = { 'value': null , '$elem': [] }; // 'time': 0,
-                var results         = [];
-
-                // Sorting the Object by particular property
-                var sortedArrayElem = fwdUtility.sort.arrObj.byProperty(arrayElem, propInObj);
-                // Analysing the Frequency
-                for (var i = 0; i < sortedArrayElem.length; i++) {
-                    if (sortedArrayElem[i][propInObj] != ( _.has(current, propInObj) ? current[propInObj] : null ) ) {
-                        if (buffCount > 0) {
-                            templateItem = {
-                                'value': ( _.has(current, propInObj) ? current[propInObj] : null ) // , 'time': buffCount
-                                , '$elem': buffElem
-                            };
-                            results.push(templateItem);
-                        }
-                        current = sortedArrayElem[i];
-                        buffCount = 1;
-                        buffElem = sortedArrayElem[i]['$elem'];
-                    } else {
-                        buffCount++;
-                        buffElem.push( sortedArrayElem[i]['$elem'][0] );
-                    }
-                }
-                if (buffCount > 0) {
-                    templateItem = {
-                        'value': ( _.has(current, propInObj) ? current[propInObj] : null ) // , 'time': buffCount
-                        , '$elem': current['$elem']
-                    };
-                    results.push(templateItem);
-                }
-                return results;
-            }; // End Private Function >>> _frequencyAnalysing()
-
-            // Variables declars
-            var resultConfig = {
-                'empty': {
-                    'valid': false,
-                    'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
-                }
-                , 'invalid': {
-                    'valid': false,
-                    'message': getBundle(getBundleLanguage, "applicant.hkId.notValid.message")
-                }
-                , 'duplicated': {
-                    'valid': false,
-                    'message': getBundle(getBundleLanguage, 'duplicate_hkid_no.message') + ' [' + value.toUpperCase() + ']'
-                    // OR getBundle(getBundleLanguage, 'insured.hkId.duplicate.message')
-                }
-                , 'validCurrentField_and_allFields_matched_numberOf_duplicatorTorlerance': true
-                , 'validCurrentField_but_allFields_notMatched_numberOf_duplicatorTorlerance': true
-            };
-            var $elem                   = $('.js__fv__input_hkid');
-            var composedElem            = [];
-            var duplicatorTorlerance    = 1; // Defaulted 1, only unique value is allowed
-            var indicator               = null;
-
-            // Core Codes
-            for (var i = 0; i < $elem.length; i++) {
-                var v = $elem.eq(i).val().toUpperCase();
-                composedElem.push({
-                    'value': v
-                    , '$elem': $elem.eq(i)
-                    , '$allElem': $elem
-                });
-            }
-            var analysedElemGrp = _frequencyAnalysing(composedElem, 'value');
-            if ( analysedElemGrp.length === composedElem.length ) {
-                // Gary: Still have space to fine-tune here, hardcode
-                if ( fvConfig.flightJSPcbInfo.counter.personalPlan === 0 ) {        // Do Family-plan below, IF fvConfig.flightJSPcbInfo.counter.personalPlan === 0
-                    var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'adultHKID1' };
-                } else {
-                    var formInfo_hkid = { 'formId': formId, 'inputId': 'inputTxtAppHkid', 'errorId': 'errAppHkid', 'revalidateFieldName': 'personalHKID1' };
-                }
-                validator.updateStatus(formInfo_hkid.revalidateFieldName, validator.STATUS_VALID, 'callback');
-                indicator = 'validCurrentField_and_allFields_matched_numberOf_duplicatorTorlerance';
-            } else {
-                var isFieldValueDuplicatedFound = false;
-                for (var i = 0; i < analysedElemGrp.length; i++) {
-                    if ( isFieldValueDuplicatedFound === false ) {
-                        isFieldValueDuplicatedFound = ( analysedElemGrp[i].value === value.toUpperCase() && analysedElemGrp[i]['$elem'].length > duplicatorTorlerance ) ? true : false;
-                    }
-                }
-                if ( _.isEmpty(value) ) {
-                    indicator = 'empty';
-                } else if ( !fwdValidator.personalInfo.isValidHkid(value) ) {
-                    indicator = 'invalid';
-                } else if ( isFieldValueDuplicatedFound ) {
-                    indicator = 'duplicated';
-                } else {
-                    indicator = 'validCurrentField_but_allFields_notMatched_numberOf_duplicatorTorlerance';
-                }
-            }
-            return resultConfig[indicator];
-
-        } // End of Function >>> callback(value, validator, $field)
-    };
-};
+/*var hasDuplicatedValues = function(inputArray){
+	var obj = {},
+		numInputs = inputArray.length,
+		duplicateRemoved = [],
+		notEmptyCount = 0;
+	
+	for (var i= 0; i < numInputs; i++) {
+		//console.log(inputArray.length);
+		//var inputValue = inputArray.eq(i).val();
+		var inputValue = inputArray[i].value;
+		if (inputValue !== ''){
+			obj[inputValue] = 0;
+			console.log(obj);
+			notEmptyCount++;			
+		}
+	}
+	
+	for (i in obj) {
+		duplicateRemoved.push(obj[i]);
+		console.log(obj[i]);
+	}
+	
+	if (duplicateRemoved.length !== notEmptyCount) {
+		return true;
+	}else{
+		return false;
+	}
+}*/
+var hasDuplicatedValues = function(fieldVal, inputArray){
+	var counter = 0;
+	for(var i=0; i<=inputArray.length; i++){
+		if(inputArray[i]==fieldVal){
+			counter++;
+		}
+	}
+	if(counter>=2){
+		return true;
+	}else{
+		return false;
+	}
+}
 
 var event_checkBox_tooltipFadeInOut = function(opt1, opt2) {
 	var _showBubbleTooltip = function () {
@@ -379,7 +303,7 @@ fvConfig['helpers'] = {
         , 'errField':                           {}
     }
     , 'fvCallback': {
-        'hkidUniqueValidation':                 cb_hkidUniqueValidation
+        'hasDuplicatedValues':                 hasDuplicatedValues
     }
     /*, 'generateConfig': {
         'flightCare':                           gen_configFlightCare

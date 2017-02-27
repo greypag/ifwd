@@ -26,6 +26,7 @@ fvConfig['schema'] = {
         , 'invalid': 'has-error'
         // , 'validating': 'glyphicon glyphicon-resh'
     }
+	//, 'verbose' : false
     , 'fields': {}
 };
 
@@ -44,7 +45,7 @@ fvConfig['applicant'] = function() {
                     , 'message': ''
                 }              
             },
-            onSuccess: function(e, data) {
+            'onSuccess': function(e, data) {
             	if(fvConfig.flightJSPcbInfo.counter.personalPlan === 0){
             		fvConfig.helpers.attr.onblur.binding.bindingValFromA2B( '#inputFullName', '#txtInsuFullName1' );
             		data.fv.revalidateField('adultName1');
@@ -65,13 +66,13 @@ fvConfig['applicant'] = function() {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
             },
-            onSuccess: function(e, data) {
+            'onSuccess': function(e, data) {
             	if(fvConfig.flightJSPcbInfo.counter.personalPlan === 0){
             		fvConfig.helpers.attr.onblur.binding.bindingValFromA2B( '#inputTxtAppHkid', '#txtInsuHkid1' );
-            		data.fv.revalidateField('adultHKID1');
+            		data.fv.revalidateField($('#txtInsuHkid1'));
             	}else{
             		fvConfig.helpers.attr.onblur.binding.bindingValFromA2B( '#inputTxtAppHkid', '#txtInsuHkid1' );
-            		data.fv.revalidateField('personalHKID1');
+            		data.fv.revalidateField($('#txtInsuHkid1'));
             	}
     		}            
         }
@@ -220,18 +221,21 @@ fvConfig['insuredPerson'] = function() {
             }
         },
         'personalHKID': {
-            'container': '#errtxtInsuHkid'
-            , 'trigger': 'blur'
+        	/*'container': '#errtxtInsuHkid'
+            ,*/ 'trigger': 'blur',
+              'verbose' : false
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
                 }
                 , 'isHkid': {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
+        		} 
+                , 'isDuplicated': {
+        			'message': getBundle(getBundleLanguage, 'duplicate_hkid_no.message'),
+        			'fieldsToCheck': 'personalHKID'
         		}
-                // Handles the unique field-value validation among multi-fields
-                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation(fvConfig.pageAutoConfig)
-            }
+            }          
         },
         'personalAgeRange': {
             'container': '#errselectAgeRange'
@@ -270,8 +274,7 @@ fvConfig['insuredAdult'] = function() {
             }
         },
         'adultHKID': {
-            'container': '#errtxtInsuHkid'
-            , 'trigger': 'blur'
+            'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
@@ -279,8 +282,10 @@ fvConfig['insuredAdult'] = function() {
                 , 'isHkid': {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
-                // Handles the unique field-value validation among multi-fields
-                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation(fvConfig.pageAutoConfig)
+                , 'isDuplicated': {
+        			'message': getBundle(getBundleLanguage, 'duplicate_hkid_no.message'),
+        			'fieldsToCheck': ['adultHKID', 'childHKID', 'otherHKID']
+        		}
             }
         },
         'adultAgeRange': {
@@ -320,8 +325,7 @@ fvConfig['insuredChild'] = function() {
             }
         },
         'childHKID': {
-            'container': '#errtxtChldInsuHkid'
-            , 'trigger': 'blur'
+            'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
@@ -329,8 +333,10 @@ fvConfig['insuredChild'] = function() {
                 , 'isHkid': {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
-                // Handles the unique field-value validation among multi-fields
-                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation(fvConfig.pageAutoConfig)
+                , 'isDuplicated': {
+        			'message': getBundle(getBundleLanguage, 'duplicate_hkid_no.message'),
+        			'fieldsToCheck': ['adultHKID', 'childHKID', 'otherHKID']
+        		}
             }
         },
         'childAgeRange': {
@@ -370,8 +376,7 @@ fvConfig['insuredOther'] = function() {
             }
         },
         'otherHKID': {
-            'container': '#errtxtOtherInsuHkid'
-            , 'trigger': 'blur'
+            'trigger': 'blur'
             , 'validators': {
                 'notEmpty': {
                     'message': getBundle(getBundleLanguage, 'insured.hkId.notNull.message')
@@ -379,8 +384,10 @@ fvConfig['insuredOther'] = function() {
                 , 'isHkid': {
         			'message': getBundle(getBundleLanguage, 'applicant.hkId.notValid.message')
         		}
-                // Handles the unique field-value validation among multi-fields
-                , 'callback': fvConfig.helpers.fvCallback.hkidUniqueValidation(fvConfig.pageAutoConfig)
+                , 'isDuplicated': {
+        			'message': getBundle(getBundleLanguage, 'duplicate_hkid_no.message'),
+        			'fieldsToCheck': ['adultHKID', 'childHKID', 'otherHKID']
+        		}
             }
         },
         'otherAgeRange': {

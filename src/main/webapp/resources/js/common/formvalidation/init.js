@@ -27,12 +27,16 @@ var initFVConfig = function(argCfg) {
 	    * @param    {Object}            configs
 	    * @return   {Object}            temp
 	    */
-	   var _plugIdIntoKeyMap = function(index, configs) {
+	   var _plugIdIntoKeyMap = function(index, configs, fieldsToSkip) {
 	       var keys = _.keys(configs);
 	       var temp = {};
-
 	       for (var i = 0; i < keys.length; i++) {
-	           temp[keys[i]] = keys[i] + index;
+	    	   var isSkip = $.inArray(keys[i], fieldsToSkip);
+	    	   if(isSkip>=0){
+	    		   temp[keys[i]] = keys[i];
+	    	   }else{
+	    		   temp[keys[i]] = keys[i] + index;
+	    	   }
 	       }
 	       return temp;
 	   };
@@ -46,21 +50,20 @@ var initFVConfig = function(argCfg) {
 	    * @param    {Object}    pct ( personConfigType )
 	    * @return   {Object}
 	    */
-	    var _multiplyConfig = function(iPersonTotal, o, pct) {
+	    var _multiplyConfig = function(iPersonTotal, o, pct, skip) {
 
 	        var buffer = {};
 	        var newKeyMap = {};
 	        for (i = 1; i <= iPersonTotal; i++) {
-
-	            var keyMap = _plugIdIntoKeyMap(i, o[pct]);
-
+	            var keyMap = _plugIdIntoKeyMap(i, o[pct], skip);
+	            //console.log(keyMap);
 	            newKeyMap = {};
 	            _.each( o[pct], function(iPersonV, iPersonI) {
 	               var sub = {};
 	               var targetKey = 'container';
 
 	               sub[targetKey] = iPersonV[targetKey] + i;
-
+	               //console.log(iPersonI);
 	               // - new testing code - start -
 	               // console.log(typeof iPersonV.validators.identical);
 	               if ( i == 1 && iPersonI=="personalName1" ) {
@@ -74,6 +77,7 @@ var initFVConfig = function(argCfg) {
 	                   if (iPersonV_I !== targetKey) { sub[iPersonV_I] = iPersonV[iPersonV_I]; }
 	               });
 	               newKeyMap[ keyMap[iPersonI] ] = _.merge({}, sub);
+	               //console.log(newKeyMap);
 	            });
 	            buffer = _.merge(buffer, newKeyMap);
 
@@ -83,18 +87,21 @@ var initFVConfig = function(argCfg) {
 
 	    // Core
 	    var buffer = {};
+	    var fieldskip = [];
 	    if ( obj.flightJSPcbInfo.counter.personalPlan === 0 ) {
 	       // Family Plan
 	        var familyConfig = {};
-	        familyConfig['adult'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.adult, obj, 'insuredAdult');
-	        familyConfig['child'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.child, obj, 'insuredChild');
-	        familyConfig['other'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.other, obj, 'insuredOther');
+	        fieldskip = ['adultHKID','childHKID','otherHKID'];
+	        familyConfig['adult'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.adult, obj, 'insuredAdult', fieldskip);
+	        familyConfig['child'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.child, obj, 'insuredChild', fieldskip);
+	        familyConfig['other'] = _multiplyConfig(obj.flightJSPcbInfo.counter.familyPlan.other, obj, 'insuredOther', fieldskip);
 	        _.each(familyConfig, function(fcVal, fcInd) {
 	           buffer = $.extend(buffer, fcVal);
 	        });
 	    } else {
 	        // Personal Plan
-	        buffer = _multiplyConfig(obj.flightJSPcbInfo.counter.personalPlan, obj, 'insuredPerson');
+	    	fieldskip = ['personalHKID'];
+	        buffer = _multiplyConfig(obj.flightJSPcbInfo.counter.personalPlan, obj, 'insuredPerson', fieldskip);
 	    }
 	    return buffer;
 
@@ -284,7 +291,7 @@ var initFVConfig = function(argCfg) {
 		result.fields = $.extend(
 				argCfg.schema.fields
 				, argCfg.applicant
-				, gen_configFlightCare( argCfg )
+				, gen_configFlightCare( argCfg )//argCfg.insuredPerson
 			);
 		console.log(result);
 
@@ -569,7 +576,7 @@ var runFV = function(argCfg) {
 					// Get the first invalid field, and then scroll to that element by #id
 		            var $firstInvalidField = ( data.fv.getInvalidFields().length > 1 ? data.fv.getInvalidFields().eq(0) : data.fv.getInvalidFields() )[0];
 					$('#loading-overlay').modal('hide');
-					fwdUtility.ux.scrollToElement( $firstInvalidField.id );
+					//fwdUtility.ux.scrollToElement( $firstInvalidField.id );
 				}
 				// console.log(data.element.next());
 	            // console.log(data.element);
