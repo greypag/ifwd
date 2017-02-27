@@ -10,6 +10,12 @@ body {
     font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
     font-weight: bold; }
 
+.noPadding {
+  padding: 0; }
+
+.aligntop {
+  vertical-align: top; }
+
 .pv_highlight {
   color: #E87722 !important; }
 
@@ -34,9 +40,11 @@ body {
   background: #FFF;
   min-height: 60px;
   margin-right: 1px; }
-  .div-box label, .div-box select {
+  .div-box label, .div-box select, .div-box input {
     width: 100%;
-    font-weight: 700; }
+    font-weight: 700;
+    padding-left: 5px;
+    font-size: 14px; }
   .div-box label {
     font-size: 14px;
     font-family: calibri-bold;
@@ -45,29 +53,33 @@ body {
   .div-box input {
     border: none;
     margin-top: 19px;
-    padding: 5px 0;
-    font-size: 1em;
+    padding: 5px 5px;
     color: #E87722;
     font-weight: 700; }
   .div-box select {
     list-style: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border: none;
     margin-top: 15px;
-    padding: 5px 0;
-    font-size: 1em;
+    padding: 5px 5px;
     color: #E87722;
     font-weight: 700; }
     .div-box select:focus {
       border: none;
       outline: 0px; }
-  .div-box .glyphicon-chevron-down {
+  .div-box .glyphicon {
     top: 48%;
     width: 10px;
     right: 20px;
     position: absolute;
     color: #E87722;
     font-size: 0.7em; }
+  .div-box #edit {
+    top: 0;
+    right: 0;
+    position: relative; }
   .div-box #btn_input_code {
     position: absolute;
     bottom: 15%;
@@ -75,7 +87,7 @@ body {
     padding: 5px 15px !important; }
 
 .sticky {
-  bottom: 0;
+  top: 50px;
   position: fixed; }
 
 #div-sticky {
@@ -88,7 +100,6 @@ body {
   #div-sticky .sticky-container {
     padding-top: 5px; }
     #div-sticky .sticky-container span {
-      vertical-align: sub;
       font-size: 0.8em; }
     #div-sticky .sticky-container .btn {
       float: right;
@@ -121,7 +132,10 @@ body {
   #desktop-div-sticky .selectDiv {
     margin-bottom: 0; }
   #desktop-div-sticky select {
-    margin-top: 0; }
+    margin-top: 0;
+    padding: 0 0 0 5px; }
+  #desktop-div-sticky .glyphicon {
+    top: 36px; }
 
 .modal-dialog .modal-content {
   background: #ececec;
@@ -134,7 +148,7 @@ body {
     min-height: 60px;
     padding-left: 0;
     padding-right: 5px;
-    width: 100%; }
+    margin-right: 0px; }
     .modal-dialog .modal-content .modal-body .div-box label, .modal-dialog .modal-content .modal-body .div-box select {
       width: 100%; }
     .modal-dialog .modal-content .modal-body .div-box label {
@@ -146,7 +160,7 @@ body {
     .modal-dialog .modal-content .modal-body .div-box input {
       border: none;
       margin-top: 20px;
-      padding: 5px 10px;
+      padding: 3px 0 3px 10px;
       font-size: 0.6em;
       color: #E87722;
       width: 100%; }
@@ -155,7 +169,7 @@ body {
       -webkit-appearance: none;
       border: none;
       margin-top: 15px;
-      padding: 3px 10px;
+      padding: 3px 0 3px 10px;
       font-size: 0.6em;
       color: #E87722;
       font-weight: 700; }
@@ -164,7 +178,7 @@ body {
         outline: 0px; }
     .modal-dialog .modal-content .modal-body .div-box img {
       position: absolute;
-      bottom: 35%;
+      bottom: 25px;
       right: 15px; }
     .modal-dialog .modal-content .modal-body .div-box .glyphicon-chevron-down {
       top: 48%;
@@ -176,7 +190,7 @@ body {
     .modal-dialog .modal-content .modal-body .div-box #btn_input_code {
       position: absolute;
       bottom: 28%;
-      right: 5%;
+      right: 10px;
       padding: 5px 15px !important;
       color: #fff; }
   .modal-dialog .modal-content .modal-body .item-wrapper {
@@ -238,7 +252,6 @@ body {
     padding-left: 8px;
     padding-top: 10px; }
   #pv_calculator #mobile-form label {
-    font-size: 0.8em;
     top: 0; }
   #pv_calculator #mobile-form h2 {
     font-size: 1.0em; }
@@ -246,17 +259,26 @@ body {
     background: #ececec;
     margin-right: 0;
     border-left: 1px solid darkgray;
-    padding-left: 15px;
+    padding-left: 0px;
     padding-right: 5px;
     min-height: 48px; }
     #pv_calculator #mobile-form .div-box img {
       right: 5px; }
     #pv_calculator #mobile-form .div-box select {
       background: none;
-      padding: 3px 0; }
+      padding: 0px 6px; }
     #pv_calculator #mobile-form .div-box input {
-      margin-top: 17px;
-      width: 100%; }
+      margin-top: 20px;
+      width: 100%;
+      background: none; }
+    #pv_calculator #mobile-form .div-box #plan-dob-datepicker {
+      display: block;
+      color: #E87722;
+      margin-top: 20px;
+      width: 100%;
+      background: none;
+      font-size: 11px;
+      padding-left: 5px; }
   #pv_calculator #mobile-form #div_mobile_promotion_code {
     background: white;
     border: none; }
@@ -272,12 +294,14 @@ body {
     padding: 5px 10px !important;
     font-size: 1em; }
 
-#plan-details-same-and-faq {
+#plan-details-sample-and-faq {
   max-width: 1000px; }
+  #plan-details-sample-and-faq .panel {
+    margin-bottom: 15px; }
 
 #pv_claims {
   background: #ececec;
-  max-width: 1050px;
+  max-width: 994px;
   margin: auto; }
   #pv_claims h2 {
     color: #E87722; }
@@ -290,12 +314,6 @@ body {
     padding: 30px; }
     #pv_claims .pv_feature_box:hover {
       background: #E87722; }
-  #pv_claims #payment-filter .thumbnail {
-    background: #F1F1F1; }
-    #pv_claims #payment-filter .thumbnail:hover {
-      background: #E87722; }
-      #pv_claims #payment-filter .thumbnail:hover .pv_title {
-        color: #FFF !important; }
   #pv_claims .btn-group {
     text-align: center;
     -webkit-border-radius: 0 !important;
@@ -329,6 +347,8 @@ body {
     max-height: 100px;
     margin: auto;
     margin-bottom: 10px; }
+  #pv_claims .glyphicon {
+    float: right; }
 
 #pv_fmp {
   background-color: #FFD444;
@@ -353,20 +373,20 @@ body {
   #pv_feature .container {
     max-width: 1020px; }
   #pv_feature .panel-group {
-    padding: 0; }
+    padding: 0;
+    margin-bottom: 5px; }
     #pv_feature .panel-group .panel {
       background: none; }
       #pv_feature .panel-group .panel .panel-heading {
         background: none;
-        padding: 5px; }
+        padding: 0px; }
       #pv_feature .panel-group .panel .panel-body {
-        padding: 20px 0 0 0; }
+        padding: 20px 0 5px 0; }
   #pv_feature img {
     max-width: 50px;
     min-width: 50px; }
   #pv_feature .hidden-xs {
-    text-align: center;
-    margin-top: 1%; }
+    text-align: right; }
 
 #pd-sf-tab-content-container .panel-heading {
   background: #ececec !important; }
@@ -411,42 +431,92 @@ body {
       content: "-"; }
 
 @media (max-width: 991px) {
-  body h2 {
-    font-size: 1.5em !important; }
+  body {
+    font-size: 14px; }
+    body h2 {
+      font-size: 1.5em !important; }
 
   #payment-filter .thumbnail {
     min-height: 160px;
     max-height: 160px; }
 
-  .col-xs-12 {
-    padding-right: 5px;
-    padding-left: 5px; }
-
   #pv_claims .pv_title {
-    margin-bottom: 10px; } }
+    margin-bottom: 10px; }
+
+  #quoteModal #FirstYear label {
+    left: 6px; }
+  #quoteModal .div-box {
+    margin-right: 0; }
+
+  #plan-details-sample-and-faq {
+    padding-left: 0;
+    padding-right: 0; } }
 @media (max-width: 768px) {
   .div-box {
     padding-left: 5px !important;
-    font-size: 0.8em; }
-    .div-box input {
-      font-size: 0.8em; }
+    font-size: 0.8em;
+    margin-right: 0px; }
+    .div-box input, .div-box select {
+      font-size: 11px; }
 
   #mobile-form #btn_cal_apply_mobile {
     padding-left: 0;
     padding-right: 0; }
+  #mobile-form input {
+    margin-top: 19px; }
 
   .dlProductBrochure {
     padding: 0 8px !important;
     font-size: 0.8em; }
 
-  #pv_feature panel-body {
+  #pv_feature .panel-heading .glyphicon {
+    right: 15px;
+    top: 15px; }
+  #pv_feature .panel-body {
     padding: 20px 0 0 0; }
-    #pv_feature panel-body .row {
+    #pv_feature .panel-body .row {
       display: block;
       margin-right: 0; }
 
-  .modal-content .modal-body .div-box select, .modal-content .modal-body .div-box input {
-    padding: 3px 6px !important; } }
+  .modal-content {
+    padding: 15px !important;
+    /* .modal-body{
+    	.div-box{
+    		select,input{
+    			padding: 3px 3px 3px 5px !important;
+    		}
+    	}
+    } */ }
+
+  #actionTab {
+    background: #ececec; }
+    #actionTab img {
+      margin: auto;
+      max-width: 100px;
+      max-height: 100px;
+      padding-bottom: 15px; }
+
+  #pv_schedule .panel-body {
+    padding: 15px; }
+  #pv_schedule .col-xs-3, #pv_schedule .col-xs-9, #pv_schedule .col-xs-12 {
+    padding-left: 0;
+    padding-right: 0; }
+  #pv_schedule ol {
+    padding-left: 17px; }
+
+  .chin #div-sticky #prompt span {
+    font-size: 18px; }
+
+  #div-sticky #prompt span {
+    line-height: 44px;
+    font-size: 15px;
+    padding-left: 0; }
+
+  #pd-sf-tab-content-container .tab-content {
+    padding: 0; }
+
+  .glyphicon {
+    font-size: 12px; } }
 @media (min-width: 768px) {
   #pv_feature .collapse {
     height: auto !important;
@@ -460,13 +530,98 @@ body {
   .modal-content .type-of-habit {
     font-size: 0.5em; }
 
-  #pv_feature panel-body {
+  #pv_feature .panel-body {
     padding: 20px 0 0 0; }
-    #pv_feature panel-body .row {
-      display: flex;
-      align-items: center; } }
-@media (max-width: 1201px) {
-  #pv_calculator #FirstYear .bold {
-    font-size: 0.8em; } }
+    #pv_feature .panel-body .row {
+      display: table;
+      align-items: center; }
+      #pv_feature .panel-body .row .displayTableCell {
+        display: table-cell !important;
+        vertical-align: middle;
+        float: none; }
+  #pv_feature .container {
+    padding-left: 0;
+    padding-right: 0; }
+
+  #payment-filter li {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-bottom: none !important; }
+    #payment-filter li:hover .thumbnail, #payment-filter li.active .thumbnail {
+      background: #E87722; }
+      #payment-filter li:hover .thumbnail .pv_title, #payment-filter li.active .thumbnail .pv_title {
+        color: #FFF !important; }
+      #payment-filter li:hover .thumbnail .pointer, #payment-filter li.active .thumbnail .pointer {
+        opacity: 1;
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out; }
+    #payment-filter li img {
+      width: 90px;
+      height: 90px; }
+  #payment-filter .pointer {
+    left: 50%;
+    margin-left: -15px;
+    bottom: -7px;
+    position: absolute;
+    z-index: 2;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 12.5px 0 12.5px;
+    border-color: #E87722 transparent transparent transparent;
+    opacity: 0; }
+  #payment-filter .thumbnail {
+    min-height: 180px;
+    background: none;
+    border: none;
+    margin-bottom: 8px !important; }
+  #payment-filter .pv_title {
+    line-height: 44px;
+    font-size: 16px; }
+
+  .line-height-normal {
+    line-height: normal !important; }
+
+  .chin .line-height-normal {
+    line-height: 44px !important; }
+
+  #pv_claims li {
+    min-width: 20%;
+    display: inline-block;
+    float: none;
+    margin: -7px -2px; }
+
+  .tab-content {
+    margin: auto;
+    max-width: 970px; }
+    .tab-content p {
+      font-size: 16px; }
+    .tab-content h2 {
+      color: #E87722; }
+    .tab-content img {
+      margin: auto;
+      max-width: 100px;
+      max-height: 100px; } }
+@media (min-width: 991px) {
+  .sticky {
+    top: 42px; } }
+@media (max-width: 375px) {
+  #mobile-form label {
+    font-size: 11px;
+    padding-left: 0; }
+  #mobile-form select {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+  #mobile-form #plan-dob-datepicker {
+    padding-left: 0 !important; }
+
+  /* #div-sticky{
+  	 		#prompt {
+  					background:blue;
+  	 		span{
+  	 			font-size: 12px !important;
+  	 		}
+  	 	}  
+  	} */ }
 
 /*# sourceMappingURL=medicalguardian-landing-style.css.map */

@@ -10,10 +10,13 @@ $(document).ready(function(){
 		var current_date = new Date();
 		var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
 		var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
-		var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 1));		
+		
+		var dob_start_date = new Date((new Date()).setYear((new Date()).getFullYear() - 55));
+		var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 18));
+		//var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 1));		
 		$('.mobiscroll-datepicker').mobiscroll().calendar({
 			controls: ['date'],
-			//minDate:dob_start_date,
+			minDate:dob_start_date,
 		 	maxDate:dob_end_date,
 		 	showLabel: true,
 		 	focusTrap:false,
@@ -23,7 +26,7 @@ $(document).ready(function(){
 	        mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
 	        display: "bubble", // Specify display mode like: display: 'bottom' or omit setting to use default 
 	        onClosed:onClosed,
-	        lang: UILANGUAGE  == "EN" ? "en_fwd" : "zh_fwd"
+	        lang: language  == "en" ? "en_fwd" : "zh_fwd"
 		});
 		$('.mobiscroll-datepicker').css("cursor","default");
 		//$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
@@ -47,8 +50,22 @@ $(document).ready(function(){
 	});
 	$('.mobiscroll-datepicker').on('change', function() {
 		$('.mobiscroll-datepicker').val($(this).val());
+		$('.mobiscroll-datepicker').text($(this).val());
 		callAjaxOnChange();
+		
 	});
+	$('.btn_input_code').hide();
+	$('.promotion_code_input').on('input', function() {
+		var code = $(this).parent().find('.promotion_code_input').val();
+		$('.promotion_code_input').val(code);
+		if ($('.promotion_code_input').val().length > 0 ){
+			$('.btn_input_code').fadeIn(200);
+		}
+		else{
+			$('.btn_input_code').fadeOut(200);
+		}
+	});
+	
 	$('.btn_input_code').on('click', function() {
 		var code = $(this).parent().find('.promotion_code_input').val();
 		$('.promotion_code_input').val(code);
@@ -92,15 +109,22 @@ $(document).ready(function(){
 		  }
 		});
 	$(window).trigger('checkInView');
-	/*$('#pv_calculator').on('inview', function(event, isInView) {
-		  if (isInView) {
-			  $('#div-sticky').removeClass("active");
-			  console.log("yes");
-		  } else {
-			  $('#div-sticky').addClass("active");
-			  console.log("no");
-		  }
-		});*/
+	
+	$('.pd-sf-sale-illustration-sample-panel').on('shown.bs.collapse', function(){
+		$(this).find(".glyphicon").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
+		}).on('hidden.bs.collapse', function(){
+		$(this).find(".glyphicon").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
+	});
+	$('#pv_claims .btn-group').on('click',function(){
+		if ($(this).hasClass('open')){
+			$(this).find(".glyphicon").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
+			console.log("up");
+			}		
+		else{
+			$(this).find(".glyphicon").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
+			console.log("down");
+		}
+	});
 	
 });
 		

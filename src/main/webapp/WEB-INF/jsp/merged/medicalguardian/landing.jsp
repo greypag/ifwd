@@ -119,17 +119,18 @@ var home_url = "<%=request.getContextPath()%>";
 			    			</h2>
 			    		</div>
 			    		<div class="div-container">
-				    		<div class="col-xs-2 col-xs-offset-1 div-box selectDiv centreDiv">
+				    		<div class="col-xs-2 col-xs-offset-1 div-box selectDiv centreDiv noPadding">
 								<label class="" for="Gender"><fmt:message key="medicalguardian.cal.form.gender" bundle="${medicalguardianMsg}" /></label>
 								<%-- <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class=""> --%>
+								
 								<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 								<select name="Gender" id="type-of-gender" class="type-of-gender" data-bv-field="Gender" >
 									<option value="0" data-val="Male"><fmt:message key="medicalguardian.cal.form.gender.male" bundle="${medicalguardianMsg}" /></option>
 									<option value="1" data-val="Female"><fmt:message key="medicalguardian.cal.form.gender.female" bundle="${medicalguardianMsg}" /></option>
-									<option value="2" data-val="Empty" selected disabled class="hide"></option>
+									<option value="2" data-val="Empty" selected disabled class="hide" hidden></option>
 								</select>
 				    		</div>
-				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+				    		<div class="col-xs-2 div-box selectDiv centreDiv noPadding">
 								<label class="" for="dob"><fmt:message key="medicalguardian.cal.form.birthday" bundle="${medicalguardianMsg}" /></label>
 								<%-- <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class=""> --%>
 								<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
@@ -141,22 +142,22 @@ var home_url = "<%=request.getContextPath()%>";
 								</select> --%>
 								<input name="plan-dob" id="plan-dob-datepicker" value="" class="mobiscroll-datepicker" /> 
 				    		</div>
-				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+				    		<div class="col-xs-2 div-box selectDiv centreDiv noPadding">
 								<label class="" for="Habit"><fmt:message key="medicalguardian.cal.form.habit" bundle="${medicalguardianMsg}" /></label>
 								<%-- <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class=""> --%>
 								<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 								<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" >
 									<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
 									<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
-									<option value="2" data-val="" selected disabled class="hide"></option>
+									<option value="2" data-val="" selected disabled class="hide" hidden></option>
 								</select>
 				    		</div>
-				    		<div class="col-xs-2 div-box selectDiv centreDiv">
+				    		<div class="col-xs-2 div-box selectDiv centreDiv noPadding">
 								<label class="promotion_code_label" for="Code"><fmt:message key="medicalguardian.cal.form.promotion.code" bundle="${medicalguardianMsg}" /></label>
 								<input class="promotion_code_input" type="text" name="Code" maxlength="10" placeholder="e.g.: FWD678">
 				    			<a id="btn_input_code" class="btn btn-primary text-uppercase livechat_button btn_input_code">></a>
 				    		</div>
-				    		<div id="FirstYear" class="col-xs-2 div-box selectDiv centreDiv relative">
+				    		<div id="FirstYear" class="col-xs-2 div-box selectDiv centreDiv relative noPadding">
 								<label class="" for="Code"><fmt:message key="medicalguardian.cal.form.first.year" bundle="${medicalguardianMsg}" /></label><br>
 								<label class="bold premium_price" for="Code">HK$1000</label>
 								<label><fmt:message key="medicalguardian.cal.form.per.month" bundle="${medicalguardianMsg}" /></label>
@@ -182,16 +183,16 @@ var home_url = "<%=request.getContextPath()%>";
 			    				<span><fmt:message key="medicalguardian.cal.title.2" bundle="${medicalguardianMsg}" /></span>
 			    			</h2>
 			    		</div>
-			    		<div class="col-xs-3 div-box selectDiv">
+			    		<div class="col-xs-2 div-box selectDiv">
 							<label class="" for="Gender"><fmt:message key="medicalguardian.cal.form.gender" bundle="${medicalguardianMsg}" /></label>
 							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs hidden-sm">
 							<select name="Gender" id="type-of-gender" class="type-of-gender" data-bv-field="Gender" disabled>
 								<option value="0" data-val="Male"><fmt:message key="medicalguardian.cal.form.gender.male" bundle="${medicalguardianMsg}" /></option>
 								<option value="1" data-val="Female"><fmt:message key="medicalguardian.cal.form.gender.female" bundle="${medicalguardianMsg}" /></option>
-								<option value="2" data-val="Empty" selected disabled class="hide"></option>
+								<option value="2" data-val="Empty" selected disabled class="hide" hidden></option>
 							</select>
 			    		</div>
-			    		<div class="col-xs-3 div-box selectDiv">
+			    		<div class="col-xs-4 div-box selectDiv">
 							<label class="" for="dob"><fmt:message key="medicalguardian.cal.form.birthday" bundle="${medicalguardianMsg}" /></label>
 							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="hidden-xs hidden-sm">
 							<%-- <select name="dob" id="day-of-birth" class="mobiscroll-datepicker" data-bv-field="dob" disabled>
@@ -200,7 +201,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<option value="" data-val="" selected>3</option>
 								<option value=""  data-val="">4</option>
 							</select> --%>
-							<input name="plan-dob" id="plan-dob-datepicker" value="" class="mobiscroll-datepicker" disabled />
+							<span  id="plan-dob-datepicker" class="mobiscroll-datepicker" /></span>
 
 			    		</div>
 			    		<div class="col-xs-4 div-box selectDiv">
@@ -209,12 +210,12 @@ var home_url = "<%=request.getContextPath()%>";
 							<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" disabled>
 								<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
 								<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
-								<option value="2" data-val="" selected disabled class="hide"></option>
+								<option value="2" data-val="" selected disabled class="hide" hidden></option>
 							</select>
 			    		</div>
 			    		<div class="col-xs-2 div-box selectDiv">
-			    			<a href="" data-toggle="modal" data-target="#quoteModal">
-								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+			    			<a href="" data-toggle="modal" data-target="#quoteModal" >
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true" id="edit"></span>
 							</a>
 			    		</div>
 			    		
@@ -246,12 +247,13 @@ var home_url = "<%=request.getContextPath()%>";
 	    	<div id="sticky-control">
 		    	<div id="div-sticky" class="sticky visible-xs visible-sm">
 		    		<div class="sticky-container">
-		    			<div class="col-xs-6 text-center">
-		    				<span class="pv_title bold" id="quoteModalLabel">How much would this cost you?</span>
+		    			<div id="prompt" class="col-xs-10 text-center">
+		    				<span class="pv_title bold" id="quoteModalLabel"><fmt:message key="medicalguardian.how.much.would.this.cost" bundle="${medicalguardianMsg}" /></span>
 		    			</div>
-		    			<div class="col-xs-6 text-center">
+		    			<div class="col-xs-2 text-center">
 					    	<button class="btn btn-primary " data-toggle="modal" data-target="#quoteModal">
-							  	<fmt:message key="medicalguardian.quote.now" bundle="${medicalguardianMsg}" />
+							  	<%-- <fmt:message key="medicalguardian.sticky.quote.now" bundle="${medicalguardianMsg}" /> --%>
+							  	>
 							</button>
 						</div>
 					</div>
@@ -266,7 +268,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<select name="Gender" id="type-of-gender" class="type-of-gender" data-bv-field="Gender" >
 								<option value="0" data-val="Male"><fmt:message key="medicalguardian.cal.form.gender.male" bundle="${medicalguardianMsg}" /></option>
 								<option value="1" data-val="Female"><fmt:message key="medicalguardian.cal.form.gender.female" bundle="${medicalguardianMsg}" /></option>
-								<option value="2" data-val="Empty" selected disabled class="hide"></option>
+								<option value="2" data-val="Empty" selected disabled class="hide" hidden></option>
 							</select>
 			    		</div>
 		    			<div class="col-xs-2 div-box selectDiv centreDiv">
@@ -288,7 +290,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" >
 								<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
 								<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
-								<option value="2" data-val="" selected disabled class="hide"></option>
+								<option value="2" data-val="" selected disabled class="hide" hidden></option>
 							</select>
 			    		</div>
 			    		<div class="col-xs-2 div-box selectDiv centreDiv">
@@ -319,7 +321,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			        <h2 class="pv_title" id="quoteModalLabel">How much would this cost you?</h2>
+			        <h2 class="pv_title" id="quoteModalLabel"><fmt:message key="medicalguardian.how.much.would.this.cost" bundle="${medicalguardianMsg}" /></h2>
 			      </div>
 			      <div class="modal-body row-fluid">
 				        <div class="col-xs-6 div-box selectDiv">
@@ -329,7 +331,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<select name="Gender" id="type-of-gender" class="type-of-gender" data-bv-field="Gender" >
 									<option value="0" data-val="Male"><fmt:message key="medicalguardian.cal.form.gender.male" bundle="${medicalguardianMsg}" /></option>
 									<option value="1" data-val="Female"><fmt:message key="medicalguardian.cal.form.gender.female" bundle="${medicalguardianMsg}" /></option>
-									<option value="2" data-val="Empty" selected disabled class="hide"></option>
+									<option value="2" data-val="Empty" selected disabled class="hide" hidden></option>
 								</select>
 							</div>
 			    		</div>
@@ -340,7 +342,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<select name="Habit" id="type-of-habit" class="type-of-habit" data-bv-field="Habit" >
 									<option value="1" data-val=""><fmt:message key="medicalguardian.cal.form.habit.positive" bundle="${medicalguardianMsg}" /></option>
 									<option value="0" data-val=""><fmt:message key="medicalguardian.cal.form.habit.negative" bundle="${medicalguardianMsg}" /></option>
-									<option value="2" data-val="" selected disabled class="hide"></option>
+									<option value="2" data-val="" selected disabled class="hide" hidden></option>
 								</select>
 							</div>
 			    		</div>
@@ -362,10 +364,13 @@ var home_url = "<%=request.getContextPath()%>";
 				    	
 				    	<div id="FirstYear" class="col-xs-12 bold div-box">
 				    		<div class="item-wrapper">
-								<label class="" for="Code"><fmt:message key="medicalguardian.cal.form.first.year" bundle="${medicalguardianMsg}" /></label>
-								<br>
+				    			<div>
+									<label class="" for="Code"><fmt:message key="medicalguardian.cal.form.first.year" bundle="${medicalguardianMsg}" /></label>
+								</div>
+								<div>
 								<label id="price" class="premium_price" for="Code">HK$1000</label>
 								<label id="price" class="" for="Code"><fmt:message key="medicalguardian.cal.form.per.month" bundle="${medicalguardianMsg}" /></label>
+				    			</div>
 				    		</div>
 				    	</div>
 			    		<div id="btn_quote" class="col-xs-12 content-wrapper text-center">
@@ -466,13 +471,13 @@ var home_url = "<%=request.getContextPath()%>";
 	        		 <div role="tabpanel" class="tab-pane active" id="">
 						<div class="panel-group" id="" role="tablist" aria-multiselectable="true">
 							<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-							   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+							   <div class="panel-heading" role="tab" id="pd-sf-product-related" data-toggle="collapse" data-target="#collapseCover">
 								  <h4 class="panel-title hidden-sm hidden-md hidden-lg">
 									 <a class="collapsed" role="button" data-toggle="collapse" data-parent="" href="#collapseCover" aria-expanded="true" aria-controls="collapseCover">
 									 	<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_01.png" alt=""> 
 									 	<fmt:message key="medicalguardian.feature.1.title" bundle="${medicalguardianMsg}" />
 										<span class="pull-right  hidden-md hidden-lg">
-										   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											<span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
 										</span>
 									 </a>
 								  </h4>
@@ -480,13 +485,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseCover" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-3 col-sm-2 hidden-xs">
+									  		<div class="col-xs-3 col-sm-2 hidden-xs displayTableCell">
 									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_01.png" alt=""> 
 									  		</div>
-									  		<div class="col-sm-4 hidden-xs">
+									  		<div class="col-sm-4 hidden-xs displayTableCell">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.1.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-12 col-sm-6">
+									  		<div class="col-xs-12 col-sm-6 displayTableCell">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.1.1" bundle="${medicalguardianMsg}" /></li>
 									  			</ul>
@@ -502,13 +507,13 @@ var home_url = "<%=request.getContextPath()%>";
 	        		 <div role="tabpanel" class="tab-pane active" id="">
 						<div class="panel-group" id="" role="tablist" aria-multiselectable="true">
 							<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-							   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+							   <div class="panel-heading" role="tab" id="pd-sf-product-related" data-toggle="collapse" data-target="#collapseAddon">
 								  <h4 class="panel-title hidden-sm hidden-md hidden-lg">
 									 <a class="collapsed" role="button" data-toggle="collapse" data-parent="" href="#collapseAddon" aria-expanded="true" aria-controls="collapseAddon">
 										<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_02.png" alt=""> 
 										<fmt:message key="medicalguardian.feature.2.title" bundle="${medicalguardianMsg}" />
 										<span class="pull-right  hidden-md hidden-lg">
-										   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+										   <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
 										</span>
 									 </a>
 								  </h4>
@@ -516,16 +521,15 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseAddon" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-3 col-sm-2 hidden-xs">
+									  		<div class="col-xs-3 col-sm-2 hidden-xs displayTableCell">
 									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_02.png" alt="">
 									  		</div>
-									  		<div class="col-sm-4 hidden-xs">
+									  		<div class="col-sm-4 hidden-xs displayTableCell">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.2.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-12 col-sm-6">
+									  		<div class="col-xs-12 col-sm-6 displayTableCell">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.2.1" bundle="${medicalguardianMsg}" /></li>
-									  				<li><fmt:message key="medicalguardian.feature.2.2" bundle="${medicalguardianMsg}" /></li>
 									  			</ul>
 									  		</div>
 										</div>
@@ -539,13 +543,13 @@ var home_url = "<%=request.getContextPath()%>";
 	        		 <div role="tabpanel" class="tab-pane active" id="">
 						<div class="panel-group" id="" role="tablist" aria-multiselectable="true">
 							<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-							   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+							   <div class="panel-heading" role="tab" id="pd-sf-product-related" data-toggle="collapse" data-target="#collapseCoverPeriods">
 								  <h4 class="panel-title hidden-sm hidden-md hidden-lg">
 									 <a class="collapsed" role="button" data-toggle="collapse" data-parent="" href="#collapseCoverPeriods" aria-expanded="true" aria-controls="collapseCoverPeriods">
 										<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_03.png" alt=""> 
 										<fmt:message key="medicalguardian.feature.3.title" bundle="${medicalguardianMsg}" />
 										<span class="pull-right  hidden-md hidden-lg">
-										   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+										   <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
 										</span>
 									 </a>
 								  </h4>
@@ -553,13 +557,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseCoverPeriods" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-3 col-sm-2 hidden-xs">
+									  		<div class="col-xs-3 col-sm-2 hidden-xs displayTableCell">
 									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_03.png" alt="">
 									  		</div>
-									  		<div class="col-sm-4 hidden-xs">
+									  		<div class="col-sm-4 hidden-xs displayTableCell">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.3.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-12 col-sm-6">
+									  		<div class="col-xs-12 col-sm-6 displayTableCell">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.3.1" bundle="${medicalguardianMsg}" /></li>
 									  				<li><fmt:message key="medicalguardian.feature.3.2" bundle="${medicalguardianMsg}" /></li>
@@ -578,13 +582,13 @@ var home_url = "<%=request.getContextPath()%>";
 	        		 <div role="tabpanel" class="tab-pane active" id="">
 						<div class="panel-group" id="" role="tablist" aria-multiselectable="true">
 							<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-							   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+							   <div class="panel-heading" role="tab" id="pd-sf-product-related" data-toggle="collapse" data-target="#collapseExtraSup">
 								  <h4 class="panel-title hidden-sm hidden-md hidden-lg">
 									 <a class="collapsed" role="button" data-toggle="collapse" data-parent="" href="#collapseExtraSup" aria-expanded="true" aria-controls="collapseExtraSup">
 										<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_04.png" alt=""> 
 										<fmt:message key="medicalguardian.feature.4.title" bundle="${medicalguardianMsg}" />
 										<span class="pull-right  hidden-md hidden-lg">
-										   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+										   <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
 										</span>
 									 </a>
 								  </h4>
@@ -592,13 +596,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseExtraSup" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-3 col-sm-2 hidden-xs">
+									  		<div class="col-xs-3 col-sm-2 hidden-xs displayTableCell">
 									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_04.png" alt="">
 									  		</div>
-									  		<div class="col-sm-4 hidden-xs">
+									  		<div class="col-sm-4 hidden-xs displayTableCell">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.4.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-12 col-sm-6">
+									  		<div class="col-xs-12 col-sm-6 displayTableCell">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.4.1" bundle="${medicalguardianMsg}" /></li>
 									  				<li><fmt:message key="medicalguardian.feature.4.2" bundle="${medicalguardianMsg}" /></li>
@@ -615,13 +619,13 @@ var home_url = "<%=request.getContextPath()%>";
 	        		 <div role="tabpanel" class="tab-pane active" id="">
 						<div class="panel-group" id="" role="tablist" aria-multiselectable="true">
 							<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-							   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+							   <div class="panel-heading" role="tab" id="pd-sf-product-related" data-toggle="collapse" data-target="#collapseOneStop">
 								  <h4 class="panel-title hidden-sm hidden-md hidden-lg">
 									 <a class="collapsed" role="button" data-toggle="collapse" data-parent="" href="#collapseOneStop" aria-expanded="true" aria-controls="collapseOneStop">
 										<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_05.png" alt=""> 
 										<fmt:message key="medicalguardian.feature.5.title" bundle="${medicalguardianMsg}" />
 										<span class="pull-right  hidden-md hidden-lg">
-										   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+										   <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
 										</span>
 									 </a>
 								  </h4>
@@ -629,13 +633,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseOneStop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-3 col-sm-2 hidden-xs">
+									  		<div class="col-xs-3 col-sm-2 hidden-xs displayTableCell">
 									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_05.png" alt="">
 									  		</div>
-									  		<div class="col-sm-4 hidden-xs">
+									  		<div class="col-sm-4 hidden-xs displayTableCell">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.5.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-12 col-sm-6">
+									  		<div class="col-xs-12 col-sm-6 displayTableCell">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.5.1" bundle="${medicalguardianMsg}" /></li>
 									  			</ul>
@@ -651,13 +655,13 @@ var home_url = "<%=request.getContextPath()%>";
 	        		 <div role="tabpanel" class="tab-pane active" id="">
 						<div class="panel-group" id="" role="tablist" aria-multiselectable="true">
 							<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-							   <div class="panel-heading" role="tab" id="pd-sf-product-related">
+							   <div class="panel-heading" role="tab" id="pd-sf-product-related" data-toggle="collapse" data-target="#collapseTil100">
 								  <h4 class="panel-title hidden-sm hidden-md hidden-lg">
 									 <a class="collapsed" role="button" data-toggle="collapse" data-parent="" href="#collapseTil100" aria-expanded="true" aria-controls="collapseTil100">
 										<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_06.png" alt=""> 
 										<fmt:message key="medicalguardian.feature.6.title" bundle="${medicalguardianMsg}" />
 										<span class="pull-right  hidden-md hidden-lg">
-										   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+										   <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
 										</span>
 									 </a>
 								  </h4>
@@ -665,13 +669,13 @@ var home_url = "<%=request.getContextPath()%>";
 							   <div id="collapseTil100" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
 								  	<div class="panel-body">
 								  		<div class="row">
-									  		<div class="col-xs-3 col-sm-2 hidden-xs">
+									  		<div class="col-xs-3 col-sm-2 hidden-xs displayTableCell">
 									  		<img src="<%=request.getContextPath()%>/resources/images/medicalguardian/s1_icon_06.png" alt="">
 									  		</div>
-									  		<div class="col-sm-4 hidden-xs">
+									  		<div class="col-sm-4 hidden-xs displayTableCell">
 									  		<span class="pv_title"><fmt:message key="medicalguardian.feature.6.title" bundle="${medicalguardianMsg}" /></span>
 									  		</div>
-									  		<div class="col-xs-12 col-sm-6">
+									  		<div class="col-xs-12 col-sm-6 displayTableCell">
 									  			<ul>
 									  				<li><fmt:message key="medicalguardian.feature.6.1" bundle="${medicalguardianMsg}" /></li>
 									  			</ul>
@@ -689,7 +693,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 			<div id="pv_schedule">
 				<div class="container">
-				<h2 class="pv_title text-center"><fmt:message key="medicalguardian.schedule.title" bundle="${medicalguardianMsg}" /><br><fmt:message key="medicalguardian.schedule.subtitle" bundle="${medicalguardianMsg}" /></h2>
+				<h2 class="pv_title text-center"><fmt:message key="medicalguardian.schedule.subtitle" bundle="${medicalguardianMsg}" /></h2>
 				<div role="tabpanel" class="tab-pane active" id="pd-sf-sale-illustration-sample-pane">
 					<div class="panel-group" id="pd-sf-sale-illustration-sample-group" role="tablist" aria-multiselectable="true">
 						<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
@@ -789,7 +793,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<!-- Additional Cancer Care Benefits -->
 								<div class="col-xs-12">
 									<div class="col-xs-12">
-										<span class="pv_title pv_highlight"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.title" bundle="${medicalguardianMsg}" /></span>
+										<span class="pv_title"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.title" bundle="${medicalguardianMsg}" /></span>
 										<span class="pv_title"><fmt:message key="medicalguardian.schedule.additional.cancer.benefit.title1" bundle="${medicalguardianMsg}" /></span>
 									</div>
 									<div class="col-xs-12 gray-divide"></div>
@@ -909,6 +913,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</div> <!-- Right col End -->
 								</div> <!-- Schedule Table End -->
 								<div class="row">
+									<p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark" bundle="${medicalguardianMsg}" /></p>
 												<ol>
 													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark1" bundle="${medicalguardianMsg}" /></p></li>
 													<li><p class="pv_remark"><fmt:message key="medicalguardian.schedule.remark2" bundle="${medicalguardianMsg}" /></p></li>
@@ -949,11 +954,11 @@ var home_url = "<%=request.getContextPath()%>";
 									  <h4 class="panel-title">
 										 <a id="collapsedExpandSpan" class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseSchedule" aria-expanded="false" aria-controls="collapseSchedule">
 										 	<span class="pv_title"> 
-										 	+ <br>
+										 	+ <br><br>
 											<fmt:message key="medicalguardian.schedule.expand" bundle="${medicalguardianMsg}" />
 											</span>
 											<span class="pull-right hidden-xs hidden-sm hidden-md hidden-lg">
-											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											   <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
 											</span>
 										 </a>
 									  </h4>
@@ -965,7 +970,7 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
             
 			<div id="plan-details-sample-and-faq" class="container">
-				<div id="pd-sf-tabs-container" class="container-fluid content-container-fluid">
+				<%-- <div id="pd-sf-tabs-container" class="container-fluid content-container-fluid">
 				   <ul id="pd-sf-nav-tabs" class="nav nav-tabs" role="tablist">
 						<li class="pd-sf-tab text-center active" role="presentation">
 							<a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.tab.risks" bundle="${medicalguardianMsg}" /></a>
@@ -974,8 +979,8 @@ var home_url = "<%=request.getContextPath()%>";
 							<a href="#pd-sf-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab">Glossary</a>
 						</li> -->
 				   </ul>
-				</div>
-				<div class="pd-sf-divider"></div>
+				</div> --%>
+				<!-- <div class="pd-sf-divider"></div> -->
 				<div id="pd-sf-tab-content-container" class="container-fluid content-container-fluid">
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="pd-sf-sale-illustration-sample-pane">
@@ -986,7 +991,7 @@ var home_url = "<%=request.getContextPath()%>";
 										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 											<fmt:message key="medicalguardian.risks.title" bundle="${medicalguardianMsg}" />
 											<span class="pull-right">
-											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											   <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 											</span>
 										 </a>
 									  </h4>
@@ -1010,7 +1015,7 @@ var home_url = "<%=request.getContextPath()%>";
 										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 											<fmt:message key="medicalguardian.exclusion.title" bundle="${medicalguardianMsg}" />
 											<span class="pull-right">
-											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											   <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 											</span>
 										 </a>
 									  </h4>
@@ -1025,20 +1030,7 @@ var home_url = "<%=request.getContextPath()%>";
 												<li><fmt:message key="medicalguardian.exclusion.content1.2" bundle="${medicalguardianMsg}" /></li>
 											</ol>
 									  	</div>
-									  	<br/>
-									  	<div>
-									  		<p><span class="pv_title"><fmt:message key="medicalguardian.exclusion.heading2" bundle="${medicalguardianMsg}" /></span></p>
-											<p><fmt:message key="medicalguardian.exclusion.content2" bundle="${medicalguardianMsg}" /></p><br/>
-											<ol>
-												<li><fmt:message key="medicalguardian.exclusion.content2.1" bundle="${medicalguardianMsg}" /></li>
-												<li><fmt:message key="medicalguardian.exclusion.content2.2" bundle="${medicalguardianMsg}" /></li>
-												<li><fmt:message key="medicalguardian.exclusion.content2.3" bundle="${medicalguardianMsg}" /></li>
-												<li><fmt:message key="medicalguardian.exclusion.content2.4" bundle="${medicalguardianMsg}" /></li>
-												<li><fmt:message key="medicalguardian.exclusion.content2.5" bundle="${medicalguardianMsg}" /></li>
-												<li><fmt:message key="medicalguardian.exclusion.content2.6" bundle="${medicalguardianMsg}" /></li>
-											</ol>
-											<p><fmt:message key="medicalguardian.exclusion.content2.7" bundle="${medicalguardianMsg}" /></p><br/>
-									  	</div>
+									  	
 									  </div>
 								   </div>
 								</div>
@@ -1048,7 +1040,7 @@ var home_url = "<%=request.getContextPath()%>";
 										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 											<fmt:message key="medicalguardian.adjustment" bundle="${medicalguardianMsg}" />
 											<span class="pull-right">
-											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											   <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 											</span>
 										 </a>
 									  </h4>
@@ -1069,7 +1061,7 @@ var home_url = "<%=request.getContextPath()%>";
 										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
 											<fmt:message key="medicalguardian.term" bundle="${medicalguardianMsg}" />
 											<span class="pull-right">
-											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											   <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 											</span>
 										 </a>
 									  </h4>
@@ -1091,7 +1083,7 @@ var home_url = "<%=request.getContextPath()%>";
 										 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
 											<fmt:message key="medicalguardian.condition" bundle="${medicalguardianMsg}" />
 											<span class="pull-right">
-											   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
+											   <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 											</span>
 										 </a>
 									  </h4>
@@ -1127,105 +1119,65 @@ var home_url = "<%=request.getContextPath()%>";
 		<div id="pv_claims" class="pv_sec_features container">
             	<div class="fwd-container-limit">
             		<div class="row">
-            			<%-- <div class="col-xs-12">
-            				<h2 class="pv_title">We are here for you</h2>
-            			</div>
-						<div class="pv_feature_wrap">
-						<div>
-							<div id="claims_24h_hotline" class="col-xs-12 col-sm-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
-								<h3 class="pv_feature_title">24-hour Service Hotline</h3>
-								<p class="pv_feature_desc hidden-xs"><span class="pv_remark">Our team of Customer Engagement Representatives is at your service 24/7 to address your insurance needs. Call us at 3123 3123.</span></p> 
-							</div>
-							
-							<div id="claims_livechat" class="col-xs-12 col-sm-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
-								<h3 class="pv_feature_title">Live Chat</h3>
-								<p class="pv_feature_desc hidden-xs"><span class="pv_remark">Need live support? Chat in real-time with our Customer Engagement Representatives to have your questions answered. </span></p> 
-							</div>
-							
-							<div id="claims_email" class="col-xs-12 col-sm-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
-								<h3 class="pv_feature_title">Email</h3>
-								<p class="pv_feature_desc hidden-xs"><span class="pv_remark">Have questions or comments for us? Drop us an email at cs.hk@fwd.com and one of our Customer Engagement Representatives will respond to your enquiry as soon as possible.</span></p>
-							</div>
-						</div>	
-						
-						<div>
-							<div id="claims_inperson" class="col-xs-12 col-sm-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='1' class="img_responsive">
-								<h3 class="pv_feature_title">In Person</h3>
-								<p class="pv_feature_desc hidden-xs"><span class="pv_remark">Drop by the nearest FWD Customer Service Centre if you need our service in person. We’ll be happy to help.</span></p> 
-							</div>
-
-							<div id="claims_claims" class="col-xs-12 col-sm-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt='2' class="img_responsive">
-								<h3 class="pv_feature_title">Claims</h3>
-								 <p class="pv_feature_desc hidden-xs">
-									<span class="pv_remark">Making a claim has never been easier. We have developed a simple, quick and easy claims process for you. Click here to learn more.</span>
-								</p> 
-							</div>
-						</div>	
-						</div> --%>
 						<div class="text-center">
 			                <h2 class="pv_title"><fmt:message key="medicalguardian.claims" bundle="${medicalguardianMsg}" /></h2>
 			            </div>
 						<ul id="payment-filter" class="payment-filter hidden-xs nav nav-tabs l_tinynav1" role="tablist">
 			                <li role="presentation" class="col-sm-2 col-sm-offset-1 text-center">
-			                    <div class="thumbnail">
+			                    <div class="thumbnail" data-toggle="tab" data-target=".call">
 			                        <div class="caption">
 			                            <div class="table">
-			                                <a class="table-cell text-center hvr-icon-rotate" href=".call" role="tab" data-toggle="tab">
+			                                <a class="table-cell text-center hvr-icon-rotate" href="#" role="tab">
 			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_01.png" alt="" width="201" height="201">
-			                                    <span class="pv_title"><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></span></a>
+			                                    <span class="pv_title line-height-normal"><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></span></a>
 			                            </div>
 			                        </div>
 			                        <div class="pointer"></div>
 			                    </div>
 			                </li>
-			                <li role="presentation" class="col-sm-2 text-center">
-			                    <div class="thumbnail">
+			                <li role="presentation" class="col-sm-2 text-center aligntop">
+			                    <div class="thumbnail" data-toggle="tab" data-target=".live_chat">
 			                        <div class="caption">
 			                            <div class="table">
-			                                <a class="table-cell text-center hvr-icon-rotate" href=".live_chat" role="tab" data-toggle="tab">
+			                                <a class="table-cell text-center hvr-icon-rotate" href="#" role="tab">
 			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_02.png" alt="" width="201" height="201">
-			                                    <span class="pv_title"><br><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></span></a>
+			                                    <span class="pv_title"><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></span></a>
 			                            </div>
 			                        </div>
 			                        <div class="pointer"></div>
 			                    </div>
 			                </li>
-			                <li role="presentation" class="col-sm-2 text-center">
-			                    <div class="thumbnail">
+			                <li role="presentation" class="col-sm-2 text-center aligntop active">
+			                    <div class="thumbnail" data-toggle="tab" data-target=".email">
 			                        <div class="caption">
 			                            <div class="table">
-			                                <a class="table-cell text-center hvr-icon-rotate" href=".email" role="tab" data-toggle="tab">
+			                                <a class="table-cell text-center hvr-icon-rotate" href="#" role="tab">
 			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_03.png" alt="" width="201" height="201"> 
-			                                    <span class="pv_title"><br><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></span></a>
+			                                    <span class="pv_title"><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></span></a>
 			                            </div>
 			                        </div>
 			                        <div class="pointer"></div>
 			                    </div>
 			                </li>
-			                <li role="presentation" class="col-sm-2 text-center">
-			                    <div class="thumbnail">
+			                <li role="presentation" class="col-sm-2 text-center aligntop">
+			                    <div class="thumbnail" data-toggle="tab" data-target=".in_person">
 			                        <div class="caption">
 			                            <div class="table">
-			                                <a class="table-cell text-center hvr-icon-rotate" href=".in_person" role="tab" data-toggle="tab">
+			                                <a class="table-cell text-center hvr-icon-rotate" href="#" role="tab">
 			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_04.png" alt="" width="201" height="201"> 
-			                                    <span class="pv_title"><br><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></span></a>
+			                                    <span class="pv_title"><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></span></a>
 			                            </div>
 			                        </div>
 			                        <div class="pointer"></div>
 			                    </div>
 			                </li>
-			                <li role="presentation" class="col-sm-2 text-center">
-			                    <div class="thumbnail">
+			                <li role="presentation" class="col-sm-2 text-center aligntop">
+			                    <div class="thumbnail" data-toggle="tab" data-target=".claims">
 			                        <div class="caption">
 			                            <div class="table">
-			                                <a class="table-cell text-center hvr-icon-rotate" href=".claims" role="tab" data-toggle="tab">
+			                                <a class="table-cell text-center hvr-icon-rotate" href="#" role="tab" >
 			                                    <img src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_05.png" alt="" width="201" height="201"> 
-			                                    <span class="pv_title"><br><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></span></a>
+			                                    <span class="pv_title"><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></span></a>
 			                            </div>
 			                        </div>
 			                        <div class="pointer"></div>
@@ -1234,323 +1186,84 @@ var home_url = "<%=request.getContextPath()%>";
 			            </ul>
 				            <div class="btn-group visible-xs">
 							  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-							    Action
-							    <span class="caret"></span>
+							   <span id="claimsAction"><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></span>
+							    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
 							  </a>
 							  <ul class="dropdown-menu">
 							    <!-- dropdown menu links -->
-							    <li><a href=".call" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></a></li>
-							    <li><a href=".live_chat" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></a></li>
-							    <li><a href=".email" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></a></li>
-							    <li><a href=".in_person" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></a></li>
-							    <li><a href=".claims" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href="#" data-target=".call" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href="#" data-target=".live_chat" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href="#" data-target=".email" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href="#" data-target=".in_person" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></a></li>
+							    <li><a href="#" data-target=".claims" role="tab" data-toggle="tab"><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></a></li>
 							  </ul>
 							</div>
 
-			            <div class="tab-content payment-tab">
-			                <div role="tabpanel" class="tab-pane call">
-			                    <div class="row">
-			                        <div class="col-sm-10 col-sm-offset-1">
-			                            <div class="content text-center">
-			                            	<img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_01.png" alt="">
-			                            	<h2><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></h2>
-			                                <p><fmt:message key="medicalguardian.claims1.1" bundle="${medicalguardianMsg}" /></p>
-			                            </div>
-			                        </div>
-			                    </div>
-			                </div>
-			                <div role="tabpanel" class="tab-pane live_chat">
-			                    <div class="row">
-			                        <div class="col-sm-10 col-sm-offset-1">
-			                            <div class="content text-center">
-			                            <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_02.png" alt="">
-			                                <h2><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></h2>
-			                                <p><fmt:message key="medicalguardian.claims2.1" bundle="${medicalguardianMsg}" /></p>
-			                                <!-- <a class="btn btn-primary text-uppercase full-width livechat_button">Chat Now</a> -->
-			                            </div>
-			                        </div>
-			                    </div>
-			                </div>
-			                <div role="tabpanel" class="tab-pane email">
-			                    <div class="row">
-			                        <div class="col-sm-10 col-sm-offset-1">
-			                            <div class="content text-center">
-			                            <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_03.png" alt="">
-			                                <h2><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></h2>
-			                                <p><fmt:message key="medicalguardian.claims3.1" bundle="${medicalguardianMsg}" /></p>
-			                             </div>
-			                        </div>
-			                    </div>
-			                </div>
-			                <div role="tabpanel" class="tab-pane in_person">
-			                    <div class="row">
-			                        <div class="col-sm-10 col-sm-offset-1">
-			                            <div class="content text-center">
-			                            <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_04.png" alt="">
-			                                <h2><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></h2>
-			                                <p><fmt:message key="medicalguardian.claims4.1" bundle="${medicalguardianMsg}" /></p>
-											                            
-										</div>
-			                        </div>
-			                    </div>
-			                </div>
-			                <div role="tabpanel" class="tab-pane claims">
-			                    <div class="row">
-			                        <div class="col-sm-10 col-sm-offset-1">
-			                            <div class="content text-center">
-			                               <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_05.png" alt="">
-			                                <h2><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></h2>
-			                                <p><fmt:message key="medicalguardian.claims5.1" bundle="${medicalguardianMsg}" /></p>
-			                                <!-- <a href="/en/support-claims/eservices-app" class="btn btn-primary text-uppercase full-width">Learn More</a>    -->                         </div>
-			                        </div>
-			                    </div>
-			                </div>
-			
-			            </div>
+			            
             		</div>
             	</div>
             </div>
             
+            <div id="actionTab" class="tab-content payment-tab text-center">
+               <div role="tabpanel" class="tab-pane call">
+                   <div class="row">
+                       <div class="col-sm-10 col-sm-offset-1">
+                           <div class="content text-center">
+                           	<img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_01.png" alt="">
+                           	<h2><fmt:message key="medicalguardian.claims1" bundle="${medicalguardianMsg}" /></h2>
+                               <p><fmt:message key="medicalguardian.claims1.1" bundle="${medicalguardianMsg}" /></p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div role="tabpanel" class="tab-pane live_chat">
+                   <div class="row">
+                       <div class="col-sm-10 col-sm-offset-1">
+                           <div class="content text-center">
+                           <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_02.png" alt="">
+                               <h2><fmt:message key="medicalguardian.claims2" bundle="${medicalguardianMsg}" /></h2>
+                               <p><fmt:message key="medicalguardian.claims2.1" bundle="${medicalguardianMsg}" /></p>
+                               <!-- <a class="btn btn-primary text-uppercase full-width livechat_button">Chat Now</a> -->
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div role="tabpanel" class="tab-pane email active">
+                   <div class="row">
+                       <div class="col-sm-10 col-sm-offset-1">
+                           <div class="content text-center">
+                           <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_03.png" alt="">
+                               <h2><fmt:message key="medicalguardian.claims3" bundle="${medicalguardianMsg}" /></h2>
+                               <p><fmt:message key="medicalguardian.claims3.1" bundle="${medicalguardianMsg}" /></p>
+                            </div>
+                       </div>
+                   </div>
+               </div>
+               <div role="tabpanel" class="tab-pane in_person">
+                   <div class="row">
+                       <div class="col-sm-10 col-sm-offset-1">
+                           <div class="content text-center">
+                           <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_04.png" alt="">
+                               <h2><fmt:message key="medicalguardian.claims4" bundle="${medicalguardianMsg}" /></h2>
+                               <p><fmt:message key="medicalguardian.claims4.1" bundle="${medicalguardianMsg}" /></p>
+							                            
+						</div>
+                       </div>
+                   </div>
+               </div>
+               <div role="tabpanel" class="tab-pane claims">
+                   <div class="row">
+                       <div class="col-sm-10 col-sm-offset-1">
+                           <div class="content text-center">
+                              <img class="visible-xs" src="<%=request.getContextPath()%>/resources/images/medicalguardian/claim_icon_05.png" alt="">
+                               <h2><fmt:message key="medicalguardian.claims5" bundle="${medicalguardianMsg}" /></h2>
+                               <p><fmt:message key="medicalguardian.claims5.1" bundle="${medicalguardianMsg}" /></p>
+                               <!-- <a href="/en/support-claims/eservices-app" class="btn btn-primary text-uppercase full-width">Learn More</a>    -->                         </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
             
-            <%-- <div class="regular-benefit">
-                    <div class="hidden-xs hidden-sm">
-                <h3 class="benefits-desktop text-center"><fmt:message key="label.product.benefit" bundle="${msg}" /></h3>
-                <div class="gray-divide"></div>
-            </div>
-                <div class="hidden-md hidden-lg">
-                    <h4 class="text-center"><fmt:message key="label.product.benefit" bundle="${msg}" /></h4>
-                    <div class="gray-divide"></div>
-                </div>
-                <div class="fwd-container-limit">
-                    <div class="benefits-holder">
-                        <div class="hidden-md hidden-lg">
-                            <div class="row">
-                                <!-- <div class="col-xs-6 text-center annualTravel_policy_item">
-                                    <img src="/resources/images/savie-regular/benefit-1.png">
-                                    <span>???product.details.savie.group1.section1.title.ocean???</span>
-                                    <div class="hidden-benefits benefits-content">
-                                        <img src="/resources/images/savie-regular/benefit-1.png" />
-                                        <div class="info hidden-benefits-info">
-                                            <h3 class="hidden-benefits-info">Benefits</h3>
-                                            <p class="hidden-benefits-info">Ocean Park SmartFun Gold and Silver pass members now enjoy premium discount of HK$960 (gold) and HK$740 (silver), respectively upon a successfully application of Savie Insurance Plan with lump sum payment not less than HK$100,000.  </p>
-                                        </div>
-                                    </div>
-                                </div>-->
-                                <div class="col-xs-6 text-center annualTravel_policy_item">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-2.png">
-                                    <span class="two-lines"><fmt:message key="benfit.group1.easyhealth" bundle="${msg}" /></span>
-                                    <div class="hidden-benefits benefits-content">
-                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-2.png" />
-                                        <div class="info hidden-benefits-info">
-                                            <h3 class="hidden-benefits-info"><fmt:message key="benfit.group1.title.easyhealth" bundle="${msg}" /></h3>
-                                            <p class="hidden-benefits-info"><fmt:message key="benfit.group1.copy.easyhealth" bundle="${msg}" /></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-6 text-center annualTravel_policy_item">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-4.png">
-                                    <span><fmt:message key="benfit.group2.easyhealth" bundle="${msg}" /></span>
-                                    <div class="hidden-benefits benefits-content">
-                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-4.png" />
-                                        <div class="info hidden-benefits-info">
-                                            <h3 class="hidden-benefits-info"><fmt:message key="benfit.group2.title.easyhealth" bundle="${msg}" /></h3>
-                                            <p class="hidden-benefits-info"><fmt:message key="benfit.group2.copy.easyhealth" bundle="${msg}" /></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6 text-center annualTravel_policy_item">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png">
-                                    <span><fmt:message key="benfit.group3.easyhealth" bundle="${msg}" /></span>
-                                    <div class="hidden-benefits benefits-content">
-                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png" />
-                                        <div class="info">
-                                            <h3 class="hidden-benefits-info"><fmt:message key="benfit.group3.title.easyhealth" bundle="${msg}" /></h3>
-                                            <p class="hidden-benefits-info"><fmt:message key="benfit.group3.copy.easyhealth" bundle="${msg}" /></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 text-center annualTravel_policy_item">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-7.png">
-                                    <span><fmt:message key="benfit.group4.easyhealth" bundle="${msg}" /></span>
-                                    <div class="hidden-benefits benefits-content">
-                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png" />
-                                        <div class="info">
-                                            <h3 class="hidden-benefits-info"><fmt:message key="benfit.group4.title.easyhealth" bundle="${msg}" /></h3>
-                                            <p class="hidden-benefits-info"><fmt:message key="benfit.group4.copy.easyhealth" bundle="${msg}" /></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hidden-xs hidden-sm">
-                            <div class="" id="benefits-nav-holder">
-                                <ul class="nav nav-tabs row so-fna-row" role="tablist">
-                                    <!-- <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
-                                        <a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center">Benefits </a>
-                                    </li>-->
-                                    <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-6">
-                                        <a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="benfit.group1.easyhealth" bundle="${msg}" /></a>
-                                    </li>
-                                    <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
-                                        <a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="benfit.group2.easyhealth" bundle="${msg}" /></a>
-                                    </li>
-                                    <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-3">
-                                        <a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="benfit.group3.easyhealth" bundle="${msg}" /></span></a>
-                                    </li>
-                                    <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-4">
-                                        <a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="benfit.group4.easyhealth" bundle="${msg}" /></a>
-                                    </li>
-                                    <!-- <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
-                                        <a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">24 hours <span>service hotline</span></a>
-                                    </li>-->
-                                </ul>
-                                <div class="fna-carousel carousel slide" id="benefits-carousel" data-ride="carousel" data-interval="false">
-                                    <div class="tab-content carousel-inner clearfix" role="listbox">
-                                                <!--  <div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-1">
-                                                    <div class="benefits-content clearfix">
-                                                        <img src="/resources/images/savie-regular/new-benefit-1.png">
-                                                        <div class="info">
-                                                            <h3>???product.details.savie.group1.section1.title.ocean???</h3>
-                                                            <p>Ocean Park SmartFun Gold and Silver pass members now enjoy premium discount of HK$960 (gold) and HK$740 (silver), respectively upon a successfully application of Savie Insurance Plan with lump sum payment not less than HK$100,000.  </p>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                                                <div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-1">
-                                                    <div class="benefits-content clearfix">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-2.png">
-                                                        <div class="info">
-                                                            <h3><fmt:message key="benfit.group1.title.easyhealth" bundle="${msg}" /></h3>
-                                                            <p><fmt:message key="benfit.group1.copy.easyhealth" bundle="${msg}" /></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--  <div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-3">
-                                                    <div class="benefits-content clearfix">
-                                                        <img src="/resources/images/savie-regular/benefit-3.png">
-                                                        <div class="info">
-                                                            <h3>Earning after 3 years</h3>
-                                                            <p>Savie while you play!  </p>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-2">
-                                                    <div class="benefits-content clearfix">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-4.png">
-                                                        <div class="info">
-                                                            <h3><fmt:message key="benfit.group2.title.easyhealth" bundle="${msg}" /></h3>
-                                                            <p><fmt:message key="benfit.group2.copy.easyhealth" bundle="${msg}" /></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- <div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-5">
-                                                    <div class="benefits-content clearfix">
-                                                        <img src="/resources/images/savie-regular/benefit-5.png">
-                                                        <div class="info">
-                                                            <h3>Payment options</h3>
-                                                            <p>Savie while you play!  </p>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-3">
-                                                    <div class="benefits-content clearfix">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png">
-                                                        <div class="info">
-                                                            <h3><fmt:message key="benfit.group3.title.easyhealth" bundle="${msg}" /></h3>
-                                                            <p><fmt:message key="benfit.group3.copy.easyhealth" bundle="${msg}" /></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-4">
-                                                    <div class="benefits-content clearfix">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-7.png">
-                                                        <div class="info">
-                                                            <h3><fmt:message key="benfit.group4.title.easyhealth" bundle="${msg}" /></h3>
-                                                            <p><fmt:message key="benfit.group4.copy.easyhealth" bundle="${msg}" /></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    <!-- Carousel
-                                    <a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
-                                    </a>
-                                    <a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
-                                    </a>
-                                    -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fna-icons-body text-center clearfix">
-                <div class="fwd-container-limit" id="nav-holder">
-                    <ul class="nav nav-tabs row so-fna-row visible-xs visible-sm" role="tablist">
-                        <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="nav-title-1">
-                            <a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link"><fmt:message key="pillar.support.title" bundle="${msg}" /></a>
-                        </li>
-                        <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-2">
-                            <a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></a>
-                        </li>
-                        <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-3">
-                            <a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.claims.easy.title" bundle="${msg}" /></a>
-                        </li>
-                        <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
-                            <a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eService.app.title" bundle="${msg}" /></a>
-                        </li>
-                    </ul>
-                    <div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
-                        <div class="tab-content carousel-inner clearfix" role="listbox">
-                            <div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1" next-target="nav-title-2">
-                                <div class="so-fna-content">
-                                    <div class="fna-icon-circle">
-                                        <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-01.png" alt="<fmt:message key="image.alt_13" bundle="${msg}" />">
-                                    </div>
-                                    <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
-                                     <p><fmt:message key="pillar.support.copy1" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
-                                <div class="so-fna-content">
-                                    <div class="fna-icon-circle">
-                                        <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-02.png" alt="<fmt:message key="image.alt_11" bundle="${msg}" />">
-                                    </div>
-                                    <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
-                                    <p><fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
-                                <div class="so-fna-content">
-                                    <div class="fna-icon-circle">
-                                        <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-03.png" alt="<fmt:message key="image.alt_9" bundle="${msg}" />">
-                                    </div>
-                                    <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claims.easy.title" bundle="${msg}" /></h3>
-                                    <p><fmt:message key="pillar.claims.easy.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.claims" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claims.easy.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.claims.easy.copy1.part3" bundle="${msg}" /></p>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
-                                <div class="so-fna-content">
-                                    <div class="fna-icon-circle">
-                                        <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-04.png" alt="<fmt:message key="image.alt_12" bundle="${msg}" />">
-                                    </div>
-                                    <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eService.app.title" bundle="${msg}" /></h3>
-                                    <p><fmt:message key="pillar.eService.app.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.eservices" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eService.app.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.eService.app.copy1.part3" bundle="${msg}" /></p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Carousel -->
-                        <a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
-                        </a>
-                        <a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
-                        </a>
-                    </div>
-                </div>
-            </div>
-			<div class="content-disclaimer">
-				<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
-			</div> --%>
         <!-- OUR BLOG -->
         <div class="blog">
                 <div class="hidden-md hidden-lg">
@@ -1697,17 +1410,19 @@ $(document).ready(function() {
 	$("#claims_24h_hotline").click(function(){
 		window.location=""
 	});
-	
+	$('#pv_claims .dropdown-menu li a').click(function(){
+		$('#claimsAction').text($(this).text());
+	});
 	$('#collapsedExpandSpan').click(function () {
 		var that = this;
 		setTimeout(function (){
 			if($(that).hasClass('collapsed'))
 			{
-			    $(that).html("+<br><fmt:message key='medicalguardian.schedule.expand' bundle='${medicalguardianMsg}' />"); 
+			    $(that).html("+<br><br><fmt:message key='medicalguardian.schedule.expand' bundle='${medicalguardianMsg}' />"); 
 			}
 			else
 			{      
-			    $(that).html("-<br><fmt:message key='medicalguardian.schedule.collapse' bundle='${medicalguardianMsg}' />"); 
+			    $(that).html("-<br><br><fmt:message key='medicalguardian.schedule.collapse' bundle='${medicalguardianMsg}' />"); 
 			}
 			},500); 
 	});

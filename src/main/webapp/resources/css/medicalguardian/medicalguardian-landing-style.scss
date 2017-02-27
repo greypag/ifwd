@@ -18,7 +18,12 @@ body {
     }
 
 }
-
+.noPadding{
+	padding:0;
+}
+.aligntop{
+	vertical-align:top;
+}
 .pv_highlight{
 	color:#E87722 !important;
 }
@@ -43,9 +48,11 @@ body {
 		background:#FFF;
 		min-height : 60px;
 		margin-right: 1px;
-		label,select{
+		label,select,input{
 			width:100%;
 			font-weight:700;
+			padding-left:5px;
+			font-size:14px;
 		}
 		label{
 			font-size: 14px;
@@ -56,18 +63,18 @@ body {
 		input{
 			border : none;
 			margin-top:19px;
-			padding: 5px 0;
-			font-size : 1em;
+			padding: 5px 5px;
 			color : #E87722;
 			font-weight: 700;
 		}
 		select{
 			list-style:none;
-			-webkit-appearance: none;
+			-webkit-appearance:none;
+		    -moz-appearance:none;
+		    appearance:none;
 			border : none;
 			margin-top:15px;
-			padding: 5px 0;
-			font-size : 1em;
+			padding: 5px 5px;
 			color : #E87722;
 			&:focus{
 				border:none;
@@ -75,13 +82,18 @@ body {
 			}
 			font-weight:700
 		}
-		.glyphicon-chevron-down{
+		.glyphicon{
 			top:48%;
 			width:10px;
 			right:20px;
 			position:absolute;
 			color : #E87722;
 			font-size : 0.7em;
+		}
+		#edit{
+			top:0;
+			right:0;
+			position:relative;
 		}
 		#btn_input_code{
 			position:absolute;
@@ -92,7 +104,7 @@ body {
 	}
 
  .sticky{
- 	bottom:0;
+ 	top:50px;
  	position : fixed;
  }
  #div-sticky{
@@ -106,7 +118,7 @@ body {
  	.sticky-container{
  		padding-top : 5px;
 	 	 span{
-	 	 	vertical-align:sub;
+	 	 	//line-height:45px;
 	 		font-size : 0.8em;
 	 	}
 	 	.btn{
@@ -151,6 +163,10 @@ body {
  	}
  	select{
  		margin-top:0;
+    	padding: 0 0 0 5px;
+ 	}
+ 	.glyphicon{
+ 		top:36px;
  	}
 }
 
@@ -171,7 +187,7 @@ body {
 				min-height : 60px;
 				padding-left : 0;
 				padding-right : 5px;
-				width:100%;
+				margin-right:0px;
 				label,select{
 					width:100%;
 				}
@@ -185,7 +201,7 @@ body {
 				input{
 					border : none;
 					margin-top:20px;
-					padding: 5px 10px;
+					padding: 3px 0 3px 10px;
 					font-size : 0.6em;
 					color : #E87722;
 					width:100%;
@@ -195,7 +211,7 @@ body {
 					-webkit-appearance: none;
 					border : none;
 					margin-top:15px;
-					padding: 3px 10px;
+					padding: 3px 0 3px 10px;
 					font-size : 0.6em;
 					color : #E87722;
 					&:focus{
@@ -206,7 +222,7 @@ body {
 				}
 				img{
 					position:absolute;
-					bottom:35%;
+					bottom:25px;
 					right:15px;
 				}
 				.glyphicon-chevron-down{
@@ -220,7 +236,7 @@ body {
 				#btn_input_code{
 					position:absolute;
 					bottom:28%;
-					right:5%;
+					right:10px;
 					padding: 5px 15px !important;
 					color : #fff;
 				}
@@ -322,7 +338,7 @@ body {
 			padding-top : 10px;
 		}
 		label{
-			font-size : 0.8em;
+			//font-size : 0.8em;
 			top: 0 ;
 		}
 		h2{
@@ -332,7 +348,7 @@ body {
 			background : #ececec;
 			margin-right:0;
 			border-left: 1px solid darkgray;
-			padding-left : 15px;
+			padding-left : 0px;
 			padding-right : 5px;
 			min-height : 48px;
 			img{
@@ -340,11 +356,21 @@ body {
 			}
 			select{
 				background:none;
-				padding : 3px 0 ;
+				padding : 0px 6px ;
 			}
 			input{
-				margin-top:17px;
+				margin-top:20px;
 				width:100%;
+				background:none;
+			}
+			#plan-dob-datepicker{
+				display:block;
+				color : #E87722;
+				margin-top:20px;
+				width:100%;
+				background:none;
+				font-size : 11px;
+				padding-left:5px;
 			}
 		}
 		#div_mobile_promotion_code{
@@ -370,15 +396,17 @@ body {
 }
 
 
-#plan-details-same-and-faq{
+#plan-details-sample-and-faq{
 	max-width : 1000px;
+	.panel{
+		margin-bottom: 15px;
+	}
 }
 
 #pv_claims{
 	background : #ececec;
-	max-width: 1050px;
+	max-width: 994px;
 	margin:auto;
-
 	h2{
 		color : #E87722;
 	}
@@ -396,17 +424,7 @@ body {
 		}
 	}
 
-	#payment-filter{
-		.thumbnail{
-			background : #F1F1F1;
-			&:hover{
-				background : #E87722;
-				.pv_title{
-					color: #FFF !important;
-				}
-			}
-		}
-	}
+	
 
 	.btn-group{
 		text-align:center;
@@ -452,6 +470,10 @@ body {
 		}
 	}
 
+	.glyphicon{
+		float:right;
+	}
+
 }
 
 #pv_fmp{
@@ -481,14 +503,15 @@ body {
 	}
 	.panel-group{
 		padding : 0;
+		margin-bottom:5px;
 		.panel{
 			background:none;
 			.panel-heading{
 				background:none;
-				padding:5px;
+				padding:0px;
 			}
 			.panel-body{
-				padding:20px 0 0 0 ;
+				padding:20px 0 5px 0 ;
 			}
 
 		}
@@ -498,8 +521,7 @@ body {
 		min-width:50px;
 	}
 	.hidden-xs{
-		text-align:center;
-		margin-top: 1%;
+		text-align:right;
 	}
 }
 #pd-sf-tab-content-container{
@@ -571,6 +593,7 @@ body {
 
 @media (max-width:991px){
 	body{
+		font-size: 14px;
 		h2{
 			font-size : 1.5em !important;
 		}
@@ -581,30 +604,46 @@ body {
 			max-height:160px;
 		}
 	}
-	.col-xs-12{
-		padding-right:5px;
-		padding-left:5px;
-	}
 
 	#pv_claims{
 		.pv_title{
 			margin-bottom : 10px ;
 		}
 	}
+	#quoteModal{
+		#FirstYear{
+			label{
+				left:6px;
+			}
+		}
+		.div-box{
+			margin-right:0;
+		}
+	}
+	#plan-details-sample-and-faq{
+		padding-left:0;
+		padding-right:0;
+	}
+	
 }
 
  @media (max-width:768px){
 	.div-box{
 		padding-left:5px !important;
 		font-size:0.8em;
-		input{
-			font-size:0.8em;
+		margin-right: 0px;
+		input,select{
+			font-size:11px;
 		}
+
 	}
 	#mobile-form{
 		#btn_cal_apply_mobile{
 			padding-left:0;
 			padding-right:0;
+		}
+		input{
+			margin-top:19px;
 		}
 	}
 	.dlProductBrochure{
@@ -612,7 +651,13 @@ body {
 		font-size:0.8em;
 	}
 	#pv_feature{
-		panel-body{
+		.panel-heading{
+			.glyphicon{
+				right: 15px;
+    			top: 15px;
+			}
+		}
+		.panel-body{
 			padding:20px 0 0 0 ;
 			.row{
 				display: block;
@@ -621,13 +666,59 @@ body {
 		}
 	}
 	.modal-content{
-		.modal-body{
+		padding:15px !important;
+		/* .modal-body{
 			.div-box{
 				select,input{
-					padding: 3px 6px !important;
+					padding: 3px 3px 3px 5px !important;
 				}
 			}
+		} */
+	}
+	#actionTab{
+		background:#ececec;
+		img{
+			margin:auto;
+			max-width:100px;
+			max-height:100px;
+			padding-bottom: 15px;
+
 		}
+	}
+	#pv_schedule{
+		.panel-body{
+			padding: 15px;
+		}
+		.col-xs-3 , .col-xs-9 , .col-xs-12{
+			padding-left:0;
+			padding-right:0;
+		}
+		ol{
+			padding-left:17px;
+		}
+	}
+	.chin #div-sticky{
+		#prompt span{
+			font-size:18px;
+		}
+	}
+	#div-sticky{
+		
+		#prompt {
+				span{
+				line-height:44px;
+				font-size:15px;
+				padding-left : 0 ;
+			}
+		}
+	}
+	#pd-sf-tab-content-container{
+		.tab-content{
+			padding:0;
+		}
+	}
+	.glyphicon{
+		font-size:12px;
 	}
 } 
 
@@ -653,24 +744,132 @@ body {
 	}
 
 	#pv_feature{
-		panel-body{
+		.panel-body{
 			padding:20px 0 0 0 ;
 			.row{
-				display: flex;
+				display: table;
 				align-items:center;
+				.displayTableCell{
+					    display: table-cell !important;
+					    vertical-align: middle;
+					    float: none;
+				}
 			}
+		}
+		.container{
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+	#payment-filter{
+		li{
+			padding-left:0 !important;
+			padding-right:0 !important;
+			border-bottom:none !important;
+			&:hover, &.active{
+				.thumbnail{
+					background : #E87722;
+					.pv_title{
+						color: #FFF !important;
+					}
+
+					.pointer{
+						opacity:1;
+						-webkit-transition: all .2s ease-in-out;
+	    				transition: all .2s ease-in-out;
+					}
+				}
+				
+			}
+			img{
+				width:90px;
+				height:90px;
+			}
+		}
+		.pointer{
+		    left: 50%;
+		    margin-left: -15px;
+		    bottom: -7px;
+		    position: absolute;
+		    z-index: 2;
+		    width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 15px 12.5px 0 12.5px;
+			border-color: #E87722 transparent transparent transparent;
+			opacity:0;
+		}
+		.thumbnail{
+			min-height:180px;
+			background:none;
+			border:none;
+			margin-bottom:8px !important;
+		}
+		.pv_title{
+			line-height:44px;
+			font-size:16px;
+		}
+
+	}
+	.line-height-normal{
+		line-height:normal !important;
+	}
+	.chin .line-height-normal{
+		line-height:44px !important;
+	}
+	#pv_claims{
+		li{
+		    min-width: 20%;
+		    display: inline-block;
+		    float: none;
+		    margin: -7px -2px;
+		}
+	}
+	.tab-content{
+		margin:auto;
+		max-width:970px;
+		p{
+			font-size : 16px;
+		}
+		h2{
+			color:#E87722;
+		}
+		img{
+			margin:auto;
+			max-width:100px;
+			max-height:100px;
+		}
+	}
+	
+}
+@media (min-width:991px){
+	.sticky{
+	 	top:42px;
+	}
+}
+@media (max-width:375px){
+	#mobile-form{
+		label{
+			font-size:11px;
+			padding-left:0;
+		}
+		select{
+			padding-left:0 !important;
+			padding-right:0 !important;
+		}
+		#plan-dob-datepicker{
+			padding-left:0 !important;
 		}
 	}
 
-}
-@media (max-width:1201px){
-	#pv_calculator{
-		#FirstYear{
-			.bold{
-				font-size:0.8em;
-			}
-		}
-	}
+	  /* #div-sticky{
+	  	 		#prompt {
+	  					background:blue;
+	  	 		span{
+	  	 			font-size: 12px !important;
+	  	 		}
+	  	 	}  
+	  	} */
 }
 
-
+ 
