@@ -14,7 +14,7 @@
 					"link":"savie"
 				},
 				{
-					"name":"Wealthree Insurance Plan",
+					"name":"Wealthree Endowment Plan",
 					"link":"wealthree"
 				}
 			]
@@ -24,7 +24,7 @@
 			"group": 1,
 			"products":[
 				{
-					"name":"Elite Term",
+					"name":"Term Life Protection",
 					"link":"elite"
 				}
 			]
@@ -34,7 +34,7 @@
 			"group": 1,
 			"products":[
 				{
-					"name":"Hospital Cash",
+					"name":"Hospital",
 					"link":"hospital"
 				}
 			]
@@ -52,7 +52,7 @@
 					"link":"overseas"
 				},
 				{
-					"name":"TravelCare Insurance",
+					"name":"TravelCare",
 					"link":"travel"
 				},
 				{
@@ -70,11 +70,11 @@
 					"link":"easy-home-care"
 				},
 				{
-					"name":"Handset Protection",
+					"name":"Handset Protection (3HK Exclusive)",
 					"link":"handset"
 				},
 				{
-					"name":"Screen protection",
+					"name":"Screen protection (Sony Exclusive)",
 					"link":"screen"
 				}
 			]
