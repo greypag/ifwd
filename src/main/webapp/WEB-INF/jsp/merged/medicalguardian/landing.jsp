@@ -104,10 +104,10 @@ var home_url = "<%=request.getContextPath()%>";
 	    	
 	    	
 	    	<div id="pv_calculator" class="">
-	    	<a href="" data-toggle="modal" data-target="#contactUsModal" >
+	    	<%-- <a href="" data-toggle="modal" data-target="#contactUsModal" >
 	    	TEST contactUsModal
 								<span class="glyphicon glyphicon-pencil" aria-hidden="true" id="edit"></span>
-			</a>
+			</a> --%>
 	    	<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
 				<img style="width: 300px; height: 300px;"
 					src="<%=request.getContextPath()%>/resources/images/loading.gif">
