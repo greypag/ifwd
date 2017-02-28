@@ -10,6 +10,93 @@ body {
     font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
     font-weight: bold; }
 
+#contactUsModal .modal-dialog {
+  max-width: 500px; }
+#contactUsModal .modal-content {
+  background: #fff; }
+#contactUsModal .modal-body {
+  border: none;
+  padding: 5px 10px 20px; }
+  #contactUsModal .modal-body .pv_desc {
+    font-size: 16px; }
+  #contactUsModal .modal-body #contact-time {
+    background: #fff;
+    width: 100%;
+    border: none;
+    height: 40px;
+    font-size: 18px;
+    padding-top: 13px;
+    padding-left: 15px;
+    list-style: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-bottom: 6px; }
+  #contactUsModal .modal-body #hiddenInputBox {
+    visibility: hidden;
+    height: 0;
+    margin-top: -7px; }
+  #contactUsModal .modal-body .glyphicon {
+    position: absolute;
+    top: 19px;
+    right: 15px;
+    color: #ff8200; }
+  #contactUsModal .modal-body select {
+    background: #ececec !important; }
+    #contactUsModal .modal-body select option {
+      font-size: 18px;
+      font-weight: normal;
+      font-family: Calibri !important; }
+  #contactUsModal .modal-body #checkboxLabel {
+    color: #000000; }
+  #contactUsModal .modal-body #preferedtimeLabel {
+    top: -2px !important; }
+  #contactUsModal .modal-body #sub-pan-forgot-username, #contactUsModal .modal-body #sub-pan-forgot-pwd {
+    margin-top: -57px; }
+  #contactUsModal .modal-body .form-group {
+    margin-bottom: 5px; }
+  #contactUsModal .modal-body .mdl-textfield {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0;
+    background: #ececec; }
+    #contactUsModal .modal-body .mdl-textfield input {
+      font-size: 18px;
+      font-family: 'Calibri';
+      color: #000;
+      margin-top: 6px;
+      box-shadow: inset 0 1px 1px transparent;
+      padding: 5px 15px 0 15px;
+      border-radius: 0;
+      border: 0 transparent;
+      height: 40px; }
+      #contactUsModal .modal-body .mdl-textfield input:focus {
+        border-bottom: 2px solid #Ff8200;
+        outline: none;
+        outline-offset: 0;
+        -webkit-appearance: none;
+        box-shadow: inset 0 1px 1px transparent; }
+    #contactUsModal .modal-body .mdl-textfield label {
+      padding-top: 0px;
+      font-size: 14px;
+      left: 0;
+      top: 10px;
+      padding-left: 15px;
+      font-family: 'Calibri-Bold'; }
+      #contactUsModal .modal-body .mdl-textfield label:after {
+        background-color: transparent; }
+      #contactUsModal .modal-body .mdl-textfield label .small-txt {
+        font-size: 12px; }
+    #contactUsModal .modal-body .mdl-textfield.is-focused label, #contactUsModal .modal-body .mdl-textfield.is-dirty label {
+      color: #ff8200;
+      font-size: 12px;
+      top: 1px; }
+  #contactUsModal .modal-body .checkbox {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+    #contactUsModal .modal-body .checkbox label {
+      padding-top: 0; }
+
 .noPadding {
   padding: 0; }
 
@@ -225,7 +312,8 @@ body {
   padding-bottom: 15px; }
   #pv_calculator #loadingDiv {
     position: absolute;
-    padding-top: 2%; }
+    padding-top: 2%;
+    z-index: 999 !important; }
     #pv_calculator #loadingDiv img {
       max-height: 100%; }
   #pv_calculator .div-container {
@@ -447,6 +535,12 @@ body {
     left: 6px; }
   #quoteModal .div-box {
     margin-right: 0; }
+  #quoteModal #quoteloadingDiv {
+    position: absolute;
+    padding-top: 2%;
+    z-index: 999 !important; }
+    #quoteModal #quoteloadingDiv img {
+      max-height: 100%; }
 
   #plan-details-sample-and-faq {
     padding-left: 0;
@@ -518,6 +612,11 @@ body {
   .glyphicon {
     font-size: 12px; } }
 @media (min-width: 768px) {
+  #deskstoploadingDiv {
+    height: 67px !important;
+    padding-top: 0 !important;
+    top: 40px !important; }
+
   #pv_feature .collapse {
     height: auto !important;
     display: block !important; }

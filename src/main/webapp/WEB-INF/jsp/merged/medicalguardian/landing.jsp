@@ -104,6 +104,10 @@ var home_url = "<%=request.getContextPath()%>";
 	    	
 	    	
 	    	<div id="pv_calculator" class="">
+	    	<%-- <a href="" data-toggle="modal" data-target="#contactUsModal" >
+	    	TEST contactUsModal
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true" id="edit"></span>
+			</a> --%>
 	    	<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
 				<img style="width: 300px; height: 300px;"
 					src="<%=request.getContextPath()%>/resources/images/loading.gif">
@@ -260,6 +264,10 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 				
 				<div id="desktop-div-sticky" class="sticky visible-md visible-lg">
+					<div id="deskstoploadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+						 <img style="width: 50px; height: 50px; padding-top: 10px;"
+							src="<%=request.getContextPath()%>/resources/images/medicalguardian/desktop-loading.gif"> 
+					</div>
 		    		<div class="sticky-container">
 		    			<div class="col-xs-2 div-box selectDiv centreDiv">
 							<label class="" for="Gender"><fmt:message key="medicalguardian.cal.form.gender" bundle="${medicalguardianMsg}" /></label>
@@ -315,7 +323,7 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
 			    <div class="modal-content">
-			    	<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+			    	<div id="quoteloadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
 						<img style="width: 300px; height: 300px;"
 							src="<%=request.getContextPath()%>/resources/images/loading.gif">
 					</div>
@@ -393,54 +401,73 @@ var home_url = "<%=request.getContextPath()%>";
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			        <h2 class="pv_title text-center" id="contactUsModalLabel">Thank you!</h2>
+			        <h2 class="pv_title" id="contactUsModalLabel"><fmt:message key="medicalguardian.contactus.title" bundle="${medicalguardianMsg}" /></h2>
 			      </div>
 			      <div class="modal-body row-fluid">
-					        <p class="pv_desc">We appreciate your interest in our product.</p><br>
+					        <p class="pv_desc bold"><fmt:message key="medicalguardian.contactus.desc" bundle="${medicalguardianMsg}" /></p>
 					        <p class="pv_desc">
-					        We are sorry to inform you that your application cannot be completed online
-					         as online application is only valid to applicants whose age is 19 to 55 
-					         years on their next birthday. Please leave us your contact details,
-					         and we will call you at your preferred time. You can also reach us via our 24-hour Service Hotline at 3123 3123.
-					          </p> 
-					          <br>
+					       		<fmt:message key="medicalguardian.contactus.desc1" bundle="${medicalguardianMsg}" />
+					      	</p> 
+					          <hr>
 					          
-					          <div id="" class="col-xs-12 div-box selectDiv centreDiv div-box">
-					    			<div class="item-wrapper">
-										<label class="" for="Code">Full Name</label>
-										<input type="text" name="Code" maxlength="20" placeholder="">
-						    		</div>
-						    	</div>
-						    	<div id="" class="col-xs-12 div-box selectDiv centreDiv div-box">
-					    			<div class="item-wrapper">
-										<label class="" for="Email">Email</label>
-										<input type="text" name="Code" maxlength="20" placeholder="">
-						    		</div>
-						    	</div>
-						    	<div id="" class="col-xs-12 div-box selectDiv centreDiv div-box">
-					    			<div class="item-wrapper">
-										<label class="" for="ContactNumber">Contact Number </label>
-										<input type="text" name="Code" maxlength="20" placeholder="">
-						    		</div>
-						    	</div>
-						    	<div class="col-xs-12 div-box selectDiv">
-					    			<div class="item-wrapper">
-										<label class="" for="dob">Preferred Contact Time</label>
-										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="">
-										<select name="contactTime" id="contact-time" class="" data-bv-field="contact-time" >
-											<option value="" data-val="">Morning</option>
-											<option value="" data-val="" selected>Afternoon</option>
-											<option value="" data-val="">Evening</option>
-										</select>
+					          
+					          <form name="form-appointment-register" id="form-appointment-register" method="post">
+									<div class="form-group">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input type="text" name="fullName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterFullName" data-keyblock-alphabet-space="true" autocomplete="off" maxlength="100">
+											<label class="mdl-textfield__label" for="appointmentRegisterFullName"><fmt:message key="medicalguardian.contactus.fullname" bundle="${medicalguardianMsg}" /></label>
+										</div>
+										<span class="error-msg FullNameErrMsg"></span>
 									</div>
-					    		</div>
-					    		<div class="checkbox">
-								  <label><input type="checkbox" value="">I have read and understood the <a target="_blank" href="https://www.fwd.com.hk/upload/en-US/personal_information_collection_statement.pdf">Personal Information Collection Statement</a> and agree to be bound by it.</label>
-								</div>
-								
-								<div id="btn_quote" class="col-xs-12 content-wrapper text-center">
-						    		<a class="btn btn-primary text-uppercase livechat_button">Submit</a>
-						    	</div>
+									<div class="form-group" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Insurance certificate will be sent to this email address">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input type="text" name="EmailAddress" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterEmailAddress">
+											<label class="mdl-textfield__label" for="appointmentRegisterEmailAddress"><fmt:message key="medicalguardian.contactus.email" bundle="${medicalguardianMsg}" /></label>
+										</div>
+										<span class="error-msg EmailAddressErrMsg"></span>
+									</div>
+									<div class="form-group">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterMobileNo" data-keyblock-num="true">
+											<label class="mdl-textfield__label" for="appointmentRegisterMobileNo"><fmt:message key="medicalguardian.contactus.contactnumber" bundle="${medicalguardianMsg}" /></label>
+										</div>
+										<span class="error-msg mobileNoErrMsg"></span>
+									</div> 
+									<div class="form-group">
+										<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded is-dirty">
+											<input id="hiddenInputBox" value="1" type="tel" name="contactTime" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterMobileNo" data-keyblock-num="true" style="visibility:hidden">
+											<select name="contactTime" id="contact-time" class="" data-bv-field="contact-time" >
+												<option value="" data-val=""><fmt:message key="medicalguardian.contactus.morning" bundle="${medicalguardianMsg}" /></option>
+												<option value="" data-val="" selected><fmt:message key="medicalguardian.contactus.afternoon" bundle="${medicalguardianMsg}" /></option>
+												<option value="" data-val=""><fmt:message key="medicalguardian.contactus.evening" bundle="${medicalguardianMsg}" /></option>
+											</select>
+											<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+											<%-- <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"> --%>
+											<label class="mdl-textfield__label" id="preferedtimeLabel" for="appointmentRegisterMobileNo"><fmt:message key="medicalguardian.contactus.preferedtime" bundle="${medicalguardianMsg}" /></label>
+										</div>
+										<span class="error-msg mobileNoErrMsg"></span>
+									</div>
+									
+									<div class="declaration">
+										<div class="form-group">
+											<div class="checkbox">
+												<input id="checkbox1" name="checkbox1" type="checkbox" class="">
+												<label for="checkbox1" id="checkboxLabel">
+													<fmt:message key="medicalguardian.contactus.checkbox" bundle="${medicalguardianMsg}" />
+												</label>
+											</div>							
+											<span class="error-msg checkbox1ErrMsg"></span>
+										</div>
+										<hr>
+									</div>
+									<%-- <div class="login-button-group text-center">
+										<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-register">register.cta.activate</button>
+										<span class="error-msg regPanErrMsg"></span>
+									</div> --%>
+									<div id="btn_quote" class="col-xs-12 content-wrapper text-center">
+							    		<a class="btn btn-primary text-uppercase livechat_button">Submit</a>
+							    	</div>
+						    </form>
 				    
 			      </div>
 			      <div class="modal-footer">

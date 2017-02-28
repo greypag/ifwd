@@ -18,6 +18,125 @@ body {
     }
 
 }
+#contactUsModal{
+	.modal-dialog{
+		max-width:500px;
+	}
+	.modal-content{
+		background:#fff;
+	}
+	.modal-body{
+		.pv_desc{
+			font-size:16px;
+		}
+		border:none;
+		padding:5px 10px 20px;
+		#contact-time{
+			background:#fff;
+			width:100%;
+			border:none;
+		    height: 40px;
+		    font-size: 18px;
+		    padding-top: 13px;
+		    padding-left: 15px;
+	        list-style: none;
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    margin-bottom:6px;
+		}
+		#hiddenInputBox{
+		    visibility: hidden;
+		    height: 0;
+		    margin-top: -7px;
+		}
+		.glyphicon{
+		    position: absolute;
+		    top: 19px;
+		    right: 15px;
+		    color: #ff8200;
+		}
+		select{
+			background:#ececec!important;
+			option{
+				font-size:18px;
+				font-weight:normal;
+				font-family: Calibri !important;
+			}
+		}
+		#checkboxLabel{
+			color:#000000;
+		}
+		#preferedtimeLabel{
+			top:-2px !important;
+		}
+		#sub-pan-forgot-username, #sub-pan-forgot-pwd{margin-top:-57px;}
+
+		.form-group{
+			margin-bottom:5px;
+		}
+
+		.mdl-textfield{
+			width:100%;
+			margin-bottom:0;
+			padding:0;
+			background:#ececec;
+			input{
+				font-size: 18px;
+				font-family: 'Calibri';
+				color: #000;
+				margin-top: 6px;
+				//background-color: #fff !important;
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+				padding: 5px 15px 0 15px;
+				border-radius: 0;
+				border: 0 transparent;
+				height: 40px;
+
+				&:focus{
+					border-bottom: 2px solid #Ff8200;
+					outline: none;
+					outline-offset: 0;
+					-webkit-appearance: none;
+					box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+				}
+			}
+
+			label{
+				padding-top: 0px;
+				font-size: 14px;
+				left: 0;
+				top: 10px;
+				padding-left: 15px;
+				font-family: 'Calibri-Bold';
+
+
+				&:after{
+					background-color: transparent;
+				}
+
+				.small-txt{
+					font-size:12px;
+				}
+			}
+
+			&.is-focused label, &.is-dirty label{
+				color: #ff8200;
+				font-size: 12px;
+				top: 1px;
+			}
+		}
+
+		.checkbox{
+			margin-top:15px;
+			margin-bottom:15px;
+			label{
+				padding-top:0;
+			}
+		}
+	}
+}
+
 .noPadding{
 	padding:0;
 }
@@ -290,6 +409,7 @@ body {
 	#loadingDiv{
 		position: absolute;
     	padding-top: 2%;
+    	z-index: 999!important;
     	img{
     		max-height:100%;
     	}
@@ -619,6 +739,14 @@ body {
 		.div-box{
 			margin-right:0;
 		}
+		#quoteloadingDiv{
+			position: absolute;
+	    	padding-top: 2%;
+	    	z-index: 999!important;
+	    	img{
+	    		max-height:100%;
+	    	}
+		}
 	}
 	#plan-details-sample-and-faq{
 		padding-left:0;
@@ -723,6 +851,11 @@ body {
 } 
 
 @media (min-width:768px){
+	#deskstoploadingDiv{
+		height : 67px!important;
+		padding-top:0!important;
+		top:40px !important;
+	}
 	#pv_feature .collapse{
 		height:auto !important;
 		display:block !important;
