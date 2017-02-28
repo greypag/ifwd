@@ -200,14 +200,19 @@ var initFVConfig = function(argCfg) {
 			};
 			//console.log(formInfo);
 			$.each(formInfo.fieldnamesForValidation, function(i, v) {
-				var fomrInfo2 = formInfo;
+				var that = formInfo;
 				$("input[name=" + v + "]").on("blur", function() {
-					console.log(formInfo);
-					if ( argCfg.helpers.listener.isFieldsEmptied( fomrInfo2 ) ) {
-						argCfg.helpers.fv.enable_validate_grp(true, fomrInfo2);
-						$("#"+fomrInfo2.formId).formValidation('revalidateField', $(this).attr("name"));
+					var fieldsVal = [];
+					for(var i=0; i<that.fieldsForValidation.length; i++){
+						fieldsVal.push($.trim($(that.fieldsForValidation[i]).val()));
+					}					
+					if ( !(argCfg.helpers.listener.isFieldsEmptied( fieldsVal )) ) {
+						argCfg.helpers.fv.enable_validate_grp(true, that);
+						$("#"+that.formId).formValidation('revalidateField', $(this).attr("name"));
+						console.log("not all empty");
 					} else {
-						argCfg.helpers.fv.enable_validate_grp(false, fomrInfo2);
+						argCfg.helpers.fv.enable_validate_grp(false, that);
+						console.log("all empty");
 					};
 				});
 			});

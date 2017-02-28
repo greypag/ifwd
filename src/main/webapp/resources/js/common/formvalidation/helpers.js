@@ -221,34 +221,17 @@ var event_checkBox_tooltipFadeInOut = function(opt1, opt2) {
 
 // Check fields is all-emptied or not, returns TRUE / FALSE
 var listener_isFieldsEmptied= function( dInfo ) {
-    var arrFields   = dInfo.fieldsForValidation;
-    var isNotEmpty = false;
-    for (var i = 0; i < arrFields.length; i++) {
-        if ( $.trim( $(arrFields[i]).val() ) !== '' ) {
-            isNotEmpty = true;
-        } else {
-        	if (i > 0 && isNotEmpty==true) {
-        		isNotEmpty == true;
-        	} else {
-        		isNotEmpty = false;
-        	}
-        }
-        /*
-        (function( w ) {
-            $(document).on('change', arrFields[w], function() {
-                if ( $.trim( $(arrFields[w]).val() ) !== '' ) {
-                    isNotEmptyCounter = isNotEmptyCounter + 1;
-                }
-                if ( isNotEmptyCounter >= dInfo.fieldsLimitedTo ) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-        })(i);
-        */
-    }
-    return isNotEmpty;
+	var emptyCount = 0;
+	for(var i=0; i<dInfo.length; i++){
+		if(dInfo[i]==""){
+			emptyCount++;
+		}
+	}
+	if(emptyCount != 0 && emptyCount < dInfo.length){
+		return false;
+	}else{
+		return true;
+	}
 };
 
 var fv_enablingValidators = function(isEnabledBoolean, fieldArray) {
