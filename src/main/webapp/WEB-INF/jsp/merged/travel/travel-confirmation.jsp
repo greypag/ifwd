@@ -153,7 +153,7 @@
 			   } 
 			    $(document).ready(function(){
 			    			var qrcodehref="<%=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()%>/${language}/passkit/travelCare?referenceNo="+base64encode('${referenceNo}');
-			    			$(".passkit-link-wrapper").append("<img id='qrImg' />");
+			    			$(".passkit-link-wrapper").append("<img id='qrImg' class='img-responsive'/>");
 			    			$(".passkit-btn").attr("href",qrcodehref);
 			    			$("#qrImg").attr("src", "${pageContext.request.contextPath}/api/QRCode/createQRCodeImage?url="+qrcodehref);
 			    	});

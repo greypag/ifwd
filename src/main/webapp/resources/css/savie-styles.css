@@ -2103,7 +2103,7 @@ body {
 @media (min-width: 992px) {
   /* line 474, ../sass/partials/savie/_homepage.scss */
   #business-partners-container {
-    max-width: 756px;
+    max-width: 1170px;
     margin: 0 auto;
   }
   /* line 508, ../sass/partials/savie/_homepage.scss */
@@ -2121,7 +2121,6 @@ body {
   }
   /* line 522, ../sass/partials/savie/_homepage.scss */
   #business-partners-container img {
-    float: left;
     max-width: 110px;
     transform: scale(2,2);
   }
