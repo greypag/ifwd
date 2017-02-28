@@ -21,6 +21,7 @@ body {
 #contactUsModal{
 	.modal-dialog{
 		max-width:500px;
+		margin:auto;
 	}
 	.modal-content{
 		background:#fff;
@@ -44,6 +45,9 @@ body {
 		    -moz-appearance: none;
 		    appearance: none;
 		    margin-bottom:6px;
+		    &:focus{
+		    	outline:none;
+		    }
 		}
 		#hiddenInputBox{
 		    visibility: hidden;
@@ -136,7 +140,15 @@ body {
 		}
 	}
 }
-
+.btn[disabled]{
+	opacity: 0.65; 
+	cursor: not-allowed;
+	background: #9ba5a7;
+    border-bottom: 3px solid #676f70 !important;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
 .noPadding{
 	padding:0;
 }
@@ -145,17 +157,18 @@ body {
 }
 .pv_highlight{
 	color:#E87722 !important;
+	font-weight:bold !important;
 }
 .pv_title{
 	font-weight : 700;
-	font-size : 1.2em;
+	font-size : 22px;
 	color : #333;
 }
 .collapse{
 	width : 100%
 }
 .content-wrapper{
-	margin : 10px 0 !important;
+	margin : 15px 0 !important;
 }
 .no_order{
 		list-style: none;
@@ -171,18 +184,19 @@ body {
 			width:100%;
 			font-weight:700;
 			padding-left:5px;
-			font-size:14px;
+			font-size:18px;
+			left:5px;
 		}
 		label{
-			font-size: 14px;
+			font-size: 16px;
 		    font-family: calibri-bold;
-		    top: 4px;
+		    top: 6px;
 		    position:absolute;
 		}
 		input{
 			border : none;
-			margin-top:19px;
-			padding: 5px 5px;
+			margin-top:23px;
+			padding: 5px 10px;
 			color : #E87722;
 			font-weight: 700;
 		}
@@ -192,8 +206,8 @@ body {
 		    -moz-appearance:none;
 		    appearance:none;
 			border : none;
-			margin-top:15px;
-			padding: 5px 5px;
+			margin-top:19px;
+			padding: 5px 10px;
 			color : #E87722;
 			&:focus{
 				border:none;
@@ -202,7 +216,7 @@ body {
 			font-weight:700
 		}
 		.glyphicon{
-			top:48%;
+			top:35px;
 			width:10px;
 			right:20px;
 			position:absolute;
@@ -231,6 +245,7 @@ body {
  	background : #fff;
  	width:100%;
  	z-index:999;
+ 	border-bottom: darkgrey solid 1px;
  	&.active{
  		display: block !important;
  	}
@@ -238,7 +253,7 @@ body {
  		padding-top : 5px;
 	 	 span{
 	 	 	//line-height:45px;
-	 		font-size : 0.8em;
+	 		//font-size : 0.8em;
 	 	}
 	 	.btn{
 	 		float:right;
@@ -253,6 +268,13 @@ body {
 	width:100%;
 	z-index:999;
 	display:none;
+	border-bottom: darkgrey solid 1px;
+	border-left: darkgrey solid 1px;
+	border-right: darkgrey solid 1px;
+	max-width: 1170px;
+    margin: auto;
+    left: 0;
+    right: 0;
 	&.active{
 		display: block !important;
 	}
@@ -270,12 +292,20 @@ body {
  	label{
 		position:relative;
 		width:auto;
+		left:0px;
+		top:3px;
+ 	}
+ 	#FirstYear{
+ 		label{
+	 		top:4px;
+	 	}
  	}
  	.div-box{
  		margin-right:0px;
  	}
  	input{
  		margin-top:0;
+ 		padding-left:5px;
  	}
  	.selectDiv{
  		margin-bottom:0;
@@ -287,6 +317,11 @@ body {
  	.glyphicon{
  		top:36px;
  	}
+ 	.content-wrapper{
+		margin : 5px 0 0 0 !important;
+		padding-left:0px;
+		padding-right:0px;
+	}
 }
 
 
@@ -458,7 +493,7 @@ body {
 			padding-top : 10px;
 		}
 		label{
-			//font-size : 0.8em;
+			font-size : 14px;
 			top: 0 ;
 		}
 		h2{
@@ -482,15 +517,17 @@ body {
 				margin-top:20px;
 				width:100%;
 				background:none;
+				padding-left:5px;
 			}
-			#plan-dob-datepicker{
+			#plan-dob-datepicker-for-mobile{
 				display:block;
 				color : #E87722;
-				margin-top:20px;
+				margin-top:25px;
 				width:100%;
 				background:none;
-				font-size : 11px;
+				font-size : 14px;
 				padding-left:5px;
+				font-weight:700;
 			}
 		}
 		#div_mobile_promotion_code{
@@ -502,6 +539,7 @@ body {
 			}
 		}
 		#FirstYear{
+			font-size:14px;
 			padding-left : 0 !important;
 			#price{
 				font-size : 1.2em !important;
@@ -510,7 +548,6 @@ body {
 		}
 		.btn{
 			padding: 5px 10px !important;
-			font-size : 1em;
 		}
 	}
 }
@@ -520,6 +557,9 @@ body {
 	max-width : 1000px;
 	.panel{
 		margin-bottom: 15px;
+	}
+	ul,ol{
+		font-size:16px;
 	}
 }
 
@@ -617,7 +657,17 @@ body {
 	}
 }
 #pv_feature{
+	h2{
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	p{
+		padding-top:0px;
+		padding-bottom:30px;
+		font-size:16px;
+	}
 	padding-top:15px;
+	padding-bottom:30px;
 	.container{
 		max-width:1020px;
 	}
@@ -632,13 +682,16 @@ body {
 			}
 			.panel-body{
 				padding:20px 0 5px 0 ;
+				ul{
+					font-size:18px;
+				}
 			}
 
 		}
 	}
 	img{
-		max-width:50px;
-		min-width:50px;
+		max-width:100px;
+		min-width:100px;
 	}
 	.hidden-xs{
 		text-align:right;
@@ -656,6 +709,16 @@ body {
 	background: #ececec;
 	padding-top:50px;
 	padding-bottom:20px;
+	.darkgray-divide{
+		width:100%;
+	    height: 1px;
+    	background: darkgrey;
+    	margin: 0 auto;
+	}
+	.text-right{
+		padding-left:0;
+		padding-right:0;
+	}
 	#collapseDeath{
 		width:100%;
 	}
@@ -756,12 +819,14 @@ body {
 }
 
  @media (max-width:768px){
+ 	body{
+ 		font-size:12px;
+ 	}
 	.div-box{
 		padding-left:5px !important;
-		font-size:0.8em;
 		margin-right: 0px;
 		input,select{
-			font-size:11px;
+			font-size:14px;
 		}
 
 	}
@@ -776,13 +841,13 @@ body {
 	}
 	.dlProductBrochure{
 		padding: 0 8px !important;
-		font-size:0.8em;
+		font-size:14px;
 	}
 	#pv_feature{
 		.panel-heading{
 			.glyphicon{
 				right: 15px;
-    			top: 15px;
+    			top: 42px;
 			}
 		}
 		.panel-body{
@@ -886,6 +951,7 @@ body {
 					    display: table-cell !important;
 					    vertical-align: middle;
 					    float: none;
+					    padding-left:0;
 				}
 			}
 		}
@@ -990,7 +1056,7 @@ body {
 			padding-left:0 !important;
 			padding-right:0 !important;
 		}
-		#plan-dob-datepicker{
+		#plan-dob-datepicker-for-mobile{
 			padding-left:0 !important;
 		}
 	}

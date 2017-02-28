@@ -11,7 +11,8 @@ body {
     font-weight: bold; }
 
 #contactUsModal .modal-dialog {
-  max-width: 500px; }
+  max-width: 500px;
+  margin: auto; }
 #contactUsModal .modal-content {
   background: #fff; }
 #contactUsModal .modal-body {
@@ -32,6 +33,8 @@ body {
     -moz-appearance: none;
     appearance: none;
     margin-bottom: 6px; }
+    #contactUsModal .modal-body #contact-time:focus {
+      outline: none; }
   #contactUsModal .modal-body #hiddenInputBox {
     visibility: hidden;
     height: 0;
@@ -97,6 +100,15 @@ body {
     #contactUsModal .modal-body .checkbox label {
       padding-top: 0; }
 
+.btn[disabled] {
+  opacity: 0.65;
+  cursor: not-allowed;
+  background: #9ba5a7;
+  border-bottom: 3px solid #676f70 !important;
+  border-left: none;
+  border-right: none;
+  border-top: none; }
+
 .noPadding {
   padding: 0; }
 
@@ -104,18 +116,19 @@ body {
   vertical-align: top; }
 
 .pv_highlight {
-  color: #E87722 !important; }
+  color: #E87722 !important;
+  font-weight: bold !important; }
 
 .pv_title {
   font-weight: 700;
-  font-size: 1.2em;
+  font-size: 22px;
   color: #333; }
 
 .collapse {
   width: 100%; }
 
 .content-wrapper {
-  margin: 10px 0 !important; }
+  margin: 15px 0 !important; }
 
 .no_order {
   list-style: none; }
@@ -131,16 +144,17 @@ body {
     width: 100%;
     font-weight: 700;
     padding-left: 5px;
-    font-size: 14px; }
+    font-size: 18px;
+    left: 5px; }
   .div-box label {
-    font-size: 14px;
+    font-size: 16px;
     font-family: calibri-bold;
-    top: 4px;
+    top: 6px;
     position: absolute; }
   .div-box input {
     border: none;
-    margin-top: 19px;
-    padding: 5px 5px;
+    margin-top: 23px;
+    padding: 5px 10px;
     color: #E87722;
     font-weight: 700; }
   .div-box select {
@@ -149,15 +163,15 @@ body {
     -moz-appearance: none;
     appearance: none;
     border: none;
-    margin-top: 15px;
-    padding: 5px 5px;
+    margin-top: 19px;
+    padding: 5px 10px;
     color: #E87722;
     font-weight: 700; }
     .div-box select:focus {
       border: none;
       outline: 0px; }
   .div-box .glyphicon {
-    top: 48%;
+    top: 35px;
     width: 10px;
     right: 20px;
     position: absolute;
@@ -181,13 +195,12 @@ body {
   min-height: 60px;
   background: #fff;
   width: 100%;
-  z-index: 999; }
+  z-index: 999;
+  border-bottom: darkgrey solid 1px; }
   #div-sticky.active {
     display: block !important; }
   #div-sticky .sticky-container {
     padding-top: 5px; }
-    #div-sticky .sticky-container span {
-      font-size: 0.8em; }
     #div-sticky .sticky-container .btn {
       float: right;
       padding: 6px 12px !important;
@@ -198,7 +211,14 @@ body {
   background: #fff;
   width: 100%;
   z-index: 999;
-  display: none; }
+  display: none;
+  border-bottom: darkgrey solid 1px;
+  border-left: darkgrey solid 1px;
+  border-right: darkgrey solid 1px;
+  max-width: 1170px;
+  margin: auto;
+  left: 0;
+  right: 0; }
   #desktop-div-sticky.active {
     display: block !important; }
   #desktop-div-sticky #sticky-container {
@@ -211,11 +231,16 @@ body {
       border-radius: 4px; }
   #desktop-div-sticky label {
     position: relative;
-    width: auto; }
+    width: auto;
+    left: 0px;
+    top: 3px; }
+  #desktop-div-sticky #FirstYear label {
+    top: 4px; }
   #desktop-div-sticky .div-box {
     margin-right: 0px; }
   #desktop-div-sticky input {
-    margin-top: 0; }
+    margin-top: 0;
+    padding-left: 5px; }
   #desktop-div-sticky .selectDiv {
     margin-bottom: 0; }
   #desktop-div-sticky select {
@@ -223,6 +248,10 @@ body {
     padding: 0 0 0 5px; }
   #desktop-div-sticky .glyphicon {
     top: 36px; }
+  #desktop-div-sticky .content-wrapper {
+    margin: 5px 0 0 0 !important;
+    padding-left: 0px;
+    padding-right: 0px; }
 
 .modal-dialog .modal-content {
   background: #ececec;
@@ -340,6 +369,7 @@ body {
     padding-left: 8px;
     padding-top: 10px; }
   #pv_calculator #mobile-form label {
+    font-size: 14px;
     top: 0; }
   #pv_calculator #mobile-form h2 {
     font-size: 1.0em; }
@@ -358,15 +388,17 @@ body {
     #pv_calculator #mobile-form .div-box input {
       margin-top: 20px;
       width: 100%;
-      background: none; }
-    #pv_calculator #mobile-form .div-box #plan-dob-datepicker {
+      background: none;
+      padding-left: 5px; }
+    #pv_calculator #mobile-form .div-box #plan-dob-datepicker-for-mobile {
       display: block;
       color: #E87722;
-      margin-top: 20px;
+      margin-top: 25px;
       width: 100%;
       background: none;
-      font-size: 11px;
-      padding-left: 5px; }
+      font-size: 14px;
+      padding-left: 5px;
+      font-weight: 700; }
   #pv_calculator #mobile-form #div_mobile_promotion_code {
     background: white;
     border: none; }
@@ -374,18 +406,20 @@ body {
       right: 1%;
       bottom: 10%; }
   #pv_calculator #mobile-form #FirstYear {
+    font-size: 14px;
     padding-left: 0 !important; }
     #pv_calculator #mobile-form #FirstYear #price {
       font-size: 1.2em !important;
       font-weight: 700; }
   #pv_calculator #mobile-form .btn {
-    padding: 5px 10px !important;
-    font-size: 1em; }
+    padding: 5px 10px !important; }
 
 #plan-details-sample-and-faq {
   max-width: 1000px; }
   #plan-details-sample-and-faq .panel {
     margin-bottom: 15px; }
+  #plan-details-sample-and-faq ul, #plan-details-sample-and-faq ol {
+    font-size: 16px; }
 
 #pv_claims {
   background: #ececec;
@@ -457,7 +491,15 @@ body {
     text-align: center; }
 
 #pv_feature {
-  padding-top: 15px; }
+  padding-top: 15px;
+  padding-bottom: 30px; }
+  #pv_feature h2 {
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  #pv_feature p {
+    padding-top: 0px;
+    padding-bottom: 30px;
+    font-size: 16px; }
   #pv_feature .container {
     max-width: 1020px; }
   #pv_feature .panel-group {
@@ -470,9 +512,11 @@ body {
         padding: 0px; }
       #pv_feature .panel-group .panel .panel-body {
         padding: 20px 0 5px 0; }
+        #pv_feature .panel-group .panel .panel-body ul {
+          font-size: 18px; }
   #pv_feature img {
-    max-width: 50px;
-    min-width: 50px; }
+    max-width: 100px;
+    min-width: 100px; }
   #pv_feature .hidden-xs {
     text-align: right; }
 
@@ -485,6 +529,14 @@ body {
   background: #ececec;
   padding-top: 50px;
   padding-bottom: 20px; }
+  #pv_schedule .darkgray-divide {
+    width: 100%;
+    height: 1px;
+    background: darkgrey;
+    margin: 0 auto; }
+  #pv_schedule .text-right {
+    padding-left: 0;
+    padding-right: 0; }
   #pv_schedule #collapseDeath {
     width: 100%; }
   #pv_schedule h2 {
@@ -546,12 +598,14 @@ body {
     padding-left: 0;
     padding-right: 0; } }
 @media (max-width: 768px) {
+  body {
+    font-size: 12px; }
+
   .div-box {
     padding-left: 5px !important;
-    font-size: 0.8em;
     margin-right: 0px; }
     .div-box input, .div-box select {
-      font-size: 11px; }
+      font-size: 14px; }
 
   #mobile-form #btn_cal_apply_mobile {
     padding-left: 0;
@@ -561,11 +615,11 @@ body {
 
   .dlProductBrochure {
     padding: 0 8px !important;
-    font-size: 0.8em; }
+    font-size: 14px; }
 
   #pv_feature .panel-heading .glyphicon {
     right: 15px;
-    top: 15px; }
+    top: 42px; }
   #pv_feature .panel-body {
     padding: 20px 0 0 0; }
     #pv_feature .panel-body .row {
@@ -637,7 +691,8 @@ body {
       #pv_feature .panel-body .row .displayTableCell {
         display: table-cell !important;
         vertical-align: middle;
-        float: none; }
+        float: none;
+        padding-left: 0; }
   #pv_feature .container {
     padding-left: 0;
     padding-right: 0; }
@@ -711,7 +766,7 @@ body {
   #mobile-form select {
     padding-left: 0 !important;
     padding-right: 0 !important; }
-  #mobile-form #plan-dob-datepicker {
+  #mobile-form #plan-dob-datepicker-for-mobile {
     padding-left: 0 !important; }
 
   /* #div-sticky{

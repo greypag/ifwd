@@ -5,14 +5,33 @@ $(document).ready(function(){
 		var that = this;
 		setTimeout(function (){$(that).parent('li').removeClass('active');}, 300);
 	});
+	function qs(key) {
+	    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+	    var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+	    return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+	}
+	function initData(){
+		if (qs('gender') != null && qs('smoke') != null && qs('dob') != null ){
+			console.log('gender,smoke,dob not null');
+			$('.type-of-gender').val(qs('gender'));
+			$('.type-of-habit').val(qs('smoke'));
+			$('.mobiscroll-datepicker').val(qs('dob'));
+			$('#plan-dob-datepicker-for-mobile').text(qs('dob'));
+			
+		}
+		$('.promotion_code_input').val(qs('referralCode'));
+		callAjaxOnChange();
+	}
+	initData();
+	
 		
 	function initDatePicker(){	
 		var current_date = new Date();
 		var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
 		var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
 		
-		var dob_start_date = new Date((new Date()).setYear((new Date()).getFullYear() - 101));
-		var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 1));
+		var dob_start_date = new Date((new Date()).setYear((new Date()).getFullYear() - 70));
+		var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 18));
 		//var dob_end_date = new Date((new Date()).setYear((new Date()).getFullYear() - 1));		
 		$('.mobiscroll-datepicker').mobiscroll().calendar({
 			controls: ['date'],
@@ -78,22 +97,13 @@ $(document).ready(function(){
 		$('#quoteModal').modal('hide')
 	});
 	
-	/*var test = $("#pv_feature").offset().top;
-	$(window).scroll(function(){
-		setTimeout(function(){
-			if($(window).scrollTop() > test){
-			   $('#div-sticky').fadeIn();
-			}
-			else{
-				$('#div-sticky').fadeOut();
-			}
-			},300);
-	});*/
+	
+	
 	
 	$('#pv_calculator').bind('inview', function (event, visible, topOrBottomOrBoth) {
 		  if (visible == true) {
 			  //$('#sticky-control').removeClass("active");
-			  $('#sticky-control').fadeOut();
+			  $('#sticky-control').hide();
 			  console.log("yes");
 		    if (topOrBottomOrBoth == 'top') {
 		      // top part of element is visible
@@ -104,7 +114,7 @@ $(document).ready(function(){
 		    }
 		  } else {
 			  //$('#div-sticky').addClass("active");
-			  $('#sticky-control').fadeIn();
+			  $('#sticky-control').show();
 			  console.log("no");
 		  }
 		});
@@ -143,31 +153,48 @@ $(document).ready(function(){
 		
 
 
-
 function toggleContactUs(){
 	$('#contactUsModal').modal('show');
 }
-
+function checkAge(){
+	if ($(".mobiscroll-datepicker").val()==""){
+	    return false;
+	}
+	var Dobs = new Array()
+	Dobs = $(".mobiscroll-datepicker").val().split("-");
+	var Dobs1 = new Date(Dobs[0],Dobs[1]-1 ,Dobs[2], 0, 0, 0, 0);
+	console.log("dob :" + Dobs1);
+	var DobDate = new Date(Dobs1);
+	console.log("DobDate : " + DobDate);
+	var today = new Date();
+	console.log("today :" + today);
+	var difference = Math.abs(today - DobDate);
+	console.log("difference1 : " + difference);
+	difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
+	console.log("difference2 : " + difference);
+	if (difference > 55 && difference < 71 || difference == 18){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
 function callAjaxOnChange(){
 	if($('.type-of-gender').val()!=null && $('.type-of-habit').val()!=null && $(".mobiscroll-datepicker").val()!=""){
-		$(".mobiscroll-datepicker").val();
-		var Dobs = new Array()
-		Dobs = $(".mobiscroll-datepicker").val().split("-");
-		var Dobs1 = new Date(Dobs[0],Dobs[1]-1 ,Dobs[2], 0, 0, 0, 0);
-		console.log("dob :" + Dobs1);
-		
-		var DobDate = new Date(Dobs1);
-		console.log("DobDate : " + DobDate);
-		var today = new Date();
-		console.log("today :" + today);
-		var difference = Math.abs(today - DobDate);
-		console.log("difference1 : " + difference);
-		difference = Math.floor((difference + 1000 * 3600 * 24) / (1000 * 3600 * 24 * 365.25)); 
-		console.log("difference2 : " + difference);
-		
-		console.log("AJAX!");
-		$('.waitingDiv').fadeIn(200);
-		setTimeout(callAjax,500);
+		var boolean = checkAge();
+		if (boolean){
+			$('#contactUsModal').modal('show');
+			$('.btn_apply').attr('disabled',true);
+		}
+		else{
+			$('.btn_apply').attr('disabled',false);
+			console.log("AJAX!");
+			$('.waitingDiv').fadeIn(200);
+			setTimeout(callAjax,500);
+		}
+	}
+	else{
+		$('.btn_apply').attr('disabled',true);
 	}
 }
 
@@ -218,6 +245,7 @@ function callAjax(){
 	    }
 	});
 }
+
 
 function onClosed(valueText,inst){
 	if(inst == "cancel" && $(this).val() == ""){
