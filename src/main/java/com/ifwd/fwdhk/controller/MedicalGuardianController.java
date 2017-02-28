@@ -170,6 +170,9 @@ public class MedicalGuardianController extends BaseController {
 				EasyHealthPlanDetailBean planDetail =  new  EasyHealthPlanDetailBean(cplanDetail);
 				httpSession.setAttribute("ehPlanDetail", planDetail);
 				httpSession.setAttribute("selectPlan", selectPlan);
+				
+				logger.debug("--selectPlanUnderWriting-- dob:"+selectPlan.getDob()+" gender:"+selectPlan.getGender());
+				logger.debug("--planDetailUnderWriting-- dob:"+planDetail.getDob()+" gender:"+planDetail.getGender()+ " smoke:"+planDetail.getSmoker());
 		
 		    } catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -194,7 +197,16 @@ public class MedicalGuardianController extends BaseController {
 	@RequestMapping(value = {"/{lang}/medical-insurance/cansurance-fatca"})
 	public ModelAndView getSavieOnlineLifeFatca(Model model, HttpServletRequest request, HttpSession httpSession) {
 		String underwritingYes = (String) request.getSession().getAttribute("underwritingYes");
+		EasyHealthPremiumSelectPlan selectPlan=(EasyHealthPremiumSelectPlan) request.getSession().getAttribute("selectPlan");
+		EasyHealthPlanDetailBean planDetail = (EasyHealthPlanDetailBean) request.getSession().getAttribute("ehPlanDetail");
+		
+		logger.debug("--selectPlanFATCA-- dob:"+selectPlan.getDob()+" gender:"+selectPlan.getGender());
+		logger.debug("--planDetailFATCA-- dob:"+planDetail.getDob()+" gender:"+planDetail.getGender()+ " smoke:"+planDetail.getSmoker());
+
 		if(underwritingYes == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
+		}
+		else if(selectPlan==null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
 		}
 		else{
@@ -230,7 +242,16 @@ public class MedicalGuardianController extends BaseController {
 	public ModelAndView getSavieOnlineLifePersonalDetails(Model model, HttpServletRequest request,HttpSession httpSession) {
 		
 		String fatcaYes = (String) request.getSession().getAttribute("fatcaYes");
+		EasyHealthPremiumSelectPlan selectPlan=(EasyHealthPremiumSelectPlan) request.getSession().getAttribute("selectPlan");
+		EasyHealthPlanDetailBean planDetail = (EasyHealthPlanDetailBean) request.getSession().getAttribute("ehPlanDetail");
+		
+		logger.debug("--selectPlanPersonalDet-- dob:"+selectPlan.getDob()+" gender:"+selectPlan.getGender());
+		logger.debug("--planDetailPersonalDet-- dob:"+planDetail.getDob()+" gender:"+planDetail.getGender()+ " smoke:"+planDetail.getSmoker());
+
 		if(fatcaYes == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
+		}
+		else if(selectPlan==null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
 		}
 		else{
@@ -443,7 +464,16 @@ public class MedicalGuardianController extends BaseController {
 	public ModelAndView getMedicalGuardianPayment(Model model, HttpServletRequest request,HttpSession session) {
 		
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+		EasyHealthPremiumSelectPlan selectPlan=(EasyHealthPremiumSelectPlan) request.getSession().getAttribute("selectPlan");
+		EasyHealthPlanDetailBean planDetail = (EasyHealthPlanDetailBean) request.getSession().getAttribute("ehPlanDetail");
+		
+		logger.debug("--selectPlanPayment-- dob:"+selectPlan.getDob()+" gender:"+selectPlan.getGender());
+		logger.debug("--planDetailPayment-- dob:"+planDetail.getDob()+" gender:"+planDetail.getGender()+ " smoke:"+planDetail.getSmoker());
+		
 		if(lifePolicy == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
+		}
+		else if(selectPlan==null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance/cansurance");
 		}
 		else{
