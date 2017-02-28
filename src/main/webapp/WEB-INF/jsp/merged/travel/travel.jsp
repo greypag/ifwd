@@ -886,16 +886,16 @@ function getParameterByUrl(name){
       <li style="clear: both;">
         <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part1" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part3" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part4" bundle="${msg}" /></p>
       </li>
-      <li>
+      <%--<li>
         <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc9.part1" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc9.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc9.part3" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc9.part4" bundle="${msg}" /></p>
-      </li>
+      </li>--%>
       <%--<li>
         <p class="h4-5"> <fmt:message key="partner.the.club.3x.period" bundle="${msg}" /></p>
       </li>--%>
-      <li>
+      <%--<li>
         <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="flight.landing.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc7.part2" bundle="${msg}" /></a><fmt:message key="travel.main.other.benefit.desc7.part3" bundle="${msg}" />
         </p>
-      </li>
+      </li>--%>
     </ul>
 	 </div>
 </div>

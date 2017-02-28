@@ -19,12 +19,16 @@ var eWalletCtr = {
 		this.tryDisplayLinkupSuccess();
 
 		this.initHashChange();
+		
+		this.initPairSuccessPopup();
 
 		// for internal testing only
 		var isShowEWalletTab = this.getQueryStringByName("showWallet");
 		if(!isShowEWalletTab || isShowEWalletTab != "1"){
 			$("#e-wallet-tab-link, .mobile-dropdown.dropdown-e-wallet").hide();
 		}
+
+		
 	},
 	tryDisplayLinkupSuccess: function (){
 		var flag = this.getQueryStringByName("statusFlag");
@@ -38,6 +42,31 @@ var eWalletCtr = {
 		} else {
 			eWalletCtr.showGenericMsg("", msgCtr.linkup.tngLinkupFail);
 		}
+	},
+	initPairSuccessPopup: function (){
+		$(".ew_popup_linkupSuccess").on('hidden.bs.modal', function (){
+			var _newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+			//take out statusFlag and append to url
+			var _qs = window.location.search.substring(1).split('&');
+			var _qi;
+			var _newQS = "";
+			for(_qi = 0; _qi < _qs.length; _qi++){
+				var _qsItem = _qs[_qi];
+				if(_qsItem == "statusFlag=true") continue;
+
+				_newQS += _newQS.length == 0 ? "?" : "&";
+				_newQS += _qsItem;
+			}
+
+			_newurl += _newQS;
+
+
+			_newurl += window.location.hash;
+
+    		window.history.pushState({path:_newurl},'',_newurl);
+
+		});
 	},
 	initHashChange: function (){
     	window.addEventListener("hashchange", function(e) {
@@ -168,6 +197,7 @@ var policyHelper = {
 
 		this.showLoading();
 		this.isLoadingApi = true;
+		logViewer.clearPolicyOption();
 
 		apiReqHelper.makeRequest({
 			link: apiLink.getPolicyListByCustomer,
@@ -185,6 +215,8 @@ var policyHelper = {
 				if(that.isAllPolicyLocked(response.policies)){
 					//eWalletCtr.showGenericMsg(msgCtr.policyList.policyAllLockedTitle, msgCtr.policyList.policyAllLocked);
 					that.errMsgDom.show().html(msgCtr.policyList.policyAllLocked);
+				}else if(response.policies.length == 0){
+					that.errMsgDom.show().html(msgCtr.policyList.policyEmpty);
 				}else{
 					that.composePolicyList(response.policies);	
 				}
@@ -208,24 +240,17 @@ var policyHelper = {
 			}
 		}
 
-		return lockedCount == policyAry.length;
+		return lockedCount > 0 && lockedCount == policyAry.length;
 	},
 	composePolicyList: function(policyAry) {
 		var that = this;
 
-		logViewer.clearPolicyOption();
+        // show msg if no mobile number
+        if(that.isInvalidMobile){
+            eWalletCtr.showGenericMsg("", msgCtr.policyList.noMobileNum);
+            return;
+        }
 
-		// show msg if no policy return
-		if(policyAry.length == 0){
-			eWalletCtr.showGenericMsg("", msgCtr.policyList.policyEmpty);
-			return;
-		}
-
-		// show msg if no mobile number
-		if(that.isInvalidMobile){
-			eWalletCtr.showGenericMsg("", msgCtr.policyList.noMobileNum);
-			return;
-		}
 
 		for (var pi = 0; pi < policyAry.length; pi++) {
 			var info = policyAry[pi];
@@ -720,15 +745,17 @@ function WithdrawClass(){
 			},
 			failFn: function(response, xhr) {
 				var msg = eWalletCtr.getApiErrorMsg("performWithdraw", xhr.status, response.code);
-				eWalletCtr.showGenericMsg("", msg);
+				
 
 				if(xhr.status != 413) {
 					that.popupDom.modal("hide");
+				}else if(response.code == "OTE005"){
+					that.resetOtpInput();
+					that.appendErrMsg(msg);
+					return;
 				}
 
-				if(xhr.status == 413 && response.code == "OTE005"){
-					that.resetOtpInput();
-				}
+				eWalletCtr.showGenericMsg("", msg);
 			},
 			doneFn: function (){
 				that.hideLoading();

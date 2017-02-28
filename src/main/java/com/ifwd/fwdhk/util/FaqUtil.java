@@ -1,15 +1,24 @@
 package com.ifwd.fwdhk.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpMethod;
+
 import com.ifwd.fwdhk.api.controller.RestServiceImpl;
+
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;;
 
 public class FaqUtil {
@@ -27,6 +36,38 @@ public class FaqUtil {
 	public FaqUtil(String url, String key){
         //_faqObject = this.getCall(url);
         //_faqArray = (JSONArray) _faqObject.get(key);
+    }
+
+    public JSONObject getJsonObjectFromFile(String path){
+
+        InputStream is = null;
+        String jsonTxt = "";
+        JSONObject jsonObj = new JSONObject();
+
+        File f = new File(path);
+        if (f.exists()){
+            try {
+				is = new FileInputStream(path);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+            
+            try {
+				jsonTxt = IOUtils.toString(is, "UTF8");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+            
+            JSONParser parser = new JSONParser();
+            
+            try {
+				jsonObj = (JSONObject) parser.parse(jsonTxt);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+        }
+
+        return jsonObj;
     }
 
     public JSONObject getJsonObject(String url){

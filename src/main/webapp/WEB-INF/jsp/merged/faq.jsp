@@ -4,7 +4,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="org.json.simple.JSONObject"%>
-<%@page import="org.json.simple.parser.JSONParser"%>
 <%@page import="java.util.Iterator"%>
 
 <%@page import="com.ifwd.fwdhk.util.FaqUtil"%>
@@ -18,36 +17,18 @@
 <fmt:setBundle basename="messages" var="msg" />
 
 <%
-JSONParser jsonParser = new JSONParser();
-//String filePath = new File("").getAbsolutePath();
-//Object rootObj = parser.parse(new FileReader("C:/wamp/www/ifwd_git/src/main/webapp/resources/json/jsontest.json"));
-//Object rootObj = parser.parse(new FileReader("http://localhost:8080/fwdhk/resources/json/jsontest.json"));
 String language = session.getAttribute("language").toString();
 String indexJsonPath = "";
 if(language!=null){
 	if(language=="en"){
-		indexJsonPath = "/fwdhk/resources/json/en/faq-index.json";
+		indexJsonPath = "/resources/json/en/faq-index.json";
 	}else{
-		indexJsonPath = "/fwdhk/resources/json/tc/faq-index.json";
+		indexJsonPath = "/resources/json/tc/faq-index.json";
 	}
 }
-	
-
-//URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
-//BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-//JSONObject rootObj = (JSONObject) jsonParser.parse(br);
-//long columnCount = (long) rootObj.get("groupCount");
-//JSONArray categories = (JSONArray) rootObj.get("categories");
-//System.out.println(columnCount);
-//for(long i=1; i<=columnCount; i++){
-//	System.out.println(i);
-//}
-//ArrayList category = (JSONArray) rootObj.get("category");
-//System.out.print(category.toString());
-//JsonArray products = parser.parse(br).getAsJsonObject();
 
 FaqUtil faqUtil = new FaqUtil();
-JSONObject faqIndexObj = faqUtil.getJsonObject("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
+JSONObject faqIndexObj = faqUtil.getJsonObjectFromFile(application.getRealPath("/") + indexJsonPath);
 long faqIndexGroup = (long) faqIndexObj.get("groupCount");
 JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 
@@ -63,13 +44,15 @@ JSONArray faqIndexCategory = (JSONArray) faqIndexObj.get("categories");
 	<!-- Breadcrumb Component Start-->
     <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
-            header.menu.home,header.menu.faq
+            breadcrumb.item.home,breadcrumb.item.faq
         </c:set>
         <c:set var="breadcrumbActive">1</c:set>
+        <c:set var="breadcrumbBold">true</c:set>
         
         <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
             <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
             <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+            <jsp:param name="breadcrumbBold" value="${breadcrumbBold}"/>
         </jsp:include>
     </div>
     <!-- Breadcrumb Component End-->

@@ -117,7 +117,7 @@ public class UserController {
 				
 				logger.info("USER_LOGIN Requset" + JsonUtils.jsonPrint(params));
 				JSONObject response = restService.consumeApi(HttpMethod.POST,
-						UserRestURIConstants.USER_LOGIN, COMMON_HEADERS,
+						UserRestURIConstants.USER_LOGIN, headerUtil.getHeader(servletRequest),
 						params);
 				logger.info("USER_LOGIN Response" + JsonUtils.jsonPrint(response));
 

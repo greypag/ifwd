@@ -25,7 +25,7 @@
 			"group": 1,
 			"products":[
 				{
-					"name":"定期壽險計劃",
+					"name":"定期壽險",
 					"link":"elite"
 				}
 			]
@@ -71,11 +71,11 @@
 					"link":"easy-home-care"
 				},
 				{
-					"name":"手機保險",
+					"name":"手機保險（3HK客戶尊享）",
 					"link":"handset"
 				},
 				{
-					"name":"手機屏幕保險",
+					"name":"手機屏幕保險（Sony客戶尊享）",
 					"link":"screen"
 				}
 			]

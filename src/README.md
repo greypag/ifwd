@@ -46,5 +46,6 @@ Branch Creation Log
 2017-02-08 - DEV Savie RP Reopen
 2017-02-08 - UAT Release branch R20170213-001 - Savie RP Reopen
 2017-02-08 - DEV Wealthree Premium Discount
+2017-02-15 - UAT Release branch release/R20170220-001 - Minor release - FAQ revamp/content update
 2017-02-15 - UAT Release branch R20170213-002 - Wealthree Premium Discount
 2017-02-17 - UAT Release branch R20170213-003 - Home contnet update

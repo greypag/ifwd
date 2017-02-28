@@ -4,7 +4,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="org.json.simple.JSONObject"%>
-<%@page import="org.json.simple.parser.JSONParser"%>
 <%@page import="java.util.Iterator"%>
 
 <%@page import="com.ifwd.fwdhk.util.FaqUtil"%>
@@ -17,49 +16,23 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%
-JSONParser jsonParser = new JSONParser();
-//String filePath = new File("").getAbsolutePath();
-//Object rootObj = parser.parse(new FileReader("C:/wamp/www/ifwd_git/src/main/webapp/resources/json/jsontest.json"));
-//Object rootObj = parser.parse(new FileReader("http://localhost:8080/fwdhk/resources/json/jsontest.json"));
+
 String language = session.getAttribute("language").toString();
 String indexJsonPath = "";
 if(language!=null){
 	if(language=="en"){
-		indexJsonPath = "/fwdhk/resources/json/en/faq-"+request.getAttribute("faqProduct")+".json";
+		indexJsonPath = "/resources/json/en/faq-"+request.getAttribute("faqProduct")+".json";
 	}else{
-		indexJsonPath = "/fwdhk/resources/json/tc/faq-"+request.getAttribute("faqProduct")+".json";
+		indexJsonPath = "/resources/json/tc/faq-"+request.getAttribute("faqProduct")+".json";
 	}
 }
-	
-
-//URL url = new URL("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
-//BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-//JSONObject rootObj = (JSONObject) jsonParser.parse(br);
-//long columnCount = (long) rootObj.get("groupCount");
-//JSONArray categories = (JSONArray) rootObj.get("categories");
-//System.out.println(columnCount);
-//for(long i=1; i<=columnCount; i++){
-//	System.out.println(i);
-//}
-//ArrayList category = (JSONArray) rootObj.get("category");
-//System.out.print(category.toString());
-//JsonArray products = parser.parse(br).getAsJsonObject();
 
 FaqUtil faqUtil = new FaqUtil();
-JSONObject faqProductObj = faqUtil.getJsonObject("http://"+request.getServerName()+":"+request.getServerPort()+indexJsonPath);
+JSONObject faqProductObj = faqUtil.getJsonObjectFromFile(application.getRealPath("/") + indexJsonPath);
 
 JSONObject faqTopicWidget = (JSONObject) faqProductObj.get("category_widget");
-
 JSONArray topicList = (JSONArray) faqTopicWidget.get("list");
-
-for(int i=0; i<topicList.size(); i++){
-	System.out.println(topicList.get(i).toString());
-}
-
-System.out.println(topicList.toString());
-
 JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
-
 
 /*for (int i=0; i < products.size(); i++) {
 	JsonObject product = products.get(i).getAsJsonObject();
@@ -71,7 +44,7 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 	<!-- Breadcrumb Component Start-->
     <div class="container container-fluid container--breadcrumb">
         <c:set var="breadcrumbItems">
-            header.menu.home,header.menu.faq
+            breadcrumb.item.home,breadcrumb.item.faq
         </c:set>
         <c:set var="breadcrumbActive">1</c:set>
         

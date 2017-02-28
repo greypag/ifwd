@@ -2,6 +2,7 @@
 <html>
 <head>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% response.setStatus(404); %>
 <script type="text/javascript">
 	window.status = "Loading: Document body...";
 </script>
@@ -90,6 +91,9 @@
         <h3 style="font-size:23px;">
             <!-- Your request page cannot be found or has been moved. -->
             <fmt:message key="erro.404.page.move" bundle="${msg}" />
+            <br>
+            <br>
+            <fmt:message key="erro.404.page.correct" bundle="${msg}" />
             <br>
             <br>
             <!-- Please call our 24-hour hotline for any assistance. -->
