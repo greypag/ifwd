@@ -316,27 +316,31 @@ var currentPath = "<%=request.getContextPath()%>";
 				   <div class="bp-divider"></div>
 				   <div id="business-partners">
 				   <div class="row">
-						  <div id="bp-7eleven" class="col-xs-12 col-md-3 text-center">
+						  <div id="bp-7eleven" class="col-xs-12 col-md-4 text-center">
 						  	<img class="seven_eleven_logo" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png">
 						  </div>
+						  <%-- 
 						  <div id="bp-agoda" class="col-xs-12 col-md-3 text-center">
  							<img class="agoda_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
 						</div>
-						<div id="bp-cx" class="col-xs-12 col-md-3 text-center">
+						--%>
+						<div id="bp-cx" class="col-xs-12 col-md-4 text-center">
 						   <img class="cx_logo">
 					   </div>
-						<div id="bp-cfucome" class="col-xs-12 col-md-3 text-center">
+						<div id="bp-cfucome" class="col-xs-12 col-md-4 text-center">
 							<img class="cfucome_logo" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png">
 						</div>					   
 					</div> <!-- end of row -->
 					<div class="row">
-						<div id="bp-csl" class="col-xs-12 col-md-3 text-center">
+						<div id="bp-csl" class="col-xs-12 col-md-4 text-center">
 							<img class="csl_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png">
 						</div>				
+						<%-- 
 						<div id="bp-klook" class="col-xs-12 col-md-3 text-center">
 							<img class="bp-klook" src="<%=request.getContextPath()%>/resources/images/KLOOK_LOGO_HK_MKT.png">
-						</div>					
-						<div id="bp-tng" class="col-xs-12 col-md-3 text-center">
+						</div>
+						--%>					
+						<div id="bp-tng" class="col-xs-12 col-md-4 text-center">
 							<img class="bp_tng" src="<%=request.getContextPath()%>/resources/images/tng.png">
 						</div>					
 						<%-- <div id="bp-sony" class="col-xs-12 col-md-3 text-center">
@@ -344,7 +348,7 @@ var currentPath = "<%=request.getContextPath()%>";
 								<img class="sony_logo" src="<%=request.getContextPath()%>/resources/images/partner_sony_logo.png">
 							</div>
 						</div> --%>
-						<div id="bp-club" class="col-xs-12 col-md-3 text-center">
+						<div id="bp-club" class="col-xs-12 col-md-4 text-center">
 							<div class="desktop-center clearfix">
 	 							<img class="club_logo" src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
 	 <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>

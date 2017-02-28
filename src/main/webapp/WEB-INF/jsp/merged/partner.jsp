@@ -121,7 +121,7 @@
 	                	<div class="clearfix"></div>
                 	</div>
 
-					<%-- Agoda --%>
+					<%-- Agoda 
 					<hr class="partner_hr"/>
                     <div id="agoda_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="agoda">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
@@ -164,7 +164,7 @@
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-
+					--%>
 					<%-- Cathay Pacific --%>
 					<hr class="partner_hr"/>
                     <div id="cathay_pacific_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="cathay_pacific">
@@ -317,7 +317,7 @@
 	                	<div class="clearfix"></div>
                 	</div>
 
-                	<%-- KLOOK --%>
+                	<%-- KLOOK
                 	<hr class="partner_hr"/>
                     <div id="klook" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="klook">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
@@ -353,13 +353,13 @@
 	                                    </ul>
 	                                </div>
 	                            </div>
-	                            <%-- <div class="partner_link"> --%>
-	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
-	                            <%-- </div> --%>
+	                            <% /* <div class="partner_link"> */%>
+	                            <% /*     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> */%>
+	                            <% /* </div> */%>
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-
+					 --%>
 					<%-- Sony --%>
                 	<%--<hr class="partner_hr"/>
                      <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
