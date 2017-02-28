@@ -583,7 +583,7 @@ public class MedicalGuardianController extends BaseController {
 			}
 			model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
 			model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
-			return SavieOnlinePageFlowControl.pageFlow("medical-insurance/cansurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
+			return MedicalGuardianPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_MEDICALGUARDIAN_UPLOAD_CONFIRMATION);
 		}
 	}
 	

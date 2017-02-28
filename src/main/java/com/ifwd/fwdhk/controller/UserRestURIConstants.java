@@ -538,6 +538,7 @@ public class UserRestURIConstants {
 	public static final String URL_MEDICAL_GUARDIAN_PAYMENT = "payment";
 	public static final String URL_MEDICAL_GUARDIAN_DOCUMENT_UPLOAD = "document-upload";
 	public static final String URL_MEDICAL_GUARDIAN_CONFIRMATION = "confirmation";
+	public static final String URL_MEDICAL_GUARDIAN_DOCUMENT_UPLOAD_LATER = "cansurance-confirmation-upload-later";
 	
 	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN = "medicalguardian.landing";
 	public static final String PAGE_PROPERTIES_MEDICALGUARDIAN_PLAN_OPTION = "medicalguardian.plan.option";

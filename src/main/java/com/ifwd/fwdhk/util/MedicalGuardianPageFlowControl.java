@@ -129,6 +129,13 @@ public class MedicalGuardianPageFlowControl {
 			to2 = UserRestURIConstants.URL_MEDICAL_GUARDIAN_CONFIRMATION;
 			break;
 		
+		case UserRestURIConstants.URL_MEDICAL_GUARDIAN_DOCUMENT_UPLOAD_LATER: 
+			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_CONFIRMATION;
+			to2 = UserRestURIConstants.URL_MEDICAL_GUARDIAN_CONFIRMATION;
+			filePath="savie/";
+			current="confirmation";
+			break;	
+		
 		case UserRestURIConstants.URL_MEDICAL_GUARDIAN_DECLARATION: 
 			to = UserRestURIConstants.URL_MEDICAL_GUARDIAN_SIGNATURE;
 			to2 = UserRestURIConstants.URL_MEDICAL_GUARDIAN_SIGNATURE;
@@ -188,6 +195,9 @@ public class MedicalGuardianPageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_DOCUMENT_UPLOAD)) {
 			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_DOCUMENT_UPLOAD;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_MEDICAL_GUARDIAN_DOCUMENT_UPLOAD_LATER)) {
+			return UserRestURIConstants.URL_MEDICAL_GUARDIAN_DOCUMENT_UPLOAD_LATER;
 		}
 		return "";
 		
