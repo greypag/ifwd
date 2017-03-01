@@ -109,7 +109,9 @@ $(document).ready(function () {
         
         $('#policy-datepicker').val(dob_end_date.getDate() + '-' + (dob_end_date.getMonth() + 1) + '-' + dob_end_date.getFullYear());
 
-        $('.policy-end-date').html((dob_end_date.getDate()-1) + '-' + (dob_end_date.getMonth() + 1) + '-' + (dob_end_date.getFullYear()+1));
+        var _policyEndDate = getPolicyEndDate(now);
+        var _policyEndDateDisplay = getPolicyDateDisplay(_policyEndDate);
+        $('.policy-end-date').text(_policyEndDateDisplay);
 		
         $('#policy-datepicker').mobiscroll().calendar({
             controls: ['date'],
@@ -121,11 +123,9 @@ $(document).ready(function () {
             onSelect: function (dateText, inst) {
                 // Update start date and start label
                 var policyDate = inst.getDate();
-                var day = policyDate.getDate()-1,
-                    month = policyDate.getMonth()+1,
-                    year = policyDate.getFullYear()+1;
-                var oneYear = day + "-" + month + "-" + year; 
-                $('.policy-end-date').html(oneYear);
+                var _policyEndDate = getPolicyEndDate(policyDate);
+                var _policyEndDateDisplay = getPolicyDateDisplay(_policyEndDate);
+                $('.policy-end-date').text(_policyEndDateDisplay);
             },
             theme: "mobiscroll",     // Specify theme like: theme: 'ios' or omit setting to use default 
             mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
@@ -153,3 +153,17 @@ $(document).ready(function () {
         }
 
     });
+
+function getPolicyEndDate(startDate){
+
+    //One year less one day
+    var day = startDate.getDate()-1,
+        month = startDate.getMonth(),
+        year = startDate.getFullYear()+1;
+
+    return new Date(year, month, day);    
+}
+
+function getPolicyDateDisplay(dateToDisplay){
+    return dateToDisplay.getDate() + "-" + (dateToDisplay.getMonth()+1) + "-" + dateToDisplay.getFullYear(); 
+}
