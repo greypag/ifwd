@@ -437,98 +437,7 @@ var nextPage = "${nextPageFlow}";
 	                        </div>
 	                    </div>
 	                </div>
-	                <div class="added-driver hidden" id="driver5">  
-	                    <div class="container">
-	                        <div class="row">
-	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-	                                <a href="" class="removeDriver pull-right"><small><i class="fa fa-times" aria-hidden="true"></i>&nbsp;<fmt:message key="motor.label.remove" bundle="${motorMsg}" /></small></a>
-	                                <div class="center" > 
-	                                    <!--desktop-->
-	                                    <h1 class="landing_h2 hidden-sm hidden-xs"><fmt:message key="motor.policydetails.driver.5.title" bundle="${motorMsg}" /></h1>
-	                                    <!--end-desktop--> 
-	                                    <!--Mobile-->
-	                                    <h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="motor.policydetails.driver.5.title" bundle="${motorMsg}" /></h1>
-	                                    <!--end mobile--> 
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="container">
-	                        <div class="row">
-	                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-	                                <div class="row">
-	                                    <div class="col-sm-6">
-	                                        <div class="form-group">
-	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	                                                <div class="help-block-wrap">
-	                                                    <input type="text" name="d5name" maxlength="100" class="form-control input--grey mdl-textfield__input" pattern="^[a-zA-Z\s]+$" data-required-error='<fmt:message key="motor.error.msg.policy.fullname.empty" bundle="${motorMsg}" />' data-error='<fmt:message key="motor.error.msg.policy.driver.name.format" bundle="${motorMsg}" />' >
-	                                                    <label class="mdl-textfield__label" ><fmt:message key="motor.policydetails.driver.name" bundle="${motorMsg}" /></label>
-	                                                    <div class="help-block with-errors"></div>
-	                                                </div>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-sm-6">
-	                                        <div class="form-group">
-	                                            <div class="help-block-wrap">
-	                                                <select class="form-control selectized" name="d5occupation" id="d5occupation" data-required-error='<fmt:message key="motor.error.msg.policy.occupation.empty" bundle="${motorMsg}" />' >
-	                                                    <option value="" disabled selected hidden><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></option>
-	                                                </select>
-	                                                <label class="mdl-textfield__label label-d5occupation hidden" for="d5occupation" ><fmt:message key="motor.policydetails.driver.occupation" bundle="${motorMsg}" /></label>
-	                                                <div class="help-block with-errors"></div>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="clearfix"></div>
-	                                    <div class="col-sm-6">
-	                                        <div class="form-group">
-	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	                                                <div class="help-block-wrap calendar"> 
-                                                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
-	                                                    <input type="text" name="d5dob" id="d5dob" class="driverDob-dp form-control input--grey mdl-textfield__input" data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />'>
-	                                                    <span style="display:none"><input type="text" id="d5dob-hidden"  data-required-error='<fmt:message key="motor.error.msg.policy.dob.empty" bundle="${motorMsg}" />' /></span>
-	                                                   
-	                                                    <label class="mdl-textfield__label" for="driverDob"><fmt:message key="motor.policydetails.driver.birthdate" bundle="${motorMsg}" /></label>
-	                                                    </div>
-	                                                    <div class="help-block with-errors"></div>
-	                                                </div>
-	                                            
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-sm-6">
-	                                        <div class="form-group">
-	                                            <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-	                                                <div class="help-block-wrap">
-	                                                     <input type="text" data-hkid-equals='<fmt:message key="motor.error.msg.policy.id.repeated" bundle="${motorMsg}" />' style="text-transform:uppercase" id="d5id"  name="d5id" data-equals='<fmt:message key="motor.error.msg.carowner.id.format" bundle="${motorMsg}" />' class="form-control input--grey mdl-textfield__input" id="driverID" data-required-error='<fmt:message key="motor.error.msg.carowner.id.empty" bundle="${motorMsg}" />' >
-	                                               <label class="mdl-textfield__label" for="driverID"><fmt:message key="motor.policydetails.driver.hkid" bundle="${motorMsg}" /></label>
-	                                                    <div class="help-block with-errors"></div>
-	                                                </div>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="clearfix"></div>
-	                                    <div class="col-xs-12" style="padding-left: 40px;">
-	                                        <div class="custom-checkbox">
-	                                            <div class="checkbox">
-	                                                <div class="form-group">
-	                                                    <div class="help-block-wrap">
-	                                                    <input type="checkbox" id="d5term" name="d5term" value="true" data-required-error='<fmt:message key="motor.error.msg.policy.driver.exp.format" bundle="${motorMsg}" />' >
-	                                                        <label><small>
-	                                                                <fmt:message key="motor.policydetails.driver.validlicense" bundle="${motorMsg}" /></small>
-	                                                        </label>
-	                                                        <div class="help-block with-errors"></div>
-	                                                    </div>
-	                                                </div>
-	                                                <br/>
-	                                                <br/>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
+	                
 	                <div class="container">
 	                    <div class="row">
 	                        <div class="col-xs-12 text-center">
@@ -1064,14 +973,6 @@ function SaveAndExit()
 					 "name": $('input[name=d4name]').val(),		
 					 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
 					 "validAgeGroup":  $('input[name=d4term]').val()			
-				   }, 		
-				   {		
-					 "dateOfBirth": $('input[name=d5dob]').val(),		
-					 "driveMoreThanTwo": $('input[name=d5term]').val()	,		
-					 "hkid": $('input[name=d5id]').val(),		
-					 "name": $('input[name=d5name]').val(),		
-					 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		
-					 "validAgeGroup": $('input[name=d5term]').val()		
 				   }		
 				   ], 		
 				     "nameOfPreviousInusrancer": $('[name=prev_ic]').val(),		
@@ -1086,10 +987,6 @@ function SaveAndExit()
 				delete submitData.driver[2]
 			if($('input[name=d4name]').val()=="")
 				delete submitData.driver[3]
-			if($('input[name=d5name]').val()=="")
-				delete submitData.driver[4]
-		
-			console.dir(submitData);
 		
 			submitData.driver = submitData.driver.filter(function(x){return x !== null});
 			$.ajax({
@@ -1159,7 +1056,7 @@ $(document).ready(function(){
 			    if(!IsHKID($el.val())){
 			    	return $el.data("equals");
 			    }
-			    for(var i =1; i<6; i++){  //total driver
+			    for(var i =1; i<=4; i++){  //total driver
 			    	var tempIDVal ="";
 			    	if(i==1)
 			    		tempIDVal = $('#driverID').val(); 
@@ -1187,15 +1084,11 @@ $(document).ready(function(){
 	$("#d4dob").change(function(){
 		$("#d4dob-hidden").prop('required',false);
 	});
-	$("#d5dob").change(function(){
-		$("#d5dob-hidden").prop('required',false);
-	});
 	
 	var term = $('#term');
 	var d2term = $('#d2term');
 	var d3term = $('#d3term');
 	var d4term = $('#d4term');
-	var d5term = $('#d5term');
 	var totalDriver = $('.added-driver').length;
 	var current = 0;
 
@@ -1267,19 +1160,7 @@ $(document).ready(function(){
 		    $('#driver4').find('input').prop('required',true);
 		    $('#driver4').find('.selectize-input > input').prop('required',false);
 	    }
-	    
-	    if(quote.driver.length > 4){
-	    	current =4;
-	    	$('#driver5').removeClass('hidden');
-			$('input[name=d5dob]').val(quote.driver[4].dateOfBirth);
-			$('#d5dob-hidden').val(quote.driver[4].dateOfBirth);
-			$('input[name=d5id]').val(quote.driver[4].hkid);		
-			$('input[name=d5name]').val(quote.driver[4].name);
-			$('input[name=d5term]').attr("checked",quote.driver[4].validAgeGroup);
-			$('#driver5').find('select').prop('required',true);
-		    $('#driver5').find('input').prop('required',true);
-		    $('#driver5').find('.selectize-input > input').prop('required',false);
-	    }
+
 		//$('input[name=prev_ic]').val(quote.nameOfPreviousInusrancer);
 		$('input[name=prev_regNo]').val(quote.regNoofPreviousPolicy);		
 	    $('input[name=expiry-datepicker]').val(quote.expDateOfPreviousInsurance);	
@@ -1567,52 +1448,7 @@ $(document).ready(function(){
         	$("#d4occupation-selectized").prop('required',false);
         }
     });
-	$motor_d5occupation = $('#d5occupation').selectize({
-        valueField: 'code',
-        labelField: 'desc',
-        searchField: 'desc',
-        create: false,
-        preload: true,
-        load: function(query, callback) {
-            $('#d5occupation-selectized').data('required-error', $('#d5occupation').data('required-error'));
-            $.ajax({
-                url: context + '/api/iMotor/list/occupations/v2',
-                type: 'GET',
-                dataType: 'json',
-                error: function() {
-                        callback();
-                    },
-                    success: function(res) {
-                    	console.dir(res);
-						var newres= new Array();
-                    	var total = res.length;
-                    	$.each(res, function(i, item) {
-                    		if(item.lang==motorlanguage) 
-                    		newres.push(res[i]);
-                    	});
-						console.dir(newres);
-                              callback(newres);  
-                              //if(item.desc == quote.driver[4].occupation)
-      						  if(quote.driver.length > 4)
-      					      {
-      							$motor_d5occupation[0].selectize.setValue(quote.driver[4].occupation);	
-      					      }
-      								
-                    }
-            });
-        },
-        onChange: function(value){
-        	$(".label-d5occupation").removeClass("hidden");
-			$(".label-d5occupation").css({
-				"font-size": "12px",
-				"top": "2px",
-				"left":"16px",
-				"visibility": "visible",
-				"z-index": "100"
-				});
-        	$("#d5occupation-selectized").prop('required',false);
-        }
-    });
+	
 	 if (current == totalDriver) {
 		 $('#addDriver').addClass('hidden');
      }
@@ -1629,7 +1465,7 @@ $(document).ready(function(){
 				$('.added-driver').eq(current).find('input').val(''); 
 			
 				
-	            if(current > 0){
+	            if(current > 1){
 	                $('.added-driver').eq(current-1).find('.removeDriver').addClass('hidden');
 	            }
 	            current += 1;
@@ -1639,9 +1475,7 @@ $(document).ready(function(){
 				if(current == 2)
 					$("#d3occupation-selectized,#d3dob-hidden").prop('required',true);
 				if(current == 3)
-					$("#d4occupation-selectized,#d4dob-hidden").prop('required',true);
-				if(current == 4)
-					$("#d5occupation-selectized,#d5dob-hidden").prop('required',true);
+					$("#d4occupation-selectized,#d4dob-hidden").prop('required',true);				
 				
 	            if (current == totalDriver) {
 	                $(this).addClass('hidden');
@@ -1674,11 +1508,6 @@ $(document).ready(function(){
 			{
 				$motor_d4occupation[0].selectize.clear();
 				$("#d4occupation-selectized,#d4dob-hidden").prop('required',false);
-			}
-			if(current == 4)
-			{
-				$motor_d5occupation[0].selectize.clear();
-				$("#d5occupation-selectized,#d5dob-hidden").prop('required',false);
 			}
 			
 	        $(this).parents('.added-driver').addClass('hidden');
@@ -1867,14 +1696,6 @@ $(document).ready(function(){
 					 "name": $('input[name=d4name]').val(),		
 					 "occupation": $('[name="d4occupation"]').val(),//$("#d4occupation option:selected").text(),		
 					 "validAgeGroup":  $('input[name=d4term]').val().toLowerCase()			
-				   }, 		
-				   {		
-					 "dateOfBirth": $('input[name=d5dob]').val(),		
-					 "driveMoreThanTwo": $('input[name=d5term]').val().toLowerCase(),		
-					 "hkid": $('input[name=d5id]').val(),		
-					 "name": $('input[name=d5name]').val(),		
-					 "occupation": $('[name="d5occupation"]').val(),//$("#d5occupation option:selected").text(),		
-					 "validAgeGroup": $('input[name=d5term]').val().toLowerCase()	
 				   }		
 				   ], 		
 				     "nameOfPreviousInusrancer": $('[name=prev_ic]').val(),		
@@ -1889,8 +1710,6 @@ $(document).ready(function(){
 				delete submitData.driver[2]
 			if($('input[name=d4name]').val()=="")
 				delete submitData.driver[3]
-			if($('input[name=d5name]').val()=="")
-				delete submitData.driver[4]
 		
 			console.dir(submitData);
 		
