@@ -1614,7 +1614,7 @@ var nextPage = "${nextPageFlow}";
 <script type="text/javascript" charset="utf-8"
 	src="<%=request.getContextPath()%>/resources/js/motor/validator.min.js"></script>
 <script type="text/javascript" charset="utf-8"
-	src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator.min.js"></script>
 <script type="text/javascript" charset="utf-8"
 	src="<%=request.getContextPath()%>/resources/js/motor/bootstrap-switch.min.js"></script>
 <script type="text/javascript" charset="utf-8"

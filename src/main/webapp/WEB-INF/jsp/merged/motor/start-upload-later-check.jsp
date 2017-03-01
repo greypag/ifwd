@@ -16,7 +16,7 @@ var nextPage = "${nextPageFlow}";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/js/motor/basic.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" type="text/css">
 <script src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.bootstrap.min.js"></script>
 
 <section id="" class="motor-confirmation motor-upload">
 	<!-- Breadcrumb Component Start-->

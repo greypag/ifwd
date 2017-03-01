@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.mCustomScrollbar.min.css">
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/ZeroClipboard.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.i18n.properties-min-1.0.9.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-decorators.js"></script>
 
 <%

@@ -860,9 +860,9 @@ function setDropArea(id) {
 
 </section>
 <!--<link href="<%=request.getContextPath()%>/resources/css/easy-autocomplete.min.css" rel="stylesheet">-->
-<!--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easy-autocomplete.min.js"></script>-->
+<!--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.easy-autocomplete.min.js"></script>-->
 <link href="<%=request.getContextPath()%>/resources/css/awesomplete.css" rel="stylesheet">
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/awesomplete.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/awesomplete.min.js"></script>
 <script>
 var selectedPlanName = $('#selectedPlanName').val();
 console.log(selectedPlanName);
@@ -911,5 +911,5 @@ var awesompleteTest = new Awesomplete(countryInput,options);
 //$("#countryOfInstitution").easyAutocomplete(options);
 </script>
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/moment.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>

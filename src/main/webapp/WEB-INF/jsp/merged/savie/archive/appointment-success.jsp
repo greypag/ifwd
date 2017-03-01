@@ -28,5 +28,5 @@ var affiliate = "${affiliate}";
 			Perferred time : ${preferred_time}
 		</div>
 </div>
-<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>

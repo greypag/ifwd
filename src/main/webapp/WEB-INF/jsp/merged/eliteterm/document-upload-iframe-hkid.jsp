@@ -80,8 +80,8 @@ var languageP = "${language}";
 			
 		</div>
 		<!-- JS INCLUDES -->
-		<script src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 
 

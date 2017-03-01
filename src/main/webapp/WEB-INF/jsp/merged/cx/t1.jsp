@@ -24,7 +24,7 @@
 <meta property="og:image" content="og  image" />
 <meta property="og:description" content="og description" />
 <script
-	src="../resources/js/jquery.min.js"></script>
+	src="../resources/js/vendor/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {        
 		//$("#submit").on('click', function() {

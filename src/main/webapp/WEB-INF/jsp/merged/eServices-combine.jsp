@@ -686,7 +686,7 @@
                 </div>
             </div>       
         </div>
-        <script src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/vendor/ZeroClipboard.js"></script>
         <script type="text/javascript">
             $('#eServices-sidebar-mp a[data-toggle="tab"]').on('show.bs.tab', function(e) {
                 var $self = $(this);

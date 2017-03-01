@@ -147,41 +147,41 @@ $('#timeout-btn').on('click', function(e) {
 });
 
 </script>
-<%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
+<%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/html5shiv.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/wow.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>  
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/numeral.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script> --%>
 
-<%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script> --%>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+<%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/ZeroClipboard.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.i18n.properties-min-1.0.9.js"></script> --%>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/wow.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>  
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/numeral.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.placeholder.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/savie-online.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/savie-2016/material.min.js"></script>

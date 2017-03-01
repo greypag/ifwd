@@ -858,14 +858,14 @@ var home_url = "<%=request.getContextPath()%>";
 
 		<!-- JS INCLUDES -->
 
-		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/jasny-bootstrap.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 		<!--script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script-->
 		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/placeholders.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.timepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie-discount.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie-ocean-park.js"></script>
 

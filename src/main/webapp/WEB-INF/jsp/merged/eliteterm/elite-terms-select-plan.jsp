@@ -4115,7 +4115,7 @@ var home_url = "<%=request.getContextPath()%>";
 <script
 	src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/jquery.i18n.properties-min-1.0.9.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-validation.js"></script>
 
@@ -4124,7 +4124,7 @@ var home_url = "<%=request.getContextPath()%>";
 <script
 	src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.timepicker.min.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 
 

@@ -7,13 +7,13 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js"></script>
-<!--script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.js"></script-->
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.custom-2.17.2.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.i18n.en_fwd.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.i18n.zh_fwd.js"></script>
+<!--script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator.js"></script-->
 <!-- bootstrap for formValidation -->
 <script src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/formValidation.bootstrap.min.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/formValidation.min.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" type="text/css">
 

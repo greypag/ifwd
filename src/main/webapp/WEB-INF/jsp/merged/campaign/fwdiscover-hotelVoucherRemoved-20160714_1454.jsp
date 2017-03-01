@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/slick.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/slick-theme.css"/>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/slick.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/slick.min.js"></script>
         <div class="fwd-savie-wrapper fwdiscover-wrapper">
             <!--Top Header-->
             <div class="page-fwdiscover">

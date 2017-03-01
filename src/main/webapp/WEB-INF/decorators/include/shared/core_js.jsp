@@ -4,8 +4,8 @@
 	**********/
 %>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/html5shiv.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-decorators.js"></script>
 
 <!--[if IE]>
