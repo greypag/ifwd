@@ -155,16 +155,6 @@ var home_url = "<%=request.getContextPath()%>";
 											<div class="mdl-select">
 												<select id="epYear" name="epYear">
 													<option value="" disabled selected></option>
-													<option value="2016">2016</option>
-													<option value="2017">2017</option>
-													<option value="2018">2018</option>
-													<option value="2019">2019</option>
-													<option value="2020">2020</option>
-													<option value="2021">2021</option>
-													<option value="2022">2022</option>
-													<option value="2023">2023</option>
-													<option value="2024">2024</option>
-													<option value="2025">2025</option>
 												</select>
 												<label class="mdl-textfield__label" for="epYear"><fmt:message key="payment.card.expiry.year" bundle="${msg}" /></label>
 
@@ -259,8 +249,16 @@ var home_url = "<%=request.getContextPath()%>";
 </div>
 
 <script>
-
+function selectYearRange(range, elementSelector){
+	var currYear = new Date().getFullYear();
+	var selectValue;
+	for (var i=0; i<range; i++){
+		selectValue = currYear + i;
+		$(elementSelector).append('<option value="'+selectValue+'">'+selectValue+'</option>');
+	}
+}
 $(document).ready(function() {
+	selectYearRange(10,'#epYear');
     $('#ccNumber').keyup(function() {
         var replaceSpace = $(this).val(); 
         var result = replaceSpace.replace(/\s/g,'');
