@@ -12685,7 +12685,7 @@ button[disabled].btn.btn-default--vc {
 		width: 15%;
 	}
 	#business-partners-container img.csl_logo {
-		margin-top: 30px;
+		margin-top: 20px;
 	}
 	#business-partners-container img.sony_logo {
 		margin-top: 45px;
@@ -12829,7 +12829,7 @@ button[disabled].btn.btn-default--vc {
 		max-width: 240px;
 		width: 80%;
 		height: 80%;
-	}	
+	}
 }
 
 .img_1111{
@@ -12944,4 +12944,12 @@ button[disabled].btn.btn-default--vc {
 .fwd-savie-wrapper .loginpopup .login_is_fwdmember_label .left-space,
 .loginpopup .login_is_fwdmember_label .left-space {
   margin-left: 12px;
+}
+.threeCol-wrapper{
+	margin: 0 0 25px 5%;	
+}
+@media screen and (max-width: 991px) {
+	.threeCol-wrapper{
+		margin: 0;	
+	}
 }
