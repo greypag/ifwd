@@ -13,18 +13,36 @@
 <section id="contact-page">
 	<div class="container mob-pad" id="joinus_form">
 		<div class="row">
+			<%--
 			<ol class="breadcrumb pad-none">
 				<li><fmt:message key="header.menu.home" bundle="${msg}" /><i
 					class="fa fa-caret-right"></i></li>
 				<li><fmt:message key="home.breadcrumb1.type3" bundle="${msg}" /></li>
 				<li class="active"><i class="fa fa-caret-right"></i> <fmt:message
 						key="partner.partners.offers" bundle="${msg}" /></li>
-			</ol>
-
+			</ol> 
+			--%>
+		<!-- Breadcrumb Component Start-->
+    		<div class="container container-fluid container--breadcrumb">
+        		<c:set var="breadcrumbItems">
+            		breadcrumb.item.home,breadcrumb.item.enjoy,breadcrumb.item.offers
+        		</c:set>
+        	<c:set var="breadcrumbActive">2</c:set>
+        	<c:set var="breadcrumbBold">true</c:set>
+        
+        	<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+            	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+            	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+            	<jsp:param name="breadcrumbBold" value="${breadcrumbBold}"/>
+        	</jsp:include>
+    		</div>
+    	<!-- Breadcrumb Component End-->
+<%-- 
 			<div
 				class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_heading_title">
 				<fmt:message key="partner.partners.offers" bundle="${msg}" />
 			</div>
+--%>
 			<div
 				class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_heading">
 				<div class="h4-5">
@@ -121,7 +139,7 @@
 	                	<div class="clearfix"></div>
                 	</div>
 
-					<%-- Agoda --%>
+					<%-- Agoda 
 					<hr class="partner_hr"/>
                     <div id="agoda_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="agoda">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
@@ -164,7 +182,7 @@
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-
+					--%>
 					<%-- Cathay Pacific --%>
 					<hr class="partner_hr"/>
                     <div id="cathay_pacific_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="cathay_pacific">
@@ -331,15 +349,16 @@
                                         <li>
                                             <p class="h4-5">
                                                 <fmt:message key="partner.klook.desc1.part1" bundle="${msg}" />
-                                                <fmt:message key="partner.klook.desc1.link" bundle="${msg}" />
-                                                <fmt:message key="partner.klook.desc1.part2" bundle="${msg}" />
+                                                <%-- <fmt:message key="partner.klook.desc1.link" bundle="${msg}" />
+                                                <fmt:message key="partner.klook.desc1.part2" bundle="${msg}" /> --%>
                                             </p>
                                         </li>
                                     </ul>
                                 </div>
+                                <%--
 	                            <div class="partner_tnc">
 	                                <div class="partner_tnc_list">
-	                                    <ul class="bullets">
+	                                	<ul class="bullets">
 											<li>
 	                                            <p class="h4-5">
 	                                                <fmt:message key="partner.klook.tnc1.part1" bundle="${msg}" />
@@ -353,13 +372,14 @@
 	                                    </ul>
 	                                </div>
 	                            </div>
-	                            <%-- <div class="partner_link"> --%>
-	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
-	                            <%-- </div> --%>
+	                            --%>
+	                            <% /* <div class="partner_link"> */%>
+	                            <% /*     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> */%>
+	                            <% /* </div> */%>
                     		</div>
 	                	<div class="clearfix"></div>
                 	</div>
-
+					 
 					<%-- Sony --%>
                 	<%--<hr class="partner_hr"/>
                      <div id="sony_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="sony">
