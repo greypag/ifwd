@@ -2,6 +2,8 @@ package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -348,7 +350,13 @@ public class HomeServiceImpl implements HomeService {
 			url.append("?planCode=EasyHomeCare");
 		}
 		url.append("&referralCode=");
-		url.append(referralCode!=null?referralCode.replace(" ", ""):"");
+		try {
+			
+			url.append(referralCode!=null?URLEncoder.encode(referralCode, "UTF-8").replace("+", "%20"):"");
+		} catch (UnsupportedEncodingException e) {
+			url.append("");
+			e.printStackTrace();
+		}
 		url.append("&room&floor&block=block1&building=building1&estate=estate1&streetNo&streetName&district&area");
 		url.append("&answer1=");
 		url.append(answer1);
