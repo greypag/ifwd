@@ -55,8 +55,8 @@
 	<link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
 
 	<%-- 	<script src="<%=request.getContextPath()%>/resources/js/passkit/jquery-1.12.2.min.js"></script>
- --%>	<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+ --%>	<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/passkit/animatescroll.min.js"></script>
 <%-- 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/passkit/bootstrap-datepicker.min.js"></script>
  --%>	<script src="<%=request.getContextPath()%>/resources/js/passkit/moment-with-locales.min.js"></script>

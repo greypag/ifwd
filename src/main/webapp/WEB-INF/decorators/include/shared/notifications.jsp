@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css">
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pnotify.custom.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/pnotify.custom.min.js"></script>
 
 <script>
 function show_stack_bar_top(message) {

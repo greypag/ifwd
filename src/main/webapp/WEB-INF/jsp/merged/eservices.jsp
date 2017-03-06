@@ -1566,6 +1566,6 @@ var customerId ="<%=session.getAttribute("customerId")%>";
 <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/eWallet/ewallet.uifn.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>

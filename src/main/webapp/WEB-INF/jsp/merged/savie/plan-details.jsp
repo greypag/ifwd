@@ -1779,7 +1779,7 @@ var context = "${pageContext.request.contextPath}";
 		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 		<script type="text/javascript">
 		        $(function() {
 				$('#datePicker').datepicker({

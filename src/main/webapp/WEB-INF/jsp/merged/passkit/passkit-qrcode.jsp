@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     <title>二维码</title>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.min.js"></script>
 
     <script>
     $(document).ready(function(){

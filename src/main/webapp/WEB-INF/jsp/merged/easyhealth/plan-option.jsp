@@ -22,14 +22,14 @@ var ehPro = '${pro }';
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/style.css">
         <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
-        <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
-        <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
-        <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/nouislider.min.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/jquery-ui.effect.core.min.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/jquery.history.min.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/nouislider.8.4.0.min.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery-ui.effect.core.min.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.history.min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/uifn.js"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator-v0.5.0.min.js"></script>
         <div class="easy-health">
             <div id="bought-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog modal-sm" role="document">

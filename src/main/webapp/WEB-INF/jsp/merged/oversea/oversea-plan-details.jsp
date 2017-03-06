@@ -862,7 +862,7 @@ function setDropArea(id) {
 <!--<link href="<%=request.getContextPath()%>/resources/css/easy-autocomplete.min.css" rel="stylesheet">-->
 <!--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easy-autocomplete.min.js"></script>-->
 <link href="<%=request.getContextPath()%>/resources/css/awesomplete.css" rel="stylesheet">
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/awesomplete.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/awesomplete.min.js"></script>
 <script>
 var selectedPlanName = $('#selectedPlanName').val();
 console.log(selectedPlanName);

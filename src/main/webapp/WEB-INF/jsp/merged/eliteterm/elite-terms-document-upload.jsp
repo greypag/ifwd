@@ -456,7 +456,7 @@ var languageP = "${language}";
 			
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-dropzone.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/fwd-dropzone.js"></script>
 		<script language="javascript">
 			
 		//iframe

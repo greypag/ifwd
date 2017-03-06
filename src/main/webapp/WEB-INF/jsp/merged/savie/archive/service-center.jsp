@@ -132,11 +132,11 @@ var language = "${language}";
 			</div><!-- /.modal -->
 	</form>
 </div>
-<%-- <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<%-- <script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
 <script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 
-<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.timepicker.min.js"></script>
 
 <script>
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);

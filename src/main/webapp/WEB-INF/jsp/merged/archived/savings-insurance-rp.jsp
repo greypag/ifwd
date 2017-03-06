@@ -456,7 +456,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 <!-- JS INCLUDES -->
 <%-- <%@include file="includes/js-include.jsp" %> --%>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript">
 	var language = "en";
     $("#one-off-button").click(function(){

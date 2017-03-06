@@ -4103,46 +4103,46 @@ var home_url = "<%=request.getContextPath()%>";
 <!-- JS INCLUDES -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Include all compiled plugins (below), or include individual files as needed
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap.min.js"></script>-->
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-3.3.4.min.js"></script>-->
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-select.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-select.min.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.touchSwipe.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/jquery.touchSwipe.min.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator-v0.5.0.min.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.mousewheel.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/jquery.mousewheel.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/jquery.jscrollpane.min.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/jquery.i18n.properties-min-1.0.9.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-validation.js"></script>
 
 <script
 	src="<%=request.getContextPath()%>/resources/js/elite-term/date.format.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.timepicker.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/jquery.timepicker.min.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 
 
 <!--For Sales Illustration Page only-->
-<!--<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-slider.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery-ui-custom-ease.min.js"></script>-->
+<!--<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-slider.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery-ui-custom-ease.min.js"></script>-->
 
 
 
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-et-slider.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-et-slider.js"></script>
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/highcharts.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/highcharts.js"></script>
 <!--[if lt IE 9]>
-		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/flashcanvas.js"></script>
+		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/flashcanvas.js"></script>
 		<![endif]-->
 <script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/vendor/jSignature.min.js"></script>
 <!-- SELECT PLAN JS -->
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>

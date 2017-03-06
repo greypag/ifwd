@@ -100,24 +100,24 @@
   </div>
 </div>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
 <%
 if(request.getRequestURI().indexOf("/savings-insurance/provie")>0) {
 %>
-<script src="<%=request.getContextPath()%>/resources/js/provie/dropdowns-enhancement.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/dropdowns-enhancement.js"></script>
 <%
 }
 %>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/html5shiv.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/wow.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/numeral.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
 <jsp:include page="/WEB-INF/jsp/merged/comp/notification.jsp" />
 
@@ -265,42 +265,42 @@ $('#timeout-btn').on('click', function(e) {
 
 
 <!-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom.js"></script> -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.placeholder.min.js"></script>
 <%
 if(request.getRequestURI().indexOf("/savings-insurance")>0) {
 %>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/savie-online.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator.min.js"></script>
 <%
 }
 %>
 <%
 if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 %>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator-v0.5.0.min.js"></script>
 <%
 }
 %>
-<script src="<%=request.getContextPath()%>/resources/js/savie-2016/material.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/material.min.js"></script>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/custom.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.countdown.min.js"></script>
 
 <%
 if(request.getRequestURI().indexOf("/home-liability")>0 || request.getRequestURI().indexOf("/easy-home-care")>0) {
 %>
 <link href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
 
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.0.2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-home/easyhome-app-uifn.js"></script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrapValidator.min.js"></script>
 <%
 }
 %>

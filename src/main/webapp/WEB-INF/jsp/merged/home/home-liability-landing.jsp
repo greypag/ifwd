@@ -11,7 +11,7 @@ var plan="${plan}";
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/easyhome-landing.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
-<script src="<%=request.getContextPath()%>/resources/js/easy-home/jquery.inview.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.inview.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/easy-home/easyhome-app-landing.js"></script>
 
 <script type="application/ld+json">

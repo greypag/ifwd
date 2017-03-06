@@ -119,24 +119,24 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
   <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common-ie9.css">
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <script src="<%=request.getContextPath()%>/resources/js/elite-term/flashcanvas.js"></script>
+  <script src="<%=request.getContextPath()%>/resources/js/vendor/flashcanvas.js"></script>
 <![endif]-->
 
 
 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script> --%>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/ZeroClipboard.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.i18n.properties-min-1.0.9.js"></script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/jquery-ui.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/jSignature.min.js"></script>
 <!--[if IE]>
-    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/es5-shim.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/classList.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/selectivizr-min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/vendor/es5-shim.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/vendor/classList.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/vendor/selectivizr-min.1.0.2.js"></script>
 <![endif]-->
 
 

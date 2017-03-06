@@ -1162,7 +1162,7 @@ var affordabilityPremium = ${sliderMax};
 
 
 </script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-slider.js"></script>
 <%--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script> --%>
 
 

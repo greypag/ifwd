@@ -90,7 +90,7 @@
 <![endif]-->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.min.js"></script>
 
 <script>
 
@@ -239,13 +239,13 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
 	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script> -->
-	<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap-datepicker.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jasny-bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.i18n.properties-min-1.0.9.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
 
 	<script type="text/javascript">

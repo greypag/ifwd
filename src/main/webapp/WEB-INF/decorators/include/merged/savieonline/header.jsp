@@ -13,8 +13,8 @@
 	href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!-- <a href="javascript:void(0)" id="testajax" >Press</a> -->
 
-<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.i18n.properties-min-1.0.9.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/jquery.countdown.min.js"></script>
 <script>
 
 var getBundleLanguage = "";
