@@ -69,7 +69,7 @@ var nextPage = "${nextPageFlow}";
 							<fmt:message key="motor.start.upload.later.button" bundle="${motorMsg}" />
 						</button>
 						<div class="errorApi">
-							<span class="text-red"></span>
+							<span class="text-red"><fmt:message key="motor.start.upload.later.api.error" bundle="${motorMsg}" /></span>
 						</div>
 					</div>
 				</div>
@@ -206,7 +206,7 @@ var nextPage = "${nextPageFlow}";
 				data :  JSON.stringify(startUploadLaterData),
 				async : false,
 				cache: false,
-				success : function(data) {				
+				success : function(data) {
 					console.log('success');
 					startUploadLaterData = {	"refNumber": refNumber,
 												"coverNoteNum": $(form_selector+' #coverNote').val(),
@@ -217,13 +217,15 @@ var nextPage = "${nextPageFlow}";
 					$form.attr("method", "post");
 					var $quote = $("<input type='hidden' name='data' />");
 					
-				    $quote.attr("value", JSON.stringify(startUploadLaterData));
-				    $form.append($quote);
+					 $quote.attr("value", JSON.stringify(startUploadLaterData));
+					 $form.append($quote);
 					$("body").append($form);
 					$('#quote-form').submit();
 				}, 
 				error : function(xhr, status, error) {
 					console.log('error');
+					// 422 both missing & 410 either incorrect
+					$('.errorApi').show();
 				}
 			});
 		}
