@@ -1,6 +1,13 @@
 var contextPath = context;
 var lang = UILANGUAGE;
 var nextPage = nextPage;
+function showBubble(){
+	if($("#donotWishDirectMarketing").prop('checked') || $("#donotDisclose").prop("checked")) {
+		$(".checkboxBubble").fadeIn();
+	}else{
+		$(".checkboxBubble").fadeOut();
+	}
+}
 $(document).ready(function(){
 
 
@@ -161,7 +168,14 @@ $(document).ready(function(){
 		 $("#hkID").on("keyup",function(e){
 		 	$(e.currentTarget).val($(e.currentTarget).val().toUpperCase());
 		 });
-
+		$("#donotWishDirectMarketing, #donotDisclose").change(function() {
+			if($(this).prop('checked')) {
+				$(this).val('true');
+			} else {
+				$(this).val('false');
+			}
+			showBubble();
+		});	
 		 $("#ef-form-application").bootstrapValidator({
 			fields:{
 				applicantName:{
