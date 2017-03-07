@@ -155,7 +155,9 @@ $(document).ready(function(){
 
 	 		}
 	 	});
-
+		 $("#hkId").on("keypress",function(e){
+			 return hkidOnkeypress(e);
+		 });
 		 $("#hkID").on("keyup",function(e){
 		 	$(e.currentTarget).val($(e.currentTarget).val().toUpperCase());
 		 });
