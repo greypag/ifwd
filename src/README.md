@@ -50,3 +50,4 @@ Branch Creation Log
 2017-02-15 - UAT Release branch R20170213-002 - Wealthree Premium Discount
 2017-02-17 - UAT Release branch R20170213-003 - Home contnet update
 2017-02-28 - UAT Release branch release/R20170227-001 - General fix
+2017-03-07 - DEV Tap and Go withdrawal public launch
