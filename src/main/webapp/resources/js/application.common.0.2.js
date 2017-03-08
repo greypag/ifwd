@@ -40,6 +40,7 @@ application.common = {
 	},
 	
 	kbFnKey:[
+	         8,		//backspace
 	         45,	//Insert
 	         46,	//Delete
 	         36,	//Home
