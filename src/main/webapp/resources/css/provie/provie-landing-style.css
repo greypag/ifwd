@@ -1145,5 +1145,11 @@ button.dropdown-toggle:after {
   }
 }
 /* ./#3753 bug fix */
-
+@media (max-width: 767px) {
+  /* line 957, ../sass/provie-landing-style.scss */
+  .pv_offer_title .mobile-br {
+    display: block;
+    height: 10px;
+  }
+}
 /*# sourceMappingURL=provie-landing-style.css.map */
