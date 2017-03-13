@@ -2,7 +2,7 @@
 *
 * FWD revamp v0.1.3 [ updated to 21/05/2016 (DD/MM/YYYY) ]
 * for branch#1.15.000 (ROPHI_fwdhk)
-* Last CSS Compiled on: 2016-11-01 19:14:37 +0800
+* Last CSS Compiled on: 2017-03-13 16:03:25 +0800
 *
 **/
 /* line 2, ../sass/common_screen/_breadcrumb.scss */
@@ -40,7 +40,7 @@
 .breadcrumb__item--last {
   display: block;
   line-height: 2;
-  font-size: 30px;
+  font-size: 32px;
 }
 
 /* line 40, ../sass/common_screen/_breadcrumb.scss */
