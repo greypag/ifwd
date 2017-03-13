@@ -185,7 +185,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantName" name="applicantName" data-keyblock-alphabet-space="true" maxlength="50"
+                                        <input class="mdl-textfield__input" type="text" id="applicantName" name="applicantName" data-keyblock-alphabet-space="true" maxlength="100"
                                         	<c:choose>
 												<c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
 											    	value="${userDetails.fullName }" readonly="readonly"
