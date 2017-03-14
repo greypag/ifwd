@@ -56,7 +56,7 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
     <!-- Breadcrumb Component End-->
 
 	<div class="question-container container pad-none">
-		<h3 class="mob-pad-left30 orange bold"><%=faqProductObj.get("product") %></h3>
+		<h3 class="mob-pad-left30 orange bold product-title"><%=faqProductObj.get("product") %></h3>
 	    <!--div class="input-group keyword-search">
 	    	<div class="keyword-bg">
 		    	<i class="fa fa-search"></i>
@@ -76,7 +76,7 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 			<% for(int i=0; i<topicList.size(); i++){ %>
 				<div id="category<%=i+1 %>" class="faq-group js-show">
 					<h3 class="gray20 faq-group__title bold"><%=topicList.get(i).toString() %></h3>
-						<div class="faq-group__question-index">
+						<%--<div class="faq-group__question-index">
 						<%
 							JSONArray questions = (JSONArray) faqProductObj.get("questions");
 							for(int i2=0; i2<questions.size(); i2++){
@@ -86,7 +86,7 @@ JSONArray faqIndexCategory = (JSONArray) faqProductObj.get("categories");
 								<a class="question orange" href="#question<%=question.get("id").toString() %>"><%=question.get("question_title").toString() %></a>
 							<% } %>			
 						<% } %>	
-						</div>										
+						</div>--%>									
 					<%
 						JSONArray questionsAnswer = (JSONArray) faqProductObj.get("questions");
 						for(int i2=0; i2<questionsAnswer.size(); i2++){

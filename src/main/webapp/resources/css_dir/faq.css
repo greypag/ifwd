@@ -7,7 +7,7 @@
 /* line 5, ../sass/faq.scss */
 .category-link {
   display: block;
-  font-size: 24px;
+  font-size: 20px;
   margin: 0 0 15px 0;
 }
 
@@ -25,7 +25,7 @@
 
   /* line 18, ../sass/faq.scss */
   .category-link {
-    font-size: 24px;
+    font-size: 20px;
     display: block;
     margin-bottom: 20px;
   }

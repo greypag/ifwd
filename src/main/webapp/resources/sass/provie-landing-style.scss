@@ -951,3 +951,12 @@ button.dropdown-toggle{
 }
 
 /* ./#3753 bug fix */
+
+@media (max-width: 767px){
+	.pv_offer_title{
+		.mobile-br{
+			display: block;
+			height: 10px;
+		}
+	}
+}
