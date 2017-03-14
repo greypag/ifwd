@@ -1992,7 +1992,7 @@ $(window).load(function(){
 											$('#loading-overlay').modal("hide");
 										},
 										error : function(error) {
-								
+											$("#payment-errors").html(getBundle(getBundleLanguage, "member.registration.duplicated_payment.error"));
 										}
 									});
 						}

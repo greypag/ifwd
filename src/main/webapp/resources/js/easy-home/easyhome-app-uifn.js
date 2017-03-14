@@ -955,6 +955,7 @@ $(document).ready(function(){
 					async : false,
 					success : function(data) {
 						clicked = false;
+						var errMsg = data.errMsgs;
                     //$("#PaymentingDiv").hide();
 						if (data.errMsgs == null) {
 							setTimeout(function(){
@@ -964,7 +965,10 @@ $(document).ready(function(){
 						} else {
 							$('#loading-overlay').modal('hide');
 							console.log(data.errMsgs);
-							showSubmitError(data.errMsgs, true);
+							if(data.errMsgs=='["Please contact CS"]'){
+								errMsg = getBundle(getBundleLanguage, "member.registration.duplicated_payment.error");
+							}
+							showSubmitError(errMsg, true);
 							enablePayment=true;
 							return false;
 						}
