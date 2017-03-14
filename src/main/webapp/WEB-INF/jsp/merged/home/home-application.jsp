@@ -721,9 +721,11 @@ var plan="${plan}";
                             
                         </div>
                         <div class="checkbox">
-                            <input type="checkbox" name="checkbox4" id="donotDisclose"><label for="donotDisclose"><fmt:message key="application.declaration.tickbox3" bundle="${msg}" /></label>
-                            
+                            <input type="checkbox" name="checkbox4" id="donotDisclose"><label for="donotDisclose"><fmt:message key="application.declaration.tickbox3" bundle="${msg}" /></label>                            
                         </div>
+						<div class="checkboxBubble">
+							<fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
+						</div>                        
                     </div>
                 </div>
             </div>

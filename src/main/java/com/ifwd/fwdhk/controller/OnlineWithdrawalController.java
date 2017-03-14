@@ -604,7 +604,7 @@ public class OnlineWithdrawalController extends BaseController{
 			JSONObject msgObj = (JSONObject)responseJsonObj.get("msg");
 			String resultCode= (String)msgObj.get("resultCode");
 			refCode= (String)msgObj.get("refCode");
-			if("0".equals(resultCode)){
+			if("0".equals(resultCode) || "11".equals(resultCode)){
 				resultSuccess=true;
 			}
 			
