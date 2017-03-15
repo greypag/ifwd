@@ -226,7 +226,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                   onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
 	                                   onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> -->
                                    <input type="text"
-                                       class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                       class="js-field-block form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                        id="inputFullName" name="fullName"
                                        <c:choose>
 										   <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
@@ -238,7 +238,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									   </c:choose>
                                        onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />');" 
                                        onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                       onkeypress="return alphaOnly(event);" maxlength="50" /> 
+                                        maxlength="50" /> 
 	                                   <span id="fullnameinvalid" class="text-red"></span>
 	                           </div>
 	                       </div>
