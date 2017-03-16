@@ -225,7 +225,7 @@ function activateUserAccountJoinUs() {
 										value="${userDetails.fullName}"
 										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
 										onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
-									<input type="text" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+									<input type="text" class="js-field-fullname form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                         id="inputFullName" name="whAppFullName"
                                         <c:choose>
 										    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
@@ -263,7 +263,7 @@ function activateUserAccountJoinUs() {
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<input type="text" name="whAppHKID"
                                            value="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />"
-									   class="form-control numberinput textUpper full-control bmg_custom_placeholder"
+									   class="js-field-hkid form-control numberinput textUpper full-control bmg_custom_placeholder"
 										id="inputWhAppHKID"
 										onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />');"
 										onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />'); 
@@ -423,7 +423,7 @@ function activateUserAccountJoinUs() {
 									<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 										<input type="text" name="whInsFullName"
 											id="inputWhInsFullName"
-											class="form-control full-control textUpper bmg_custom_placeholder"
+											class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
 											value="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
 											onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');"
                                             onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('inputWhInsFullName','whInsFullName',false,'beneficiary');"
@@ -484,7 +484,7 @@ function activateUserAccountJoinUs() {
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 										<input id="inputWhInsHKID" name="whInsHKID"										
-											class="form-control textUpper full-control bmg_custom_placeholder"
+											class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
 											value="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />"
 											onkeypress=" return hkidOnkeypress(event);"
 											onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');"
@@ -533,7 +533,7 @@ function activateUserAccountJoinUs() {
 									<!-- room, floor, block start -->
 									<div class="row form-group">
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+											<input type="text" class="js-field-address form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsRoom" name="whInsRoom"
 												placeholder="<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />"												
 												onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.registration.corraddress.room.placeholder" bundle="${msg}" />');"
@@ -542,7 +542,7 @@ function activateUserAccountJoinUs() {
 												maxlength="10" />
 										</div>
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+											<input type="text" class="js-field-address form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsFloor" name="whInsFloor"
                                                 placeholder="<fmt:message key="home.details.registration.corraddress.floor.placeholder" bundle="${msg}" />"
 												
@@ -551,7 +551,7 @@ function activateUserAccountJoinUs() {
 												onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
 										</div>
 										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+											<input type="text" class="js-field-address form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsBlock" name="whInsBlock"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.block.placeholder" bundle="${msg}" />"
 												
@@ -564,7 +564,7 @@ function activateUserAccountJoinUs() {
 									<!-- building, estate start -->
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+											<input type="text" class="js-field-address form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsBuilding" name="whInsBuilding"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.building.placeholder" bundle="${msg}" />"
 												
@@ -576,7 +576,7 @@ function activateUserAccountJoinUs() {
 									</div>
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+											<input type="text" class="js-field-address form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsEstate" name="whInsEstate"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.estate.placeholder" bundle="${msg}" />"
 												
@@ -591,7 +591,7 @@ function activateUserAccountJoinUs() {
 									<!-- street no., street name start -->
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+											<input type="text" class="js-field-address form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsStreetNo" name="whInsStreetNo"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.streetNo.placeholder" bundle="${msg}" />"
 												
@@ -602,7 +602,7 @@ function activateUserAccountJoinUs() {
 									</div>
 									<div class="row form-group">
 										<div class="col-xs-12">
-											<input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+											<input type="text" class="js-field-address form-control full-control bmg_custom_placeholder textUpper"
 												id="inputWhInsStreetName" name="whInsStreetName"
                                                    placeholder="<fmt:message key="home.details.registration.corraddress.streetName.placeholder" bundle="${msg}" />"
 												

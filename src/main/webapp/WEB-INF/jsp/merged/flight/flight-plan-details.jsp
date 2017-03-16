@@ -226,7 +226,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                   onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
 	                                   onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> -->
                                    <input type="text"
-                                       class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                       class="js-field-fullname form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                        id="inputFullName" name="fullName"
                                        <c:choose>
 										   <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
@@ -238,7 +238,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 									   </c:choose>
                                        onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />');" 
                                        onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                       onkeypress="return alphaOnly(event);" maxlength="50" /> 
+                                        maxlength="50" /> 
 	                                   <span id="fullnameinvalid" class="text-red"></span>
 	                           </div>
 	                       </div>
@@ -251,7 +251,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                               </label>
 	                           </div>
 	                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-	                                <input type="text" name="hkid" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid"
+	                                <input type="text" name="hkid" class="js-field-hkid form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid"
 	                                        onkeypress="return hkidOnkeypress(event);" 
 	                                        value="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />"
 	                                         onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />');" 
@@ -282,7 +282,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        <fmt:message key="flight.details.applicant.mobile" bundle="${msg}" />
                                    </label>
                                </div>
-                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                               <div class="js-field-mobile col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input type="tel"
 						                value="${userDetails.mobileNo.trim()}" class="form-control full-control"
 						                name="mobileNo" id="inputMobileNo"
@@ -460,7 +460,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         
                                                         <input
                                                         type="text" name="personalName" id="txtInsuFullName${inx}"
-                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                                        class="js-field-fullname form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                                         <c:choose>
 														    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI'}">
 														    value="${userDetails.fullName }"
@@ -482,7 +482,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         
                                                         <input
                                                         type="text" name="personalName" id="txtInsuFullName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
                                                         value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
@@ -502,7 +502,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                     id="txtInsuHkid${inx}" name="personalHKID"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                      onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                      onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
                                                     value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress="return hkidOnkeypress(event);"
@@ -598,7 +598,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 		                                       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
 		                                           <input type="text"
                                                         name="personalBenificiaryFullName"
-                                                        id="personalBenefitiaryId${inx}" class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        id="personalBenefitiaryId${inx}" class="js-field-hkid form-control full-control textUpper bmg_custom_placeholder"
                                                         value="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
@@ -827,7 +827,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" /> -->
                                                         <input
                                                         type="text" name="adultName" id="txtInsuFullName${inx}"
-                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                                        class="js-field-fullname form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                                         <c:choose>
 														    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI'}">
 														    value="${userDetails.fullName }"
@@ -848,7 +848,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" /> -->
                                                         <input
                                                         type="text" name="adultName" id="txtInsuFullName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
                                                         value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
@@ -868,7 +868,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                     id="txtInsuHkid${inx}" name="adultHKID"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');"
 													onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdultHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
                                                     value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeyup="value=value.replace(/[\W]/g,'')"
@@ -1164,7 +1164,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                    type="text" name="childName" id="txtChldFullName${inx}"
-                                                   class="form-control full-control textUpper bmg_custom_placeholder"
+                                                   class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
                                                    value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                    onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
@@ -1182,7 +1182,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtChldInsuHkid${inx}" name="childHKID"
-                                                  class="form-control textUpper full-control bmg_custom_placeholder"
+                                                  class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                   onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');"
                                                   onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtChldInsuHkid${inx}','selectedChildHkidPass${inx}','errtxtChldInsuHkid${inx}',false,'insured');"
                                                   value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress="return hkidOnkeypress(event);"/> 
@@ -1260,7 +1260,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                    <input type="text"
                                                         name="childBenificiaryFullName"
                                                         id="childBenefitiaryName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
                                                         value="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
@@ -1304,7 +1304,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input id="txtchildInsuHkid${inx}"
-                                                name="childBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder"
+                                                name="childBenificiaryHkid" class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                 value="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress="return hkidOnkeypress(event);" 
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtchildInsuHkid${inx}','selectChldBenefitiaryHkidPass${inx}','errtxtchildInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtchildInsuHkid${inx}"
@@ -1488,7 +1488,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                         type="text" name="otherName" id="txtOtherFullName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
                                                         value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
@@ -1508,7 +1508,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                     id="txtOtherInsuHkid${inx}" name="otherHKID"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />');"
                                                     onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtOtherInsuHkid${inx}','selectedOtherHkidPass${inx}','errtxtOtherInsuHkid${inx}',false,'insured');"
                                                     value="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress="return hkidOnkeypress(event);"/><span id="errtxtOtherInsuHkid${inx}"
@@ -1589,7 +1589,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                    <input type="text"
                                                    name="otherBenificiaryFullName"
                                                    id="otherBenefitiaryName${inx}"
-                                                   class="form-control full-control textUpper bmg_custom_placeholder"
+                                                   class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
                                                    value="<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                    onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
@@ -1633,7 +1633,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input id="txtOtherBenInsuHkid${inx}"
-                                                    name="otherBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    name="otherBenificiaryHkid" class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                     value="<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress="return hkidOnkeypress(event);" 
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');"
                                                     onblur="placeholderOnBlur(this,'<fmt:message key="flight.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtOtherBenInsuHkid${inx}','selectOtherBenefitiaryHkidPass${inx}','errtxtOtherBenInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtOtherBenInsuHkid${inx}"

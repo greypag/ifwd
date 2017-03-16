@@ -168,7 +168,7 @@ function activateUserAccountJoinUs() {
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />-->
                                    <input type="text" name="fullName"
-                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName"
+                                        class="js-field-fullname form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName"
                                         <c:choose>
 										    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
 										    value="${userDetails.fullName }" readonly="readonly"
@@ -193,7 +193,7 @@ function activateUserAccountJoinUs() {
                                 </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input type="text" name="hkid" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid" 
+                                   <input type="text" name="hkid" class="js-field-hkid form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid" 
                                    onkeypress=" return hkidOnkeypress(event);"
                                    value="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />"
                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />');" 
@@ -220,7 +220,7 @@ function activateUserAccountJoinUs() {
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                    <label for="inputMobileNo"
-                                        class="field-label bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label>
+                                        class="js-field-mobile field-label bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input name="mobileNo" type="tel"
@@ -374,7 +374,7 @@ function activateUserAccountJoinUs() {
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/> -->
                                                   <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName"
-                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
+                                                        class="js-field-fullname form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
                                                         <c:choose>
 														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
 														    value="${userDetails.fullName }"
@@ -396,7 +396,7 @@ function activateUserAccountJoinUs() {
                                                         onkeypress="return alphaOnly(event);" maxlength="100"/> -->
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder" 
                                                         value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
@@ -423,7 +423,7 @@ function activateUserAccountJoinUs() {
                                                </c:if>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
+                                               <input id="txtInsuHkid${inx}" name="personalHKID" class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder" 
                                                value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
@@ -537,7 +537,7 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                    <input type="text"
                                                         name="personalBenificiaryFullName"
-                                                        id="personalBenefitiaryId${inx}" class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        id="personalBenefitiaryId${inx}" class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
                                                         value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
@@ -582,7 +582,7 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input
                                                     id="personalBenefitiaryHKId${inx}" name="personalBenificiaryHkid"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder" 
+                                                    class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder" 
                                                     value="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');" 
                                                   onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('personalBenefitiaryHKId${inx}','selectPersonalBenefitiaryHkidPass${inx}','errpersonalBenefitiaryHKId${inx}',false,'beneficiary');"/> <span id="errpersonalBenefitiaryHKId${inx}"
@@ -788,7 +788,7 @@ function activateUserAccountJoinUs() {
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/> -->
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName"
-                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
+                                                        class="js-field-fullname form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
                                                         <c:choose>
 														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
 														    value="${userDetails.fullName }"
@@ -809,7 +809,7 @@ function activateUserAccountJoinUs() {
                                                         onkeypress="    return alphaOnly(event);" maxlength="100"/> -->
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder" 
                                                         value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
@@ -838,7 +838,7 @@ function activateUserAccountJoinUs() {
                                                </c:if>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
+                                               <input id="txtInsuHkid${inx}" name="adultHKID" class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder" 
                                                value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);"
                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
@@ -951,7 +951,7 @@ function activateUserAccountJoinUs() {
                                                    <input type="text"
 	                                                  name="adultBenificiaryFullName"
 	                                                  id="adultBenefitiaryId${inx}"
-	                                                  class="form-control full-control textUpper bmg_custom_placeholder" 
+	                                                  class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder" 
 	                                                  value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                       onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                       onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
@@ -997,7 +997,7 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input
                                                     id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                     value="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');" 
                                                   onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('adultBenefitiaryHKId${inx}','selectAdBenefitiaryHkidPass${inx}','erradultBenefitiaryHKId${inx}',false,'beneficiary');"/> <span id="erradultBenefitiaryHKId${inx}"
@@ -1200,7 +1200,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text"
                                                         name="childName" id="txtChldFullName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder"
                                                         value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
@@ -1225,7 +1225,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input
                                                     id="txtChldInsuHkid${inx}" name="childHKID"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                     value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                     onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtChldInsuHkid${inx}','selectedChldHkidPass${inx}','errtxtChldInsuHkid${inx}',false,'insured');"/> <span id="errtxtChldInsuHkid${inx}"
@@ -1313,7 +1313,7 @@ function activateUserAccountJoinUs() {
                                                    <input type="text"
                                                     name="childBenificiaryFullName"
                                                     id="childBenefitiaryName${inx}"
-                                                    class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                    class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder" 
                                                     value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                     onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
@@ -1358,7 +1358,7 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input
                                                     id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder" 
+                                                    class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder" 
                                                     value="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');" 
                                                   onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtchildInsuHkid${inx}','selectedChldBenefitiaryHkidPass${inx}','errtxtchildInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtchildInsuHkid${inx}"
@@ -1528,7 +1528,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text"
                                                         name="otherName" id="txtOtherFullName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder" 
                                                         value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
@@ -1553,7 +1553,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                               <input
                                                     id="txtOtherInsuHkid${inx}" name="otherHKID"
-                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder"
                                                     value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                     onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
                                                     onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtOtherInsuHkid${inx}','selectOtHkidPass${inx}','errtxtOtherInsuHkid${inx}',false,'insured');"/> <span id="errtxtOtherInsuHkid${inx}"
@@ -1631,7 +1631,7 @@ function activateUserAccountJoinUs() {
                                                    <input type="text"
                                                         name="otherBenificiaryFullName"
                                                         id="otherBenefitiaryName${inx}"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        class="js-field-fullname form-control full-control textUpper bmg_custom_placeholder" 
                                                         value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
@@ -1676,7 +1676,7 @@ function activateUserAccountJoinUs() {
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input
                                                   id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
-                                                  class="form-control textUpper full-control bmg_custom_placeholder" 
+                                                  class="js-field-hkid form-control textUpper full-control bmg_custom_placeholder" 
                                                   value="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
                                                   onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');" 
                                                   onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtOtherBenInsuHkid${inx}','selectOtherBenefitiaryHkidPass${inx}','errtxtOtherBenInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtOtherBenInsuHkid${inx}"

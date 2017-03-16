@@ -585,7 +585,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <label class="control-label h4-5"><fmt:message key="annual.summary.creditcardnumber" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
-                                <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());" autocomplete="off"/>
+                                <input id="cardNo1" type="tel" class="js-field-creditcard input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());" autocomplete="off"/>
 
                                 <span id="errcardno" class="error-msg"></span>
                                 <input id="cardnumber" name="cardNo" type="hidden" class="input-block-level" maxlength="16" data-min="16" autocomplete="off"/>
@@ -637,7 +637,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <input id="holdername" name="cardHolder" type="text"
-                                            class="input-block-level"
+                                            class="js-field-fullname input-block-level"
                                             onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
                                             onkeypress="return alphaOnly(event);"> <span
                                             id="errname" class="error-msg" autocomplete="off"></span>
@@ -650,7 +650,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
                                 <input id="seccode" type="password" name="securityCode"
-                                            class="input-block-level" autocomplete="off" maxlength="3"
+                                            class="js-field-mobile input-block-level" autocomplete="off" maxlength="3"
                                             title=""
                                             onblur="replaceNumeric(this);"
                                             onkeypress="return isNumeric(event);" autocomplete="off">

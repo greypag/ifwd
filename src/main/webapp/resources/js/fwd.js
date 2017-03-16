@@ -6557,9 +6557,9 @@ function hkidOnkeypress(evt) {
 
 	
 //no chinese method
-$(':text').keyup(function(e) {
+/*$(':text').keyup(function(e) {
 	
-	/* if support chinese, skip */
+
 	if( $(this).hasClass('chinese-input') ){
 	// use following if case when backend ready for deploy on Chinese Address of Personal-Details
 	//if( $(this).hasClass('chinese-input') || $(this).hasClass('residential-chinese-input') ){
@@ -6572,7 +6572,7 @@ $(':text').keyup(function(e) {
     if(inputVal != newVal){
     	$('#'+$(this).attr('id')).val(newVal);
     }
-});
+});*/
 
 
 // ***** homecare *****
