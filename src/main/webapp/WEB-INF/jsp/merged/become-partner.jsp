@@ -28,28 +28,28 @@
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="contactName" name="contactName" type="text" maxlength="255" autocomplete="off" />
+                        <input class="js-field-fullname form-control gray-textbox mdl-textfield__input chinese-input" id="contactName" name="contactName" type="text" maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="contactName"><fmt:message key="placeholder.contact.person.name" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="contactNameErMsg"></span>
                 </div>
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input" id="contactEmail" data-bv-emailaddress="false" name="contactEmail" type="email"  maxlength="255" autocomplete="off" />
+                        <input class="js-field-email form-control gray-textbox mdl-textfield__input" id="contactEmail" data-bv-emailaddress="false" name="contactEmail" type="email"  maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="contactEmail"><fmt:message key="placeholder.contact.person.email" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="contactEmailErMsg"></span>
                 </div>
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="industryName" name="industryName" type="text" maxlength="255" autocomplete="off" />
+                        <input class="js-field-fullname form-control gray-textbox mdl-textfield__input chinese-input" id="industryName" name="industryName" type="text" maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="industryName"><fmt:message key="placeholder.industry" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="industryNameErMsg"></span>
                 </div>
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="companyLocation" name="companyLocation" type="text" maxlength="255" autocomplete="off" />
+                        <input class="js-field-fullname form-control gray-textbox mdl-textfield__input chinese-input" id="companyLocation" name="companyLocation" type="text" maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="companyLocation"><fmt:message key="placeholder.company.location" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="companyLocationErMsg"></span>
@@ -58,14 +58,14 @@
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input" id="contactNum" name="contactNum" type="tel" maxlength="13" autocomplete="off" />
+                        <input class="js-field-mobile form-control gray-textbox mdl-textfield__input" id="contactNum" name="contactNum" type="tel" maxlength="13" autocomplete="off" />
                         <label class="mdl-textfield__label" id="personal-info-label" for="contactNum"><fmt:message key="placeholder.contact.no" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="contactNumErMsg"></span>
                 </div>
                 <div class="clearfix form-group has-error">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="companyName" name="companyName" type="text" maxlength="255" autocomplete="off" />
+                        <input class="js-field-fullname form-control gray-textbox mdl-textfield__input chinese-input" id="companyName" name="companyName" type="text" maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="companyName"><fmt:message key="placeholder.company.name" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="companyNameErMsg"></span>

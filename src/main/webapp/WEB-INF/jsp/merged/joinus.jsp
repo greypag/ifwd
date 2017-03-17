@@ -621,7 +621,7 @@ function tooltipPlacement(){
 
 						<div class="registration col-lg-11 col-md-11">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
+								<input class="js-field-fullname mdl-textfield__input registration__input" type="text" name="fullName" value="${userDetails.getFullName()}"
 									onblur="replaceAlpha(this);"
 									onkeypress="return alphaOnly(event);"
 									maxlength="100">
@@ -630,7 +630,7 @@ function tooltipPlacement(){
 								<span class="tooltip-icon glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="right" data-id="tooltipFullName" id="tooltipFullName" title="<fmt:message key='member.registration.details.label.fullName.desc' bundle='${msg}'/>"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtMobileNo" name="mobileNo" value="${userDetails.getMobileNo()}"
+								<input class="js-field-mobile mdl-textfield__input registration__input" type="text" id="txtMobileNo" name="mobileNo" value="${userDetails.getMobileNo()}"
 									onblur="replaceNumeric(this);"
 									onkeypress="return isNumeric(event);"
 									maxlength="8">
@@ -638,13 +638,13 @@ function tooltipPlacement(){
 								<span id="errorEmptyMobJoinUs" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtEmailId" name="emailAddress" value="${userDetails.getEmailAddress()}"
+								<input class="js-field-email mdl-textfield__input registration__input" type="text" id="txtEmailId" name="emailAddress" value="${userDetails.getEmailAddress()}"
 									maxlength="50">
 								<label class="mdl-textfield__label registration__label" for="txtEmailId"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
 								<span id="errorEmptyEmailIdJoinUs" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item existing_fwdmember">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtPolicyNumber" name="PolicyNumber" value=""
+								<input class="js-field-mobile mdl-textfield__input registration__input" type="text" id="txtPolicyNumber" name="PolicyNumber" value=""
 									><!--userDetails.getPolicyNumber()-->
 								<label class="mdl-textfield__label registration__label" for="txtPolicyNumber"><fmt:message key="member.registration.details.policy.number" bundle="${msg}" /></label>
 								<span id="errorEmptyPolicyNumberJoinUs" class="text-red"></span>
@@ -657,7 +657,7 @@ function tooltipPlacement(){
 								<span id="errorEmptyDobJoinUs" class="text-red"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item existing_fwdmember">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtHkid" name="Hkid" value=""
+								<input class="js-field-hkid mdl-textfield__input registration__input" type="text" id="txtHkid" name="Hkid" value=""
 									maxlength="50"><!--userDetails.getHkid()-->
 								<label class="mdl-textfield__label registration__label" for="txtHkid"><fmt:message key="member.registration.details.hkid" bundle="${msg}" /></label>
 								<span id="errorEmptyHkidJoinUs" class="text-red"></span>
@@ -666,7 +666,7 @@ function tooltipPlacement(){
 							
 							<h3 class="black-bold"><fmt:message key="member.registration.details.header.login" bundle="${msg}" /></h3>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label registration__item">
-								<input class="mdl-textfield__input registration__input" type="text" id="txtUserName1" name="userName" value="${userDetails.getUserName() }"
+								<input class="js-field-fullname mdl-textfield__input registration__input" type="text" id="txtUserName1" name="userName" value="${userDetails.getUserName() }"
 									onkeypress="return validationUsername(event);">
 								<label class="mdl-textfield__label registration__label" for="txtUserName1"><fmt:message key="member.registration.details.label.username" bundle="${msg}" /></label>
 								<span id="errorEmptyUNameJoinUs" class="text-red"></span>
