@@ -120,9 +120,16 @@ if(request.getRequestURI().indexOf("/savings-insurance/provie")>0) {
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/gi-common.js"></script>
 <%
-if(request.getRequestURI().indexOf("/travel-insurance/")>0) {
+if(request.getRequestURI().indexOf("/travel-insurance/user-details")>0) {
 %>
 <script src="<%=request.getContextPath()%>/resources/js/travel/travel.js"></script>
+<%
+}
+%>
+<%
+if(request.getRequestURI().indexOf("/flight-insurance/user-details")>0) {
+%>
+<script src="<%=request.getContextPath()%>/resources/js/flight/flight.js"></script>
 <%
 }
 %>
