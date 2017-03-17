@@ -130,6 +130,7 @@ if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/gi-common.js"></script>
 <!-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom.js"></script> -->
 <!--script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/custom.js"></script-->
 

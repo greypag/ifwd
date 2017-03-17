@@ -4116,8 +4116,8 @@ var home_url = "<%=request.getContextPath()%>";
 	src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
-<script
-	src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-validation.js"></script>
+<%--<script
+	src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-validation.js"></script>--%>
 
 <script
 	src="<%=request.getContextPath()%>/resources/js/elite-term/date.format.js"></script>

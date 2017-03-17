@@ -116,8 +116,16 @@ if(request.getRequestURI().indexOf("/savings-insurance/provie")>0) {
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common/fwd-utility.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/gi-common.js"></script>
+<%
+if(request.getRequestURI().indexOf("/travel-insurance/")>0) {
+%>
+<script src="<%=request.getContextPath()%>/resources/js/travel/travel.js"></script>
+<%
+}
+%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
 <jsp:include page="/WEB-INF/jsp/merged/comp/notification.jsp" />
